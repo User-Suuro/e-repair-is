@@ -57,7 +57,7 @@ Partial Class AdminSuppliersForm
         Me.NUMBER_SUPPLIED_ITEMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ARCHIVED_STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -132,12 +132,14 @@ Partial Class AdminSuppliersForm
         Me.SearchComboBox.FormattingEnabled = True
         Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
+        Me.SearchComboBox.Items.AddRange(New Object() {"Company Name", "Contact Person", "Company Number", "Contact Email", "Location", "Estimated Delivery Time", "Total Paid", "Date Added"})
         Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
         Me.SearchComboBox.Size = New System.Drawing.Size(154, 28)
+        Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
@@ -336,7 +338,7 @@ Partial Class AdminSuppliersForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.EmpDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.EmpDGV.ColumnHeadersHeight = 48
-        Me.EmpDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.NUMBER_SUPPLIED_ITEMS, Me.TOTAL_PAID, Me.DATE_ADDED, Me.ARCHIVED_STATUS, Me.DATE_ARCHIVED})
+        Me.EmpDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.NUMBER_SUPPLIED_ITEMS, Me.TOTAL_PAID, Me.DATE_ADDED, Me.ARCHIVED, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -490,13 +492,13 @@ Partial Class AdminSuppliersForm
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
-        'ARCHIVED_STATUS
+        'ARCHIVED
         '
-        Me.ARCHIVED_STATUS.DataPropertyName = "archived_status"
-        Me.ARCHIVED_STATUS.HeaderText = "Archived Status"
-        Me.ARCHIVED_STATUS.Name = "ARCHIVED_STATUS"
-        Me.ARCHIVED_STATUS.ReadOnly = True
-        Me.ARCHIVED_STATUS.Visible = False
+        Me.ARCHIVED.DataPropertyName = "archived_status"
+        Me.ARCHIVED.HeaderText = "Archived Status"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
         '
         'DATE_ARCHIVED
         '
@@ -560,6 +562,6 @@ Partial Class AdminSuppliersForm
     Friend WithEvents NUMBER_SUPPLIED_ITEMS As DataGridViewTextBoxColumn
     Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
-    Friend WithEvents ARCHIVED_STATUS As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
 End Class

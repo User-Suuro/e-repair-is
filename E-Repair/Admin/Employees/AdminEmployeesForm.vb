@@ -109,9 +109,12 @@ Public Class AdminEmployeesForm
 
             empLastAccessed = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("LAST_ACCESSED").Value)
             empDateAdded = EmpDGV.CurrentRow.Cells("DATE_ADDED").Value
+
         Catch ex As Exception
             MsgBox("Failed to initialized employee values: " + ex.Message)
         End Try
+
+        Return False
     End Function
 
     ' VIEW

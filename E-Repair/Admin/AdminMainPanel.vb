@@ -42,7 +42,7 @@ Public Class AdminMainPanel
     End Sub
 
     Private Sub SidenavSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavSuppliersBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminServicesForm)
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminSuppliersForm)
         AdminTopNavTitle.Text = constants.SuppliersTitle
     End Sub
 
