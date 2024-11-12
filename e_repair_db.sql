@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 03:57 AM
+-- Generation Time: Nov 12, 2024 at 10:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -64,10 +64,8 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `total_employee_added`, `admin_position`, `personnel_destination`, `no_customers_handled`, `no_pending_services`, `no_finished_services`, `profile_path`, `email`, `password`, `added_by`, `archived`, `last_accessed`, `date_archived`, `date_added`) VALUES
-(38, 'godwin', 'aasd', 'galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\Pictures\\364810251_305153655376483_2165899882752645065_n.jpg', 'godwin@email.com', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 1, NULL, NULL, '2024-11-09 13:46:26'),
-(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'Admin', NULL, 'Team Leader', NULL, 0, 0, 0, 'C:\\Users\\User\\Pictures\\my-passport-photo.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '2024-11-11 10:54:17', NULL, '2024-11-09 14:51:29'),
-(41, 'asdsa', 'd', 'asdsa', 'Male', '2024-11-01', 'Single', 'sad', 'asdad', 'Full Time', '2024-11-01', 'asda', 'da', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\Pictures\\IMG_7099-4.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 1, '2024-11-11 10:19:25', '2024-11-11 10:19:33', '2024-11-09 15:01:03'),
-(42, 'asd', 'asd', 'sda', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'Utility Personnel', 0, 'Owner', 'asd', 0, 0, 0, 'C:\\Users\\User\\Pictures\\my-passport-photo.jpg', 'asdasd', '7wrYoFwRdp8wUN4v6YQWiw==', 41, 0, NULL, NULL, '2024-11-11 01:06:21');
+(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Images\\SIAS.PNG', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '2024-11-12 17:35:37', NULL, '2024-11-09 14:51:29'),
+(44, 'Hatdog', 'sdf', 'Cheesdog', 'Male', '2024-11-01', 'Single', 'asda', 'asd', 'Full Time', '2024-11-01', 'asd', '', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Images\\SIAS.PNG', 'hatdog', '7wrYoFwRdp8wUN4v6YQWiw==', 40, 0, NULL, NULL, '2024-11-11 23:16:27');
 
 -- --------------------------------------------------------
 
@@ -83,12 +81,41 @@ CREATE TABLE `items` (
   `item_description` varchar(255) NOT NULL,
   `serial_number` varchar(255) NOT NULL,
   `hazardous_classification` enum('Flammable','Corrosive','Explosive','Toxic','Radioactive','Safe') NOT NULL,
-  `quantity` int(10) NOT NULL DEFAULT 0,
+  `quantity` int(11) NOT NULL DEFAULT 0,
   `total_value` decimal(10,2) NOT NULL DEFAULT 0.00,
   `item_status` enum('Damaged','Reserved','Used','New') NOT NULL,
   `physical_location` varchar(100) NOT NULL,
   `restock_date` datetime NOT NULL,
-  `date_added` datetime NOT NULL DEFAULT current_timestamp()
+  `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+  `archived_status` tinyint(1) NOT NULL DEFAULT 0,
+  `date_archived` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `supplier_id` int(11) NOT NULL,
+  `company_name` varchar(100) NOT NULL,
+  `company_description` varchar(255) NOT NULL,
+  `contact_person` varchar(100) NOT NULL,
+  `contact_number` varchar(100) NOT NULL,
+  `company_email` varchar(100) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `supplier_type` varchar(100) NOT NULL,
+  `supplier_contract` varchar(100) NOT NULL,
+  `bank_details` varchar(100) NOT NULL,
+  `payment_terms` varchar(100) NOT NULL,
+  `estimated_delivery_time` varchar(100) DEFAULT NULL,
+  `no_supplied_item` int(11) NOT NULL DEFAULT 0,
+  `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `company_picture_path` varchar(255) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+  `archived_status` tinyint(1) NOT NULL DEFAULT 0,
+  `date_archived` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,7 +132,14 @@ ALTER TABLE `employees`
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
-  ADD PRIMARY KEY (`item_id`);
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `supplier_constraint` (`supplier_id`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`supplier_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -115,13 +149,29 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `supplier_constraint` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
