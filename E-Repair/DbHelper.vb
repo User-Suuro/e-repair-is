@@ -1,0 +1,411 @@
+﻿Imports System.IO
+Imports System.Management
+Imports System.Security.Cryptography
+Imports System.Text
+Imports MySql.Data.MySqlClient
+
+Public Class DbHelper
+
+    Public myadocon, conn As New MySqlConnection
+    Public cmd As New MySqlCommand
+    Public cmdRead As MySqlDataReader
+    Dim constants As New Constants
+
+    ' -- Adjust your DB Details Here -- '
+    Public db_server As String = "localhost"
+    Public db_uid As String = "root"
+    Public db_pwd As String = ""
+    Public db_name As String = "e_repair_db"
+
+    Dim strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
+
+    Public CurrentLoggedUser As LoggedUser = Nothing
+
+    Public Structure LoggedUser
+        Dim id As Integer
+        Dim name As String
+        Dim position As String
+        Dim username As String
+        Dim password As String
+        Dim type As Integer
+    End Structure
+
+    ' Update connection string
+    Public Sub UpdateConnectionString()
+        Try
+            Dim config As String = System.IO.Directory.GetCurrentDirectory & "\config.txt"
+            Dim text As String = Nothing
+            If System.IO.File.Exists(config) Then
+                Using reader As System.IO.StreamReader = New System.IO.StreamReader(config)
+
+                    text = reader.ReadToEnd
+                End Using
+                Dim arr_text() As String = Split(text, vbCrLf)
+
+                strConnection = "server=" & Split(arr_text(0), "=")(1) & ";uid=" & Split(arr_text(1), "=")(1) & ";password=" & Split(arr_text(2), "=")(1) & ";database=" & Split(arr_text(3), "=")(1) & ";" & "allowuservariables='True';"
+            Else
+                MsgBox("Do not exist")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    ' Open connection to db
+    Public Sub openConn(ByVal db_name As String)
+        Try
+            ' Close connection states if there is open
+            If conn.State = ConnectionState.Open Then conn.Close()
+
+            With conn
+                If .State = ConnectionState.Open Then .Close()
+                .ConnectionString = strConnection
+                .Open()
+            End With
+        Catch EX As Exception
+            MsgBox(EX.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    ' Read query to db
+    Public Sub readQuery(ByVal sql As String, Optional ByVal isSelectQuery As Boolean = True)
+        Try
+            openConn(db_name)
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                If isSelectQuery Then
+                    cmdRead = .ExecuteReader()  ' SELECT
+                Else
+                    .ExecuteNonQuery() ' UPDATE, INSERT, DELETE
+                End If
+            End With
+
+        Catch EX As Exception
+            MsgBox(EX.Message, MsgBoxStyle.Critical)
+        Finally
+            cmd.Parameters.Clear()
+        End Try
+    End Sub
+
+    ' Function to check if user is connected to local db
+    Public Function isConnectedToLocalServer() As Boolean
+        Dim result As Boolean = False
+        Try
+            myadocon = New MySqlConnection
+            myadocon.ConnectionString = strConnection
+            Try
+                myadocon.Open()
+                If myadocon.State = ConnectionState.Open Then
+                    result = True
+                Else
+                    result = False
+                End If
+            Catch ex As Exception
+                Return False
+            End Try
+            If myadocon.State = ConnectionState.Open Then
+                myadocon.Close()
+            End If
+        Catch
+            Return False
+        End Try
+        Return result
+    End Function
+
+    ' Function to Load Data to DGV
+    Function LoadToDGV(ByVal query As String, ByVal dgv As DataGridView) As Integer
+        Try
+            readQuery(query)
+            Dim dt As DataTable = New DataTable
+            dt.Load(cmdRead)
+            dgv.DataSource = dt
+            dgv.Refresh()
+            Return dgv.Rows.Count
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        Return 0
+    End Function
+
+    ' Function to Load and Display data to dgv
+    Function LoadToDGVForDisplay(ByVal query As String, ByVal dgv As DataGridView) As Integer
+        Try
+            readQuery(query)
+            Dim dt As DataTable = New DataTable
+            dt.Load(cmdRead)
+            dgv.DataSource = dt
+            dgv.Refresh()
+            If dgv.ColumnCount > 1 Then
+                dgv.Columns(0).Visible = False
+            End If
+            Return dgv.Rows.Count
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        Return 0
+    End Function
+
+    ' Function to EncryptPassword
+    Public Function EncryptPassword(clearText As String, key As String) As String
+        Dim clearBytes As Byte() = Encoding.Unicode.GetBytes(clearText)
+        Using encryptor As Aes = Aes.Create()
+            Dim pdb As New Rfc2898DeriveBytes(constants.EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
+             &H65, &H64, &H76, &H65, &H64, &H65,
+             &H76})
+            encryptor.Key = pdb.GetBytes(32)
+            encryptor.IV = pdb.GetBytes(16)
+            Using ms As New MemoryStream()
+                Using cs As New CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write)
+                    cs.Write(clearBytes, 0, clearBytes.Length)
+                    cs.Close()
+                End Using
+                clearText = Convert.ToBase64String(ms.ToArray())
+            End Using
+        End Using
+        Return clearText
+    End Function
+
+    ' Function to DecryptPassword
+    Public Function DecryptPassword(cipherText As String, key As String) As String
+        Dim cipherBytes As Byte() = Convert.FromBase64String(cipherText)
+        Using encryptor As Aes = Aes.Create()
+            Dim pdb As New Rfc2898DeriveBytes(constants.EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
+             &H65, &H64, &H76, &H65, &H64, &H65,
+             &H76})
+            encryptor.Key = pdb.GetBytes(32)
+            encryptor.IV = pdb.GetBytes(16)
+            Using ms As New MemoryStream()
+                Using cs As New CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write)
+                    cs.Write(cipherBytes, 0, cipherBytes.Length)
+                    cs.Close()
+                End Using
+                cipherText = Encoding.Unicode.GetString(ms.ToArray())
+            End Using
+        End Using
+        Return cipherText
+    End Function
+
+    Sub Logs(ByVal transaction As String, Optional ByVal events As String = "*_Click")
+        Try
+            readQuery(String.Format("INSERT INTO `logs`(`dt`, `user_accounts_id`, `event`, `transactions`) VALUES ({0},{1},'{2}','{3}')", "now()",
+                                    CurrentLoggedUser.id,
+                                    events,
+                                    transaction))
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+    ' Custom Functions Dahil Writing Queries is mendoksai
+
+
+    Public Function StrNullCheck(cellValue As Object) As String
+        Return If(IsDBNull(cellValue), "N/A", cellValue.ToString())
+    End Function
+
+    Public Function IntNullCheck(cellValue As Object) As Integer
+        Return If(IsDBNull(cellValue), -1, cellValue.ToString())
+    End Function
+
+    ' Function Add Stuffs to Table (tableName, targetColumn, values) returns true if success otherwise false
+
+    Public Function InsertIntoTable(tableName As String, columns As List(Of String), values As List(Of Object)) As Boolean
+        If columns.Count <> values.Count Then
+            Throw New ArgumentException("Columns and values count must match.")
+        End If
+
+        Dim columnsStr As String = String.Join(", ", columns.Select(Function(col) $"`{col}`"))
+        Dim parametersStr As String = String.Join(", ", columns.Select(Function(col, idx) $"@param{idx}"))
+
+        Dim insertSql As String = $"INSERT INTO `{tableName}` ({columnsStr}) VALUES ({parametersStr})"
+
+        Try
+            cmd.Parameters.Clear()
+
+            For i As Integer = 0 To values.Count - 1
+                cmd.Parameters.AddWithValue($"@param{i}", values(i))
+            Next
+
+            readQuery(insertSql)
+
+
+            If cmdRead IsNot Nothing Then
+                cmd.Parameters.Clear()
+                cmdRead.Close()
+            End If
+
+            Return True
+        Catch ex As Exception
+            MsgBox("Error inserting data: " & ex.Message, MsgBoxStyle.Critical)
+            Return False
+        Finally
+
+            If cmdRead IsNot Nothing AndAlso Not cmdRead.IsClosed Then cmdRead.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Function
+
+    ' Function to Update Stuffs to Table (tableName, targetColumn, targetId, updatedValues in Dictionary) returns true if success otherwise false
+
+    Public Function UpdateRecord(tableName As String, columnName As String, idValue As Integer, updatedValues As Dictionary(Of String, Object)) As Boolean
+        Dim query As String = $"UPDATE `{tableName}` SET "
+        Dim isFirstColumn As Boolean = True
+
+        For Each kvp As KeyValuePair(Of String, Object) In updatedValues
+            If Not isFirstColumn Then query &= ", "
+            query &= $"{kvp.Key} = @{kvp.Key}"
+            isFirstColumn = False
+        Next
+
+        query &= $" WHERE {columnName} = @idValue"
+
+        Try
+            cmd.Parameters.Clear()
+
+            cmd = New MySqlCommand(query, conn)
+
+            For Each kvp As KeyValuePair(Of String, Object) In updatedValues
+                cmd.Parameters.AddWithValue($"@{kvp.Key}", kvp.Value)
+            Next
+
+            cmd.Parameters.AddWithValue("@idValue", idValue)
+
+            readQuery(query, False)
+
+            If cmdRead IsNot Nothing Then
+                cmd.Parameters.Clear()
+                cmdRead.Close()
+            End If
+
+            Return True
+
+        Catch ex As Exception
+            MsgBox("Error updating record: " & ex.Message, MsgBoxStyle.Critical)
+            Return False
+
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Function
+
+    ' Get Latest Id in the table (tableName, columnName)
+
+    Public Function GetLatestId(tableName As String, columnName As String) As Integer
+        Dim query As String = $"SELECT MAX({columnName}) FROM `{tableName}`"
+        Dim latestId As Integer = -1
+
+        Try
+            cmd.Parameters.Clear()
+
+            readQuery(query)
+
+            If cmdRead.Read() AndAlso Not IsDBNull(cmdRead(0)) Then
+                latestId = Convert.ToInt32(cmdRead(0))
+            End If
+
+            If cmdRead IsNot Nothing Then
+                cmd.Parameters.Clear()
+                cmdRead.Close()
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error retrieving latest ID: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        Return latestId
+    End Function
+
+    ' Get row base from value (tableName, targetColumn, targetValue)
+
+    Public Function GetRowByValue(tableName As String, columnName As String, value As Object) As DataTable
+        Dim resultTable As New DataTable()
+        Dim query As String = $"SELECT * FROM `{tableName}` WHERE {columnName} = @value"
+
+        Try
+            cmd.Parameters.Clear()
+
+            cmd = New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@value", value)
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+                resultTable.Load(cmdRead)
+                cmdRead.Close()
+            End If
+        Catch ex As Exception
+            MsgBox("Error retrieving row: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        Return resultTable
+    End Function
+
+    ' Get All Rows From Table (tableName)
+
+    Public Function GetAllRowsFromTable(tableName As String, includeArchive As Boolean, Optional showArchivedOnly As Boolean = False) As DataTable
+        Dim resultTable As New DataTable()
+        Dim query As String
+
+        If (includeArchive) Then
+            query = $"SELECT * FROM `{tableName}`"
+        Else
+            query = $"SELECT * FROM `{tableName}` WHERE archived = 0"
+        End If
+
+        If showArchivedOnly Then
+            query = $"SELECT * FROM `{tableName}` WHERE archived = 1"
+        End If
+
+        Try
+            cmd.Parameters.Clear()
+
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+
+                resultTable.Load(cmdRead)
+                cmdRead.Close()
+
+            End If
+        Catch ex As Exception
+            MsgBox("Error retrieving rows: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        Return resultTable
+    End Function
+
+    ' Delete Row By Id (tableName, targetColumn, targetId)
+
+    Public Function DeleteRowById(tableName As String, columnName As String, id As Integer) As Boolean
+        Dim query As String = $"DELETE FROM `{tableName}` WHERE {columnName} = @id"
+
+        Try
+            cmd.Parameters.Clear()
+
+            cmd = New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            readQuery(query, False)
+
+            If cmdRead IsNot Nothing Then
+                cmd.Parameters.Clear()
+                cmdRead.Close()
+            End If
+
+            Return True
+
+        Catch ex As Exception
+            MsgBox("Error deleting row: " & ex.Message, MsgBoxStyle.Critical)
+            Return False
+
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Function
+End Class
