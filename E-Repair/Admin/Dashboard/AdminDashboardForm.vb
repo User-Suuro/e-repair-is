@@ -6,6 +6,8 @@ Public Class AdminDashboardForm
         Dim employeeData As DataTable = dbHelper.GetAllRowsFromTable("employees", False)
 
         EmployeesCountLabel.Text = employeeData.Rows.Count
+
+
     End Sub
 
 

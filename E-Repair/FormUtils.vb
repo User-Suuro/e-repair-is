@@ -66,10 +66,10 @@ Public Class FormUtils
     Public Function CopyImageFileToProjectFolder(sourceFilePath As String) As String
 
         If File.Exists(sourceFilePath) Then
-
             Dim image As Image = Image.FromFile(sourceFilePath)
 
-            Dim projectFolder As String = Path.Combine(Application.StartupPath, "Images")
+            Dim projectFolder As String = Path.Combine(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName, "Images")
+
             If Not Directory.Exists(projectFolder) Then
                 Directory.CreateDirectory(projectFolder)
             End If
@@ -77,9 +77,12 @@ Public Class FormUtils
             Dim fileName As String = Path.GetFileName(sourceFilePath)
             Dim filePath As String = Path.Combine(projectFolder, fileName)
 
+            If File.Exists(filePath) Then Return filePath
+
             image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png)
 
             Return filePath
+
         Else
             MessageBox.Show("Source file does not exist.")
             Return String.Empty
