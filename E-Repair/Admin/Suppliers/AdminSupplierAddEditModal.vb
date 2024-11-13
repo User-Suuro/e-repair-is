@@ -63,18 +63,13 @@ Public Class AdminSupplierAddEditModal
 
 
         ' Creeate Supplier
-        Dim employeeColumns As New List(Of String) From {
-            
-        }
+
 
         ' Save Image Locally
         Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getEmpProfileFolderPath)
 
-        Dim employeeValues As New List(Of Object) From {
-           
-        }
 
-        dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues)
+
 
         MsgBox("Supplier Successfully Added")
 
