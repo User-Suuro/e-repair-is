@@ -62,11 +62,16 @@ Public Class AdminSupplierAddEditModal
         End Try
 
 
+<<<<<<< HEAD
+=======
+        ' Creeate Supplier
+>>>>>>> d8f295226722e4762a9ca5a8db86d87eb5eadf19
 
 
         ' Save Image Locally
         Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
 
+<<<<<<< HEAD
         ' Create Supplier
 
         Dim supplierColumns As New List(Of String) From {
@@ -78,6 +83,10 @@ Public Class AdminSupplierAddEditModal
         }
 
         dbHelper.InsertIntoTable("employees", supplierColumns, supplierValues)
+=======
+
+
+>>>>>>> d8f295226722e4762a9ca5a8db86d87eb5eadf19
 
         MsgBox("Supplier Successfully Added")
 
