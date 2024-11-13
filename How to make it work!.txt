@@ -1,0 +1,17 @@
+Extract Guna UI
+
+Run Keygen.exe in GunaUIKeyGen
+
+Go to project settings, then locate namespace
+
+Add Guna.UI and Guna.UI2 .dll
+
+Uncheck "Allow parallel project initialization" in Tools -> Options -> Project and Solutions -> General
+
+If you want to use GunaUI:
+
+Make a category in toolbox
+
+Right click the created category, then click choose items
+
+Then browse for GunaUI.dll

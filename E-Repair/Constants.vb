@@ -21,10 +21,17 @@
 
     ' Folder Names
     Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
+    Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
 
     Public ReadOnly Property getEmpProfileFolderPath As String
         Get
             Return _employeesProfileFolderPath
+        End Get
+    End Property
+
+    Public ReadOnly Property getSuppProfileFolderPath As String
+        Get
+            Return _suppliersProfileFolderPath
         End Get
     End Property
 

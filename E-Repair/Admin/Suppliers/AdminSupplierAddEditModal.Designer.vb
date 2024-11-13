@@ -1061,6 +1061,7 @@ Partial Class AdminSupplierAddEditModal
         'SupplierFileDialog
         '
         Me.SupplierFileDialog.FileName = "OpenFileDialog1"
+        Me.SupplierFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
         'AdminSupplierAddEditModal
         '

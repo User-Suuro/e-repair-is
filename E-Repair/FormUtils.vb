@@ -69,14 +69,22 @@ Public Class FormUtils
         If File.Exists(sourceFilePath) Then
             Dim image As Image = Image.FromFile(sourceFilePath)
 
-            Dim projectFolder As String = Path.Combine(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName, folderName)
+            Dim imageFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "E-Repair Images")
 
-            If Not Directory.Exists(projectFolder) Then
-                Directory.CreateDirectory(projectFolder)
+            Dim specificFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), folderName)
+
+            If Not Directory.Exists(imageFolder) Then
+                Directory.CreateDirectory(imageFolder)
             End If
 
+            If Not Directory.Exists(specificFolder) Then
+                Directory.CreateDirectory(specificFolder)
+            End If
+
+            Dim combinedFolder As String = Path.Combine(imageFolder, specificFolder)
+
             Dim fileName As String = Path.GetFileName(sourceFilePath)
-            Dim filePath As String = Path.Combine(projectFolder, fileName)
+            Dim filePath As String = Path.Combine(combinedFolder, fileName)
 
             If File.Exists(filePath) Then Return filePath
 
