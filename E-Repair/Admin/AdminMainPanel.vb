@@ -66,6 +66,4 @@ Public Class AdminMainPanel
         Dim loginForm As New LoginForm()
         loginForm.Show()
     End Sub
-
-
 End Class

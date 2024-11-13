@@ -25,6 +25,9 @@ Public Class AdminSuppliersForm
     Private dateArchived As DateTime
 
     Private Function InitValues() As Boolean
+
+        If CheckIfInvalid() Then Return True
+
         Try
             suppID = SupplierDGV.CurrentRow.Cells("SUPPLIER_ID").Value
             suppCompName = SupplierDGV.CurrentRow.Cells("COMPANY_NAME").Value
@@ -48,7 +51,7 @@ Public Class AdminSuppliersForm
             MsgBox("Cannot put values to form modal: " & ex.Message)
         End Try
 
-        Return True
+        Return False
     End Function
 
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
@@ -74,7 +77,7 @@ Public Class AdminSuppliersForm
     Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
-        InitValues()
+        If InitValues() Then Exit Sub
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -204,6 +207,5 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
-
 
 End Class

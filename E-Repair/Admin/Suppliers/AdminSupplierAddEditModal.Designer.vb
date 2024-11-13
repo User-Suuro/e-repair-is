@@ -35,13 +35,13 @@ Partial Class AdminSupplierAddEditModal
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ContractTypeTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.ContractTypeCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.ContractTypeIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Guna2Panel11 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PaymentTermsTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.PaymentTermsCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.PaymentTermsIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -68,13 +68,13 @@ Partial Class AdminSupplierAddEditModal
         Me.LocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SupplierTypeTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.SupplierTypeCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.SupplierTypeIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BankDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.BnkDetailsCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.BankDetailsIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -87,9 +87,9 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
-        Me.TableLayoutPanel9.SuspendLayout()
+        Me.ContractTypeTableLayout.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
-        Me.TableLayoutPanel10.SuspendLayout()
+        Me.PaymentTermsTableLayout.SuspendLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
@@ -100,9 +100,9 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel4.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
+        Me.SupplierTypeTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
+        Me.BankDetailsTableLayout.SuspendLayout()
         Me.SuspendLayout()
         '
         'SupplierModalGroupBox
@@ -278,7 +278,7 @@ Partial Class AdminSupplierAddEditModal
         '
         Me.Guna2Panel10.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel10.BorderRadius = 4
-        Me.Guna2Panel10.Controls.Add(Me.TableLayoutPanel9)
+        Me.Guna2Panel10.Controls.Add(Me.ContractTypeTableLayout)
         Me.Guna2Panel10.Location = New System.Drawing.Point(3, 3)
         Me.Guna2Panel10.Name = "Guna2Panel10"
         Me.Guna2Panel10.Padding = New System.Windows.Forms.Padding(4)
@@ -286,23 +286,23 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel10.Size = New System.Drawing.Size(402, 61)
         Me.Guna2Panel10.TabIndex = 31
         '
-        'TableLayoutPanel9
+        'ContractTypeTableLayout
         '
-        Me.TableLayoutPanel9.ColumnCount = 2
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel9.Controls.Add(Me.ContractTypeCmbBox, 0, 1)
-        Me.TableLayoutPanel9.Controls.Add(Me.Label22, 1, 0)
-        Me.TableLayoutPanel9.Controls.Add(Me.ContractTypeIfOthersTxtBox, 1, 1)
-        Me.TableLayoutPanel9.Controls.Add(Me.Label23, 0, 0)
-        Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
-        Me.TableLayoutPanel9.RowCount = 2
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(394, 53)
-        Me.TableLayoutPanel9.TabIndex = 8
+        Me.ContractTypeTableLayout.ColumnCount = 2
+        Me.ContractTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.ContractTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
+        Me.ContractTypeTableLayout.Controls.Add(Me.ContractTypeCmbBox, 0, 1)
+        Me.ContractTypeTableLayout.Controls.Add(Me.Label22, 1, 0)
+        Me.ContractTypeTableLayout.Controls.Add(Me.ContractTypeIfOthersTxtBox, 1, 1)
+        Me.ContractTypeTableLayout.Controls.Add(Me.Label23, 0, 0)
+        Me.ContractTypeTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ContractTypeTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.ContractTypeTableLayout.Name = "ContractTypeTableLayout"
+        Me.ContractTypeTableLayout.RowCount = 2
+        Me.ContractTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.ContractTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.ContractTypeTableLayout.Size = New System.Drawing.Size(394, 53)
+        Me.ContractTypeTableLayout.TabIndex = 8
         '
         'ContractTypeCmbBox
         '
@@ -318,11 +318,12 @@ Partial Class AdminSupplierAddEditModal
         Me.ContractTypeCmbBox.FormattingEnabled = True
         Me.ContractTypeCmbBox.HoverState.Parent = Me.ContractTypeCmbBox
         Me.ContractTypeCmbBox.ItemHeight = 20
+        Me.ContractTypeCmbBox.Items.AddRange(New Object() {"Express", "Implied", "Bilateral", "Others"})
         Me.ContractTypeCmbBox.ItemsAppearance.Parent = Me.ContractTypeCmbBox
         Me.ContractTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.ContractTypeCmbBox.Name = "ContractTypeCmbBox"
         Me.ContractTypeCmbBox.ShadowDecoration.Parent = Me.ContractTypeCmbBox
-        Me.ContractTypeCmbBox.Size = New System.Drawing.Size(191, 26)
+        Me.ContractTypeCmbBox.Size = New System.Drawing.Size(388, 26)
         Me.ContractTypeCmbBox.TabIndex = 32
         '
         'Label22
@@ -330,9 +331,9 @@ Partial Class AdminSupplierAddEditModal
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(200, 0)
+        Me.Label22.Location = New System.Drawing.Point(397, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(148, 20)
+        Me.Label22.Size = New System.Drawing.Size(1, 20)
         Me.Label22.TabIndex = 31
         Me.Label22.Text = "If others please specify"
         '
@@ -352,14 +353,14 @@ Partial Class AdminSupplierAddEditModal
         Me.ContractTypeIfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContractTypeIfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ContractTypeIfOthersTxtBox.HoverState.Parent = Me.ContractTypeIfOthersTxtBox
-        Me.ContractTypeIfOthersTxtBox.Location = New System.Drawing.Point(199, 24)
+        Me.ContractTypeIfOthersTxtBox.Location = New System.Drawing.Point(396, 24)
         Me.ContractTypeIfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ContractTypeIfOthersTxtBox.Name = "ContractTypeIfOthersTxtBox"
         Me.ContractTypeIfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContractTypeIfOthersTxtBox.PlaceholderText = ""
         Me.ContractTypeIfOthersTxtBox.SelectedText = ""
         Me.ContractTypeIfOthersTxtBox.ShadowDecoration.Parent = Me.ContractTypeIfOthersTxtBox
-        Me.ContractTypeIfOthersTxtBox.Size = New System.Drawing.Size(193, 26)
+        Me.ContractTypeIfOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.ContractTypeIfOthersTxtBox.TabIndex = 30
         '
         'Label23
@@ -377,7 +378,7 @@ Partial Class AdminSupplierAddEditModal
         '
         Me.Guna2Panel11.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel11.BorderRadius = 4
-        Me.Guna2Panel11.Controls.Add(Me.TableLayoutPanel10)
+        Me.Guna2Panel11.Controls.Add(Me.PaymentTermsTableLayout)
         Me.Guna2Panel11.Location = New System.Drawing.Point(3, 70)
         Me.Guna2Panel11.Name = "Guna2Panel11"
         Me.Guna2Panel11.Padding = New System.Windows.Forms.Padding(4)
@@ -385,23 +386,23 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel11.Size = New System.Drawing.Size(402, 61)
         Me.Guna2Panel11.TabIndex = 32
         '
-        'TableLayoutPanel10
+        'PaymentTermsTableLayout
         '
-        Me.TableLayoutPanel10.ColumnCount = 2
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel10.Controls.Add(Me.PaymentTermsCmbBox, 0, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.PaymentTermsIfOthersTxtBox, 1, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label24, 1, 0)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label25, 0, 0)
-        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
-        Me.TableLayoutPanel10.RowCount = 2
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(394, 53)
-        Me.TableLayoutPanel10.TabIndex = 8
+        Me.PaymentTermsTableLayout.ColumnCount = 2
+        Me.PaymentTermsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.PaymentTermsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
+        Me.PaymentTermsTableLayout.Controls.Add(Me.PaymentTermsCmbBox, 0, 1)
+        Me.PaymentTermsTableLayout.Controls.Add(Me.PaymentTermsIfOthersTxtBox, 1, 1)
+        Me.PaymentTermsTableLayout.Controls.Add(Me.Label24, 1, 0)
+        Me.PaymentTermsTableLayout.Controls.Add(Me.Label25, 0, 0)
+        Me.PaymentTermsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PaymentTermsTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.PaymentTermsTableLayout.Name = "PaymentTermsTableLayout"
+        Me.PaymentTermsTableLayout.RowCount = 2
+        Me.PaymentTermsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.PaymentTermsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.PaymentTermsTableLayout.Size = New System.Drawing.Size(394, 53)
+        Me.PaymentTermsTableLayout.TabIndex = 8
         '
         'PaymentTermsCmbBox
         '
@@ -417,11 +418,12 @@ Partial Class AdminSupplierAddEditModal
         Me.PaymentTermsCmbBox.FormattingEnabled = True
         Me.PaymentTermsCmbBox.HoverState.Parent = Me.PaymentTermsCmbBox
         Me.PaymentTermsCmbBox.ItemHeight = 20
+        Me.PaymentTermsCmbBox.Items.AddRange(New Object() {"Cash on Delivery", "Debit Card", "Others"})
         Me.PaymentTermsCmbBox.ItemsAppearance.Parent = Me.PaymentTermsCmbBox
         Me.PaymentTermsCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.PaymentTermsCmbBox.Name = "PaymentTermsCmbBox"
         Me.PaymentTermsCmbBox.ShadowDecoration.Parent = Me.PaymentTermsCmbBox
-        Me.PaymentTermsCmbBox.Size = New System.Drawing.Size(191, 26)
+        Me.PaymentTermsCmbBox.Size = New System.Drawing.Size(388, 26)
         Me.PaymentTermsCmbBox.TabIndex = 32
         '
         'PaymentTermsIfOthersTxtBox
@@ -440,14 +442,14 @@ Partial Class AdminSupplierAddEditModal
         Me.PaymentTermsIfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PaymentTermsIfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PaymentTermsIfOthersTxtBox.HoverState.Parent = Me.PaymentTermsIfOthersTxtBox
-        Me.PaymentTermsIfOthersTxtBox.Location = New System.Drawing.Point(199, 24)
+        Me.PaymentTermsIfOthersTxtBox.Location = New System.Drawing.Point(396, 24)
         Me.PaymentTermsIfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.PaymentTermsIfOthersTxtBox.Name = "PaymentTermsIfOthersTxtBox"
         Me.PaymentTermsIfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PaymentTermsIfOthersTxtBox.PlaceholderText = ""
         Me.PaymentTermsIfOthersTxtBox.SelectedText = ""
         Me.PaymentTermsIfOthersTxtBox.ShadowDecoration.Parent = Me.PaymentTermsIfOthersTxtBox
-        Me.PaymentTermsIfOthersTxtBox.Size = New System.Drawing.Size(193, 26)
+        Me.PaymentTermsIfOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.PaymentTermsIfOthersTxtBox.TabIndex = 30
         '
         'Label24
@@ -455,9 +457,9 @@ Partial Class AdminSupplierAddEditModal
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(200, 0)
+        Me.Label24.Location = New System.Drawing.Point(397, 0)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(148, 20)
+        Me.Label24.Size = New System.Drawing.Size(1, 20)
         Me.Label24.TabIndex = 21
         Me.Label24.Text = "If others please specify"
         '
@@ -825,7 +827,7 @@ Partial Class AdminSupplierAddEditModal
         '
         Me.Guna2Panel3.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel3.BorderRadius = 4
-        Me.Guna2Panel3.Controls.Add(Me.TableLayoutPanel3)
+        Me.Guna2Panel3.Controls.Add(Me.SupplierTypeTableLayout)
         Me.Guna2Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
@@ -833,23 +835,23 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel3.Size = New System.Drawing.Size(406, 61)
         Me.Guna2Panel3.TabIndex = 28
         '
-        'TableLayoutPanel3
+        'SupplierTypeTableLayout
         '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.Controls.Add(Me.SupplierTypeCmbBox, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.SupplierTypeIfOthersTxtBox, 1, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label6, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label8, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(398, 53)
-        Me.TableLayoutPanel3.TabIndex = 8
+        Me.SupplierTypeTableLayout.ColumnCount = 2
+        Me.SupplierTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.SupplierTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
+        Me.SupplierTypeTableLayout.Controls.Add(Me.SupplierTypeCmbBox, 0, 1)
+        Me.SupplierTypeTableLayout.Controls.Add(Me.SupplierTypeIfOthersTxtBox, 1, 1)
+        Me.SupplierTypeTableLayout.Controls.Add(Me.Label6, 1, 0)
+        Me.SupplierTypeTableLayout.Controls.Add(Me.Label8, 0, 0)
+        Me.SupplierTypeTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SupplierTypeTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.SupplierTypeTableLayout.Name = "SupplierTypeTableLayout"
+        Me.SupplierTypeTableLayout.RowCount = 2
+        Me.SupplierTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.SupplierTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.SupplierTypeTableLayout.Size = New System.Drawing.Size(398, 53)
+        Me.SupplierTypeTableLayout.TabIndex = 8
         '
         'SupplierTypeCmbBox
         '
@@ -865,11 +867,12 @@ Partial Class AdminSupplierAddEditModal
         Me.SupplierTypeCmbBox.FormattingEnabled = True
         Me.SupplierTypeCmbBox.HoverState.Parent = Me.SupplierTypeCmbBox
         Me.SupplierTypeCmbBox.ItemHeight = 20
+        Me.SupplierTypeCmbBox.Items.AddRange(New Object() {"Manufacturer", "Distributor", "Retailer", "Others"})
         Me.SupplierTypeCmbBox.ItemsAppearance.Parent = Me.SupplierTypeCmbBox
         Me.SupplierTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.SupplierTypeCmbBox.Name = "SupplierTypeCmbBox"
         Me.SupplierTypeCmbBox.ShadowDecoration.Parent = Me.SupplierTypeCmbBox
-        Me.SupplierTypeCmbBox.Size = New System.Drawing.Size(193, 26)
+        Me.SupplierTypeCmbBox.Size = New System.Drawing.Size(392, 26)
         Me.SupplierTypeCmbBox.TabIndex = 31
         '
         'SupplierTypeIfOthersTxtBox
@@ -888,14 +891,14 @@ Partial Class AdminSupplierAddEditModal
         Me.SupplierTypeIfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupplierTypeIfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupplierTypeIfOthersTxtBox.HoverState.Parent = Me.SupplierTypeIfOthersTxtBox
-        Me.SupplierTypeIfOthersTxtBox.Location = New System.Drawing.Point(201, 24)
+        Me.SupplierTypeIfOthersTxtBox.Location = New System.Drawing.Point(400, 24)
         Me.SupplierTypeIfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.SupplierTypeIfOthersTxtBox.Name = "SupplierTypeIfOthersTxtBox"
         Me.SupplierTypeIfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SupplierTypeIfOthersTxtBox.PlaceholderText = ""
         Me.SupplierTypeIfOthersTxtBox.SelectedText = ""
         Me.SupplierTypeIfOthersTxtBox.ShadowDecoration.Parent = Me.SupplierTypeIfOthersTxtBox
-        Me.SupplierTypeIfOthersTxtBox.Size = New System.Drawing.Size(195, 26)
+        Me.SupplierTypeIfOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.SupplierTypeIfOthersTxtBox.TabIndex = 30
         '
         'Label6
@@ -903,9 +906,9 @@ Partial Class AdminSupplierAddEditModal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(202, 0)
+        Me.Label6.Location = New System.Drawing.Point(401, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(148, 20)
+        Me.Label6.Size = New System.Drawing.Size(1, 20)
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "If others please specify"
         '
@@ -924,7 +927,7 @@ Partial Class AdminSupplierAddEditModal
         '
         Me.Guna2Panel6.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel6.BorderRadius = 4
-        Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel5)
+        Me.Guna2Panel6.Controls.Add(Me.BankDetailsTableLayout)
         Me.Guna2Panel6.Location = New System.Drawing.Point(3, 70)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
@@ -932,23 +935,23 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel6.Size = New System.Drawing.Size(406, 61)
         Me.Guna2Panel6.TabIndex = 29
         '
-        'TableLayoutPanel5
+        'BankDetailsTableLayout
         '
-        Me.TableLayoutPanel5.ColumnCount = 2
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.Controls.Add(Me.BnkDetailsCmbBox, 0, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.BankDetailsIfOthersTxtBox, 1, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label10, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label12, 0, 0)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 2
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(398, 53)
-        Me.TableLayoutPanel5.TabIndex = 8
+        Me.BankDetailsTableLayout.ColumnCount = 2
+        Me.BankDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.BankDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
+        Me.BankDetailsTableLayout.Controls.Add(Me.BnkDetailsCmbBox, 0, 1)
+        Me.BankDetailsTableLayout.Controls.Add(Me.BankDetailsIfOthersTxtBox, 1, 1)
+        Me.BankDetailsTableLayout.Controls.Add(Me.Label10, 1, 0)
+        Me.BankDetailsTableLayout.Controls.Add(Me.Label12, 0, 0)
+        Me.BankDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BankDetailsTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.BankDetailsTableLayout.Name = "BankDetailsTableLayout"
+        Me.BankDetailsTableLayout.RowCount = 2
+        Me.BankDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.BankDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.BankDetailsTableLayout.Size = New System.Drawing.Size(398, 53)
+        Me.BankDetailsTableLayout.TabIndex = 8
         '
         'BnkDetailsCmbBox
         '
@@ -964,11 +967,12 @@ Partial Class AdminSupplierAddEditModal
         Me.BnkDetailsCmbBox.FormattingEnabled = True
         Me.BnkDetailsCmbBox.HoverState.Parent = Me.BnkDetailsCmbBox
         Me.BnkDetailsCmbBox.ItemHeight = 20
+        Me.BnkDetailsCmbBox.Items.AddRange(New Object() {"BDO", "Land Bank", "GCASH", "PNB", "Others"})
         Me.BnkDetailsCmbBox.ItemsAppearance.Parent = Me.BnkDetailsCmbBox
         Me.BnkDetailsCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.BnkDetailsCmbBox.Name = "BnkDetailsCmbBox"
         Me.BnkDetailsCmbBox.ShadowDecoration.Parent = Me.BnkDetailsCmbBox
-        Me.BnkDetailsCmbBox.Size = New System.Drawing.Size(193, 26)
+        Me.BnkDetailsCmbBox.Size = New System.Drawing.Size(392, 26)
         Me.BnkDetailsCmbBox.TabIndex = 32
         '
         'BankDetailsIfOthersTxtBox
@@ -987,14 +991,14 @@ Partial Class AdminSupplierAddEditModal
         Me.BankDetailsIfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BankDetailsIfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BankDetailsIfOthersTxtBox.HoverState.Parent = Me.BankDetailsIfOthersTxtBox
-        Me.BankDetailsIfOthersTxtBox.Location = New System.Drawing.Point(201, 24)
+        Me.BankDetailsIfOthersTxtBox.Location = New System.Drawing.Point(400, 24)
         Me.BankDetailsIfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BankDetailsIfOthersTxtBox.Name = "BankDetailsIfOthersTxtBox"
         Me.BankDetailsIfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BankDetailsIfOthersTxtBox.PlaceholderText = ""
         Me.BankDetailsIfOthersTxtBox.SelectedText = ""
         Me.BankDetailsIfOthersTxtBox.ShadowDecoration.Parent = Me.BankDetailsIfOthersTxtBox
-        Me.BankDetailsIfOthersTxtBox.Size = New System.Drawing.Size(195, 26)
+        Me.BankDetailsIfOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.BankDetailsIfOthersTxtBox.TabIndex = 30
         '
         'Label10
@@ -1002,9 +1006,9 @@ Partial Class AdminSupplierAddEditModal
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(202, 0)
+        Me.Label10.Location = New System.Drawing.Point(401, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(148, 20)
+        Me.Label10.Size = New System.Drawing.Size(1, 20)
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "If others please specify"
         '
@@ -1072,11 +1076,11 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.Guna2Panel10.ResumeLayout(False)
-        Me.TableLayoutPanel9.ResumeLayout(False)
-        Me.TableLayoutPanel9.PerformLayout()
+        Me.ContractTypeTableLayout.ResumeLayout(False)
+        Me.ContractTypeTableLayout.PerformLayout()
         Me.Guna2Panel11.ResumeLayout(False)
-        Me.TableLayoutPanel10.ResumeLayout(False)
-        Me.TableLayoutPanel10.PerformLayout()
+        Me.PaymentTermsTableLayout.ResumeLayout(False)
+        Me.PaymentTermsTableLayout.PerformLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel5.ResumeLayout(False)
@@ -1090,11 +1094,11 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel4.PerformLayout()
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.Guna2Panel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
+        Me.SupplierTypeTableLayout.ResumeLayout(False)
+        Me.SupplierTypeTableLayout.PerformLayout()
         Me.Guna2Panel6.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.TableLayoutPanel5.PerformLayout()
+        Me.BankDetailsTableLayout.ResumeLayout(False)
+        Me.BankDetailsTableLayout.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1121,13 +1125,13 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents CompanyEmailTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents SupplierTypeTableLayout As TableLayoutPanel
     Friend WithEvents SupplierTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents SupplierTypeIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents BankDetailsTableLayout As TableLayoutPanel
     Friend WithEvents BnkDetailsCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents BankDetailsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label10 As Label
@@ -1143,13 +1147,13 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents Label7 As Label
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
+    Friend WithEvents ContractTypeTableLayout As TableLayoutPanel
     Friend WithEvents ContractTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label22 As Label
     Friend WithEvents ContractTypeIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents Guna2Panel11 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
+    Friend WithEvents PaymentTermsTableLayout As TableLayoutPanel
     Friend WithEvents PaymentTermsCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents PaymentTermsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label24 As Label

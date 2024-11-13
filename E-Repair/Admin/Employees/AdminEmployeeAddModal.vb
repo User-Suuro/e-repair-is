@@ -219,7 +219,6 @@
         Else
             PassMismatchLabel.Visible = False
         End If
-
     End Sub
 
     ' CONFIRM PASSWORD
@@ -240,6 +239,7 @@
 
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+
         If isEmailDuplicate AndAlso email <> emailFirstValue Then
             MsgBox("This email is already saved in database. Please try other emails")
             Exit Sub
@@ -257,147 +257,157 @@
 
         Try
             If editMode Then
-                ' UPDATE EMPLOYEE
-                Dim updatedEmployeeValues As New Dictionary(Of String, Object) From {
-                    {"firstname", firstName},
-                    {"middlename", middleName},
-                    {"lastname", lastName},
-                    {"email", email},
-                    {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                    {"sex", sex},
-                    {"birthdate", birthdate},
-                    {"civilstatus", civilStatus},
-                    {"address", address},
-                    {"contact_number", contactNumber},
-                    {"employment_status", contractStatus},
-                    {"date_hired", dateHired},
-                    {"sss_no", sss},
-                    {"job_type", jobType},
-                    {"pagibig_no", pagibig},
-                    {"tin_no", tin}
-                }
-
-                ' get prev value
-                Dim prevEmployeeValue As DataTable = dbUtils.GetRowByValue("employees", "employee_id", selectedEmployeeId)
-                Dim prevEmployeeRow As DataRow = prevEmployeeValue.Rows(0)
-
-                If jobType = constants.getAdminString Then
-                    updatedEmployeeValues.Add("admin_position", adminPosition)
-                    updatedEmployeeValues.Add("total_employee_added", prevEmployeeRow("total_employee_added"))
-                ElseIf jobType = constants.getCashierString Then
-                    updatedEmployeeValues.Add("no_customers_handled", prevEmployeeRow("no_customers_handled"))
-                ElseIf jobType = constants.getTechnicianString Then
-                    updatedEmployeeValues.Add("no_pending_services", prevEmployeeRow("no_pending_services"))
-                    updatedEmployeeValues.Add("no_finished_services", prevEmployeeRow("no_finished_services"))
-                ElseIf jobType = constants.getUtilityPersonnelString Then
-                    updatedEmployeeValues.Add("personnel_destination", personnelDestination)
-                End If
-
-                If (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then
-
-                    If prevEmployeeRow("profile_path") <> profileImgPath Then
-                        ' delete previous
-
-                        ' formUtils.DeleteImageFile(prevEmployeeRow("profile_path"))
-
-                        updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath))
-                    End If
-
-                    dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues)
-
-                    MsgBox("Employee Details Sucessfully Updated")
-
-                    Me.Close()
-                    End If
-
-                Else
-                ' CREATE EMPLOYEE
-                Dim employeeColumns As New List(Of String) From {
-                    "firstname",
-                    "middlename",
-                    "lastname",
-                    "sex",
-                    "birthdate",
-                    "civilstatus",
-                    "address",
-                    "contact_number",
-                    "employment_status",
-                    "date_hired",
-                    "job_type",
-                    "sss_no",
-                    "pagibig_no",
-                    "tin_no",
-                    "profile_path",
-                    "email",
-                    "password",
-                    "added_by"
-                }
-
-                ' GET EMPLOYEE KEY BY CURRENT SESSION
-                Dim empIDLogged As Integer
-
-                Try
-                    empIDLogged = GlobalSession.CurrentSession.EmployeeID
-                Catch ex As Exception
-                    empIDLogged = -1
-                End Try
-
-                If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then
-
-                    ' Save Image Locally
-                    Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath)
-
-                    Dim employeeValues As New List(Of Object) From {
-                        firstName,
-                        middleName,
-                        lastName,
-                        sex,
-                        birthdate,
-                        civilStatus,
-                        address,
-                        contactNumber,
-                        contractStatus,
-                        dateHired,
-                        jobType,
-                        sss,
-                        pagibig,
-                        tin,
-                        savedPath,
-                        email,
-                        dbUtils.EncryptPassword(password, constants.EncryptionKey),
-                        empIDLogged
-                    }
-
-                    dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues)
-
-                    ' UDPDATE FOREIGN VALUES
-                    Dim updateJobValues As New Dictionary(Of String, Object)
-
-                    If jobType = constants.getAdminString Then
-                        updateJobValues.Add("admin_position", adminPosition)
-                        updateJobValues.Add("total_employee_added", 0)
-                    ElseIf jobType = constants.getCashierString Then
-                        updateJobValues.Add("no_customers_handled", 0)
-                    ElseIf jobType = constants.getTechnicianString Then
-                        updateJobValues.Add("no_pending_services", 0)
-                        updateJobValues.Add("no_finished_services", 0)
-                    ElseIf jobType = constants.getUtilityPersonnelString Then
-                        updateJobValues.Add("personnel_destination", personnelDestination)
-                    End If
-
-                    dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues)
-
-                    MsgBox("Employee Successfully Added")
-
-                    Me.Close()
-                End If
+                EditEmpFunction()
+            Else
+                CreateEmpFunction()
             End If
-
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            Me.Close()
+            MsgBox("Failed to Edit / Add Employee: " & ex.Message)
         End Try
+
     End Sub
+
+    Private Sub CreateEmpFunction()
+
+        ' CREATE EMPLOYEE
+        Dim employeeColumns As New List(Of String) From {
+            "firstname",
+            "middlename",
+            "lastname",
+            "sex",
+            "birthdate",
+            "civilstatus",
+            "address",
+            "contact_number",
+            "employment_status",
+            "date_hired",
+            "job_type",
+            "sss_no",
+            "pagibig_no",
+            "tin_no",
+            "profile_path",
+            "email",
+            "password",
+            "added_by"
+        }
+
+        ' GET EMPLOYEE KEY BY CURRENT SESSION
+        Dim empIDLogged As Integer
+
+        Try
+            empIDLogged = GlobalSession.CurrentSession.EmployeeID
+        Catch ex As Exception
+            empIDLogged = -1
+        End Try
+
+        ' Exit if canceled
+        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") = False Then
+            Exit Sub
+        End If
+
+        ' Save Image Locally
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath)
+
+        Dim employeeValues As New List(Of Object) From {
+            firstName,
+            middleName,
+            lastName,
+            sex,
+            birthdate,
+            civilStatus,
+            address,
+            contactNumber,
+            contractStatus,
+            dateHired,
+            jobType,
+            sss,
+            pagibig,
+            tin,
+            savedPath,
+            email,
+            dbUtils.EncryptPassword(password, constants.EncryptionKey),
+            empIDLogged
+        }
+
+        dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues)
+
+        ' UDPDATE FOREIGN VALUES
+        Dim updateJobValues As New Dictionary(Of String, Object)
+
+        If jobType = constants.getAdminString Then
+            updateJobValues.Add("admin_position", adminPosition)
+            updateJobValues.Add("total_employee_added", 0)
+        ElseIf jobType = constants.getCashierString Then
+            updateJobValues.Add("no_customers_handled", 0)
+        ElseIf jobType = constants.getTechnicianString Then
+            updateJobValues.Add("no_pending_services", 0)
+            updateJobValues.Add("no_finished_services", 0)
+        ElseIf jobType = constants.getUtilityPersonnelString Then
+            updateJobValues.Add("personnel_destination", personnelDestination)
+        End If
+
+        dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues)
+
+        MsgBox("Employee Successfully Added")
+
+        Me.Close()
+    End Sub
+
+    Private Sub EditEmpFunction()
+
+        ' UPDATE EMPLOYEE
+        Dim updatedEmployeeValues As New Dictionary(Of String, Object) From {
+            {"firstname", firstName},
+            {"middlename", middleName},
+            {"lastname", lastName},
+            {"email", email},
+            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+            {"sex", sex},
+            {"birthdate", birthdate},
+            {"civilstatus", civilStatus},
+            {"address", address},
+            {"contact_number", contactNumber},
+            {"employment_status", contractStatus},
+            {"date_hired", dateHired},
+            {"sss_no", sss},
+            {"job_type", jobType},
+            {"pagibig_no", pagibig},
+            {"tin_no", tin}
+        }
+
+        ' get prev value
+        Dim prevEmployeeValue As DataTable = dbUtils.GetRowByValue("employees", "employee_id", selectedEmployeeId)
+
+        Dim prevEmployeeRow As DataRow = prevEmployeeValue.Rows(0)
+
+        If jobType = constants.getAdminString Then
+            updatedEmployeeValues.Add("admin_position", adminPosition)
+            updatedEmployeeValues.Add("total_employee_added", prevEmployeeRow("total_employee_added"))
+        ElseIf jobType = constants.getCashierString Then
+            updatedEmployeeValues.Add("no_customers_handled", prevEmployeeRow("no_customers_handled"))
+        ElseIf jobType = constants.getTechnicianString Then
+            updatedEmployeeValues.Add("no_pending_services", prevEmployeeRow("no_pending_services"))
+            updatedEmployeeValues.Add("no_finished_services", prevEmployeeRow("no_finished_services"))
+        ElseIf jobType = constants.getUtilityPersonnelString Then
+            updatedEmployeeValues.Add("personnel_destination", personnelDestination)
+        End If
+
+        If (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) = False Then
+            Exit Sub
+        End If
+
+        ' Save image locally
+        If prevEmployeeRow("profile_path") <> profileImgPath Then
+            updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath))
+        End If
+
+        dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues)
+
+        MsgBox("Employee Details Sucessfully Updated")
+
+        Me.Close()
+    End Sub
+
 
     ' CHECK IF ALL FILLED
 
@@ -431,7 +441,5 @@
         End If
     End Function
 
-    Private Sub JobDetailsTableLayout_Paint(sender As Object, e As PaintEventArgs) Handles JobDetailsTableLayout.Paint
-
-    End Sub
+ 
 End Class

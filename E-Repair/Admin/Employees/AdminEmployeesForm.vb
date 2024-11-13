@@ -327,28 +327,29 @@ Public Class AdminEmployeesForm
             MsgBox("There is no current active user!")
         End Try
 
+        If empArchived Then
+            MsgBox("This employee is already archived!")
+            Exit Sub
+        End If
+
+        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Employee?") = False Then
+            Exit Sub
+        End If
+
+        Dim updatedValues As New Dictionary(Of String, Object) From {
+            {"archived", True},
+            {"date_archived", DateTime.Now}
+        }
 
         Try
-            If (empArchived = False AndAlso formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Employee?")) Then
+            dbHelper.UpdateRecord("employees", "employee_id", employeeID, updatedValues)
+            MsgBox("Successfull Archived")
+            LoadDataToDGV()
 
-                Dim updatedValues As New Dictionary(Of String, Object) From {
-                                {"archived", True},
-                                {"date_archived", DateTime.Now}
-                            }
-
-                Dim result As Boolean = dbHelper.UpdateRecord("employees", "employee_id", employeeID, updatedValues)
-
-                LoadDataToDGV()
-
-                If (result) Then
-                    MsgBox("Successfull Archived")
-                Else
-                    MsgBox("Something went wrong")
-                End If
-            End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Cannot archived the selected employee: " & ex.Message)
         End Try
+
     End Sub
 
     ' DELETE
@@ -457,8 +458,6 @@ Public Class AdminEmployeesForm
                 Catch ex As Exception
 
                 End Try
-
-
             Next
         Catch ex As Exception
             MsgBox("Unable to style the Employee DGB with no current id session!")

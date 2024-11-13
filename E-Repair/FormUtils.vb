@@ -28,6 +28,7 @@ Public Class FormUtils
             Return False
         End If
 
+        Return False
     End Function
 
     Public Function FindComboBoxItemByText(comboBox As ComboBox, searchText As String) As Integer
