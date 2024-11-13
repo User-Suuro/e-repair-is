@@ -58,7 +58,9 @@ Partial Class AdminSuppliersForm
         Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PICTURE_PATH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -339,7 +341,7 @@ Partial Class AdminSuppliersForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.SupplierDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.SupplierDGV.ColumnHeadersHeight = 48
-        Me.SupplierDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.NUMBER_SUPPLIED_ITEMS, Me.TOTAL_PAID, Me.PICTURE_PATH, Me.DATE_ADDED, Me.ARCHIVED, Me.DATE_ARCHIVED})
+        Me.SupplierDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.NUMBER_SUPPLIED_ITEMS, Me.TOTAL_PAID, Me.PICTURE_PATH, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -501,6 +503,14 @@ Partial Class AdminSuppliersForm
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        Me.ADDED_BY.Visible = False
+        '
         'ARCHIVED
         '
         Me.ARCHIVED.DataPropertyName = "archived"
@@ -508,6 +518,14 @@ Partial Class AdminSuppliersForm
         Me.ARCHIVED.Name = "ARCHIVED"
         Me.ARCHIVED.ReadOnly = True
         Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
         '
         'DATE_ARCHIVED
         '
@@ -572,6 +590,8 @@ Partial Class AdminSuppliersForm
     Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
     Friend WithEvents PICTURE_PATH As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
+    Friend WithEvents ADDED_BY As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
 End Class

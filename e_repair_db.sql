@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 10:37 AM
+-- Generation Time: Nov 13, 2024 at 01:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,6 +54,7 @@ CREATE TABLE `employees` (
   `password` varchar(255) NOT NULL,
   `added_by` int(11) NOT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
+  `archived_by` varchar(100) NOT NULL,
   `last_accessed` datetime DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
@@ -63,9 +64,8 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `total_employee_added`, `admin_position`, `personnel_destination`, `no_customers_handled`, `no_pending_services`, `no_finished_services`, `profile_path`, `email`, `password`, `added_by`, `archived`, `last_accessed`, `date_archived`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Images\\SIAS.PNG', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '2024-11-12 17:35:37', NULL, '2024-11-09 14:51:29'),
-(44, 'Hatdog', 'sdf', 'Cheesdog', 'Male', '2024-11-01', 'Single', 'asda', 'asd', 'Full Time', '2024-11-01', 'asd', '', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Images\\SIAS.PNG', 'hatdog', '7wrYoFwRdp8wUN4v6YQWiw==', 40, 0, NULL, NULL, '2024-11-11 23:16:27');
+INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `total_employee_added`, `admin_position`, `personnel_destination`, `no_customers_handled`, `no_pending_services`, `no_finished_services`, `profile_path`, `email`, `password`, `added_by`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `date_added`) VALUES
+(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Employee Profiles\\pexels-tranmautritam-326519.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '0', '2024-11-13 20:12:00', NULL, '2024-11-09 14:51:29');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,9 @@ CREATE TABLE `suppliers` (
   `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
   `company_picture_path` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
-  `archived_status` tinyint(1) NOT NULL DEFAULT 0,
+  `added_by` int(11) NOT NULL,
+  `archived` tinyint(1) NOT NULL DEFAULT 0,
+  `archived_by` varchar(100) NOT NULL,
   `date_archived` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -149,7 +151,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `items`

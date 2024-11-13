@@ -19,6 +19,14 @@
     ' Security
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
 
+    ' Folder Names
+    Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
+
+    Public ReadOnly Property getEmpProfileFolderPath As String
+        Get
+            Return _employeesProfileFolderPath
+        End Get
+    End Property
 
     Public ReadOnly Property getAdminString As String
         Get

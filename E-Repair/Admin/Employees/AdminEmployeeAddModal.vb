@@ -306,7 +306,7 @@
         End If
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, "Employee Profiles")
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
 
         Dim employeeValues As New List(Of Object) From {
             firstName,
@@ -398,7 +398,7 @@
 
         ' Save image locally
         If prevEmployeeRow("profile_path") <> profileImgPath Then
-            updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath, "Employee Profiles"))
+            updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath))
         End If
 
         dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues)
