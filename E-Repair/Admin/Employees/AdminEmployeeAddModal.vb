@@ -102,6 +102,7 @@
 
     ' CONTRACT STATUS
     Private Sub ContractStatusComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractStatusComboBox.SelectedIndexChanged
+
         If ContractStatusComboBox.SelectedItem = "Others" Then
             With JobDetailsTableLayout
                 .ColumnStyles(0).Width = 25.0F
@@ -110,7 +111,6 @@
                 .ColumnStyles(3).Width = 25.0F
             End With
         Else
-            contractStatus = ContractStatusComboBox.SelectedItem
             With JobDetailsTableLayout
                 .ColumnStyles(0).Width = 33.3F
                 .ColumnStyles(1).Width = 33.3F
@@ -305,9 +305,9 @@
 
                     dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues)
 
-                        MsgBox("Employee Details Sucessfully Update")
+                    MsgBox("Employee Details Sucessfully Updated")
 
-                        Me.Close()
+                    Me.Close()
                     End If
 
                 Else
@@ -341,8 +341,6 @@
                 Catch ex As Exception
                     empIDLogged = -1
                 End Try
-
-
 
                 If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then
 
@@ -389,6 +387,8 @@
 
                     dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues)
 
+                    MsgBox("Employee Successfully Added")
+
                     Me.Close()
                 End If
             End If
@@ -431,5 +431,7 @@
         End If
     End Function
 
+    Private Sub JobDetailsTableLayout_Paint(sender As Object, e As PaintEventArgs) Handles JobDetailsTableLayout.Paint
 
+    End Sub
 End Class

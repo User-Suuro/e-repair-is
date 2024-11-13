@@ -31,11 +31,7 @@
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to close this form?") Then
-            Me.Close()
-        End If
-
+        Me.Close()
     End Sub
-
 
 End Class

@@ -56,6 +56,7 @@ Public Class AdminSuppliersForm
 
         Try
             formModal = formUtils.CreateBgFormModal()
+
             supplierAddEditModal.Owner = formModal
             supplierAddEditModal.StartPosition = FormStartPosition.CenterScreen
             supplierAddEditModal.ShowDialog()

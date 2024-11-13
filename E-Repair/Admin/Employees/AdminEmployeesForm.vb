@@ -259,7 +259,14 @@ Public Class AdminEmployeesForm
 
                 .ContactNumberTextBox.Text = empContactNumber
 
-                .ContractStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+                Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+
+                If contractStatusBoxIndex = -1 Then
+                    .ContractStatusComboBox.SelectedItem = "Others"
+                    .IfOthersTxtBox.Text = empContractStatus
+                Else
+                    .ContractStatusComboBox.SelectedIndex = contractStatusBoxIndex
+                End If
 
                 .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
 
@@ -269,14 +276,7 @@ Public Class AdminEmployeesForm
 
                     .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
 
-                ElseIf .JobTypeComboBox.Text = constants.getTechnicianString Then
-
-
-                ElseIf .JobTypeComboBox.Text = constants.getCashierString Then
-
-
                 ElseIf .JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
-
 
                     .AssignedLocationTextBox.Text = utilityPersonnelDestination
 

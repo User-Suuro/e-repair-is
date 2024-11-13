@@ -139,7 +139,7 @@ Partial Class AdminSuppliersForm
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Size = New System.Drawing.Size(154, 28)
+        Me.SearchComboBox.Size = New System.Drawing.Size(207, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '

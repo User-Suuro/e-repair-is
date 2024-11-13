@@ -1063,6 +1063,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Name = "AdminSupplierAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminSupplierAddEditModal"
+        Me.TopMost = True
         Me.SupplierModalGroupBox.ResumeLayout(False)
         Me.SupplierModalGroupBox.PerformLayout()
         Me.FlowLayoutPanel4.ResumeLayout(False)

@@ -111,7 +111,7 @@ Partial Class AdminEmployeesForm
         Me.EmpDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.EmpDGV.EnableHeadersVisualStyles = False
         Me.EmpDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.EmpDGV.Location = New System.Drawing.Point(24, 61)
+        Me.EmpDGV.Location = New System.Drawing.Point(21, 70)
         Me.EmpDGV.Name = "EmpDGV"
         Me.EmpDGV.ReadOnly = True
         Me.EmpDGV.RowHeadersVisible = False
@@ -579,7 +579,7 @@ Partial Class AdminEmployeesForm
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Size = New System.Drawing.Size(154, 28)
+        Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
