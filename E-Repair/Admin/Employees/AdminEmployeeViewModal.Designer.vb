@@ -150,7 +150,7 @@ Partial Class AdminEmployeeViewModal
         '
         'Guna2GroupBox1
         '
-        Me.Guna2GroupBox1.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
         Me.Guna2GroupBox1.Controls.Add(Me.FlowLayoutPanel1)

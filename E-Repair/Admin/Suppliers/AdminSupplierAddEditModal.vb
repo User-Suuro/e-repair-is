@@ -6,6 +6,7 @@ Public Class AdminSupplierAddEditModal
     Dim formModal As Form
     Dim formUtils As FormUtils
     Dim dbHelper As DbHelper
+    Dim constants As Constants
 
     ' SCHEMA
     Dim compName As String
@@ -16,12 +17,17 @@ Public Class AdminSupplierAddEditModal
     Dim estDelivTime As String
     Dim compDesc As String
 
+
+
     Dim supplierType As String
     Dim contractType As String
     Dim bankDetails As String
     Dim paymentTerms As String
 
     Public Property editMode As Boolean = False
+    Public Property selectedEmpID As Integer = -1
+    Public Property compProfilePath As String
+
 
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
@@ -42,6 +48,11 @@ Public Class AdminSupplierAddEditModal
 
     Private Sub AddSupplierFunction()
 
+        ' Exit if canceled
+        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?") = False Then
+            Exit Sub
+        End If
+
         Dim empIDLogged As Integer
 
         Try
@@ -50,13 +61,24 @@ Public Class AdminSupplierAddEditModal
             empIDLogged = -1
         End Try
 
-        ' Exit if canceled
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") = False Then
-            Exit Sub
-        End If
+
+        ' Creeate Supplier
+        Dim employeeColumns As New List(Of String) From {
+            
+        }
 
         ' Save Image Locally
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getEmpProfileFolderPath)
 
+        Dim employeeValues As New List(Of Object) From {
+           
+        }
+
+        dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues)
+
+        MsgBox("Supplier Successfully Added")
+
+        Me.Close()
 
     End Sub
 
@@ -184,5 +206,17 @@ Public Class AdminSupplierAddEditModal
                 .ColumnStyles(1).Width = 0.0F
             End With
         End If
+    End Sub
+
+    Private Sub BtnUpload_Click(sender As Object, e As EventArgs) Handles BtnUpload.Click
+        If SupplierFileDialog.ShowDialog = DialogResult.OK Then
+            Dim imgPath = SupplierFileDialog.FileName
+            SupplierCirclePictureBox.Image = Image.FromFile(imgPath)
+            compProfilePath = imgPath
+        End If
+    End Sub
+
+    Private Sub SupplierCirclePictureBox_Paint(sender As Object, e As PaintEventArgs) Handles SupplierCirclePictureBox.Paint
+        SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
     End Sub
 End Class

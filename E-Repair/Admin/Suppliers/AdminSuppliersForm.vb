@@ -19,7 +19,7 @@ Public Class AdminSuppliersForm
     Private deliveryTime As String
     Private noSuppliedItems As Integer
     Private totalPaid As Decimal
-    Private picturePath As String
+    Private suppProfilePath As String
     Private dateAdded As DateTime
     Private archivedStatus As Boolean
     Private dateArchived As DateTime
@@ -42,7 +42,7 @@ Public Class AdminSuppliersForm
             deliveryTime = SupplierDGV.CurrentRow.Cells("ESTIMATED_DELIVERY_TIME").Value
             noSuppliedItems = SupplierDGV.CurrentRow.Cells("NUMBER_SUPPLIED_ITEMS").Value
             totalPaid = SupplierDGV.CurrentRow.Cells("TOTAL_PAID").Value
-            picturePath = SupplierDGV.CurrentRow.Cells("PICTURE_PATH").Value
+            suppProfilePath = SupplierDGV.CurrentRow.Cells("PICTURE_PATH").Value
             dateAdded = SupplierDGV.CurrentRow.Cells("DATE_ADDED").Value
             archivedStatus = SupplierDGV.CurrentRow.Cells("ARCHIVED").Value
             dateArchived = SupplierDGV.CurrentRow.Cells("DATE_ARCHIVED").Value
@@ -97,6 +97,8 @@ Public Class AdminSuppliersForm
                 .ContractTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 .BnkDetailsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
                 .PaymentTermsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
+                .selectedEmpID = suppID
+                .compProfilePath = suppProfilePath
 
                 .ShowDialog()
             End With
@@ -207,5 +209,6 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
+
 
 End Class

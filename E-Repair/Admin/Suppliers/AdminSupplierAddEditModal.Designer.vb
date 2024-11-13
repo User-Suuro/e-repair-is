@@ -46,7 +46,7 @@ Partial Class AdminSupplierAddEditModal
         Me.PaymentTermsIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -81,6 +81,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SupplierFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.SupplierModalGroupBox.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -90,7 +91,7 @@ Partial Class AdminSupplierAddEditModal
         Me.ContractTypeTableLayout.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
         Me.PaymentTermsTableLayout.SuspendLayout()
-        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -113,7 +114,7 @@ Partial Class AdminSupplierAddEditModal
         Me.SupplierModalGroupBox.Controls.Add(Me.BtnClose)
         Me.SupplierModalGroupBox.Controls.Add(Me.BtnUpload)
         Me.SupplierModalGroupBox.Controls.Add(Me.FlowLayoutPanel3)
-        Me.SupplierModalGroupBox.Controls.Add(Me.ProfileCirclePictureBox)
+        Me.SupplierModalGroupBox.Controls.Add(Me.SupplierCirclePictureBox)
         Me.SupplierModalGroupBox.Controls.Add(Me.FlowLayoutPanel1)
         Me.SupplierModalGroupBox.Controls.Add(Me.FlowLayoutPanel2)
         Me.SupplierModalGroupBox.Controls.Add(Me.GunaLabel1)
@@ -474,19 +475,19 @@ Partial Class AdminSupplierAddEditModal
         Me.Label25.TabIndex = 14
         Me.Label25.Text = "Payment Terms"
         '
-        'ProfileCirclePictureBox
+        'SupplierCirclePictureBox
         '
-        Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.ProfileCirclePictureBox.Image = CType(resources.GetObject("ProfileCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(663, 49)
-        Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
-        Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.ProfileCirclePictureBox.ShadowDecoration.Parent = Me.ProfileCirclePictureBox
-        Me.ProfileCirclePictureBox.Size = New System.Drawing.Size(162, 161)
-        Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ProfileCirclePictureBox.TabIndex = 30
-        Me.ProfileCirclePictureBox.TabStop = False
-        Me.ProfileCirclePictureBox.UseTransparentBackground = True
+        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(663, 49)
+        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
+        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
+        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(162, 161)
+        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.SupplierCirclePictureBox.TabIndex = 30
+        Me.SupplierCirclePictureBox.TabStop = False
+        Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
         'FlowLayoutPanel1
         '
@@ -1057,6 +1058,10 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2TextBox2.Size = New System.Drawing.Size(1697, 189)
         Me.Guna2TextBox2.TabIndex = 6
         '
+        'SupplierFileDialog
+        '
+        Me.SupplierFileDialog.FileName = "OpenFileDialog1"
+        '
         'AdminSupplierAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1081,7 +1086,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel11.ResumeLayout(False)
         Me.PaymentTermsTableLayout.ResumeLayout(False)
         Me.PaymentTermsTableLayout.PerformLayout()
-        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel5.ResumeLayout(False)
         Me.JobDetailsTableLayout.ResumeLayout(False)
@@ -1110,7 +1115,7 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnUpload As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents ProfileCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
@@ -1161,4 +1166,5 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents Label15 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents SupplierFileDialog As OpenFileDialog
 End Class
