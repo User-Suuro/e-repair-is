@@ -53,6 +53,7 @@ Partial Class AdminEmployeesForm
         Me.PASSWORD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LAST_ACCESSED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -100,7 +101,7 @@ Partial Class AdminEmployeesForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.EmpDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.EmpDGV.ColumnHeadersHeight = 48
-        Me.EmpDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EMPLOYEE_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.SEX, Me.BIRTHDATE, Me.CIVIL_STATUS, Me.ADDRESS, Me.CONTACT, Me.EMPLOYMENT_STATUS, Me.DATE_HIRED, Me.SSS_NUMBER, Me.PAGIBIG_NUMBER, Me.TIN_NUMBER, Me.JOB_TYPE, Me.TOTAL_EMPLOYEE_ADDED, Me.ADMIN_POSITION, Me.PERSONNEL_DESTINATION, Me.NO_CUSTOMERS_HANDLED, Me.NO_PENDING_SERVICES, Me.NO_FINISHED_SERVICES, Me.IMG_PATH, Me.EMAIL, Me.PASSWORD, Me.ADDED_BY, Me.ARCHIVED, Me.LAST_ACCESSED, Me.DATE_ADDED, Me.DATE_ARCHIVED})
+        Me.EmpDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EMPLOYEE_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.SEX, Me.BIRTHDATE, Me.CIVIL_STATUS, Me.ADDRESS, Me.CONTACT, Me.EMPLOYMENT_STATUS, Me.DATE_HIRED, Me.SSS_NUMBER, Me.PAGIBIG_NUMBER, Me.TIN_NUMBER, Me.JOB_TYPE, Me.TOTAL_EMPLOYEE_ADDED, Me.ADMIN_POSITION, Me.PERSONNEL_DESTINATION, Me.NO_CUSTOMERS_HANDLED, Me.NO_PENDING_SERVICES, Me.NO_FINISHED_SERVICES, Me.IMG_PATH, Me.EMAIL, Me.PASSWORD, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.LAST_ACCESSED, Me.DATE_ADDED, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -343,6 +344,14 @@ Partial Class AdminEmployeesForm
         Me.ARCHIVED.Name = "ARCHIVED"
         Me.ARCHIVED.ReadOnly = True
         Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
         '
         'LAST_ACCESSED
         '
@@ -684,6 +693,7 @@ Partial Class AdminEmployeesForm
     Friend WithEvents PASSWORD As DataGridViewTextBoxColumn
     Friend WithEvents ADDED_BY As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents LAST_ACCESSED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn

@@ -316,28 +316,39 @@ Public Class AdminEmployeesForm
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
 
-        If CheckIfInvalidValues() Then Exit Sub
+        Dim loggedUser As String
 
-        Try
-            If (GlobalSession.CurrentSession.EmployeeID = employeeID) Then
-                MsgBox("You cannot archive an active user!")
-                Exit Sub
-            End If
-        Catch ex As Exception
-            MsgBox("There is no current active user!")
-        End Try
+        If CheckIfInvalidValues() Then Exit Sub
 
         If empArchived Then
             MsgBox("This employee is already archived!")
             Exit Sub
         End If
 
+        Try
+
+            loggedUser = GlobalSession.CurrentSession.EmployeeID
+
+            If (GlobalSession.CurrentSession.EmployeeID = employeeID) Then
+                MsgBox("You cannot archive an active user!")
+                Exit Sub
+            End If
+
+        Catch ex As Exception
+            loggedUser = "N/A"
+            MsgBox("There is no current active user!")
+        End Try
+
+
+
         If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Employee?") = False Then
             Exit Sub
         End If
 
+
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
+            {"archived_by", loggedUser},
             {"date_archived", DateTime.Now}
         }
 
@@ -388,10 +399,12 @@ Public Class AdminEmployeesForm
             DeleteEmployeeBtn.Visible = True
             ArchiveEmployeeBtn.Visible = False
             EmpDGV.Columns("DATE_ARCHIVED").Visible = True
+            EmpDGV.Columns("ARCHIVED_BY").Visible = True
         Else
             DeleteEmployeeBtn.Visible = False
             ArchiveEmployeeBtn.Visible = True
             EmpDGV.Columns("DATE_ARCHIVED").Visible = False
+            EmpDGV.Columns("ARCHIVED_BY").Visible = False
         End If
     End Sub
 
@@ -459,8 +472,20 @@ Public Class AdminEmployeesForm
 
                 End Try
             Next
+
+            For Each row As DataGridViewRow In EmpDGV.Rows
+                If row.Cells("ARCHIVED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ARCHIVED_BY").Value) Then
+                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ARCHIVED_BY").Value)
+
+                    If getEmpData.Rows.Count > 0 Then
+                        row.Cells("ARCHIVED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                    End If
+                End If
+            Next
+
         Catch ex As Exception
             MsgBox("Unable to style the Employee DGB with no current id session!")
         End Try
     End Sub
+
 End Class
