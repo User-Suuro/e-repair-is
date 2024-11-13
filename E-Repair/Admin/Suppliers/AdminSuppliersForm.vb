@@ -5,25 +5,107 @@ Public Class AdminSuppliersForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
 
-    Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSuppliersBtn.Click
-        Dim supplerAddEditModal As New AdminSupplierAddEditModal
+    Private suppID As String
+    Private suppCompName As String
+    Private companyDesc As String
+    Private contactPerson As String
+    Private contactNumber As String
+    Private email As String
+    Private suppLoc As String
+    Private supplierType As String
+    Private contractType As String
+    Private bankDetails As String
+    Private paymentTerms As String
+    Private deliveryTime As String
+    Private noSuppliedItems As Integer
+    Private totalPaid As Decimal
+    Private picturePath As String
+    Private dateAdded As DateTime
+    Private archivedStatus As Boolean
+    Private dateArchived As DateTime
+
+    Private Function InitValues() As Boolean
+        Try
+            suppID = SupplierDGV.CurrentRow.Cells("SUPPLIER_ID").Value
+            suppCompName = SupplierDGV.CurrentRow.Cells("COMPANY_NAME").Value
+            companyDesc = SupplierDGV.CurrentRow.Cells("COMPANY_DESCRIPTION").Value
+            contactNumber = SupplierDGV.CurrentRow.Cells("CONTACT_NUMBER").Value
+            email = SupplierDGV.CurrentRow.Cells("COMPANY_EMAIL").Value
+            suppLoc = SupplierDGV.CurrentRow.Cells("LOCATION").Value
+            supplierType = SupplierDGV.CurrentRow.Cells("SUPPLIER_TYPE").Value
+            contractType = SupplierDGV.CurrentRow.Cells("CONTRACT_TYPE").Value
+            bankDetails = SupplierDGV.CurrentRow.Cells("BANK_DETAILS").Value
+            paymentTerms = SupplierDGV.CurrentRow.Cells("PAYMENT_TERMS").Value
+            deliveryTime = SupplierDGV.CurrentRow.Cells("ESTIMATED_DELIVERY_TIME").Value
+            noSuppliedItems = SupplierDGV.CurrentRow.Cells("NUMBER_SUPPLIED_ITEMS").Value
+            totalPaid = SupplierDGV.CurrentRow.Cells("TOTAL_PAID").Value
+            picturePath = SupplierDGV.CurrentRow.Cells("PICTURE_PATH").Value
+            dateAdded = SupplierDGV.CurrentRow.Cells("DATE_ADDED").Value
+            archivedStatus = SupplierDGV.CurrentRow.Cells("ARCHIVED").Value
+            dateArchived = SupplierDGV.CurrentRow.Cells("DATE_ARCHIVED").Value
+
+        Catch ex As Exception
+            MsgBox("Cannot put values to form modal: " & ex.Message)
+        End Try
+
+        Return True
+    End Function
+
+    Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
+        Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            supplerAddEditModal.Owner = formModal
-            supplerAddEditModal.StartPosition = FormStartPosition.CenterScreen
-            AdminEmployeeAddModal.ShowDialog()
+            supplierAddEditModal.Owner = formModal
+            supplierAddEditModal.StartPosition = FormStartPosition.CenterScreen
+            supplierAddEditModal.ShowDialog()
 
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
-            supplerAddEditModal.Close()
+            supplierAddEditModal.Close()
         Finally
-            AdminEmployeeAddModal.Dispose()
+            supplierAddEditModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
+    End Sub
+    Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
+        Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
+        InitValues()
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With supplierAddEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+
+                .CompanyNameTxtBox.Text = suppCompName
+                .ContactPersonTxtBox.Text = contactPerson
+                .CompanyEmailTxtBox.Text = email
+                .ContactNumberTxtBox.Text = contactNumber
+                .LocationTxtBox.Text = suppLoc
+                .EstDelivTimeTxtBox.Text = deliveryTime
+                .CompanyDescTxtBox.Text = companyDesc
+                .SupplierTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
+                .ContractTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
+                .BnkDetailsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
+                .PaymentTermsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
+
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            supplierAddEditModal.Close()
+        Finally
+            supplierAddEditModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
     End Sub
 
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
@@ -37,23 +119,25 @@ Public Class AdminSuppliersForm
 
         Dim searchBy As String = "company_name"
 
-        If SearchComboBox.SelectedIndex = 0 Then
-            searchBy = "company_name"
-        ElseIf SearchComboBox.SelectedIndex = 1 Then
-            searchBy = "contact_person"
-        ElseIf SearchComboBox.SelectedIndex = 2 Then
-            searchBy = "company_number"
-        ElseIf SearchComboBox.SelectedIndex = 3 Then
-            searchBy = "contact_email"
-        ElseIf SearchComboBox.SelectedIndex = 4 Then
-            searchBy = "location"
-        ElseIf SearchComboBox.SelectedIndex = 5 Then
-            searchBy = "estimated_delivery_time"
-        ElseIf SearchComboBox.SelectedIndex = 6 Then
-            searchBy = "total_paid"
-        ElseIf SearchComboBox.SelectedIndex = 7 Then
-            searchBy = "date_added"
-        End If
+        With SearchComboBox
+            If .SelectedIndex = 0 Then
+                searchBy = "company_name"
+            ElseIf .SelectedIndex = 1 Then
+                searchBy = "contact_person"
+            ElseIf .SelectedIndex = 2 Then
+                searchBy = "company_number"
+            ElseIf .SelectedIndex = 3 Then
+                searchBy = "contact_email"
+            ElseIf .SelectedIndex = 4 Then
+                searchBy = "location"
+            ElseIf .SelectedIndex = 5 Then
+                searchBy = "estimated_delivery_time"
+            ElseIf .SelectedIndex = 6 Then
+                searchBy = "total_paid"
+            ElseIf .SelectedIndex = 7 Then
+                searchBy = "date_added"
+            End If
+        End With
 
         ' Search
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
@@ -62,8 +146,8 @@ Public Class AdminSuppliersForm
             suppliersTable.DefaultView.RowFilter = ""
         End If
 
-        EmpDGV.AutoGenerateColumns = True
-        EmpDGV.DataSource = suppliersTable
+        SupplierDGV.AutoGenerateColumns = True
+        SupplierDGV.DataSource = suppliersTable
 
         FormatDataGridViewRows()
     End Sub
@@ -74,30 +158,51 @@ Public Class AdminSuppliersForm
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
+
+        If ShowArchiveCheckBox.Checked Then
+            DeleteSupplierBtn.Visible = True
+            ArchiveSupplierBtn.Visible = False
+            SupplierDGV.Columns("DATE_ARCHIVED").Visible = True
+        Else
+            DeleteSupplierBtn.Visible = False
+            ArchiveSupplierBtn.Visible = True
+            SupplierDGV.Columns("DATE_ARCHIVED").Visible = False
+        End If
+
     End Sub
 
     Private Sub FormatDataGridViewRows()
         Try
-            For Each row As DataGridViewRow In EmpDGV.Rows
+            For Each row As DataGridViewRow In SupplierDGV.Rows
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
                 Else
                     row.DefaultCellStyle.BackColor = Color.White ' Default color
                 End If
-
-                Try
-                    If row.Cells("SUPPLIER_ID").Value = GlobalSession.CurrentSession.EmployeeID Then
-                        row.DefaultCellStyle.BackColor = Color.LightYellow
-                    End If
-                Catch ex As Exception
-
-                End Try
-
-
             Next
         Catch ex As Exception
             MsgBox("Unable to style the Employee DGB with no current id session!")
         End Try
     End Sub
+
+    Private Function CheckIfInvalid() As Boolean
+        If SupplierDGV.Rows.Count = 0 Then
+            MsgBox("No Data Found!")
+            Return True
+        End If
+
+        If SupplierDGV.CurrentRow Is Nothing Then
+            MsgBox("No row is currently selected.")
+            Return True
+        End If
+
+        If SupplierDGV.SelectedRows.Count <= 0 Then
+            MsgBox("Please Select a Row First")
+            Return True
+        End If
+
+        Return False
+    End Function
+
 
 End Class

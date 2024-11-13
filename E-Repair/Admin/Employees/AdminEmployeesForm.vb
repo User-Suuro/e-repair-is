@@ -126,71 +126,74 @@ Public Class AdminEmployeesForm
         Try
             formModal = formUtils.CreateBgFormModal()
 
-            ' LOAD FORM
-            employeeViewModal.Owner = formModal
-            employeeViewModal.StartPosition = FormStartPosition.CenterScreen
+            With employeeViewModal
+                ' LOAD FORM
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
 
-            ' LOAD DATA IN TEXTBOXES
+                ' LOAD DATA IN TEXTBOXES
 
-            employeeViewModal.EmployeeIDTextBox.Text = employeeID
+                .EmployeeIDTextBox.Text = employeeID
 
-            employeeViewModal.FirstNameTextBox.Text = empFirstName
-            employeeViewModal.MiddleNameTextBox.Text = empMiddleName
-            employeeViewModal.LastNameTextBox.Text = empLastName
-            employeeViewModal.SexTextBox.Text = empSex
-            employeeViewModal.BirthDateTextBox.Text = empBirthDate
-            employeeViewModal.CivilStatusTextBox.Text = empCivilStatus
-            employeeViewModal.AddressTextBox.Text = empAddress
+                .FirstNameTextBox.Text = empFirstName
+                .MiddleNameTextBox.Text = empMiddleName
+                .LastNameTextBox.Text = empLastName
+                .SexTextBox.Text = empSex
+                .BirthDateTextBox.Text = empBirthDate
+                .CivilStatusTextBox.Text = empCivilStatus
+                .AddressTextBox.Text = empAddress
 
-            employeeViewModal.ContactNumberTextBox.Text = empContactNumber
-            employeeViewModal.ContractStatusTextBox.Text = empContractStatus
-            employeeViewModal.DateHiredTextBox.Text = empDateHired
+                .ContactNumberTextBox.Text = empContactNumber
+                .ContractStatusTextBox.Text = empContractStatus
+                .DateHiredTextBox.Text = empDateHired
 
-            employeeViewModal.JobTypeTextBox.Text = empjobType
+                .JobTypeTextBox.Text = empjobType
 
-            employeeViewModal.SSSTextBox.Text = empSSS
-            employeeViewModal.PagIbigTextBox.Text = empPAGIBIG
-            employeeViewModal.TINTextBox.Text = empTIN
+                .SSSTextBox.Text = empSSS
+                .PagIbigTextBox.Text = empPAGIBIG
+                .TINTextBox.Text = empTIN
 
-            employeeViewModal.ProfilePathTextBox.Text = empProfilePath
+                .ProfilePathTextBox.Text = empProfilePath
 
-            Try
-                If (empProfilePath <> "") Then
-                    employeeViewModal.ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
+                Try
+                    If (empProfilePath <> "") Then
+                        .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
+                    End If
+                Catch ex As Exception
+                    .ProfileCirclePictureBox.Image = Image.FromFile(constants.getNoImgPath)
+                End Try
+
+
+                .EmailTextBox.Text = empEmail
+
+                If (empPassword <> "") Then
+                    .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
+                Else
+                    .PasswordTextBox.Text = "N/A"
                 End If
-            Catch ex As Exception
-                employeeViewModal.ProfileCirclePictureBox.Image = Image.FromFile(constants.getNoImgPath)
-            End Try
 
+                .ArchiveStatusTextBox.Text = empArchived
 
-            employeeViewModal.EmailTextBox.Text = empEmail
+                .LastAccessedTextBox.Text = empLastAccessed
 
-            If (empPassword <> "") Then
-                employeeViewModal.PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
-            Else
-                employeeViewModal.PasswordTextBox.Text = "N/A"
-            End If
+                .AddedByTextBox.Text = empIdAddedBy
 
-            employeeViewModal.ArchiveStatusTextBox.Text = empArchived
+                .PositionTextBox.Text = adminPosition
+                .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
 
-            employeeViewModal.LastAccessedTextBox.Text = empLastAccessed
+                .DevicesRepairedTextBox.Text = techNumberFinishedServices
+                .NumberJobsAssignedTextBox.Text = techNumberPendingServices
 
-            employeeViewModal.AddedByTextBox.Text = empIdAddedBy
+                .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
 
-            employeeViewModal.PositionTextBox.Text = adminPosition
-            employeeViewModal.EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
+                .AssignedLocationTextBox.Text = utilityPersonnelDestination
 
-            employeeViewModal.DevicesRepairedTextBox.Text = techNumberFinishedServices
-            employeeViewModal.NumberJobsAssignedTextBox.Text = techNumberPendingServices
+                .DateAddedTextBox.Text = empDateAdded
 
-            employeeViewModal.CustomersHandledTextBox.Text = cashierTotalCustomersHandled
+                ' DISPLAY FORM
+                .ShowDialog()
+            End With
 
-            employeeViewModal.AssignedLocationTextBox.Text = utilityPersonnelDestination
-
-            employeeViewModal.DateAddedTextBox.Text = empDateAdded
-
-            ' DISPLAY FORM
-            employeeViewModal.ShowDialog()
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -234,74 +237,71 @@ Public Class AdminEmployeesForm
         Try
             formModal = formUtils.CreateBgFormModal()
 
-            ' LOAD FORM
-            employeeAddModal.Owner = formModal
-            employeeAddModal.StartPosition = FormStartPosition.CenterScreen
-            employeeAddModal.editMode = True
-            employeeAddModal.EmployeeModalGroupBox.Text = "Edit Employee Details"
+            With employeeAddModal
+                ' LOAD FORM
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .editMode = True
+                .EmployeeModalGroupBox.Text = "Edit Employee Details"
+
+                .selectedEmployeeId = employeeID
+
+                .FirstNameTextBox.Text = empFirstName
+                .MiddleNameTextBox.Text = empMiddleName
+                .LastNameTextBox.Text = empLastName
+                .SexComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
+
+                .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
+
+                .CivilStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
+
+                .AddressTextBox.Text = empAddress
+
+                .ContactNumberTextBox.Text = empContactNumber
+
+                .ContractStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+
+                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
+
+                .JobTypeComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
+
+                If .JobTypeComboBox.Text = constants.getAdminString Then
+
+                    .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
+
+                ElseIf .JobTypeComboBox.Text = constants.getTechnicianString Then
 
 
-            employeeAddModal.selectedEmployeeId = employeeID
-
-            employeeAddModal.FirstNameTextBox.Text = empFirstName
-            employeeAddModal.MiddleNameTextBox.Text = empMiddleName
-            employeeAddModal.LastNameTextBox.Text = empLastName
-
-            Dim selectedSexIndex = formUtils.FindComboBoxItemByText(employeeAddModal.SexComboBox, empSex)
-            employeeAddModal.SexComboBox.SelectedIndex = selectedSexIndex
-
-            employeeAddModal.BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
-
-            Dim selectedCivilStatusIndex = formUtils.FindComboBoxItemByText(employeeAddModal.CivilStatusComboBox, empCivilStatus)
-            employeeAddModal.CivilStatusComboBox.SelectedIndex = selectedCivilStatusIndex
-
-            employeeAddModal.AddressTextBox.Text = empAddress
-
-            employeeAddModal.ContactNumberTextBox.Text = empContactNumber
-
-            Dim selectedContractStatusIndex = formUtils.FindComboBoxItemByText(employeeAddModal.ContractStatusComboBox, empContractStatus)
-            employeeAddModal.ContractStatusComboBox.SelectedIndex = selectedContractStatusIndex
-
-            employeeAddModal.DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
-
-            Dim selectedJobTypeIndex = formUtils.FindComboBoxItemByText(employeeAddModal.JobTypeComboBox, empjobType)
-            employeeAddModal.JobTypeComboBox.SelectedIndex = selectedJobTypeIndex
-
-            If employeeAddModal.JobTypeComboBox.Text = constants.getAdminString Then
-
-                employeeAddModal.PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(employeeAddModal.PositionComboBox, adminPosition)
-
-            ElseIf employeeAddModal.JobTypeComboBox.Text = constants.getTechnicianString Then
+                ElseIf .JobTypeComboBox.Text = constants.getCashierString Then
 
 
-            ElseIf employeeAddModal.JobTypeComboBox.Text = constants.getCashierString Then
+                ElseIf .JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
 
 
-            ElseIf employeeAddModal.JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
+                    .AssignedLocationTextBox.Text = utilityPersonnelDestination
 
+                End If
 
-                employeeAddModal.AssignedLocationTextBox.Text = utilityPersonnelDestination
+                .SSSTextBox.Text = empSSS
+                .PagIbigTextBox.Text = empPAGIBIG
+                .TINTextBox.Text = empTIN
 
-            End If
+                Dim profileImagePath As String = empProfilePath
 
-            employeeAddModal.SSSTextBox.Text = empSSS
-            employeeAddModal.PagIbigTextBox.Text = empPAGIBIG
-            employeeAddModal.TINTextBox.Text = empTIN
+                If (profileImagePath <> "N/A") Then
+                    .ProfileCirclePictureBox.Image = Image.FromFile(profileImagePath)
+                End If
 
-            Dim profileImagePath As String = empProfilePath
+                .profileImgPath = profileImagePath
 
-            If (profileImagePath <> "N/A") Then
-                employeeAddModal.ProfileCirclePictureBox.Image = Image.FromFile(profileImagePath)
-            End If
+                .EmailTextBox.Text = empEmail
 
-            employeeAddModal.profileImgPath = profileImagePath
+                .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
+                .ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
 
-            employeeAddModal.EmailTextBox.Text = empEmail
+                .ShowDialog()
+            End With
 
-            employeeAddModal.PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
-            employeeAddModal.ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
-
-            employeeAddModal.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
@@ -409,21 +409,24 @@ Public Class AdminEmployeesForm
 
         Dim searchBy As String = "firstname"
 
-        If SearchComboBox.SelectedIndex = 0 Then
-            searchBy = "firstname"
-        ElseIf SearchComboBox.SelectedIndex = 1 Then
-            searchBy = "middlename"
-        ElseIf SearchComboBox.SelectedIndex = 2 Then
-            searchBy = "lastname"
-        ElseIf SearchComboBox.SelectedIndex = 3 Then
-            searchBy = "date_hired"
-        ElseIf SearchComboBox.SelectedIndex = 4 Then
-            searchBy = "email"
-        ElseIf SearchComboBox.SelectedIndex = 5 Then
-            searchBy = "last_accessed"
-        ElseIf SearchComboBox.SelectedIndex = 6 Then
-            searchBy = "date_added"
-        End If
+        With SearchComboBox
+            If .SelectedIndex = 0 Then
+                searchBy = "firstname"
+            ElseIf .SelectedIndex = 1 Then
+                searchBy = "middlename"
+            ElseIf .SelectedIndex = 2 Then
+                searchBy = "lastname"
+            ElseIf .SelectedIndex = 3 Then
+                searchBy = "date_hired"
+            ElseIf .SelectedIndex = 4 Then
+                searchBy = "email"
+            ElseIf .SelectedIndex = 5 Then
+                searchBy = "last_accessed"
+            ElseIf .SelectedIndex = 6 Then
+                searchBy = "date_added"
+            End If
+        End With
+
 
         ' Search
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
@@ -461,6 +464,4 @@ Public Class AdminEmployeesForm
             MsgBox("Unable to style the Employee DGB with no current id session!")
         End Try
     End Sub
-
-
 End Class

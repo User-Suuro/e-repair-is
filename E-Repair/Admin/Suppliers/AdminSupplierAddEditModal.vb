@@ -1,4 +1,6 @@
 ﻿Public Class AdminSupplierAddEditModal
+    Public Property editMode As Boolean = False
+
     Dim formModal As Form
     Dim formUtils As FormUtils
 
@@ -11,6 +13,6 @@
 
     End Sub
 
-
+   
 
 End Class
