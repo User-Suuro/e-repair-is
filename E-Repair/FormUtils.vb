@@ -64,12 +64,12 @@ Public Class FormUtils
 
     End Function
 
-    Public Function CopyImageFileToProjectFolder(sourceFilePath As String) As String
+    Public Function CopyImageFileToProjectFolder(sourceFilePath As String, folderName As String) As String
 
         If File.Exists(sourceFilePath) Then
             Dim image As Image = Image.FromFile(sourceFilePath)
 
-            Dim projectFolder As String = Path.Combine(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName, "Images")
+            Dim projectFolder As String = Path.Combine(Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName, folderName)
 
             If Not Directory.Exists(projectFolder) Then
                 Directory.CreateDirectory(projectFolder)

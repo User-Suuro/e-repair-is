@@ -3,14 +3,25 @@ Imports Guna.UI2.HtmlRenderer.Core
 
 Public Class AdminSupplierAddEditModal
     ' TOOLS
-
     Dim formModal As Form
     Dim formUtils As FormUtils
     Dim dbHelper As DbHelper
 
+    ' SCHEMA
+    Dim compName As String
+    Dim compContactPerson As String
+    Dim compEmail As String
+    Dim compContactNumber As String
+    Dim compLoc As String
+    Dim estDelivTime As String
+    Dim compDesc As String
+
+    Dim supplierType As String
+    Dim contractType As String
+    Dim bankDetails As String
+    Dim paymentTerms As String
+
     Public Property editMode As Boolean = False
-
-
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
@@ -25,6 +36,8 @@ Public Class AdminSupplierAddEditModal
         End Try
 
     End Sub
+
+    ' ADD SUPPLIER
 
     Private Sub AddSupplierFunction()
 
@@ -43,8 +56,10 @@ Public Class AdminSupplierAddEditModal
 
         ' Save Image Locally
 
+
     End Sub
 
+    ' EDIT SUPPLIER
     Private Sub EditModeFunction()
 
     End Sub
@@ -53,6 +68,47 @@ Public Class AdminSupplierAddEditModal
         Me.Close()
     End Sub
 
+    ' COMPANY NAME
+    Private Sub CompanyNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompanyNameTxtBox.TextChanged
+        compName = CompanyNameTxtBox.Text
+    End Sub
+
+    ' CONTACT PERSON
+    Private Sub ContactPersonTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContactPersonTxtBox.TextChanged
+        compContactPerson = ContactPersonTxtBox.Text
+    End Sub
+
+    ' COMPANY EMAIL
+    Private Sub CompanyEmailTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompanyEmailTxtBox.TextChanged
+        compEmail = CompanyEmailTxtBox.Text
+    End Sub
+
+    ' CONTACT NUMBER
+    Private Sub ContactNumberTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContactNumberTxtBox.TextChanged
+        compContactNumber = ContactNumberTxtBox.Text
+    End Sub
+
+    ' LOCATION
+    Private Sub LocationTxtBox_TextChanged(sender As Object, e As EventArgs) Handles LocationTxtBox.TextChanged
+        compLoc = LocationTxtBox.Text
+    End Sub
+
+    ' ESTIMATED DELIVERY TIME
+    Private Sub EstDelivTimeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles EstDelivTimeTxtBox.TextChanged
+        estDelivTime = EstDelivTimeTxtBox.Text
+    End Sub
+
+    ' COMPANY DESCRIPTION
+    Private Sub CompanyDescTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompanyDescTxtBox.TextChanged
+        compDesc = CompanyDescTxtBox.Text
+    End Sub
+
+    ' SUPPLIER TYPE
+    Private Sub SupplierTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierTypeIfOthersTxtBox.TextChanged
+        If SupplierTypeCmbBox.SelectedItem = "Others" Then
+            supplierType = SupplierTypeIfOthersTxtBox.Text
+        End If
+    End Sub
     Private Sub SupplierTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SupplierTypeCmbBox.SelectedIndexChanged
         If SupplierTypeCmbBox.SelectedItem = "Others" Then
             With SupplierTypeTableLayout
@@ -60,12 +116,39 @@ Public Class AdminSupplierAddEditModal
                 .ColumnStyles(1).Width = 50.0F
             End With
         Else
+            supplierType = SupplierTypeCmbBox.SelectedItem
             With SupplierTypeTableLayout
                 .ColumnStyles(0).Width = 100.0F
                 .ColumnStyles(1).Width = 0.0F
             End With
         End If
+    End Sub
 
+    ' CONTRACT TYPE
+    Private Sub ContractTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContractTypeIfOthersTxtBox.TextChanged
+        If ContractTypeCmbBox.SelectedItem = "Others" Then
+            contractType = ContractTypeIfOthersTxtBox.Text
+        End If
+    End Sub
+    Private Sub ContractTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractTypeCmbBox.SelectedIndexChanged
+        If ContractTypeCmbBox.SelectedItem = "Others" Then
+            With ContractTypeTableLayout
+                .ColumnStyles(0).Width = 50.0F
+                .ColumnStyles(1).Width = 50.0F
+            End With
+        Else
+            With ContractTypeTableLayout
+                .ColumnStyles(0).Width = 100.0F
+                .ColumnStyles(1).Width = 0.0F
+            End With
+        End If
+    End Sub
+
+    ' BANK DETAILS
+    Private Sub BankDetailsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles BankDetailsIfOthersTxtBox.TextChanged
+        If BnkDetailsCmbBox.SelectedItem = "Others" Then
+            bankDetails = BankDetailsIfOthersTxtBox.Text
+        End If
     End Sub
 
     Private Sub BnkDetailsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BnkDetailsCmbBox.SelectedIndexChanged
@@ -82,20 +165,12 @@ Public Class AdminSupplierAddEditModal
         End If
     End Sub
 
-    Private Sub ContractTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractTypeCmbBox.SelectedIndexChanged
-        If ContractTypeCmbBox.SelectedItem = "Others" Then
-            With ContractTypeTableLayout
-                .ColumnStyles(0).Width = 50.0F
-                .ColumnStyles(1).Width = 50.0F
-            End With
-        Else
-            With ContractTypeTableLayout
-                .ColumnStyles(0).Width = 100.0F
-                .ColumnStyles(1).Width = 0.0F
-            End With
+    ' PAYMENT TERMS
+    Private Sub PaymentTermsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PaymentTermsIfOthersTxtBox.TextChanged
+        If PaymentTermsCmbBox.SelectedItem = "Others" Then
+            paymentTerms = PaymentTermsIfOthersTxtBox.Text
         End If
     End Sub
-
     Private Sub PaymentTermsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PaymentTermsCmbBox.SelectedIndexChanged
         If PaymentTermsCmbBox.SelectedItem = "Others" Then
             With PaymentTermsTableLayout

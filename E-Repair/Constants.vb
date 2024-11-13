@@ -19,14 +19,6 @@
     ' Security
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
 
-    ' Paths
-    Private ReadOnly _noImgPath As String = "C:\Users\User\source\repos\E-Repair\E-Repair\bin\Debug\Images\no-image.png"
-
-    Public ReadOnly Property getNoImgPath As String
-        Get
-            Return _noImgPath
-        End Get
-    End Property
 
     Public ReadOnly Property getAdminString As String
         Get
