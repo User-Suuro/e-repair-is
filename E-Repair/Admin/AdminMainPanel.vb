@@ -19,7 +19,7 @@ Public Class AdminMainPanel
             AdminTopNavPositionLabel.Text = GlobalSession.CurrentSession.JobType
             AdminTopNavProfilePictureBox.Image = Image.FromFile(GlobalSession.CurrentSession.ProfilePath)
         Catch ex As Exception
-            AdminTopNavProfilePictureBox.Image = Image.FromFile(constants.getNoImgPath)
+
         End Try
     End Sub
 

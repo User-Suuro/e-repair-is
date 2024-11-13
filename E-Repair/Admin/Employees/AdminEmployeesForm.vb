@@ -160,9 +160,8 @@ Public Class AdminEmployeesForm
                         .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
                     End If
                 Catch ex As Exception
-                    .ProfileCirclePictureBox.Image = Image.FromFile(constants.getNoImgPath)
-                End Try
 
+                End Try
 
                 .EmailTextBox.Text = empEmail
 
