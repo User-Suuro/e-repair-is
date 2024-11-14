@@ -283,7 +283,7 @@
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"firstname", firstName},
@@ -324,7 +324,7 @@
         End If
 
         If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues) Then
-            formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
+            formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath, True)
             MsgBox("Employee Successfully Added")
         Else
             MsgBox("Db Failure")
@@ -376,7 +376,7 @@
 
         ' Save image locally
         If prevEmployeeRow("profile_path") <> profileImgPath Then
-            updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath))
+            updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath, True))
         End If
 
         If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues) Then

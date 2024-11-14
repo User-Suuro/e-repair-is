@@ -59,7 +59,7 @@ Public Class AdminSupplierAddEditModal
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"company_name", compName},
@@ -84,7 +84,7 @@ Public Class AdminSupplierAddEditModal
         End If
 
         If dbHelper.InsertRecord("suppliers", insertData) Then
-            formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+            formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, True)
             MsgBox("Supplier Successfully Added")
         Else
             MsgBox("Db Failure!")
@@ -99,9 +99,30 @@ Public Class AdminSupplierAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
 
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
 
-        If Not File.Exists(savedPath) Then formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+        Dim insertUpdate As New Dictionary(Of String, Object) From {
+            {"company_name", compName},
+            {"company_description", compDesc},
+            {"contact_person", compContactPerson},
+            {"contact_number", compContactNumber},
+            {"company_email", compEmail},
+            {"location", compLoc},
+            {"supplier_type", supplierType},
+            {"supplier_contract", contractType},
+            {"bank_details", bankDetails},
+            {"payment_terms", paymentTerms},
+            {"estimated_delivery_time", estDelivTime},
+            {"company_picture_path", savedPath}
+        }
+
+        If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedSupplierID, insertUpdate) Then
+            MsgBox("Supplier Successfully Updated")
+        Else
+            MsgBox("Db Failure!")
+        End If
+
+        If Not File.Exists(savedPath) Then formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, True)
 
     End Sub
 
