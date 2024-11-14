@@ -271,9 +271,7 @@
     Private Sub CreateEmpFunction()
 
         ' Exit if canceled
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") = False Then
-            Exit Sub
-        End If
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
 
         ' GET EMPLOYEE KEY BY CURRENT SESSION
         Dim empIDLogged As Integer
@@ -395,9 +393,7 @@
             updatedEmployeeValues.Add("personnel_destination", personnelDestination)
         End If
 
-        If (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) = False Then
-            Exit Sub
-        End If
+        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
 
         ' Save image locally
         If prevEmployeeRow("profile_path") <> profileImgPath Then

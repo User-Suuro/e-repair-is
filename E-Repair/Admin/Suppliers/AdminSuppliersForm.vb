@@ -102,10 +102,40 @@ Public Class AdminSuppliersForm
                 .LocationTxtBox.Text = suppLoc
                 .EstDelivTimeTxtBox.Text = deliveryTime
                 .CompanyDescTxtBox.Text = companyDesc
-                .SupplierTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
-                .ContractTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
-                .BnkDetailsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
-                .PaymentTermsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
+
+                Dim supplierIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
+                Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
+                Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
+                Dim paymentIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
+
+                If supplierIndex = -1 Then
+                    .SupplierTypeCmbBox.SelectedItem = "Others"
+                    .SupplierTypeIfOthersTxtBox.Text = supplierType
+                Else
+                    .SupplierTypeCmbBox.SelectedIndex = supplierIndex
+                End If
+
+                If contractIndex = -1 Then
+                    .ContractTypeCmbBox.SelectedItem = "Others"
+                    .ContractTypeIfOthersTxtBox.Text = contractType
+                Else
+                    .ContractTypeCmbBox.SelectedIndex = contractIndex
+                End If
+
+                If BankIndex = -1 Then
+                    .BnkDetailsCmbBox.SelectedItem = "Others"
+                    .ContractTypeIfOthersTxtBox.Text = bankDetails
+                Else
+                    .BnkDetailsCmbBox.SelectedIndex = BankIndex
+                End If
+
+                If paymentIndex = -1 Then
+                    .PaymentTermsCmbBox.SelectedItem = "Others"
+                    .PaymentTermsIfOthersTxtBox.Text = paymentTerms
+                Else
+                    .PaymentTermsCmbBox.SelectedIndex = paymentIndex
+                End If
+
                 .selectedSupplierID = suppID
                 .compProfilePath = suppProfilePath
 
@@ -218,7 +248,5 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
-
-
 
 End Class
