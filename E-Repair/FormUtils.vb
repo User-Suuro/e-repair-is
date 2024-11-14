@@ -61,7 +61,7 @@ Public Class FormUtils
     End Function
 
     ' Copy image to pc's appdata then return the path
-    Public Function CopyImageFileToProjectFolder(sourceFilePath As String, folderName As String, Optional commit As Boolean = True) As String
+    Public Function CopyImageFileToProjectFolder(sourceFilePath As String, folderName As String) As String
 
         If File.Exists(sourceFilePath) Then
             Dim image As Image = Image.FromFile(sourceFilePath)
@@ -85,7 +85,7 @@ Public Class FormUtils
 
             If File.Exists(filePath) Then Return filePath
 
-            If commit Then image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png)
+            image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png)
 
             Return filePath
 
@@ -96,9 +96,9 @@ Public Class FormUtils
     End Function
 
     ' VALUE CHECKER
-    Public Function AreAllValuesFilled(values As List(Of Object)) As Boolean
-        For Each value In values
-            If value Is Nothing OrElse value.ToString() = "" OrElse value.ToString() = "-1" Then
+    Public Function AreAllValuesFilled(values As Dictionary(Of String, Object)) As Boolean
+        For Each kvp In values
+            If kvp.Value Is Nothing OrElse kvp.Value.ToString() = "" OrElse kvp.Value.ToString() = "-1" Then
                 Return False
             End If
         Next

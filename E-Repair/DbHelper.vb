@@ -211,25 +211,23 @@ Public Class DbHelper
 
     ' Function Add Stuffs to Table (tableName, targetColumn, values) returns true if success otherwise false
 
-    Public Function InsertIntoTable(tableName As String, columns As List(Of String), values As List(Of Object)) As Boolean
-        If columns.Count <> values.Count Then
-            Throw New ArgumentException("Columns and values count must match.")
-        End If
+    Public Function InsertRecord(tableName As String, valuesToInsert As Dictionary(Of String, Object)) As Boolean
 
-        Dim columnsStr As String = String.Join(", ", columns.Select(Function(col) $"`{col}`"))
-        Dim parametersStr As String = String.Join(", ", columns.Select(Function(col, idx) $"@param{idx}"))
+        Dim columnsStr As String = String.Join(", ", valuesToInsert.Keys.Select(Function(col) $"`{col}`"))
+        Dim parametersStr As String = String.Join(", ", valuesToInsert.Keys.Select(Function(key) $"@{key}"))
 
         Dim insertSql As String = $"INSERT INTO `{tableName}` ({columnsStr}) VALUES ({parametersStr})"
 
         Try
             cmd.Parameters.Clear()
 
-            For i As Integer = 0 To values.Count - 1
-                cmd.Parameters.AddWithValue($"@param{i}", values(i))
+            cmd = New MySqlCommand(insertSql, conn)
+
+            For Each kvp As KeyValuePair(Of String, Object) In valuesToInsert
+                cmd.Parameters.AddWithValue($"@{kvp.Key}", kvp.Value)
             Next
 
-            readQuery(insertSql)
-
+            readQuery(insertSql, False)
 
             If cmdRead IsNot Nothing Then
                 cmd.Parameters.Clear()
@@ -237,14 +235,16 @@ Public Class DbHelper
             End If
 
             Return True
-        Catch ex As Exception
-            MsgBox("Error inserting data: " & ex.Message, MsgBoxStyle.Critical)
-            Return False
-        Finally
 
-            If cmdRead IsNot Nothing AndAlso Not cmdRead.IsClosed Then cmdRead.Close()
+        Catch ex As Exception
+            MsgBox("Error inserting record: " & ex.Message, MsgBoxStyle.Critical)
+            Return False
+
+        Finally
+            ' Close connection if open
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
+
     End Function
 
     ' Function to Update Stuffs to Table (tableName, targetColumn, targetId, updatedValues in Dictionary) returns true if success otherwise false

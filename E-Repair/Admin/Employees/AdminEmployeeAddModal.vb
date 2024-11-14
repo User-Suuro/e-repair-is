@@ -283,51 +283,30 @@
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath, False)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
 
-        Dim employeeColumns As New List(Of String) From {
-            "firstname",
-            "middlename",
-            "lastname",
-            "sex",
-            "birthdate",
-            "civilstatus",
-            "address",
-            "contact_number",
-            "employment_status",
-            "date_hired",
-            "job_type",
-            "sss_no",
-            "pagibig_no",
-            "tin_no",
-            "profile_path",
-            "email",
-            "password",
-            "added_by"
+        Dim insertData As New Dictionary(Of String, Object) From {
+            {"firstname", firstName},
+            {"middlename", middleName},
+            {"lastname", lastName},
+            {"sex", sex},
+            {"birthdate", birthdate},
+            {"civilstatus", civilStatus},
+            {"address", address},
+            {"contact_number", contactNumber},
+            {"employment_status", contractStatus},
+            {"date_hired", dateHired},
+            {"job_type", jobType},
+            {"sss_no", sss},
+            {"pagibig_no", pagibig},
+            {"tin_no", tin},
+            {"profile_path", profileImgPath},
+            {"email", email},
+            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+            {"added_by", empIDLogged}
         }
 
-        Dim employeeValues As New List(Of Object) From {
-            firstName,
-            middleName,
-            lastName,
-            sex,
-            birthdate,
-            civilStatus,
-            address,
-            contactNumber,
-            contractStatus,
-            dateHired,
-            jobType,
-            sss,
-            pagibig,
-            tin,
-            savedPath,
-            email,
-            dbUtils.EncryptPassword(password, constants.EncryptionKey),
-            empIDLogged
-        }
-
-        If Not dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues) Then Exit Sub
+        If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
 
         ' UDPDATE FOREIGN VALUES
         Dim updateJobValues As New Dictionary(Of String, Object)

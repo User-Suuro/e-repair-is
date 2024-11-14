@@ -1,4 +1,5 @@
-﻿Imports Google.Protobuf.Reflection.FieldOptions.Types
+﻿Imports System.IO
+Imports Google.Protobuf.Reflection.FieldOptions.Types
 Imports Guna.UI2.HtmlRenderer.Core
 
 Public Class AdminSupplierAddEditModal
@@ -47,61 +48,42 @@ Public Class AdminSupplierAddEditModal
     Private Sub AddSupplierFunction()
 
         ' Exit if canceled
+        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then Exit Sub
 
         Dim empIDLogged As Integer
 
         Try
-            If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then
-                Exit Sub
-            End If
             empIDLogged = GlobalSession.CurrentSession.EmployeeID
         Catch ex As Exception
             empIDLogged = -1
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
 
-        Dim supplierColumns As New List(Of String) From {
-            "company_name",
-            "company_description",
-            "contact_person",
-            "contact_number",
-            "company_email",
-            "location",
-            "supplier_type",
-            "supplier_contract",
-            "bank_details",
-            "payment_terms",
-            "estimated_delivery_time",
-            "company_picture_path",
-            "date_added",
-            "added_by"
+        Dim insertData As New Dictionary(Of String, Object) From {
+            {"company_name", compName},
+            {"company_description", compDesc},
+            {"contact_person", compContactPerson},
+            {"contact_number", compContactNumber},
+            {"company_email", compEmail},
+            {"location", compLoc},
+            {"supplier_type", supplierType},
+            {"supplier_contract", contractType},
+            {"bank_details", bankDetails},
+            {"payment_terms", paymentTerms},
+            {"estimated_delivery_time", estDelivTime},
+            {"company_picture_path", savedPath},
+            {"date_added", DateTime.Now},
+            {"added_by", empIDLogged}
         }
 
-        Dim supplierValues As New List(Of Object) From {
-            compName,
-            compDesc,
-            compContactPerson,
-            compContactNumber,
-            compEmail,
-            compLoc,
-            supplierType,
-            contractType,
-            bankDetails,
-            paymentTerms,
-            estDelivTime,
-            savedPath,
-            DateTime.Now,
-            empIDLogged
-        }
-
-        If Not formUtils.AreAllValuesFilled(supplierValues) Then
-            MsgBox("Please fill all textbox!")
+        If Not formUtils.AreAllValuesFilled(insertData) Then
+            MsgBox("Please fill all necessary data")
             Exit Sub
         End If
 
-        If dbHelper.InsertIntoTable("suppliers", supplierColumns, supplierValues) Then
+        If dbHelper.InsertRecord("suppliers", insertData) Then
             formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
             MsgBox("Supplier Successfully Added")
         Else
@@ -114,6 +96,12 @@ Public Class AdminSupplierAddEditModal
 
     ' EDIT SUPPLIER
     Private Sub EditModeFunction()
+        ' Exit if canceled
+        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
+
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+
+        If Not File.Exists(savedPath) Then formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
 
     End Sub
 

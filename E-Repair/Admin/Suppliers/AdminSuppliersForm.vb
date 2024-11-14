@@ -37,7 +37,7 @@ Public Class AdminSuppliersForm
             email = SupplierDGV.CurrentRow.Cells("COMPANY_EMAIL").Value
             suppLoc = SupplierDGV.CurrentRow.Cells("LOCATION").Value
             supplierType = SupplierDGV.CurrentRow.Cells("SUPPLIER_TYPE").Value
-            contractType = SupplierDGV.CurrentRow.Cells("CONTRACT_TYPE").Value
+            contractType = SupplierDGV.CurrentRow.Cells("SUPPLIER_CONTRACT").Value
             bankDetails = SupplierDGV.CurrentRow.Cells("BANK_DETAILS").Value
             paymentTerms = SupplierDGV.CurrentRow.Cells("PAYMENT_TERMS").Value
             deliveryTime = SupplierDGV.CurrentRow.Cells("ESTIMATED_DELIVERY_TIME").Value
@@ -46,7 +46,6 @@ Public Class AdminSuppliersForm
             suppProfilePath = SupplierDGV.CurrentRow.Cells("PICTURE_PATH").Value
             dateAdded = SupplierDGV.CurrentRow.Cells("DATE_ADDED").Value
             archivedStatus = SupplierDGV.CurrentRow.Cells("ARCHIVED").Value
-            dateArchived = SupplierDGV.CurrentRow.Cells("DATE_ARCHIVED").Value
 
         Catch ex As Exception
             MsgBox("Cannot put values to form modal: " & ex.Message)
@@ -140,6 +139,7 @@ Public Class AdminSuppliersForm
                 .selectedSupplierID = suppID
                 .compProfilePath = suppProfilePath
 
+                .editMode = True
                 .ShowDialog()
             End With
 
