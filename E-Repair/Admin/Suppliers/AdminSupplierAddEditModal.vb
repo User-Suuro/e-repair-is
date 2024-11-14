@@ -3,24 +3,24 @@ Imports Guna.UI2.HtmlRenderer.Core
 
 Public Class AdminSupplierAddEditModal
     ' TOOLS
-    Dim formModal As Form
-    Dim formUtils As FormUtils
-    Dim dbHelper As DbHelper
-    Dim constants As Constants
+    Dim formModal As New Form
+    Dim formUtils As New FormUtils
+    Dim dbHelper As New DbHelper
+    Dim constants As New Constants
 
     ' SCHEMA
-    Dim compName As String
-    Dim compContactPerson As String
-    Dim compEmail As String
-    Dim compContactNumber As String
-    Dim compLoc As String
-    Dim estDelivTime As String
-    Dim compDesc As String
+    Dim compName As String = ""
+    Dim compContactPerson As String = ""
+    Dim compEmail As String = ""
+    Dim compContactNumber As String = ""
+    Dim compLoc As String = ""
+    Dim estDelivTime As String = ""
+    Dim compDesc As String = ""
 
-    Dim supplierType As String
-    Dim contractType As String
-    Dim bankDetails As String
-    Dim paymentTerms As String
+    Dim supplierType As String = ""
+    Dim contractType As String = ""
+    Dim bankDetails As String = ""
+    Dim paymentTerms As String = ""
 
     Public Property editMode As Boolean = False
     Public Property selectedSupplierID As Integer = -1
@@ -47,20 +47,17 @@ Public Class AdminSupplierAddEditModal
     Private Sub AddSupplierFunction()
 
         ' Exit if canceled
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?") = False Then
-            Exit Sub
-        End If
 
         Dim empIDLogged As Integer
 
         Try
+            If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then
+                Exit Sub
+            End If
             empIDLogged = GlobalSession.CurrentSession.EmployeeID
         Catch ex As Exception
             empIDLogged = -1
         End Try
-
-
-        ' Create Supplier
 
         ' Save Image Locally
         Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
@@ -78,7 +75,8 @@ Public Class AdminSupplierAddEditModal
             "payment_terms",
             "estimated_delivery_time",
             "company_picture_path",
-            "date_added"
+            "date_added",
+            "added_by"
         }
 
         Dim supplierValues As New List(Of Object) From {
@@ -94,12 +92,20 @@ Public Class AdminSupplierAddEditModal
             paymentTerms,
             estDelivTime,
             savedPath,
-            DateTime.Now
+            DateTime.Now,
+            empIDLogged
         }
 
-        dbHelper.InsertIntoTable("employees", supplierColumns, supplierValues)
+        If Not formUtils.AreAllValuesFilled(supplierValues) Then
+            MsgBox("Please fill all textbox!")
+            Exit Sub
+        End If
 
-        MsgBox("Supplier Successfully Added")
+        If dbHelper.InsertIntoTable("suppliers", supplierColumns, supplierValues) Then
+            MsgBox("Supplier Successfully Added")
+        Else
+            MsgBox("Db Failure!")
+        End If
 
         Me.Close()
 
@@ -183,6 +189,7 @@ Public Class AdminSupplierAddEditModal
                 .ColumnStyles(1).Width = 50.0F
             End With
         Else
+            contractType = ContractTypeCmbBox.SelectedItem
             With ContractTypeTableLayout
                 .ColumnStyles(0).Width = 100.0F
                 .ColumnStyles(1).Width = 0.0F
@@ -204,6 +211,7 @@ Public Class AdminSupplierAddEditModal
                 .ColumnStyles(1).Width = 50.0F
             End With
         Else
+            bankDetails = BnkDetailsCmbBox.SelectedItem
             With BankDetailsTableLayout
                 .ColumnStyles(0).Width = 100.0F
                 .ColumnStyles(1).Width = 0.0F
@@ -224,6 +232,7 @@ Public Class AdminSupplierAddEditModal
                 .ColumnStyles(1).Width = 50.0F
             End With
         Else
+            paymentTerms = PaymentTermsCmbBox.SelectedItem
             With PaymentTermsTableLayout
                 .ColumnStyles(0).Width = 100.0F
                 .ColumnStyles(1).Width = 0.0F
@@ -231,6 +240,7 @@ Public Class AdminSupplierAddEditModal
         End If
     End Sub
 
+    ' BTN UPLOAD
     Private Sub BtnUpload_Click(sender As Object, e As EventArgs) Handles BtnUpload.Click
         If SupplierFileDialog.ShowDialog = DialogResult.OK Then
             Dim imgPath = SupplierFileDialog.FileName
@@ -239,6 +249,7 @@ Public Class AdminSupplierAddEditModal
         End If
     End Sub
 
+    ' CIRCLE BOX
     Private Sub SupplierCirclePictureBox_Paint(sender As Object, e As PaintEventArgs) Handles SupplierCirclePictureBox.Paint
         Try
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)

@@ -1,8 +1,6 @@
 ﻿Imports System.IO
 
 Public Class FormUtils
-
-
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
         If targetPanel.Controls.Count > 0 Then
@@ -41,10 +39,8 @@ Public Class FormUtils
             End If
         Next
 
-        Return Index
+        Return index
     End Function
-
-
 
     ' CREATE BG FORM
 
@@ -64,6 +60,7 @@ Public Class FormUtils
 
     End Function
 
+    ' Copy image to pc's appdata then return the path
     Public Function CopyImageFileToProjectFolder(sourceFilePath As String, folderName As String) As String
 
         If File.Exists(sourceFilePath) Then
@@ -98,9 +95,13 @@ Public Class FormUtils
         End If
     End Function
 
-    Public Sub DeleteImageFile(filePath As String)
-        If File.Exists(filePath) Then
-            File.Delete(filePath)
-        End If
-    End Sub
+    ' VALUE CHECKER
+    Public Function AreAllValuesFilled(values As List(Of Object)) As Boolean
+        For Each value In values
+            If value Is Nothing OrElse value.ToString() = "" OrElse value.ToString() = "-1" Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
 End Class

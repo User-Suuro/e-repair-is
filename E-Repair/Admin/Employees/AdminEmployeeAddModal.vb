@@ -346,9 +346,11 @@
             updateJobValues.Add("personnel_destination", personnelDestination)
         End If
 
-        dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues)
-
-        MsgBox("Employee Successfully Added")
+        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues) Then
+            MsgBox("Employee Successfully Added")
+        Else
+            MsgBox("Db Failure")
+        End If
 
         Me.Close()
     End Sub
@@ -401,9 +403,11 @@
             updatedEmployeeValues.Add("profile_path", formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath))
         End If
 
-        dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues)
-
-        MsgBox("Employee Details Sucessfully Updated")
+        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues) Then
+            MsgBox("Employee Details Sucessfully Updated")
+        Else
+            MsgBox("Db Failure")
+        End If
 
         Me.Close()
     End Sub

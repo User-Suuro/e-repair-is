@@ -188,7 +188,6 @@ Partial Class AdminSupplierAddEditModal
         Me.CompanyDescTxtBox.HoverState.Parent = Me.CompanyDescTxtBox
         Me.CompanyDescTxtBox.Location = New System.Drawing.Point(2, 24)
         Me.CompanyDescTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.CompanyDescTxtBox.Multiline = True
         Me.CompanyDescTxtBox.Name = "CompanyDescTxtBox"
         Me.CompanyDescTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyDescTxtBox.PlaceholderText = ""

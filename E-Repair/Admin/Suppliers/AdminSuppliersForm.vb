@@ -101,7 +101,7 @@ Public Class AdminSuppliersForm
                 .ContractTypeCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 .BnkDetailsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
                 .PaymentTermsCmbBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
-                .selectedEmpID = suppID
+                .selectedSupplierID = suppID
                 .compProfilePath = suppProfilePath
 
                 .ShowDialog()
@@ -213,6 +213,5 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
-
 
 End Class
