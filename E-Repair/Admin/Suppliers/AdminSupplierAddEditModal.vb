@@ -60,7 +60,7 @@ Public Class AdminSupplierAddEditModal
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim supplierColumns As New List(Of String) From {
             "company_name",
@@ -102,6 +102,7 @@ Public Class AdminSupplierAddEditModal
         End If
 
         If dbHelper.InsertIntoTable("suppliers", supplierColumns, supplierValues) Then
+            formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
             MsgBox("Supplier Successfully Added")
         Else
             MsgBox("Db Failure!")

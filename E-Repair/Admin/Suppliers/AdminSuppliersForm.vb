@@ -55,13 +55,18 @@ Public Class AdminSuppliersForm
         Return False
     End Function
 
+    ' FORM ONLOAD
+    Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadDataToDGV()
+        SupplierDGV.ClearSelection()
+    End Sub
+
     ' ADD
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
-
             supplierAddEditModal.Owner = formModal
             supplierAddEditModal.StartPosition = FormStartPosition.CenterScreen
             supplierAddEditModal.ShowDialog()
@@ -213,5 +218,7 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
+
+
 
 End Class

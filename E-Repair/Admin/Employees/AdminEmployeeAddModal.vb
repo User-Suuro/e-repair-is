@@ -285,7 +285,7 @@
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath, False)
 
         Dim employeeColumns As New List(Of String) From {
             "firstname",
@@ -329,7 +329,7 @@
             empIDLogged
         }
 
-        dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues)
+        If Not dbHelper.InsertIntoTable("employees", employeeColumns, employeeValues) Then Exit Sub
 
         ' UDPDATE FOREIGN VALUES
         Dim updateJobValues As New Dictionary(Of String, Object)
@@ -347,6 +347,7 @@
         End If
 
         If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues) Then
+            formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
             MsgBox("Employee Successfully Added")
         Else
             MsgBox("Db Failure")
@@ -444,6 +445,4 @@
             Return False
         End If
     End Function
-
-
 End Class
