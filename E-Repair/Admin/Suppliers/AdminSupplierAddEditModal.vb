@@ -17,15 +17,13 @@ Public Class AdminSupplierAddEditModal
     Dim estDelivTime As String
     Dim compDesc As String
 
-
-
     Dim supplierType As String
     Dim contractType As String
     Dim bankDetails As String
     Dim paymentTerms As String
 
     Public Property editMode As Boolean = False
-    Public Property selectedEmpID As Integer = -1
+    Public Property selectedSupplierID As Integer = -1
     Public Property compProfilePath As String
 
 
@@ -62,31 +60,44 @@ Public Class AdminSupplierAddEditModal
         End Try
 
 
-<<<<<<< HEAD
-=======
-        ' Creeate Supplier
->>>>>>> d8f295226722e4762a9ca5a8db86d87eb5eadf19
-
+        ' Create Supplier
 
         ' Save Image Locally
         Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath)
 
-<<<<<<< HEAD
-        ' Create Supplier
-
         Dim supplierColumns As New List(Of String) From {
-             
+            "company_name",
+            "company_description",
+            "contact_person",
+            "contact_number",
+            "company_email",
+            "location",
+            "supplier_type",
+            "supplier_contract",
+            "bank_details",
+            "payment_terms",
+            "estimated_delivery_time",
+            "company_picture_path",
+            "date_added"
         }
 
         Dim supplierValues As New List(Of Object) From {
-           
+            compName,
+            compDesc,
+            compContactPerson,
+            compContactNumber,
+            compEmail,
+            compLoc,
+            supplierType,
+            contractType,
+            bankDetails,
+            paymentTerms,
+            estDelivTime,
+            savedPath,
+            DateTime.Now
         }
 
         dbHelper.InsertIntoTable("employees", supplierColumns, supplierValues)
-=======
-
-
->>>>>>> d8f295226722e4762a9ca5a8db86d87eb5eadf19
 
         MsgBox("Supplier Successfully Added")
 
@@ -229,6 +240,10 @@ Public Class AdminSupplierAddEditModal
     End Sub
 
     Private Sub SupplierCirclePictureBox_Paint(sender As Object, e As PaintEventArgs) Handles SupplierCirclePictureBox.Paint
-        SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
+        Try
+            SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

@@ -111,6 +111,7 @@
                 .ColumnStyles(3).Width = 25.0F
             End With
         Else
+            contractStatus = ContractStatusComboBox.SelectedItem
             With JobDetailsTableLayout
                 .ColumnStyles(0).Width = 33.3F
                 .ColumnStyles(1).Width = 33.3F
@@ -266,10 +267,26 @@
         End Try
 
     End Sub
-
+    ' CREATE EMPLOYEE
     Private Sub CreateEmpFunction()
 
-        ' CREATE EMPLOYEE
+        ' Exit if canceled
+        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") = False Then
+            Exit Sub
+        End If
+
+        ' GET EMPLOYEE KEY BY CURRENT SESSION
+        Dim empIDLogged As Integer
+
+        Try
+            empIDLogged = GlobalSession.CurrentSession.EmployeeID
+        Catch ex As Exception
+            empIDLogged = -1
+        End Try
+
+        ' Save Image Locally
+        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
+
         Dim employeeColumns As New List(Of String) From {
             "firstname",
             "middlename",
@@ -290,23 +307,6 @@
             "password",
             "added_by"
         }
-
-        ' GET EMPLOYEE KEY BY CURRENT SESSION
-        Dim empIDLogged As Integer
-
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            empIDLogged = -1
-        End Try
-
-        ' Exit if canceled
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") = False Then
-            Exit Sub
-        End If
-
-        ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(profileImgPath, constants.getEmpProfileFolderPath)
 
         Dim employeeValues As New List(Of Object) From {
             firstName,

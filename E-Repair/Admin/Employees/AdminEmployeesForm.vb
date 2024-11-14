@@ -69,6 +69,8 @@ Public Class AdminEmployeesForm
             Return True
         End If
 
+        ' INITIALIZE VALUES
+
         Try
             employeeID = EmpDGV.CurrentRow.Cells("EMPLOYEE_ID").Value
             empFirstName = EmpDGV.CurrentRow.Cells("FIRST_NAME").Value

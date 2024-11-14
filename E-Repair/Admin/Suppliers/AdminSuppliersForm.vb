@@ -24,6 +24,7 @@ Public Class AdminSuppliersForm
     Private archivedStatus As Boolean
     Private dateArchived As DateTime
 
+    ' INIT VALUES
     Private Function InitValues() As Boolean
 
         If CheckIfInvalid() Then Return True
@@ -54,6 +55,7 @@ Public Class AdminSuppliersForm
         Return False
     End Function
 
+    ' ADD
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
@@ -74,6 +76,8 @@ Public Class AdminSuppliersForm
             LoadDataToDGV()
         End Try
     End Sub
+
+    'EDIT
     Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
@@ -114,6 +118,7 @@ Public Class AdminSuppliersForm
         End Try
     End Sub
 
+    ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim suppliersTable As DataTable
 
@@ -174,7 +179,6 @@ Public Class AdminSuppliersForm
             ArchiveSupplierBtn.Visible = True
             SupplierDGV.Columns("DATE_ARCHIVED").Visible = False
         End If
-
     End Sub
 
     Private Sub FormatDataGridViewRows()

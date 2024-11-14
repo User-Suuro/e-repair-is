@@ -71,7 +71,7 @@ Public Class FormUtils
 
             Dim imageFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "E-Repair Images")
 
-            Dim specificFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), folderName)
+            Dim specificFolder As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "E-Repair Images", folderName)
 
             If Not Directory.Exists(imageFolder) Then
                 Directory.CreateDirectory(imageFolder)
