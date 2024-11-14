@@ -244,7 +244,6 @@ Public Class DbHelper
             ' Close connection if open
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
-
     End Function
 
     ' Function to Update Stuffs to Table (tableName, targetColumn, targetId, updatedValues in Dictionary) returns true if success otherwise false
