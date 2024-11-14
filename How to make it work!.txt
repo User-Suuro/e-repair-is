@@ -6,6 +6,8 @@ Go to project settings, then locate namespace
 
 Add Guna.UI and Guna.UI2 .dll
 
+Also add rldc report viewer .dll to namespace if it is gone
+
 Uncheck "Allow parallel project initialization" in Tools -> Options -> Project and Solutions -> General
 
 If you want to use GunaUI:
