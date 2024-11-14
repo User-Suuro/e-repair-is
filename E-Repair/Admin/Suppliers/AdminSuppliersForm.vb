@@ -107,30 +107,31 @@ Public Class AdminSuppliersForm
                 Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
                 Dim paymentIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
+                Dim othersChoice As String = "Others"
 
                 If supplierIndex = -1 Then
-                    .SupplierTypeCmbBox.SelectedItem = "Others"
+                    .SupplierTypeCmbBox.SelectedItem = othersChoice
                     .SupplierTypeIfOthersTxtBox.Text = supplierType
                 Else
                     .SupplierTypeCmbBox.SelectedIndex = supplierIndex
                 End If
 
                 If contractIndex = -1 Then
-                    .ContractTypeCmbBox.SelectedItem = "Others"
+                    .ContractTypeCmbBox.SelectedItem = othersChoice
                     .ContractTypeIfOthersTxtBox.Text = contractType
                 Else
                     .ContractTypeCmbBox.SelectedIndex = contractIndex
                 End If
 
                 If BankIndex = -1 Then
-                    .BnkDetailsCmbBox.SelectedItem = "Others"
+                    .BnkDetailsCmbBox.SelectedItem = othersChoice
                     .ContractTypeIfOthersTxtBox.Text = bankDetails
                 Else
                     .BnkDetailsCmbBox.SelectedIndex = BankIndex
                 End If
 
                 If paymentIndex = -1 Then
-                    .PaymentTermsCmbBox.SelectedItem = "Others"
+                    .PaymentTermsCmbBox.SelectedItem = othersChoice
                     .PaymentTermsIfOthersTxtBox.Text = paymentTerms
                 Else
                     .PaymentTermsCmbBox.SelectedIndex = paymentIndex
