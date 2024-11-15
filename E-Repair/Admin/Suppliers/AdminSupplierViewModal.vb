@@ -1,13 +1,15 @@
 ﻿Public Class AdminSupplierViewModal
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs)
-
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
     End Sub
 
-    Private Sub Guna2TextBox8_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox8.TextChanged
-
+    Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            SupplierCirclePictureBox.Image = Image.FromFile(CompanyPathTxtBox.Text)
+        Catch ex As Exception
+            MsgBox("Failed to read company image path")
+        End Try
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
+ 
 End Class

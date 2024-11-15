@@ -21,6 +21,7 @@ Public Class AdminSuppliersForm
     Private totalPaid As Decimal
     Private suppProfilePath As String
     Private dateAdded As DateTime
+    Private addedBy As String
     Private archivedStatus As Boolean
     Private dateArchived As DateTime
 
@@ -30,22 +31,26 @@ Public Class AdminSuppliersForm
         If CheckIfInvalid() Then Return True
 
         Try
-            suppID = SupplierDGV.CurrentRow.Cells("SUPPLIER_ID").Value
-            suppCompName = SupplierDGV.CurrentRow.Cells("COMPANY_NAME").Value
-            companyDesc = SupplierDGV.CurrentRow.Cells("COMPANY_DESCRIPTION").Value
-            contactNumber = SupplierDGV.CurrentRow.Cells("CONTACT_NUMBER").Value
-            email = SupplierDGV.CurrentRow.Cells("COMPANY_EMAIL").Value
-            suppLoc = SupplierDGV.CurrentRow.Cells("LOCATION").Value
-            supplierType = SupplierDGV.CurrentRow.Cells("SUPPLIER_TYPE").Value
-            contractType = SupplierDGV.CurrentRow.Cells("SUPPLIER_CONTRACT").Value
-            bankDetails = SupplierDGV.CurrentRow.Cells("BANK_DETAILS").Value
-            paymentTerms = SupplierDGV.CurrentRow.Cells("PAYMENT_TERMS").Value
-            deliveryTime = SupplierDGV.CurrentRow.Cells("ESTIMATED_DELIVERY_TIME").Value
-            noSuppliedItems = SupplierDGV.CurrentRow.Cells("NUMBER_SUPPLIED_ITEMS").Value
-            totalPaid = SupplierDGV.CurrentRow.Cells("TOTAL_PAID").Value
-            suppProfilePath = SupplierDGV.CurrentRow.Cells("PICTURE_PATH").Value
-            dateAdded = SupplierDGV.CurrentRow.Cells("DATE_ADDED").Value
-            archivedStatus = SupplierDGV.CurrentRow.Cells("ARCHIVED").Value
+            With SupplierDGV.CurrentRow
+                suppID = .Cells("SUPPLIER_ID").Value
+                suppCompName = .Cells("COMPANY_NAME").Value
+                companyDesc = .Cells("COMPANY_DESCRIPTION").Value
+                contactPerson = .Cells("CONTACT_PERSON").Value
+                contactNumber = .Cells("CONTACT_NUMBER").Value
+                email = .Cells("COMPANY_EMAIL").Value
+                suppLoc = .Cells("LOCATION").Value
+                supplierType = .Cells("SUPPLIER_TYPE").Value
+                contractType = .Cells("SUPPLIER_CONTRACT").Value
+                bankDetails = .Cells("BANK_DETAILS").Value
+                paymentTerms = .Cells("PAYMENT_TERMS").Value
+                deliveryTime = .Cells("ESTIMATED_DELIVERY_TIME").Value
+                noSuppliedItems = .Cells("NUMBER_SUPPLIED_ITEMS").Value
+                totalPaid = .Cells("TOTAL_PAID").Value
+                suppProfilePath = .Cells("PICTURE_PATH").Value
+                dateAdded = .Cells("DATE_ADDED").Value
+                addedBy = .Cells("ADDED_BY").Value
+                archivedStatus = .Cells("ARCHIVED").Value
+            End With
 
         Catch ex As Exception
             MsgBox("Cannot put values to form modal: " & ex.Message)
@@ -69,7 +74,29 @@ Public Class AdminSuppliersForm
         Try
             formModal = formUtils.CreateBgFormModal()
 
+            Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", addedBy)
 
+            With supplierViewModal
+                .CompanyNameTxtBox.Text = suppCompName
+                .ContactPersonTxtBox.Text = contactPerson
+                .CompanyEmailTxtBox.Text = email
+                .ContactNumberTxtBox.Text = contactNumber
+                .LocationTxtBox.Text = suppLoc
+                .EstDelivTimeTxtBox.Text = deliveryTime
+                .CompanyDescTxtBox.Text = companyDesc
+                .SupplierTypeTxtBox.Text = supplierType
+                .ContractTypeTxtBox.Text = contractType
+                .BankDetailsTxtBox.Text = bankDetails
+                .PaymentTermsTxtBox.Text = paymentTerms
+                .SupplierIdTextBox.Text = suppID
+                .NoSuppliedItemTxtBox.Text = noSuppliedItems
+                .TotalPaidTxtBox.Text = totalPaid
+                .DateAddedTxtBox.Text = dateAdded
+                .AddedByTxtBox.Text = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                .CompanyPathTxtBox.Text = suppProfilePath
+
+                .ShowDialog()
+            End With
 
         Catch ex As Exception
         Finally
@@ -175,6 +202,80 @@ Public Class AdminSuppliersForm
         End Try
     End Sub
 
+    ' ARCHIVE
+    Private Sub ArchiveSupplierBtn_Click(sender As Object, e As EventArgs) Handles ArchiveSupplierBtn.Click
+        Dim loggedUser As String
+
+        If InitValues() Then Exit Sub
+
+        If archivedStatus Then
+            MsgBox("This supplier is already archived!")
+            Exit Sub
+        End If
+
+        Try
+            loggedUser = GlobalSession.CurrentSession.EmployeeID
+
+        Catch ex As Exception
+            loggedUser = "N/A"
+            MsgBox("There is no current active user!")
+        End Try
+
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Suppplier?") Then Exit Sub
+
+        Dim updatedValues As New Dictionary(Of String, Object) From {
+            {"archived", True},
+            {"archived_by", loggedUser},
+            {"date_archived", DateTime.Now}
+        }
+
+        Try
+            dbHelper.UpdateRecord("suppliers", "supplier_id", suppID, updatedValues)
+
+            MsgBox("Successfull Archived")
+            LoadDataToDGV()
+
+        Catch ex As Exception
+            MsgBox("Cannot archive the selected supplier: " & ex.Message)
+        End Try
+    End Sub
+
+    ' DELETE
+    Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
+        If InitValues() Then Exit Sub
+
+        If Not archivedStatus Then
+            MsgBox("Archive the supplier first")
+            Exit Sub
+        End If
+
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this Suppplier?") Then Exit Sub
+
+        If dbHelper.DeleteRowById("suppliers", "supplier_id", suppID) Then MsgBox("Successfull Deleted")
+
+        LoadDataToDGV()
+    End Sub
+
+    ' VALUE CHECKER
+    Private Function CheckIfInvalid() As Boolean
+        If SupplierDGV.Rows.Count = 0 Then
+            MsgBox("No Data Found!")
+            Return True
+        End If
+
+        If SupplierDGV.CurrentRow Is Nothing Then
+            MsgBox("No row is currently selected.")
+            Return True
+        End If
+
+        If SupplierDGV.SelectedRows.Count <= 0 Then
+            MsgBox("Please Select a Row First")
+            Return True
+        End If
+
+        Return False
+    End Function
+
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim suppliersTable As DataTable
@@ -207,7 +308,6 @@ Public Class AdminSuppliersForm
             End If
         End With
 
-        ' Search
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
             suppliersTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
         Else
@@ -220,10 +320,12 @@ Public Class AdminSuppliersForm
         FormatDataGridViewRows()
     End Sub
 
+    ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
+    ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
 
@@ -238,6 +340,7 @@ Public Class AdminSuppliersForm
         End If
     End Sub
 
+    ' ROW STYLES
     Private Sub FormatDataGridViewRows()
         Try
             For Each row As DataGridViewRow In SupplierDGV.Rows
@@ -252,22 +355,4 @@ Public Class AdminSuppliersForm
         End Try
     End Sub
 
-    Private Function CheckIfInvalid() As Boolean
-        If SupplierDGV.Rows.Count = 0 Then
-            MsgBox("No Data Found!")
-            Return True
-        End If
-
-        If SupplierDGV.CurrentRow Is Nothing Then
-            MsgBox("No row is currently selected.")
-            Return True
-        End If
-
-        If SupplierDGV.SelectedRows.Count <= 0 Then
-            MsgBox("Please Select a Row First")
-            Return True
-        End If
-
-        Return False
-    End Function
 End Class
