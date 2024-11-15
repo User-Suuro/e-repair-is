@@ -38,6 +38,11 @@ Partial Class AdminEmployeeViewModal
         Me.Label15 = New System.Windows.Forms.Label()
         Me.JobDescriptionFlowLayout = New System.Windows.Forms.FlowLayoutPanel()
         Me.AdminDescriptionPanel = New Guna.UI2.WinForms.Guna2Panel()
+        Me.JobAdminTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.EmployeeAddedTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.PositionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TechnicianDescriptionPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.DevicesRepairedTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -83,6 +88,10 @@ Partial Class AdminEmployeeViewModal
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.Guna2Panel13 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.ProfilePathTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ContactNumberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -108,21 +117,13 @@ Partial Class AdminEmployeeViewModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FirstNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Guna2Panel13 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProfilePathTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.PositionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.EmployeeAddedTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.JobAdminTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.JobDescriptionFlowLayout.SuspendLayout()
         Me.AdminDescriptionPanel.SuspendLayout()
+        Me.JobAdminTableLayout.SuspendLayout()
         Me.TechnicianDescriptionPanel.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.CashierDescriptionPanel.SuspendLayout()
@@ -139,6 +140,8 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel12.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
+        Me.Guna2Panel13.SuspendLayout()
+        Me.TableLayoutPanel9.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -147,9 +150,6 @@ Partial Class AdminEmployeeViewModal
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2Panel13.SuspendLayout()
-        Me.TableLayoutPanel9.SuspendLayout()
-        Me.JobAdminTableLayout.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
@@ -423,6 +423,101 @@ Partial Class AdminEmployeeViewModal
         Me.AdminDescriptionPanel.ShadowDecoration.Parent = Me.AdminDescriptionPanel
         Me.AdminDescriptionPanel.Size = New System.Drawing.Size(822, 61)
         Me.AdminDescriptionPanel.TabIndex = 31
+        '
+        'JobAdminTableLayout
+        '
+        Me.JobAdminTableLayout.ColumnCount = 2
+        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.JobAdminTableLayout.Controls.Add(Me.EmployeeAddedTextBox, 1, 1)
+        Me.JobAdminTableLayout.Controls.Add(Me.Label35, 1, 0)
+        Me.JobAdminTableLayout.Controls.Add(Me.Label27, 0, 0)
+        Me.JobAdminTableLayout.Controls.Add(Me.PositionTextBox, 0, 1)
+        Me.JobAdminTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JobAdminTableLayout.Location = New System.Drawing.Point(0, 0)
+        Me.JobAdminTableLayout.Name = "JobAdminTableLayout"
+        Me.JobAdminTableLayout.Padding = New System.Windows.Forms.Padding(3)
+        Me.JobAdminTableLayout.RowCount = 2
+        Me.JobAdminTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.JobAdminTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
+        Me.JobAdminTableLayout.Size = New System.Drawing.Size(822, 61)
+        Me.JobAdminTableLayout.TabIndex = 8
+        '
+        'EmployeeAddedTextBox
+        '
+        Me.EmployeeAddedTextBox.BorderRadius = 4
+        Me.EmployeeAddedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.EmployeeAddedTextBox.DefaultText = ""
+        Me.EmployeeAddedTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.EmployeeAddedTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.EmployeeAddedTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EmployeeAddedTextBox.DisabledState.Parent = Me.EmployeeAddedTextBox
+        Me.EmployeeAddedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EmployeeAddedTextBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EmployeeAddedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EmployeeAddedTextBox.FocusedState.Parent = Me.EmployeeAddedTextBox
+        Me.EmployeeAddedTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmployeeAddedTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EmployeeAddedTextBox.HoverState.Parent = Me.EmployeeAddedTextBox
+        Me.EmployeeAddedTextBox.Location = New System.Drawing.Point(413, 24)
+        Me.EmployeeAddedTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.EmployeeAddedTextBox.Name = "EmployeeAddedTextBox"
+        Me.EmployeeAddedTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.EmployeeAddedTextBox.PlaceholderText = ""
+        Me.EmployeeAddedTextBox.ReadOnly = True
+        Me.EmployeeAddedTextBox.SelectedText = ""
+        Me.EmployeeAddedTextBox.ShadowDecoration.Parent = Me.EmployeeAddedTextBox
+        Me.EmployeeAddedTextBox.Size = New System.Drawing.Size(404, 26)
+        Me.EmployeeAddedTextBox.TabIndex = 25
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label35.Location = New System.Drawing.Point(414, 3)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(148, 18)
+        Me.Label35.TabIndex = 24
+        Me.Label35.Text = "Total Employee Added"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label27.Location = New System.Drawing.Point(6, 3)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(57, 18)
+        Me.Label27.TabIndex = 23
+        Me.Label27.Text = "Position"
+        '
+        'PositionTextBox
+        '
+        Me.PositionTextBox.BorderRadius = 4
+        Me.PositionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.PositionTextBox.DefaultText = ""
+        Me.PositionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.PositionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.PositionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PositionTextBox.DisabledState.Parent = Me.PositionTextBox
+        Me.PositionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PositionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PositionTextBox.FocusedState.Parent = Me.PositionTextBox
+        Me.PositionTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PositionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PositionTextBox.HoverState.Parent = Me.PositionTextBox
+        Me.PositionTextBox.Location = New System.Drawing.Point(5, 24)
+        Me.PositionTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.PositionTextBox.Name = "PositionTextBox"
+        Me.PositionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PositionTextBox.PlaceholderText = ""
+        Me.PositionTextBox.ReadOnly = True
+        Me.PositionTextBox.SelectedText = ""
+        Me.PositionTextBox.ShadowDecoration.Parent = Me.PositionTextBox
+        Me.PositionTextBox.Size = New System.Drawing.Size(403, 26)
+        Me.PositionTextBox.TabIndex = 22
         '
         'TechnicianDescriptionPanel
         '
@@ -1196,6 +1291,73 @@ Partial Class AdminEmployeeViewModal
         Me.Label23.TabIndex = 15
         Me.Label23.Text = "Date Added"
         '
+        'Guna2Panel13
+        '
+        Me.Guna2Panel13.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel13.BorderRadius = 4
+        Me.Guna2Panel13.Controls.Add(Me.TableLayoutPanel9)
+        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 346)
+        Me.Guna2Panel13.Name = "Guna2Panel13"
+        Me.Guna2Panel13.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel13.ShadowDecoration.Parent = Me.Guna2Panel13
+        Me.Guna2Panel13.Size = New System.Drawing.Size(822, 61)
+        Me.Guna2Panel13.TabIndex = 36
+        '
+        'TableLayoutPanel9
+        '
+        Me.TableLayoutPanel9.ColumnCount = 1
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel9.Controls.Add(Me.Label25, 0, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.ProfilePathTextBox, 0, 1)
+        Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
+        Me.TableLayoutPanel9.RowCount = 2
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(814, 53)
+        Me.TableLayoutPanel9.TabIndex = 7
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label25.Location = New System.Drawing.Point(3, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(77, 20)
+        Me.Label25.TabIndex = 22
+        Me.Label25.Text = "Profile Path"
+        '
+        'ProfilePathTextBox
+        '
+        Me.ProfilePathTextBox.BorderRadius = 4
+        Me.ProfilePathTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ProfilePathTextBox.DefaultText = ""
+        Me.ProfilePathTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ProfilePathTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ProfilePathTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProfilePathTextBox.DisabledState.Parent = Me.ProfilePathTextBox
+        Me.ProfilePathTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProfilePathTextBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ProfilePathTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProfilePathTextBox.FocusedState.Parent = Me.ProfilePathTextBox
+        Me.ProfilePathTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProfilePathTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProfilePathTextBox.HoverState.Parent = Me.ProfilePathTextBox
+        Me.ProfilePathTextBox.Location = New System.Drawing.Point(2, 24)
+        Me.ProfilePathTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ProfilePathTextBox.Name = "ProfilePathTextBox"
+        Me.ProfilePathTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ProfilePathTextBox.PlaceholderText = ""
+        Me.ProfilePathTextBox.ReadOnly = True
+        Me.ProfilePathTextBox.SelectedText = ""
+        Me.ProfilePathTextBox.ShadowDecoration.Parent = Me.ProfilePathTextBox
+        Me.ProfilePathTextBox.Size = New System.Drawing.Size(810, 26)
+        Me.ProfilePathTextBox.TabIndex = 19
+        '
         'Guna2Panel3
         '
         Me.Guna2Panel3.BackColor = System.Drawing.SystemColors.Control
@@ -1638,168 +1800,6 @@ Partial Class AdminEmployeeViewModal
         Me.ProfileCirclePictureBox.TabStop = False
         Me.ProfileCirclePictureBox.UseTransparentBackground = True
         '
-        'Guna2Panel13
-        '
-        Me.Guna2Panel13.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel13.BorderRadius = 4
-        Me.Guna2Panel13.Controls.Add(Me.TableLayoutPanel9)
-        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 346)
-        Me.Guna2Panel13.Name = "Guna2Panel13"
-        Me.Guna2Panel13.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel13.ShadowDecoration.Parent = Me.Guna2Panel13
-        Me.Guna2Panel13.Size = New System.Drawing.Size(822, 61)
-        Me.Guna2Panel13.TabIndex = 36
-        '
-        'TableLayoutPanel9
-        '
-        Me.TableLayoutPanel9.ColumnCount = 1
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel9.Controls.Add(Me.Label25, 0, 0)
-        Me.TableLayoutPanel9.Controls.Add(Me.ProfilePathTextBox, 0, 1)
-        Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
-        Me.TableLayoutPanel9.RowCount = 2
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(814, 53)
-        Me.TableLayoutPanel9.TabIndex = 7
-        '
-        'ProfilePathTextBox
-        '
-        Me.ProfilePathTextBox.BorderRadius = 4
-        Me.ProfilePathTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ProfilePathTextBox.DefaultText = ""
-        Me.ProfilePathTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ProfilePathTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ProfilePathTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ProfilePathTextBox.DisabledState.Parent = Me.ProfilePathTextBox
-        Me.ProfilePathTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ProfilePathTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ProfilePathTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProfilePathTextBox.FocusedState.Parent = Me.ProfilePathTextBox
-        Me.ProfilePathTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProfilePathTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProfilePathTextBox.HoverState.Parent = Me.ProfilePathTextBox
-        Me.ProfilePathTextBox.Location = New System.Drawing.Point(2, 24)
-        Me.ProfilePathTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ProfilePathTextBox.Name = "ProfilePathTextBox"
-        Me.ProfilePathTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ProfilePathTextBox.PlaceholderText = ""
-        Me.ProfilePathTextBox.ReadOnly = True
-        Me.ProfilePathTextBox.SelectedText = ""
-        Me.ProfilePathTextBox.ShadowDecoration.Parent = Me.ProfilePathTextBox
-        Me.ProfilePathTextBox.Size = New System.Drawing.Size(810, 26)
-        Me.ProfilePathTextBox.TabIndex = 19
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(3, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(77, 20)
-        Me.Label25.TabIndex = 22
-        Me.Label25.Text = "Profile Path"
-        '
-        'PositionTextBox
-        '
-        Me.PositionTextBox.BorderRadius = 4
-        Me.PositionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.PositionTextBox.DefaultText = ""
-        Me.PositionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.PositionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.PositionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PositionTextBox.DisabledState.Parent = Me.PositionTextBox
-        Me.PositionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PositionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PositionTextBox.FocusedState.Parent = Me.PositionTextBox
-        Me.PositionTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PositionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PositionTextBox.HoverState.Parent = Me.PositionTextBox
-        Me.PositionTextBox.Location = New System.Drawing.Point(5, 24)
-        Me.PositionTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.PositionTextBox.Name = "PositionTextBox"
-        Me.PositionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PositionTextBox.PlaceholderText = ""
-        Me.PositionTextBox.ReadOnly = True
-        Me.PositionTextBox.SelectedText = ""
-        Me.PositionTextBox.ShadowDecoration.Parent = Me.PositionTextBox
-        Me.PositionTextBox.Size = New System.Drawing.Size(403, 26)
-        Me.PositionTextBox.TabIndex = 22
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(6, 3)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(57, 18)
-        Me.Label27.TabIndex = 23
-        Me.Label27.Text = "Position"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label35.Location = New System.Drawing.Point(414, 3)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(148, 18)
-        Me.Label35.TabIndex = 24
-        Me.Label35.Text = "Total Employee Added"
-        '
-        'EmployeeAddedTextBox
-        '
-        Me.EmployeeAddedTextBox.BorderRadius = 4
-        Me.EmployeeAddedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.EmployeeAddedTextBox.DefaultText = ""
-        Me.EmployeeAddedTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.EmployeeAddedTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.EmployeeAddedTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.EmployeeAddedTextBox.DisabledState.Parent = Me.EmployeeAddedTextBox
-        Me.EmployeeAddedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.EmployeeAddedTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EmployeeAddedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.EmployeeAddedTextBox.FocusedState.Parent = Me.EmployeeAddedTextBox
-        Me.EmployeeAddedTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmployeeAddedTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.EmployeeAddedTextBox.HoverState.Parent = Me.EmployeeAddedTextBox
-        Me.EmployeeAddedTextBox.Location = New System.Drawing.Point(413, 24)
-        Me.EmployeeAddedTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.EmployeeAddedTextBox.Name = "EmployeeAddedTextBox"
-        Me.EmployeeAddedTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.EmployeeAddedTextBox.PlaceholderText = ""
-        Me.EmployeeAddedTextBox.ReadOnly = True
-        Me.EmployeeAddedTextBox.SelectedText = ""
-        Me.EmployeeAddedTextBox.ShadowDecoration.Parent = Me.EmployeeAddedTextBox
-        Me.EmployeeAddedTextBox.Size = New System.Drawing.Size(404, 26)
-        Me.EmployeeAddedTextBox.TabIndex = 25
-        '
-        'JobAdminTableLayout
-        '
-        Me.JobAdminTableLayout.ColumnCount = 2
-        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.JobAdminTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.JobAdminTableLayout.Controls.Add(Me.EmployeeAddedTextBox, 1, 1)
-        Me.JobAdminTableLayout.Controls.Add(Me.Label35, 1, 0)
-        Me.JobAdminTableLayout.Controls.Add(Me.Label27, 0, 0)
-        Me.JobAdminTableLayout.Controls.Add(Me.PositionTextBox, 0, 1)
-        Me.JobAdminTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JobAdminTableLayout.Location = New System.Drawing.Point(0, 0)
-        Me.JobAdminTableLayout.Name = "JobAdminTableLayout"
-        Me.JobAdminTableLayout.Padding = New System.Windows.Forms.Padding(3)
-        Me.JobAdminTableLayout.RowCount = 2
-        Me.JobAdminTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.JobAdminTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
-        Me.JobAdminTableLayout.Size = New System.Drawing.Size(822, 61)
-        Me.JobAdminTableLayout.TabIndex = 8
-        '
         'AdminEmployeeViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1818,6 +1818,8 @@ Partial Class AdminEmployeeViewModal
         Me.TableLayoutPanel5.PerformLayout()
         Me.JobDescriptionFlowLayout.ResumeLayout(False)
         Me.AdminDescriptionPanel.ResumeLayout(False)
+        Me.JobAdminTableLayout.ResumeLayout(False)
+        Me.JobAdminTableLayout.PerformLayout()
         Me.TechnicianDescriptionPanel.ResumeLayout(False)
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.TableLayoutPanel10.PerformLayout()
@@ -1843,6 +1845,9 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel7.ResumeLayout(False)
         Me.TableLayoutPanel8.ResumeLayout(False)
         Me.TableLayoutPanel8.PerformLayout()
+        Me.Guna2Panel13.ResumeLayout(False)
+        Me.TableLayoutPanel9.ResumeLayout(False)
+        Me.TableLayoutPanel9.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
@@ -1855,11 +1860,6 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel11.ResumeLayout(False)
         Me.Guna2Panel11.PerformLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2Panel13.ResumeLayout(False)
-        Me.TableLayoutPanel9.ResumeLayout(False)
-        Me.TableLayoutPanel9.PerformLayout()
-        Me.JobAdminTableLayout.ResumeLayout(False)
-        Me.JobAdminTableLayout.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

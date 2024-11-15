@@ -32,7 +32,7 @@ Partial Class LoginForm
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.LoginEmailTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.VideoPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.ViewControlPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -54,15 +54,15 @@ Partial Class LoginForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.VideoPanel, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 681.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 681.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1264, 681)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -191,16 +191,16 @@ Partial Class LoginForm
         Me.LoginEmailTextBox.Size = New System.Drawing.Size(289, 30)
         Me.LoginEmailTextBox.TabIndex = 9
         '
-        'Guna2Panel2
+        'VideoPanel
         '
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel2.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(632, 681)
-        Me.Guna2Panel2.TabIndex = 1
+        Me.VideoPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VideoPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.VideoPanel.Location = New System.Drawing.Point(0, 0)
+        Me.VideoPanel.Margin = New System.Windows.Forms.Padding(0)
+        Me.VideoPanel.Name = "VideoPanel"
+        Me.VideoPanel.ShadowDecoration.Parent = Me.VideoPanel
+        Me.VideoPanel.Size = New System.Drawing.Size(632, 681)
+        Me.VideoPanel.TabIndex = 1
         '
         'LoginForm
         '
@@ -230,5 +230,5 @@ Partial Class LoginForm
     Friend WithEvents GunaLabel1 As Guna.UI.WinForms.GunaLabel
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents LoginEmailTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents VideoPanel As Guna.UI2.WinForms.Guna2Panel
 End Class

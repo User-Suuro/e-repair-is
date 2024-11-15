@@ -1,11 +1,19 @@
-﻿Imports System.IO
-Imports Mysqlx.XDevAPI
+﻿Imports LibVLCSharp.WinForms
+Imports LibVLCSharp.Shared
+Imports System.Threading
+Imports System.IO
 
 Public Class LoginForm
     Dim dbHelper As New DbHelper
     Dim constant As New Constants
     Dim formUtils As New FormUtils
     Dim session As New Session
+
+    Private libVLC As LibVLC
+    Private mediaPlayer As MediaPlayer
+    Private videoView As VideoView
+    Private currentMedia As Media
+
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
         If (LoginEmailTextBox.Text = "" Or LoginPasswordTextBox.Text = "") Then
@@ -51,6 +59,9 @@ Public Class LoginForm
                 AdminForm.Show()
 
                 Me.Hide()
+
+                releaseMemory()
+
             ElseIf (empDataRows("job_type") = constant.getCashierString) Then
                 MsgBox("Cashier Page coming soon")
 
@@ -66,12 +77,9 @@ Public Class LoginForm
             MsgBox("Incorrect Email or Passsowrd")
             Exit Sub
         End If
-
-
-
     End Sub
 
-    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load, MyBase.FormClosed
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' CHECK IF CONNECTED TO DB
         If dbHelper.isConnectedToLocalServer() = False Then
             If formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!") Then
@@ -79,12 +87,56 @@ Public Class LoginForm
             End If
         End If
 
-        GlobalSession.ClearSession()
+        ' Initialize LibVLC
+        Core.Initialize()
+
+
+        libVLC = New LibVLC("--input-repeat=65545")
+        mediaPlayer = New MediaPlayer(libVLC)
+
+        Dim videoView As New VideoView With {
+            .Dock = DockStyle.Fill,
+            .MediaPlayer = mediaPlayer
+        }
+
+
+        ' Add the VideoView to the Panel
+        VideoPanel.Controls.Add(videoView)
+
+        ' Path to your video file
+
+
+        Dim rootProjectPath As String = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName
+
+        Dim videoPath As String = Path.Combine(rootProjectPath, "Videos", "sample.mp4")
+
+        If IO.File.Exists(videoPath) Then
+
+            ' Load and play the video
+            currentMedia = New Media(libVLC, videoPath, FromType.FromPath)
+
+            mediaPlayer.Play(currentMedia)
+
+            AddHandler mediaPlayer.EndReached, AddressOf OnEndReached
+        Else
+            MessageBox.Show("Video file not found!")
+        End If
+
+    End Sub
+    Private Sub OnEndReached(sender As Object, e As EventArgs)
+        MsgBox("You have been inactive for a long time, closing form...")
+        Me.Close()
     End Sub
 
-    Private Sub LoginForm_Load(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        releaseMemory()
         Environment.Exit(0)
     End Sub
 
+    Private Sub releaseMemory()
+        mediaPlayer?.Stop()
+        mediaPlayer?.Dispose()
+        libVLC?.Dispose()
+    End Sub
 
 End Class
