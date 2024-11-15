@@ -273,15 +273,6 @@
         ' Exit if canceled
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
 
-        ' GET EMPLOYEE KEY BY CURRENT SESSION
-        Dim empIDLogged As Integer
-
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            empIDLogged = -1
-        End Try
-
         ' Save Image Locally
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
@@ -302,8 +293,7 @@
             {"tin_no", tin},
             {"profile_path", profileImgPath},
             {"email", email},
-            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-            {"added_by", empIDLogged}
+            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)}
         }
 
         If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
@@ -329,6 +319,27 @@
         Else
             MsgBox("Db Failure")
         End If
+
+        ' UPDATE TOTAL EMPLOYEEE ADDED
+
+        Dim empIDLogged As Integer
+
+        Try
+            empIDLogged = GlobalSession.CurrentSession.EmployeeID
+        Catch ex As Exception
+            Exit Sub
+        End Try
+
+        If empIDLogged = -1 Then Exit Sub
+
+        Dim prevValues As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empIDLogged)
+
+        Dim updateTotal As New Dictionary(Of String, Object) From {
+                {"added_by", empIDLogged},
+                {"total_employee_added", prevValues.Rows(0)("total_employee_added") + 1}
+         }
+
+        Dim updateTotalEmpAdd = dbHelper.UpdateRecord("employees", "employee_id", empIDLogged, updateTotal)
 
         Me.Close()
     End Sub
