@@ -224,7 +224,7 @@ Partial Class AdminSupplierAddEditModal
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(721, 477)
+        Me.BtnSave.Location = New System.Drawing.Point(718, 476)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
         Me.BtnSave.Size = New System.Drawing.Size(107, 32)
@@ -1111,45 +1111,16 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents SupplierModalGroupBox As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents GunaLabel1 As Guna.UI.WinForms.GunaLabel
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents BtnUpload As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
-    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents JobDetailsTableLayout As TableLayoutPanel
-    Friend WithEvents ContactPersonTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents CompanyNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents ContactNumberTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents CompanyEmailTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents SupplierTypeTableLayout As TableLayoutPanel
-    Friend WithEvents SupplierTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents SupplierTypeIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents BankDetailsTableLayout As TableLayoutPanel
-    Friend WithEvents BnkDetailsCmbBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents BankDetailsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label12 As Label
+    Friend WithEvents SupplierFileDialog As OpenFileDialog
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
-    Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents EstDelivTimeTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents LocationTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents CompanyDescTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnUpload As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ContractTypeTableLayout As TableLayoutPanel
@@ -1163,8 +1134,37 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents PaymentTermsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
+    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents JobDetailsTableLayout As TableLayoutPanel
+    Friend WithEvents ContactPersonTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents CompanyNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label15 As Label
+    Friend WithEvents ContactNumberTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents CompanyEmailTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents SupplierFileDialog As OpenFileDialog
+    Friend WithEvents EstDelivTimeTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents LocationTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SupplierTypeTableLayout As TableLayoutPanel
+    Friend WithEvents SupplierTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents SupplierTypeIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents BankDetailsTableLayout As TableLayoutPanel
+    Friend WithEvents BnkDetailsCmbBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents BankDetailsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label12 As Label
 End Class

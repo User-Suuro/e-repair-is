@@ -27,7 +27,6 @@ Public Class AdminSupplierAddEditModal
     Public Property selectedSupplierID As Integer = -1
     Public Property compProfilePath As String
 
-
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
@@ -59,7 +58,7 @@ Public Class AdminSupplierAddEditModal
         End Try
 
         ' Save Image Locally
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
+        Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"company_name", compName},
@@ -84,7 +83,7 @@ Public Class AdminSupplierAddEditModal
         End If
 
         If dbHelper.InsertRecord("suppliers", insertData) Then
-            formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, True)
+            formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
             MsgBox("Supplier Successfully Added")
         Else
             MsgBox("Db Failure!")
@@ -99,7 +98,7 @@ Public Class AdminSupplierAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
 
-        Dim savedPath = formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, False)
+        Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertUpdate As New Dictionary(Of String, Object) From {
             {"company_name", compName},
@@ -122,7 +121,9 @@ Public Class AdminSupplierAddEditModal
             MsgBox("Db Failure!")
         End If
 
-        If Not File.Exists(savedPath) Then formUtils.CopyImageFileToProjectFolder(compProfilePath, constants.getSuppProfileFolderPath, True)
+        If Not File.Exists(savedPath) Then formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
+
+        Me.Close()
 
     End Sub
 
@@ -267,4 +268,6 @@ Public Class AdminSupplierAddEditModal
 
         End Try
     End Sub
+
+
 End Class

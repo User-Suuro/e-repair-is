@@ -60,6 +60,27 @@ Public Class AdminSuppliersForm
         SupplierDGV.ClearSelection()
     End Sub
 
+    ' VIEW
+    Private Sub ViewSupplierBtn_Click(sender As Object, e As EventArgs) Handles ViewSupplierBtn.Click
+        Dim supplierViewModal As New AdminSupplierViewModal
+
+        If InitValues() Then Exit Sub
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+
+
+        Catch ex As Exception
+        Finally
+            supplierViewModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
+
+
+    End Sub
+
     ' ADD
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
@@ -249,5 +270,4 @@ Public Class AdminSuppliersForm
 
         Return False
     End Function
-
 End Class

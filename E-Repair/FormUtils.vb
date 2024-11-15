@@ -61,7 +61,7 @@ Public Class FormUtils
     End Function
 
     ' Copy image to pc's appdata then return the path
-    Public Function CopyImageFileToProjectFolder(sourceFilePath As String, folderName As String, commit As Boolean) As String
+    Public Function saveImgToLocal(sourceFilePath As String, folderName As String, commit As Boolean) As String
 
         If File.Exists(sourceFilePath) Then
             Dim image As Image = Image.FromFile(sourceFilePath)

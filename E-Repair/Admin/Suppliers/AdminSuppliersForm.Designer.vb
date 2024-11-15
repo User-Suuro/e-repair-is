@@ -352,7 +352,7 @@ Partial Class AdminSuppliersForm
         Me.SupplierDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.SupplierDGV.EnableHeadersVisualStyles = False
         Me.SupplierDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.SupplierDGV.Location = New System.Drawing.Point(12, 61)
+        Me.SupplierDGV.Location = New System.Drawing.Point(12, 63)
         Me.SupplierDGV.Name = "SupplierDGV"
         Me.SupplierDGV.ReadOnly = True
         Me.SupplierDGV.RowHeadersVisible = False

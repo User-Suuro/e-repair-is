@@ -197,9 +197,7 @@ Public Class DbHelper
         End Try
     End Sub
 
-
-    ' Custom Functions Dahil Writing Queries is mendoksai
-
+    ' Custom Functions 
 
     Public Function StrNullCheck(cellValue As Object) As String
         Return If(IsDBNull(cellValue), "N/A", cellValue.ToString())
@@ -287,35 +285,6 @@ Public Class DbHelper
         Finally
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
-    End Function
-
-    ' Get Latest Id in the table (tableName, columnName)
-
-    Public Function GetLatestId(tableName As String, columnName As String) As Integer
-        Dim query As String = $"SELECT MAX({columnName}) FROM `{tableName}`"
-        Dim latestId As Integer = -1
-
-        Try
-            cmd.Parameters.Clear()
-
-            readQuery(query)
-
-            If cmdRead.Read() AndAlso Not IsDBNull(cmdRead(0)) Then
-                latestId = Convert.ToInt32(cmdRead(0))
-            End If
-
-            If cmdRead IsNot Nothing Then
-                cmd.Parameters.Clear()
-                cmdRead.Close()
-            End If
-
-        Catch ex As Exception
-            MsgBox("Error retrieving latest ID: " & ex.Message, MsgBoxStyle.Critical)
-        Finally
-            If conn.State = ConnectionState.Open Then conn.Close()
-        End Try
-
-        Return latestId
     End Function
 
     ' Get row base from value (tableName, targetColumn, targetValue)
