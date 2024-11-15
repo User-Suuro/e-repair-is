@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 01:14 PM
+-- Generation Time: Nov 15, 2024 at 05:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,7 +65,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `total_employee_added`, `admin_position`, `personnel_destination`, `no_customers_handled`, `no_pending_services`, `no_finished_services`, `profile_path`, `email`, `password`, `added_by`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\source\\repos\\E-Repair-Git\\E-Repair\\Employee Profiles\\pexels-tranmautritam-326519.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '0', '2024-11-13 20:12:00', NULL, '2024-11-09 14:51:29');
+(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', NULL, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, 0, '0', '2024-11-15 12:55:49', NULL, '2024-11-09 14:51:29'),
+(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', '', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 40, 0, '', NULL, NULL, '2024-11-14 23:44:04'),
+(51, 'asdas', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Admin', 0, 'Manager', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 40, 0, '', NULL, NULL, '2024-11-15 01:47:17');
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,9 @@ CREATE TABLE `items` (
   `physical_location` varchar(100) NOT NULL,
   `restock_date` datetime NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` int(11) NOT NULL,
   `archived_status` tinyint(1) NOT NULL DEFAULT 0,
+  `archived_by` varchar(100) NOT NULL,
   `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -116,9 +120,16 @@ CREATE TABLE `suppliers` (
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `added_by` int(11) NOT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
-  `archived_by` varchar(100) NOT NULL,
-  `date_archived` datetime NOT NULL
+  `archived_by` varchar(100) DEFAULT NULL,
+  `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `contact_person`, `contact_number`, `company_email`, `location`, `supplier_type`, `supplier_contract`, `bank_details`, `payment_terms`, `estimated_delivery_time`, `no_supplied_item`, `total_paid`, `company_picture_path`, `date_added`, `added_by`, `archived`, `archived_by`, `date_archived`) VALUES
+(1, 'asdd', 'asd', '', 'asd', 'asd', 'asd', 'hatdog', 'asd', 'BDO', 'Cash on Delivery', 'asd', 0, 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\pexels-tima-miroshnichenko-6498965.jpg', '2024-11-15 00:38:03', 0, 0, '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -151,7 +162,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -163,7 +174,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
