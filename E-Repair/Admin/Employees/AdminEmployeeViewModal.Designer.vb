@@ -1798,7 +1798,6 @@ Partial Class AdminEmployeeViewModal
         Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
-        Me.ProfileCirclePictureBox.UseTransparentBackground = True
         '
         'AdminEmployeeViewModal
         '

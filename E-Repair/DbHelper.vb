@@ -54,7 +54,6 @@ Public Class DbHelper
     ' Open connection to db
     Public Sub openConn(ByVal db_name As String)
         Try
-            ' Close connection states if there is open
             If conn.State = ConnectionState.Open Then conn.Close()
 
             With conn
