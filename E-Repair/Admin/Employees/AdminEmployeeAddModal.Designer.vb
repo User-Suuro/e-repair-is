@@ -100,8 +100,9 @@ Partial Class AdminEmployeeAddModal
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AlreadyTakenLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
@@ -189,10 +190,10 @@ Partial Class AdminEmployeeAddModal
         Me.BtnUpload.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpload.ForeColor = System.Drawing.Color.White
         Me.BtnUpload.HoverState.Parent = Me.BtnUpload
-        Me.BtnUpload.Location = New System.Drawing.Point(694, 221)
+        Me.BtnUpload.Location = New System.Drawing.Point(700, 224)
         Me.BtnUpload.Name = "BtnUpload"
         Me.BtnUpload.ShadowDecoration.Parent = Me.BtnUpload
-        Me.BtnUpload.Size = New System.Drawing.Size(150, 32)
+        Me.BtnUpload.Size = New System.Drawing.Size(140, 32)
         Me.BtnUpload.TabIndex = 16
         Me.BtnUpload.Text = "Upload"
         '
@@ -200,11 +201,11 @@ Partial Class AdminEmployeeAddModal
         '
         Me.Guna2Panel1.BorderRadius = 4
         Me.Guna2Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(22, 57)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(19, 61)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(660, 61)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel1.TabIndex = 18
         '
         'TableLayoutPanel1
@@ -226,7 +227,7 @@ Partial Class AdminEmployeeAddModal
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(652, 53)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel1.TabIndex = 7
         '
         'Guna2Panel11
@@ -234,11 +235,11 @@ Partial Class AdminEmployeeAddModal
         Me.Guna2Panel11.Controls.Add(Me.Label2)
         Me.Guna2Panel11.Controls.Add(Me.Label31)
         Me.Guna2Panel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel11.Location = New System.Drawing.Point(217, 0)
+        Me.Guna2Panel11.Location = New System.Drawing.Point(222, 0)
         Me.Guna2Panel11.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel11.Name = "Guna2Panel11"
         Me.Guna2Panel11.ShadowDecoration.Parent = Me.Guna2Panel11
-        Me.Guna2Panel11.Size = New System.Drawing.Size(217, 21)
+        Me.Guna2Panel11.Size = New System.Drawing.Size(222, 21)
         Me.Guna2Panel11.TabIndex = 39
         '
         'Label2
@@ -247,7 +248,7 @@ Partial Class AdminEmployeeAddModal
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label2.Location = New System.Drawing.Point(168, 0)
+        Me.Label2.Location = New System.Drawing.Point(173, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 15)
         Me.Label2.TabIndex = 16
@@ -275,19 +276,20 @@ Partial Class AdminEmployeeAddModal
         Me.LastNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.LastNameTextBox.DisabledState.Parent = Me.LastNameTextBox
         Me.LastNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.LastNameTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.LastNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastNameTextBox.FocusedState.Parent = Me.LastNameTextBox
         Me.LastNameTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LastNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastNameTextBox.HoverState.Parent = Me.LastNameTextBox
-        Me.LastNameTextBox.Location = New System.Drawing.Point(436, 24)
+        Me.LastNameTextBox.Location = New System.Drawing.Point(446, 24)
         Me.LastNameTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastNameTextBox.PlaceholderText = ""
         Me.LastNameTextBox.SelectedText = ""
         Me.LastNameTextBox.ShadowDecoration.Parent = Me.LastNameTextBox
-        Me.LastNameTextBox.Size = New System.Drawing.Size(212, 25)
+        Me.LastNameTextBox.Size = New System.Drawing.Size(219, 25)
         Me.LastNameTextBox.TabIndex = 20
         '
         'MiddleNameTextBox
@@ -300,19 +302,20 @@ Partial Class AdminEmployeeAddModal
         Me.MiddleNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.MiddleNameTextBox.DisabledState.Parent = Me.MiddleNameTextBox
         Me.MiddleNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MiddleNameTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.MiddleNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MiddleNameTextBox.FocusedState.Parent = Me.MiddleNameTextBox
         Me.MiddleNameTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MiddleNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MiddleNameTextBox.HoverState.Parent = Me.MiddleNameTextBox
-        Me.MiddleNameTextBox.Location = New System.Drawing.Point(219, 24)
+        Me.MiddleNameTextBox.Location = New System.Drawing.Point(224, 24)
         Me.MiddleNameTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.MiddleNameTextBox.Name = "MiddleNameTextBox"
         Me.MiddleNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.MiddleNameTextBox.PlaceholderText = ""
         Me.MiddleNameTextBox.SelectedText = ""
         Me.MiddleNameTextBox.ShadowDecoration.Parent = Me.MiddleNameTextBox
-        Me.MiddleNameTextBox.Size = New System.Drawing.Size(212, 25)
+        Me.MiddleNameTextBox.Size = New System.Drawing.Size(218, 25)
         Me.MiddleNameTextBox.TabIndex = 19
         '
         'Label1
@@ -331,7 +334,7 @@ Partial Class AdminEmployeeAddModal
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(437, 0)
+        Me.Label3.Location = New System.Drawing.Point(447, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 20)
         Me.Label3.TabIndex = 15
@@ -347,6 +350,7 @@ Partial Class AdminEmployeeAddModal
         Me.FirstNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.FirstNameTextBox.DisabledState.Parent = Me.FirstNameTextBox
         Me.FirstNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.FirstNameTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.FirstNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstNameTextBox.FocusedState.Parent = Me.FirstNameTextBox
         Me.FirstNameTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -359,18 +363,18 @@ Partial Class AdminEmployeeAddModal
         Me.FirstNameTextBox.PlaceholderText = ""
         Me.FirstNameTextBox.SelectedText = ""
         Me.FirstNameTextBox.ShadowDecoration.Parent = Me.FirstNameTextBox
-        Me.FirstNameTextBox.Size = New System.Drawing.Size(212, 25)
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(218, 25)
         Me.FirstNameTextBox.TabIndex = 18
         '
         'Guna2Panel2
         '
         Me.Guna2Panel2.BorderRadius = 4
         Me.Guna2Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(22, 124)
+        Me.Guna2Panel2.Location = New System.Drawing.Point(19, 128)
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(660, 61)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel2.TabIndex = 19
         '
         'TableLayoutPanel2
@@ -391,7 +395,7 @@ Partial Class AdminEmployeeAddModal
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(652, 53)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel2.TabIndex = 13
         '
         'CivilStatusComboBox
@@ -410,10 +414,10 @@ Partial Class AdminEmployeeAddModal
         Me.CivilStatusComboBox.ItemHeight = 20
         Me.CivilStatusComboBox.Items.AddRange(New Object() {"Single", "Married", "Widowed", "Divorced"})
         Me.CivilStatusComboBox.ItemsAppearance.Parent = Me.CivilStatusComboBox
-        Me.CivilStatusComboBox.Location = New System.Drawing.Point(437, 24)
+        Me.CivilStatusComboBox.Location = New System.Drawing.Point(447, 24)
         Me.CivilStatusComboBox.Name = "CivilStatusComboBox"
         Me.CivilStatusComboBox.ShadowDecoration.Parent = Me.CivilStatusComboBox
-        Me.CivilStatusComboBox.Size = New System.Drawing.Size(212, 26)
+        Me.CivilStatusComboBox.Size = New System.Drawing.Size(217, 26)
         Me.CivilStatusComboBox.TabIndex = 22
         '
         'Label4
@@ -421,7 +425,7 @@ Partial Class AdminEmployeeAddModal
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(437, 0)
+        Me.Label4.Location = New System.Drawing.Point(447, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(74, 20)
         Me.Label4.TabIndex = 15
@@ -432,7 +436,7 @@ Partial Class AdminEmployeeAddModal
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(220, 0)
+        Me.Label5.Location = New System.Drawing.Point(225, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(61, 20)
         Me.Label5.TabIndex = 14
@@ -468,7 +472,7 @@ Partial Class AdminEmployeeAddModal
         Me.SexComboBox.Location = New System.Drawing.Point(3, 24)
         Me.SexComboBox.Name = "SexComboBox"
         Me.SexComboBox.ShadowDecoration.Parent = Me.SexComboBox
-        Me.SexComboBox.Size = New System.Drawing.Size(211, 26)
+        Me.SexComboBox.Size = New System.Drawing.Size(216, 26)
         Me.SexComboBox.TabIndex = 16
         '
         'BirthdateDateTimePicker
@@ -483,12 +487,12 @@ Partial Class AdminEmployeeAddModal
         Me.BirthdateDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.BirthdateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.BirthdateDateTimePicker.HoverState.Parent = Me.BirthdateDateTimePicker
-        Me.BirthdateDateTimePicker.Location = New System.Drawing.Point(220, 24)
+        Me.BirthdateDateTimePicker.Location = New System.Drawing.Point(225, 24)
         Me.BirthdateDateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.BirthdateDateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.BirthdateDateTimePicker.Name = "BirthdateDateTimePicker"
         Me.BirthdateDateTimePicker.ShadowDecoration.Parent = Me.BirthdateDateTimePicker
-        Me.BirthdateDateTimePicker.Size = New System.Drawing.Size(211, 25)
+        Me.BirthdateDateTimePicker.Size = New System.Drawing.Size(216, 25)
         Me.BirthdateDateTimePicker.TabIndex = 17
         Me.BirthdateDateTimePicker.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
@@ -496,11 +500,11 @@ Partial Class AdminEmployeeAddModal
         '
         Me.Guna2Panel3.BorderRadius = 4
         Me.Guna2Panel3.Controls.Add(Me.TableLayoutPanel3)
-        Me.Guna2Panel3.Location = New System.Drawing.Point(22, 192)
+        Me.Guna2Panel3.Location = New System.Drawing.Point(19, 195)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
-        Me.Guna2Panel3.Size = New System.Drawing.Size(660, 61)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel3.TabIndex = 20
         '
         'TableLayoutPanel3
@@ -518,7 +522,7 @@ Partial Class AdminEmployeeAddModal
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(652, 53)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel3.TabIndex = 7
         '
         'ContactNumberTextBox
@@ -531,19 +535,20 @@ Partial Class AdminEmployeeAddModal
         Me.ContactNumberTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ContactNumberTextBox.DisabledState.Parent = Me.ContactNumberTextBox
         Me.ContactNumberTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ContactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.ContactNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ContactNumberTextBox.FocusedState.Parent = Me.ContactNumberTextBox
         Me.ContactNumberTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContactNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ContactNumberTextBox.HoverState.Parent = Me.ContactNumberTextBox
-        Me.ContactNumberTextBox.Location = New System.Drawing.Point(328, 20)
+        Me.ContactNumberTextBox.Location = New System.Drawing.Point(335, 20)
         Me.ContactNumberTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ContactNumberTextBox.Name = "ContactNumberTextBox"
         Me.ContactNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContactNumberTextBox.PlaceholderText = ""
         Me.ContactNumberTextBox.SelectedText = ""
         Me.ContactNumberTextBox.ShadowDecoration.Parent = Me.ContactNumberTextBox
-        Me.ContactNumberTextBox.Size = New System.Drawing.Size(321, 26)
+        Me.ContactNumberTextBox.Size = New System.Drawing.Size(330, 26)
         Me.ContactNumberTextBox.TabIndex = 20
         '
         'AddressTextBox
@@ -556,6 +561,7 @@ Partial Class AdminEmployeeAddModal
         Me.AddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AddressTextBox.DisabledState.Parent = Me.AddressTextBox
         Me.AddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddressTextBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AddressTextBox.FocusedState.Parent = Me.AddressTextBox
         Me.AddressTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -568,7 +574,7 @@ Partial Class AdminEmployeeAddModal
         Me.AddressTextBox.PlaceholderText = ""
         Me.AddressTextBox.SelectedText = ""
         Me.AddressTextBox.ShadowDecoration.Parent = Me.AddressTextBox
-        Me.AddressTextBox.Size = New System.Drawing.Size(321, 26)
+        Me.AddressTextBox.Size = New System.Drawing.Size(329, 26)
         Me.AddressTextBox.TabIndex = 19
         '
         'Label17
@@ -587,7 +593,7 @@ Partial Class AdminEmployeeAddModal
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(329, 0)
+        Me.Label9.Location = New System.Drawing.Point(336, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(104, 17)
         Me.Label9.TabIndex = 0
@@ -619,6 +625,7 @@ Partial Class AdminEmployeeAddModal
         '
         'EmployeeModalGroupBox
         '
+        Me.EmployeeModalGroupBox.Controls.Add(Me.Label22)
         Me.EmployeeModalGroupBox.Controls.Add(Me.FlowLayoutPanel1)
         Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Separator3)
         Me.EmployeeModalGroupBox.Controls.Add(Me.BtnSave)
@@ -648,10 +655,10 @@ Partial Class AdminEmployeeAddModal
         Me.FlowLayoutPanel1.Controls.Add(Me.JobDescriptionFlowLayout)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2Panel4)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2Panel6)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(19, 260)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(19, 263)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(825, 281)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(825, 277)
         Me.FlowLayoutPanel1.TabIndex = 27
         '
         'Guna2Panel5
@@ -1376,24 +1383,35 @@ Partial Class AdminEmployeeAddModal
         Me.Label13.TabIndex = 1
         Me.Label13.Text = "Email"
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+        '
         'ProfileCirclePictureBox
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ProfileCirclePictureBox.Image = CType(resources.GetObject("ProfileCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(694, 57)
+        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(700, 78)
         Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
         Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.ProfileCirclePictureBox.ShadowDecoration.Parent = Me.ProfileCirclePictureBox
-        Me.ProfileCirclePictureBox.Size = New System.Drawing.Size(150, 150)
+        Me.ProfileCirclePictureBox.Size = New System.Drawing.Size(140, 140)
         Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ProfileCirclePictureBox.TabIndex = 15
         Me.ProfileCirclePictureBox.TabStop = False
         Me.ProfileCirclePictureBox.UseTransparentBackground = True
         '
-        'OpenFileDialog1
+        'Label22
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label22.Location = New System.Drawing.Point(711, 55)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(116, 20)
+        Me.Label22.TabIndex = 28
+        Me.Label22.Text = "Employee Picture"
         '
         'AdminEmployeeAddModal
         '
@@ -1529,4 +1547,5 @@ Partial Class AdminEmployeeAddModal
     Friend WithEvents IfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents DateHiredDateTimePicker As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Label22 As Label
 End Class

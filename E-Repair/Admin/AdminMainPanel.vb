@@ -23,7 +23,6 @@ Public Class AdminMainPanel
         End Try
     End Sub
 
-
     ' FUNCTIONS FOR NAVIGATION
 
     Private Sub SidenavDashboardBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavDashboardBtn.Click
@@ -34,6 +33,11 @@ Public Class AdminMainPanel
     Private Sub SidenavEmployeesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavEmployeesBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminEmployeesForm)
         AdminTopNavTitle.Text = constants.EmployeesTitle
+    End Sub
+
+    Private Sub AdminSidenavCustomersBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavCustomersBtn.Click
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CustomersForm)
+        AdminTopNavTitle.Text = constants.getCustomerTitle
     End Sub
 
     Private Sub SidenavServicesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavServicesBtn.Click
@@ -52,7 +56,7 @@ Public Class AdminMainPanel
         AdminTopNavTitle.Text = constants.InventoryTitle
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles AdminTopNavSettingsBtn.Click
+    Private Sub AdminSideNavCustomerBtn_Click(sender As Object, e As EventArgs)
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminSettingsForm)
         AdminTopNavTitle.Text = constants.SettingsTitle
     End Sub

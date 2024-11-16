@@ -1,4 +1,8 @@
-﻿Public Class AdminServicesForm
-    Private Sub AdminServicesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
+﻿Imports System.Linq.Expressions
+
+Public Class AdminServicesForm
+    Dim dbHelper As New DbHelper
+    Dim formModal As New Form
+    Dim formUtils As New FormUtils
+
 End Class

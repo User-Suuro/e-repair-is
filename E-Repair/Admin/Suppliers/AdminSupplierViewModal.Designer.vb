@@ -57,7 +57,6 @@ Partial Class AdminSupplierViewModal
         Me.Label2 = New System.Windows.Forms.Label()
         Me.EstDelivTimeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ContractTypeTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -98,6 +97,7 @@ Partial Class AdminSupplierViewModal
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.CompanyPathTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.SupplierTypeTableLayout.SuspendLayout()
@@ -110,7 +110,6 @@ Partial Class AdminSupplierViewModal
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
         Me.ContractTypeTableLayout.SuspendLayout()
@@ -127,6 +126,7 @@ Partial Class AdminSupplierViewModal
         Me.TableLayoutPanel5.SuspendLayout()
         Me.Guna2Panel9.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2TextBox2
@@ -423,6 +423,7 @@ Partial Class AdminSupplierViewModal
         Me.JobDetailsTableLayout.RowCount = 2
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.JobDetailsTableLayout.Size = New System.Drawing.Size(636, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
         '
@@ -713,20 +714,6 @@ Partial Class AdminSupplierViewModal
         Me.LocationTxtBox.ShadowDecoration.Parent = Me.LocationTxtBox
         Me.LocationTxtBox.Size = New System.Drawing.Size(314, 26)
         Me.LocationTxtBox.TabIndex = 29
-        '
-        'SupplierCirclePictureBox
-        '
-        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(662, 68)
-        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
-        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
-        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(162, 161)
-        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.SupplierCirclePictureBox.TabIndex = 30
-        Me.SupplierCirclePictureBox.TabStop = False
-        Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
         'FlowLayoutPanel3
         '
@@ -1404,6 +1391,20 @@ Partial Class AdminSupplierViewModal
         Me.Label13.TabIndex = 14
         Me.Label13.Text = "Company Profile Path"
         '
+        'SupplierCirclePictureBox
+        '
+        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(663, 68)
+        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
+        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
+        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(162, 161)
+        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.SupplierCirclePictureBox.TabIndex = 30
+        Me.SupplierCirclePictureBox.TabStop = False
+        Me.SupplierCirclePictureBox.UseTransparentBackground = True
+        '
         'AdminSupplierViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1432,7 +1433,6 @@ Partial Class AdminSupplierViewModal
         Me.Guna2Panel4.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.Guna2Panel10.ResumeLayout(False)
         Me.ContractTypeTableLayout.ResumeLayout(False)
@@ -1456,6 +1456,7 @@ Partial Class AdminSupplierViewModal
         Me.Guna2Panel9.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1494,7 +1495,6 @@ Partial Class AdminSupplierViewModal
     Friend WithEvents Label2 As Label
     Friend WithEvents EstDelivTimeTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents LocationTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ContractTypeTableLayout As TableLayoutPanel
@@ -1535,4 +1535,5 @@ Partial Class AdminSupplierViewModal
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents CompanyPathTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
 End Class

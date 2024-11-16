@@ -31,7 +31,7 @@ Public Class AdminSuppliersForm
         If CheckIfInvalid() Then Return True
 
         Try
-            With SupplierDGV.CurrentRow
+            With ServiceDGV.CurrentRow
                 suppID = .Cells("SUPPLIER_ID").Value
                 suppCompName = .Cells("COMPANY_NAME").Value
                 companyDesc = .Cells("COMPANY_DESCRIPTION").Value
@@ -62,7 +62,7 @@ Public Class AdminSuppliersForm
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
-        SupplierDGV.ClearSelection()
+        ServiceDGV.ClearSelection()
     End Sub
 
     ' VIEW
@@ -241,7 +241,7 @@ Public Class AdminSuppliersForm
     End Sub
 
     ' DELETE
-    Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
+    Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If InitValues() Then Exit Sub
 
         If Not archivedStatus Then
@@ -258,17 +258,17 @@ Public Class AdminSuppliersForm
 
     ' VALUE CHECKER
     Private Function CheckIfInvalid() As Boolean
-        If SupplierDGV.Rows.Count = 0 Then
+        If ServiceDGV.Rows.Count = 0 Then
             MsgBox("No Data Found!")
             Return True
         End If
 
-        If SupplierDGV.CurrentRow Is Nothing Then
+        If ServiceDGV.CurrentRow Is Nothing Then
             MsgBox("No row is currently selected.")
             Return True
         End If
 
-        If SupplierDGV.SelectedRows.Count <= 0 Then
+        If ServiceDGV.SelectedRows.Count <= 0 Then
             MsgBox("Please Select a Row First")
             Return True
         End If
@@ -314,8 +314,8 @@ Public Class AdminSuppliersForm
             suppliersTable.DefaultView.RowFilter = ""
         End If
 
-        SupplierDGV.AutoGenerateColumns = True
-        SupplierDGV.DataSource = suppliersTable
+        ServiceDGV.AutoGenerateColumns = True
+        ServiceDGV.DataSource = suppliersTable
 
         FormatDataGridViewRows()
     End Sub
@@ -330,20 +330,20 @@ Public Class AdminSuppliersForm
         LoadDataToDGV()
 
         If ShowArchiveCheckBox.Checked Then
-            DeleteSupplierBtn.Visible = True
+            DeleteServiceBtn.Visible = True
             ArchiveSupplierBtn.Visible = False
-            SupplierDGV.Columns("DATE_ARCHIVED").Visible = True
+            ServiceDGV.Columns("DATE_ARCHIVED").Visible = True
         Else
-            DeleteSupplierBtn.Visible = False
+            DeleteServiceBtn.Visible = False
             ArchiveSupplierBtn.Visible = True
-            SupplierDGV.Columns("DATE_ARCHIVED").Visible = False
+            ServiceDGV.Columns("DATE_ARCHIVED").Visible = False
         End If
     End Sub
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
         Try
-            For Each row As DataGridViewRow In SupplierDGV.Rows
+            For Each row As DataGridViewRow In ServiceDGV.Rows
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
                 Else

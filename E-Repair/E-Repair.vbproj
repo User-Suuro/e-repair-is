@@ -176,6 +176,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Customers\CustomersForm.Designer.vb">
+      <DependentUpon>CustomersForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Customers\CustomersForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\Dashboard\AdminDashboardForm.Designer.vb">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </Compile>
@@ -198,6 +204,12 @@
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Admin\Inventory\AdminInventoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Services\AdminAddEditServiceModal.Designer.vb">
+      <DependentUpon>AdminAddEditServiceModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Services\AdminAddEditServiceModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Services\AdminServicesForm.Designer.vb">
@@ -271,6 +283,9 @@
     <Compile Include="GlobalSession.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Admin\Customers\CustomersForm.resx">
+      <DependentUpon>CustomersForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\AdminInventoryForm.resx">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Services\AdminAddEditServiceModal.resx">
+      <DependentUpon>AdminAddEditServiceModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Services\AdminServicesForm.resx">
       <DependentUpon>AdminServicesForm.vb</DependentUpon>
@@ -331,6 +349,7 @@
     <None Include="Resources\chart-line-bold.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\handshake-bold.png" />
     <None Include="Resources\screwdriver-bold.png" />
   </ItemGroup>
   <ItemGroup>

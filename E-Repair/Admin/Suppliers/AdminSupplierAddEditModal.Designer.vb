@@ -46,7 +46,6 @@ Partial Class AdminSupplierAddEditModal
         Me.PaymentTermsIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -82,6 +81,8 @@ Partial Class AdminSupplierAddEditModal
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SupplierFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SupplierModalGroupBox.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -91,7 +92,6 @@ Partial Class AdminSupplierAddEditModal
         Me.ContractTypeTableLayout.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
         Me.PaymentTermsTableLayout.SuspendLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -104,10 +104,12 @@ Partial Class AdminSupplierAddEditModal
         Me.SupplierTypeTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.BankDetailsTableLayout.SuspendLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SupplierModalGroupBox
         '
+        Me.SupplierModalGroupBox.Controls.Add(Me.Label1)
         Me.SupplierModalGroupBox.Controls.Add(Me.FlowLayoutPanel4)
         Me.SupplierModalGroupBox.Controls.Add(Me.Guna2Separator3)
         Me.SupplierModalGroupBox.Controls.Add(Me.BtnSave)
@@ -134,10 +136,10 @@ Partial Class AdminSupplierAddEditModal
         '
         Me.FlowLayoutPanel4.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel4.Controls.Add(Me.Guna2Panel2)
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(10, 250)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(10, 254)
         Me.FlowLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(815, 69)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(817, 69)
         Me.FlowLayoutPanel4.TabIndex = 33
         '
         'Guna2Panel2
@@ -149,7 +151,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(812, 61)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(814, 61)
         Me.Guna2Panel2.TabIndex = 40
         '
         'TableLayoutPanel2
@@ -167,7 +169,7 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(804, 53)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(806, 53)
         Me.TableLayoutPanel2.TabIndex = 8
         '
         'CompanyDescTxtBox
@@ -193,7 +195,7 @@ Partial Class AdminSupplierAddEditModal
         Me.CompanyDescTxtBox.PlaceholderText = ""
         Me.CompanyDescTxtBox.SelectedText = ""
         Me.CompanyDescTxtBox.ShadowDecoration.Parent = Me.CompanyDescTxtBox
-        Me.CompanyDescTxtBox.Size = New System.Drawing.Size(800, 26)
+        Me.CompanyDescTxtBox.Size = New System.Drawing.Size(802, 26)
         Me.CompanyDescTxtBox.TabIndex = 29
         '
         'Label7
@@ -256,10 +258,10 @@ Partial Class AdminSupplierAddEditModal
         Me.BtnUpload.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpload.ForeColor = System.Drawing.Color.White
         Me.BtnUpload.HoverState.Parent = Me.BtnUpload
-        Me.BtnUpload.Location = New System.Drawing.Point(663, 215)
+        Me.BtnUpload.Location = New System.Drawing.Point(680, 213)
         Me.BtnUpload.Name = "BtnUpload"
         Me.BtnUpload.ShadowDecoration.Parent = Me.BtnUpload
-        Me.BtnUpload.Size = New System.Drawing.Size(162, 32)
+        Me.BtnUpload.Size = New System.Drawing.Size(145, 32)
         Me.BtnUpload.TabIndex = 31
         Me.BtnUpload.Text = "Upload"
         '
@@ -268,7 +270,7 @@ Partial Class AdminSupplierAddEditModal
         Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Panel10)
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Panel11)
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(420, 322)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(422, 326)
         Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(405, 131)
@@ -474,30 +476,16 @@ Partial Class AdminSupplierAddEditModal
         Me.Label25.TabIndex = 14
         Me.Label25.Text = "Payment Terms"
         '
-        'SupplierCirclePictureBox
-        '
-        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(663, 49)
-        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
-        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
-        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(162, 161)
-        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.SupplierCirclePictureBox.TabIndex = 30
-        Me.SupplierCirclePictureBox.TabStop = False
-        Me.SupplierCirclePictureBox.UseTransparentBackground = True
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2Panel5)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2Panel1)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2Panel4)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(10, 49)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(10, 47)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(647, 198)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(661, 198)
         Me.FlowLayoutPanel1.TabIndex = 29
         '
         'Guna2Panel5
@@ -509,7 +497,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel5.Name = "Guna2Panel5"
         Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(644, 61)
+        Me.Guna2Panel5.Size = New System.Drawing.Size(658, 61)
         Me.Guna2Panel5.TabIndex = 28
         '
         'JobDetailsTableLayout
@@ -527,7 +515,8 @@ Partial Class AdminSupplierAddEditModal
         Me.JobDetailsTableLayout.RowCount = 2
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(636, 53)
+        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(650, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
         '
         'ContactPersonTxtBox
@@ -546,14 +535,14 @@ Partial Class AdminSupplierAddEditModal
         Me.ContactPersonTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContactPersonTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ContactPersonTxtBox.HoverState.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.Location = New System.Drawing.Point(320, 24)
+        Me.ContactPersonTxtBox.Location = New System.Drawing.Point(327, 24)
         Me.ContactPersonTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ContactPersonTxtBox.Name = "ContactPersonTxtBox"
         Me.ContactPersonTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContactPersonTxtBox.PlaceholderText = ""
         Me.ContactPersonTxtBox.SelectedText = ""
         Me.ContactPersonTxtBox.ShadowDecoration.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.ContactPersonTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.ContactPersonTxtBox.TabIndex = 30
         '
         'CompanyNameTxtBox
@@ -579,7 +568,7 @@ Partial Class AdminSupplierAddEditModal
         Me.CompanyNameTxtBox.PlaceholderText = ""
         Me.CompanyNameTxtBox.SelectedText = ""
         Me.CompanyNameTxtBox.ShadowDecoration.Parent = Me.CompanyNameTxtBox
-        Me.CompanyNameTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.CompanyNameTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.CompanyNameTxtBox.TabIndex = 29
         '
         'Label18
@@ -587,7 +576,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(321, 0)
+        Me.Label18.Location = New System.Drawing.Point(328, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(100, 20)
         Me.Label18.TabIndex = 21
@@ -613,7 +602,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(644, 61)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(658, 61)
         Me.Guna2Panel1.TabIndex = 29
         '
         'TableLayoutPanel1
@@ -631,7 +620,7 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(636, 53)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(650, 53)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'Label15
@@ -639,7 +628,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(321, 0)
+        Me.Label15.Location = New System.Drawing.Point(328, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(104, 20)
         Me.Label15.TabIndex = 32
@@ -661,14 +650,14 @@ Partial Class AdminSupplierAddEditModal
         Me.ContactNumberTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContactNumberTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ContactNumberTxtBox.HoverState.Parent = Me.ContactNumberTxtBox
-        Me.ContactNumberTxtBox.Location = New System.Drawing.Point(320, 24)
+        Me.ContactNumberTxtBox.Location = New System.Drawing.Point(327, 24)
         Me.ContactNumberTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ContactNumberTxtBox.Name = "ContactNumberTxtBox"
         Me.ContactNumberTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContactNumberTxtBox.PlaceholderText = ""
         Me.ContactNumberTxtBox.SelectedText = ""
         Me.ContactNumberTxtBox.ShadowDecoration.Parent = Me.ContactNumberTxtBox
-        Me.ContactNumberTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.ContactNumberTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.ContactNumberTxtBox.TabIndex = 30
         '
         'CompanyEmailTxtBox
@@ -694,7 +683,7 @@ Partial Class AdminSupplierAddEditModal
         Me.CompanyEmailTxtBox.PlaceholderText = ""
         Me.CompanyEmailTxtBox.SelectedText = ""
         Me.CompanyEmailTxtBox.ShadowDecoration.Parent = Me.CompanyEmailTxtBox
-        Me.CompanyEmailTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.CompanyEmailTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.CompanyEmailTxtBox.TabIndex = 29
         '
         'Label3
@@ -717,7 +706,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
-        Me.Guna2Panel4.Size = New System.Drawing.Size(644, 61)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(658, 61)
         Me.Guna2Panel4.TabIndex = 30
         '
         'TableLayoutPanel4
@@ -735,7 +724,7 @@ Partial Class AdminSupplierAddEditModal
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(636, 53)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(650, 53)
         Me.TableLayoutPanel4.TabIndex = 8
         '
         'Label4
@@ -743,7 +732,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(321, 0)
+        Me.Label4.Location = New System.Drawing.Point(328, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(154, 20)
         Me.Label4.TabIndex = 33
@@ -776,14 +765,14 @@ Partial Class AdminSupplierAddEditModal
         Me.EstDelivTimeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EstDelivTimeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.EstDelivTimeTxtBox.HoverState.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.Location = New System.Drawing.Point(320, 24)
+        Me.EstDelivTimeTxtBox.Location = New System.Drawing.Point(327, 24)
         Me.EstDelivTimeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.EstDelivTimeTxtBox.Name = "EstDelivTimeTxtBox"
         Me.EstDelivTimeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.EstDelivTimeTxtBox.PlaceholderText = ""
         Me.EstDelivTimeTxtBox.SelectedText = ""
         Me.EstDelivTimeTxtBox.ShadowDecoration.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.EstDelivTimeTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.EstDelivTimeTxtBox.TabIndex = 30
         '
         'LocationTxtBox
@@ -809,7 +798,7 @@ Partial Class AdminSupplierAddEditModal
         Me.LocationTxtBox.PlaceholderText = ""
         Me.LocationTxtBox.SelectedText = ""
         Me.LocationTxtBox.ShadowDecoration.Parent = Me.LocationTxtBox
-        Me.LocationTxtBox.Size = New System.Drawing.Size(314, 26)
+        Me.LocationTxtBox.Size = New System.Drawing.Size(321, 26)
         Me.LocationTxtBox.TabIndex = 29
         '
         'FlowLayoutPanel2
@@ -817,7 +806,7 @@ Partial Class AdminSupplierAddEditModal
         Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel2.Controls.Add(Me.Guna2Panel3)
         Me.FlowLayoutPanel2.Controls.Add(Me.Guna2Panel6)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(10, 322)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(10, 326)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(409, 131)
@@ -1062,6 +1051,31 @@ Partial Class AdminSupplierAddEditModal
         Me.SupplierFileDialog.FileName = "OpenFileDialog1"
         Me.SupplierFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
+        'SupplierCirclePictureBox
+        '
+        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(680, 68)
+        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
+        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
+        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(144, 142)
+        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.SupplierCirclePictureBox.TabIndex = 30
+        Me.SupplierCirclePictureBox.TabStop = False
+        Me.SupplierCirclePictureBox.UseTransparentBackground = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(697, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(111, 20)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "Company Picture"
+        '
         'AdminSupplierAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1086,7 +1100,6 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel11.ResumeLayout(False)
         Me.PaymentTermsTableLayout.ResumeLayout(False)
         Me.PaymentTermsTableLayout.PerformLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel5.ResumeLayout(False)
         Me.JobDetailsTableLayout.ResumeLayout(False)
@@ -1104,6 +1117,7 @@ Partial Class AdminSupplierAddEditModal
         Me.Guna2Panel6.ResumeLayout(False)
         Me.BankDetailsTableLayout.ResumeLayout(False)
         Me.BankDetailsTableLayout.PerformLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1167,4 +1181,5 @@ Partial Class AdminSupplierAddEditModal
     Friend WithEvents BankDetailsIfOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents Label1 As Label
 End Class

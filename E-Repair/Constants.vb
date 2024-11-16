@@ -5,6 +5,7 @@
 
     Private ReadOnly _dashboardTitle As String = "DASHBOARD"
     Private ReadOnly _servicesTitle As String = "SERVICES"
+    Private ReadOnly _customersTitle As String = "CUSTOMERS"
     Private ReadOnly _employeesTitle As String = "EMPLOYEES"
     Private ReadOnly _suppliersTitle As String = "SUPPLIERS"
     Private ReadOnly _settingsTitle As String = "SETTINGS"
@@ -22,6 +23,12 @@
     ' Folder Names
     Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
+    Public ReadOnly Property getCustomerTitle As String
+        Get
+            Return _customersTitle
+        End Get
+    End Property
+
 
     Public ReadOnly Property getEmpProfileFolderPath As String
         Get

@@ -23,18 +23,18 @@ Partial Class AdminMainPanel
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.LogoutBtn = New System.Windows.Forms.Button()
         Me.AdminSidenavInventoryBtn = New System.Windows.Forms.Button()
         Me.AdminSidenavSuppliersBtn = New System.Windows.Forms.Button()
         Me.AdminSidenavServicesBtn = New System.Windows.Forms.Button()
+        Me.AdminSidenavCustomersBtn = New System.Windows.Forms.Button()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.LogoutBtn = New System.Windows.Forms.Button()
         Me.AdminSidenavEmployeesBtn = New System.Windows.Forms.Button()
         Me.AdminSidenavDashboardBtn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.AdminTopNavPanel = New System.Windows.Forms.Panel()
         Me.AdminProfilePanel = New System.Windows.Forms.Panel()
         Me.AdminTopNavProfilePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.AdminTopNavSettingsBtn = New System.Windows.Forms.Button()
         Me.AdminTopNavPositionLabel = New System.Windows.Forms.Label()
         Me.AdminTopNavUsernameLabel = New System.Windows.Forms.Label()
         Me.AdminTopNavTitle = New System.Windows.Forms.Label()
@@ -48,11 +48,12 @@ Partial Class AdminMainPanel
         'AdminSidenavPanel
         '
         Me.AdminSidenavPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.AdminSidenavPanel.Controls.Add(Me.Guna2Separator1)
-        Me.AdminSidenavPanel.Controls.Add(Me.LogoutBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavInventoryBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavSuppliersBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavServicesBtn)
+        Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavCustomersBtn)
+        Me.AdminSidenavPanel.Controls.Add(Me.Guna2Separator1)
+        Me.AdminSidenavPanel.Controls.Add(Me.LogoutBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavEmployeesBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.AdminSidenavDashboardBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.Panel2)
@@ -61,6 +62,78 @@ Partial Class AdminMainPanel
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
         Me.AdminSidenavPanel.Size = New System.Drawing.Size(82, 681)
         Me.AdminSidenavPanel.TabIndex = 23
+        '
+        'AdminSidenavInventoryBtn
+        '
+        Me.AdminSidenavInventoryBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AdminSidenavInventoryBtn.FlatAppearance.BorderSize = 0
+        Me.AdminSidenavInventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AdminSidenavInventoryBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdminSidenavInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AdminSidenavInventoryBtn.Image = Global.E_Repair.My.Resources.Resources.package_bold
+        Me.AdminSidenavInventoryBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AdminSidenavInventoryBtn.Location = New System.Drawing.Point(0, 375)
+        Me.AdminSidenavInventoryBtn.Name = "AdminSidenavInventoryBtn"
+        Me.AdminSidenavInventoryBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AdminSidenavInventoryBtn.Size = New System.Drawing.Size(82, 75)
+        Me.AdminSidenavInventoryBtn.TabIndex = 24
+        Me.AdminSidenavInventoryBtn.Text = "Inventory"
+        Me.AdminSidenavInventoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AdminSidenavInventoryBtn.UseVisualStyleBackColor = True
+        '
+        'AdminSidenavSuppliersBtn
+        '
+        Me.AdminSidenavSuppliersBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AdminSidenavSuppliersBtn.FlatAppearance.BorderSize = 0
+        Me.AdminSidenavSuppliersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AdminSidenavSuppliersBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdminSidenavSuppliersBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AdminSidenavSuppliersBtn.Image = Global.E_Repair.My.Resources.Resources.truck_bold
+        Me.AdminSidenavSuppliersBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AdminSidenavSuppliersBtn.Location = New System.Drawing.Point(0, 300)
+        Me.AdminSidenavSuppliersBtn.Name = "AdminSidenavSuppliersBtn"
+        Me.AdminSidenavSuppliersBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AdminSidenavSuppliersBtn.Size = New System.Drawing.Size(82, 75)
+        Me.AdminSidenavSuppliersBtn.TabIndex = 23
+        Me.AdminSidenavSuppliersBtn.Text = "Suppliers"
+        Me.AdminSidenavSuppliersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AdminSidenavSuppliersBtn.UseVisualStyleBackColor = True
+        '
+        'AdminSidenavServicesBtn
+        '
+        Me.AdminSidenavServicesBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AdminSidenavServicesBtn.FlatAppearance.BorderSize = 0
+        Me.AdminSidenavServicesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AdminSidenavServicesBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdminSidenavServicesBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AdminSidenavServicesBtn.Image = Global.E_Repair.My.Resources.Resources.screwdriver_bold
+        Me.AdminSidenavServicesBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AdminSidenavServicesBtn.Location = New System.Drawing.Point(0, 225)
+        Me.AdminSidenavServicesBtn.Name = "AdminSidenavServicesBtn"
+        Me.AdminSidenavServicesBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AdminSidenavServicesBtn.Size = New System.Drawing.Size(82, 75)
+        Me.AdminSidenavServicesBtn.TabIndex = 22
+        Me.AdminSidenavServicesBtn.Text = "Services"
+        Me.AdminSidenavServicesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AdminSidenavServicesBtn.UseVisualStyleBackColor = True
+        '
+        'AdminSidenavCustomersBtn
+        '
+        Me.AdminSidenavCustomersBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AdminSidenavCustomersBtn.FlatAppearance.BorderSize = 0
+        Me.AdminSidenavCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AdminSidenavCustomersBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AdminSidenavCustomersBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AdminSidenavCustomersBtn.Image = Global.E_Repair.My.Resources.Resources.handshake_bold1
+        Me.AdminSidenavCustomersBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AdminSidenavCustomersBtn.Location = New System.Drawing.Point(0, 150)
+        Me.AdminSidenavCustomersBtn.Name = "AdminSidenavCustomersBtn"
+        Me.AdminSidenavCustomersBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AdminSidenavCustomersBtn.Size = New System.Drawing.Size(82, 75)
+        Me.AdminSidenavCustomersBtn.TabIndex = 21
+        Me.AdminSidenavCustomersBtn.Text = "Customers"
+        Me.AdminSidenavCustomersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AdminSidenavCustomersBtn.UseVisualStyleBackColor = True
         '
         'Guna2Separator1
         '
@@ -88,60 +161,6 @@ Partial Class AdminMainPanel
         Me.LogoutBtn.Text = "Logout"
         Me.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.LogoutBtn.UseVisualStyleBackColor = True
-        '
-        'AdminSidenavInventoryBtn
-        '
-        Me.AdminSidenavInventoryBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AdminSidenavInventoryBtn.FlatAppearance.BorderSize = 0
-        Me.AdminSidenavInventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AdminSidenavInventoryBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AdminSidenavInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AdminSidenavInventoryBtn.Image = Global.E_Repair.My.Resources.Resources.package_bold
-        Me.AdminSidenavInventoryBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AdminSidenavInventoryBtn.Location = New System.Drawing.Point(0, 300)
-        Me.AdminSidenavInventoryBtn.Name = "AdminSidenavInventoryBtn"
-        Me.AdminSidenavInventoryBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AdminSidenavInventoryBtn.Size = New System.Drawing.Size(82, 75)
-        Me.AdminSidenavInventoryBtn.TabIndex = 18
-        Me.AdminSidenavInventoryBtn.Text = "Inventory"
-        Me.AdminSidenavInventoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AdminSidenavInventoryBtn.UseVisualStyleBackColor = True
-        '
-        'AdminSidenavSuppliersBtn
-        '
-        Me.AdminSidenavSuppliersBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AdminSidenavSuppliersBtn.FlatAppearance.BorderSize = 0
-        Me.AdminSidenavSuppliersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AdminSidenavSuppliersBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AdminSidenavSuppliersBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AdminSidenavSuppliersBtn.Image = Global.E_Repair.My.Resources.Resources.truck_bold
-        Me.AdminSidenavSuppliersBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AdminSidenavSuppliersBtn.Location = New System.Drawing.Point(0, 225)
-        Me.AdminSidenavSuppliersBtn.Name = "AdminSidenavSuppliersBtn"
-        Me.AdminSidenavSuppliersBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AdminSidenavSuppliersBtn.Size = New System.Drawing.Size(82, 75)
-        Me.AdminSidenavSuppliersBtn.TabIndex = 17
-        Me.AdminSidenavSuppliersBtn.Text = "Suppliers"
-        Me.AdminSidenavSuppliersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AdminSidenavSuppliersBtn.UseVisualStyleBackColor = True
-        '
-        'AdminSidenavServicesBtn
-        '
-        Me.AdminSidenavServicesBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AdminSidenavServicesBtn.FlatAppearance.BorderSize = 0
-        Me.AdminSidenavServicesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AdminSidenavServicesBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AdminSidenavServicesBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AdminSidenavServicesBtn.Image = Global.E_Repair.My.Resources.Resources.screwdriver_bold
-        Me.AdminSidenavServicesBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AdminSidenavServicesBtn.Location = New System.Drawing.Point(0, 150)
-        Me.AdminSidenavServicesBtn.Name = "AdminSidenavServicesBtn"
-        Me.AdminSidenavServicesBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AdminSidenavServicesBtn.Size = New System.Drawing.Size(82, 75)
-        Me.AdminSidenavServicesBtn.TabIndex = 14
-        Me.AdminSidenavServicesBtn.Text = "Services"
-        Me.AdminSidenavServicesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AdminSidenavServicesBtn.UseVisualStyleBackColor = True
         '
         'AdminSidenavEmployeesBtn
         '
@@ -202,18 +221,16 @@ Partial Class AdminMainPanel
         'AdminProfilePanel
         '
         Me.AdminProfilePanel.Controls.Add(Me.AdminTopNavProfilePictureBox)
-        Me.AdminProfilePanel.Controls.Add(Me.AdminTopNavSettingsBtn)
         Me.AdminProfilePanel.Controls.Add(Me.AdminTopNavPositionLabel)
         Me.AdminProfilePanel.Controls.Add(Me.AdminTopNavUsernameLabel)
         Me.AdminProfilePanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminProfilePanel.Location = New System.Drawing.Point(867, 0)
+        Me.AdminProfilePanel.Location = New System.Drawing.Point(914, 0)
         Me.AdminProfilePanel.Name = "AdminProfilePanel"
-        Me.AdminProfilePanel.Size = New System.Drawing.Size(315, 70)
+        Me.AdminProfilePanel.Size = New System.Drawing.Size(268, 70)
         Me.AdminProfilePanel.TabIndex = 0
         '
         'AdminTopNavProfilePictureBox
         '
-        Me.AdminTopNavProfilePictureBox.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
         Me.AdminTopNavProfilePictureBox.Location = New System.Drawing.Point(35, 9)
         Me.AdminTopNavProfilePictureBox.Name = "AdminTopNavProfilePictureBox"
         Me.AdminTopNavProfilePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
@@ -222,22 +239,6 @@ Partial Class AdminMainPanel
         Me.AdminTopNavProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.AdminTopNavProfilePictureBox.TabIndex = 0
         Me.AdminTopNavProfilePictureBox.TabStop = False
-        '
-        'AdminTopNavSettingsBtn
-        '
-        Me.AdminTopNavSettingsBtn.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminTopNavSettingsBtn.FlatAppearance.BorderSize = 0
-        Me.AdminTopNavSettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AdminTopNavSettingsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AdminTopNavSettingsBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AdminTopNavSettingsBtn.Image = Global.E_Repair.My.Resources.Resources.gear_bold
-        Me.AdminTopNavSettingsBtn.Location = New System.Drawing.Point(259, 0)
-        Me.AdminTopNavSettingsBtn.Name = "AdminTopNavSettingsBtn"
-        Me.AdminTopNavSettingsBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AdminTopNavSettingsBtn.Size = New System.Drawing.Size(56, 70)
-        Me.AdminTopNavSettingsBtn.TabIndex = 13
-        Me.AdminTopNavSettingsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AdminTopNavSettingsBtn.UseVisualStyleBackColor = True
         '
         'AdminTopNavPositionLabel
         '
@@ -308,20 +309,20 @@ Partial Class AdminMainPanel
     End Sub
 
     Friend WithEvents AdminSidenavPanel As Panel
-    Friend WithEvents AdminSidenavInventoryBtn As Button
-    Friend WithEvents AdminSidenavSuppliersBtn As Button
-    Friend WithEvents AdminSidenavServicesBtn As Button
     Friend WithEvents AdminSidenavEmployeesBtn As Button
     Friend WithEvents AdminSidenavDashboardBtn As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents AdminTopNavPanel As Panel
     Friend WithEvents AdminProfilePanel As Panel
     Friend WithEvents AdminTopNavProfilePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
-    Friend WithEvents AdminTopNavSettingsBtn As Button
     Friend WithEvents AdminTopNavPositionLabel As Label
     Friend WithEvents AdminTopNavUsernameLabel As Label
     Friend WithEvents AdminTopNavTitle As Label
     Friend WithEvents AdminContentPanel As Panel
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents LogoutBtn As Button
+    Friend WithEvents AdminSidenavCustomersBtn As Button
+    Friend WithEvents AdminSidenavInventoryBtn As Button
+    Friend WithEvents AdminSidenavSuppliersBtn As Button
+    Friend WithEvents AdminSidenavServicesBtn As Button
 End Class
