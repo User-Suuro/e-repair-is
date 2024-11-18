@@ -176,10 +176,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Customers\CustomersForm.Designer.vb">
-      <DependentUpon>CustomersForm.vb</DependentUpon>
+    <Compile Include="Admin\Customers\AdminCustomerForm.Designer.vb">
+      <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\CustomersForm.vb">
+    <Compile Include="Admin\Customers\AdminCustomerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Dashboard\AdminDashboardForm.Designer.vb">
@@ -194,10 +194,10 @@
     <Compile Include="Admin\Employees\AdminEmployeeAddModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeesForm.Designer.vb">
-      <DependentUpon>AdminEmployeesForm.vb</DependentUpon>
+    <Compile Include="Admin\Employees\AdminEmployeeForm.Designer.vb">
+      <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeesForm.vb">
+    <Compile Include="Admin\Employees\AdminEmployeeForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Inventory\AdminInventoryForm.Designer.vb">
@@ -212,10 +212,22 @@
     <Compile Include="Admin\Services\AdminAddEditServiceModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Services\AdminServicesForm.Designer.vb">
-      <DependentUpon>AdminServicesForm.vb</DependentUpon>
+    <Compile Include="Admin\Services\AdminClaimServiceModal.Designer.vb">
+      <DependentUpon>AdminClaimServiceModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Services\AdminServicesForm.vb">
+    <Compile Include="Admin\Services\AdminClaimServiceModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Services\AdminServiceForm.Designer.vb">
+      <DependentUpon>AdminServiceForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Services\AdminServiceForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Services\AdminServiceViewModal.Designer.vb">
+      <DependentUpon>AdminServiceViewModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Services\AdminServiceViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Settings\AdminSettingsForm.Designer.vb">
@@ -283,8 +295,8 @@
     <Compile Include="GlobalSession.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Admin\Customers\CustomersForm.resx">
-      <DependentUpon>CustomersForm.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Customers\AdminCustomerForm.resx">
+      <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
@@ -292,8 +304,8 @@
     <EmbeddedResource Include="Admin\Employees\AdminEmployeeAddModal.resx">
       <DependentUpon>AdminEmployeeAddModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employees\AdminEmployeesForm.resx">
-      <DependentUpon>AdminEmployeesForm.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Employees\AdminEmployeeForm.resx">
+      <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\AdminInventoryForm.resx">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
@@ -301,8 +313,11 @@
     <EmbeddedResource Include="Admin\Services\AdminAddEditServiceModal.resx">
       <DependentUpon>AdminAddEditServiceModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Services\AdminServicesForm.resx">
-      <DependentUpon>AdminServicesForm.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Services\AdminServiceForm.resx">
+      <DependentUpon>AdminServiceForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Services\AdminServiceViewModal.resx">
+      <DependentUpon>AdminServiceViewModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Settings\AdminSettingsForm.resx">
       <DependentUpon>AdminSettingsForm.vb</DependentUpon>
@@ -416,6 +431,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -54,6 +54,7 @@ Partial Class AdminEmployeeAddModal
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.EmployeeModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -100,9 +101,8 @@ Partial Class AdminEmployeeAddModal
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AlreadyTakenLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Label22 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
@@ -647,6 +647,18 @@ Partial Class AdminEmployeeAddModal
         Me.EmployeeModalGroupBox.Size = New System.Drawing.Size(859, 615)
         Me.EmployeeModalGroupBox.TabIndex = 1
         Me.EmployeeModalGroupBox.Text = "Add Employee"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label22.Location = New System.Drawing.Point(711, 55)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(116, 20)
+        Me.Label22.TabIndex = 28
+        Me.Label22.Text = "Employee Picture"
         '
         'FlowLayoutPanel1
         '
@@ -1383,11 +1395,6 @@ Partial Class AdminEmployeeAddModal
         Me.Label13.TabIndex = 1
         Me.Label13.Text = "Email"
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
-        '
         'ProfileCirclePictureBox
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
@@ -1402,17 +1409,10 @@ Partial Class AdminEmployeeAddModal
         Me.ProfileCirclePictureBox.TabStop = False
         Me.ProfileCirclePictureBox.UseTransparentBackground = True
         '
-        'Label22
+        'OpenFileDialog1
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(711, 55)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(116, 20)
-        Me.Label22.TabIndex = 28
-        Me.Label22.Text = "Employee Picture"
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
         'AdminEmployeeAddModal
         '

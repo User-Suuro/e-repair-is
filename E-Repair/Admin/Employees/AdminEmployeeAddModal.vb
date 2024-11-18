@@ -335,8 +335,7 @@
         Dim prevValues As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empIDLogged)
 
         Dim updateTotal As New Dictionary(Of String, Object) From {
-                {"added_by", empIDLogged},
-                {"total_employee_added", prevValues.Rows(0)("total_employee_added") + 1}
+                {"added_by", empIDLogged}
          }
 
         Dim updateTotalEmpAdd = dbHelper.UpdateRecord("employees", "employee_id", empIDLogged, updateTotal)

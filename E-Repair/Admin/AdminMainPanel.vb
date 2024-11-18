@@ -31,17 +31,17 @@ Public Class AdminMainPanel
     End Sub
 
     Private Sub SidenavEmployeesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavEmployeesBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminEmployeesForm)
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminEmployeeForm)
         AdminTopNavTitle.Text = constants.EmployeesTitle
     End Sub
 
     Private Sub AdminSidenavCustomersBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavCustomersBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CustomersForm)
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminCustomerForm)
         AdminTopNavTitle.Text = constants.getCustomerTitle
     End Sub
 
     Private Sub SidenavServicesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavServicesBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminServicesForm)
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminServiceForm)
         AdminTopNavTitle.Text = constants.ServicesTitle
     End Sub
 

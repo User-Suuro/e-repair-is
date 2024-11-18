@@ -4,7 +4,7 @@ Imports Google.Protobuf.Reflection.FieldOptions.Types
 Imports Mysqlx.XDevAPI.Common
 Imports ZstdSharp.Unsafe
 
-Public Class AdminEmployeesForm
+Public Class AdminEmployeeForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
@@ -92,7 +92,6 @@ Public Class AdminEmployeesForm
 
             empjobType = EmpDGV.CurrentRow.Cells("JOB_TYPE").Value
 
-            adminTotalEmployeeAdded = dbHelper.IntNullCheck(EmpDGV.CurrentRow.Cells("TOTAL_EMPLOYEE_ADDED").Value)
             adminPosition = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("ADMIN_POSITION").Value)
 
             utilityPersonnelDestination = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("PERSONNEL_DESTINATION").Value)
@@ -180,7 +179,10 @@ Public Class AdminEmployeesForm
                 .AddedByTextBox.Text = empIdAddedBy
 
                 .PositionTextBox.Text = adminPosition
-                .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
+
+                ' get dbdata then count
+
+                .EmployeeAddedTextBox.Text = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
                 .DevicesRepairedTextBox.Text = techNumberFinishedServices
                 .NumberJobsAssignedTextBox.Text = techNumberPendingServices
