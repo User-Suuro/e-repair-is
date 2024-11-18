@@ -54,19 +54,6 @@ Partial Class AdminEmployeeAddModal
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.EmployeeModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.IfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.JobTypeComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.DateHiredDateTimePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.ContractStatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.JobDescriptionFlowLayout = New System.Windows.Forms.FlowLayoutPanel()
         Me.PositionPanel = New Guna.UI2.WinForms.Guna2Panel()
@@ -103,6 +90,19 @@ Partial Class AdminEmployeeAddModal
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AlreadyTakenLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.IfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.JobTypeComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.DateHiredDateTimePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.ContractStatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
@@ -111,9 +111,6 @@ Partial Class AdminEmployeeAddModal
         Me.Guna2Panel3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.EmployeeModalGroupBox.SuspendLayout()
-        Me.Guna2Panel5.SuspendLayout()
-        Me.JobDetailsTableLayout.SuspendLayout()
-        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.JobDescriptionFlowLayout.SuspendLayout()
         Me.PositionPanel.SuspendLayout()
@@ -129,6 +126,9 @@ Partial Class AdminEmployeeAddModal
         Me.TableLayoutPanel8.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Guna2Panel5.SuspendLayout()
+        Me.JobDetailsTableLayout.SuspendLayout()
+        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BtnClose
@@ -648,210 +648,6 @@ Partial Class AdminEmployeeAddModal
         Me.EmployeeModalGroupBox.Size = New System.Drawing.Size(859, 615)
         Me.EmployeeModalGroupBox.TabIndex = 1
         Me.EmployeeModalGroupBox.Text = "Add Employee"
-        '
-        'Guna2Panel5
-        '
-        Me.Guna2Panel5.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel5.BorderRadius = 4
-        Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
-        Me.Guna2Panel5.Location = New System.Drawing.Point(19, 264)
-        Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(825, 61)
-        Me.Guna2Panel5.TabIndex = 41
-        '
-        'JobDetailsTableLayout
-        '
-        Me.JobDetailsTableLayout.ColumnCount = 4
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
-        Me.JobDetailsTableLayout.Controls.Add(Me.IfOthersTxtBox, 3, 1)
-        Me.JobDetailsTableLayout.Controls.Add(Me.Label11, 3, 0)
-        Me.JobDetailsTableLayout.Controls.Add(Me.JobTypeComboBox, 1, 1)
-        Me.JobDetailsTableLayout.Controls.Add(Me.Label18, 1, 0)
-        Me.JobDetailsTableLayout.Controls.Add(Me.DateHiredDateTimePicker, 0, 1)
-        Me.JobDetailsTableLayout.Controls.Add(Me.Label14, 0, 0)
-        Me.JobDetailsTableLayout.Controls.Add(Me.ContractStatusComboBox, 2, 1)
-        Me.JobDetailsTableLayout.Controls.Add(Me.Label15, 2, 0)
-        Me.JobDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JobDetailsTableLayout.Location = New System.Drawing.Point(4, 4)
-        Me.JobDetailsTableLayout.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.JobDetailsTableLayout.Name = "JobDetailsTableLayout"
-        Me.JobDetailsTableLayout.RowCount = 2
-        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(817, 53)
-        Me.JobDetailsTableLayout.TabIndex = 8
-        '
-        'IfOthersTxtBox
-        '
-        Me.IfOthersTxtBox.BorderRadius = 4
-        Me.IfOthersTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.IfOthersTxtBox.DefaultText = ""
-        Me.IfOthersTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.IfOthersTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.IfOthersTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.IfOthersTxtBox.DisabledState.Parent = Me.IfOthersTxtBox
-        Me.IfOthersTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.IfOthersTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.IfOthersTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.IfOthersTxtBox.FocusedState.Parent = Me.IfOthersTxtBox
-        Me.IfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.IfOthersTxtBox.HoverState.Parent = Me.IfOthersTxtBox
-        Me.IfOthersTxtBox.Location = New System.Drawing.Point(818, 24)
-        Me.IfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.IfOthersTxtBox.Name = "IfOthersTxtBox"
-        Me.IfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.IfOthersTxtBox.PlaceholderText = ""
-        Me.IfOthersTxtBox.SelectedText = ""
-        Me.IfOthersTxtBox.ShadowDecoration.Parent = Me.IfOthersTxtBox
-        Me.IfOthersTxtBox.Size = New System.Drawing.Size(1, 25)
-        Me.IfOthersTxtBox.TabIndex = 28
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(819, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(1, 20)
-        Me.Label11.TabIndex = 27
-        Me.Label11.Text = "If others"
-        '
-        'JobTypeComboBox
-        '
-        Me.JobTypeComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.JobTypeComboBox.BorderRadius = 4
-        Me.JobTypeComboBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.JobTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.JobTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.JobTypeComboBox.FocusedColor = System.Drawing.Color.Empty
-        Me.JobTypeComboBox.FocusedState.Parent = Me.JobTypeComboBox
-        Me.JobTypeComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.JobTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.JobTypeComboBox.FormattingEnabled = True
-        Me.JobTypeComboBox.HoverState.Parent = Me.JobTypeComboBox
-        Me.JobTypeComboBox.ItemHeight = 20
-        Me.JobTypeComboBox.Items.AddRange(New Object() {"Admin", "Technician", "Cashier", "Utility Personnel"})
-        Me.JobTypeComboBox.ItemsAppearance.Parent = Me.JobTypeComboBox
-        Me.JobTypeComboBox.Location = New System.Drawing.Point(275, 24)
-        Me.JobTypeComboBox.Name = "JobTypeComboBox"
-        Me.JobTypeComboBox.ShadowDecoration.Parent = Me.JobTypeComboBox
-        Me.JobTypeComboBox.Size = New System.Drawing.Size(266, 26)
-        Me.JobTypeComboBox.TabIndex = 22
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(275, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(66, 20)
-        Me.Label18.TabIndex = 21
-        Me.Label18.Text = "Job Type"
-        '
-        'DateHiredDateTimePicker
-        '
-        Me.DateHiredDateTimePicker.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.DateHiredDateTimePicker.BorderRadius = 4
-        Me.DateHiredDateTimePicker.BorderThickness = 1
-        Me.DateHiredDateTimePicker.CheckedState.Parent = Me.DateHiredDateTimePicker
-        Me.DateHiredDateTimePicker.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DateHiredDateTimePicker.FillColor = System.Drawing.Color.White
-        Me.DateHiredDateTimePicker.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateHiredDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.DateHiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateHiredDateTimePicker.HoverState.Parent = Me.DateHiredDateTimePicker
-        Me.DateHiredDateTimePicker.Location = New System.Drawing.Point(3, 24)
-        Me.DateHiredDateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateHiredDateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateHiredDateTimePicker.Name = "DateHiredDateTimePicker"
-        Me.DateHiredDateTimePicker.ShadowDecoration.Parent = Me.DateHiredDateTimePicker
-        Me.DateHiredDateTimePicker.Size = New System.Drawing.Size(266, 25)
-        Me.DateHiredDateTimePicker.TabIndex = 20
-        Me.DateHiredDateTimePicker.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(3, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(72, 20)
-        Me.Label14.TabIndex = 14
-        Me.Label14.Text = "Date Hired"
-        '
-        'ContractStatusComboBox
-        '
-        Me.ContractStatusComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.ContractStatusComboBox.BorderRadius = 4
-        Me.ContractStatusComboBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ContractStatusComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.ContractStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ContractStatusComboBox.FocusedColor = System.Drawing.Color.Empty
-        Me.ContractStatusComboBox.FocusedState.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ContractStatusComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ContractStatusComboBox.FormattingEnabled = True
-        Me.ContractStatusComboBox.HoverState.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.ItemHeight = 20
-        Me.ContractStatusComboBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary", "Others"})
-        Me.ContractStatusComboBox.ItemsAppearance.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Location = New System.Drawing.Point(547, 24)
-        Me.ContractStatusComboBox.Name = "ContractStatusComboBox"
-        Me.ContractStatusComboBox.ShadowDecoration.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Size = New System.Drawing.Size(266, 26)
-        Me.ContractStatusComboBox.TabIndex = 25
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(547, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(97, 20)
-        Me.Label15.TabIndex = 26
-        Me.Label15.Text = "Contract Status"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(711, 55)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(116, 20)
-        Me.Label22.TabIndex = 28
-        Me.Label22.Text = "Employee Picture"
-        '
-        'ProfileCirclePictureBox
-        '
-        Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.ProfileCirclePictureBox.Image = CType(resources.GetObject("ProfileCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(700, 78)
-        Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
-        Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.ProfileCirclePictureBox.ShadowDecoration.Parent = Me.ProfileCirclePictureBox
-        Me.ProfileCirclePictureBox.Size = New System.Drawing.Size(140, 140)
-        Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ProfileCirclePictureBox.TabIndex = 15
-        Me.ProfileCirclePictureBox.TabStop = False
-        Me.ProfileCirclePictureBox.UseTransparentBackground = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
         'FlowLayoutPanel1
         '
@@ -1427,6 +1223,210 @@ Partial Class AdminEmployeeAddModal
         Me.Label13.TabIndex = 1
         Me.Label13.Text = "Email"
         '
+        'Guna2Panel5
+        '
+        Me.Guna2Panel5.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel5.BorderRadius = 4
+        Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
+        Me.Guna2Panel5.Location = New System.Drawing.Point(19, 264)
+        Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.Guna2Panel5.Name = "Guna2Panel5"
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
+        Me.Guna2Panel5.Size = New System.Drawing.Size(825, 61)
+        Me.Guna2Panel5.TabIndex = 41
+        '
+        'JobDetailsTableLayout
+        '
+        Me.JobDetailsTableLayout.ColumnCount = 4
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
+        Me.JobDetailsTableLayout.Controls.Add(Me.IfOthersTxtBox, 3, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.Label11, 3, 0)
+        Me.JobDetailsTableLayout.Controls.Add(Me.JobTypeComboBox, 1, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.Label18, 1, 0)
+        Me.JobDetailsTableLayout.Controls.Add(Me.DateHiredDateTimePicker, 0, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.Label14, 0, 0)
+        Me.JobDetailsTableLayout.Controls.Add(Me.ContractStatusComboBox, 2, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.Label15, 2, 0)
+        Me.JobDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JobDetailsTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.JobDetailsTableLayout.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.JobDetailsTableLayout.Name = "JobDetailsTableLayout"
+        Me.JobDetailsTableLayout.RowCount = 2
+        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(817, 53)
+        Me.JobDetailsTableLayout.TabIndex = 8
+        '
+        'IfOthersTxtBox
+        '
+        Me.IfOthersTxtBox.BorderRadius = 4
+        Me.IfOthersTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.IfOthersTxtBox.DefaultText = ""
+        Me.IfOthersTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.IfOthersTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.IfOthersTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.IfOthersTxtBox.DisabledState.Parent = Me.IfOthersTxtBox
+        Me.IfOthersTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.IfOthersTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.IfOthersTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.IfOthersTxtBox.FocusedState.Parent = Me.IfOthersTxtBox
+        Me.IfOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IfOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.IfOthersTxtBox.HoverState.Parent = Me.IfOthersTxtBox
+        Me.IfOthersTxtBox.Location = New System.Drawing.Point(818, 24)
+        Me.IfOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.IfOthersTxtBox.Name = "IfOthersTxtBox"
+        Me.IfOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.IfOthersTxtBox.PlaceholderText = ""
+        Me.IfOthersTxtBox.SelectedText = ""
+        Me.IfOthersTxtBox.ShadowDecoration.Parent = Me.IfOthersTxtBox
+        Me.IfOthersTxtBox.Size = New System.Drawing.Size(1, 25)
+        Me.IfOthersTxtBox.TabIndex = 28
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(819, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(1, 20)
+        Me.Label11.TabIndex = 27
+        Me.Label11.Text = "If others"
+        '
+        'JobTypeComboBox
+        '
+        Me.JobTypeComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.JobTypeComboBox.BorderRadius = 4
+        Me.JobTypeComboBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.JobTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.JobTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.JobTypeComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.JobTypeComboBox.FocusedState.Parent = Me.JobTypeComboBox
+        Me.JobTypeComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.JobTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.JobTypeComboBox.FormattingEnabled = True
+        Me.JobTypeComboBox.HoverState.Parent = Me.JobTypeComboBox
+        Me.JobTypeComboBox.ItemHeight = 20
+        Me.JobTypeComboBox.Items.AddRange(New Object() {"Admin", "Technician", "Cashier", "Utility Personnel"})
+        Me.JobTypeComboBox.ItemsAppearance.Parent = Me.JobTypeComboBox
+        Me.JobTypeComboBox.Location = New System.Drawing.Point(275, 24)
+        Me.JobTypeComboBox.Name = "JobTypeComboBox"
+        Me.JobTypeComboBox.ShadowDecoration.Parent = Me.JobTypeComboBox
+        Me.JobTypeComboBox.Size = New System.Drawing.Size(266, 26)
+        Me.JobTypeComboBox.TabIndex = 22
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label18.Location = New System.Drawing.Point(275, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(66, 20)
+        Me.Label18.TabIndex = 21
+        Me.Label18.Text = "Job Type"
+        '
+        'DateHiredDateTimePicker
+        '
+        Me.DateHiredDateTimePicker.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.DateHiredDateTimePicker.BorderRadius = 4
+        Me.DateHiredDateTimePicker.BorderThickness = 1
+        Me.DateHiredDateTimePicker.CheckedState.Parent = Me.DateHiredDateTimePicker
+        Me.DateHiredDateTimePicker.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DateHiredDateTimePicker.FillColor = System.Drawing.Color.White
+        Me.DateHiredDateTimePicker.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateHiredDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.DateHiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DateHiredDateTimePicker.HoverState.Parent = Me.DateHiredDateTimePicker
+        Me.DateHiredDateTimePicker.Location = New System.Drawing.Point(3, 24)
+        Me.DateHiredDateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateHiredDateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateHiredDateTimePicker.Name = "DateHiredDateTimePicker"
+        Me.DateHiredDateTimePicker.ShadowDecoration.Parent = Me.DateHiredDateTimePicker
+        Me.DateHiredDateTimePicker.Size = New System.Drawing.Size(266, 25)
+        Me.DateHiredDateTimePicker.TabIndex = 20
+        Me.DateHiredDateTimePicker.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(3, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(72, 20)
+        Me.Label14.TabIndex = 14
+        Me.Label14.Text = "Date Hired"
+        '
+        'ContractStatusComboBox
+        '
+        Me.ContractStatusComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.ContractStatusComboBox.BorderRadius = 4
+        Me.ContractStatusComboBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ContractStatusComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.ContractStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ContractStatusComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.ContractStatusComboBox.FocusedState.Parent = Me.ContractStatusComboBox
+        Me.ContractStatusComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ContractStatusComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ContractStatusComboBox.FormattingEnabled = True
+        Me.ContractStatusComboBox.HoverState.Parent = Me.ContractStatusComboBox
+        Me.ContractStatusComboBox.ItemHeight = 20
+        Me.ContractStatusComboBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary", "Others"})
+        Me.ContractStatusComboBox.ItemsAppearance.Parent = Me.ContractStatusComboBox
+        Me.ContractStatusComboBox.Location = New System.Drawing.Point(547, 24)
+        Me.ContractStatusComboBox.Name = "ContractStatusComboBox"
+        Me.ContractStatusComboBox.ShadowDecoration.Parent = Me.ContractStatusComboBox
+        Me.ContractStatusComboBox.Size = New System.Drawing.Size(266, 26)
+        Me.ContractStatusComboBox.TabIndex = 25
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label15.Location = New System.Drawing.Point(547, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(97, 20)
+        Me.Label15.TabIndex = 26
+        Me.Label15.Text = "Contract Status"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label22.Location = New System.Drawing.Point(711, 55)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(116, 20)
+        Me.Label22.TabIndex = 28
+        Me.Label22.Text = "Employee Picture"
+        '
+        'ProfileCirclePictureBox
+        '
+        Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.ProfileCirclePictureBox.Image = CType(resources.GetObject("ProfileCirclePictureBox.Image"), System.Drawing.Image)
+        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(700, 78)
+        Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
+        Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.ProfileCirclePictureBox.ShadowDecoration.Parent = Me.ProfileCirclePictureBox
+        Me.ProfileCirclePictureBox.Size = New System.Drawing.Size(140, 140)
+        Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ProfileCirclePictureBox.TabIndex = 15
+        Me.ProfileCirclePictureBox.TabStop = False
+        Me.ProfileCirclePictureBox.UseTransparentBackground = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+        '
         'AdminEmployeeAddModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1451,10 +1451,6 @@ Partial Class AdminEmployeeAddModal
         Me.TableLayoutPanel3.PerformLayout()
         Me.EmployeeModalGroupBox.ResumeLayout(False)
         Me.EmployeeModalGroupBox.PerformLayout()
-        Me.Guna2Panel5.ResumeLayout(False)
-        Me.JobDetailsTableLayout.ResumeLayout(False)
-        Me.JobDetailsTableLayout.PerformLayout()
-        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.JobDescriptionFlowLayout.ResumeLayout(False)
         Me.PositionPanel.ResumeLayout(False)
@@ -1478,6 +1474,10 @@ Partial Class AdminEmployeeAddModal
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Guna2Panel5.ResumeLayout(False)
+        Me.JobDetailsTableLayout.ResumeLayout(False)
+        Me.JobDetailsTableLayout.PerformLayout()
+        CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

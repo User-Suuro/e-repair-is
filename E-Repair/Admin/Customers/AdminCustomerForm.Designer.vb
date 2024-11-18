@@ -35,19 +35,34 @@ Partial Class AdminCustomerForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.EmpDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
         Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
         Me.EditCustomerBtn = New System.Windows.Forms.Button()
         Me.AddCustomerBtn = New System.Windows.Forms.Button()
         Me.ViewCustomerBtn = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CustomerDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FIRST_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MIDDLE_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LAST_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CONTACT_NUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADDRESS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GENDER = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EMAIL = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LAST_TRANSACTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.EmpDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CustomerDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -115,13 +130,13 @@ Partial Class AdminCustomerForm
         Me.SearchComboBox.FormattingEnabled = True
         Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
+        Me.SearchComboBox.Items.AddRange(New Object() {"First Name", "Middle Name", "Last Name", "Contact Number", "Address", "Email", "Date Added"})
         Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
         Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
-        Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
@@ -197,78 +212,6 @@ Partial Class AdminCustomerForm
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(65, 427)
         Me.Panel3.TabIndex = 0
-        '
-        'Panel1
-        '
-        Me.Panel1.AutoSize = True
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(65, 0)
-        Me.Panel1.TabIndex = 0
-        '
-        'EmpDGV
-        '
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.EmpDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.EmpDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EmpDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.EmpDGV.BackgroundColor = System.Drawing.Color.White
-        Me.EmpDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.EmpDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.EmpDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.EmpDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.EmpDGV.ColumnHeadersHeight = 48
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.EmpDGV.DefaultCellStyle = DataGridViewCellStyle3
-        Me.EmpDGV.EnableHeadersVisualStyles = False
-        Me.EmpDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.EmpDGV.Location = New System.Drawing.Point(11, 70)
-        Me.EmpDGV.Name = "EmpDGV"
-        Me.EmpDGV.ReadOnly = True
-        Me.EmpDGV.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.EmpDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.EmpDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.EmpDGV.Size = New System.Drawing.Size(1070, 512)
-        Me.EmpDGV.TabIndex = 34
-        Me.EmpDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
-        Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.EmpDGV.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.EmpDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.EmpDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.EmpDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.EmpDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.EmpDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.EmpDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.EmpDGV.ThemeStyle.HeaderStyle.Height = 48
-        Me.EmpDGV.ThemeStyle.ReadOnly = True
-        Me.EmpDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.EmpDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.EmpDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.EmpDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
-        Me.EmpDGV.ThemeStyle.RowsStyle.Height = 22
-        Me.EmpDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        Me.EmpDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
         'DeleteCustomerBtn
         '
@@ -362,6 +305,189 @@ Partial Class AdminCustomerForm
         Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ViewCustomerBtn.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.AutoSize = True
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(65, 0)
+        Me.Panel1.TabIndex = 0
+        '
+        'CustomerDGV
+        '
+        Me.CustomerDGV.AllowUserToAddRows = False
+        Me.CustomerDGV.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.CustomerDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.CustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.CustomerDGV.BackgroundColor = System.Drawing.Color.White
+        Me.CustomerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.CustomerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.CustomerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CustomerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.CustomerDGV.ColumnHeadersHeight = 48
+        Me.CustomerDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CUSTOMER_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.CONTACT_NUMBER, Me.ADDRESS, Me.GENDER, Me.EMAIL, Me.TOTAL_PAID, Me.LAST_TRANSACTION, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED, Me.ADDED_BY, Me.DATE_ADDED})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle3
+        Me.CustomerDGV.EnableHeadersVisualStyles = False
+        Me.CustomerDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.CustomerDGV.Location = New System.Drawing.Point(11, 70)
+        Me.CustomerDGV.Name = "CustomerDGV"
+        Me.CustomerDGV.ReadOnly = True
+        Me.CustomerDGV.RowHeadersVisible = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.CustomerDGV.Size = New System.Drawing.Size(1070, 512)
+        Me.CustomerDGV.TabIndex = 34
+        Me.CustomerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
+        Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.CustomerDGV.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.CustomerDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.CustomerDGV.ThemeStyle.HeaderStyle.Height = 48
+        Me.CustomerDGV.ThemeStyle.ReadOnly = True
+        Me.CustomerDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CustomerDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.CustomerDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.CustomerDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
+        Me.CustomerDGV.ThemeStyle.RowsStyle.Height = 22
+        Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        '
+        'CUSTOMER_ID
+        '
+        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
+        Me.CUSTOMER_ID.HeaderText = "Customer ID"
+        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
+        Me.CUSTOMER_ID.ReadOnly = True
+        Me.CUSTOMER_ID.Visible = False
+        '
+        'FIRST_NAME
+        '
+        Me.FIRST_NAME.DataPropertyName = "first_name"
+        Me.FIRST_NAME.HeaderText = "First Name"
+        Me.FIRST_NAME.Name = "FIRST_NAME"
+        Me.FIRST_NAME.ReadOnly = True
+        '
+        'MIDDLE_NAME
+        '
+        Me.MIDDLE_NAME.DataPropertyName = "middle_name"
+        Me.MIDDLE_NAME.HeaderText = "Middle Name"
+        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
+        Me.MIDDLE_NAME.ReadOnly = True
+        '
+        'LAST_NAME
+        '
+        Me.LAST_NAME.DataPropertyName = "last_name"
+        Me.LAST_NAME.HeaderText = "Last Name"
+        Me.LAST_NAME.Name = "LAST_NAME"
+        Me.LAST_NAME.ReadOnly = True
+        '
+        'CONTACT_NUMBER
+        '
+        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
+        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
+        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
+        Me.CONTACT_NUMBER.ReadOnly = True
+        '
+        'ADDRESS
+        '
+        Me.ADDRESS.DataPropertyName = "address"
+        Me.ADDRESS.HeaderText = "Address"
+        Me.ADDRESS.Name = "ADDRESS"
+        Me.ADDRESS.ReadOnly = True
+        '
+        'GENDER
+        '
+        Me.GENDER.DataPropertyName = "gender"
+        Me.GENDER.HeaderText = "Gender"
+        Me.GENDER.Name = "GENDER"
+        Me.GENDER.ReadOnly = True
+        Me.GENDER.Visible = False
+        '
+        'EMAIL
+        '
+        Me.EMAIL.DataPropertyName = "email"
+        Me.EMAIL.HeaderText = "Email"
+        Me.EMAIL.Name = "EMAIL"
+        Me.EMAIL.ReadOnly = True
+        '
+        'TOTAL_PAID
+        '
+        Me.TOTAL_PAID.DataPropertyName = "total_paid"
+        Me.TOTAL_PAID.HeaderText = "Total Paid"
+        Me.TOTAL_PAID.Name = "TOTAL_PAID"
+        Me.TOTAL_PAID.ReadOnly = True
+        Me.TOTAL_PAID.Visible = False
+        '
+        'LAST_TRANSACTION
+        '
+        Me.LAST_TRANSACTION.DataPropertyName = "last_transaction"
+        Me.LAST_TRANSACTION.HeaderText = "Last Transaction Date"
+        Me.LAST_TRANSACTION.Name = "LAST_TRANSACTION"
+        Me.LAST_TRANSACTION.ReadOnly = True
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
         'AdminCustomerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -369,7 +495,7 @@ Partial Class AdminCustomerForm
         Me.ClientSize = New System.Drawing.Size(1164, 611)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.AdminSidenavPanel)
-        Me.Controls.Add(Me.EmpDGV)
+        Me.Controls.Add(Me.CustomerDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminCustomerForm"
         Me.Text = "AdminCustomerForm"
@@ -380,7 +506,7 @@ Partial Class AdminCustomerForm
         Me.AdminSidenavPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        CType(Me.EmpDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CustomerDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -400,5 +526,20 @@ Partial Class AdminCustomerForm
     Friend WithEvents AddCustomerBtn As Button
     Friend WithEvents ViewCustomerBtn As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents EmpDGV As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents CustomerDGV As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
+    Friend WithEvents FIRST_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents MIDDLE_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents LAST_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents CONTACT_NUMBER As DataGridViewTextBoxColumn
+    Friend WithEvents ADDRESS As DataGridViewTextBoxColumn
+    Friend WithEvents GENDER As DataGridViewTextBoxColumn
+    Friend WithEvents EMAIL As DataGridViewTextBoxColumn
+    Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
+    Friend WithEvents LAST_TRANSACTION As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
+    Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents ADDED_BY As DataGridViewTextBoxColumn
+    Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
 End Class

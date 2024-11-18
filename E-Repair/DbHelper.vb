@@ -312,6 +312,32 @@ Public Class DbHelper
         Return resultTable
     End Function
 
+    Public Function GetRowByTwoValues(tableName As String, columnName01 As String, value01 As Object, columnName02 As String, value02 As Object) As DataTable
+        Dim resultTable As New DataTable()
+        Dim query As String = $"SELECT * FROM `{tableName}` WHERE {columnName01} = @value01 AND {columnName02} = @value02"
+
+        Try
+            cmd.Parameters.Clear()
+
+            cmd = New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@value01", value01)
+            cmd.Parameters.AddWithValue("@value02", value02)
+
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+                resultTable.Load(cmdRead)
+                cmdRead.Close()
+            End If
+        Catch ex As Exception
+            MsgBox("Error retrieving row: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        Return resultTable
+    End Function
+
     ' Get All Rows From Table (tableName)
 
     Public Function GetAllRowsFromTable(tableName As String, includeArchive As Boolean, Optional showArchivedOnly As Boolean = False) As DataTable

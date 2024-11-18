@@ -61,6 +61,7 @@ Public Class AdminSupplierAddEditModal
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
+            {"added_by", empIDLogged}, ' optional
             {"company_name", compName},
             {"company_description", compDesc},
             {"contact_person", compContactPerson},
@@ -73,11 +74,10 @@ Public Class AdminSupplierAddEditModal
             {"payment_terms", paymentTerms},
             {"estimated_delivery_time", estDelivTime},
             {"company_picture_path", savedPath},
-            {"date_added", DateTime.Now},
-            {"added_by", empIDLogged}
+            {"date_added", DateTime.Now}
         }
 
-        If Not formUtils.AreAllValuesFilled(insertData) Then Exit Sub
+        If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
 
         If dbHelper.InsertRecord("suppliers", insertData) Then
             formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)

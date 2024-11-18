@@ -25,51 +25,11 @@ Public Class AdminSuppliersForm
     Private archivedStatus As Boolean
     Private dateArchived As DateTime
 
-    ' INIT VALUES
-    Private Function InitValues() As Boolean
-
-        If CheckIfInvalid() Then Return True
-
-        Try
-            With SuppliersDGV.CurrentRow
-                suppID = .Cells("SUPPLIER_ID").Value
-                suppCompName = .Cells("COMPANY_NAME").Value
-                companyDesc = .Cells("COMPANY_DESCRIPTION").Value
-                contactPerson = .Cells("CONTACT_PERSON").Value
-                contactNumber = .Cells("CONTACT_NUMBER").Value
-                email = .Cells("COMPANY_EMAIL").Value
-                suppLoc = .Cells("LOCATION").Value
-                supplierType = .Cells("SUPPLIER_TYPE").Value
-                contractType = .Cells("SUPPLIER_CONTRACT").Value
-                bankDetails = .Cells("BANK_DETAILS").Value
-                paymentTerms = .Cells("PAYMENT_TERMS").Value
-                deliveryTime = .Cells("ESTIMATED_DELIVERY_TIME").Value
-                noSuppliedItems = dbHelper.GetRowByValue("items", "supplier_id", suppID).Rows.Count
-                totalPaid = .Cells("TOTAL_PAID").Value
-                suppProfilePath = .Cells("PICTURE_PATH").Value
-                dateAdded = .Cells("DATE_ADDED").Value
-                addedBy = .Cells("ADDED_BY").Value
-                archivedStatus = .Cells("ARCHIVED").Value
-            End With
-
-        Catch ex As Exception
-            MsgBox("Cannot initialize suppliers value: " & ex.Message)
-        End Try
-
-        Return False
-    End Function
-
-    ' FORM ONLOAD
-    Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDataToDGV()
-        SuppliersDGV.ClearSelection()
-    End Sub
-
     ' VIEW
     Private Sub ViewSupplierBtn_Click(sender As Object, e As EventArgs) Handles ViewSupplierBtn.Click
         Dim supplierViewModal As New AdminSupplierViewModal
 
-        If InitValues() Then Exit Sub
+        If Not InitValues() Then Exit Sub
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -132,7 +92,7 @@ Public Class AdminSuppliersForm
     Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
         Dim supplierAddEditModal As New AdminSupplierAddEditModal
 
-        If InitValues() Then Exit Sub
+        If Not InitValues() Then Exit Sub
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -203,9 +163,9 @@ Public Class AdminSuppliersForm
 
     ' ARCHIVE
     Private Sub ArchiveSupplierBtn_Click(sender As Object, e As EventArgs) Handles ArchiveSupplierBtn.Click
-        Dim loggedUser As String
+        If Not InitValues() Then Exit Sub
 
-        If InitValues() Then Exit Sub
+        Dim loggedUser As String
 
         If archivedStatus Then
             MsgBox("This supplier is already archived!")
@@ -241,7 +201,7 @@ Public Class AdminSuppliersForm
 
     ' DELETE
     Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
-        If InitValues() Then Exit Sub
+        If Not InitValues() Then Exit Sub
 
         If Not archivedStatus Then
             MsgBox("Archive the supplier first")
@@ -255,25 +215,58 @@ Public Class AdminSuppliersForm
         LoadDataToDGV()
     End Sub
 
-    ' VALUE CHECKER
-    Private Function CheckIfInvalid() As Boolean
+    ' INIT VALUES
+    Private Function InitValues() As Boolean
+
         If SuppliersDGV.Rows.Count = 0 Then
             MsgBox("No Data Found!")
-            Return True
+            Return False
         End If
 
         If SuppliersDGV.CurrentRow Is Nothing Then
             MsgBox("No row is currently selected.")
-            Return True
+            Return False
         End If
 
         If SuppliersDGV.SelectedRows.Count <= 0 Then
             MsgBox("Please Select a Row First")
-            Return True
+            Return False
         End If
 
-        Return False
+        Try
+            With SuppliersDGV.CurrentRow
+                suppID = .Cells("SUPPLIER_ID").Value
+                suppCompName = .Cells("COMPANY_NAME").Value
+                companyDesc = .Cells("COMPANY_DESCRIPTION").Value
+                contactPerson = .Cells("CONTACT_PERSON").Value
+                contactNumber = .Cells("CONTACT_NUMBER").Value
+                email = .Cells("COMPANY_EMAIL").Value
+                suppLoc = .Cells("LOCATION").Value
+                supplierType = .Cells("SUPPLIER_TYPE").Value
+                contractType = .Cells("SUPPLIER_CONTRACT").Value
+                bankDetails = .Cells("BANK_DETAILS").Value
+                paymentTerms = .Cells("PAYMENT_TERMS").Value
+                deliveryTime = .Cells("ESTIMATED_DELIVERY_TIME").Value
+                noSuppliedItems = dbHelper.GetRowByValue("items", "supplier_id", suppID).Rows.Count
+                totalPaid = .Cells("TOTAL_PAID").Value
+                suppProfilePath = .Cells("PICTURE_PATH").Value
+                dateAdded = .Cells("DATE_ADDED").Value
+                addedBy = .Cells("ADDED_BY").Value
+                archivedStatus = .Cells("ARCHIVED").Value
+            End With
+
+        Catch ex As Exception
+            MsgBox("Cannot initialize suppliers value: " & ex.Message)
+        End Try
+
+        Return True
     End Function
+
+    ' FORM ONLOAD
+    Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadDataToDGV()
+        SuppliersDGV.ClearSelection()
+    End Sub
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
@@ -361,5 +354,4 @@ Public Class AdminSuppliersForm
             MsgBox("Unable to style the Employee DGB with no current id session!")
         End Try
     End Sub
-
 End Class
