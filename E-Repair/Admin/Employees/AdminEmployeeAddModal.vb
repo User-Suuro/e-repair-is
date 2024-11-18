@@ -388,7 +388,7 @@
 
         If jobType = constants.getAdminString Then
             ' Admin
-            If Not formUtils.AreAllValuesFilled(updateAdminValues, 1) Then Exit Sub
+            If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
             For Each kvp In updateAdminValues
                 updateData.Add(kvp.Key, kvp.Value)
             Next
