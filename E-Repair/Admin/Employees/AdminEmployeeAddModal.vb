@@ -296,17 +296,7 @@
         ' UDPDATE FOREIGN VALUES
 
         Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                {"total_employee_added", 0}, ' Optional
                 {"admin_position", adminPosition}
-        }
-
-        Dim updateTechnicianValues As New Dictionary(Of String, Object) From {
-                {"no_pending_services", 0}, ' Optional
-                {"no_finished_services", 0} ' Optional
-        }
-
-        Dim updateCashierValues As New Dictionary(Of String, Object) From {
-                {"no_customers_handled", 0} ' OPtional
         }
 
         Dim updateUtilityValues As New Dictionary(Of String, Object) From {
@@ -320,25 +310,12 @@
                 insertData.Add(kvp.Key, kvp.Value)
             Next
 
-        ElseIf jobType = constants.getCashierString Then
-            ' Cashier
-            For Each kvp In updateCashierValues
-                insertData.Add(kvp.Key, kvp.Value)
-            Next
-
-        ElseIf jobType = constants.getTechnicianString Then
-            ' Technician
-            For Each kvp In updateTechnicianValues
-                insertData.Add(kvp.Key, kvp.Value)
-            Next
-
         ElseIf jobType = constants.getUtilityPersonnelString Then
             ' Utility
             If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
-            For Each kvp In updateCashierValues
+            For Each kvp In updateUtilityValues
                 insertData.Add(kvp.Key, kvp.Value)
             Next
-
         End If
 
         If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
