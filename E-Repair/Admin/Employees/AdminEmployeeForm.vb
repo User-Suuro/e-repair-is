@@ -414,9 +414,6 @@ Public Class AdminEmployeeForm
         End If
     End Sub
 
-    ' LOAD FORM
-
-
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim employeesTable As DataTable

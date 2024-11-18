@@ -96,12 +96,14 @@ Public Class FormUtils
     End Function
 
     ' VALUE CHECKER
-    Public Function AreAllValuesFilled(values As Dictionary(Of String, Object)) As Boolean
-        For Each kvp In values
+    Public Function AreAllValuesFilled(values As Dictionary(Of String, Object), Optional startingIndex As Integer = 0) As Boolean
+        For i As Integer = startingIndex To values.Count - 1
+            Dim kvp As KeyValuePair(Of String, Object) = values.ElementAt(i) ' Access key-value pair by index
             If kvp.Value Is Nothing OrElse kvp.Value.ToString() = "" OrElse kvp.Value.ToString() = "-1" Then
                 Return False
             End If
         Next
+
         Return True
     End Function
 End Class

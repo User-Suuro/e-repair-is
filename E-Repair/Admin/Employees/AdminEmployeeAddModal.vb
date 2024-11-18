@@ -251,11 +251,6 @@
             Exit Sub
         End If
 
-        If CheckFilled() = False Then
-            MsgBox("Please fill all necessary details")
-            Exit Sub
-        End If
-
         Try
             If editMode Then
                 EditEmpFunction()
@@ -277,8 +272,11 @@
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
+            {"middlename", middleName}, ' Exception
+            {"sss_no", sss}, ' Exception
+            {"pagibig_no", pagibig}, ' Exception
+            {"tin_no", tin}, ' Exception
             {"firstname", firstName},
-            {"middlename", middleName},
             {"lastname", lastName},
             {"sex", sex},
             {"birthdate", birthdate},
@@ -288,37 +286,67 @@
             {"employment_status", contractStatus},
             {"date_hired", dateHired},
             {"job_type", jobType},
-            {"sss_no", sss},
-            {"pagibig_no", pagibig},
-            {"tin_no", tin},
             {"profile_path", profileImgPath},
             {"email", email},
             {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)}
         }
 
-        If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
+        ' start in index 4 cuz of some optional values
+        If Not formUtils.AreAllValuesFilled(insertData, 4) Then Exit Sub
 
         ' UDPDATE FOREIGN VALUES
-        Dim updateJobValues As New Dictionary(Of String, Object)
+
+        Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                {"total_employee_added", 0}, ' Optional
+                {"admin_position", adminPosition}
+        }
+
+        Dim updateTechnicianValues As New Dictionary(Of String, Object) From {
+                {"no_pending_services", 0}, ' Optional
+                {"no_finished_services", 0}, ' Optional
+        }
+
+        Dim updateCashierValues As New Dictionary(Of String, Object) From {
+                {"no_customers_handled", 0}, ' OPtional
+        }
+
+        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                {"personnel_destination", personnelDestination}
+        }
 
         If jobType = constants.getAdminString Then
-            updateJobValues.Add("admin_position", adminPosition)
-            updateJobValues.Add("total_employee_added", 0)
+            ' Admin
+            If Not formUtils.AreAllValuesFilled(updateAdminValues, 1) Then Exit Sub
+            For Each kvp In updateAdminValues
+                insertData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getCashierString Then
-            updateJobValues.Add("no_customers_handled", 0)
+            ' Cashier
+            For Each kvp In updateCashierValues
+                insertData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getTechnicianString Then
-            updateJobValues.Add("no_pending_services", 0)
-            updateJobValues.Add("no_finished_services", 0)
+            ' Technician
+            For Each kvp In updateTechnicianValues
+                insertData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getUtilityPersonnelString Then
-            updateJobValues.Add("personnel_destination", personnelDestination)
+            ' Utility
+            If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+            For Each kvp In updateCashierValues
+                insertData.Add(kvp.Key, kvp.Value)
+            Next
+
         End If
 
-        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateJobValues) Then
-            formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
-            MsgBox("Employee Successfully Added")
-        Else
-            MsgBox("Db Failure")
-        End If
+        If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
+
+        MsgBox("Employee Successfully Added")
+
+        formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
 
         ' UPDATE TOTAL EMPLOYEEE ADDED
 
@@ -346,11 +374,15 @@
     Private Sub EditEmpFunction()
 
         ' UPDATE EMPLOYEE
-        Dim updatedEmployeeValues As New Dictionary(Of String, Object) From {
+        Dim updateData As New Dictionary(Of String, Object) From {
+            {"sss_no", sss},' Optional
+            {"pagibig_no", pagibig}, ' Optional
+            {"tin_no", tin},  ' Optional
+            {"middlename", middleName}, ' Optional
             {"firstname", firstName},
-            {"middlename", middleName},
             {"lastname", lastName},
             {"email", email},
+            {"job_type", jobType},
             {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
             {"sex", sex},
             {"birthdate", birthdate},
@@ -358,38 +390,69 @@
             {"address", address},
             {"contact_number", contactNumber},
             {"employment_status", contractStatus},
-            {"date_hired", dateHired},
-            {"sss_no", sss},
-            {"job_type", jobType},
-            {"pagibig_no", pagibig},
-            {"tin_no", tin}
+            {"date_hired", dateHired}
         }
 
-        ' get prev value
-        Dim prevEmployeeValue As DataTable = dbUtils.GetRowByValue("employees", "employee_id", selectedEmployeeId)
+        If Not formUtils.AreAllValuesFilled(updateData, 4) Then Exit Sub
 
-        Dim prevEmployeeRow As DataRow = prevEmployeeValue.Rows(0)
+        ' get prev value
+        Dim prevEmployeeValue As DataRow = dbUtils.GetRowByValue("employees", "employee_id", selectedEmployeeId).Rows(0)
+
+        ' UDPDATE FOREIGN VALUES
+
+        Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                {"total_employee_added", prevEmployeeValue("total_employee_added")}, ' Optional
+                {"admin_position", adminPosition}
+        }
+
+        Dim updateTechnicianValues As New Dictionary(Of String, Object) From {
+                {"no_pending_services", prevEmployeeValue("no_pending_services")}, ' Optional
+                {"no_finished_services", prevEmployeeValue("no_finished_services")}, ' Optional
+        }
+
+        Dim updateCashierValues As New Dictionary(Of String, Object) From {
+                {"no_customers_handled", prevEmployeeValue("no_customers_handled")}, ' OPtional
+        }
+
+        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                {"personnel_destination", personnelDestination}
+        }
 
         If jobType = constants.getAdminString Then
-            updatedEmployeeValues.Add("admin_position", adminPosition)
-            updatedEmployeeValues.Add("total_employee_added", prevEmployeeRow("total_employee_added"))
+            ' Admin
+            If Not formUtils.AreAllValuesFilled(updateAdminValues, 1) Then Exit Sub
+            For Each kvp In updateAdminValues
+                updateData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getCashierString Then
-            updatedEmployeeValues.Add("no_customers_handled", prevEmployeeRow("no_customers_handled"))
+            ' Cashier
+            For Each kvp In updateCashierValues
+                updateData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getTechnicianString Then
-            updatedEmployeeValues.Add("no_pending_services", prevEmployeeRow("no_pending_services"))
-            updatedEmployeeValues.Add("no_finished_services", prevEmployeeRow("no_finished_services"))
+            ' Technician
+            For Each kvp In updateTechnicianValues
+                updateData.Add(kvp.Key, kvp.Value)
+            Next
+
         ElseIf jobType = constants.getUtilityPersonnelString Then
-            updatedEmployeeValues.Add("personnel_destination", personnelDestination)
+            ' Utility
+            If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+            For Each kvp In updateCashierValues
+                updateData.Add(kvp.Key, kvp.Value)
+            Next
         End If
 
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
 
         ' Save image locally
-        If prevEmployeeRow("profile_path") <> profileImgPath Then
-            updatedEmployeeValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
+        If prevEmployeeValue("profile_path") <> profileImgPath Then
+            updateAdminValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
         End If
 
-        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updatedEmployeeValues) Then
+        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateData) Then
             MsgBox("Employee Details Sucessfully Updated")
         Else
             MsgBox("Db Failure")
@@ -398,36 +461,4 @@
         Me.Close()
     End Sub
 
-
-    ' CHECK IF ALL FILLED
-
-    Public Function CheckFilled() As Boolean
-        If firstName <> "" AndAlso
-            lastName <> "" AndAlso
-            sex <> "" AndAlso
-            civilStatus <> "" AndAlso
-            profileImgPath <> "" AndAlso
-            address <> "" AndAlso
-            contactNumber <> "" AndAlso
-            contractStatus <> "" AndAlso
-            email <> "" AndAlso
-            password <> "" AndAlso
-            confirmPassword <> "" AndAlso
-            jobType <> "" Then
-
-            ' Additional Checker For Jobs
-            If jobType = JobTypeComboBox.Items(0) Then
-                Return adminPosition <> ""
-            ElseIf jobType = JobTypeComboBox.Items(3) Then
-                Return personnelDestination <> ""
-            Else
-                ' If jobType is neither "Admin" nor "Utility Personnel"
-                Return True
-            End If
-
-        Else
-            ' If any required field is missing
-            Return False
-        End If
-    End Function
 End Class
