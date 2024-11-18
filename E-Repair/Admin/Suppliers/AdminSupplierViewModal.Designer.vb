@@ -1057,7 +1057,7 @@ Partial Class AdminSupplierViewModal
         Me.SupplierModalGroupBox.Location = New System.Drawing.Point(0, 0)
         Me.SupplierModalGroupBox.Name = "SupplierModalGroupBox"
         Me.SupplierModalGroupBox.ShadowDecoration.Parent = Me.SupplierModalGroupBox
-        Me.SupplierModalGroupBox.Size = New System.Drawing.Size(842, 720)
+        Me.SupplierModalGroupBox.Size = New System.Drawing.Size(840, 720)
         Me.SupplierModalGroupBox.TabIndex = 3
         Me.SupplierModalGroupBox.Text = "View Supplier"
         '
@@ -1409,7 +1409,7 @@ Partial Class AdminSupplierViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(842, 720)
+        Me.ClientSize = New System.Drawing.Size(840, 720)
         Me.Controls.Add(Me.SupplierModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminSupplierViewModal"
