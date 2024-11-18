@@ -93,15 +93,18 @@ Public Class AdminEmployeeForm
             empjobType = EmpDGV.CurrentRow.Cells("JOB_TYPE").Value
 
             adminPosition = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("ADMIN_POSITION").Value)
-
             utilityPersonnelDestination = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("PERSONNEL_DESTINATION").Value)
 
-            cashierTotalCustomersHandled = dbHelper.IntNullCheck(EmpDGV.CurrentRow.Cells("NO_CUSTOMERS_HANDLED").Value)
-
-            techNumberPendingServices = dbHelper.IntNullCheck(EmpDGV.CurrentRow.Cells("NO_PENDING_SERVICES").Value)
-            techNumberFinishedServices = dbHelper.IntNullCheck(EmpDGV.CurrentRow.Cells("NO_FINISHED_SERVICES").Value)
-
             empProfilePath = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("IMG_PATH").Value)
+
+            adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
+
+            ' to do: customers handled
+
+            ' to do: number pending services
+
+            ' to do: number completed services
+
 
             empEmail = EmpDGV.CurrentRow.Cells("EMAIL").Value
             empPassword = EmpDGV.CurrentRow.Cells("PASSWORD").Value
@@ -180,14 +183,14 @@ Public Class AdminEmployeeForm
 
                 .PositionTextBox.Text = adminPosition
 
-                ' get dbdata then count
+                .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
 
-                .EmployeeAddedTextBox.Text = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
-                .DevicesRepairedTextBox.Text = techNumberFinishedServices
-                .NumberJobsAssignedTextBox.Text = techNumberPendingServices
+                ' .DevicesRepairedTextBox.Text = techNumberFinishedServices
 
-                .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
+                ' .NumberJobsAssignedTextBox.Text = techNumberPendingServices
+
+                ' .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
 
                 .AssignedLocationTextBox.Text = utilityPersonnelDestination
 
