@@ -77,10 +77,7 @@ Public Class AdminSupplierAddEditModal
             {"added_by", empIDLogged}
         }
 
-        If Not formUtils.AreAllValuesFilled(insertData) Then
-            MsgBox("Please fill all necessary data")
-            Exit Sub
-        End If
+        If Not formUtils.AreAllValuesFilled(insertData) Then Exit Sub
 
         If dbHelper.InsertRecord("suppliers", insertData) Then
             formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
@@ -114,6 +111,8 @@ Public Class AdminSupplierAddEditModal
             {"estimated_delivery_time", estDelivTime},
             {"company_picture_path", savedPath}
         }
+
+        If Not formUtils.AreAllValuesFilled(insertUpdate) Then Exit Sub
 
         If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedSupplierID, insertUpdate) Then
             MsgBox("Supplier Successfully Updated")

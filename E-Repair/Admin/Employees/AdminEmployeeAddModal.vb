@@ -268,7 +268,6 @@
         ' Exit if canceled
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
 
-        ' Save Image Locally
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
@@ -303,11 +302,11 @@
 
         Dim updateTechnicianValues As New Dictionary(Of String, Object) From {
                 {"no_pending_services", 0}, ' Optional
-                {"no_finished_services", 0}, ' Optional
+                {"no_finished_services", 0} ' Optional
         }
 
         Dim updateCashierValues As New Dictionary(Of String, Object) From {
-                {"no_customers_handled", 0}, ' OPtional
+                {"no_customers_handled", 0} ' OPtional
         }
 
         Dim updateUtilityValues As New Dictionary(Of String, Object) From {
@@ -366,12 +365,14 @@
                 {"added_by", empIDLogged}
          }
 
-        Dim updateTotalEmpAdd = dbHelper.UpdateRecord("employees", "employee_id", empIDLogged, updateTotal)
+        dbHelper.UpdateRecord("employees", "employee_id", empIDLogged, updateTotal)
 
         Me.Close()
     End Sub
 
     Private Sub EditEmpFunction()
+
+        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
 
         ' UPDATE EMPLOYEE
         Dim updateData As New Dictionary(Of String, Object) From {
@@ -407,11 +408,11 @@
 
         Dim updateTechnicianValues As New Dictionary(Of String, Object) From {
                 {"no_pending_services", prevEmployeeValue("no_pending_services")}, ' Optional
-                {"no_finished_services", prevEmployeeValue("no_finished_services")}, ' Optional
+                {"no_finished_services", prevEmployeeValue("no_finished_services")} ' Optional
         }
 
         Dim updateCashierValues As New Dictionary(Of String, Object) From {
-                {"no_customers_handled", prevEmployeeValue("no_customers_handled")}, ' OPtional
+                {"no_customers_handled", prevEmployeeValue("no_customers_handled")} ' OPtional
         }
 
         Dim updateUtilityValues As New Dictionary(Of String, Object) From {
@@ -445,7 +446,6 @@
             Next
         End If
 
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
 
         ' Save image locally
         If prevEmployeeValue("profile_path") <> profileImgPath Then
