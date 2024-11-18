@@ -5,7 +5,7 @@ Public Class AdminServiceForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
 
-    Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
+    Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

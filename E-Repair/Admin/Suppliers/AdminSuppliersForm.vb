@@ -31,7 +31,7 @@ Public Class AdminSuppliersForm
         If CheckIfInvalid() Then Return True
 
         Try
-            With ServiceDGV.CurrentRow
+            With SuppliersDGV.CurrentRow
                 suppID = .Cells("SUPPLIER_ID").Value
                 suppCompName = .Cells("COMPANY_NAME").Value
                 companyDesc = .Cells("COMPANY_DESCRIPTION").Value
@@ -44,7 +44,7 @@ Public Class AdminSuppliersForm
                 bankDetails = .Cells("BANK_DETAILS").Value
                 paymentTerms = .Cells("PAYMENT_TERMS").Value
                 deliveryTime = .Cells("ESTIMATED_DELIVERY_TIME").Value
-                noSuppliedItems = .Cells("NUMBER_SUPPLIED_ITEMS").Value
+                noSuppliedItems = dbHelper.GetRowByValue("items", "supplier_id", suppID).Rows.Count
                 totalPaid = .Cells("TOTAL_PAID").Value
                 suppProfilePath = .Cells("PICTURE_PATH").Value
                 dateAdded = .Cells("DATE_ADDED").Value
@@ -53,7 +53,7 @@ Public Class AdminSuppliersForm
             End With
 
         Catch ex As Exception
-            MsgBox("Cannot put values to form modal: " & ex.Message)
+            MsgBox("Cannot initialize suppliers value: " & ex.Message)
         End Try
 
         Return False
@@ -62,7 +62,7 @@ Public Class AdminSuppliersForm
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
-        ServiceDGV.ClearSelection()
+        SuppliersDGV.ClearSelection()
     End Sub
 
     ' VIEW
@@ -94,7 +94,6 @@ Public Class AdminSuppliersForm
                 .DateAddedTxtBox.Text = dateAdded
                 .AddedByTxtBox.Text = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
                 .CompanyPathTxtBox.Text = suppProfilePath
-
                 .ShowDialog()
             End With
 
@@ -258,17 +257,17 @@ Public Class AdminSuppliersForm
 
     ' VALUE CHECKER
     Private Function CheckIfInvalid() As Boolean
-        If ServiceDGV.Rows.Count = 0 Then
+        If SuppliersDGV.Rows.Count = 0 Then
             MsgBox("No Data Found!")
             Return True
         End If
 
-        If ServiceDGV.CurrentRow Is Nothing Then
+        If SuppliersDGV.CurrentRow Is Nothing Then
             MsgBox("No row is currently selected.")
             Return True
         End If
 
-        If ServiceDGV.SelectedRows.Count <= 0 Then
+        If SuppliersDGV.SelectedRows.Count <= 0 Then
             MsgBox("Please Select a Row First")
             Return True
         End If
@@ -314,8 +313,8 @@ Public Class AdminSuppliersForm
             suppliersTable.DefaultView.RowFilter = ""
         End If
 
-        ServiceDGV.AutoGenerateColumns = True
-        ServiceDGV.DataSource = suppliersTable
+        SuppliersDGV.AutoGenerateColumns = True
+        SuppliersDGV.DataSource = suppliersTable
 
         FormatDataGridViewRows()
     End Sub
@@ -332,18 +331,18 @@ Public Class AdminSuppliersForm
         If ShowArchiveCheckBox.Checked Then
             DeleteServiceBtn.Visible = True
             ArchiveSupplierBtn.Visible = False
-            ServiceDGV.Columns("DATE_ARCHIVED").Visible = True
+            SuppliersDGV.Columns("DATE_ARCHIVED").Visible = True
         Else
             DeleteServiceBtn.Visible = False
             ArchiveSupplierBtn.Visible = True
-            ServiceDGV.Columns("DATE_ARCHIVED").Visible = False
+            SuppliersDGV.Columns("DATE_ARCHIVED").Visible = False
         End If
     End Sub
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
         Try
-            For Each row As DataGridViewRow In ServiceDGV.Rows
+            For Each row As DataGridViewRow In SuppliersDGV.Rows
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
                 Else

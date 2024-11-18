@@ -313,6 +313,9 @@
     <EmbeddedResource Include="Admin\Services\AdminAddEditServiceModal.resx">
       <DependentUpon>AdminAddEditServiceModal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Services\AdminClaimServiceModal.resx">
+      <DependentUpon>AdminClaimServiceModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Services\AdminServiceForm.resx">
       <DependentUpon>AdminServiceForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -431,7 +434,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\cash-register-bold.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

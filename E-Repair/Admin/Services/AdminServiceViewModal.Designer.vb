@@ -24,6 +24,28 @@ Partial Class AdminServiceViewModal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdminServiceViewModal))
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2TextBox21 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Guna2Panel9 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2TextBox22 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox19 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox18 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2TextBox16 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox15 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox14 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox13 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
@@ -84,37 +106,28 @@ Partial Class AdminServiceViewModal
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox23 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox13 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox14 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TextBox15 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TextBox16 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2Separator2 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.Guna2Panel9 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox18 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox20 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TextBox17 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox26 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox27 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox28 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
         Me.Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox21 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TextBox19 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox22 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox17 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
+        Me.Guna2Panel8.SuspendLayout()
+        Me.TableLayoutPanel7.SuspendLayout()
+        Me.Guna2Panel9.SuspendLayout()
+        Me.TableLayoutPanel8.SuspendLayout()
+        Me.Guna2Panel7.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -131,19 +144,15 @@ Partial Class AdminServiceViewModal
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2Panel7.SuspendLayout()
-        Me.TableLayoutPanel6.SuspendLayout()
-        Me.Guna2Panel9.SuspendLayout()
-        Me.TableLayoutPanel8.SuspendLayout()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.Guna2Panel8.SuspendLayout()
+        Me.Guna2Panel10.SuspendLayout()
+        Me.TableLayoutPanel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
         '
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel10)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel8)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel9)
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator2)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel7)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
@@ -163,9 +172,413 @@ Partial Class AdminServiceViewModal
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(984, 660)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(984, 720)
         Me.Guna2GroupBox1.TabIndex = 1
         Me.Guna2GroupBox1.Text = "Add Service"
+        '
+        'Guna2Panel8
+        '
+        Me.Guna2Panel8.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel8.BorderRadius = 4
+        Me.Guna2Panel8.Controls.Add(Me.TableLayoutPanel7)
+        Me.Guna2Panel8.Location = New System.Drawing.Point(12, 460)
+        Me.Guna2Panel8.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.Guna2Panel8.Name = "Guna2Panel8"
+        Me.Guna2Panel8.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
+        Me.Guna2Panel8.Size = New System.Drawing.Size(957, 61)
+        Me.Guna2Panel8.TabIndex = 54
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.ColumnCount = 1
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox21, 0, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.Label31, 0, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 2
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(949, 53)
+        Me.TableLayoutPanel7.TabIndex = 8
+        '
+        'Guna2TextBox21
+        '
+        Me.Guna2TextBox21.BorderRadius = 4
+        Me.Guna2TextBox21.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox21.DefaultText = ""
+        Me.Guna2TextBox21.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox21.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox21.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox21.DisabledState.Parent = Me.Guna2TextBox21
+        Me.Guna2TextBox21.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox21.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox21.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox21.FocusedState.Parent = Me.Guna2TextBox21
+        Me.Guna2TextBox21.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox21.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox21.HoverState.Parent = Me.Guna2TextBox21
+        Me.Guna2TextBox21.Location = New System.Drawing.Point(2, 24)
+        Me.Guna2TextBox21.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox21.Name = "Guna2TextBox21"
+        Me.Guna2TextBox21.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox21.PlaceholderText = ""
+        Me.Guna2TextBox21.SelectedText = ""
+        Me.Guna2TextBox21.ShadowDecoration.Parent = Me.Guna2TextBox21
+        Me.Guna2TextBox21.Size = New System.Drawing.Size(945, 26)
+        Me.Guna2TextBox21.TabIndex = 55
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label31.Location = New System.Drawing.Point(3, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(87, 20)
+        Me.Label31.TabIndex = 54
+        Me.Label31.Text = "Repair Notes"
+        '
+        'Guna2Panel9
+        '
+        Me.Guna2Panel9.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel9.BorderRadius = 4
+        Me.Guna2Panel9.Controls.Add(Me.TableLayoutPanel8)
+        Me.Guna2Panel9.Location = New System.Drawing.Point(12, 594)
+        Me.Guna2Panel9.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.Guna2Panel9.Name = "Guna2Panel9"
+        Me.Guna2Panel9.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel9.ShadowDecoration.Parent = Me.Guna2Panel9
+        Me.Guna2Panel9.Size = New System.Drawing.Size(957, 61)
+        Me.Guna2Panel9.TabIndex = 53
+        '
+        'TableLayoutPanel8
+        '
+        Me.TableLayoutPanel8.ColumnCount = 5
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox17, 3, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label28, 3, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox23, 4, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label33, 4, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox22, 2, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label32, 2, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox19, 1, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox18, 0, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label26, 1, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label27, 0, 0)
+        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
+        Me.TableLayoutPanel8.RowCount = 2
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(949, 53)
+        Me.TableLayoutPanel8.TabIndex = 8
+        '
+        'Guna2TextBox22
+        '
+        Me.Guna2TextBox22.BorderRadius = 4
+        Me.Guna2TextBox22.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox22.DefaultText = ""
+        Me.Guna2TextBox22.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox22.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox22.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox22.DisabledState.Parent = Me.Guna2TextBox22
+        Me.Guna2TextBox22.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox22.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox22.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox22.FocusedState.Parent = Me.Guna2TextBox22
+        Me.Guna2TextBox22.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox22.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox22.HoverState.Parent = Me.Guna2TextBox22
+        Me.Guna2TextBox22.Location = New System.Drawing.Point(380, 24)
+        Me.Guna2TextBox22.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox22.Name = "Guna2TextBox22"
+        Me.Guna2TextBox22.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox22.PlaceholderText = ""
+        Me.Guna2TextBox22.SelectedText = ""
+        Me.Guna2TextBox22.ShadowDecoration.Parent = Me.Guna2TextBox22
+        Me.Guna2TextBox22.Size = New System.Drawing.Size(185, 26)
+        Me.Guna2TextBox22.TabIndex = 51
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label32.Location = New System.Drawing.Point(381, 0)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(68, 20)
+        Me.Label32.TabIndex = 50
+        Me.Label32.Text = "Total Paid"
+        '
+        'Guna2TextBox19
+        '
+        Me.Guna2TextBox19.BorderRadius = 4
+        Me.Guna2TextBox19.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox19.DefaultText = ""
+        Me.Guna2TextBox19.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox19.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox19.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox19.DisabledState.Parent = Me.Guna2TextBox19
+        Me.Guna2TextBox19.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox19.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox19.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox19.FocusedState.Parent = Me.Guna2TextBox19
+        Me.Guna2TextBox19.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox19.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox19.HoverState.Parent = Me.Guna2TextBox19
+        Me.Guna2TextBox19.Location = New System.Drawing.Point(191, 24)
+        Me.Guna2TextBox19.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox19.Name = "Guna2TextBox19"
+        Me.Guna2TextBox19.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox19.PlaceholderText = ""
+        Me.Guna2TextBox19.SelectedText = ""
+        Me.Guna2TextBox19.ShadowDecoration.Parent = Me.Guna2TextBox19
+        Me.Guna2TextBox19.Size = New System.Drawing.Size(185, 26)
+        Me.Guna2TextBox19.TabIndex = 49
+        '
+        'Guna2TextBox18
+        '
+        Me.Guna2TextBox18.BorderRadius = 4
+        Me.Guna2TextBox18.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox18.DefaultText = ""
+        Me.Guna2TextBox18.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox18.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox18.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox18.DisabledState.Parent = Me.Guna2TextBox18
+        Me.Guna2TextBox18.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox18.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox18.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox18.FocusedState.Parent = Me.Guna2TextBox18
+        Me.Guna2TextBox18.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox18.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox18.HoverState.Parent = Me.Guna2TextBox18
+        Me.Guna2TextBox18.Location = New System.Drawing.Point(2, 24)
+        Me.Guna2TextBox18.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox18.Name = "Guna2TextBox18"
+        Me.Guna2TextBox18.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox18.PlaceholderText = ""
+        Me.Guna2TextBox18.SelectedText = ""
+        Me.Guna2TextBox18.ShadowDecoration.Parent = Me.Guna2TextBox18
+        Me.Guna2TextBox18.Size = New System.Drawing.Size(185, 26)
+        Me.Guna2TextBox18.TabIndex = 48
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label26.Location = New System.Drawing.Point(192, 0)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(110, 20)
+        Me.Label26.TabIndex = 43
+        Me.Label26.Text = "Payment Method"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label27.Location = New System.Drawing.Point(3, 0)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(101, 20)
+        Me.Label27.TabIndex = 36
+        Me.Label27.Text = "Payment Status"
+        '
+        'Guna2Panel7
+        '
+        Me.Guna2Panel7.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel7.BorderRadius = 4
+        Me.Guna2Panel7.Controls.Add(Me.TableLayoutPanel6)
+        Me.Guna2Panel7.Location = New System.Drawing.Point(12, 393)
+        Me.Guna2Panel7.Name = "Guna2Panel7"
+        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
+        Me.Guna2Panel7.Size = New System.Drawing.Size(957, 61)
+        Me.Guna2Panel7.TabIndex = 46
+        '
+        'TableLayoutPanel6
+        '
+        Me.TableLayoutPanel6.ColumnCount = 4
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox16, 3, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox15, 2, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox14, 1, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label25, 3, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label24, 2, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label23, 1, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox13, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label7, 0, 0)
+        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 2
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(949, 53)
+        Me.TableLayoutPanel6.TabIndex = 8
+        '
+        'Guna2TextBox16
+        '
+        Me.Guna2TextBox16.BorderRadius = 4
+        Me.Guna2TextBox16.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox16.DefaultText = ""
+        Me.Guna2TextBox16.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox16.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox16.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox16.DisabledState.Parent = Me.Guna2TextBox16
+        Me.Guna2TextBox16.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox16.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox16.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox16.FocusedState.Parent = Me.Guna2TextBox16
+        Me.Guna2TextBox16.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox16.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox16.HoverState.Parent = Me.Guna2TextBox16
+        Me.Guna2TextBox16.Location = New System.Drawing.Point(713, 24)
+        Me.Guna2TextBox16.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox16.Name = "Guna2TextBox16"
+        Me.Guna2TextBox16.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox16.PlaceholderText = ""
+        Me.Guna2TextBox16.SelectedText = ""
+        Me.Guna2TextBox16.ShadowDecoration.Parent = Me.Guna2TextBox16
+        Me.Guna2TextBox16.Size = New System.Drawing.Size(234, 26)
+        Me.Guna2TextBox16.TabIndex = 43
+        '
+        'Guna2TextBox15
+        '
+        Me.Guna2TextBox15.BorderRadius = 4
+        Me.Guna2TextBox15.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox15.DefaultText = ""
+        Me.Guna2TextBox15.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox15.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox15.DisabledState.Parent = Me.Guna2TextBox15
+        Me.Guna2TextBox15.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox15.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox15.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox15.FocusedState.Parent = Me.Guna2TextBox15
+        Me.Guna2TextBox15.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox15.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox15.HoverState.Parent = Me.Guna2TextBox15
+        Me.Guna2TextBox15.Location = New System.Drawing.Point(476, 24)
+        Me.Guna2TextBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox15.Name = "Guna2TextBox15"
+        Me.Guna2TextBox15.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox15.PlaceholderText = ""
+        Me.Guna2TextBox15.SelectedText = ""
+        Me.Guna2TextBox15.ShadowDecoration.Parent = Me.Guna2TextBox15
+        Me.Guna2TextBox15.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox15.TabIndex = 42
+        '
+        'Guna2TextBox14
+        '
+        Me.Guna2TextBox14.BorderRadius = 4
+        Me.Guna2TextBox14.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox14.DefaultText = ""
+        Me.Guna2TextBox14.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox14.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox14.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox14.DisabledState.Parent = Me.Guna2TextBox14
+        Me.Guna2TextBox14.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox14.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox14.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox14.FocusedState.Parent = Me.Guna2TextBox14
+        Me.Guna2TextBox14.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox14.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox14.HoverState.Parent = Me.Guna2TextBox14
+        Me.Guna2TextBox14.Location = New System.Drawing.Point(239, 24)
+        Me.Guna2TextBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox14.Name = "Guna2TextBox14"
+        Me.Guna2TextBox14.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox14.PlaceholderText = ""
+        Me.Guna2TextBox14.SelectedText = ""
+        Me.Guna2TextBox14.ShadowDecoration.Parent = Me.Guna2TextBox14
+        Me.Guna2TextBox14.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox14.TabIndex = 41
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label25.Location = New System.Drawing.Point(714, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(106, 20)
+        Me.Label25.TabIndex = 40
+        Me.Label25.Text = "Date Completed"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label24.Location = New System.Drawing.Point(477, 0)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(81, 20)
+        Me.Label24.TabIndex = 39
+        Me.Label24.Text = "Date Added"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label23.Location = New System.Drawing.Point(240, 0)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(88, 20)
+        Me.Label23.TabIndex = 38
+        Me.Label23.Text = "Repair Status"
+        '
+        'Guna2TextBox13
+        '
+        Me.Guna2TextBox13.BorderRadius = 4
+        Me.Guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox13.DefaultText = ""
+        Me.Guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox13.DisabledState.Parent = Me.Guna2TextBox13
+        Me.Guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox13.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox13.FocusedState.Parent = Me.Guna2TextBox13
+        Me.Guna2TextBox13.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox13.HoverState.Parent = Me.Guna2TextBox13
+        Me.Guna2TextBox13.Location = New System.Drawing.Point(2, 24)
+        Me.Guna2TextBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox13.Name = "Guna2TextBox13"
+        Me.Guna2TextBox13.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox13.PlaceholderText = ""
+        Me.Guna2TextBox13.SelectedText = ""
+        Me.Guna2TextBox13.ShadowDecoration.Parent = Me.Guna2TextBox13
+        Me.Guna2TextBox13.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox13.TabIndex = 37
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(3, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 20)
+        Me.Label7.TabIndex = 36
+        Me.Label7.Text = "Added By"
         '
         'BtnSave
         '
@@ -176,7 +589,7 @@ Partial Class AdminServiceViewModal
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(862, 618)
+        Me.BtnSave.Location = New System.Drawing.Point(862, 676)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
         Me.BtnSave.Size = New System.Drawing.Size(107, 32)
@@ -192,7 +605,7 @@ Partial Class AdminServiceViewModal
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 618)
+        Me.BtnClose.Location = New System.Drawing.Point(12, 676)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
@@ -613,7 +1026,7 @@ Partial Class AdminServiceViewModal
         'Guna2Separator1
         '
         Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(-19, 602)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(-19, 660)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(1059, 10)
         Me.Guna2Separator1.TabIndex = 44
@@ -1197,6 +1610,43 @@ Partial Class AdminServiceViewModal
         Me.BtnUpload.TabIndex = 33
         Me.BtnUpload.Text = "Upload"
         '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(759, 0)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(89, 20)
+        Me.Label33.TabIndex = 52
+        Me.Label33.Text = "Date Claimed"
+        '
+        'Guna2TextBox23
+        '
+        Me.Guna2TextBox23.BorderRadius = 4
+        Me.Guna2TextBox23.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox23.DefaultText = ""
+        Me.Guna2TextBox23.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox23.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox23.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox23.DisabledState.Parent = Me.Guna2TextBox23
+        Me.Guna2TextBox23.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox23.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox23.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox23.FocusedState.Parent = Me.Guna2TextBox23
+        Me.Guna2TextBox23.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox23.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox23.HoverState.Parent = Me.Guna2TextBox23
+        Me.Guna2TextBox23.Location = New System.Drawing.Point(758, 24)
+        Me.Guna2TextBox23.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox23.Name = "Guna2TextBox23"
+        Me.Guna2TextBox23.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox23.PlaceholderText = ""
+        Me.Guna2TextBox23.SelectedText = ""
+        Me.Guna2TextBox23.ShadowDecoration.Parent = Me.Guna2TextBox23
+        Me.Guna2TextBox23.Size = New System.Drawing.Size(189, 26)
+        Me.Guna2TextBox23.TabIndex = 53
+        '
         'SupplierCirclePictureBox
         '
         Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
@@ -1211,319 +1661,193 @@ Partial Class AdminServiceViewModal
         Me.SupplierCirclePictureBox.TabStop = False
         Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
-        'Guna2Panel7
+        'Guna2Panel10
         '
-        Me.Guna2Panel7.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel7.BorderRadius = 4
-        Me.Guna2Panel7.Controls.Add(Me.TableLayoutPanel6)
-        Me.Guna2Panel7.Location = New System.Drawing.Point(12, 402)
-        Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(957, 61)
-        Me.Guna2Panel7.TabIndex = 46
+        Me.Guna2Panel10.BackColor = System.Drawing.SystemColors.Control
+        Me.Guna2Panel10.BorderRadius = 4
+        Me.Guna2Panel10.Controls.Add(Me.TableLayoutPanel9)
+        Me.Guna2Panel10.Location = New System.Drawing.Point(12, 527)
+        Me.Guna2Panel10.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.Guna2Panel10.Name = "Guna2Panel10"
+        Me.Guna2Panel10.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel10.ShadowDecoration.Parent = Me.Guna2Panel10
+        Me.Guna2Panel10.Size = New System.Drawing.Size(957, 61)
+        Me.Guna2Panel10.TabIndex = 54
         '
-        'TableLayoutPanel6
+        'TableLayoutPanel9
         '
-        Me.TableLayoutPanel6.ColumnCount = 4
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox16, 3, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox15, 2, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox14, 1, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label25, 3, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label24, 2, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label23, 1, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox13, 0, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label7, 0, 0)
-        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 2
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(949, 53)
-        Me.TableLayoutPanel6.TabIndex = 8
+        Me.TableLayoutPanel9.ColumnCount = 4
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel9.Controls.Add(Me.Guna2Button3, 3, 1)
+        Me.TableLayoutPanel9.Controls.Add(Me.Label35, 3, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.Guna2TextBox26, 2, 1)
+        Me.TableLayoutPanel9.Controls.Add(Me.Label36, 2, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.Guna2TextBox27, 1, 1)
+        Me.TableLayoutPanel9.Controls.Add(Me.Guna2TextBox28, 0, 1)
+        Me.TableLayoutPanel9.Controls.Add(Me.Label37, 1, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.Label38, 0, 0)
+        Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
+        Me.TableLayoutPanel9.RowCount = 2
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(949, 53)
+        Me.TableLayoutPanel9.TabIndex = 8
         '
-        'Guna2TextBox13
+        'Label35
         '
-        Me.Guna2TextBox13.BorderRadius = 4
-        Me.Guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox13.DefaultText = ""
-        Me.Guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox13.DisabledState.Parent = Me.Guna2TextBox13
-        Me.Guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox13.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox13.FocusedState.Parent = Me.Guna2TextBox13
-        Me.Guna2TextBox13.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox13.HoverState.Parent = Me.Guna2TextBox13
-        Me.Guna2TextBox13.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox13.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox13.Name = "Guna2TextBox13"
-        Me.Guna2TextBox13.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox13.PlaceholderText = ""
-        Me.Guna2TextBox13.SelectedText = ""
-        Me.Guna2TextBox13.ShadowDecoration.Parent = Me.Guna2TextBox13
-        Me.Guna2TextBox13.Size = New System.Drawing.Size(233, 26)
-        Me.Guna2TextBox13.TabIndex = 37
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label35.Location = New System.Drawing.Point(714, 0)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(75, 20)
+        Me.Label35.TabIndex = 52
+        Me.Label35.Text = "Parts Used"
         '
-        'Label7
+        'Guna2TextBox26
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(3, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(70, 20)
-        Me.Label7.TabIndex = 36
-        Me.Label7.Text = "Added By"
+        Me.Guna2TextBox26.BorderRadius = 4
+        Me.Guna2TextBox26.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox26.DefaultText = ""
+        Me.Guna2TextBox26.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox26.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox26.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox26.DisabledState.Parent = Me.Guna2TextBox26
+        Me.Guna2TextBox26.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox26.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox26.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox26.FocusedState.Parent = Me.Guna2TextBox26
+        Me.Guna2TextBox26.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox26.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox26.HoverState.Parent = Me.Guna2TextBox26
+        Me.Guna2TextBox26.Location = New System.Drawing.Point(476, 24)
+        Me.Guna2TextBox26.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox26.Name = "Guna2TextBox26"
+        Me.Guna2TextBox26.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox26.PlaceholderText = ""
+        Me.Guna2TextBox26.SelectedText = ""
+        Me.Guna2TextBox26.ShadowDecoration.Parent = Me.Guna2TextBox26
+        Me.Guna2TextBox26.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox26.TabIndex = 51
         '
-        'Label23
+        'Label36
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(240, 0)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(88, 20)
-        Me.Label23.TabIndex = 38
-        Me.Label23.Text = "Repair Status"
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label36.Location = New System.Drawing.Point(477, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(68, 20)
+        Me.Label36.TabIndex = 50
+        Me.Label36.Text = "Total Cost"
         '
-        'Label24
+        'Guna2TextBox27
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(477, 0)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(81, 20)
-        Me.Label24.TabIndex = 39
-        Me.Label24.Text = "Date Added"
+        Me.Guna2TextBox27.BorderRadius = 4
+        Me.Guna2TextBox27.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox27.DefaultText = ""
+        Me.Guna2TextBox27.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox27.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox27.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox27.DisabledState.Parent = Me.Guna2TextBox27
+        Me.Guna2TextBox27.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox27.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox27.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox27.FocusedState.Parent = Me.Guna2TextBox27
+        Me.Guna2TextBox27.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox27.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox27.HoverState.Parent = Me.Guna2TextBox27
+        Me.Guna2TextBox27.Location = New System.Drawing.Point(239, 24)
+        Me.Guna2TextBox27.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox27.Name = "Guna2TextBox27"
+        Me.Guna2TextBox27.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox27.PlaceholderText = ""
+        Me.Guna2TextBox27.SelectedText = ""
+        Me.Guna2TextBox27.ShadowDecoration.Parent = Me.Guna2TextBox27
+        Me.Guna2TextBox27.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox27.TabIndex = 49
         '
-        'Label25
+        'Guna2TextBox28
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(714, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(106, 20)
-        Me.Label25.TabIndex = 40
-        Me.Label25.Text = "Date Completed"
+        Me.Guna2TextBox28.BorderRadius = 4
+        Me.Guna2TextBox28.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox28.DefaultText = ""
+        Me.Guna2TextBox28.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox28.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox28.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox28.DisabledState.Parent = Me.Guna2TextBox28
+        Me.Guna2TextBox28.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox28.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2TextBox28.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox28.FocusedState.Parent = Me.Guna2TextBox28
+        Me.Guna2TextBox28.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox28.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox28.HoverState.Parent = Me.Guna2TextBox28
+        Me.Guna2TextBox28.Location = New System.Drawing.Point(2, 24)
+        Me.Guna2TextBox28.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox28.Name = "Guna2TextBox28"
+        Me.Guna2TextBox28.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox28.PlaceholderText = ""
+        Me.Guna2TextBox28.SelectedText = ""
+        Me.Guna2TextBox28.ShadowDecoration.Parent = Me.Guna2TextBox28
+        Me.Guna2TextBox28.Size = New System.Drawing.Size(233, 26)
+        Me.Guna2TextBox28.TabIndex = 48
         '
-        'Guna2TextBox14
+        'Label37
         '
-        Me.Guna2TextBox14.BorderRadius = 4
-        Me.Guna2TextBox14.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox14.DefaultText = ""
-        Me.Guna2TextBox14.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox14.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox14.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox14.DisabledState.Parent = Me.Guna2TextBox14
-        Me.Guna2TextBox14.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox14.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox14.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox14.FocusedState.Parent = Me.Guna2TextBox14
-        Me.Guna2TextBox14.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox14.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox14.HoverState.Parent = Me.Guna2TextBox14
-        Me.Guna2TextBox14.Location = New System.Drawing.Point(239, 24)
-        Me.Guna2TextBox14.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox14.Name = "Guna2TextBox14"
-        Me.Guna2TextBox14.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox14.PlaceholderText = ""
-        Me.Guna2TextBox14.SelectedText = ""
-        Me.Guna2TextBox14.ShadowDecoration.Parent = Me.Guna2TextBox14
-        Me.Guna2TextBox14.Size = New System.Drawing.Size(233, 26)
-        Me.Guna2TextBox14.TabIndex = 41
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label37.Location = New System.Drawing.Point(240, 0)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(70, 20)
+        Me.Label37.TabIndex = 43
+        Me.Label37.Text = "Parts Cost"
         '
-        'Guna2TextBox15
+        'Label38
         '
-        Me.Guna2TextBox15.BorderRadius = 4
-        Me.Guna2TextBox15.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox15.DefaultText = ""
-        Me.Guna2TextBox15.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox15.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox15.DisabledState.Parent = Me.Guna2TextBox15
-        Me.Guna2TextBox15.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox15.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox15.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox15.FocusedState.Parent = Me.Guna2TextBox15
-        Me.Guna2TextBox15.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox15.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox15.HoverState.Parent = Me.Guna2TextBox15
-        Me.Guna2TextBox15.Location = New System.Drawing.Point(476, 24)
-        Me.Guna2TextBox15.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox15.Name = "Guna2TextBox15"
-        Me.Guna2TextBox15.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox15.PlaceholderText = ""
-        Me.Guna2TextBox15.SelectedText = ""
-        Me.Guna2TextBox15.ShadowDecoration.Parent = Me.Guna2TextBox15
-        Me.Guna2TextBox15.Size = New System.Drawing.Size(233, 26)
-        Me.Guna2TextBox15.TabIndex = 42
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label38.Location = New System.Drawing.Point(3, 0)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(100, 20)
+        Me.Label38.TabIndex = 36
+        Me.Label38.Text = "Technician Fee"
         '
-        'Guna2TextBox16
+        'Guna2Button3
         '
-        Me.Guna2TextBox16.BorderRadius = 4
-        Me.Guna2TextBox16.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox16.DefaultText = ""
-        Me.Guna2TextBox16.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox16.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox16.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox16.DisabledState.Parent = Me.Guna2TextBox16
-        Me.Guna2TextBox16.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox16.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox16.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox16.FocusedState.Parent = Me.Guna2TextBox16
-        Me.Guna2TextBox16.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox16.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox16.HoverState.Parent = Me.Guna2TextBox16
-        Me.Guna2TextBox16.Location = New System.Drawing.Point(713, 24)
-        Me.Guna2TextBox16.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox16.Name = "Guna2TextBox16"
-        Me.Guna2TextBox16.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox16.PlaceholderText = ""
-        Me.Guna2TextBox16.SelectedText = ""
-        Me.Guna2TextBox16.ShadowDecoration.Parent = Me.Guna2TextBox16
-        Me.Guna2TextBox16.Size = New System.Drawing.Size(234, 26)
-        Me.Guna2TextBox16.TabIndex = 43
+        Me.Guna2Button3.BorderRadius = 4
+        Me.Guna2Button3.CheckedState.Parent = Me.Guna2Button3
+        Me.Guna2Button3.CustomImages.Parent = Me.Guna2Button3
+        Me.Guna2Button3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Button3.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Guna2Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button3.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button3.HoverState.Parent = Me.Guna2Button3
+        Me.Guna2Button3.Location = New System.Drawing.Point(714, 23)
+        Me.Guna2Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Guna2Button3.Name = "Guna2Button3"
+        Me.Guna2Button3.ShadowDecoration.Parent = Me.Guna2Button3
+        Me.Guna2Button3.Size = New System.Drawing.Size(232, 28)
+        Me.Guna2Button3.TabIndex = 54
+        Me.Guna2Button3.Text = "See Parts"
         '
-        'Guna2Separator2
+        'Label28
         '
-        Me.Guna2Separator2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator2.Location = New System.Drawing.Point(12, 389)
-        Me.Guna2Separator2.Name = "Guna2Separator2"
-        Me.Guna2Separator2.Size = New System.Drawing.Size(957, 10)
-        Me.Guna2Separator2.TabIndex = 51
-        '
-        'Guna2Panel9
-        '
-        Me.Guna2Panel9.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel9.BorderRadius = 4
-        Me.Guna2Panel9.Controls.Add(Me.TableLayoutPanel8)
-        Me.Guna2Panel9.Location = New System.Drawing.Point(12, 536)
-        Me.Guna2Panel9.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.Guna2Panel9.Name = "Guna2Panel9"
-        Me.Guna2Panel9.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel9.ShadowDecoration.Parent = Me.Guna2Panel9
-        Me.Guna2Panel9.Size = New System.Drawing.Size(957, 61)
-        Me.Guna2Panel9.TabIndex = 53
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(3, 0)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(68, 20)
-        Me.Label27.TabIndex = 36
-        Me.Label27.Text = "Total Cost"
-        '
-        'TableLayoutPanel8
-        '
-        Me.TableLayoutPanel8.ColumnCount = 3
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox22, 2, 1)
-        Me.TableLayoutPanel8.Controls.Add(Me.Label32, 2, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox19, 1, 1)
-        Me.TableLayoutPanel8.Controls.Add(Me.Guna2TextBox18, 0, 1)
-        Me.TableLayoutPanel8.Controls.Add(Me.Label26, 1, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.Label27, 0, 0)
-        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
-        Me.TableLayoutPanel8.RowCount = 2
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(949, 53)
-        Me.TableLayoutPanel8.TabIndex = 8
-        '
-        'Guna2TextBox18
-        '
-        Me.Guna2TextBox18.BorderRadius = 4
-        Me.Guna2TextBox18.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox18.DefaultText = ""
-        Me.Guna2TextBox18.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox18.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox18.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox18.DisabledState.Parent = Me.Guna2TextBox18
-        Me.Guna2TextBox18.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox18.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox18.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox18.FocusedState.Parent = Me.Guna2TextBox18
-        Me.Guna2TextBox18.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox18.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox18.HoverState.Parent = Me.Guna2TextBox18
-        Me.Guna2TextBox18.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox18.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox18.Name = "Guna2TextBox18"
-        Me.Guna2TextBox18.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox18.PlaceholderText = ""
-        Me.Guna2TextBox18.SelectedText = ""
-        Me.Guna2TextBox18.ShadowDecoration.Parent = Me.Guna2TextBox18
-        Me.Guna2TextBox18.Size = New System.Drawing.Size(312, 26)
-        Me.Guna2TextBox18.TabIndex = 48
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.ColumnCount = 4
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.96595!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.88777!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.88777!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.258512!))
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox21, 0, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.Label31, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2Button3, 3, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.Label30, 3, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Label29, 1, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox17, 2, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox20, 1, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.Label28, 2, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 2
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(949, 53)
-        Me.TableLayoutPanel7.TabIndex = 8
-        '
-        'Guna2TextBox20
-        '
-        Me.Guna2TextBox20.BorderRadius = 4
-        Me.Guna2TextBox20.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox20.DefaultText = ""
-        Me.Guna2TextBox20.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox20.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox20.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox20.DisabledState.Parent = Me.Guna2TextBox20
-        Me.Guna2TextBox20.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox20.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox20.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox20.FocusedState.Parent = Me.Guna2TextBox20
-        Me.Guna2TextBox20.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox20.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox20.HoverState.Parent = Me.Guna2TextBox20
-        Me.Guna2TextBox20.Location = New System.Drawing.Point(599, 24)
-        Me.Guna2TextBox20.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox20.Name = "Guna2TextBox20"
-        Me.Guna2TextBox20.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox20.PlaceholderText = ""
-        Me.Guna2TextBox20.SelectedText = ""
-        Me.Guna2TextBox20.ShadowDecoration.Parent = Me.Guna2TextBox20
-        Me.Guna2TextBox20.Size = New System.Drawing.Size(127, 26)
-        Me.Guna2TextBox20.TabIndex = 48
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label28.Location = New System.Drawing.Point(570, 0)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(116, 20)
+        Me.Label28.TabIndex = 54
+        Me.Label28.Text = "Customer Change"
         '
         'Guna2TextBox17
         '
@@ -1541,203 +1865,37 @@ Partial Class AdminServiceViewModal
         Me.Guna2TextBox17.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2TextBox17.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox17.HoverState.Parent = Me.Guna2TextBox17
-        Me.Guna2TextBox17.Location = New System.Drawing.Point(730, 24)
+        Me.Guna2TextBox17.Location = New System.Drawing.Point(569, 24)
         Me.Guna2TextBox17.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Guna2TextBox17.Name = "Guna2TextBox17"
         Me.Guna2TextBox17.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox17.PlaceholderText = ""
         Me.Guna2TextBox17.SelectedText = ""
         Me.Guna2TextBox17.ShadowDecoration.Parent = Me.Guna2TextBox17
-        Me.Guna2TextBox17.Size = New System.Drawing.Size(127, 26)
-        Me.Guna2TextBox17.TabIndex = 49
+        Me.Guna2TextBox17.Size = New System.Drawing.Size(185, 26)
+        Me.Guna2TextBox17.TabIndex = 55
         '
-        'Guna2Panel8
-        '
-        Me.Guna2Panel8.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel8.BorderRadius = 4
-        Me.Guna2Panel8.Controls.Add(Me.TableLayoutPanel7)
-        Me.Guna2Panel8.Location = New System.Drawing.Point(12, 469)
-        Me.Guna2Panel8.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.Guna2Panel8.Name = "Guna2Panel8"
-        Me.Guna2Panel8.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
-        Me.Guna2Panel8.Size = New System.Drawing.Size(957, 61)
-        Me.Guna2Panel8.TabIndex = 54
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(731, 0)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(67, 20)
-        Me.Label28.TabIndex = 43
-        Me.Label28.Text = "Parts Fee"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(600, 0)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(100, 20)
-        Me.Label29.TabIndex = 50
-        Me.Label29.Text = "Technician Fee"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label30.Location = New System.Drawing.Point(862, 0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(75, 20)
-        Me.Label30.TabIndex = 51
-        Me.Label30.Text = "Parts Used"
-        '
-        'Guna2Button3
-        '
-        Me.Guna2Button3.BorderRadius = 4
-        Me.Guna2Button3.CheckedState.Parent = Me.Guna2Button3
-        Me.Guna2Button3.CustomImages.Parent = Me.Guna2Button3
-        Me.Guna2Button3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Button3.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button3.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button3.HoverState.Parent = Me.Guna2Button3
-        Me.Guna2Button3.Location = New System.Drawing.Point(862, 23)
-        Me.Guna2Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Guna2Button3.Name = "Guna2Button3"
-        Me.Guna2Button3.ShadowDecoration.Parent = Me.Guna2Button3
-        Me.Guna2Button3.Size = New System.Drawing.Size(84, 28)
-        Me.Guna2Button3.TabIndex = 53
-        Me.Guna2Button3.Text = "See Parts"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label31.Location = New System.Drawing.Point(3, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(87, 20)
-        Me.Label31.TabIndex = 54
-        Me.Label31.Text = "Repair Notes"
-        '
-        'Guna2TextBox21
-        '
-        Me.Guna2TextBox21.BorderRadius = 4
-        Me.Guna2TextBox21.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox21.DefaultText = ""
-        Me.Guna2TextBox21.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox21.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox21.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox21.DisabledState.Parent = Me.Guna2TextBox21
-        Me.Guna2TextBox21.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox21.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox21.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox21.FocusedState.Parent = Me.Guna2TextBox21
-        Me.Guna2TextBox21.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox21.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox21.HoverState.Parent = Me.Guna2TextBox21
-        Me.Guna2TextBox21.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox21.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox21.Name = "Guna2TextBox21"
-        Me.Guna2TextBox21.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox21.PlaceholderText = ""
-        Me.Guna2TextBox21.SelectedText = ""
-        Me.Guna2TextBox21.ShadowDecoration.Parent = Me.Guna2TextBox21
-        Me.Guna2TextBox21.Size = New System.Drawing.Size(593, 26)
-        Me.Guna2TextBox21.TabIndex = 55
-        '
-        'Guna2TextBox19
-        '
-        Me.Guna2TextBox19.BorderRadius = 4
-        Me.Guna2TextBox19.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox19.DefaultText = ""
-        Me.Guna2TextBox19.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox19.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox19.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox19.DisabledState.Parent = Me.Guna2TextBox19
-        Me.Guna2TextBox19.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox19.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox19.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox19.FocusedState.Parent = Me.Guna2TextBox19
-        Me.Guna2TextBox19.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox19.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox19.HoverState.Parent = Me.Guna2TextBox19
-        Me.Guna2TextBox19.Location = New System.Drawing.Point(318, 24)
-        Me.Guna2TextBox19.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox19.Name = "Guna2TextBox19"
-        Me.Guna2TextBox19.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox19.PlaceholderText = ""
-        Me.Guna2TextBox19.SelectedText = ""
-        Me.Guna2TextBox19.ShadowDecoration.Parent = Me.Guna2TextBox19
-        Me.Guna2TextBox19.Size = New System.Drawing.Size(312, 26)
-        Me.Guna2TextBox19.TabIndex = 49
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(319, 0)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(101, 20)
-        Me.Label26.TabIndex = 43
-        Me.Label26.Text = "Payment Status"
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label32.Location = New System.Drawing.Point(635, 0)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(110, 20)
-        Me.Label32.TabIndex = 50
-        Me.Label32.Text = "Payment Method"
-        '
-        'Guna2TextBox22
-        '
-        Me.Guna2TextBox22.BorderRadius = 4
-        Me.Guna2TextBox22.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox22.DefaultText = ""
-        Me.Guna2TextBox22.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox22.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox22.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox22.DisabledState.Parent = Me.Guna2TextBox22
-        Me.Guna2TextBox22.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox22.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox22.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox22.FocusedState.Parent = Me.Guna2TextBox22
-        Me.Guna2TextBox22.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox22.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox22.HoverState.Parent = Me.Guna2TextBox22
-        Me.Guna2TextBox22.Location = New System.Drawing.Point(634, 24)
-        Me.Guna2TextBox22.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox22.Name = "Guna2TextBox22"
-        Me.Guna2TextBox22.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox22.PlaceholderText = ""
-        Me.Guna2TextBox22.SelectedText = ""
-        Me.Guna2TextBox22.ShadowDecoration.Parent = Me.Guna2TextBox22
-        Me.Guna2TextBox22.Size = New System.Drawing.Size(313, 26)
-        Me.Guna2TextBox22.TabIndex = 51
-        '
-        'AdminServicesViewModal
+        'AdminServiceViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 660)
+        Me.ClientSize = New System.Drawing.Size(984, 720)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminServicesViewModal"
+        Me.Name = "AdminServiceViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminServicesViewModal"
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2GroupBox1.PerformLayout()
+        Me.Guna2Panel8.ResumeLayout(False)
+        Me.TableLayoutPanel7.ResumeLayout(False)
+        Me.TableLayoutPanel7.PerformLayout()
+        Me.Guna2Panel9.ResumeLayout(False)
+        Me.TableLayoutPanel8.ResumeLayout(False)
+        Me.TableLayoutPanel8.PerformLayout()
+        Me.Guna2Panel7.ResumeLayout(False)
+        Me.TableLayoutPanel6.ResumeLayout(False)
+        Me.TableLayoutPanel6.PerformLayout()
         Me.Guna2Panel5.ResumeLayout(False)
         Me.JobDetailsTableLayout.ResumeLayout(False)
         Me.JobDetailsTableLayout.PerformLayout()
@@ -1762,15 +1920,9 @@ Partial Class AdminServiceViewModal
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2Panel7.ResumeLayout(False)
-        Me.TableLayoutPanel6.ResumeLayout(False)
-        Me.TableLayoutPanel6.PerformLayout()
-        Me.Guna2Panel9.ResumeLayout(False)
-        Me.TableLayoutPanel8.ResumeLayout(False)
-        Me.TableLayoutPanel8.PerformLayout()
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel7.PerformLayout()
-        Me.Guna2Panel8.ResumeLayout(False)
+        Me.Guna2Panel10.ResumeLayout(False)
+        Me.TableLayoutPanel9.ResumeLayout(False)
+        Me.TableLayoutPanel9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1847,23 +1999,30 @@ Partial Class AdminServiceViewModal
     Friend WithEvents Label23 As Label
     Friend WithEvents Guna2TextBox13 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2Panel9 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
     Friend WithEvents Label27 As Label
     Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents Guna2TextBox17 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox20 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox18 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox21 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label31 As Label
-    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label30 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label28 As Label
     Friend WithEvents Guna2TextBox19 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox22 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label32 As Label
     Friend WithEvents Label26 As Label
+    Friend WithEvents Guna2TextBox23 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Guna2TextBox26 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Guna2TextBox27 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox28 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2TextBox17 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label28 As Label
 End Class

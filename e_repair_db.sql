@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2024 at 08:45 AM
+-- Generation Time: Nov 18, 2024 at 12:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,7 +36,7 @@ CREATE TABLE `customers` (
   `contact_number` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `payment_method` varchar(100) NOT NULL,
+  `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
   `number_of_commissions` int(11) NOT NULL DEFAULT 0,
   `pending_commissions` int(11) NOT NULL DEFAULT 0,
   `completed_commissions` int(11) NOT NULL DEFAULT 0,
@@ -68,12 +68,8 @@ CREATE TABLE `employees` (
   `pagibig_no` varchar(50) DEFAULT NULL,
   `tin_no` varchar(50) DEFAULT NULL,
   `job_type` enum('Admin','Technician','Cashier','Utility Personnel') NOT NULL,
-  `total_employee_added` int(10) DEFAULT 0,
   `admin_position` enum('Owner','Manager','Team Leader') NOT NULL,
   `personnel_destination` varchar(255) DEFAULT NULL,
-  `no_customers_handled` int(10) DEFAULT 0,
-  `no_pending_services` int(10) DEFAULT 0,
-  `no_finished_services` int(10) DEFAULT 0,
   `profile_path` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -89,11 +85,11 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `total_employee_added`, `admin_position`, `personnel_destination`, `no_customers_handled`, `no_pending_services`, `no_finished_services`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 1, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-16 11:52:22', NULL, 40, '2024-11-09 14:51:29'),
-(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', '', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-15 21:43:28', NULL, 40, '2024-11-14 23:44:04'),
-(51, 'asdas', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Admin', 0, 'Manager', NULL, 0, 0, 0, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
-(52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 0, 'Owner', NULL, 0, 0, 0, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
+INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `admin_position`, `personnel_destination`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
+(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-18 17:51:33', NULL, 40, '2024-11-09 14:51:29'),
+(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-15 21:43:28', NULL, 40, '2024-11-14 23:44:04'),
+(51, 'asdas', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
+(52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
 
 -- --------------------------------------------------------
 
@@ -131,7 +127,7 @@ CREATE TABLE `services` (
   `service_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `technician_id` int(11) NOT NULL,
-  `technician_name` varchar(100) NOT NULL,
+  `cashier_id` int(11) NOT NULL COMMENT 'Can act as added by',
   `device_type` varchar(100) NOT NULL,
   `device_model` varchar(255) NOT NULL,
   `device_brand` varchar(100) NOT NULL,
@@ -139,12 +135,14 @@ CREATE TABLE `services` (
   `storage_capacity` varchar(100) NOT NULL,
   `problem_description` varchar(255) NOT NULL,
   `repair_notes` varchar(255) NOT NULL,
-  `repair_status` varchar(100) NOT NULL,
-  `repair_costs` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `repair_status` enum('Pending','Finished','Onhold','Canceled') NOT NULL DEFAULT 'Pending',
+  `technician_fee` decimal(10,2) NOT NULL DEFAULT 0.00,
   `paid` tinyint(1) NOT NULL DEFAULT 0,
-  `date_accepted` datetime DEFAULT NULL,
+  `total_paid` decimal(10,2) DEFAULT NULL,
+  `customer_change` decimal(10,2) DEFAULT NULL,
+  `payment_method` varchar(100) NOT NULL,
   `date_completed` datetime DEFAULT NULL,
-  `added_by` varchar(100) NOT NULL COMMENT 'Employee Cashier ID',
+  `date_claimed` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -215,7 +213,8 @@ ALTER TABLE `items`
 ALTER TABLE `services`
   ADD PRIMARY KEY (`service_id`),
   ADD KEY `customer_const` (`customer_id`),
-  ADD KEY `technician_const` (`technician_id`);
+  ADD KEY `technician_const` (`technician_id`),
+  ADD KEY `cashier_const` (`cashier_id`);
 
 --
 -- Indexes for table `suppliers`
@@ -277,6 +276,7 @@ ALTER TABLE `items`
 -- Constraints for table `services`
 --
 ALTER TABLE `services`
+  ADD CONSTRAINT `cashier_const` FOREIGN KEY (`cashier_id`) REFERENCES `employees` (`employee_id`),
   ADD CONSTRAINT `customer_const` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
   ADD CONSTRAINT `technician_const` FOREIGN KEY (`technician_id`) REFERENCES `employees` (`employee_id`);
 COMMIT;
