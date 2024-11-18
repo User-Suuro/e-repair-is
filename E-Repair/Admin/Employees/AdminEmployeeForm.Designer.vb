@@ -27,21 +27,6 @@ Partial Class AdminEmployeeForm
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.EmpDGV = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DeleteEmployeeBtn = New System.Windows.Forms.Button()
-        Me.ArchiveEmployeeBtn = New System.Windows.Forms.Button()
-        Me.EditEmployeeBtn = New System.Windows.Forms.Button()
-        Me.AddEmployeeBtn = New System.Windows.Forms.Button()
-        Me.ViewEmployeeBtn = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.EMPLOYEE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FIRST_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MIDDLE_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,6 +53,21 @@ Partial Class AdminEmployeeForm
         Me.LAST_ACCESSED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.DeleteEmployeeBtn = New System.Windows.Forms.Button()
+        Me.ArchiveEmployeeBtn = New System.Windows.Forms.Button()
+        Me.EditEmployeeBtn = New System.Windows.Forms.Button()
+        Me.AddEmployeeBtn = New System.Windows.Forms.Button()
+        Me.ViewEmployeeBtn = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         CType(Me.EmpDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AdminSidenavPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -78,6 +78,8 @@ Partial Class AdminEmployeeForm
         '
         'EmpDGV
         '
+        Me.EmpDGV.AllowUserToAddRows = False
+        Me.EmpDGV.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.EmpDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.EmpDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -139,6 +141,205 @@ Partial Class AdminEmployeeForm
         Me.EmpDGV.ThemeStyle.RowsStyle.Height = 22
         Me.EmpDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.EmpDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        '
+        'EMPLOYEE_ID
+        '
+        Me.EMPLOYEE_ID.DataPropertyName = "employee_id"
+        Me.EMPLOYEE_ID.HeaderText = "ID"
+        Me.EMPLOYEE_ID.Name = "EMPLOYEE_ID"
+        Me.EMPLOYEE_ID.ReadOnly = True
+        Me.EMPLOYEE_ID.Visible = False
+        '
+        'FIRST_NAME
+        '
+        Me.FIRST_NAME.DataPropertyName = "firstname"
+        Me.FIRST_NAME.HeaderText = "First Name"
+        Me.FIRST_NAME.Name = "FIRST_NAME"
+        Me.FIRST_NAME.ReadOnly = True
+        '
+        'MIDDLE_NAME
+        '
+        Me.MIDDLE_NAME.DataPropertyName = "middlename"
+        Me.MIDDLE_NAME.HeaderText = "Middle Name"
+        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
+        Me.MIDDLE_NAME.ReadOnly = True
+        '
+        'LAST_NAME
+        '
+        Me.LAST_NAME.DataPropertyName = "lastname"
+        Me.LAST_NAME.HeaderText = "Last Name"
+        Me.LAST_NAME.Name = "LAST_NAME"
+        Me.LAST_NAME.ReadOnly = True
+        '
+        'SEX
+        '
+        Me.SEX.DataPropertyName = "sex"
+        Me.SEX.HeaderText = "Sex"
+        Me.SEX.Name = "SEX"
+        Me.SEX.ReadOnly = True
+        '
+        'BIRTHDATE
+        '
+        Me.BIRTHDATE.DataPropertyName = "birthdate"
+        Me.BIRTHDATE.HeaderText = "Birth Date"
+        Me.BIRTHDATE.Name = "BIRTHDATE"
+        Me.BIRTHDATE.ReadOnly = True
+        Me.BIRTHDATE.Visible = False
+        '
+        'CIVIL_STATUS
+        '
+        Me.CIVIL_STATUS.DataPropertyName = "civilstatus"
+        Me.CIVIL_STATUS.HeaderText = "Civil Status"
+        Me.CIVIL_STATUS.Name = "CIVIL_STATUS"
+        Me.CIVIL_STATUS.ReadOnly = True
+        Me.CIVIL_STATUS.Visible = False
+        '
+        'ADDRESS
+        '
+        Me.ADDRESS.DataPropertyName = "address"
+        Me.ADDRESS.HeaderText = "Address"
+        Me.ADDRESS.Name = "ADDRESS"
+        Me.ADDRESS.ReadOnly = True
+        Me.ADDRESS.Visible = False
+        '
+        'CONTACT
+        '
+        Me.CONTACT.DataPropertyName = "contact_number"
+        Me.CONTACT.HeaderText = "Contact Number"
+        Me.CONTACT.Name = "CONTACT"
+        Me.CONTACT.ReadOnly = True
+        Me.CONTACT.Visible = False
+        '
+        'EMPLOYMENT_STATUS
+        '
+        Me.EMPLOYMENT_STATUS.DataPropertyName = "employment_status"
+        Me.EMPLOYMENT_STATUS.HeaderText = "Employment Status"
+        Me.EMPLOYMENT_STATUS.Name = "EMPLOYMENT_STATUS"
+        Me.EMPLOYMENT_STATUS.ReadOnly = True
+        Me.EMPLOYMENT_STATUS.Visible = False
+        '
+        'DATE_HIRED
+        '
+        Me.DATE_HIRED.DataPropertyName = "date_hired"
+        Me.DATE_HIRED.HeaderText = "Date Hired"
+        Me.DATE_HIRED.Name = "DATE_HIRED"
+        Me.DATE_HIRED.ReadOnly = True
+        '
+        'SSS_NUMBER
+        '
+        Me.SSS_NUMBER.DataPropertyName = "sss_no"
+        Me.SSS_NUMBER.HeaderText = "SSS"
+        Me.SSS_NUMBER.Name = "SSS_NUMBER"
+        Me.SSS_NUMBER.ReadOnly = True
+        Me.SSS_NUMBER.Visible = False
+        '
+        'PAGIBIG_NUMBER
+        '
+        Me.PAGIBIG_NUMBER.DataPropertyName = "pagibig_no"
+        Me.PAGIBIG_NUMBER.HeaderText = "PAG-IBIG"
+        Me.PAGIBIG_NUMBER.Name = "PAGIBIG_NUMBER"
+        Me.PAGIBIG_NUMBER.ReadOnly = True
+        Me.PAGIBIG_NUMBER.Visible = False
+        '
+        'TIN_NUMBER
+        '
+        Me.TIN_NUMBER.DataPropertyName = "tin_no"
+        Me.TIN_NUMBER.HeaderText = "TIN"
+        Me.TIN_NUMBER.Name = "TIN_NUMBER"
+        Me.TIN_NUMBER.ReadOnly = True
+        Me.TIN_NUMBER.Visible = False
+        '
+        'JOB_TYPE
+        '
+        Me.JOB_TYPE.DataPropertyName = "job_type"
+        Me.JOB_TYPE.HeaderText = "Job Type"
+        Me.JOB_TYPE.Name = "JOB_TYPE"
+        Me.JOB_TYPE.ReadOnly = True
+        '
+        'ADMIN_POSITION
+        '
+        Me.ADMIN_POSITION.DataPropertyName = "admin_position"
+        Me.ADMIN_POSITION.HeaderText = "Admin Position"
+        Me.ADMIN_POSITION.Name = "ADMIN_POSITION"
+        Me.ADMIN_POSITION.ReadOnly = True
+        Me.ADMIN_POSITION.Visible = False
+        '
+        'PERSONNEL_DESTINATION
+        '
+        Me.PERSONNEL_DESTINATION.DataPropertyName = "personnel_destination"
+        Me.PERSONNEL_DESTINATION.HeaderText = "Personnel Destination"
+        Me.PERSONNEL_DESTINATION.Name = "PERSONNEL_DESTINATION"
+        Me.PERSONNEL_DESTINATION.ReadOnly = True
+        Me.PERSONNEL_DESTINATION.Visible = False
+        '
+        'IMG_PATH
+        '
+        Me.IMG_PATH.DataPropertyName = "profile_path"
+        Me.IMG_PATH.HeaderText = "Image Path"
+        Me.IMG_PATH.Name = "IMG_PATH"
+        Me.IMG_PATH.ReadOnly = True
+        Me.IMG_PATH.Visible = False
+        '
+        'EMAIL
+        '
+        Me.EMAIL.DataPropertyName = "email"
+        Me.EMAIL.HeaderText = "Email"
+        Me.EMAIL.Name = "EMAIL"
+        Me.EMAIL.ReadOnly = True
+        '
+        'PASSWORD
+        '
+        Me.PASSWORD.DataPropertyName = "password"
+        Me.PASSWORD.HeaderText = "Password"
+        Me.PASSWORD.Name = "PASSWORD"
+        Me.PASSWORD.ReadOnly = True
+        Me.PASSWORD.Visible = False
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        Me.ADDED_BY.Visible = False
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'LAST_ACCESSED
+        '
+        Me.LAST_ACCESSED.DataPropertyName = "last_accessed"
+        Me.LAST_ACCESSED.HeaderText = "Last Accessed"
+        Me.LAST_ACCESSED.Name = "LAST_ACCESSED"
+        Me.LAST_ACCESSED.ReadOnly = True
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
         '
         'AdminSidenavPanel
         '
@@ -389,205 +590,6 @@ Partial Class AdminEmployeeForm
         Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
         Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
         Me.SearchTextBox.TabIndex = 31
-        '
-        'EMPLOYEE_ID
-        '
-        Me.EMPLOYEE_ID.DataPropertyName = "employee_id"
-        Me.EMPLOYEE_ID.HeaderText = "ID"
-        Me.EMPLOYEE_ID.Name = "EMPLOYEE_ID"
-        Me.EMPLOYEE_ID.ReadOnly = True
-        Me.EMPLOYEE_ID.Visible = False
-        '
-        'FIRST_NAME
-        '
-        Me.FIRST_NAME.DataPropertyName = "firstname"
-        Me.FIRST_NAME.HeaderText = "First Name"
-        Me.FIRST_NAME.Name = "FIRST_NAME"
-        Me.FIRST_NAME.ReadOnly = True
-        '
-        'MIDDLE_NAME
-        '
-        Me.MIDDLE_NAME.DataPropertyName = "middlename"
-        Me.MIDDLE_NAME.HeaderText = "Middle Name"
-        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
-        Me.MIDDLE_NAME.ReadOnly = True
-        '
-        'LAST_NAME
-        '
-        Me.LAST_NAME.DataPropertyName = "lastname"
-        Me.LAST_NAME.HeaderText = "Last Name"
-        Me.LAST_NAME.Name = "LAST_NAME"
-        Me.LAST_NAME.ReadOnly = True
-        '
-        'SEX
-        '
-        Me.SEX.DataPropertyName = "sex"
-        Me.SEX.HeaderText = "Sex"
-        Me.SEX.Name = "SEX"
-        Me.SEX.ReadOnly = True
-        '
-        'BIRTHDATE
-        '
-        Me.BIRTHDATE.DataPropertyName = "birthdate"
-        Me.BIRTHDATE.HeaderText = "Birth Date"
-        Me.BIRTHDATE.Name = "BIRTHDATE"
-        Me.BIRTHDATE.ReadOnly = True
-        Me.BIRTHDATE.Visible = False
-        '
-        'CIVIL_STATUS
-        '
-        Me.CIVIL_STATUS.DataPropertyName = "civilstatus"
-        Me.CIVIL_STATUS.HeaderText = "Civil Status"
-        Me.CIVIL_STATUS.Name = "CIVIL_STATUS"
-        Me.CIVIL_STATUS.ReadOnly = True
-        Me.CIVIL_STATUS.Visible = False
-        '
-        'ADDRESS
-        '
-        Me.ADDRESS.DataPropertyName = "address"
-        Me.ADDRESS.HeaderText = "Address"
-        Me.ADDRESS.Name = "ADDRESS"
-        Me.ADDRESS.ReadOnly = True
-        Me.ADDRESS.Visible = False
-        '
-        'CONTACT
-        '
-        Me.CONTACT.DataPropertyName = "contact_number"
-        Me.CONTACT.HeaderText = "Contact Number"
-        Me.CONTACT.Name = "CONTACT"
-        Me.CONTACT.ReadOnly = True
-        Me.CONTACT.Visible = False
-        '
-        'EMPLOYMENT_STATUS
-        '
-        Me.EMPLOYMENT_STATUS.DataPropertyName = "employment_status"
-        Me.EMPLOYMENT_STATUS.HeaderText = "Employment Status"
-        Me.EMPLOYMENT_STATUS.Name = "EMPLOYMENT_STATUS"
-        Me.EMPLOYMENT_STATUS.ReadOnly = True
-        Me.EMPLOYMENT_STATUS.Visible = False
-        '
-        'DATE_HIRED
-        '
-        Me.DATE_HIRED.DataPropertyName = "date_hired"
-        Me.DATE_HIRED.HeaderText = "Date Hired"
-        Me.DATE_HIRED.Name = "DATE_HIRED"
-        Me.DATE_HIRED.ReadOnly = True
-        '
-        'SSS_NUMBER
-        '
-        Me.SSS_NUMBER.DataPropertyName = "sss_no"
-        Me.SSS_NUMBER.HeaderText = "SSS"
-        Me.SSS_NUMBER.Name = "SSS_NUMBER"
-        Me.SSS_NUMBER.ReadOnly = True
-        Me.SSS_NUMBER.Visible = False
-        '
-        'PAGIBIG_NUMBER
-        '
-        Me.PAGIBIG_NUMBER.DataPropertyName = "pagibig_no"
-        Me.PAGIBIG_NUMBER.HeaderText = "PAG-IBIG"
-        Me.PAGIBIG_NUMBER.Name = "PAGIBIG_NUMBER"
-        Me.PAGIBIG_NUMBER.ReadOnly = True
-        Me.PAGIBIG_NUMBER.Visible = False
-        '
-        'TIN_NUMBER
-        '
-        Me.TIN_NUMBER.DataPropertyName = "tin_no"
-        Me.TIN_NUMBER.HeaderText = "TIN"
-        Me.TIN_NUMBER.Name = "TIN_NUMBER"
-        Me.TIN_NUMBER.ReadOnly = True
-        Me.TIN_NUMBER.Visible = False
-        '
-        'JOB_TYPE
-        '
-        Me.JOB_TYPE.DataPropertyName = "job_type"
-        Me.JOB_TYPE.HeaderText = "Job Type"
-        Me.JOB_TYPE.Name = "JOB_TYPE"
-        Me.JOB_TYPE.ReadOnly = True
-        '
-        'ADMIN_POSITION
-        '
-        Me.ADMIN_POSITION.DataPropertyName = "admin_position"
-        Me.ADMIN_POSITION.HeaderText = "Admin Position"
-        Me.ADMIN_POSITION.Name = "ADMIN_POSITION"
-        Me.ADMIN_POSITION.ReadOnly = True
-        Me.ADMIN_POSITION.Visible = False
-        '
-        'PERSONNEL_DESTINATION
-        '
-        Me.PERSONNEL_DESTINATION.DataPropertyName = "personnel_destination"
-        Me.PERSONNEL_DESTINATION.HeaderText = "Personnel Destination"
-        Me.PERSONNEL_DESTINATION.Name = "PERSONNEL_DESTINATION"
-        Me.PERSONNEL_DESTINATION.ReadOnly = True
-        Me.PERSONNEL_DESTINATION.Visible = False
-        '
-        'IMG_PATH
-        '
-        Me.IMG_PATH.DataPropertyName = "profile_path"
-        Me.IMG_PATH.HeaderText = "Image Path"
-        Me.IMG_PATH.Name = "IMG_PATH"
-        Me.IMG_PATH.ReadOnly = True
-        Me.IMG_PATH.Visible = False
-        '
-        'EMAIL
-        '
-        Me.EMAIL.DataPropertyName = "email"
-        Me.EMAIL.HeaderText = "Email"
-        Me.EMAIL.Name = "EMAIL"
-        Me.EMAIL.ReadOnly = True
-        '
-        'PASSWORD
-        '
-        Me.PASSWORD.DataPropertyName = "password"
-        Me.PASSWORD.HeaderText = "Password"
-        Me.PASSWORD.Name = "PASSWORD"
-        Me.PASSWORD.ReadOnly = True
-        Me.PASSWORD.Visible = False
-        '
-        'ADDED_BY
-        '
-        Me.ADDED_BY.DataPropertyName = "added_by"
-        Me.ADDED_BY.HeaderText = "Added By"
-        Me.ADDED_BY.Name = "ADDED_BY"
-        Me.ADDED_BY.ReadOnly = True
-        Me.ADDED_BY.Visible = False
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived By"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'LAST_ACCESSED
-        '
-        Me.LAST_ACCESSED.DataPropertyName = "last_accessed"
-        Me.LAST_ACCESSED.HeaderText = "Last Accessed"
-        Me.LAST_ACCESSED.Name = "LAST_ACCESSED"
-        Me.LAST_ACCESSED.ReadOnly = True
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Added"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
         '
         'AdminEmployeeForm
         '
