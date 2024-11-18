@@ -408,7 +408,7 @@ Partial Class AdminEmployeeViewModal
         Me.JobDescriptionFlowLayout.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.JobDescriptionFlowLayout.Name = "JobDescriptionFlowLayout"
         Me.JobDescriptionFlowLayout.Padding = New System.Windows.Forms.Padding(3)
-        Me.JobDescriptionFlowLayout.Size = New System.Drawing.Size(828, 69)
+        Me.JobDescriptionFlowLayout.Size = New System.Drawing.Size(828, 70)
         Me.JobDescriptionFlowLayout.TabIndex = 29
         Me.JobDescriptionFlowLayout.Visible = False
         '
@@ -563,7 +563,6 @@ Partial Class AdminEmployeeViewModal
         Me.DevicesRepairedTextBox.DisabledState.Parent = Me.DevicesRepairedTextBox
         Me.DevicesRepairedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.DevicesRepairedTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DevicesRepairedTextBox.Enabled = False
         Me.DevicesRepairedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DevicesRepairedTextBox.FocusedState.Parent = Me.DevicesRepairedTextBox
         Me.DevicesRepairedTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -574,7 +573,6 @@ Partial Class AdminEmployeeViewModal
         Me.DevicesRepairedTextBox.Name = "DevicesRepairedTextBox"
         Me.DevicesRepairedTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DevicesRepairedTextBox.PlaceholderText = ""
-        Me.DevicesRepairedTextBox.ReadOnly = True
         Me.DevicesRepairedTextBox.SelectedText = ""
         Me.DevicesRepairedTextBox.ShadowDecoration.Parent = Me.DevicesRepairedTextBox
         Me.DevicesRepairedTextBox.Size = New System.Drawing.Size(404, 26)
@@ -602,7 +600,6 @@ Partial Class AdminEmployeeViewModal
         Me.NumberJobsAssignedTextBox.DisabledState.Parent = Me.NumberJobsAssignedTextBox
         Me.NumberJobsAssignedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.NumberJobsAssignedTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.NumberJobsAssignedTextBox.Enabled = False
         Me.NumberJobsAssignedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.NumberJobsAssignedTextBox.FocusedState.Parent = Me.NumberJobsAssignedTextBox
         Me.NumberJobsAssignedTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -613,7 +610,6 @@ Partial Class AdminEmployeeViewModal
         Me.NumberJobsAssignedTextBox.Name = "NumberJobsAssignedTextBox"
         Me.NumberJobsAssignedTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.NumberJobsAssignedTextBox.PlaceholderText = ""
-        Me.NumberJobsAssignedTextBox.ReadOnly = True
         Me.NumberJobsAssignedTextBox.SelectedText = ""
         Me.NumberJobsAssignedTextBox.ShadowDecoration.Parent = Me.NumberJobsAssignedTextBox
         Me.NumberJobsAssignedTextBox.Size = New System.Drawing.Size(404, 26)
@@ -671,7 +667,6 @@ Partial Class AdminEmployeeViewModal
         Me.CustomersHandledTextBox.DisabledState.Parent = Me.CustomersHandledTextBox
         Me.CustomersHandledTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CustomersHandledTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.CustomersHandledTextBox.Enabled = False
         Me.CustomersHandledTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomersHandledTextBox.FocusedState.Parent = Me.CustomersHandledTextBox
         Me.CustomersHandledTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -682,7 +677,6 @@ Partial Class AdminEmployeeViewModal
         Me.CustomersHandledTextBox.Name = "CustomersHandledTextBox"
         Me.CustomersHandledTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CustomersHandledTextBox.PlaceholderText = ""
-        Me.CustomersHandledTextBox.ReadOnly = True
         Me.CustomersHandledTextBox.SelectedText = ""
         Me.CustomersHandledTextBox.ShadowDecoration.Parent = Me.CustomersHandledTextBox
         Me.CustomersHandledTextBox.Size = New System.Drawing.Size(812, 26)
@@ -740,7 +734,6 @@ Partial Class AdminEmployeeViewModal
         Me.AssignedLocationTextBox.DisabledState.Parent = Me.AssignedLocationTextBox
         Me.AssignedLocationTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AssignedLocationTextBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AssignedLocationTextBox.Enabled = False
         Me.AssignedLocationTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AssignedLocationTextBox.FocusedState.Parent = Me.AssignedLocationTextBox
         Me.AssignedLocationTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -751,7 +744,6 @@ Partial Class AdminEmployeeViewModal
         Me.AssignedLocationTextBox.Name = "AssignedLocationTextBox"
         Me.AssignedLocationTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AssignedLocationTextBox.PlaceholderText = ""
-        Me.AssignedLocationTextBox.ReadOnly = True
         Me.AssignedLocationTextBox.SelectedText = ""
         Me.AssignedLocationTextBox.ShadowDecoration.Parent = Me.AssignedLocationTextBox
         Me.AssignedLocationTextBox.Size = New System.Drawing.Size(812, 26)
@@ -773,7 +765,7 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel4.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel4.BorderRadius = 4
         Me.Guna2Panel4.Controls.Add(Me.TableLayoutPanel4)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(3, 145)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(3, 146)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
@@ -994,7 +986,7 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel6.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel6.BorderRadius = 4
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel6)
-        Me.Guna2Panel6.Location = New System.Drawing.Point(3, 212)
+        Me.Guna2Panel6.Location = New System.Drawing.Point(3, 213)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
@@ -1151,7 +1143,7 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel7.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel7.BorderRadius = 4
         Me.Guna2Panel7.Controls.Add(Me.TableLayoutPanel8)
-        Me.Guna2Panel7.Location = New System.Drawing.Point(3, 279)
+        Me.Guna2Panel7.Location = New System.Drawing.Point(3, 280)
         Me.Guna2Panel7.Name = "Guna2Panel7"
         Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
@@ -1296,7 +1288,7 @@ Partial Class AdminEmployeeViewModal
         Me.Guna2Panel13.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel13.BorderRadius = 4
         Me.Guna2Panel13.Controls.Add(Me.TableLayoutPanel9)
-        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 346)
+        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 347)
         Me.Guna2Panel13.Name = "Guna2Panel13"
         Me.Guna2Panel13.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel13.ShadowDecoration.Parent = Me.Guna2Panel13
