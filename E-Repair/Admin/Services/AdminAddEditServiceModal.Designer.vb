@@ -1182,6 +1182,7 @@ Partial Class AdminAddEditServiceModal
         Me.Name = "AdminAddEditServiceModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminAddEditServiceModal"
+        Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2GroupBox1.PerformLayout()
         Me.Guna2Panel5.ResumeLayout(False)

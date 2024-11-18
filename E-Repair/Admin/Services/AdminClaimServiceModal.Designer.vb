@@ -688,6 +688,7 @@ Partial Class AdminClaimServiceModal
         Me.Name = "AdminClaimServiceModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminClaimServicesModal"
+        Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2Panel8.ResumeLayout(False)
         Me.TableLayoutPanel7.ResumeLayout(False)

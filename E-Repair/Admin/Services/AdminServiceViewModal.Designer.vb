@@ -108,7 +108,6 @@ Partial Class AdminServiceViewModal
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Guna2TextBox23 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -121,6 +120,7 @@ Partial Class AdminServiceViewModal
         Me.Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Guna2TextBox17 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel8.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
@@ -143,9 +143,9 @@ Partial Class AdminServiceViewModal
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel10.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
@@ -1647,20 +1647,6 @@ Partial Class AdminServiceViewModal
         Me.Guna2TextBox23.Size = New System.Drawing.Size(189, 26)
         Me.Guna2TextBox23.TabIndex = 53
         '
-        'SupplierCirclePictureBox
-        '
-        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(837, 215)
-        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
-        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
-        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(132, 132)
-        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.SupplierCirclePictureBox.TabIndex = 32
-        Me.SupplierCirclePictureBox.TabStop = False
-        Me.SupplierCirclePictureBox.UseTransparentBackground = True
-        '
         'Guna2Panel10
         '
         Me.Guna2Panel10.BackColor = System.Drawing.SystemColors.Control
@@ -1875,6 +1861,20 @@ Partial Class AdminServiceViewModal
         Me.Guna2TextBox17.Size = New System.Drawing.Size(185, 26)
         Me.Guna2TextBox17.TabIndex = 55
         '
+        'SupplierCirclePictureBox
+        '
+        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(837, 215)
+        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
+        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
+        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(132, 132)
+        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.SupplierCirclePictureBox.TabIndex = 32
+        Me.SupplierCirclePictureBox.TabStop = False
+        Me.SupplierCirclePictureBox.UseTransparentBackground = True
+        '
         'AdminServiceViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1885,6 +1885,7 @@ Partial Class AdminServiceViewModal
         Me.Name = "AdminServiceViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminServicesViewModal"
+        Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2GroupBox1.PerformLayout()
         Me.Guna2Panel8.ResumeLayout(False)
@@ -1919,10 +1920,10 @@ Partial Class AdminServiceViewModal
         Me.TableLayoutPanel2.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel10.ResumeLayout(False)
         Me.TableLayoutPanel9.ResumeLayout(False)
         Me.TableLayoutPanel9.PerformLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

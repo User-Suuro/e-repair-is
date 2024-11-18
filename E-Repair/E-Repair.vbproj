@@ -182,6 +182,18 @@
     <Compile Include="Admin\Customers\AdminCustomerForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Admin\Customers\AdminCustomerAddEditModal.Designer.vb">
+      <DependentUpon>AdminCustomerAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Customers\AdminCustomerAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Customers\AdminCustomerViewModal.Designer.vb">
+      <DependentUpon>AdminCustomerViewModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Customers\AdminCustomerViewModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\Dashboard\AdminDashboardForm.Designer.vb">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </Compile>
@@ -295,8 +307,14 @@
     <Compile Include="GlobalSession.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Admin\Customers\AdminCustomerAddEditModal.resx">
+      <DependentUpon>AdminCustomerAddEditModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Customers\AdminCustomerForm.resx">
       <DependentUpon>AdminCustomerForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Customers\AdminCustomerViewModal.resx">
+      <DependentUpon>AdminCustomerViewModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
