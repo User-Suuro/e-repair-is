@@ -212,7 +212,7 @@
     End Sub
 
     ' PASSWORD
-    Private Sub PasswordTextBox_TextChanged(sender As Object, e As EventArgs) Handles PasswordTextBox.TextChanged
+    Private Sub PasswordTextBox_TextChanged(sender As Object, e As EventArgs)
         password = PasswordTextBox.Text
 
         If (confirmPassword <> password) Then
@@ -223,7 +223,7 @@
     End Sub
 
     ' CONFIRM PASSWORD
-    Private Sub ConfirmPasswordTextBox_TextChanged(sender As Object, e As EventArgs) Handles ConfirmPasswordTextBox.TextChanged
+    Private Sub ConfirmPasswordTextBox_TextChanged(sender As Object, e As EventArgs)
         confirmPassword = ConfirmPasswordTextBox.Text
 
         If (confirmPassword <> password) Then
