@@ -35,13 +35,13 @@ Partial Class AdminSuppliersForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SuppliersDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.DeleteServiceBtn = New System.Windows.Forms.Button()
         Me.ArchiveSupplierBtn = New System.Windows.Forms.Button()
         Me.EditSupplierBtn = New System.Windows.Forms.Button()
         Me.AddSupplierBtn = New System.Windows.Forms.Button()
         Me.ViewSupplierBtn = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.SuppliersDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.SUPPLIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COMPANY_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COMPANY_DESCRIPTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,6 +55,7 @@ Partial Class AdminSuppliersForm
         Me.PAYMENT_TERMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ESTIMATED_DELIVERY_TIME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SUPPLIED_ITEMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PICTURE_PATH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -218,6 +219,76 @@ Partial Class AdminSuppliersForm
         Me.Panel3.Size = New System.Drawing.Size(65, 427)
         Me.Panel3.TabIndex = 0
         '
+        'Panel1
+        '
+        Me.Panel1.AutoSize = True
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(65, 0)
+        Me.Panel1.TabIndex = 0
+        '
+        'SuppliersDGV
+        '
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.SuppliersDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.SuppliersDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.SuppliersDGV.BackgroundColor = System.Drawing.Color.White
+        Me.SuppliersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.SuppliersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.SuppliersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SuppliersDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.SuppliersDGV.ColumnHeadersHeight = 48
+        Me.SuppliersDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.TOTAL_PAID, Me.SUPPLIED_ITEMS, Me.PICTURE_PATH, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.SuppliersDGV.DefaultCellStyle = DataGridViewCellStyle3
+        Me.SuppliersDGV.EnableHeadersVisualStyles = False
+        Me.SuppliersDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.SuppliersDGV.Location = New System.Drawing.Point(12, 66)
+        Me.SuppliersDGV.Name = "SuppliersDGV"
+        Me.SuppliersDGV.ReadOnly = True
+        Me.SuppliersDGV.RowHeadersVisible = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.SuppliersDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.SuppliersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.SuppliersDGV.Size = New System.Drawing.Size(1070, 512)
+        Me.SuppliersDGV.TabIndex = 34
+        Me.SuppliersDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
+        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.SuppliersDGV.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.SuppliersDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.SuppliersDGV.ThemeStyle.HeaderStyle.Height = 48
+        Me.SuppliersDGV.ThemeStyle.ReadOnly = True
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.Height = 22
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        '
         'DeleteServiceBtn
         '
         Me.DeleteServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
@@ -309,79 +380,6 @@ Partial Class AdminSuppliersForm
         Me.ViewSupplierBtn.Text = "Details"
         Me.ViewSupplierBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ViewSupplierBtn.UseVisualStyleBackColor = True
-        '
-        'Panel1
-        '
-        Me.Panel1.AutoSize = True
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(65, 0)
-        Me.Panel1.TabIndex = 0
-        '
-        'SuppliersDGV
-        '
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.SuppliersDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.SuppliersDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SuppliersDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.SuppliersDGV.BackgroundColor = System.Drawing.Color.White
-        Me.SuppliersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.SuppliersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.SuppliersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SuppliersDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.SuppliersDGV.ColumnHeadersHeight = 48
-        Me.SuppliersDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.TOTAL_PAID, Me.PICTURE_PATH, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.SuppliersDGV.DefaultCellStyle = DataGridViewCellStyle3
-        Me.SuppliersDGV.EnableHeadersVisualStyles = False
-        Me.SuppliersDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.SuppliersDGV.Location = New System.Drawing.Point(12, 66)
-        Me.SuppliersDGV.Name = "SuppliersDGV"
-        Me.SuppliersDGV.ReadOnly = True
-        Me.SuppliersDGV.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.SuppliersDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.SuppliersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SuppliersDGV.Size = New System.Drawing.Size(1070, 512)
-        Me.SuppliersDGV.TabIndex = 34
-        Me.SuppliersDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
-        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.SuppliersDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.SuppliersDGV.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.SuppliersDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.SuppliersDGV.ThemeStyle.HeaderStyle.Height = 48
-        Me.SuppliersDGV.ThemeStyle.ReadOnly = True
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.Height = 22
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
         'SUPPLIER_ID
         '
@@ -479,6 +477,12 @@ Partial Class AdminSuppliersForm
         Me.TOTAL_PAID.HeaderText = "Total Paid"
         Me.TOTAL_PAID.Name = "TOTAL_PAID"
         Me.TOTAL_PAID.ReadOnly = True
+        '
+        'SUPPLIED_ITEMS
+        '
+        Me.SUPPLIED_ITEMS.HeaderText = "Number of Supplied Items"
+        Me.SUPPLIED_ITEMS.Name = "SUPPLIED_ITEMS"
+        Me.SUPPLIED_ITEMS.ReadOnly = True
         '
         'PICTURE_PATH
         '
@@ -579,6 +583,7 @@ Partial Class AdminSuppliersForm
     Friend WithEvents PAYMENT_TERMS As DataGridViewTextBoxColumn
     Friend WithEvents ESTIMATED_DELIVERY_TIME As DataGridViewTextBoxColumn
     Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
+    Friend WithEvents SUPPLIED_ITEMS As DataGridViewTextBoxColumn
     Friend WithEvents PICTURE_PATH As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
     Friend WithEvents ADDED_BY As DataGridViewTextBoxColumn

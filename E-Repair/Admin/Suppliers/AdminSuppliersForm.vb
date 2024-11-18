@@ -341,13 +341,21 @@ Public Class AdminSuppliersForm
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
+
+
         Try
             For Each row As DataGridViewRow In SuppliersDGV.Rows
+
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
                 Else
                     row.DefaultCellStyle.BackColor = Color.White ' Default color
                 End If
+
+                If row.Cells("SUPPLIED_ITEMS").Value Then
+                    row.Cells("SUPPLIED_ITEMS").Value = dbHelper.GetRowByValue("suppliers", "supplier_id", row.Cells("supplier_id").Value).Rows.Count
+                End If
+
             Next
         Catch ex As Exception
             MsgBox("Unable to style the Employee DGB with no current id session!")
