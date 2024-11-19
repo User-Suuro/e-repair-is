@@ -417,14 +417,14 @@ Public Class AdminEmployeeForm
             EditEmployeeBtn.Visible = False
 
             EmpDGV.Columns("DATE_ARCHIVED").Visible = True
-            EmpDGV.Columns("ARCHIVED_BY_NAME").Visible = True
+            EmpDGV.Columns("ARCHIVED_BY").Visible = True
         Else
             DeleteEmployeeBtn.Visible = False
             ArchiveEmployeeBtn.Visible = True
             AddEmployeeBtn.Visible = True
             EditEmployeeBtn.Visible = True
             EmpDGV.Columns("DATE_ARCHIVED").Visible = False
-            EmpDGV.Columns("ARCHIVED_BY_NAME").Visible = False
+            EmpDGV.Columns("ARCHIVED_BY").Visible = False
         End If
     End Sub
 
