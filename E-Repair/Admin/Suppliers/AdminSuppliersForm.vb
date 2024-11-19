@@ -133,7 +133,7 @@ Public Class AdminSuppliersForm
 
                 If BankIndex = -1 Then
                     .BnkDetailsCmbBox.SelectedItem = othersChoice
-                    .ContractTypeIfOthersTxtBox.Text = bankDetails
+                    .BankDetailsIfOthersTxtBox.Text = bankDetails
                 Else
                     .BnkDetailsCmbBox.SelectedIndex = BankIndex
                 End If
