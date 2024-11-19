@@ -120,6 +120,7 @@ Public Class AdminCustomerForm
                 .StartPosition = FormStartPosition.CenterScreen
                 .CustomerModalGroupBox.Text = "Edit Customer"
 
+                .selectedCustomerID = customerID
                 .FirstNameTxtBox.Text = firstName
                 .MiddleNameTxtBox.Text = middleName
                 .LastNameTxtBox.Text = lastName

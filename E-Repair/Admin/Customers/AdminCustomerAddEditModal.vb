@@ -18,7 +18,6 @@ Public Class AdminCustomerAddEditModal
     Public Property editMode As Boolean = False
     Public Property selectedCustomerID As Integer = -1
 
-
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
@@ -86,9 +85,7 @@ Public Class AdminCustomerAddEditModal
 
         If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
 
-        dbHelper.UpdateRecord("customers", "customer_id", selectedCustomerID, insertUpdate)
-
-        MsgBox("Customer Successfully Updated")
+        If dbHelper.UpdateRecord("customers", "customer_id", selectedCustomerID, insertUpdate) Then MsgBox("Customer Successfully Updated")
 
         Me.Close()
 
