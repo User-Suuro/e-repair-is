@@ -221,7 +221,7 @@ Public Class AdminEmployeeForm
 
     ' ADD
     Private Sub AddEmployeeBtn_Click(sender As Object, e As EventArgs) Handles AddEmployeeBtn.Click
-        Dim employeeAddModal As New AdminEmployeeAddModal
+        Dim employeeAddModal As New AdminEmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -249,7 +249,7 @@ Public Class AdminEmployeeForm
         If Not InitData() Then Exit Sub
 
 
-        Dim employeeAddModal As New AdminEmployeeAddModal
+        Dim employeeAddModal As New AdminEmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -378,20 +378,16 @@ Public Class AdminEmployeeForm
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
         If InitData() Then Exit Sub
 
-        If empArchived = False Then
+        If Not empArchived Then
             MsgBox("Please archive the given row first")
             Exit Sub
         End If
 
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you Sure you want to delete this employee?") Then
-            Dim result As Boolean = dbHelper.DeleteRowById("employees", "employee_id", employeeID)
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you Sure you want to delete this employee?") Then Exit Sub
 
-            If (result) Then
-                MsgBox("Successfully Deleted")
-            Else
-                MsgBox("Something went wrong")
-            End If
-        End If
+        dbHelper.DeleteRowById("employees", "employee_id", employeeID)
+
+        MsgBox("Successfully Deleted")
 
         LoadDataToDGV()
     End Sub

@@ -200,10 +200,10 @@
     <Compile Include="Admin\Dashboard\AdminDashboardForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeeAddModal.Designer.vb">
-      <DependentUpon>AdminEmployeeAddModal.vb</DependentUpon>
+    <Compile Include="Admin\Employees\AdminEmployeeAddEditModal.Designer.vb">
+      <DependentUpon>AdminEmployeeAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeeAddModal.vb">
+    <Compile Include="Admin\Employees\AdminEmployeeAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Employees\AdminEmployeeForm.Designer.vb">
@@ -319,8 +319,8 @@
     <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employees\AdminEmployeeAddModal.resx">
-      <DependentUpon>AdminEmployeeAddModal.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Employees\AdminEmployeeAddEditModal.resx">
+      <DependentUpon>AdminEmployeeAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Employees\AdminEmployeeForm.resx">
       <DependentUpon>AdminEmployeeForm.vb</DependentUpon>

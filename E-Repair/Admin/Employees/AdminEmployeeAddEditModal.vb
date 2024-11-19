@@ -1,4 +1,4 @@
-﻿Public Class AdminEmployeeAddModal
+﻿Public Class AdminEmployeeAddEditModal
 
     Dim constants As New Constants
     Dim dbUtils As New DbHelper

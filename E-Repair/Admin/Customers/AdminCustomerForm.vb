@@ -135,9 +135,6 @@ Public Class AdminCustomerForm
                 End If
 
                 .EmailTxtBox.Text = custEmail
-                .ContactTxtBox.Text = contactNumber
-                .AddressTxtBox.Text = custAddress
-
                 .editMode = True
 
                 .ShowDialog()
@@ -158,15 +155,54 @@ Public Class AdminCustomerForm
     Private Sub ArchiveCustomerBtn_Click(sender As Object, e As EventArgs) Handles ArchiveCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
+        Dim loggedUser As String
 
+        If archivedStatus Then
+            MsgBox("This employee is already archived!")
+            Exit Sub
+        End If
+
+        Try
+            loggedUser = GlobalSession.CurrentSession.EmployeeID
+        Catch ex As Exception
+            loggedUser = "N/A"
+            MsgBox("There is no current active user!")
+        End Try
+
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Customer") Then Exit Sub
+
+        Dim updatedValues As New Dictionary(Of String, Object) From {
+            {"archived", True},
+            {"archived_by", loggedUser},
+            {"date_archived", DateTime.Now}
+        }
+
+        Try
+            dbHelper.UpdateRecord("customers", "customer_id", customerID, updatedValues)
+            MsgBox("Successfull Archived")
+            LoadDataToDGV()
+
+        Catch ex As Exception
+            MsgBox("Cannot archived the selected customer: " & ex.Message)
+        End Try
 
     End Sub
 
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
+        If Not archivedStatus Then
+            MsgBox("Please archive the given row first")
+            Exit Sub
+        End If
 
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you Sure you want to delete this customer?") Then Exit Sub
 
+        dbHelper.DeleteRowById("customers", "customer_id", customerID)
+
+        MsgBox("Successfully Deleted")
+
+        LoadDataToDGV()
     End Sub
 
     ' INIT VALUES
