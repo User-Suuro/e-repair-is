@@ -24,13 +24,13 @@ Public Class AdminCustomerForm
     Private totalServices As Integer = -1
 
     Private totalPaid As Decimal
-    Private lastTransaction As DateTime
+    Private lastTransaction As String
     Private addedBy As String
-    Private dateAdded As DateTime
+    Private dateAdded As String
 
     Private archivedStatus As Boolean
     Private archivedBy As String
-    Private dateArchived As DateTime
+    Private dateArchived As String
 
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         Dim AdminCustomerViewModal As New AdminCustomerViewModal
@@ -39,6 +39,7 @@ Public Class AdminCustomerForm
 
         Try
             formModal = formUtils.CreateBgFormModal()
+            Dim getCustData As DataRow = dbHelper.GetRowByValue("customers", "customer_id", customerID).Rows(0)
 
             With AdminCustomerViewModal
                 .Owner = formModal
@@ -59,7 +60,8 @@ Public Class AdminCustomerForm
 
                 .TotalPaidTxtBox.Text = totalPaid
                 .LastTransactionTxtBox.Text = lastTransaction
-                .AddedByTxtBox.Text = addedBy
+
+                .AddedByTxtBox.Text = getCustData("added_by")
                 .DateAddedTxtBox.Text = dateAdded
 
                 .ArchivedStatusTxtBox.Text = archivedStatus
@@ -80,6 +82,7 @@ Public Class AdminCustomerForm
     End Sub
 
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
+
         Dim addEditModal As New AdminCustomerAddEditModal
 
         Try
@@ -193,17 +196,18 @@ Public Class AdminCustomerForm
                 custAddress = dbHelper.StrNullCheck(.Cells("ADDRESS").Value)
 
                 totalPaid = .Cells("TOTAL_PAID").Value
-                lastTransaction = dbHelper.StrNullCheck(DateTime.Parse(.Cells("LAST_TRANSACTION").Value))
+                lastTransaction = dbHelper.StrNullCheck(.Cells("LAST_TRANSACTION").Value)
                 addedBy = .Cells("ADDED_BY").Value
-                dateAdded = DateTime.Parse(.Cells("DATE_ADDED").Value)
+                dateAdded = .Cells("DATE_ADDED").Value
 
                 archivedStatus = .Cells("ARCHIVED").Value
                 archivedBy = dbHelper.StrNullCheck(.Cells("ARCHIVED_BY").Value)
-                dateArchived = dbHelper.StrNullCheck(DateTime.Parse(.Cells("DATE_ARCHIVED").Value))
+                dateArchived = dbHelper.StrNullCheck(.Cells("DATE_ARCHIVED").Value)
 
             End With
 
             With dbHelper
+
                 pending = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
                 onHold = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
                 canceled = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count

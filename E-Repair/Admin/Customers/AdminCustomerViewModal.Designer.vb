@@ -174,6 +174,7 @@ Partial Class AdminCustomerViewModal
         Me.LastTransactionTxtBox.Name = "LastTransactionTxtBox"
         Me.LastTransactionTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastTransactionTxtBox.PlaceholderText = ""
+        Me.LastTransactionTxtBox.ReadOnly = True
         Me.LastTransactionTxtBox.SelectedText = ""
         Me.LastTransactionTxtBox.ShadowDecoration.Parent = Me.LastTransactionTxtBox
         Me.LastTransactionTxtBox.Size = New System.Drawing.Size(199, 26)
@@ -200,6 +201,7 @@ Partial Class AdminCustomerViewModal
         Me.TotalPaidTxtBox.Name = "TotalPaidTxtBox"
         Me.TotalPaidTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalPaidTxtBox.PlaceholderText = ""
+        Me.TotalPaidTxtBox.ReadOnly = True
         Me.TotalPaidTxtBox.SelectedText = ""
         Me.TotalPaidTxtBox.ShadowDecoration.Parent = Me.TotalPaidTxtBox
         Me.TotalPaidTxtBox.Size = New System.Drawing.Size(199, 26)
@@ -248,6 +250,7 @@ Partial Class AdminCustomerViewModal
         Me.DateAddedTxtBox.Name = "DateAddedTxtBox"
         Me.DateAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DateAddedTxtBox.PlaceholderText = ""
+        Me.DateAddedTxtBox.ReadOnly = True
         Me.DateAddedTxtBox.SelectedText = ""
         Me.DateAddedTxtBox.ShadowDecoration.Parent = Me.DateAddedTxtBox
         Me.DateAddedTxtBox.Size = New System.Drawing.Size(200, 26)
@@ -274,6 +277,7 @@ Partial Class AdminCustomerViewModal
         Me.AddedByTxtBox.Name = "AddedByTxtBox"
         Me.AddedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddedByTxtBox.PlaceholderText = ""
+        Me.AddedByTxtBox.ReadOnly = True
         Me.AddedByTxtBox.SelectedText = ""
         Me.AddedByTxtBox.ShadowDecoration.Parent = Me.AddedByTxtBox
         Me.AddedByTxtBox.Size = New System.Drawing.Size(199, 26)
@@ -355,6 +359,7 @@ Partial Class AdminCustomerViewModal
         Me.DateArchivedTxtBox.Name = "DateArchivedTxtBox"
         Me.DateArchivedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DateArchivedTxtBox.PlaceholderText = ""
+        Me.DateArchivedTxtBox.ReadOnly = True
         Me.DateArchivedTxtBox.SelectedText = ""
         Me.DateArchivedTxtBox.ShadowDecoration.Parent = Me.DateArchivedTxtBox
         Me.DateArchivedTxtBox.Size = New System.Drawing.Size(267, 26)
@@ -381,6 +386,7 @@ Partial Class AdminCustomerViewModal
         Me.ArchivedByTxtBox.Name = "ArchivedByTxtBox"
         Me.ArchivedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ArchivedByTxtBox.PlaceholderText = ""
+        Me.ArchivedByTxtBox.ReadOnly = True
         Me.ArchivedByTxtBox.SelectedText = ""
         Me.ArchivedByTxtBox.ShadowDecoration.Parent = Me.ArchivedByTxtBox
         Me.ArchivedByTxtBox.Size = New System.Drawing.Size(267, 26)
@@ -407,6 +413,7 @@ Partial Class AdminCustomerViewModal
         Me.ArchivedStatusTxtBox.Name = "ArchivedStatusTxtBox"
         Me.ArchivedStatusTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ArchivedStatusTxtBox.PlaceholderText = ""
+        Me.ArchivedStatusTxtBox.ReadOnly = True
         Me.ArchivedStatusTxtBox.SelectedText = ""
         Me.ArchivedStatusTxtBox.ShadowDecoration.Parent = Me.ArchivedStatusTxtBox
         Me.ArchivedStatusTxtBox.Size = New System.Drawing.Size(267, 26)
@@ -506,6 +513,7 @@ Partial Class AdminCustomerViewModal
         Me.CanceledTxtBox.Name = "CanceledTxtBox"
         Me.CanceledTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CanceledTxtBox.PlaceholderText = ""
+        Me.CanceledTxtBox.ReadOnly = True
         Me.CanceledTxtBox.SelectedText = ""
         Me.CanceledTxtBox.ShadowDecoration.Parent = Me.CanceledTxtBox
         Me.CanceledTxtBox.Size = New System.Drawing.Size(158, 26)
@@ -532,6 +540,7 @@ Partial Class AdminCustomerViewModal
         Me.OnholdTxtBox.Name = "OnholdTxtBox"
         Me.OnholdTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.OnholdTxtBox.PlaceholderText = ""
+        Me.OnholdTxtBox.ReadOnly = True
         Me.OnholdTxtBox.SelectedText = ""
         Me.OnholdTxtBox.ShadowDecoration.Parent = Me.OnholdTxtBox
         Me.OnholdTxtBox.Size = New System.Drawing.Size(158, 26)
@@ -580,6 +589,7 @@ Partial Class AdminCustomerViewModal
         Me.TotalServicesTxtBox.Name = "TotalServicesTxtBox"
         Me.TotalServicesTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalServicesTxtBox.PlaceholderText = ""
+        Me.TotalServicesTxtBox.ReadOnly = True
         Me.TotalServicesTxtBox.SelectedText = ""
         Me.TotalServicesTxtBox.ShadowDecoration.Parent = Me.TotalServicesTxtBox
         Me.TotalServicesTxtBox.Size = New System.Drawing.Size(161, 26)
@@ -617,6 +627,7 @@ Partial Class AdminCustomerViewModal
         Me.CompletedServicesTxtBox.Name = "CompletedServicesTxtBox"
         Me.CompletedServicesTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompletedServicesTxtBox.PlaceholderText = ""
+        Me.CompletedServicesTxtBox.ReadOnly = True
         Me.CompletedServicesTxtBox.SelectedText = ""
         Me.CompletedServicesTxtBox.ShadowDecoration.Parent = Me.CompletedServicesTxtBox
         Me.CompletedServicesTxtBox.Size = New System.Drawing.Size(158, 26)
@@ -654,6 +665,7 @@ Partial Class AdminCustomerViewModal
         Me.PendingServicesTxtBox.Name = "PendingServicesTxtBox"
         Me.PendingServicesTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PendingServicesTxtBox.PlaceholderText = ""
+        Me.PendingServicesTxtBox.ReadOnly = True
         Me.PendingServicesTxtBox.SelectedText = ""
         Me.PendingServicesTxtBox.ShadowDecoration.Parent = Me.PendingServicesTxtBox
         Me.PendingServicesTxtBox.Size = New System.Drawing.Size(158, 26)
@@ -718,6 +730,7 @@ Partial Class AdminCustomerViewModal
         Me.AddressTxtBox.Name = "AddressTxtBox"
         Me.AddressTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTxtBox.PlaceholderText = ""
+        Me.AddressTxtBox.ReadOnly = True
         Me.AddressTxtBox.SelectedText = ""
         Me.AddressTxtBox.ShadowDecoration.Parent = Me.AddressTxtBox
         Me.AddressTxtBox.Size = New System.Drawing.Size(809, 26)
@@ -795,6 +808,7 @@ Partial Class AdminCustomerViewModal
         Me.ContactNumberTxtBox.Name = "ContactNumberTxtBox"
         Me.ContactNumberTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContactNumberTxtBox.PlaceholderText = ""
+        Me.ContactNumberTxtBox.ReadOnly = True
         Me.ContactNumberTxtBox.SelectedText = ""
         Me.ContactNumberTxtBox.ShadowDecoration.Parent = Me.ContactNumberTxtBox
         Me.ContactNumberTxtBox.Size = New System.Drawing.Size(268, 26)
@@ -821,6 +835,7 @@ Partial Class AdminCustomerViewModal
         Me.EmailTxtBox.Name = "EmailTxtBox"
         Me.EmailTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.EmailTxtBox.PlaceholderText = ""
+        Me.EmailTxtBox.ReadOnly = True
         Me.EmailTxtBox.SelectedText = ""
         Me.EmailTxtBox.ShadowDecoration.Parent = Me.EmailTxtBox
         Me.EmailTxtBox.Size = New System.Drawing.Size(267, 26)
@@ -847,6 +862,7 @@ Partial Class AdminCustomerViewModal
         Me.GenderTxtBox.Name = "GenderTxtBox"
         Me.GenderTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.GenderTxtBox.PlaceholderText = ""
+        Me.GenderTxtBox.ReadOnly = True
         Me.GenderTxtBox.SelectedText = ""
         Me.GenderTxtBox.ShadowDecoration.Parent = Me.GenderTxtBox
         Me.GenderTxtBox.Size = New System.Drawing.Size(266, 26)
@@ -975,6 +991,7 @@ Partial Class AdminCustomerViewModal
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastNameTextBox.PlaceholderText = ""
+        Me.LastNameTextBox.ReadOnly = True
         Me.LastNameTextBox.SelectedText = ""
         Me.LastNameTextBox.ShadowDecoration.Parent = Me.LastNameTextBox
         Me.LastNameTextBox.Size = New System.Drawing.Size(268, 25)
@@ -1001,6 +1018,7 @@ Partial Class AdminCustomerViewModal
         Me.MiddleNameTextBox.Name = "MiddleNameTextBox"
         Me.MiddleNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.MiddleNameTextBox.PlaceholderText = ""
+        Me.MiddleNameTextBox.ReadOnly = True
         Me.MiddleNameTextBox.SelectedText = ""
         Me.MiddleNameTextBox.ShadowDecoration.Parent = Me.MiddleNameTextBox
         Me.MiddleNameTextBox.Size = New System.Drawing.Size(267, 25)
@@ -1049,6 +1067,7 @@ Partial Class AdminCustomerViewModal
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstNameTextBox.PlaceholderText = ""
+        Me.FirstNameTextBox.ReadOnly = True
         Me.FirstNameTextBox.SelectedText = ""
         Me.FirstNameTextBox.ShadowDecoration.Parent = Me.FirstNameTextBox
         Me.FirstNameTextBox.Size = New System.Drawing.Size(266, 25)

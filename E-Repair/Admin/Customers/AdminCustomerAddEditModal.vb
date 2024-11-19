@@ -63,7 +63,7 @@ Public Class AdminCustomerAddEditModal
 
         dbHelper.InsertRecord("customers", insertData)
 
-        MsgBox("Supplier Successfully Added")
+        MsgBox("Customer Successfully Added")
 
         Me.Close()
 

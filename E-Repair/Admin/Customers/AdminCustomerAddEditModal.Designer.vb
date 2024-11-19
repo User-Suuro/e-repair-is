@@ -377,9 +377,8 @@ Partial Class AdminCustomerAddEditModal
         'GenderTableLayout
         '
         Me.GenderTableLayout.ColumnCount = 2
-        Me.GenderTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.99999!))
-        Me.GenderTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001!))
-        Me.GenderTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.GenderTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.GenderTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
         Me.GenderTableLayout.Controls.Add(Me.GenderOthersTxtBox, 1, 1)
         Me.GenderTableLayout.Controls.Add(Me.Label5, 1, 0)
         Me.GenderTableLayout.Controls.Add(Me.Label6, 0, 0)
@@ -409,14 +408,14 @@ Partial Class AdminCustomerAddEditModal
         Me.GenderOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GenderOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.GenderOthersTxtBox.HoverState.Parent = Me.GenderOthersTxtBox
-        Me.GenderOthersTxtBox.Location = New System.Drawing.Point(408, 24)
+        Me.GenderOthersTxtBox.Location = New System.Drawing.Point(815, 24)
         Me.GenderOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GenderOthersTxtBox.Name = "GenderOthersTxtBox"
         Me.GenderOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.GenderOthersTxtBox.PlaceholderText = ""
         Me.GenderOthersTxtBox.SelectedText = ""
         Me.GenderOthersTxtBox.ShadowDecoration.Parent = Me.GenderOthersTxtBox
-        Me.GenderOthersTxtBox.Size = New System.Drawing.Size(403, 26)
+        Me.GenderOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.GenderOthersTxtBox.TabIndex = 21
         '
         'Label5
@@ -424,9 +423,9 @@ Partial Class AdminCustomerAddEditModal
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(409, 0)
+        Me.Label5.Location = New System.Drawing.Point(816, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(148, 20)
+        Me.Label5.Size = New System.Drawing.Size(1, 20)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "If others please specify"
         '
@@ -461,7 +460,7 @@ Partial Class AdminCustomerAddEditModal
         Me.GenderComboBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GenderComboBox.Name = "GenderComboBox"
         Me.GenderComboBox.ShadowDecoration.Parent = Me.GenderComboBox
-        Me.GenderComboBox.Size = New System.Drawing.Size(402, 26)
+        Me.GenderComboBox.Size = New System.Drawing.Size(809, 26)
         Me.GenderComboBox.TabIndex = 16
         '
         'Guna2Panel1
@@ -722,10 +721,6 @@ Partial Class AdminCustomerAddEditModal
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents GenderTableLayout As TableLayoutPanel
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents GenderComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel11 As Guna.UI2.WinForms.Guna2Panel
@@ -743,7 +738,6 @@ Partial Class AdminCustomerAddEditModal
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents AddressTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents GenderOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
@@ -756,4 +750,9 @@ Partial Class AdminCustomerAddEditModal
     Friend WithEvents Label8 As Label
     Friend WithEvents ContactTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents EmailTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents GenderTableLayout As TableLayoutPanel
+    Friend WithEvents GenderOthersTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents GenderComboBox As Guna.UI2.WinForms.Guna2ComboBox
 End Class
