@@ -24,13 +24,14 @@ Public Class AdminCustomerForm
     Private totalServices As Integer = -1
 
     Private totalPaid As Decimal
-    Private lastTransaction As String
-    Private addedBy As String
-    Private dateAdded As String
 
-    Private archivedStatus As Boolean
-    Private archivedBy As String
-    Private dateArchived As String
+    Private lastTransaction As String = ""
+    Private addedBy As String = ""
+    Private dateAdded As String = ""
+
+    Private archivedStatus As Boolean = False
+    Private archivedBy As String = ""
+    Private dateArchived As String = ""
 
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         Dim AdminCustomerViewModal As New AdminCustomerViewModal
@@ -39,7 +40,7 @@ Public Class AdminCustomerForm
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            Dim getCustData As DataRow = dbHelper.GetRowByValue("customers", "customer_id", customerID).Rows(0)
+            Dim getEmpData As DataRow = dbHelper.GetRowByValue("employees", "employee_id", addedBy).Rows(0)
 
             With AdminCustomerViewModal
                 .Owner = formModal
@@ -61,10 +62,11 @@ Public Class AdminCustomerForm
                 .TotalPaidTxtBox.Text = totalPaid
                 .LastTransactionTxtBox.Text = lastTransaction
 
-                .AddedByTxtBox.Text = getCustData("added_by")
+                .AddedByTxtBox.Text = getEmpData("firstname") & " " & getEmpData("lastname")
                 .DateAddedTxtBox.Text = dateAdded
 
                 .ArchivedStatusTxtBox.Text = archivedStatus
+
                 .ArchivedByTxtBox.Text = archivedBy
                 .DateAddedTxtBox.Text = dateAdded
 
