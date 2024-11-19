@@ -116,6 +116,7 @@ Public Class AdminEmployeeForm
 
         Catch ex As Exception
             MsgBox("Failed to initialized employee values: " + ex.Message)
+            Return False
         End Try
 
         Return False
@@ -217,9 +218,11 @@ Public Class AdminEmployeeForm
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            employeeAddModal.Owner = formModal
-            employeeAddModal.StartPosition = FormStartPosition.CenterScreen
-            AdminEmployeeAddModal.ShowDialog()
+            With employeeAddModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+            End With
 
         Catch ex As Exception
             MsgBox(ex.ToString)

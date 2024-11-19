@@ -58,6 +58,7 @@ Public Class AdminSuppliersForm
             End With
 
         Catch ex As Exception
+
         Finally
             supplierViewModal.Dispose()
             formModal.Dispose()
@@ -73,10 +74,11 @@ Public Class AdminSuppliersForm
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            supplierAddEditModal.Owner = formModal
-            supplierAddEditModal.StartPosition = FormStartPosition.CenterScreen
-            supplierAddEditModal.ShowDialog()
-
+            With supplierAddEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+            End With
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
@@ -257,6 +259,7 @@ Public Class AdminSuppliersForm
 
         Catch ex As Exception
             MsgBox("Cannot initialize suppliers value: " & ex.Message)
+            Return False
         End Try
 
         Return True
@@ -351,7 +354,7 @@ Public Class AdminSuppliersForm
 
             Next
         Catch ex As Exception
-            MsgBox("Unable to style the Employee DGB with no current id session!")
+            MsgBox("Unable to style DGV: " & ex.Message)
         End Try
     End Sub
 End Class

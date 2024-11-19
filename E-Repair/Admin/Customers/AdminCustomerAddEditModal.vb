@@ -34,8 +34,7 @@ Public Class AdminCustomerAddEditModal
 
     End Sub
 
-    ' ADD SUPPLIER
-
+    ' ADD 
     Private Sub AddCustomerFunction()
 
         ' Exit if canceled
@@ -70,7 +69,7 @@ Public Class AdminCustomerAddEditModal
 
     End Sub
 
-    ' EDIT SUPPLIER
+    ' EDIT
     Private Sub EditCustomerFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this customer?")) Then Exit Sub
@@ -95,6 +94,7 @@ Public Class AdminCustomerAddEditModal
 
     End Sub
 
+    ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
@@ -117,18 +117,18 @@ Public Class AdminCustomerAddEditModal
     ' GENDER COMBO BOX
     Private Sub GenderComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GenderComboBox.SelectedIndexChanged
         With GenderTableLayout
+            ' Default
+            .ColumnStyles(0).Width = 100.0F
             .ColumnStyles(1).Width = 0.0F
-            If GenderComboBox.SelectedItem = "Others" Then
 
+            If GenderComboBox.SelectedItem = "Others" Then
                 .ColumnStyles(0).Width = 50.0F
                 .ColumnStyles(1).Width = 50.0F
-
             Else
                 gender = GenderComboBox.SelectedItem
 
                 .ColumnStyles(0).Width = 100.0F
                 .ColumnStyles(1).Width = 0.0F
-
             End If
         End With
     End Sub

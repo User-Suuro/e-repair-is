@@ -33,49 +33,121 @@ Public Class AdminCustomerForm
     Private dateArchived As DateTime
 
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
+        Dim AdminCustomerViewModal As New AdminCustomerViewModal
+
         If Not InitValues() Then Exit Sub
 
-        With AdminCustomerViewModal
+        Try
+            formModal = formUtils.CreateBgFormModal()
 
-            .FirstNameTextBox.Text = firstName
-            .MiddleNameTextBox.Text = middleName
-            .LastNameTextBox.Text = lastName
-            .GenderTxtBox.Text = custGender
-            .EmailTxtBox.Text = custEmail
-            .ContactNumberTxtBox.Text = contactNumber
-            .AddressTxtBox.Text = custAddress
+            With AdminCustomerViewModal
+                .Owner = formModal
 
-            .PendingServicesTxtBox.Text = pending
-            .OnholdTxtBox.Text = onHold
-            .CanceledTxtBox.Text = canceled
-            .CompletedServicesTxtBox.Text = completed
-            .TotalServicesTxtBox.Text = totalServices
+                .FirstNameTextBox.Text = firstName
+                .MiddleNameTextBox.Text = middleName
+                .LastNameTextBox.Text = lastName
+                .GenderTxtBox.Text = custGender
+                .EmailTxtBox.Text = custEmail
+                .ContactNumberTxtBox.Text = contactNumber
+                .AddressTxtBox.Text = custAddress
 
-            .TotalPaidTxtBox.Text = totalPaid
-            .LastTransactionTxtBox.Text = lastTransaction
-            .AddedByTxtBox.Text = addedBy
-            .DateAddedTxtBox.Text = dateAdded
+                .PendingServicesTxtBox.Text = pending
+                .OnholdTxtBox.Text = onHold
+                .CanceledTxtBox.Text = canceled
+                .CompletedServicesTxtBox.Text = completed
+                .TotalServicesTxtBox.Text = totalServices
 
-            .ArchivedStatusTxtBox.Text = archivedStatus
-            .ArchivedByTxtBox.Text = archivedBy
-            .DateAddedTxtBox.Text = dateAdded
+                .TotalPaidTxtBox.Text = totalPaid
+                .LastTransactionTxtBox.Text = lastTransaction
+                .AddedByTxtBox.Text = addedBy
+                .DateAddedTxtBox.Text = dateAdded
 
-            .ShowDialog()
-        End With
+                .ArchivedStatusTxtBox.Text = archivedStatus
+                .ArchivedByTxtBox.Text = archivedBy
+                .DateAddedTxtBox.Text = dateAdded
+
+                .ShowDialog()
+            End With
+        Catch ex As Exception
+            MsgBox("Cannot display customer view modal: " & ex.Message)
+            formModal.Close()
+            AdminCustomerViewModal.Close()
+        Finally
+            formModal.Dispose()
+        End Try
+
 
     End Sub
 
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
+        Dim addEditModal As New AdminCustomerAddEditModal
 
+        Try
+            formModal = formUtils.CreateBgFormModal()
 
+            With addEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            addEditModal.Close()
+        Finally
+            AdminEmployeeAddModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
     End Sub
 
     Private Sub EditCustomerBtn_Click(sender As Object, e As EventArgs) Handles EditCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
+        Dim addEditModal As New AdminCustomerAddEditModal
 
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With addEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+
+                .FirstNameTxtBox.Text = firstName
+                .MiddleNameTxtBox.Text = middleName
+                .LastNameTxtBox.Text = lastName
+
+                Dim genderIndex = formUtils.FindComboBoxItemByText(.GenderComboBox, custGender)
+
+                If genderIndex <> -1 Then
+                    .GenderComboBox.SelectedIndex = genderIndex
+                Else
+                    .GenderComboBox.SelectedItem = "Others"
+                    .GenderOthersTxtBox.Text = custGender
+                End If
+
+                .EmailTxtBox.Text = custEmail
+                .ContactTxtBox.Text = contactNumber
+                .AddressTxtBox.Text = custAddress
+
+                .editMode = True
+
+                .ShowDialog()
+            End With
+
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            addEditModal.Close()
+        Finally
+            AdminEmployeeAddModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
 
     End Sub
 
@@ -150,6 +222,7 @@ Public Class AdminCustomerForm
 
         Catch ex As Exception
             MsgBox("Cannot initialize customers value: " & ex.Message)
+            Return False
         End Try
 
         LoadDataToDGV()
@@ -238,7 +311,7 @@ Public Class AdminCustomerForm
                 End If
             Next
         Catch ex As Exception
-            MsgBox("Unable to style the Employee DGB with no current id session!")
+            MsgBox("Unable to style DGV: " & ex.Message)
         End Try
     End Sub
 

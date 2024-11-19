@@ -42,7 +42,7 @@ Public Class AdminSupplierAddEditModal
 
     End Sub
 
-    ' ADD SUPPLIER
+    ' ADD 
 
     Private Sub AddSupplierFunction()
 
@@ -90,7 +90,8 @@ Public Class AdminSupplierAddEditModal
 
     End Sub
 
-    ' EDIT SUPPLIER
+    ' EDIT
+
     Private Sub EditModeFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
@@ -126,6 +127,7 @@ Public Class AdminSupplierAddEditModal
 
     End Sub
 
+    ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
