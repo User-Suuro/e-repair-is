@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 06:50 AM
+-- Generation Time: Nov 19, 2024 at 03:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `customers` (
   `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` varchar(100) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL,
-  `added_by` int(11) NOT NULL,
+  `added_by` int(11) NOT NULL COMMENT 'Represents cashier as well',
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -50,7 +50,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `date_added`) VALUES
-(1, 'asdasd', 'lname', 'mname', '123', 'address', '', 'asdasd', 0.00, NULL, 0, '', NULL, 40, '2024-11-19 11:58:43');
+(1, 'asdasd', 'lname', 'mname', '123', 'address', '', 'asdasd', 0.00, NULL, 1, '40', '2024-11-19 18:35:00', 40, '2024-11-19 11:58:43'),
+(2, 'asd', 'dasda', 'asda', 'dsadsa', 'asda', 'Male', 'asdsa', 0.00, NULL, 1, '40', '2024-11-19 17:32:50', 40, '2024-11-19 17:32:47'),
+(3, 'asda', 'asdas', 'sdasdasd', 'asdad', 'asd', 'Male', 'asdasd', 0.00, NULL, 0, NULL, NULL, 40, '2024-11-19 19:28:52');
 
 -- --------------------------------------------------------
 
@@ -92,10 +94,11 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `admin_position`, `personnel_destination`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-19 13:38:12', NULL, 40, '2024-11-09 14:51:29'),
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-19 19:07:07', NULL, 40, '2024-11-09 14:51:29'),
 (50, '123', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', 'pag-ibig', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-19 11:50:47', NULL, 40, '2024-11-14 23:44:04'),
-(51, 'asdasd', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', 'asdasd', 'asdasd', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
-(52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
+(51, 'asdasd', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', 'asdasd', 'asdasd', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-19 17:19:35', 40, '2024-11-15 01:47:17'),
+(55, 'asd', 'asdas', 'dasda', 'Male', '2024-11-01', 'Single', 'asd', 'adsad', 'Full Time', '2024-11-01', 'asda', 'dsda', 'd', 'Cashier', 'Manager', NULL, 'C:\\Users\\User\\Downloads\\pexels-mikhail-nilov-7887259.jpg', 'asd123', 'UnFDDKnHCShx2ifFnUwHfQ==', 0, '', NULL, NULL, 40, '2024-11-19 18:24:16'),
+(56, 'sad', 'adsa', 'dadasd', 'Male', '2024-11-01', 'Single', 'asd', 'ad', 'Full Time', '2024-11-01', '', '', '', 'Technician', 'Manager', NULL, 'C:\\Users\\User\\Downloads\\pexels-tima-miroshnichenko-6498965.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-19 18:31:04');
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,7 @@ CREATE TABLE `items` (
   `item_name` varchar(100) NOT NULL,
   `item_description` varchar(255) NOT NULL,
   `serial_number` varchar(255) NOT NULL,
-  `hazardous_classification` enum('Flammable','Corrosive','Explosive','Toxic','Radioactive','Safe') NOT NULL,
+  `hazardous_classification` varchar(100) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0,
   `total_value` decimal(10,2) NOT NULL DEFAULT 0.00,
   `item_status` enum('Damaged','Reserved','Used','New') NOT NULL,
@@ -119,7 +122,7 @@ CREATE TABLE `items` (
   `restock_date` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `added_by` int(11) NOT NULL,
-  `archived_status` tinyint(1) NOT NULL DEFAULT 0,
+  `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` int(11) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -151,7 +154,10 @@ CREATE TABLE `services` (
   `payment_method` varchar(100) NOT NULL,
   `date_completed` datetime DEFAULT NULL,
   `date_claimed` datetime DEFAULT NULL,
-  `date_added` datetime NOT NULL DEFAULT current_timestamp()
+  `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+  `archived` tinyint(1) NOT NULL DEFAULT 0,
+  `archived_by` int(11) NOT NULL,
+  `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -188,7 +194,7 @@ CREATE TABLE `suppliers` (
 
 INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `contact_person`, `contact_number`, `company_email`, `location`, `supplier_type`, `supplier_contract`, `bank_details`, `payment_terms`, `estimated_delivery_time`, `total_paid`, `company_picture_path`, `date_added`, `added_by`, `archived`, `archived_by`, `date_archived`) VALUES
 (2, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'Manufacturer', 'Bilateral', 'BDO', 'Cash on Delivery', 'asd', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\guitarist-high-resolution-logo-transparent.png', '2024-11-15 14:35:14', 40, 0, NULL, NULL),
-(3, 'asdasd', 'sadsadas', 'ddddasdad', 'asdda', 'asddasd', 'asddada', 'asdsadad', 'asdasd', 'sada', 'asdasda', 'asdadas', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\pexels-mikhail-nilov-7887259.jpg', '2024-11-15 14:44:25', 40, 0, NULL, NULL),
+(3, 'asdasd', 'sadsadas', 'ddddasdad', 'asdda', 'asddasd', 'asddada', 'asdsadad', 'sada', 'sadasda', 'Cash on Delivery', 'asdadas', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\pexels-mikhail-nilov-7887259.jpg', '2024-11-15 14:44:25', 40, 1, '40', '2024-11-19 17:14:22'),
 (4, 'asd', 'asda', 'asdas', 'sadasd', 'dasd', 'asdsad', 'Manufacturer', 'Express', 'BDO', 'Cash on Delivery', 'asda', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\qrcode_135066278_e010f46e5bf5ff3b112d7ff4f798e390.png', '2024-11-18 21:24:24', 40, 0, NULL, NULL);
 
 --
@@ -239,13 +245,13 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `items`

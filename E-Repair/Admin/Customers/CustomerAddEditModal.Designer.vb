@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AdminCustomerAddEditModal
+Partial Class CustomerAddEditModal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -682,14 +682,14 @@ Partial Class AdminCustomerAddEditModal
         Me.BtnClose.TabIndex = 0
         Me.BtnClose.Text = "Cancel"
         '
-        'AdminCustomerAddEditModal
+        'CustomerAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 393)
         Me.Controls.Add(Me.CustomerModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminCustomerAddEditModal"
+        Me.Name = "CustomerAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminCustomersAddEditModal"
         Me.TopMost = True

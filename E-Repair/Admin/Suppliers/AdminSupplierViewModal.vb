@@ -11,5 +11,11 @@
         End Try
     End Sub
 
+    Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
+
+
+
+    End Sub
+
 
 End Class

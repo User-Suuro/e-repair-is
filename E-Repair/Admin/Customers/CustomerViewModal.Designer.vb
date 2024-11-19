@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AdminCustomerViewModal
+Partial Class CustomerViewModal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -1123,14 +1123,14 @@ Partial Class AdminCustomerViewModal
         Me.BtnClose.TabIndex = 0
         Me.BtnClose.Text = "Cancel"
         '
-        'AdminCustomerViewModal
+        'CustomerViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(862, 529)
         Me.Controls.Add(Me.CustomerModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminCustomerViewModal"
+        Me.Name = "CustomerViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "AdminCustomerViewModal"
         Me.TopMost = True

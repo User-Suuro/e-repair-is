@@ -10,4 +10,8 @@
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
     End Sub
+
+    Private Sub Guna2TextBox7_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTxtBox.TextChanged
+
+    End Sub
 End Class

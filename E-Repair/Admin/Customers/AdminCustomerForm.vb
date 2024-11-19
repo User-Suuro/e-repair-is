@@ -34,7 +34,7 @@ Public Class AdminCustomerForm
     Private dateArchived As String = ""
 
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
-        Dim AdminCustomerViewModal As New AdminCustomerViewModal
+        Dim AdminCustomerViewModal As New CustomerViewModal
 
         If Not InitValues() Then Exit Sub
 
@@ -85,7 +85,7 @@ Public Class AdminCustomerForm
 
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
 
-        Dim addEditModal As New AdminCustomerAddEditModal
+        Dim addEditModal As New CustomerAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -110,7 +110,7 @@ Public Class AdminCustomerForm
     Private Sub EditCustomerBtn_Click(sender As Object, e As EventArgs) Handles EditCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
-        Dim addEditModal As New AdminCustomerAddEditModal
+        Dim addEditModal As New CustomerAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()

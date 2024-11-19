@@ -1,5 +1,5 @@
 ﻿
-Public Class AdminCustomerAddEditModal
+Public Class CustomerAddEditModal
     ' TOOLS
     Dim formModal As New Form
     Dim formUtils As New FormUtils

@@ -182,16 +182,16 @@
     <Compile Include="Admin\Customers\AdminCustomerForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customers\AdminCustomerAddEditModal.Designer.vb">
-      <DependentUpon>AdminCustomerAddEditModal.vb</DependentUpon>
+    <Compile Include="Admin\Customers\CustomerAddEditModal.Designer.vb">
+      <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\AdminCustomerAddEditModal.vb">
+    <Compile Include="Admin\Customers\CustomerAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customers\AdminCustomerViewModal.Designer.vb">
-      <DependentUpon>AdminCustomerViewModal.vb</DependentUpon>
+    <Compile Include="Admin\Customers\CustomerViewModal.Designer.vb">
+      <DependentUpon>CustomerViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\AdminCustomerViewModal.vb">
+    <Compile Include="Admin\Customers\CustomerViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Dashboard\AdminDashboardForm.Designer.vb">
@@ -216,6 +216,12 @@
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Admin\Inventory\AdminInventoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Inventory\InvetoryAddEditModal.Designer.vb">
+      <DependentUpon>InvetoryAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Inventory\InvetoryAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Services\AdminAddEditServiceModal.Designer.vb">
@@ -279,6 +285,12 @@
     <Compile Include="Admin\Suppliers\AdminSupplierViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Admin\Suppliers\SeeSuppliedItemsModal.Designer.vb">
+      <DependentUpon>SeeSuppliedItemsModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Suppliers\SeeSuppliedItemsModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Constants.vb" />
     <Compile Include="DbHelper.vb" />
     <Compile Include="FormUtils.vb" />
@@ -307,14 +319,14 @@
     <Compile Include="GlobalSession.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Admin\Customers\AdminCustomerAddEditModal.resx">
-      <DependentUpon>AdminCustomerAddEditModal.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Customers\CustomerAddEditModal.resx">
+      <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Customers\AdminCustomerForm.resx">
       <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Customers\AdminCustomerViewModal.resx">
-      <DependentUpon>AdminCustomerViewModal.vb</DependentUpon>
+    <EmbeddedResource Include="Admin\Customers\CustomerViewModal.resx">
+      <DependentUpon>CustomerViewModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
@@ -357,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Suppliers\AdminSupplierViewModal.resx">
       <DependentUpon>AdminSupplierViewModal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Suppliers\SeeSuppliedItemsModal.resx">
+      <DependentUpon>SeeSuppliedItemsModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>

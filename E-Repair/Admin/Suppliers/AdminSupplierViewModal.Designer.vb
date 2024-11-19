@@ -81,6 +81,7 @@ Partial Class AdminSupplierViewModal
         Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SeeSuppliedItemsBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.TotalPaidTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.NoSuppliedItemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -1087,10 +1088,12 @@ Partial Class AdminSupplierViewModal
         '
         'TableLayoutPanel3
         '
-        Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.ColumnCount = 4
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.SeeSuppliedItemsBtn, 3, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.TotalPaidTxtBox, 2, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.NoSuppliedItemTxtBox, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label9, 2, 0)
@@ -1105,6 +1108,23 @@ Partial Class AdminSupplierViewModal
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(804, 53)
         Me.TableLayoutPanel3.TabIndex = 8
+        '
+        'SeeSuppliedItemsBtn
+        '
+        Me.SeeSuppliedItemsBtn.BorderRadius = 4
+        Me.SeeSuppliedItemsBtn.CheckedState.Parent = Me.SeeSuppliedItemsBtn
+        Me.SeeSuppliedItemsBtn.CustomImages.Parent = Me.SeeSuppliedItemsBtn
+        Me.SeeSuppliedItemsBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeSuppliedItemsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeSuppliedItemsBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeSuppliedItemsBtn.HoverState.Parent = Me.SeeSuppliedItemsBtn
+        Me.SeeSuppliedItemsBtn.Location = New System.Drawing.Point(606, 23)
+        Me.SeeSuppliedItemsBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeSuppliedItemsBtn.Name = "SeeSuppliedItemsBtn"
+        Me.SeeSuppliedItemsBtn.ShadowDecoration.Parent = Me.SeeSuppliedItemsBtn
+        Me.SeeSuppliedItemsBtn.Size = New System.Drawing.Size(195, 28)
+        Me.SeeSuppliedItemsBtn.TabIndex = 37
+        Me.SeeSuppliedItemsBtn.Text = "See Supplied Items"
         '
         'TotalPaidTxtBox
         '
@@ -1122,7 +1142,7 @@ Partial Class AdminSupplierViewModal
         Me.TotalPaidTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalPaidTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalPaidTxtBox.HoverState.Parent = Me.TotalPaidTxtBox
-        Me.TotalPaidTxtBox.Location = New System.Drawing.Point(538, 24)
+        Me.TotalPaidTxtBox.Location = New System.Drawing.Point(404, 24)
         Me.TotalPaidTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalPaidTxtBox.Name = "TotalPaidTxtBox"
         Me.TotalPaidTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1130,7 +1150,7 @@ Partial Class AdminSupplierViewModal
         Me.TotalPaidTxtBox.ReadOnly = True
         Me.TotalPaidTxtBox.SelectedText = ""
         Me.TotalPaidTxtBox.ShadowDecoration.Parent = Me.TotalPaidTxtBox
-        Me.TotalPaidTxtBox.Size = New System.Drawing.Size(264, 26)
+        Me.TotalPaidTxtBox.Size = New System.Drawing.Size(197, 26)
         Me.TotalPaidTxtBox.TabIndex = 35
         '
         'NoSuppliedItemTxtBox
@@ -1149,7 +1169,7 @@ Partial Class AdminSupplierViewModal
         Me.NoSuppliedItemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NoSuppliedItemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.NoSuppliedItemTxtBox.HoverState.Parent = Me.NoSuppliedItemTxtBox
-        Me.NoSuppliedItemTxtBox.Location = New System.Drawing.Point(270, 24)
+        Me.NoSuppliedItemTxtBox.Location = New System.Drawing.Point(203, 24)
         Me.NoSuppliedItemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.NoSuppliedItemTxtBox.Name = "NoSuppliedItemTxtBox"
         Me.NoSuppliedItemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1157,7 +1177,7 @@ Partial Class AdminSupplierViewModal
         Me.NoSuppliedItemTxtBox.ReadOnly = True
         Me.NoSuppliedItemTxtBox.SelectedText = ""
         Me.NoSuppliedItemTxtBox.ShadowDecoration.Parent = Me.NoSuppliedItemTxtBox
-        Me.NoSuppliedItemTxtBox.Size = New System.Drawing.Size(264, 26)
+        Me.NoSuppliedItemTxtBox.Size = New System.Drawing.Size(197, 26)
         Me.NoSuppliedItemTxtBox.TabIndex = 34
         '
         'Label9
@@ -1165,7 +1185,7 @@ Partial Class AdminSupplierViewModal
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(539, 0)
+        Me.Label9.Location = New System.Drawing.Point(405, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(68, 20)
         Me.Label9.TabIndex = 33
@@ -1176,7 +1196,7 @@ Partial Class AdminSupplierViewModal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(271, 0)
+        Me.Label1.Location = New System.Drawing.Point(204, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(156, 20)
         Me.Label1.TabIndex = 32
@@ -1206,7 +1226,7 @@ Partial Class AdminSupplierViewModal
         Me.SupplierIdTextBox.ReadOnly = True
         Me.SupplierIdTextBox.SelectedText = ""
         Me.SupplierIdTextBox.ShadowDecoration.Parent = Me.SupplierIdTextBox
-        Me.SupplierIdTextBox.Size = New System.Drawing.Size(264, 26)
+        Me.SupplierIdTextBox.Size = New System.Drawing.Size(197, 26)
         Me.SupplierIdTextBox.TabIndex = 31
         '
         'Label5
@@ -1536,4 +1556,5 @@ Partial Class AdminSupplierViewModal
     Friend WithEvents CompanyPathTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents SeeSuppliedItemsBtn As Guna.UI2.WinForms.Guna2Button
 End Class
