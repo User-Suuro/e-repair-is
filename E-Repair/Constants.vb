@@ -23,6 +23,13 @@
     ' Folder Names
     Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
+    Private ReadOnly _devicePicturesFolderPath = "Device Pictures"
+    Public ReadOnly Property getDevicePicturesFolderPath As String
+        Get
+            Return _devicePicturesFolderPath
+        End Get
+    End Property
+
     Public ReadOnly Property getCustomerTitle As String
         Get
             Return _customersTitle

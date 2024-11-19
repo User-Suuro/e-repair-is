@@ -31,7 +31,9 @@ Partial Class AdminInventoryForm
         Me.ClientSize = New System.Drawing.Size(1148, 572)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminInventoryForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminInventoryForm"
+        Me.TopMost = True
         Me.ResumeLayout(False)
 
     End Sub

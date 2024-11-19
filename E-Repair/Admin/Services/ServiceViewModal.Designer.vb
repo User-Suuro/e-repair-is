@@ -72,9 +72,11 @@ Partial Class ServiceViewModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.OperatingSystemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DeviceTypeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -110,8 +112,6 @@ Partial Class ServiceViewModal
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.DeviceTypeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.OperatingSystemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -1041,6 +1041,33 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(397, 53)
         Me.TableLayoutPanel1.TabIndex = 8
         '
+        'OperatingSystemTxtBox
+        '
+        Me.OperatingSystemTxtBox.BorderRadius = 4
+        Me.OperatingSystemTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.OperatingSystemTxtBox.DefaultText = ""
+        Me.OperatingSystemTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.OperatingSystemTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.OperatingSystemTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.OperatingSystemTxtBox.FocusedState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.OperatingSystemTxtBox.HoverState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.OperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.OperatingSystemTxtBox.Name = "OperatingSystemTxtBox"
+        Me.OperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.OperatingSystemTxtBox.PlaceholderText = ""
+        Me.OperatingSystemTxtBox.ReadOnly = True
+        Me.OperatingSystemTxtBox.SelectedText = ""
+        Me.OperatingSystemTxtBox.ShadowDecoration.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Size = New System.Drawing.Size(393, 26)
+        Me.OperatingSystemTxtBox.TabIndex = 35
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -1078,6 +1105,33 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(397, 53)
         Me.TableLayoutPanel4.TabIndex = 8
+        '
+        'DeviceTypeTxtBox
+        '
+        Me.DeviceTypeTxtBox.BorderRadius = 4
+        Me.DeviceTypeTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DeviceTypeTxtBox.DefaultText = ""
+        Me.DeviceTypeTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DeviceTypeTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DeviceTypeTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceTypeTxtBox.DisabledState.Parent = Me.DeviceTypeTxtBox
+        Me.DeviceTypeTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceTypeTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeviceTypeTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceTypeTxtBox.FocusedState.Parent = Me.DeviceTypeTxtBox
+        Me.DeviceTypeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeviceTypeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceTypeTxtBox.HoverState.Parent = Me.DeviceTypeTxtBox
+        Me.DeviceTypeTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.DeviceTypeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DeviceTypeTxtBox.Name = "DeviceTypeTxtBox"
+        Me.DeviceTypeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DeviceTypeTxtBox.PlaceholderText = ""
+        Me.DeviceTypeTxtBox.ReadOnly = True
+        Me.DeviceTypeTxtBox.SelectedText = ""
+        Me.DeviceTypeTxtBox.ShadowDecoration.Parent = Me.DeviceTypeTxtBox
+        Me.DeviceTypeTxtBox.Size = New System.Drawing.Size(393, 26)
+        Me.DeviceTypeTxtBox.TabIndex = 35
         '
         'Label5
         '
@@ -1690,68 +1744,14 @@ Partial Class ServiceViewModal
         Me.SupplierCirclePictureBox.TabStop = False
         Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
-        'DeviceTypeTxtBox
-        '
-        Me.DeviceTypeTxtBox.BorderRadius = 4
-        Me.DeviceTypeTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.DeviceTypeTxtBox.DefaultText = ""
-        Me.DeviceTypeTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.DeviceTypeTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.DeviceTypeTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DeviceTypeTxtBox.DisabledState.Parent = Me.DeviceTypeTxtBox
-        Me.DeviceTypeTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DeviceTypeTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DeviceTypeTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeviceTypeTxtBox.FocusedState.Parent = Me.DeviceTypeTxtBox
-        Me.DeviceTypeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeviceTypeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeviceTypeTxtBox.HoverState.Parent = Me.DeviceTypeTxtBox
-        Me.DeviceTypeTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.DeviceTypeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.DeviceTypeTxtBox.Name = "DeviceTypeTxtBox"
-        Me.DeviceTypeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DeviceTypeTxtBox.PlaceholderText = ""
-        Me.DeviceTypeTxtBox.ReadOnly = True
-        Me.DeviceTypeTxtBox.SelectedText = ""
-        Me.DeviceTypeTxtBox.ShadowDecoration.Parent = Me.DeviceTypeTxtBox
-        Me.DeviceTypeTxtBox.Size = New System.Drawing.Size(393, 26)
-        Me.DeviceTypeTxtBox.TabIndex = 35
-        '
-        'OperatingSystemTxtBox
-        '
-        Me.OperatingSystemTxtBox.BorderRadius = 4
-        Me.OperatingSystemTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.OperatingSystemTxtBox.DefaultText = ""
-        Me.OperatingSystemTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.OperatingSystemTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.OperatingSystemTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.OperatingSystemTxtBox.DisabledState.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.OperatingSystemTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.OperatingSystemTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.OperatingSystemTxtBox.FocusedState.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.OperatingSystemTxtBox.HoverState.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.OperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.OperatingSystemTxtBox.Name = "OperatingSystemTxtBox"
-        Me.OperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.OperatingSystemTxtBox.PlaceholderText = ""
-        Me.OperatingSystemTxtBox.ReadOnly = True
-        Me.OperatingSystemTxtBox.SelectedText = ""
-        Me.OperatingSystemTxtBox.ShadowDecoration.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.Size = New System.Drawing.Size(393, 26)
-        Me.OperatingSystemTxtBox.TabIndex = 35
-        '
-        'AdminServiceViewModal
+        'ServiceViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 720)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminServiceViewModal"
+        Me.Name = "ServiceViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminServicesViewModal"
         Me.TopMost = True

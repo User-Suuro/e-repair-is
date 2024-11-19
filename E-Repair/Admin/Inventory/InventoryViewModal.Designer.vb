@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class InvetoryAddEditModal
+Partial Class InventoryViewModal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,15 +24,15 @@ Partial Class InvetoryAddEditModal
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'InvetoryAddEditModal
+        'InventoryViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(797, 434)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "InvetoryAddEditModal"
+        Me.Name = "InventoryViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "InvetoryAddEditModal"
+        Me.Text = "InventoryViewModal"
         Me.TopMost = True
         Me.ResumeLayout(False)
 

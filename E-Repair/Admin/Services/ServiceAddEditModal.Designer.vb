@@ -1172,14 +1172,14 @@ Partial Class ServiceAddEditModal
         Me.DeviceCirclePictureBox.TabStop = False
         Me.DeviceCirclePictureBox.UseTransparentBackground = True
         '
-        'AdminAddEditServiceModal
+        'ServiceAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(982, 457)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminAddEditServiceModal"
+        Me.Name = "ServiceAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminAddEditServiceModal"
         Me.TopMost = True

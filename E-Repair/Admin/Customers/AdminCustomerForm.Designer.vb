@@ -22,10 +22,10 @@ Partial Class AdminCustomerForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -35,11 +35,6 @@ Partial Class AdminCustomerForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
-        Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
-        Me.EditCustomerBtn = New System.Windows.Forms.Button()
-        Me.AddCustomerBtn = New System.Windows.Forms.Button()
-        Me.ViewCustomerBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CustomerDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,6 +52,11 @@ Partial Class AdminCustomerForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
+        Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
+        Me.EditCustomerBtn = New System.Windows.Forms.Button()
+        Me.AddCustomerBtn = New System.Windows.Forms.Button()
+        Me.ViewCustomerBtn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -214,98 +214,6 @@ Partial Class AdminCustomerForm
         Me.Panel3.Size = New System.Drawing.Size(65, 427)
         Me.Panel3.TabIndex = 0
         '
-        'DeleteCustomerBtn
-        '
-        Me.DeleteCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DeleteCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.DeleteCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.DeleteCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeleteCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.DeleteCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
-        Me.DeleteCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteCustomerBtn.Location = New System.Drawing.Point(0, 300)
-        Me.DeleteCustomerBtn.Name = "DeleteCustomerBtn"
-        Me.DeleteCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.DeleteCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.DeleteCustomerBtn.TabIndex = 29
-        Me.DeleteCustomerBtn.Text = "Delete"
-        Me.DeleteCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.DeleteCustomerBtn.UseVisualStyleBackColor = True
-        Me.DeleteCustomerBtn.Visible = False
-        '
-        'ArchiveCustomerBtn
-        '
-        Me.ArchiveCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ArchiveCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.ArchiveCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ArchiveCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ArchiveCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ArchiveCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
-        Me.ArchiveCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ArchiveCustomerBtn.Location = New System.Drawing.Point(0, 225)
-        Me.ArchiveCustomerBtn.Name = "ArchiveCustomerBtn"
-        Me.ArchiveCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ArchiveCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ArchiveCustomerBtn.TabIndex = 28
-        Me.ArchiveCustomerBtn.TabStop = False
-        Me.ArchiveCustomerBtn.Text = "Archive"
-        Me.ArchiveCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ArchiveCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'EditCustomerBtn
-        '
-        Me.EditCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EditCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.EditCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EditCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
-        Me.EditCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EditCustomerBtn.Location = New System.Drawing.Point(0, 150)
-        Me.EditCustomerBtn.Name = "EditCustomerBtn"
-        Me.EditCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.EditCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.EditCustomerBtn.TabIndex = 27
-        Me.EditCustomerBtn.Text = "Edit"
-        Me.EditCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.EditCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'AddCustomerBtn
-        '
-        Me.AddCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AddCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.AddCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AddCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AddCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
-        Me.AddCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AddCustomerBtn.Location = New System.Drawing.Point(0, 75)
-        Me.AddCustomerBtn.Name = "AddCustomerBtn"
-        Me.AddCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AddCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.AddCustomerBtn.TabIndex = 26
-        Me.AddCustomerBtn.Text = "Add"
-        Me.AddCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AddCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'ViewCustomerBtn
-        '
-        Me.ViewCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ViewCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.ViewCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ViewCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ViewCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
-        Me.ViewCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ViewCustomerBtn.Location = New System.Drawing.Point(0, 0)
-        Me.ViewCustomerBtn.Name = "ViewCustomerBtn"
-        Me.ViewCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ViewCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ViewCustomerBtn.TabIndex = 19
-        Me.ViewCustomerBtn.Text = "Details"
-        Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ViewCustomerBtn.UseVisualStyleBackColor = True
-        '
         'Panel1
         '
         Me.Panel1.AutoSize = True
@@ -319,39 +227,39 @@ Partial Class AdminCustomerForm
         '
         Me.CustomerDGV.AllowUserToAddRows = False
         Me.CustomerDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.CustomerDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.CustomerDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.CustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.CustomerDGV.BackgroundColor = System.Drawing.Color.White
         Me.CustomerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CustomerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.CustomerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CustomerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CustomerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.CustomerDGV.ColumnHeadersHeight = 48
         Me.CustomerDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CUSTOMER_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.CONTACT_NUMBER, Me.ADDRESS, Me.GENDER, Me.EMAIL, Me.TOTAL_PAID, Me.LAST_TRANSACTION, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED, Me.ADDED_BY, Me.DATE_ADDED})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.CustomerDGV.EnableHeadersVisualStyles = False
         Me.CustomerDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.CustomerDGV.Location = New System.Drawing.Point(11, 61)
         Me.CustomerDGV.Name = "CustomerDGV"
         Me.CustomerDGV.ReadOnly = True
         Me.CustomerDGV.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.CustomerDGV.Size = New System.Drawing.Size(1070, 512)
         Me.CustomerDGV.TabIndex = 34
@@ -490,6 +398,98 @@ Partial Class AdminCustomerForm
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
+        'DeleteCustomerBtn
+        '
+        Me.DeleteCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeleteCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.DeleteCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.DeleteCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
+        Me.DeleteCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.DeleteCustomerBtn.Location = New System.Drawing.Point(0, 300)
+        Me.DeleteCustomerBtn.Name = "DeleteCustomerBtn"
+        Me.DeleteCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.DeleteCustomerBtn.Size = New System.Drawing.Size(65, 75)
+        Me.DeleteCustomerBtn.TabIndex = 29
+        Me.DeleteCustomerBtn.Text = "Delete"
+        Me.DeleteCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.DeleteCustomerBtn.UseVisualStyleBackColor = True
+        Me.DeleteCustomerBtn.Visible = False
+        '
+        'ArchiveCustomerBtn
+        '
+        Me.ArchiveCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ArchiveCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.ArchiveCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ArchiveCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchiveCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ArchiveCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
+        Me.ArchiveCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ArchiveCustomerBtn.Location = New System.Drawing.Point(0, 225)
+        Me.ArchiveCustomerBtn.Name = "ArchiveCustomerBtn"
+        Me.ArchiveCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ArchiveCustomerBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ArchiveCustomerBtn.TabIndex = 28
+        Me.ArchiveCustomerBtn.TabStop = False
+        Me.ArchiveCustomerBtn.Text = "Archive"
+        Me.ArchiveCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ArchiveCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'EditCustomerBtn
+        '
+        Me.EditCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EditCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.EditCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.EditCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
+        Me.EditCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.EditCustomerBtn.Location = New System.Drawing.Point(0, 150)
+        Me.EditCustomerBtn.Name = "EditCustomerBtn"
+        Me.EditCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.EditCustomerBtn.Size = New System.Drawing.Size(65, 75)
+        Me.EditCustomerBtn.TabIndex = 27
+        Me.EditCustomerBtn.Text = "Edit"
+        Me.EditCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.EditCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'AddCustomerBtn
+        '
+        Me.AddCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AddCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.AddCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AddCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AddCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
+        Me.AddCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AddCustomerBtn.Location = New System.Drawing.Point(0, 75)
+        Me.AddCustomerBtn.Name = "AddCustomerBtn"
+        Me.AddCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AddCustomerBtn.Size = New System.Drawing.Size(65, 75)
+        Me.AddCustomerBtn.TabIndex = 26
+        Me.AddCustomerBtn.Text = "Add"
+        Me.AddCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AddCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'ViewCustomerBtn
+        '
+        Me.ViewCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ViewCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.ViewCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ViewCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ViewCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
+        Me.ViewCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ViewCustomerBtn.Location = New System.Drawing.Point(0, 0)
+        Me.ViewCustomerBtn.Name = "ViewCustomerBtn"
+        Me.ViewCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ViewCustomerBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ViewCustomerBtn.TabIndex = 19
+        Me.ViewCustomerBtn.Text = "Details"
+        Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ViewCustomerBtn.UseVisualStyleBackColor = True
+        '
         'AdminCustomerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -500,7 +500,9 @@ Partial Class AdminCustomerForm
         Me.Controls.Add(Me.CustomerDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminCustomerForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminCustomerForm"
+        Me.TopMost = True
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)

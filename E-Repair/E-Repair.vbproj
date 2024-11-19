@@ -218,6 +218,12 @@
     <Compile Include="Admin\Inventory\AdminInventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Admin\Inventory\InventoryViewModal.Designer.vb">
+      <DependentUpon>InventoryViewModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Inventory\InventoryViewModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\Inventory\InvetoryAddEditModal.Designer.vb">
       <DependentUpon>InvetoryAddEditModal.vb</DependentUpon>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\AdminInventoryForm.resx">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Inventory\InventoryViewModal.resx">
+      <DependentUpon>InventoryViewModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\InvetoryAddEditModal.resx">
       <DependentUpon>InvetoryAddEditModal.vb</DependentUpon>
