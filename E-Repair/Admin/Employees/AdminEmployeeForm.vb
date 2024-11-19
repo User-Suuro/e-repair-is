@@ -76,48 +76,54 @@ Public Class AdminEmployeeForm
         ' INITIALIZE VALUES
 
         Try
-            employeeID = EmpDGV.CurrentRow.Cells("EMPLOYEE_ID").Value
-            empFirstName = EmpDGV.CurrentRow.Cells("FIRST_NAME").Value
-            empMiddleName = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("MIDDLE_NAME").Value)
-            empLastName = EmpDGV.CurrentRow.Cells("LAST_NAME").Value
+            With EmpDGV.CurrentRow
+                employeeID = .Cells("EMPLOYEE_ID").Value
+                empFirstName = .Cells("FIRST_NAME").Value
+                empMiddleName = dbHelper.StrNullCheck(.Cells("MIDDLE_NAME").Value)
+                empLastName = .Cells("LAST_NAME").Value
 
-            empSex = EmpDGV.CurrentRow.Cells("SEX").Value
-            empBirthDate = EmpDGV.CurrentRow.Cells("BIRTHDATE").Value
-            empCivilStatus = EmpDGV.CurrentRow.Cells("CIVIL_STATUS").Value
-            empAddress = EmpDGV.CurrentRow.Cells("ADDRESS").Value
+                empSex = .Cells("SEX").Value
+                empBirthDate = .Cells("BIRTHDATE").Value
+                empCivilStatus = .Cells("CIVIL_STATUS").Value
+                empAddress = .Cells("ADDRESS").Value
 
-            empContactNumber = EmpDGV.CurrentRow.Cells("CONTACT").Value
-            empContractStatus = EmpDGV.CurrentRow.Cells("EMPLOYMENT_STATUS").Value
-            empDateHired = EmpDGV.CurrentRow.Cells("DATE_HIRED").Value
+                empContactNumber = .Cells("CONTACT").Value
+                empContractStatus = .Cells("EMPLOYMENT_STATUS").Value
+                empDateHired = .Cells("DATE_HIRED").Value
 
-            empSSS = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("SSS_NUMBER").Value)
-            empPAGIBIG = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("PAGIBIG_NUMBER").Value)
-            empTIN = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("TIN_NUMBER").Value)
+                empSSS = dbHelper.StrNullCheck(.Cells("SSS_NUMBER").Value)
+                empPAGIBIG = dbHelper.StrNullCheck(.Cells("PAGIBIG_NUMBER").Value)
+                empTIN = dbHelper.StrNullCheck(.Cells("TIN_NUMBER").Value)
 
-            empjobType = EmpDGV.CurrentRow.Cells("JOB_TYPE").Value
+                empjobType = .Cells("JOB_TYPE").Value
 
-            adminPosition = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("ADMIN_POSITION").Value)
-            utilityPersonnelDestination = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("PERSONNEL_DESTINATION").Value)
+                adminPosition = dbHelper.StrNullCheck(.Cells("ADMIN_POSITION").Value)
+                utilityPersonnelDestination = dbHelper.StrNullCheck(.Cells("PERSONNEL_DESTINATION").Value)
 
-            empProfilePath = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("IMG_PATH").Value)
+                empProfilePath = dbHelper.StrNullCheck(.Cells("IMG_PATH").Value)
 
-            adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
+                adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
-            ' to do: cashier values
-            ' cashierTotalCustomersHandled =
+                ' to do: cashier values
+                ' cashierTotalCustomersHandled =
 
 
-            ' to do: tech values
-            ' techNumberFinishedServices =
-            ' techNumberPendingServices =
+                ' to do: tech values
+                ' techNumberFinishedServices =
+                ' techNumberPendingServices =
 
-            empEmail = EmpDGV.CurrentRow.Cells("EMAIL").Value
-            empPassword = EmpDGV.CurrentRow.Cells("PASSWORD").Value
-            empIdAddedBy = EmpDGV.CurrentRow.Cells("ADDED_BY").Value
-            empArchived = EmpDGV.CurrentRow.Cells("ARCHIVED").Value
+                empEmail = .Cells("EMAIL").Value
+                empPassword = .Cells("PASSWORD").Value
 
-            empLastAccessed = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("LAST_ACCESSED").Value)
-            empDateAdded = EmpDGV.CurrentRow.Cells("DATE_ADDED").Value
+                Dim getAddedByData As DataRow = dbHelper.GetRowByValue("employees", "added_by", .Cells("ADDED_BY").Value).Rows(0)
+                empIdAddedBy = getAddedByData("firstname") & " " & getAddedByData("lastname")
+
+                empArchived = .Cells("ARCHIVED").Value
+
+                empLastAccessed = dbHelper.StrNullCheck(.Cells("LAST_ACCESSED").Value)
+                empDateAdded = .Cells("DATE_ADDED").Value
+            End With
+
 
         Catch ex As Exception
             MsgBox("Failed to initialized employee values: " + ex.Message)
@@ -184,6 +190,7 @@ Public Class AdminEmployeeForm
 
                 .ArchiveStatusTextBox.Text = empArchived
                 .LastAccessedTextBox.Text = empLastAccessed
+
                 .AddedByTextBox.Text = empIdAddedBy
 
                 ' JOB INFO
@@ -488,6 +495,16 @@ Public Class AdminEmployeeForm
 
                     If getEmpData.Rows.Count > 0 Then
                         row.Cells("ARCHIVED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                    End If
+                End If
+            Next
+
+            For Each row As DataGridViewRow In EmpDGV.Rows
+                If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
+                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ADDED_BY").Value)
+
+                    If getEmpData.Rows.Count > 0 Then
+                        row.Cells("ADDED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
                     End If
                 End If
             Next
