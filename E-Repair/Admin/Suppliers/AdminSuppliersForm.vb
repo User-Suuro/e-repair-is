@@ -111,6 +111,7 @@ Public Class AdminSuppliersForm
                 .EstDelivTimeTxtBox.Text = deliveryTime
                 .CompanyDescTxtBox.Text = companyDesc
 
+
                 Dim supplierIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
                 Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
@@ -146,7 +147,7 @@ Public Class AdminSuppliersForm
                 End If
 
                 .selectedSupplierID = suppID
-                .compProfilePath = suppProfilePath
+                .SupplierCirclePictureBox.Image = Image.FromFile(suppProfilePath)
 
                 .editMode = True
                 .ShowDialog()
