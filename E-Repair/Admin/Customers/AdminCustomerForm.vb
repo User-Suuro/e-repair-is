@@ -80,8 +80,6 @@ Public Class AdminCustomerForm
     End Sub
 
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
-        If Not InitValues() Then Exit Sub
-
         Dim addEditModal As New AdminCustomerAddEditModal
 
         Try
