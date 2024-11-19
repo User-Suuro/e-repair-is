@@ -47,6 +47,7 @@ Public Class AdminEmployeeForm
     Dim empEmail As String = ""
     Dim empPassword As String = ""
     Dim empIdAddedBy As Integer = -1
+
     Dim empArchived As Boolean = False
 
     Dim empLastAccessed As String = "" ' DATETIME
@@ -114,6 +115,7 @@ Public Class AdminEmployeeForm
 
                 empEmail = .Cells("EMAIL").Value
                 empPassword = .Cells("PASSWORD").Value
+
                 empIdAddedBy = .Cells("ADDED_BY").Value
 
                 empArchived = .Cells("ARCHIVED").Value
@@ -190,7 +192,7 @@ Public Class AdminEmployeeForm
                 .LastAccessedTextBox.Text = empLastAccessed
 
                 Dim getAddedByData As DataRow = dbHelper.GetRowByValue("employees", "added_by", empIdAddedBy).Rows(0)
-                .AddedByTextBox.Text = getAddedByData("firstname") & " " & ("lastname")
+                .AddedByTextBox.Text = getAddedByData("firstname") & " " & getAddedByData("lastname")
 
                 ' JOB INFO
 
@@ -415,14 +417,14 @@ Public Class AdminEmployeeForm
             EditEmployeeBtn.Visible = False
 
             EmpDGV.Columns("DATE_ARCHIVED").Visible = True
-            EmpDGV.Columns("ARCHIVED_BY").Visible = True
+            EmpDGV.Columns("ARCHIVED_BY_NAME").Visible = True
         Else
             DeleteEmployeeBtn.Visible = False
             ArchiveEmployeeBtn.Visible = True
             AddEmployeeBtn.Visible = True
             EditEmployeeBtn.Visible = True
             EmpDGV.Columns("DATE_ARCHIVED").Visible = False
-            EmpDGV.Columns("ARCHIVED_BY").Visible = False
+            EmpDGV.Columns("ARCHIVED_BY_NAME").Visible = False
         End If
     End Sub
 
@@ -500,10 +502,10 @@ Public Class AdminEmployeeForm
 
             For Each row As DataGridViewRow In EmpDGV.Rows
                 If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
-                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ADDED_BY").Value)
+                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empIdAddedBy)
 
                     If getEmpData.Rows.Count > 0 Then
-                        row.Cells("ADDED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                        row.Cells("ADDED_BY_NAME").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
                     End If
                 End If
             Next
