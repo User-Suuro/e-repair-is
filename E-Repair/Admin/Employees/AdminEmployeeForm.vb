@@ -197,10 +197,10 @@ Public Class AdminEmployeeForm
 
                 ElseIf empjobType = constants.getTechnicianString Then
                     ' TECH
-                    techNumberFinishedServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Finished").Rows.Count
-                    techNumberPendingServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Pending").Rows.Count
-                    techNumberCanceledServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Canceled").Rows.Count
-                    techNumberOnholdServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Onhold").Rows.Count
+                    techNumberFinishedServices = dbHelper.GetRowByTwoValues("services", "technician_id", employeeID, "service_status", "Finished").Rows.Count
+                    techNumberPendingServices = dbHelper.GetRowByTwoValues("services", "technician_id", employeeID, "service_status", "Pending").Rows.Count
+                    techNumberCanceledServices = dbHelper.GetRowByTwoValues("services", "technician_id", employeeID, "service_status", "Canceled").Rows.Count
+                    techNumberOnholdServices = dbHelper.GetRowByTwoValues("services", "technician_id", employeeID, "service_status", "Onhold").Rows.Count
 
                     .DevicesRepairedTextBox.Text = techNumberFinishedServices
                     .NumberJobsAssignedTextBox.Text = techNumberPendingServices
