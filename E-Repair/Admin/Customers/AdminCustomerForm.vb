@@ -118,6 +118,7 @@ Public Class AdminCustomerForm
             With addEditModal
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
+                .CustomerModalGroupBox.Text = "Edit Customer"
 
                 .FirstNameTxtBox.Text = firstName
                 .MiddleNameTxtBox.Text = middleName
@@ -140,7 +141,6 @@ Public Class AdminCustomerForm
 
                 .ShowDialog()
             End With
-
 
         Catch ex As Exception
             MsgBox(ex.ToString)

@@ -22,7 +22,7 @@ Partial Class AdminCustomerViewModal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.EmployeeModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.CustomerModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.LastTransactionTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -79,7 +79,7 @@ Partial Class AdminCustomerViewModal
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.EmployeeModalGroupBox.SuspendLayout()
+        Me.CustomerModalGroupBox.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
@@ -95,28 +95,28 @@ Partial Class AdminCustomerViewModal
         Me.Guna2Panel11.SuspendLayout()
         Me.SuspendLayout()
         '
-        'EmployeeModalGroupBox
+        'CustomerModalGroupBox
         '
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel6)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel5)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel4)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel3)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Separator3)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel2)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2Panel1)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.GunaLabel1)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.Guna2TextBox2)
-        Me.EmployeeModalGroupBox.Controls.Add(Me.BtnClose)
-        Me.EmployeeModalGroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.EmployeeModalGroupBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmployeeModalGroupBox.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmployeeModalGroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EmployeeModalGroupBox.Location = New System.Drawing.Point(0, 0)
-        Me.EmployeeModalGroupBox.Name = "EmployeeModalGroupBox"
-        Me.EmployeeModalGroupBox.ShadowDecoration.Parent = Me.EmployeeModalGroupBox
-        Me.EmployeeModalGroupBox.Size = New System.Drawing.Size(862, 529)
-        Me.EmployeeModalGroupBox.TabIndex = 3
-        Me.EmployeeModalGroupBox.Text = "View Customer"
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel6)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel5)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel4)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel3)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Separator3)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel2)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2Panel1)
+        Me.CustomerModalGroupBox.Controls.Add(Me.GunaLabel1)
+        Me.CustomerModalGroupBox.Controls.Add(Me.Guna2TextBox2)
+        Me.CustomerModalGroupBox.Controls.Add(Me.BtnClose)
+        Me.CustomerModalGroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CustomerModalGroupBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomerModalGroupBox.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CustomerModalGroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.CustomerModalGroupBox.Location = New System.Drawing.Point(0, 0)
+        Me.CustomerModalGroupBox.Name = "CustomerModalGroupBox"
+        Me.CustomerModalGroupBox.ShadowDecoration.Parent = Me.CustomerModalGroupBox
+        Me.CustomerModalGroupBox.Size = New System.Drawing.Size(862, 529)
+        Me.CustomerModalGroupBox.TabIndex = 3
+        Me.CustomerModalGroupBox.Text = "View Customer"
         '
         'Guna2Panel6
         '
@@ -1128,14 +1128,14 @@ Partial Class AdminCustomerViewModal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(862, 529)
-        Me.Controls.Add(Me.EmployeeModalGroupBox)
+        Me.Controls.Add(Me.CustomerModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminCustomerViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "AdminCustomerViewModal"
         Me.TopMost = True
-        Me.EmployeeModalGroupBox.ResumeLayout(False)
-        Me.EmployeeModalGroupBox.PerformLayout()
+        Me.CustomerModalGroupBox.ResumeLayout(False)
+        Me.CustomerModalGroupBox.PerformLayout()
         Me.Guna2Panel6.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
@@ -1160,7 +1160,7 @@ Partial Class AdminCustomerViewModal
 
     End Sub
 
-    Friend WithEvents EmployeeModalGroupBox As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents CustomerModalGroupBox As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel

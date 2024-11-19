@@ -12,61 +12,65 @@ Public Class AdminEmployeeForm
 
     ' SCHEMA
 
-    Dim employeeID As Integer
-    Dim empFirstName As String
-    Dim empMiddleName As String
-    Dim empLastName As String
-    Dim empSex As String
-    Dim empBirthDate As Date
-    Dim empCivilStatus As String
-    Dim empAddress As String
-    Dim empContactNumber As String
-    Dim empContractStatus As String
-    Dim empDateHired As Date
-    Dim empSSS As String
-    Dim empTIN As String
-    Dim empPAGIBIG As String
+    Dim employeeID As Integer = -1
+    Dim empFirstName As String = ""
+    Dim empMiddleName As String = ""
+    Dim empLastName As String = ""
+    Dim empSex As String = ""
+    Dim empBirthDate As String = ""
 
-    Dim empjobType As String
+    Dim empCivilStatus As String = ""
+    Dim empAddress As String = ""
+    Dim empContactNumber As String = ""
+    Dim empContractStatus As String = ""
 
-    Dim adminTotalEmployeeAdded As Integer
-    Dim adminPosition As String
+    Dim empDateHired As String = ""
+    Dim empSSS As String = ""
+    Dim empTIN As String = ""
+    Dim empPAGIBIG As String = ""
 
-    Dim utilityPersonnelDestination As String
+    Dim empjobType As String = ""
 
-    Dim cashierTotalCustomersHandled As Integer
+    Dim adminTotalEmployeeAdded As Integer = -1
+    Dim adminPosition As String = ""
 
-    Dim techNumberPendingServices As Integer
-    Dim techNumberFinishedServices As Integer
+    Dim utilityPersonnelDestination As String = ""
 
-    Dim empProfilePath As String
-    Dim empEmail As String
-    Dim empPassword As String
-    Dim empIdAddedBy As Integer
-    Dim empArchived As Boolean
+    ' to do 
+    Dim cashierTotalCustomersHandled As Integer = -1
 
-    Dim empLastAccessed As String ' DATETIME
-    Dim empDateAdded As String ' DATETIME
+    ' to do
+    Dim techNumberPendingServices As Integer = -1
+    Dim techNumberFinishedServices As Integer = -1
+
+    Dim empProfilePath As String = ""
+    Dim empEmail As String = ""
+    Dim empPassword As String = ""
+    Dim empIdAddedBy As Integer = -1
+    Dim empArchived As Boolean = False
+
+    Dim empLastAccessed As String = "" ' DATETIME
+    Dim empDateAdded As String = "" ' DATETIME
 
     Private Sub AdminEmployeesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         EmpDGV.ClearSelection()
     End Sub
 
-    Private Function CheckIfInvalidValues() As Boolean
+    Private Function InitData() As Boolean
         If EmpDGV.Rows.Count = 0 Then
             MsgBox("No Data Found!")
-            Return True
+            Return False
         End If
 
         If EmpDGV.CurrentRow Is Nothing Then
             MsgBox("No row is currently selected.")
-            Return True
+            Return False
         End If
 
         If EmpDGV.SelectedRows.Count <= 0 Then
             MsgBox("Please Select a Row First")
-            Return True
+            Return False
         End If
 
         ' INITIALIZE VALUES
@@ -84,7 +88,7 @@ Public Class AdminEmployeeForm
 
             empContactNumber = EmpDGV.CurrentRow.Cells("CONTACT").Value
             empContractStatus = EmpDGV.CurrentRow.Cells("EMPLOYMENT_STATUS").Value
-            empDateHired = Date.Parse(EmpDGV.CurrentRow.Cells("DATE_HIRED").Value)
+            empDateHired = EmpDGV.CurrentRow.Cells("DATE_HIRED").Value
 
             empSSS = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("SSS_NUMBER").Value)
             empPAGIBIG = dbHelper.StrNullCheck(EmpDGV.CurrentRow.Cells("PAGIBIG_NUMBER").Value)
@@ -99,12 +103,13 @@ Public Class AdminEmployeeForm
 
             adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
-            ' to do: customers handled
+            ' to do: cashier values
+            ' cashierTotalCustomersHandled =
 
-            ' to do: number pending services
 
-            ' to do: number completed services
-
+            ' to do: tech values
+            ' techNumberFinishedServices =
+            ' techNumberPendingServices =
 
             empEmail = EmpDGV.CurrentRow.Cells("EMAIL").Value
             empPassword = EmpDGV.CurrentRow.Cells("PASSWORD").Value
@@ -119,14 +124,14 @@ Public Class AdminEmployeeForm
             Return False
         End Try
 
-        Return False
+        Return True
     End Function
 
     ' VIEW
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
         Dim employeeViewModal As New AdminEmployeeViewModal
 
-        If CheckIfInvalidValues() Then Exit Sub
+        If Not InitData() Then Exit Sub
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -136,10 +141,9 @@ Public Class AdminEmployeeForm
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
 
-                ' LOAD DATA IN TEXTBOXES
+                ' BASIC INFO
 
                 .EmployeeIDTextBox.Text = employeeID
-
                 .FirstNameTextBox.Text = empFirstName
                 .MiddleNameTextBox.Text = empMiddleName
                 .LastNameTextBox.Text = empLastName
@@ -147,19 +151,19 @@ Public Class AdminEmployeeForm
                 .BirthDateTextBox.Text = empBirthDate
                 .CivilStatusTextBox.Text = empCivilStatus
                 .AddressTextBox.Text = empAddress
-
                 .ContactNumberTextBox.Text = empContactNumber
+
+                ' JOB INFO
                 .ContractStatusTextBox.Text = empContractStatus
                 .DateHiredTextBox.Text = empDateHired
-
                 .JobTypeTextBox.Text = empjobType
 
                 .SSSTextBox.Text = empSSS
                 .PagIbigTextBox.Text = empPAGIBIG
                 .TINTextBox.Text = empTIN
-
                 .ProfilePathTextBox.Text = empProfilePath
 
+                ' PROFILE
                 Try
                     If (empProfilePath <> "") Then
                         .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
@@ -176,23 +180,26 @@ Public Class AdminEmployeeForm
                     .PasswordTextBox.Text = "N/A"
                 End If
 
+                ' ARCHIVE INFO
+
                 .ArchiveStatusTextBox.Text = empArchived
-
                 .LastAccessedTextBox.Text = empLastAccessed
-
                 .AddedByTextBox.Text = empIdAddedBy
 
-                .PositionTextBox.Text = adminPosition
+                ' JOB INFO
 
+                ' ADMIN
+                .PositionTextBox.Text = adminPosition
                 .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
 
+                ' TECH
+                .DevicesRepairedTextBox.Text = techNumberFinishedServices
+                .NumberJobsAssignedTextBox.Text = techNumberPendingServices
 
-                ' .DevicesRepairedTextBox.Text = techNumberFinishedServices
+                ' CASHIER
+                .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
 
-                ' .NumberJobsAssignedTextBox.Text = techNumberPendingServices
-
-                ' .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
-
+                ' PERSONNEL
                 .AssignedLocationTextBox.Text = utilityPersonnelDestination
 
                 .DateAddedTextBox.Text = empDateAdded
@@ -239,7 +246,8 @@ Public Class AdminEmployeeForm
     ' EDIT
     Private Sub EditBtn_Click(sender As Object, e As EventArgs) Handles EditEmployeeBtn.Click
 
-        If CheckIfInvalidValues() Then Exit Sub
+        If Not InitData() Then Exit Sub
+
 
         Dim employeeAddModal As New AdminEmployeeAddModal
 
@@ -253,23 +261,21 @@ Public Class AdminEmployeeForm
                 .editMode = True
                 .EmployeeModalGroupBox.Text = "Edit Employee Details"
 
-                .selectedEmployeeId = employeeID
+                ' BASIC INFO
 
+                .selectedEmployeeId = employeeID
                 .FirstNameTextBox.Text = empFirstName
                 .MiddleNameTextBox.Text = empMiddleName
                 .LastNameTextBox.Text = empLastName
                 .SexComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
 
                 .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
-
                 .CivilStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
-
                 .AddressTextBox.Text = empAddress
-
                 .ContactNumberTextBox.Text = empContactNumber
 
+                ' CONTRACT STATUS CMB
                 Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
-
                 If contractStatusBoxIndex = -1 Then
                     .ContractStatusComboBox.SelectedItem = "Others"
                     .IfOthersTxtBox.Text = empContractStatus
@@ -277,24 +283,25 @@ Public Class AdminEmployeeForm
                     .ContractStatusComboBox.SelectedIndex = contractStatusBoxIndex
                 End If
 
-                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
+                ' JOBS
 
+                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
                 .JobTypeComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
 
                 If .JobTypeComboBox.Text = constants.getAdminString Then
-
                     .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
-
                 ElseIf .JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
-
                     .AssignedLocationTextBox.Text = utilityPersonnelDestination
-
                 End If
+
+                ' JOB INFO 
 
                 .SSSTextBox.Text = empSSS
                 .PagIbigTextBox.Text = empPAGIBIG
                 .TINTextBox.Text = empTIN
 
+
+                ' PROFILE
                 Dim profileImagePath As String = empProfilePath
 
                 If (profileImagePath <> "N/A") Then
@@ -303,8 +310,8 @@ Public Class AdminEmployeeForm
 
                 .profileImgPath = profileImagePath
 
+                ' EMAIL & PASSWORD
                 .EmailTextBox.Text = empEmail
-
                 .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
                 .ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
 
@@ -327,7 +334,7 @@ Public Class AdminEmployeeForm
 
         Dim loggedUser As String
 
-        If CheckIfInvalidValues() Then Exit Sub
+        If Not InitData() Then Exit Sub
 
         If empArchived Then
             MsgBox("This employee is already archived!")
@@ -348,12 +355,7 @@ Public Class AdminEmployeeForm
             MsgBox("There is no current active user!")
         End Try
 
-
-
-        If formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Employee?") = False Then
-            Exit Sub
-        End If
-
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Employee?") Then Exit Sub
 
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
@@ -374,7 +376,7 @@ Public Class AdminEmployeeForm
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
-        If CheckIfInvalidValues() Then Exit Sub
+        If InitData() Then Exit Sub
 
         If empArchived = False Then
             MsgBox("Please archive the given row first")
@@ -490,7 +492,7 @@ Public Class AdminEmployeeForm
             Next
 
         Catch ex As Exception
-            MsgBox("Unable to style the Employee DGB with no current id session!")
+            MsgBox("Unable to style the Employee DGV: " & ex.Message)
         End Try
     End Sub
 

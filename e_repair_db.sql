@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2024 at 02:35 PM
+-- Generation Time: Nov 19, 2024 at 05:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,11 +39,18 @@ CREATE TABLE `customers` (
   `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
   `last_transaction` datetime DEFAULT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
-  `archived_by` varchar(100) NOT NULL,
+  `archived_by` varchar(100) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL,
-  `added_by` varchar(100) NOT NULL,
+  `added_by` int(11) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `date_added`) VALUES
+(1, 'fname', 'lname', 'mname', '123', 'address', 'Female', '', 0.00, NULL, 0, '', NULL, 40, '2024-11-19 11:58:43');
 
 -- --------------------------------------------------------
 
@@ -85,10 +92,10 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `admin_position`, `personnel_destination`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-18 21:32:55', NULL, 40, '2024-11-09 14:51:29'),
-(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-15 21:43:28', NULL, 40, '2024-11-14 23:44:04'),
-(51, 'asdas', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
-(52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-19 12:24:57', NULL, 40, '2024-11-09 14:51:29'),
+(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', 'pag-ibig', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-19 11:50:47', NULL, 40, '2024-11-14 23:44:04'),
+(51, 'asdasd', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', 'asdasd', 'asdasd', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
+(52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
 
 -- --------------------------------------------------------
 
@@ -99,6 +106,7 @@ INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `
 CREATE TABLE `items` (
   `item_id` int(11) NOT NULL,
   `supplier_id` int(11) NOT NULL,
+  `service_id` int(11) DEFAULT NULL,
   `item_category` varchar(100) NOT NULL,
   `item_name` varchar(100) NOT NULL,
   `item_description` varchar(255) NOT NULL,
@@ -108,11 +116,11 @@ CREATE TABLE `items` (
   `total_value` decimal(10,2) NOT NULL DEFAULT 0.00,
   `item_status` enum('Damaged','Reserved','Used','New') NOT NULL,
   `physical_location` varchar(100) NOT NULL,
-  `restock_date` datetime NOT NULL,
+  `restock_date` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `added_by` int(11) NOT NULL,
   `archived_status` tinyint(1) NOT NULL DEFAULT 0,
-  `archived_by` varchar(100) NOT NULL,
+  `archived_by` int(11) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -136,6 +144,7 @@ CREATE TABLE `services` (
   `repair_notes` varchar(255) NOT NULL,
   `service_status` enum('Pending','Finished','Onhold','Canceled') NOT NULL DEFAULT 'Pending',
   `technician_fee` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `parts_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
   `paid` tinyint(1) NOT NULL DEFAULT 0,
   `total_paid` decimal(10,2) DEFAULT NULL,
   `customer_change` decimal(10,2) DEFAULT NULL,
@@ -190,7 +199,8 @@ INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`);
+  ADD PRIMARY KEY (`customer_id`),
+  ADD KEY `cashier_constraint` (`added_by`);
 
 --
 -- Indexes for table `employees`
@@ -203,7 +213,8 @@ ALTER TABLE `employees`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`item_id`),
-  ADD KEY `supplier_constraint` (`supplier_id`);
+  ADD KEY `supplier_constraint` (`supplier_id`),
+  ADD KEY `service_const` (`service_id`);
 
 --
 -- Indexes for table `services`
@@ -228,13 +239,13 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -259,10 +270,17 @@ ALTER TABLE `suppliers`
 --
 
 --
+-- Constraints for table `customers`
+--
+ALTER TABLE `customers`
+  ADD CONSTRAINT `cashier_constraint` FOREIGN KEY (`added_by`) REFERENCES `employees` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `items`
 --
 ALTER TABLE `items`
-  ADD CONSTRAINT `supplier_constraint` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `service_const` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `supplier_constraint` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `services`
