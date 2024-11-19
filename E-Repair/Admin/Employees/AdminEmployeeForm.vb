@@ -221,11 +221,11 @@ Public Class AdminEmployeeForm
 
     ' ADD
     Private Sub AddEmployeeBtn_Click(sender As Object, e As EventArgs) Handles AddEmployeeBtn.Click
-        Dim employeeAddModal As New AdminEmployeeAddEditModal
+        Dim employeeAddEditModal As New AdminEmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            With employeeAddModal
+            With employeeAddEditModal
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
                 .ShowDialog()
@@ -234,9 +234,9 @@ Public Class AdminEmployeeForm
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
-            employeeAddModal.Close()
+            employeeAddEditModal.Close()
         Finally
-            AdminEmployeeAddModal.Dispose()
+            employeeAddEditModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
@@ -249,12 +249,12 @@ Public Class AdminEmployeeForm
         If Not InitData() Then Exit Sub
 
 
-        Dim employeeAddModal As New AdminEmployeeAddEditModal
+        Dim employeeAddEditModal As New AdminEmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
 
-            With employeeAddModal
+            With employeeAddEditModal
                 ' LOAD FORM
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
@@ -321,9 +321,9 @@ Public Class AdminEmployeeForm
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
-            employeeAddModal.Close()
+            employeeAddEditModal.Close()
         Finally
-            AdminEmployeeAddModal.Dispose()
+            employeeAddEditModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
