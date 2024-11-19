@@ -106,18 +106,6 @@ Public Class AdminEmployeeForm
 
                 empProfilePath = dbHelper.StrNullCheck(.Cells("IMG_PATH").Value)
 
-                adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
-
-                ' to do: cashier values
-                cashierTotalCustomersHandled = dbHelper.GetRowByValue("customers", "added_by", employeeID).Rows.Count
-                cashierTotalServicesHandled = dbHelper.GetRowByValue("services", "cashier_id", employeeID).Rows.Count
-
-                ' to do: tech values
-                techNumberFinishedServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Finished").Rows.Count
-                techNumberPendingServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Pending").Rows.Count
-                techNumberCanceledServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Canceled").Rows.Count
-                techNumberOnholdServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Onhold").Rows.Count
-
                 empEmail = .Cells("EMAIL").Value
                 empPassword = .Cells("PASSWORD").Value
                 empIdAddedBy = .Cells("ADDED_BY").Value
@@ -199,19 +187,36 @@ Public Class AdminEmployeeForm
 
                 ' JOB INFO
 
-                ' ADMIN
-                .PositionTextBox.Text = adminPosition
-                .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
 
-                ' TECH
-                .DevicesRepairedTextBox.Text = techNumberFinishedServices
-                .NumberJobsAssignedTextBox.Text = techNumberPendingServices
+                If empjobType = constants.getAdminString Then
+                    ' ADMIN
+                    adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
-                ' CASHIER
-                .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
+                    .PositionTextBox.Text = adminPosition
+                    .EmployeeAddedTextBox.Text = adminTotalEmployeeAdded
 
-                ' PERSONNEL
-                .AssignedLocationTextBox.Text = utilityPersonnelDestination
+                ElseIf empjobType = constants.getTechnicianString Then
+                    ' TECH
+                    techNumberFinishedServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Finished").Rows.Count
+                    techNumberPendingServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Pending").Rows.Count
+                    techNumberCanceledServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Canceled").Rows.Count
+                    techNumberOnholdServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Onhold").Rows.Count
+
+                    .DevicesRepairedTextBox.Text = techNumberFinishedServices
+                    .NumberJobsAssignedTextBox.Text = techNumberPendingServices
+
+                ElseIf empjobType = constants.getCashierString Then
+
+                    ' CASHIER
+                    cashierTotalCustomersHandled = dbHelper.GetRowByValue("customers", "added_by", employeeID).Rows.Count
+                    cashierTotalServicesHandled = dbHelper.GetRowByValue("services", "cashier_id", employeeID).Rows.Count
+                    .CustomersHandledTextBox.Text = cashierTotalCustomersHandled
+
+                ElseIf empjobType = constants.getUtilityPersonnelString Then
+                    ' PERSONNEL
+                    .AssignedLocationTextBox.Text = utilityPersonnelDestination
+
+                End If
 
                 .DateAddedTextBox.Text = empDateAdded
 
