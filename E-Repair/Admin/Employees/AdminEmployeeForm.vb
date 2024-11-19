@@ -384,7 +384,7 @@ Public Class AdminEmployeeForm
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
-        If InitData() Then Exit Sub
+        If Not InitData() Then Exit Sub
 
         If Not empArchived Then
             MsgBox("Please archive the given row first")
