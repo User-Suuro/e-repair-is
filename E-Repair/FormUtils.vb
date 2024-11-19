@@ -99,7 +99,7 @@ Public Class FormUtils
     Public Function AreAllValuesFilled(values As Dictionary(Of String, Object), Optional startingIndex As Integer = 0) As Boolean
         For i As Integer = startingIndex To values.Count - 1
             Dim kvp As KeyValuePair(Of String, Object) = values.ElementAt(i) ' Access key-value pair by index
-            If kvp.Value Is Nothing OrElse kvp.Value.ToString() = "" OrElse kvp.Value.ToString() = "-1" Then
+            If kvp.Value Is Nothing OrElse kvp.Value.ToString().Trim() = "" OrElse kvp.Value.ToString() = "-1" Then
                 MsgBox("Please fill all necessary details")
                 Return False
             End If

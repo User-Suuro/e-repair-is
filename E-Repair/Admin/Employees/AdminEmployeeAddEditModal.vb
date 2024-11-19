@@ -83,6 +83,12 @@
         ' start in index 4 cuz of some optional values
         If Not formUtils.AreAllValuesFilled(insertData, 4) Then Exit Sub
 
+        ' Exception
+        If password.Trim() = "" Then
+            MsgBox("Please fill necessary details")
+            Exit Sub
+        End If
+
         ' UDPDATE FOREIGN VALUES
 
         Dim updateAdminValues As New Dictionary(Of String, Object) From {
