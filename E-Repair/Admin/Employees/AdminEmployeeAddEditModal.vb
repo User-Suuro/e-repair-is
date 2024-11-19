@@ -51,6 +51,14 @@
 
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
+        Dim empIDLogged As Integer
+        Try
+            empIDLogged = GlobalSession.CurrentSession.EmployeeID
+        Catch ex As Exception
+
+        End Try
+
+
         Dim insertData As New Dictionary(Of String, Object) From {
             {"middlename", middleName}, ' Exception
             {"sss_no", sss}, ' Exception
@@ -68,7 +76,8 @@
             {"job_type", jobType},
             {"profile_path", profileImgPath},
             {"email", email},
-            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)}
+            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+            {"added_by", empIDLogged}
         }
 
         ' start in index 4 cuz of some optional values
@@ -104,26 +113,6 @@
         MsgBox("Employee Successfully Added")
 
         formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
-
-        ' UPDATE TOTAL EMPLOYEEE ADDED
-
-        Dim empIDLogged As Integer
-
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            Exit Sub
-        End Try
-
-        If empIDLogged = -1 Then Exit Sub
-
-        Dim prevValues As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empIDLogged)
-
-        Dim updateTotal As New Dictionary(Of String, Object) From {
-                {"added_by", empIDLogged}
-         }
-
-        dbHelper.UpdateRecord("employees", "employee_id", empIDLogged, updateTotal)
 
         Me.Close()
     End Sub
