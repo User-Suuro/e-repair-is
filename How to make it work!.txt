@@ -20,7 +20,9 @@ Then browse for GunaUI.dll
 
 For Image Path Data:
 
-Go to C:\Users\User\AppData\Roaming
+Download Image Data: https://drive.google.com/drive/folders/1r0LiezDCpt8i1_wKPT87SMssfBCkShrx?usp=sharing
 
-Copy and Paste E-Repair Images
+Then Go to C:\Users\User\AppData\Roaming
+
+Place E-Repair Images there
 
