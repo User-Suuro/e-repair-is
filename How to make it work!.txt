@@ -17,3 +17,10 @@ Make a category in toolbox
 Right click the created category, then click choose items
 
 Then browse for GunaUI.dll
+
+For Image Path Data:
+
+Go to C:\Users\User\AppData\Roaming
+
+Copy and Paste E-Repair Images
+
