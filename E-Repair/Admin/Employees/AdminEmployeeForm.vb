@@ -38,10 +38,13 @@ Public Class AdminEmployeeForm
 
     ' to do 
     Dim cashierTotalCustomersHandled As Integer = -1
+    Dim cashierTotalServicesHandled As Integer = -1
 
     ' to do
     Dim techNumberPendingServices As Integer = -1
     Dim techNumberFinishedServices As Integer = -1
+    Dim techNumberOnholdServices As Integer = -1
+    Dim techNumberCanceledServices As Integer = -1
 
     Dim empProfilePath As String = ""
     Dim empEmail As String = ""
@@ -106,18 +109,18 @@ Public Class AdminEmployeeForm
                 adminTotalEmployeeAdded = dbHelper.GetRowByValue("employees", "added_by", employeeID).Rows.Count
 
                 ' to do: cashier values
-                ' cashierTotalCustomersHandled =
-
+                cashierTotalCustomersHandled = dbHelper.GetRowByValue("customers", "added_by", employeeID).Rows.Count
+                cashierTotalServicesHandled = dbHelper.GetRowByValue("services", "cashier_id", employeeID).Rows.Count
 
                 ' to do: tech values
-                ' techNumberFinishedServices =
-                ' techNumberPendingServices =
+                techNumberFinishedServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Finished").Rows.Count
+                techNumberPendingServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Pending").Rows.Count
+                techNumberCanceledServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Canceled").Rows.Count
+                techNumberOnholdServices = dbHelper.GetRowByTwoValues("services", "employee_id", employeeID, "service_status", "Onhold").Rows.Count
 
                 empEmail = .Cells("EMAIL").Value
                 empPassword = .Cells("PASSWORD").Value
-
                 empIdAddedBy = .Cells("ADDED_BY").Value
-
                 empArchived = .Cells("ARCHIVED").Value
 
                 empLastAccessed = dbHelper.StrNullCheck(.Cells("LAST_ACCESSED").Value)
