@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 05:42 AM
+-- Generation Time: Nov 19, 2024 at 06:50 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,7 +34,7 @@ CREATE TABLE `customers` (
   `middle_name` varchar(100) NOT NULL,
   `contact_number` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `gender` enum('Male','Female') NOT NULL,
+  `gender` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
   `last_transaction` datetime DEFAULT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `date_added`) VALUES
-(1, 'fname', 'lname', 'mname', '123', 'address', 'Female', '', 0.00, NULL, 0, '', NULL, 40, '2024-11-19 11:58:43');
+(1, 'asdasd', 'lname', 'mname', '123', 'address', '', 'asdasd', 0.00, NULL, 0, '', NULL, 40, '2024-11-19 11:58:43');
 
 -- --------------------------------------------------------
 
@@ -92,8 +92,8 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `admin_position`, `personnel_destination`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-19 12:24:57', NULL, 40, '2024-11-09 14:51:29'),
-(50, 'asd', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', 'pag-ibig', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-19 11:50:47', NULL, 40, '2024-11-14 23:44:04'),
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'asdd', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-19 13:38:12', NULL, 40, '2024-11-09 14:51:29'),
+(50, '123', '', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'asd', '2024-11-01', '', 'pag-ibig', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-19 11:50:47', NULL, 40, '2024-11-14 23:44:04'),
 (51, 'asdasd', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', 'asdasd', 'asdasd', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-15 01:47:17'),
 (52, 'asdasd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', '123', 'Full Time', '2024-11-01', '', '', '', 'Admin', 'Team Leader', NULL, 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asdddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 0, '2024-11-15 16:32:53');
 

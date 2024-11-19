@@ -345,7 +345,7 @@ Partial Class AdminCustomerForm
         Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.CustomerDGV.EnableHeadersVisualStyles = False
         Me.CustomerDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.CustomerDGV.Location = New System.Drawing.Point(11, 70)
+        Me.CustomerDGV.Location = New System.Drawing.Point(11, 61)
         Me.CustomerDGV.Name = "CustomerDGV"
         Me.CustomerDGV.ReadOnly = True
         Me.CustomerDGV.RowHeadersVisible = False

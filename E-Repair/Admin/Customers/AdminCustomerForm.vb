@@ -306,6 +306,8 @@ Public Class AdminCustomerForm
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
+        CustomerDGV.AutoGenerateColumns = False
+
         Try
             For Each row As DataGridViewRow In CustomerDGV.Rows
 
@@ -320,5 +322,7 @@ Public Class AdminCustomerForm
         End Try
     End Sub
 
+    Private Sub CustomerDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CustomerDGV.CellContentClick
 
+    End Sub
 End Class
