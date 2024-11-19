@@ -101,7 +101,7 @@ Public Class AdminCustomerForm
             formModal.Close()
             addEditModal.Close()
         Finally
-            AdminEmployeeAddModal.Dispose()
+            addEditModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
@@ -145,7 +145,7 @@ Public Class AdminCustomerForm
             formModal.Close()
             addEditModal.Close()
         Finally
-            AdminEmployeeAddModal.Dispose()
+            addEditModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
