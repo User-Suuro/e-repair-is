@@ -331,19 +331,19 @@ Public Class AdminSuppliersForm
             AddSupplierBtn.Visible = False
 
             SuppliersDGV.Columns("DATE_ARCHIVED").Visible = True
+            SuppliersDGV.Columns("ARCHIVED_BY").Visible = True
         Else
             DeleteServiceBtn.Visible = False
             ArchiveSupplierBtn.Visible = True
             EditSupplierBtn.Visible = True
             AddSupplierBtn.Visible = True
             SuppliersDGV.Columns("DATE_ARCHIVED").Visible = False
+            SuppliersDGV.Columns("ARCHIVED_BY").Visible = False
         End If
     End Sub
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
-
-
         Try
             For Each row As DataGridViewRow In SuppliersDGV.Rows
 
@@ -356,7 +356,16 @@ Public Class AdminSuppliersForm
                 If row.Cells("SUPPLIED_ITEMS").Value Then
                     row.Cells("SUPPLIED_ITEMS").Value = dbHelper.GetRowByValue("suppliers", "supplier_id", row.Cells("supplier_id").Value).Rows.Count
                 End If
+            Next
 
+            For Each row As DataGridViewRow In SuppliersDGV.Rows
+                If row.Cells("ARCHIVED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ARCHIVED_BY").Value) Then
+                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ARCHIVED_BY").Value)
+
+                    If getEmpData.Rows.Count > 0 Then
+                        row.Cells("ARCHIVED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                    End If
+                End If
             Next
         Catch ex As Exception
             MsgBox("Unable to style DGV: " & ex.Message)

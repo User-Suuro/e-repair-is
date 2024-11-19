@@ -27,6 +27,7 @@ Partial Class AdminServiceForm
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -63,7 +64,6 @@ Partial Class AdminServiceForm
         Me.DATE_COMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_CLAIMED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -88,6 +88,25 @@ Partial Class AdminServiceForm
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1070, 28)
         Me.TableLayoutPanel1.TabIndex = 39
+        '
+        'ShowArchiveCheckBox
+        '
+        Me.ShowArchiveCheckBox.AutoSize = True
+        Me.ShowArchiveCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckBox.CheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(975, 3)
+        Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
+        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
+        Me.ShowArchiveCheckBox.TabIndex = 30
+        Me.ShowArchiveCheckBox.Text = "Show Archive"
+        Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckBox.UncheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckBox.UncheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckBox.UseVisualStyleBackColor = True
         '
         'Guna2Panel1
         '
@@ -545,25 +564,6 @@ Partial Class AdminServiceForm
         Me.DATE_ADDED.HeaderText = "Date Commissioned"
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
-        '
-        'ShowArchiveCheckBox
-        '
-        Me.ShowArchiveCheckBox.AutoSize = True
-        Me.ShowArchiveCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.CheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(975, 3)
-        Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
-        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
-        Me.ShowArchiveCheckBox.TabIndex = 30
-        Me.ShowArchiveCheckBox.Text = "Show Archive"
-        Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UncheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.UncheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UseVisualStyleBackColor = True
         '
         'AdminServiceForm
         '

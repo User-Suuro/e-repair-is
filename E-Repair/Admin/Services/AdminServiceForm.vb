@@ -8,4 +8,8 @@ Public Class AdminServiceForm
     Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+
+    End Sub
 End Class
