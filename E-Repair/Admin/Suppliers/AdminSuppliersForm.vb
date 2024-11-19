@@ -27,7 +27,7 @@ Public Class AdminSuppliersForm
 
     ' VIEW
     Private Sub ViewSupplierBtn_Click(sender As Object, e As EventArgs) Handles ViewSupplierBtn.Click
-        Dim supplierViewModal As New AdminSupplierViewModal
+        Dim supplierViewModal As New SupplierViewModal
 
         If Not InitValues() Then Exit Sub
 
@@ -70,7 +70,7 @@ Public Class AdminSuppliersForm
 
     ' ADD
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
-        Dim supplierAddEditModal As New AdminSupplierAddEditModal
+        Dim supplierAddEditModal As New SupplierAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -92,7 +92,7 @@ Public Class AdminSuppliersForm
 
     'EDIT
     Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
-        Dim supplierAddEditModal As New AdminSupplierAddEditModal
+        Dim supplierAddEditModal As New SupplierAddEditModal
 
         If Not InitValues() Then Exit Sub
 

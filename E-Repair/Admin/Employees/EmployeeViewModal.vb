@@ -1,4 +1,4 @@
-﻿Public Class AdminEmployeeViewModal
+﻿Public Class EmployeeViewModal
     Dim formUtils As New FormUtils
     Dim constants As New Constants
 

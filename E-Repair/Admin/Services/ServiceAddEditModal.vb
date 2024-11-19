@@ -1,4 +1,4 @@
-﻿Public Class AdminAddEditServiceModal
+﻿Public Class ServiceAddEditModal
     Private Sub Label14_Click(sender As Object, e As EventArgs)
 
     End Sub

@@ -1,4 +1,4 @@
-﻿Public Class AdminSupplierViewModal
+﻿Public Class SupplierViewModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub

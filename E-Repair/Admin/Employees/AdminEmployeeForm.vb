@@ -126,7 +126,7 @@ Public Class AdminEmployeeForm
 
     ' VIEW
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
-        Dim employeeViewModal As New AdminEmployeeViewModal
+        Dim employeeViewModal As New EmployeeViewModal
 
         If Not InitData() Then Exit Sub
 
@@ -237,7 +237,7 @@ Public Class AdminEmployeeForm
 
     ' ADD
     Private Sub AddEmployeeBtn_Click(sender As Object, e As EventArgs) Handles AddEmployeeBtn.Click
-        Dim employeeAddEditModal As New AdminEmployeeAddEditModal
+        Dim employeeAddEditModal As New EmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()
@@ -265,7 +265,7 @@ Public Class AdminEmployeeForm
         If Not InitData() Then Exit Sub
 
 
-        Dim employeeAddEditModal As New AdminEmployeeAddEditModal
+        Dim employeeAddEditModal As New EmployeeAddEditModal
 
         Try
             formModal = formUtils.CreateBgFormModal()

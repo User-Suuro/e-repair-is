@@ -2,7 +2,7 @@
 Imports Google.Protobuf.Reflection.FieldOptions.Types
 Imports Guna.UI2.HtmlRenderer.Core
 
-Public Class AdminSupplierAddEditModal
+Public Class SupplierAddEditModal
     ' TOOLS
     Dim formModal As New Form
     Dim formUtils As New FormUtils
