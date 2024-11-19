@@ -332,10 +332,14 @@ Public Class AdminCustomerForm
         If ShowArchiveCheckBox.Checked Then
             DeleteCustomerBtn.Visible = True
             ArchiveCustomerBtn.Visible = False
+            AddCustomerBtn.Visible = False
+            EditCustomerBtn.Visible = False
             CustomerDGV.Columns("DATE_ARCHIVED").Visible = True
         Else
             DeleteCustomerBtn.Visible = False
             ArchiveCustomerBtn.Visible = True
+            AddCustomerBtn.Visible = True
+            EditCustomerBtn.Visible = True
             CustomerDGV.Columns("DATE_ARCHIVED").Visible = False
         End If
     End Sub

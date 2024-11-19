@@ -327,10 +327,15 @@ Public Class AdminSuppliersForm
         If ShowArchiveCheckBox.Checked Then
             DeleteServiceBtn.Visible = True
             ArchiveSupplierBtn.Visible = False
+            EditSupplierBtn.Visible = False
+            AddSupplierBtn.Visible = False
+
             SuppliersDGV.Columns("DATE_ARCHIVED").Visible = True
         Else
             DeleteServiceBtn.Visible = False
             ArchiveSupplierBtn.Visible = True
+            EditSupplierBtn.Visible = True
+            AddSupplierBtn.Visible = True
             SuppliersDGV.Columns("DATE_ARCHIVED").Visible = False
         End If
     End Sub

@@ -405,11 +405,16 @@ Public Class AdminEmployeeForm
         If ShowArchiveCheckBox.Checked Then
             DeleteEmployeeBtn.Visible = True
             ArchiveEmployeeBtn.Visible = False
+            AddEmployeeBtn.Visible = False
+            EditEmployeeBtn.Visible = False
+
             EmpDGV.Columns("DATE_ARCHIVED").Visible = True
             EmpDGV.Columns("ARCHIVED_BY").Visible = True
         Else
             DeleteEmployeeBtn.Visible = False
             ArchiveEmployeeBtn.Visible = True
+            AddEmployeeBtn.Visible = True
+            EditEmployeeBtn.Visible = True
             EmpDGV.Columns("DATE_ARCHIVED").Visible = False
             EmpDGV.Columns("ARCHIVED_BY").Visible = False
         End If
