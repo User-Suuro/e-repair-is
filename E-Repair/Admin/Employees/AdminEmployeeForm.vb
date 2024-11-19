@@ -46,7 +46,8 @@ Public Class AdminEmployeeForm
     Dim empProfilePath As String = ""
     Dim empEmail As String = ""
     Dim empPassword As String = ""
-    Dim empIdAddedBy As Integer = -1
+    Dim empAddedBy As String = ""
+
     Dim empArchived As Boolean = False
 
     Dim empLastAccessed As String = "" ' DATETIME
@@ -116,7 +117,7 @@ Public Class AdminEmployeeForm
                 empPassword = .Cells("PASSWORD").Value
 
                 Dim getAddedByData As DataRow = dbHelper.GetRowByValue("employees", "added_by", .Cells("ADDED_BY").Value).Rows(0)
-                empIdAddedBy = getAddedByData("firstname") & " " & getAddedByData("lastname")
+                empAddedBy = getAddedByData("firstname") & " " & getAddedByData("lastname")
 
                 empArchived = .Cells("ARCHIVED").Value
 
