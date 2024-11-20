@@ -261,14 +261,12 @@ Public Class SupplierAddEditModal
         End If
     End Sub
 
-    ' CIRCLE BOX
-    Private Sub SupplierCirclePictureBox_Paint(sender As Object, e As PaintEventArgs) Handles SupplierCirclePictureBox.Paint
+    ' ONLOAD
+    Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
         Catch ex As Exception
 
         End Try
     End Sub
-
-
 End Class

@@ -6,7 +6,7 @@ Go to project settings, then locate namespace
 
 Add Guna.UI and Guna.UI2 .dll
 
-Also add rldc report viewer .dll to namespace if it is gone
+Also add rldc report viewer .dll to namespace if it is gone (Project -> Project Properties -> References)
 
 Uncheck "Allow parallel project initialization" in Tools -> Options -> Project and Solutions -> General
 
@@ -20,9 +20,7 @@ Then browse for GunaUI.dll
 
 For Image Path Data:
 
-Download Image Data: https://drive.google.com/drive/folders/1r0LiezDCpt8i1_wKPT87SMssfBCkShrx?usp=sharing
+Go to C:\Users\User\AppData\Roaming
 
-Then Go to C:\Users\User\AppData\Roaming
-
-Place E-Repair Images there
+Copy and Paste E-Repair Images
 

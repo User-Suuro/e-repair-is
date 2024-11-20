@@ -45,8 +45,27 @@ Public Class AdminServiceForm
 
     End Sub
 
-    Private Sub AddServiceBtn_Click_1(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
+    Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
+        Dim addEditModal As New ServiceAddEditModal
 
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With addEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            EmployeeAddEditModal.Close()
+        Finally
+            EmployeeAddEditModal.Dispose()
+            formModal.Dispose()
+            ' LoadDataToDGV()
+        End Try
     End Sub
 
     Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
@@ -66,6 +85,10 @@ Public Class AdminServiceForm
     End Sub
 
     Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
+
+    End Sub
+
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
 
     End Sub
 End Class

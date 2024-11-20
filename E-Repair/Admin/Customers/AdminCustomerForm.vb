@@ -33,6 +33,11 @@ Public Class AdminCustomerForm
     Private archivedBy As String = ""
     Private dateArchived As String = ""
 
+    Public Property selectMode As Boolean = False
+    Public Property selectedID As Integer = -1
+    Public Property selectModeTable As DataTable
+
+
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         Dim AdminCustomerViewModal As New CustomerViewModal
 
@@ -276,37 +281,41 @@ Public Class AdminCustomerForm
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         CustomerDGV.ClearSelection()
+
+        If selectMode Then
+            BtnSelect.Visible = True
+            BtnClose.Visible = True
+        Else
+            BtnSelect.Visible = False
+            BtnClose.Visible = False
+        End If
     End Sub
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim customersTable As DataTable
 
-        If ShowArchiveCheckBox.Checked Then
-            customersTable = dbHelper.GetAllRowsFromTable("customers", True, True)
+        If Not selectMode Then
+            If ShowArchiveCheckBox.Checked Then
+                customersTable = dbHelper.GetAllRowsFromTable("customers", True, True)
+            Else
+                customersTable = dbHelper.GetAllRowsFromTable("customers", False)
+            End If
         Else
-            customersTable = dbHelper.GetAllRowsFromTable("customers", False)
+            customersTable = selectModeTable
         End If
 
-        Dim searchBy As String = "first_name"
+        Dim searchValues() As String = {
+            "first_name",
+            "middle_name",
+            "last_name",
+            "contact_number",
+            "address",
+            "email",
+            "date_added"
+        }
 
-        With SearchComboBox
-            If .SelectedIndex = 0 Then
-                searchBy = "first_name"
-            ElseIf .SelectedIndex = 1 Then
-                searchBy = "middle_name"
-            ElseIf .SelectedIndex = 2 Then
-                searchBy = "last_name"
-            ElseIf .SelectedIndex = 3 Then
-                searchBy = "contact_number"
-            ElseIf .SelectedIndex = 4 Then
-                searchBy = "address"
-            ElseIf .SelectedIndex = 5 Then
-                searchBy = "email"
-            ElseIf .SelectedIndex = 6 Then
-                searchBy = "date_added"
-            End If
-        End With
+        Dim searchBy As String = searchValues(SearchComboBox.SelectedIndex)
 
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
             customersTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
@@ -374,4 +383,7 @@ Public Class AdminCustomerForm
             MsgBox("Unable to style DGV: " & ex.Message)
         End Try
     End Sub
+
+    ' SELECT MODE
+
 End Class

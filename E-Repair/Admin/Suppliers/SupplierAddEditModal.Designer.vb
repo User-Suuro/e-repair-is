@@ -24,6 +24,7 @@ Partial Class SupplierAddEditModal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SupplierAddEditModal))
         Me.SupplierModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -46,6 +47,7 @@ Partial Class SupplierAddEditModal
         Me.PaymentTermsIfOthersTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -81,8 +83,6 @@ Partial Class SupplierAddEditModal
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SupplierFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.SupplierModalGroupBox.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -92,6 +92,7 @@ Partial Class SupplierAddEditModal
         Me.ContractTypeTableLayout.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
         Me.PaymentTermsTableLayout.SuspendLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -104,7 +105,6 @@ Partial Class SupplierAddEditModal
         Me.SupplierTypeTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.BankDetailsTableLayout.SuspendLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SupplierModalGroupBox
@@ -131,6 +131,18 @@ Partial Class SupplierAddEditModal
         Me.SupplierModalGroupBox.Size = New System.Drawing.Size(840, 520)
         Me.SupplierModalGroupBox.TabIndex = 2
         Me.SupplierModalGroupBox.Text = "Add Supplier"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(697, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(111, 20)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "Company Picture"
         '
         'FlowLayoutPanel4
         '
@@ -475,6 +487,20 @@ Partial Class SupplierAddEditModal
         Me.Label25.Size = New System.Drawing.Size(102, 20)
         Me.Label25.TabIndex = 14
         Me.Label25.Text = "Payment Terms"
+        '
+        'SupplierCirclePictureBox
+        '
+        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(680, 68)
+        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
+        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
+        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(144, 142)
+        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.SupplierCirclePictureBox.TabIndex = 30
+        Me.SupplierCirclePictureBox.TabStop = False
+        Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
         'FlowLayoutPanel1
         '
@@ -1051,40 +1077,14 @@ Partial Class SupplierAddEditModal
         Me.SupplierFileDialog.FileName = "OpenFileDialog1"
         Me.SupplierFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
-        'SupplierCirclePictureBox
-        '
-        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(680, 68)
-        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
-        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
-        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(144, 142)
-        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.SupplierCirclePictureBox.TabIndex = 30
-        Me.SupplierCirclePictureBox.TabStop = False
-        Me.SupplierCirclePictureBox.UseTransparentBackground = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(697, 45)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(111, 20)
-        Me.Label1.TabIndex = 37
-        Me.Label1.Text = "Company Picture"
-        '
-        'AdminSupplierAddEditModal
+        'SupplierAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(840, 520)
         Me.Controls.Add(Me.SupplierModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminSupplierAddEditModal"
+        Me.Name = "SupplierAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminSupplierAddEditModal"
         Me.TopMost = True
@@ -1101,6 +1101,7 @@ Partial Class SupplierAddEditModal
         Me.Guna2Panel11.ResumeLayout(False)
         Me.PaymentTermsTableLayout.ResumeLayout(False)
         Me.PaymentTermsTableLayout.PerformLayout()
+        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel5.ResumeLayout(False)
         Me.JobDetailsTableLayout.ResumeLayout(False)
@@ -1118,7 +1119,6 @@ Partial Class SupplierAddEditModal
         Me.Guna2Panel6.ResumeLayout(False)
         Me.BankDetailsTableLayout.ResumeLayout(False)
         Me.BankDetailsTableLayout.PerformLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

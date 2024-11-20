@@ -5,6 +5,7 @@ Public Class ServiceAddEditModal
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
+    Dim formModal As New Form
 
     Dim serviceID As Integer = -1
     Dim customerID As Integer = -1
@@ -69,8 +70,27 @@ Public Class ServiceAddEditModal
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
 
     End Sub
-    Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
 
+    Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
+        Dim employeeAddEditModal As New EmployeeAddEditModal
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+            With employeeAddEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            employeeAddEditModal.Close()
+        Finally
+            employeeAddEditModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
     End Sub
 
     Private Sub CustomerIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTxtBox.TextChanged
@@ -120,5 +140,7 @@ Public Class ServiceAddEditModal
         Me.Close()
     End Sub
 
+    Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

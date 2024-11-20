@@ -437,6 +437,7 @@ Public Class AdminEmployeeForm
     End Sub
 
     ' LOAD DATA
+
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim employeesTable As DataTable
 
@@ -446,26 +447,17 @@ Public Class AdminEmployeeForm
             employeesTable = dbHelper.GetAllRowsFromTable("employees", False)
         End If
 
-        Dim searchBy As String = "firstname"
+        Dim searchValues() As String = {
+           "firstname",
+           "middlename",
+           "lastname",
+           "date_hired",
+           "email",
+           "last_accessed",
+           "date_added"
+        }
 
-        With SearchComboBox
-            If .SelectedIndex = 0 Then
-                searchBy = "firstname"
-            ElseIf .SelectedIndex = 1 Then
-                searchBy = "middlename"
-            ElseIf .SelectedIndex = 2 Then
-                searchBy = "lastname"
-            ElseIf .SelectedIndex = 3 Then
-                searchBy = "date_hired"
-            ElseIf .SelectedIndex = 4 Then
-                searchBy = "email"
-            ElseIf .SelectedIndex = 5 Then
-                searchBy = "last_accessed"
-            ElseIf .SelectedIndex = 6 Then
-                searchBy = "date_added"
-            End If
-        End With
-
+        Dim searchBy As String = searchValues(SearchComboBox.SelectedIndex)
 
         ' Search
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
@@ -519,6 +511,4 @@ Public Class AdminEmployeeForm
             MsgBox("Unable to style the Employee DGV: " & ex.Message)
         End Try
     End Sub
-
-
 End Class

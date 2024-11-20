@@ -111,7 +111,6 @@ Public Class AdminSuppliersForm
                 .EstDelivTimeTxtBox.Text = deliveryTime
                 .CompanyDescTxtBox.Text = companyDesc
 
-
                 Dim supplierIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
                 Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
@@ -147,7 +146,6 @@ Public Class AdminSuppliersForm
                 End If
 
                 .selectedSupplierID = suppID
-                .SupplierCirclePictureBox.Image = Image.FromFile(suppProfilePath)
 
                 .editMode = True
                 .ShowDialog()
@@ -284,25 +282,17 @@ Public Class AdminSuppliersForm
 
         Dim searchBy As String = "company_name"
 
-        With SearchComboBox
-            If .SelectedIndex = 0 Then
-                searchBy = "company_name"
-            ElseIf .SelectedIndex = 1 Then
-                searchBy = "contact_person"
-            ElseIf .SelectedIndex = 2 Then
-                searchBy = "company_number"
-            ElseIf .SelectedIndex = 3 Then
-                searchBy = "contact_email"
-            ElseIf .SelectedIndex = 4 Then
-                searchBy = "location"
-            ElseIf .SelectedIndex = 5 Then
-                searchBy = "estimated_delivery_time"
-            ElseIf .SelectedIndex = 6 Then
-                searchBy = "total_paid"
-            ElseIf .SelectedIndex = 7 Then
-                searchBy = "date_added"
-            End If
-        End With
+        Dim searchValues() As String = {
+           "company_name",
+           "contact_person",
+           "company_number",
+           "company_email",
+           "estimated_delivery_time",
+           "total_paid",
+           "date_added"
+        }
+
+        searchBy = searchValues(SearchComboBox.SelectedIndex)
 
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
             suppliersTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"

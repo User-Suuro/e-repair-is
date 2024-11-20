@@ -22,7 +22,6 @@ Partial Class EmployeeAddEditModal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EmployeeAddEditModal))
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
@@ -102,9 +101,8 @@ Partial Class EmployeeAddEditModal
         Me.ContractStatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel11.SuspendLayout()
@@ -1410,11 +1408,6 @@ Partial Class EmployeeAddEditModal
         Me.Label22.TabIndex = 28
         Me.Label22.Text = "Employee Picture"
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
-        '
         'ProfileCirclePictureBox
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
@@ -1428,6 +1421,11 @@ Partial Class EmployeeAddEditModal
         Me.ProfileCirclePictureBox.TabIndex = 15
         Me.ProfileCirclePictureBox.TabStop = False
         Me.ProfileCirclePictureBox.UseTransparentBackground = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
         'EmployeeAddEditModal
         '
@@ -1564,5 +1562,4 @@ Partial Class EmployeeAddEditModal
     Friend WithEvents Panel1 As Panel
     Friend WithEvents AlreadyTakenLabel As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
 End Class
