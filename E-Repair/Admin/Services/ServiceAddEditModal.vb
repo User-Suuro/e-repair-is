@@ -81,6 +81,7 @@ Public Class ServiceAddEditModal
                 getCustomerTableData = dbHelper.GetAllRowsFromTable("customers", False)
 
                 .selectModeTable = getCustomerTableData
+                customerID = .selectedCustID
 
                 .ShowDialog()
             End With

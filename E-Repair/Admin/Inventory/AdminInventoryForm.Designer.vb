@@ -86,7 +86,7 @@ Partial Class AdminInventoryForm
         Me.SeeSuppliedItemsDGV.ReadOnly = True
         Me.SeeSuppliedItemsDGV.RowHeadersVisible = False
         Me.SeeSuppliedItemsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SeeSuppliedItemsDGV.Size = New System.Drawing.Size(1074, 422)
+        Me.SeeSuppliedItemsDGV.Size = New System.Drawing.Size(1006, 422)
         Me.SeeSuppliedItemsDGV.TabIndex = 37
         Me.SeeSuppliedItemsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -251,7 +251,7 @@ Partial Class AdminInventoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1148, 572)
+        Me.ClientSize = New System.Drawing.Size(1080, 572)
         Me.Controls.Add(Me.SeeSuppliedItemsDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminInventoryForm"

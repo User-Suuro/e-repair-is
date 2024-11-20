@@ -81,7 +81,7 @@ Partial Class AdminCustomerForm
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1070, 28)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(986, 28)
         Me.TableLayoutPanel1.TabIndex = 36
         '
         'ShowArchiveCheckBox
@@ -92,7 +92,7 @@ Partial Class AdminCustomerForm
         Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
         Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(975, 3)
+        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(891, 3)
         Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
         Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
         Me.ShowArchiveCheckBox.TabIndex = 30
@@ -113,7 +113,7 @@ Partial Class AdminCustomerForm
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(535, 28)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(493, 28)
         Me.Guna2Panel1.TabIndex = 31
         '
         'SearchComboBox
@@ -181,7 +181,7 @@ Partial Class AdminCustomerForm
         Me.AdminSidenavPanel.Controls.Add(Me.TableLayoutPanel2)
         Me.AdminSidenavPanel.Controls.Add(Me.Panel1)
         Me.AdminSidenavPanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1099, 0)
+        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1015, 0)
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
         Me.AdminSidenavPanel.Size = New System.Drawing.Size(65, 611)
         Me.AdminSidenavPanel.TabIndex = 35
@@ -358,7 +358,7 @@ Partial Class AdminCustomerForm
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CustomerDGV.Size = New System.Drawing.Size(1070, 497)
+        Me.CustomerDGV.Size = New System.Drawing.Size(986, 497)
         Me.CustomerDGV.TabIndex = 34
         Me.CustomerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -504,7 +504,7 @@ Partial Class AdminCustomerForm
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
         Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(974, 568)
+        Me.BtnSelect.Location = New System.Drawing.Point(890, 567)
         Me.BtnSelect.Name = "BtnSelect"
         Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
         Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
@@ -533,7 +533,7 @@ Partial Class AdminCustomerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1164, 611)
+        Me.ClientSize = New System.Drawing.Size(1080, 611)
         Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TableLayoutPanel1)

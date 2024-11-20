@@ -34,7 +34,7 @@ Public Class AdminCustomerForm
     Private dateArchived As String = ""
 
     Public Property selectMode As Boolean = False
-    Public Property selectedID As Integer = -1
+    Public Property selectedCustID As Integer = -1
     Public Property selectModeTable As DataTable
 
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
@@ -387,7 +387,7 @@ Public Class AdminCustomerForm
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
         If Not InitValues() Then Exit Sub
 
-        selectedID = customerID
+        selectedCustID = customerID
 
         Me.Close()
     End Sub

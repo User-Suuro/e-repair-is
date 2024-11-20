@@ -57,16 +57,13 @@ Public Class AdminSuppliersForm
                 .CompanyPathTxtBox.Text = suppProfilePath
                 .ShowDialog()
             End With
-
         Catch ex As Exception
-
+            MsgBox("Cannot Create Modal: " & ex.Message)
         Finally
             supplierViewModal.Dispose()
             formModal.Dispose()
             LoadDataToDGV()
         End Try
-
-
     End Sub
 
     ' ADD
