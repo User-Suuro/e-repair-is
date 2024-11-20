@@ -83,26 +83,26 @@ Public Class ServiceAddEditModal
                 .selectModeTable = getCustomerTableData
                 customerID = .selectedCustID
 
-                .ShowDialog()
+                If .ShowDialog() = DialogResult.OK Then
+                    If Not customerID = -1 Then
+                        ' LOAD SELECTED DATA
+                        CustomerIDTxtBox.Text = customerID
 
-                If Not customerID = -1 Then
-                    ' LOAD SELECTED DATA
-                    CustomerIDTxtBox.Text = customerID
+                        With getCustomerTableData
+                            CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
+                        End With
 
-                    With getCustomerTableData
-                        CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
-                    End With
+                        With dbHelper
+                            Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
+                            Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
+                            Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
+                            Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
 
-                    With dbHelper
-                        Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
-                        Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
-                        Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
-                        Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
-
-                        PendingCommisionsTxtBox.Text = pending_C
-                        CompletedCommissionTxtBox.Text = completed_C
-                        TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
-                    End With
+                            PendingCommisionsTxtBox.Text = pending_C
+                            CompletedCommissionTxtBox.Text = completed_C
+                            TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
+                        End With
+                    End If
                 End If
 
             End With

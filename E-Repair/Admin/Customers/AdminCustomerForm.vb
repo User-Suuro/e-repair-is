@@ -389,6 +389,8 @@ Public Class AdminCustomerForm
 
         selectedCustID = customerID
 
+        Me.DialogResult = DialogResult.OK
+
         Me.Close()
     End Sub
 

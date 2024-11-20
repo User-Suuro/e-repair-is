@@ -539,6 +539,8 @@ Public Class AdminEmployeeForm
 
         selectedEmpID = employeeID
 
+        Me.DialogResult = DialogResult.OK
+
         Me.Close()
     End Sub
 
