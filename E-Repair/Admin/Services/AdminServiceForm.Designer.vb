@@ -147,6 +147,7 @@ Partial Class AdminServiceForm
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
         Me.SearchComboBox.Size = New System.Drawing.Size(207, 28)
+        Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
