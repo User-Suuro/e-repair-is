@@ -241,7 +241,7 @@ Public Class AdminEmployeeForm
 
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show view employee modal: " & ex.ToString)
             formModal.Close()
             employeeViewModal.Close()
         Finally
@@ -263,7 +263,7 @@ Public Class AdminEmployeeForm
             End With
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show add employee modal: " & ex.Message)
             formModal.Close()
             employeeAddEditModal.Close()
         Finally

@@ -58,7 +58,7 @@ Public Class AdminSuppliersForm
                 .ShowDialog()
             End With
         Catch ex As Exception
-            MsgBox("Cannot Create Modal: " & ex.Message)
+            MsgBox("Cannot create view supplier modal: " & ex.Message)
         Finally
             supplierViewModal.Dispose()
             formModal.Dispose()
@@ -78,7 +78,7 @@ Public Class AdminSuppliersForm
                 .ShowDialog()
             End With
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show add suppliers modal: " & ex.Message)
             formModal.Close()
             supplierAddEditModal.Close()
         Finally
@@ -150,7 +150,7 @@ Public Class AdminSuppliersForm
             End With
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show add/edit modal: " & ex.Message)
             formModal.Close()
             supplierAddEditModal.Close()
         Finally

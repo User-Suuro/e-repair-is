@@ -101,7 +101,7 @@ Public Class AdminCustomerForm
             End With
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show add customer modal: " & ex.Message)
             formModal.Close()
             addEditModal.Close()
         Finally

@@ -66,6 +66,7 @@ Public Class ServiceAddEditModal
 
     End Sub
 
+    ' SELECT CUSTOMER
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
         Dim customerForm As New AdminCustomerForm
         Dim getCustomerTableData As DataTable = Nothing
@@ -111,7 +112,7 @@ Public Class ServiceAddEditModal
             End With
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to customer modal: " & ex.ToString)
             formModal.Close()
             customerForm.Close()
         Finally
@@ -122,6 +123,7 @@ Public Class ServiceAddEditModal
 
     End Sub
 
+    ' SELECT TECHNICIAN
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
         Dim employeeForm As New AdminEmployeeForm
         Dim getTechnicianTableData As DataTable = Nothing
@@ -161,14 +163,11 @@ Public Class ServiceAddEditModal
                     End If
                 End If
             End With
-
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to employee modal: " & ex.ToString)
             formModal.Close()
             employeeForm.Close()
         Finally
-
-
             employeeForm.Dispose()
             formModal.Dispose()
         End Try
