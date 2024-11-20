@@ -326,6 +326,9 @@ Partial Class AdminSuppliersForm
         Me.SuppliersDGV.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.SuppliersDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.SuppliersDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SuppliersDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SuppliersDGV.BackgroundColor = System.Drawing.Color.White
         Me.SuppliersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None

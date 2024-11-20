@@ -297,6 +297,7 @@ Partial Class AdminMainPanel
         Me.Name = "AdminMainPanel"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.AdminSidenavPanel.ResumeLayout(False)
         Me.AdminSidenavPanel.PerformLayout()
         Me.AdminTopNavPanel.ResumeLayout(False)

@@ -212,6 +212,7 @@ Partial Class LoginForm
         Me.Name = "LoginForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LoginForm"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ViewControlPanel.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
