@@ -644,6 +644,7 @@ Partial Class ServiceAddEditModal
         Me.CompletedCommissionTxtBox.DisabledState.Parent = Me.CompletedCommissionTxtBox
         Me.CompletedCommissionTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CompletedCommissionTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompletedCommissionTxtBox.Enabled = False
         Me.CompletedCommissionTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedCommissionTxtBox.FocusedState.Parent = Me.CompletedCommissionTxtBox
         Me.CompletedCommissionTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -670,6 +671,7 @@ Partial Class ServiceAddEditModal
         Me.PendingCommisionsTxtBox.DisabledState.Parent = Me.PendingCommisionsTxtBox
         Me.PendingCommisionsTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PendingCommisionsTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PendingCommisionsTxtBox.Enabled = False
         Me.PendingCommisionsTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingCommisionsTxtBox.FocusedState.Parent = Me.PendingCommisionsTxtBox
         Me.PendingCommisionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -696,6 +698,7 @@ Partial Class ServiceAddEditModal
         Me.TotalCommissionsTxtBox.DisabledState.Parent = Me.TotalCommissionsTxtBox
         Me.TotalCommissionsTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TotalCommissionsTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TotalCommissionsTxtBox.Enabled = False
         Me.TotalCommissionsTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalCommissionsTxtBox.FocusedState.Parent = Me.TotalCommissionsTxtBox
         Me.TotalCommissionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -791,6 +794,7 @@ Partial Class ServiceAddEditModal
         Me.CustomerNameTxtBox.DisabledState.Parent = Me.CustomerNameTxtBox
         Me.CustomerNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CustomerNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CustomerNameTxtBox.Enabled = False
         Me.CustomerNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomerNameTxtBox.FocusedState.Parent = Me.CustomerNameTxtBox
         Me.CustomerNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -817,6 +821,7 @@ Partial Class ServiceAddEditModal
         Me.CustomerIDTxtBox.DisabledState.Parent = Me.CustomerIDTxtBox
         Me.CustomerIDTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CustomerIDTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CustomerIDTxtBox.Enabled = False
         Me.CustomerIDTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomerIDTxtBox.FocusedState.Parent = Me.CustomerIDTxtBox
         Me.CustomerIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -914,6 +919,7 @@ Partial Class ServiceAddEditModal
         Me.CompletedWorkTxtBox.DisabledState.Parent = Me.CompletedWorkTxtBox
         Me.CompletedWorkTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CompletedWorkTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompletedWorkTxtBox.Enabled = False
         Me.CompletedWorkTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedWorkTxtBox.FocusedState.Parent = Me.CompletedWorkTxtBox
         Me.CompletedWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -940,6 +946,7 @@ Partial Class ServiceAddEditModal
         Me.PendingWorkTxtBox.DisabledState.Parent = Me.PendingWorkTxtBox
         Me.PendingWorkTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PendingWorkTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PendingWorkTxtBox.Enabled = False
         Me.PendingWorkTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingWorkTxtBox.FocusedState.Parent = Me.PendingWorkTxtBox
         Me.PendingWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -966,6 +973,7 @@ Partial Class ServiceAddEditModal
         Me.TotalWorkDoneTxtBox.DisabledState.Parent = Me.TotalWorkDoneTxtBox
         Me.TotalWorkDoneTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TotalWorkDoneTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TotalWorkDoneTxtBox.Enabled = False
         Me.TotalWorkDoneTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalWorkDoneTxtBox.FocusedState.Parent = Me.TotalWorkDoneTxtBox
         Me.TotalWorkDoneTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1061,6 +1069,7 @@ Partial Class ServiceAddEditModal
         Me.TechnicianNameTxtBox.DisabledState.Parent = Me.TechnicianNameTxtBox
         Me.TechnicianNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TechnicianNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TechnicianNameTxtBox.Enabled = False
         Me.TechnicianNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TechnicianNameTxtBox.FocusedState.Parent = Me.TechnicianNameTxtBox
         Me.TechnicianNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1087,6 +1096,7 @@ Partial Class ServiceAddEditModal
         Me.TechnicianIDTxtBox.DisabledState.Parent = Me.TechnicianIDTxtBox
         Me.TechnicianIDTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TechnicianIDTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TechnicianIDTxtBox.Enabled = False
         Me.TechnicianIDTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TechnicianIDTxtBox.FocusedState.Parent = Me.TechnicianIDTxtBox
         Me.TechnicianIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

@@ -144,7 +144,7 @@ Public Class ServiceAddEditModal
             formModal.Dispose()
         End Try
 
-        If customerID = -1 Then Exit Sub
+        If technicianID = -1 Then Exit Sub
 
         ' LOAD SELECTED DATA
         TechnicianIDTxtBox.Text = technicianID
