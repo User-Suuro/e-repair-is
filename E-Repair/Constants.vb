@@ -24,6 +24,8 @@
     Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
     Private ReadOnly _devicePicturesFolderPath = "Device Pictures"
+
+
     Public ReadOnly Property getDevicePicturesFolderPath As String
         Get
             Return _devicePicturesFolderPath

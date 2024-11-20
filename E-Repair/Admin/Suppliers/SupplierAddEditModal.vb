@@ -110,10 +110,14 @@ Public Class SupplierAddEditModal
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
             {"estimated_delivery_time", estDelivTime},
-            {"company_picture_path", savedPath}
         }
 
         If Not formUtils.AreAllValuesFilled(insertUpdate) Then Exit Sub
+
+        ' COMPARE PREV VALUE
+        Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("supplier", "supplier_id", selectedSupplierID).Rows(0)
+
+        If savedPath <> getSupplierPrevValue("company_picture_path") Then insertUpdate.Add("company_picture_path", formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True))
 
         If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedSupplierID, insertUpdate) Then
             MsgBox("Supplier Successfully Updated")

@@ -58,7 +58,6 @@
 
         End Try
 
-
         Dim insertData As New Dictionary(Of String, Object) From {
             {"middlename", middleName}, ' Exception
             {"sss_no", sss}, ' Exception
@@ -178,9 +177,7 @@
         End If
 
         ' Save image locally
-        If prevEmployeeValue("profile_path") <> profileImgPath Then
-            updateAdminValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
-        End If
+        If prevEmployeeValue("profile_path") <> profileImgPath Then updateAdminValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
 
         If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateData) Then
             MsgBox("Employee Details Sucessfully Updated")

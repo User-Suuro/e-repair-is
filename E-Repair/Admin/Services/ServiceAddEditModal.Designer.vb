@@ -85,6 +85,7 @@ Partial Class ServiceAddEditModal
         Me.Label10 = New System.Windows.Forms.Label()
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
         Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -319,8 +320,8 @@ Partial Class ServiceAddEditModal
         'OperatingSystemTableLayout
         '
         Me.OperatingSystemTableLayout.ColumnCount = 2
-        Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
         Me.OperatingSystemTableLayout.Controls.Add(Me.OperatingSystemCmbBox, 0, 1)
         Me.OperatingSystemTableLayout.Controls.Add(Me.Label2, 0, 0)
         Me.OperatingSystemTableLayout.Controls.Add(Me.Label15, 1, 0)
@@ -331,7 +332,6 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemTableLayout.RowCount = 2
         Me.OperatingSystemTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.OperatingSystemTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.OperatingSystemTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.OperatingSystemTableLayout.Size = New System.Drawing.Size(397, 53)
         Me.OperatingSystemTableLayout.TabIndex = 8
         '
@@ -354,7 +354,7 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.OperatingSystemCmbBox.Name = "OperatingSystemCmbBox"
         Me.OperatingSystemCmbBox.ShadowDecoration.Parent = Me.OperatingSystemCmbBox
-        Me.OperatingSystemCmbBox.Size = New System.Drawing.Size(192, 26)
+        Me.OperatingSystemCmbBox.Size = New System.Drawing.Size(391, 26)
         Me.OperatingSystemCmbBox.TabIndex = 35
         '
         'Label2
@@ -373,9 +373,9 @@ Partial Class ServiceAddEditModal
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(201, 0)
+        Me.Label15.Location = New System.Drawing.Point(400, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(148, 20)
+        Me.Label15.Size = New System.Drawing.Size(1, 20)
         Me.Label15.TabIndex = 32
         Me.Label15.Text = "If others please specify"
         '
@@ -395,14 +395,14 @@ Partial Class ServiceAddEditModal
         Me.IfOthersOperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IfOthersOperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.IfOthersOperatingSystemTxtBox.HoverState.Parent = Me.IfOthersOperatingSystemTxtBox
-        Me.IfOthersOperatingSystemTxtBox.Location = New System.Drawing.Point(200, 24)
+        Me.IfOthersOperatingSystemTxtBox.Location = New System.Drawing.Point(399, 24)
         Me.IfOthersOperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.IfOthersOperatingSystemTxtBox.Name = "IfOthersOperatingSystemTxtBox"
         Me.IfOthersOperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.IfOthersOperatingSystemTxtBox.PlaceholderText = ""
         Me.IfOthersOperatingSystemTxtBox.SelectedText = ""
         Me.IfOthersOperatingSystemTxtBox.ShadowDecoration.Parent = Me.IfOthersOperatingSystemTxtBox
-        Me.IfOthersOperatingSystemTxtBox.Size = New System.Drawing.Size(195, 26)
+        Me.IfOthersOperatingSystemTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.IfOthersOperatingSystemTxtBox.TabIndex = 30
         '
         'Guna2Panel4
@@ -420,8 +420,8 @@ Partial Class ServiceAddEditModal
         'DeviceTypeTableLayout
         '
         Me.DeviceTypeTableLayout.ColumnCount = 2
-        Me.DeviceTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.DeviceTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.DeviceTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.DeviceTypeTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
         Me.DeviceTypeTableLayout.Controls.Add(Me.DeviceTypeCmbBox, 0, 1)
         Me.DeviceTypeTableLayout.Controls.Add(Me.Label5, 0, 0)
         Me.DeviceTypeTableLayout.Controls.Add(Me.Label4, 1, 0)
@@ -454,7 +454,7 @@ Partial Class ServiceAddEditModal
         Me.DeviceTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.DeviceTypeCmbBox.Name = "DeviceTypeCmbBox"
         Me.DeviceTypeCmbBox.ShadowDecoration.Parent = Me.DeviceTypeCmbBox
-        Me.DeviceTypeCmbBox.Size = New System.Drawing.Size(192, 26)
+        Me.DeviceTypeCmbBox.Size = New System.Drawing.Size(391, 26)
         Me.DeviceTypeCmbBox.TabIndex = 35
         '
         'Label5
@@ -473,9 +473,9 @@ Partial Class ServiceAddEditModal
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(201, 0)
+        Me.Label4.Location = New System.Drawing.Point(400, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(148, 20)
+        Me.Label4.Size = New System.Drawing.Size(1, 20)
         Me.Label4.TabIndex = 33
         Me.Label4.Text = "If others please specify"
         '
@@ -495,14 +495,14 @@ Partial Class ServiceAddEditModal
         Me.IfOthersDeviceTypeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IfOthersDeviceTypeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.IfOthersDeviceTypeTxtBox.HoverState.Parent = Me.IfOthersDeviceTypeTxtBox
-        Me.IfOthersDeviceTypeTxtBox.Location = New System.Drawing.Point(200, 24)
+        Me.IfOthersDeviceTypeTxtBox.Location = New System.Drawing.Point(399, 24)
         Me.IfOthersDeviceTypeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.IfOthersDeviceTypeTxtBox.Name = "IfOthersDeviceTypeTxtBox"
         Me.IfOthersDeviceTypeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.IfOthersDeviceTypeTxtBox.PlaceholderText = ""
         Me.IfOthersDeviceTypeTxtBox.SelectedText = ""
         Me.IfOthersDeviceTypeTxtBox.ShadowDecoration.Parent = Me.IfOthersDeviceTypeTxtBox
-        Me.IfOthersDeviceTypeTxtBox.Size = New System.Drawing.Size(195, 26)
+        Me.IfOthersDeviceTypeTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.IfOthersDeviceTypeTxtBox.TabIndex = 30
         '
         'Guna2Panel6
@@ -1182,6 +1182,10 @@ Partial Class ServiceAddEditModal
         Me.DeviceCirclePictureBox.TabStop = False
         Me.DeviceCirclePictureBox.UseTransparentBackground = True
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'ServiceAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1285,4 +1289,5 @@ Partial Class ServiceAddEditModal
     Friend WithEvents DeviceTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

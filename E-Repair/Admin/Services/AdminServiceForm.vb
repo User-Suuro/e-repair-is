@@ -1,5 +1,6 @@
 ﻿Imports System.Linq.Expressions
 Imports System.Net.Sockets
+Imports Google.Protobuf.WellKnownTypes
 Imports Microsoft.ReportingServices.Rendering.ExcelOpenXmlRenderer
 
 Public Class AdminServiceForm
@@ -38,8 +39,44 @@ Public Class AdminServiceForm
     Dim is_archived As Boolean = False
     Dim archivedByEmp As Integer = -1
     Dim dateArchivedEmp As String = ""
+    Private Function InitData() As Boolean
+        If ServiceDGV.Rows.Count = 0 Then
+            MsgBox("No Data Found!")
+            Return False
+        End If
+
+        If ServiceDGV.CurrentRow Is Nothing Then
+            MsgBox("No row is currently selected.")
+            Return False
+        End If
+
+        If ServiceDGV.SelectedRows.Count <= 0 Then
+            MsgBox("Please Select a Row First")
+            Return False
+        End If
+
+        ' INITIALIZE VALUES
+
+        Try
+            With
+
+            End With
+
+
+        Catch ex As Exception
+            MsgBox("Failed to initialized employee values: " + ex.Message)
+            Return False
+        End Try
+
+        Return True
+    End Function
+
 
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
+        If Not InitData() Then Exit Sub
+
+        ' DO ADDITIONAL CHECKERS FOR CLAIMING
+
 
     End Sub
 
@@ -60,7 +97,7 @@ Public Class AdminServiceForm
             End With
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("Unable to show add service modal: " & ex.ToString)
             formModal.Close()
             EmployeeAddEditModal.Close()
         Finally

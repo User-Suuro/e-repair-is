@@ -1,6 +1,7 @@
 ﻿Imports System.Numerics
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports LibVLCSharp.[Shared]
+Imports Microsoft.Reporting.Map.WebForms.BingMaps
 
 Public Class ServiceAddEditModal
     Dim formUtils As New FormUtils
@@ -19,29 +20,14 @@ Public Class ServiceAddEditModal
     Dim operatingSystem As String = ""
     Dim storageCapacity As String = ""
     Dim problemDescription As String = ""
-    Dim repairNotes As String = ""
 
     Dim dateAdded As String = ""
 
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
-    Public Property profilePath As String
+    Public Property deviceImgPath As String = ""
 
-    Private Sub BtnUpload_Click(sender As Object, e As EventArgs) Handles BtnUpload.Click
 
-    End Sub
-
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Try
-            If editMode Then
-                EditDataFunction()
-            Else
-                AddDataFunction()
-            End If
-        Catch ex As Exception
-            MsgBox("Failed to save / edit: " & ex.Message)
-        End Try
-    End Sub
 
     ' ADD 
     Private Sub AddDataFunction()
@@ -56,6 +42,28 @@ Public Class ServiceAddEditModal
         Catch ex As Exception
             empIDLogged = -1
         End Try
+
+        Dim savedPath = formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, False)
+
+        Dim insertData As New Dictionary(Of String, Object) From {
+          {"customer_id", customerID},
+          {"technician_id", technicianID},
+          {"cashier_id", empIDLogged},
+          {"device_type", deviceType},
+          {"device_profile_path", deviceImgPath},
+          {"device_model", deviceModel},
+          {"device_brand", deviceBrand},
+          {"operating_system", operatingSystem},
+          {"storage_capacity", storageCapacity},
+          {"problem_description", problemDescription}
+        }
+
+        If dbHelper.InsertRecord("services", insertData) Then
+            formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True)
+        Else
+            MsgBox("Unable to save service record")
+        End If
+
     End Sub
 
     ' EDIT
@@ -63,6 +71,28 @@ Public Class ServiceAddEditModal
     Private Sub EditDataFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this service?")) Then Exit Sub
+
+        Dim updateData As New Dictionary(Of String, Object) From {
+            {"customer_id", customerID},
+            {"technician_id", technicianID},
+            {"device_type", deviceType},
+            {"device_profile_path", deviceImgPath},
+            {"device_model", deviceModel},
+            {"device_brand", deviceBrand},
+            {"operating_system", operatingSystem},
+            {"storage_capacity", storageCapacity},
+            {"problem_description", problemDescription}
+        }
+
+        Dim prevServiceValue As DataRow = dbHelper.GetRowByValue("services", "service_id", selectedID).Rows(0)
+
+        If prevServiceValue("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
+
+        If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
+            MsgBox("Successfuly updated service details")
+        Else
+            MsgBox("Unable to update service details")
+        End If
 
     End Sub
 
@@ -108,7 +138,6 @@ Public Class ServiceAddEditModal
                         End With
                     End If
                 End If
-
             End With
 
         Catch ex As Exception
@@ -164,7 +193,7 @@ Public Class ServiceAddEditModal
                 End If
             End With
         Catch ex As Exception
-            MsgBox("Unable to employee modal: " & ex.ToString)
+            MsgBox("Unable to open employee modal: " & ex.ToString)
             formModal.Close()
             employeeForm.Close()
         Finally
@@ -174,55 +203,101 @@ Public Class ServiceAddEditModal
 
     End Sub
 
-    Private Sub CustomerIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub TechnicianIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianIDTxtBox.TextChanged
-
-    End Sub
-
+    'DEVICE BRAND
     Private Sub DeviceBrandTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceBrandTxtBox.TextChanged
-
+        deviceBrand = DeviceBrandTxtBox.Text
     End Sub
 
+    'DEVICE MODEL
     Private Sub DeviceModelTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceModelTxtBox.TextChanged
-
+        deviceModel = DeviceModelTxtBox.Text
     End Sub
 
+    ' STORAGE
     Private Sub StorageCapacityTxtBox_TextChanged(sender As Object, e As EventArgs) Handles StorageCapacityTxtBox.TextChanged
-
+        storageCapacity = StorageCapacityTxtBox.Text
     End Sub
 
-    Private Sub DeviceCirclePictureBox_Click(sender As Object, e As EventArgs) Handles DeviceCirclePictureBox.Click
-
+    ' UPLOAD
+    Private Sub BtnUpload_Click(sender As Object, e As EventArgs) Handles BtnUpload.Click
+        If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+            Dim imgPath = OpenFileDialog1.FileName
+            DeviceCirclePictureBox.Image = Image.FromFile(imgPath)
+            deviceImgPath = imgPath
+        End If
     End Sub
 
+    ' DEVICE TYPE
     Private Sub DeviceTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DeviceTypeCmbBox.SelectedIndexChanged
+        With DeviceTypeTableLayout
+            ' Default
+            .ColumnStyles(0).Width = 100.0F
+            .ColumnStyles(1).Width = 0.0F
 
+            If DeviceTypeCmbBox.SelectedItem = "Others" Then
+                .ColumnStyles(0).Width = 50.0F
+                .ColumnStyles(1).Width = 50.0F
+            Else
+                deviceType = DeviceTypeCmbBox.SelectedItem
+
+                .ColumnStyles(0).Width = 100.0F
+                .ColumnStyles(1).Width = 0.0F
+            End If
+        End With
     End Sub
+
+    ' DEVICE TYPE OTHERS
     Private Sub IfOthersDeviceTypeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersDeviceTypeTxtBox.TextChanged
-
+        If DeviceTypeCmbBox.SelectedItem = "Others" Then
+            deviceType = IfOthersDeviceTypeTxtBox.Text
+        End If
     End Sub
 
+    ' OPERATING SYSTEM
     Private Sub OperatingSystemCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles OperatingSystemCmbBox.SelectedIndexChanged
+        With OperatingSystemTableLayout
+            ' Default
+            .ColumnStyles(0).Width = 100.0F
+            .ColumnStyles(1).Width = 0.0F
 
+            If OperatingSystemCmbBox.SelectedItem = "Others" Then
+                .ColumnStyles(0).Width = 50.0F
+                .ColumnStyles(1).Width = 50.0F
+            Else
+                operatingSystem = OperatingSystemCmbBox.SelectedItem
+
+                .ColumnStyles(0).Width = 100.0F
+                .ColumnStyles(1).Width = 0.0F
+            End If
+        End With
     End Sub
 
     Private Sub IfOthersOperatingSystemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersOperatingSystemTxtBox.TextChanged
-
+        If OperatingSystemCmbBox.SelectedItem = "Others" Then
+            operatingSystem = IfOthersOperatingSystemTxtBox.Text
+        End If
     End Sub
 
     Private Sub DeviceProblemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceProblemTxtBox.TextChanged
-
+        problemDescription = DeviceProblemTxtBox.Text
     End Sub
 
+    ' BTN SAVE
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        Try
+            If editMode Then
+                EditDataFunction()
+            Else
+                AddDataFunction()
+            End If
+        Catch ex As Exception
+            MsgBox("Failed to save / edit: " & ex.Message)
+        End Try
+    End Sub
+
+    ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
-    End Sub
-
-    Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
 
