@@ -56,9 +56,22 @@ Public Class AdminEmployeeForm
     Dim empLastAccessed As String = "" ' DATETIME
     Dim empDateAdded As String = "" ' DATETIME
 
+    Public Property selectedEmpID As Integer = -1
+    Public Property selectMode As Boolean = False
+    Public Property selectModeTable As DataTable
+
     Private Sub AdminEmployeesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         EmpDGV.ClearSelection()
+
+        If selectMode Then
+            BtnClose.Visible = True
+            BtnSelect.Visible = True
+        Else
+            BtnClose.Visible = False
+            BtnSelect.Visible = False
+        End If
+
     End Sub
 
     Private Function InitData() As Boolean
@@ -441,10 +454,14 @@ Public Class AdminEmployeeForm
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim employeesTable As DataTable
 
-        If ShowArchiveCheckBox.Checked Then
-            employeesTable = dbHelper.GetAllRowsFromTable("employees", True, True)
+        If Not selectMode Then
+            If ShowArchiveCheckBox.Checked Then
+                employeesTable = dbHelper.GetAllRowsFromTable("employees", True, True)
+            Else
+                employeesTable = dbHelper.GetAllRowsFromTable("employees", False)
+            End If
         Else
-            employeesTable = dbHelper.GetAllRowsFromTable("employees", False)
+            employeesTable = selectModeTable
         End If
 
         Dim searchValues() As String = {
@@ -511,4 +528,17 @@ Public Class AdminEmployeeForm
             MsgBox("Unable to style the Employee DGV: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+        If Not InitData() Then Exit Sub
+
+        selectedEmpID = employeeID
+
+        Me.Close()
+    End Sub
+
 End Class

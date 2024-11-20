@@ -291,12 +291,6 @@
     <Compile Include="Admin\Suppliers\SupplierViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Suppliers\SeeSuppliedItemsModal.Designer.vb">
-      <DependentUpon>SeeSuppliedItemsModal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Suppliers\SeeSuppliedItemsModal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Constants.vb" />
     <Compile Include="DbHelper.vb" />
     <Compile Include="FormUtils.vb" />
@@ -381,9 +375,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Suppliers\SupplierViewModal.resx">
       <DependentUpon>SupplierViewModal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Suppliers\SeeSuppliedItemsModal.resx">
-      <DependentUpon>SeeSuppliedItemsModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>

@@ -64,6 +64,9 @@ Partial Class AdminServiceForm
         Me.DATE_COMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_CLAIMED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -362,7 +365,7 @@ Partial Class AdminServiceForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
-        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.REPAIR_STATUS, Me.TECHNICIAN_FEE, Me.PAID, Me.TOTAL_PAID, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED})
+        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.REPAIR_STATUS, Me.TECHNICIAN_FEE, Me.PAID, Me.TOTAL_PAID, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -439,6 +442,7 @@ Partial Class AdminServiceForm
         '
         'CUSTOMER_NAME
         '
+        Me.CUSTOMER_NAME.DataPropertyName = "customer_name"
         Me.CUSTOMER_NAME.HeaderText = "Customer Name"
         Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
         Me.CUSTOMER_NAME.ReadOnly = True
@@ -565,6 +569,30 @@ Partial Class AdminServiceForm
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived by"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
+        '
         'AdminServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -599,6 +627,13 @@ Partial Class AdminServiceForm
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ServiceDGV As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents DeleteServiceBtn As Button
+    Friend WithEvents ArchiveServiceBtn As Button
+    Friend WithEvents EditServiceBtn As Button
+    Friend WithEvents AddServiceBtn As Button
+    Friend WithEvents ViewServiceBtn As Button
+    Friend WithEvents ClaimServiceBtn As Button
+    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents SERVICE_ID As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_ID As DataGridViewTextBoxColumn
@@ -620,11 +655,7 @@ Partial Class AdminServiceForm
     Friend WithEvents DATE_COMPLETED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_CLAIMED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
-    Friend WithEvents DeleteServiceBtn As Button
-    Friend WithEvents ArchiveServiceBtn As Button
-    Friend WithEvents EditServiceBtn As Button
-    Friend WithEvents AddServiceBtn As Button
-    Friend WithEvents ViewServiceBtn As Button
-    Friend WithEvents ClaimServiceBtn As Button
-    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
+    Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
 End Class

@@ -68,28 +68,98 @@ Public Class ServiceAddEditModal
     End Sub
 
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
-
-    End Sub
-
-    Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
-        Dim employeeAddEditModal As New EmployeeAddEditModal
+        Dim customerForm As New AdminCustomerForm
+        Dim getCustomerTableData As DataTable
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            With employeeAddEditModal
+
+            With customerForm
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
+                .selectMode = True
+
+                customerID = .selectedID
+                getCustomerTableData = dbHelper.GetRowByValue("customers", "customer_id", customerID)
+
+                .selectModeTable = getCustomerTableData
+
                 .ShowDialog()
             End With
 
         Catch ex As Exception
             MsgBox(ex.ToString)
             formModal.Close()
-            employeeAddEditModal.Close()
+            customerForm.Close()
         Finally
-            employeeAddEditModal.Dispose()
+            customerForm.Dispose()
             formModal.Dispose()
-            'LoadDataToDGV()
+
+            ' LOAD SELECTED DATA
+            CustomerIDTxtBox.Text = customerID
+
+            With getCustomerTableData
+                CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
+            End With
+
+            With dbHelper
+                Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
+                Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
+                Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
+                Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
+
+                PendingCommisionsTxtBox.Text = pending_C
+                CompletedCommissionTxtBox.Text = completed_C
+                TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
+            End With
+        End Try
+    End Sub
+
+    Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
+        Dim employeeForm As New AdminEmployeeForm
+        Dim getTechnicianTableData As DataTable
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With employeeForm
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .selectMode = True
+
+                technicianID = .selectedEmpID
+                getTechnicianTableData = dbHelper.GetRowByTwoValues("employees", "employee_id", customerID, "job_type", "Technician")
+
+                .selectModeTable = getTechnicianTableData
+
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            formModal.Close()
+            employeeForm.Close()
+        Finally
+            employeeForm.Dispose()
+            formModal.Dispose()
+
+            ' LOAD SELECTED DATA
+            TechnicianIDTxtBox.Text = technicianID
+
+            With getTechnicianTableData
+                TechnicianNameTxtBox.Text = .Rows(0)("firstname") & " " & .Rows(0)("lastname")
+            End With
+
+            With dbHelper
+                Dim pending_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Pending").Rows.Count
+                Dim onHold_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
+                Dim canceled_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
+                Dim completed_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
+
+                PendingWorkTxtBox.Text = pending_C
+                CompletedWorkTxtBox.Text = completed_C
+                TotalWorkDoneTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
+            End With
         End Try
     End Sub
 
@@ -143,4 +213,6 @@ Public Class ServiceAddEditModal
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+
 End Class

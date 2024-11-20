@@ -358,8 +358,6 @@ Public Class AdminCustomerForm
 
     ' ROW STYLES
     Private Sub FormatDataGridViewRows()
-        CustomerDGV.AutoGenerateColumns = False
-
         Try
             For Each row As DataGridViewRow In CustomerDGV.Rows
 
@@ -385,5 +383,16 @@ Public Class AdminCustomerForm
     End Sub
 
     ' SELECT MODE
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+        If Not InitValues() Then Exit Sub
+
+        selectedID = customerID
+
+        Me.Close()
+    End Sub
+
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
 
 End Class
