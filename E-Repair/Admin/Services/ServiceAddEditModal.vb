@@ -84,6 +84,27 @@ Public Class ServiceAddEditModal
                 customerID = .selectedCustID
 
                 .ShowDialog()
+
+                If Not customerID = -1 Then
+                    ' LOAD SELECTED DATA
+                    CustomerIDTxtBox.Text = customerID
+
+                    With getCustomerTableData
+                        CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
+                    End With
+
+                    With dbHelper
+                        Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
+                        Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
+                        Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
+                        Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
+
+                        PendingCommisionsTxtBox.Text = pending_C
+                        CompletedCommissionTxtBox.Text = completed_C
+                        TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
+                    End With
+                End If
+
             End With
 
         Catch ex As Exception
@@ -91,27 +112,6 @@ Public Class ServiceAddEditModal
             formModal.Close()
             customerForm.Close()
         Finally
-
-            If Not customerID = -1 Then
-                ' LOAD SELECTED DATA
-                CustomerIDTxtBox.Text = customerID
-
-                With getCustomerTableData
-                    CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
-                End With
-
-                With dbHelper
-                    Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
-                    Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
-                    Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
-                    Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
-
-                    PendingCommisionsTxtBox.Text = pending_C
-                    CompletedCommissionTxtBox.Text = completed_C
-                    TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
-                End With
-            End If
-
             customerForm.Dispose()
             formModal.Dispose()
         End Try
@@ -136,7 +136,28 @@ Public Class ServiceAddEditModal
 
                 .selectModeTable = getTechnicianTableData
 
-                .ShowDialog()
+                If .ShowDialog() = DialogResult.OK Then
+                    If Not technicianID = -1 Then
+                        ' LOAD SELECTED DATA
+                        TechnicianIDTxtBox.Text = technicianID
+                        MsgBox("itworks")
+
+                        With getTechnicianTableData
+                            TechnicianNameTxtBox.Text = .Rows(0)("firstname") & " " & .Rows(0)("lastname")
+                        End With
+
+                        With dbHelper
+                            Dim pending_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Pending").Rows.Count
+                            Dim onHold_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
+                            Dim canceled_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
+                            Dim completed_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
+
+                            PendingWorkTxtBox.Text = pending_C
+                            CompletedWorkTxtBox.Text = completed_C
+                            TotalWorkDoneTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
+                        End With
+                    End If
+                End If
             End With
 
         Catch ex As Exception
@@ -144,26 +165,7 @@ Public Class ServiceAddEditModal
             formModal.Close()
             employeeForm.Close()
         Finally
-            If Not technicianID = -1 Then
-                ' LOAD SELECTED DATA
-                TechnicianIDTxtBox.Text = technicianID
 
-
-                With getTechnicianTableData
-                    TechnicianNameTxtBox.Text = .Rows(0)("firstname") & " " & .Rows(0)("lastname")
-                End With
-
-                With dbHelper
-                    Dim pending_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Pending").Rows.Count
-                    Dim onHold_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
-                    Dim canceled_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
-                    Dim completed_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
-
-                    PendingWorkTxtBox.Text = pending_C
-                    CompletedWorkTxtBox.Text = completed_C
-                    TotalWorkDoneTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
-                End With
-            End If
 
             employeeForm.Dispose()
             formModal.Dispose()
