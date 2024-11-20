@@ -128,7 +128,7 @@ Public Class ServiceAddEditModal
                 .selectMode = True
 
                 technicianID = .selectedEmpID
-                getTechnicianTableData = dbHelper.GetRowByTwoValues("employees", "employee_id", technicianID, "job_type", "Technician")
+                getTechnicianTableData = dbHelper.GetRowByValue("employees", "job_type", "Technician")
 
                 .selectModeTable = getTechnicianTableData
 
