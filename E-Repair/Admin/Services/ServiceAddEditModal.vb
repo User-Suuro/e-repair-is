@@ -81,10 +81,13 @@ Public Class ServiceAddEditModal
                 getCustomerTableData = dbHelper.GetAllRowsFromTable("customers", False)
 
                 .selectModeTable = getCustomerTableData
-                customerID = .selectedCustID
+
 
                 If .ShowDialog() = DialogResult.OK Then
+                    customerID = .selectedCustID
+
                     If Not customerID = -1 Then
+
                         ' LOAD SELECTED DATA
                         CustomerIDTxtBox.Text = customerID
 
@@ -131,16 +134,15 @@ Public Class ServiceAddEditModal
                 .StartPosition = FormStartPosition.CenterScreen
                 .selectMode = True
 
-                technicianID = .selectedEmpID
                 getTechnicianTableData = dbHelper.GetRowByValue("employees", "job_type", "Technician")
 
                 .selectModeTable = getTechnicianTableData
 
                 If .ShowDialog() = DialogResult.OK Then
+                    technicianID = .selectedEmpID
                     If Not technicianID = -1 Then
                         ' LOAD SELECTED DATA
                         TechnicianIDTxtBox.Text = technicianID
-                        MsgBox("itworks")
 
                         With getTechnicianTableData
                             TechnicianNameTxtBox.Text = .Rows(0)("firstname") & " " & .Rows(0)("lastname")
