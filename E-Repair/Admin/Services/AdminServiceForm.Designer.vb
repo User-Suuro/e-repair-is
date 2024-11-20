@@ -59,6 +59,8 @@ Partial Class AdminServiceForm
         Me.TECHNICIAN_FEE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PARTS_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DEVICE_PROFILE_PATH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_CHANGE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PAYMENT_METHOD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_COMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -366,7 +368,7 @@ Partial Class AdminServiceForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
-        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.REPAIR_STATUS, Me.TECHNICIAN_FEE, Me.PAID, Me.TOTAL_PAID, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.REPAIR_STATUS, Me.TECHNICIAN_FEE, Me.PAID, Me.TOTAL_PAID, Me.PARTS_COST, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -531,6 +533,21 @@ Partial Class AdminServiceForm
         Me.TOTAL_PAID.ReadOnly = True
         Me.TOTAL_PAID.Visible = False
         '
+        'PARTS_COST
+        '
+        Me.PARTS_COST.DataPropertyName = "parts_cost"
+        Me.PARTS_COST.HeaderText = "Parts Cost"
+        Me.PARTS_COST.Name = "PARTS_COST"
+        Me.PARTS_COST.ReadOnly = True
+        '
+        'DEVICE_PROFILE_PATH
+        '
+        Me.DEVICE_PROFILE_PATH.DataPropertyName = "device_profile_path"
+        Me.DEVICE_PROFILE_PATH.HeaderText = "Profile Path"
+        Me.DEVICE_PROFILE_PATH.Name = "DEVICE_PROFILE_PATH"
+        Me.DEVICE_PROFILE_PATH.ReadOnly = True
+        Me.DEVICE_PROFILE_PATH.Visible = False
+        '
         'CUSTOMER_CHANGE
         '
         Me.CUSTOMER_CHANGE.DataPropertyName = "customer_change"
@@ -651,6 +668,8 @@ Partial Class AdminServiceForm
     Friend WithEvents TECHNICIAN_FEE As DataGridViewTextBoxColumn
     Friend WithEvents PAID As DataGridViewTextBoxColumn
     Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
+    Friend WithEvents PARTS_COST As DataGridViewTextBoxColumn
+    Friend WithEvents DEVICE_PROFILE_PATH As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_CHANGE As DataGridViewTextBoxColumn
     Friend WithEvents PAYMENT_METHOD As DataGridViewTextBoxColumn
     Friend WithEvents DATE_COMPLETED As DataGridViewTextBoxColumn

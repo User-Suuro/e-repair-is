@@ -64,8 +64,6 @@ Public Class ServiceAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this service?")) Then Exit Sub
 
-
-
     End Sub
 
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
@@ -80,8 +78,7 @@ Public Class ServiceAddEditModal
                 .StartPosition = FormStartPosition.CenterScreen
                 .selectMode = True
 
-                customerID = .selectedID
-                getCustomerTableData = dbHelper.GetRowByValue("customers", "customer_id", customerID)
+                getCustomerTableData = dbHelper.GetAllRowsFromTable("customers", False)
 
                 .selectModeTable = getCustomerTableData
 
@@ -131,7 +128,7 @@ Public Class ServiceAddEditModal
                 .selectMode = True
 
                 technicianID = .selectedEmpID
-                getTechnicianTableData = dbHelper.GetRowByTwoValues("employees", "employee_id", customerID, "job_type", "Technician")
+                getTechnicianTableData = dbHelper.GetRowByTwoValues("employees", "employee_id", technicianID, "job_type", "Technician")
 
                 .selectModeTable = getTechnicianTableData
 
