@@ -117,7 +117,7 @@ Public Class ServiceAddEditModal
 
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
         Dim employeeForm As New AdminEmployeeForm
-        Dim getTechnicianTableData As DataTable
+        Dim getTechnicianTableData As DataTable = Nothing
 
         Try
             formModal = formUtils.CreateBgFormModal()

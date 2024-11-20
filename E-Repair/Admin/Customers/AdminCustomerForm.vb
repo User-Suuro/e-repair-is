@@ -37,7 +37,6 @@ Public Class AdminCustomerForm
     Public Property selectedID As Integer = -1
     Public Property selectModeTable As DataTable
 
-
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         Dim AdminCustomerViewModal As New CustomerViewModal
 
@@ -278,16 +277,18 @@ Public Class AdminCustomerForm
 
 
     ' FORM ONLOAD
-    Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         CustomerDGV.ClearSelection()
 
         If selectMode Then
             BtnSelect.Visible = True
             BtnClose.Visible = True
+            ShowArchiveCheckBox.Visible = False
         Else
             BtnSelect.Visible = False
             BtnClose.Visible = False
+            ShowArchiveCheckBox.Visible = True
         End If
     End Sub
 
@@ -394,5 +395,6 @@ Public Class AdminCustomerForm
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class

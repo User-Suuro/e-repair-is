@@ -67,9 +67,11 @@ Public Class AdminEmployeeForm
         If selectMode Then
             BtnClose.Visible = True
             BtnSelect.Visible = True
+            ShowArchiveCheckBox.Visible = False
         Else
             BtnClose.Visible = False
             BtnSelect.Visible = False
+            ShowArchiveCheckBox.Visible = True
         End If
 
     End Sub
@@ -276,7 +278,6 @@ Public Class AdminEmployeeForm
     Private Sub EditBtn_Click(sender As Object, e As EventArgs) Handles EditEmployeeBtn.Click
 
         If Not InitData() Then Exit Sub
-
 
         Dim employeeAddEditModal As New EmployeeAddEditModal
 
