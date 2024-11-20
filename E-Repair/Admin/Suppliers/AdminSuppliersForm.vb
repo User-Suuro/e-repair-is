@@ -285,7 +285,7 @@ Public Class AdminSuppliersForm
         Dim searchValues() As String = {
            "company_name",
            "contact_person",
-           "company_number",
+           "contact_number",
            "company_email",
            "estimated_delivery_time",
            "total_paid",

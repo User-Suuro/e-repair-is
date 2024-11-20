@@ -89,7 +89,7 @@ Public Class ServiceAddEditModal
         Finally
             employeeAddEditModal.Dispose()
             formModal.Dispose()
-            LoadDataToDGV()
+            'LoadDataToDGV()
         End Try
     End Sub
 
