@@ -1,4 +1,5 @@
 ﻿Imports System.Linq.Expressions
+Imports Google.Protobuf.Compiler
 
 Public Class AdminSuppliersForm
     Dim dbHelper As New DbHelper
@@ -287,6 +288,7 @@ Public Class AdminSuppliersForm
            "contact_person",
            "contact_number",
            "company_email",
+           "location",
            "estimated_delivery_time",
            "total_paid",
            "date_added"
@@ -362,4 +364,6 @@ Public Class AdminSuppliersForm
             MsgBox("Unable to style DGV: " & ex.Message)
         End Try
     End Sub
+
+
 End Class
