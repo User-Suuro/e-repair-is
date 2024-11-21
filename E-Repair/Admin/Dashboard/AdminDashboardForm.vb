@@ -10,10 +10,10 @@ Public Class AdminDashboardForm
         SuppliersNumberLabel.Text = dbHelper.GetAllRowsFromTable("suppliers", False).Rows.Count
         ItemsCountLabel.Text = dbHelper.GetAllRowsFromTable("items", False).Rows.Count
 
-        Dim getActiveEmployee As DataRow
         Try
-            getActiveEmployee = dbHelper.GetRowByValue("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID).Rows(0)
-            WelcomeMessageLabel.Text = getActiveEmployee("firstname" & " " & "lastname")
+            Dim getActiveEmployee As DataRow = dbHelper.GetRowByValue("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID).Rows(0)
+            WelcomeMessageLabel.Text = "Welcome, " & getActiveEmployee("firstname") & " " & getActiveEmployee("lastname")
+
         Catch ex As Exception
             MsgBox("Cannot get active user ID without session")
         End Try

@@ -12,12 +12,12 @@ Public Class DbHelper
     Dim constants As New Constants
 
     ' -- Adjust your DB Details Here -- '
-    Public db_server As String = ""
-    Public db_uid As String = ""
+    Public db_server As String = "localhost"
+    Public db_uid As String = "root"
     Public db_pwd As String = ""
-    Public db_name As String = ""
+    Public db_name As String = "e_repair_db"
 
-    Dim strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
+    Public strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
 
     Public CurrentLoggedUser As LoggedUser = Nothing
 
@@ -44,12 +44,17 @@ Public Class DbHelper
             Dim text As String = Nothing
             If System.IO.File.Exists(config) Then
                 Using reader As System.IO.StreamReader = New System.IO.StreamReader(config)
-
                     text = reader.ReadToEnd
                 End Using
+
                 Dim arr_text() As String = Split(text, vbCrLf)
 
-                strConnection = "server=" & Split(arr_text(0), "=")(1) & ";uid=" & Split(arr_text(1), "=")(1) & ";password=" & Split(arr_text(2), "=")(1) & ";database=" & Split(arr_text(3), "=")(1) & ";" & "allowuservariables='True';"
+                db_server = Split(arr_text(0), "=")(1)
+                db_uid = Split(arr_text(1), "=")(1)
+                db_pwd = Split(arr_text(2), "=")(1)
+                db_name = Split(arr_text(3), "=")(1)
+
+                strConnection = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
             Else
                 MsgBox("Do not exist")
             End If

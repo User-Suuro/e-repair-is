@@ -9,6 +9,8 @@ Public Class AdminMainPanel
     Dim session As New Session
 
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dbHelper.UpdateConnectionString()
+
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         AdminTopNavTitle.Text = constants.DashboardTitle
 

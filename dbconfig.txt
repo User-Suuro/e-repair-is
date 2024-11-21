@@ -1,4 +1,4 @@
-server="localhost"
-uid="root"
-password=""
-database="e_repair_db"
+server=localhost
+uid=root
+password=
+database=e_repair_db
