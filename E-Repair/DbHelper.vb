@@ -12,10 +12,10 @@ Public Class DbHelper
     Dim constants As New Constants
 
     ' -- Adjust your DB Details Here -- '
-    Public db_server As String = "localhost"
-    Public db_uid As String = "root"
+    Public db_server As String = ""
+    Public db_uid As String = ""
     Public db_pwd As String = ""
-    Public db_name As String = "e_repair_db"
+    Public db_name As String = ""
 
     Dim strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
 
@@ -33,7 +33,7 @@ Public Class DbHelper
     ' Update connection string
     Public Sub UpdateConnectionString()
         Try
-            Dim config As String = System.IO.Directory.GetCurrentDirectory & "\config.txt"
+            Dim config As String = System.IO.Directory.GetCurrentDirectory & "\dbconfig.txt"
             Dim text As String = Nothing
             If System.IO.File.Exists(config) Then
                 Using reader As System.IO.StreamReader = New System.IO.StreamReader(config)

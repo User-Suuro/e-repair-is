@@ -80,6 +80,10 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' CONNECT TO DB -> dbconfig.txt
+        dbHelper.UpdateConnectionString()
+
         ' CHECK IF CONNECTED TO DB
         If dbHelper.isConnectedToLocalServer() = False Then
             If formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!") Then
@@ -89,7 +93,6 @@ Public Class LoginForm
 
         ' Initialize LibVLC
         Core.Initialize()
-
 
         libVLC = New LibVLC("--input-repeat=65545")
         mediaPlayer = New MediaPlayer(libVLC)
@@ -104,14 +107,10 @@ Public Class LoginForm
         VideoPanel.Controls.Add(videoView)
 
         ' Path to your video file
-
-
         Dim rootProjectPath As String = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName
-
         Dim videoPath As String = Path.Combine(rootProjectPath, "Videos", "sample.mp4")
 
         If IO.File.Exists(videoPath) Then
-
             ' Load and play the video
             currentMedia = New Media(libVLC, videoPath, FromType.FromPath)
 
@@ -138,5 +137,4 @@ Public Class LoginForm
         mediaPlayer?.Dispose()
         libVLC?.Dispose()
     End Sub
-
 End Class

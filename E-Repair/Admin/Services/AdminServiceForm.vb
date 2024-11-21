@@ -322,5 +322,7 @@ Public Class AdminServiceForm
         End Try
     End Sub
 
+    Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
 
+    End Sub
 End Class

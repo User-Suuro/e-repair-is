@@ -188,6 +188,7 @@ Public Class ServiceAddEditModal
 
                             PendingWorkTxtBox.Text = pending_C
                             CompletedWorkTxtBox.Text = completed_C
+
                             TotalWorkDoneTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
                         End With
                     End If

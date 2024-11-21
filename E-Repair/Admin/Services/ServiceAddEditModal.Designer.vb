@@ -168,7 +168,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
         Me.Guna2Panel5.Location = New System.Drawing.Point(12, 192)
         Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel5.TabIndex = 48
@@ -312,7 +312,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.OperatingSystemTableLayout)
         Me.Guna2Panel1.Location = New System.Drawing.Point(423, 259)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel1.TabIndex = 46
@@ -412,7 +412,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel4.Controls.Add(Me.DeviceTypeTableLayout)
         Me.Guna2Panel4.Location = New System.Drawing.Point(12, 259)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel4.TabIndex = 47
@@ -512,7 +512,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel5)
         Me.Guna2Panel6.Location = New System.Drawing.Point(12, 326)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel6.TabIndex = 45
@@ -598,7 +598,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0, 0, 0, 3)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel3.TabIndex = 28
@@ -873,7 +873,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel2.Location = New System.Drawing.Point(0, 67)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel2.TabIndex = 29
