@@ -113,6 +113,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property hand_arrow_up_bold() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("hand-arrow-up-bold", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property handshake_bold() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("handshake-bold", resourceCulture)

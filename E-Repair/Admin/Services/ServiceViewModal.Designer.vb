@@ -67,7 +67,7 @@ Partial Class ServiceViewModal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StorageCapacityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ContactPersonTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DeviceModelTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DeviceBrandTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -887,7 +887,7 @@ Partial Class ServiceViewModal
         Me.JobDetailsTableLayout.Controls.Add(Me.Label1, 1, 0)
         Me.JobDetailsTableLayout.Controls.Add(Me.StorageCapacityTxtBox, 2, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label6, 2, 0)
-        Me.JobDetailsTableLayout.Controls.Add(Me.ContactPersonTxtBox, 1, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.DeviceModelTxtBox, 1, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.DeviceBrandTxtBox, 0, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label3, 0, 0)
         Me.JobDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
@@ -948,32 +948,32 @@ Partial Class ServiceViewModal
         Me.Label6.TabIndex = 36
         Me.Label6.Text = "Storage Capacity"
         '
-        'ContactPersonTxtBox
+        'DeviceModelTxtBox
         '
-        Me.ContactPersonTxtBox.BorderRadius = 4
-        Me.ContactPersonTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ContactPersonTxtBox.DefaultText = ""
-        Me.ContactPersonTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ContactPersonTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ContactPersonTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ContactPersonTxtBox.DisabledState.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ContactPersonTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ContactPersonTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ContactPersonTxtBox.FocusedState.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContactPersonTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ContactPersonTxtBox.HoverState.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.Location = New System.Drawing.Point(272, 24)
-        Me.ContactPersonTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ContactPersonTxtBox.Name = "ContactPersonTxtBox"
-        Me.ContactPersonTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ContactPersonTxtBox.PlaceholderText = ""
-        Me.ContactPersonTxtBox.ReadOnly = True
-        Me.ContactPersonTxtBox.SelectedText = ""
-        Me.ContactPersonTxtBox.ShadowDecoration.Parent = Me.ContactPersonTxtBox
-        Me.ContactPersonTxtBox.Size = New System.Drawing.Size(266, 26)
-        Me.ContactPersonTxtBox.TabIndex = 30
+        Me.DeviceModelTxtBox.BorderRadius = 4
+        Me.DeviceModelTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DeviceModelTxtBox.DefaultText = ""
+        Me.DeviceModelTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DeviceModelTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DeviceModelTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceModelTxtBox.DisabledState.Parent = Me.DeviceModelTxtBox
+        Me.DeviceModelTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceModelTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeviceModelTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceModelTxtBox.FocusedState.Parent = Me.DeviceModelTxtBox
+        Me.DeviceModelTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeviceModelTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceModelTxtBox.HoverState.Parent = Me.DeviceModelTxtBox
+        Me.DeviceModelTxtBox.Location = New System.Drawing.Point(272, 24)
+        Me.DeviceModelTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DeviceModelTxtBox.Name = "DeviceModelTxtBox"
+        Me.DeviceModelTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DeviceModelTxtBox.PlaceholderText = ""
+        Me.DeviceModelTxtBox.ReadOnly = True
+        Me.DeviceModelTxtBox.SelectedText = ""
+        Me.DeviceModelTxtBox.ShadowDecoration.Parent = Me.DeviceModelTxtBox
+        Me.DeviceModelTxtBox.Size = New System.Drawing.Size(266, 26)
+        Me.DeviceModelTxtBox.TabIndex = 30
         '
         'DeviceBrandTxtBox
         '
@@ -1805,7 +1805,7 @@ Partial Class ServiceViewModal
     Friend WithEvents Label1 As Label
     Friend WithEvents StorageCapacityTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents ContactPersonTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DeviceModelTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DeviceBrandTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel

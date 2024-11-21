@@ -218,6 +218,12 @@
     <Compile Include="Admin\Inventory\AdminInventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Admin\Inventory\InventoryUseModal.Designer.vb">
+      <DependentUpon>InventoryUseModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Inventory\InventoryUseModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\Inventory\InventoryViewModal.Designer.vb">
       <DependentUpon>InventoryViewModal.vb</DependentUpon>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\AdminInventoryForm.resx">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Inventory\InventoryUseModal.resx">
+      <DependentUpon>InventoryUseModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Inventory\InventoryViewModal.resx">
       <DependentUpon>InventoryViewModal.vb</DependentUpon>
@@ -472,6 +481,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cash-register-bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand-arrow-up-bold.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

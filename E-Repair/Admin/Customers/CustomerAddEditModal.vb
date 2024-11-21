@@ -55,7 +55,8 @@ Public Class CustomerAddEditModal
             {"added_by", empIDLogged}, ' optional
             {"first_name", firstName},
             {"last_name", lastName},
-            {"gender", gender}
+            {"gender", gender},
+            {"date_added", DateTime.Now()}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 5) Then Exit Sub

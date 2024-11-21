@@ -74,7 +74,6 @@ Public Class SupplierAddEditModal
             {"payment_terms", paymentTerms},
             {"estimated_delivery_time", estDelivTime},
             {"company_picture_path", savedPath},
-            {"date_added", DateTime.Now}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
@@ -109,7 +108,7 @@ Public Class SupplierAddEditModal
             {"supplier_contract", contractType},
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
-            {"estimated_delivery_time", estDelivTime},
+            {"estimated_delivery_time", estDelivTime}
         }
 
         If Not formUtils.AreAllValuesFilled(insertUpdate) Then Exit Sub

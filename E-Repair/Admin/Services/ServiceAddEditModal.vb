@@ -27,8 +27,6 @@ Public Class ServiceAddEditModal
     Public Property selectedID As Integer = -1
     Public Property deviceImgPath As String = ""
 
-
-
     ' ADD 
     Private Sub AddDataFunction()
 

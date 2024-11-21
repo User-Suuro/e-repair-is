@@ -27,18 +27,36 @@ Public Class AdminServiceForm
 
     Dim technicianFee As Decimal
     Dim partsCost As Decimal
-    Dim isPaid As Boolean = False
     Dim totalPaid As Decimal
+
+    Dim isPaid As Boolean = False
+
     Dim customerChange As Decimal
     Dim paymentMethod As String = ""
 
     Dim dateCompleted As String = ""
     Dim dateClaimed As String = ""
+
     Dim dateAdded As String = ""
+    Dim addedBy As String = ""
 
     Dim is_archived As Boolean = False
     Dim archivedByEmp As Integer = -1
     Dim dateArchivedEmp As String = ""
+
+    Dim customerName As String = ""
+    Dim technicianName As String = ""
+
+    Dim pending_commission As Integer = -1
+    Dim onhold_commission As Integer = -1
+    Dim canceled_commission As Integer = -1
+    Dim completed_commission As Integer = -1
+
+    Dim pending_service As Integer = -1
+    Dim onhold_service As Integer = -1
+    Dim canceled_service As Integer = -1
+    Dim completed_service As Integer = -1
+
     Private Function InitData() As Boolean
         If ServiceDGV.Rows.Count = 0 Then
             MsgBox("No Data Found!")
@@ -58,13 +76,57 @@ Public Class AdminServiceForm
         ' INITIALIZE VALUES
 
         Try
-            With
+            With ServiceDGV.CurrentRow
+                serviceID = .Cells("SERVICE_ID").Value
+                customerID = .Cells("CUSTOMER_ID").Value
+                technicianID = .Cells("TECHNICIAN_ID").Value
+                cashierID = .Cells("CASHIER_ID").Value
 
+                customerName = .Cells("CUSTOMER_NAME").Value
+
+                Dim getTechnicianData As DataRow = dbHelper.GetRowByValue("employees", "employee_id", technicianID).Rows(0)
+                technicianName = getTechnicianData("firstname") & " " & ("lastname")
+
+                deviceType = .Cells("DEVICE_TYPE").Value
+                deviceModel = .Cells("DEVICE_MODEL").Value
+                deviceBrand = .Cells("DEVICE_BRAND").Value
+                deviceProfilePath = .Cells("DEVICE_PROFILE_PATH").Value
+                operatingSystem = .Cells("OPERATING_SYSTEM").Value
+                storageCapacity = .Cells("STORAGE_CAPACITY").Value
+                problemDescription = .Cells("PROBLEM_DESCRIPTION").Value
+                repairNotes = .Cells("REPAIR_NOTES").Value
+
+                serviceStatus = .Cells("SERVICE_STATUS").Value
+                technicianFee = .Cells("TECHNICIAN_FEE").Value
+                partsCost = .Cells("PARTS_COST").Value
+                isPaid = .Cells("PAID").Value
+                totalPaid = .Cells("TOTAL_PAID").Value
+                customerChange = .Cells("CUSTOMER_CHANGE").Value
+                paymentMethod = .Cells("PAYMENT_METHOD").Value
+
+                dateCompleted = .Cells("DATE_COMPLETED").Value
+                dateClaimed = .Cells("DATE_CLAIMED").Value
+                dateAdded = .Cells("DATE_ADDED").Value
+
+                is_archived = .Cells("ARCHIVED").Value
+                archivedByEmp = .Cells("ARCHIVED_BY").Value
+                dateArchivedEmp = .Cells("DATE_ARCHIVED").Value
             End With
 
+            With dbHelper
+                pending_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Pending").Rows.Count
+                onhold_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
+                canceled_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
+                completed_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
+
+                pending_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
+                onhold_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
+                canceled_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
+                completed_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
+            End With
 
         Catch ex As Exception
-            MsgBox("Failed to initialized employee values: " + ex.Message)
+            MsgBox("Failed to initialized services values: " + ex.Message)
             Return False
         End Try
 
@@ -81,6 +143,61 @@ Public Class AdminServiceForm
     End Sub
 
     Private Sub ViewServiceBtn_Click(sender As Object, e As EventArgs) Handles ViewServiceBtn.Click
+        If Not InitData() Then Exit Sub
+
+        Dim AdminServiceViewModal As New ServiceViewModal
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With AdminServiceViewModal
+                .CustomerIDTxtBox.Text = customerID
+                .CustomerNameTxtBox.Text = customerName
+                .TotalCommissionsTxtBoxx.Text = pending_commission + completed_commission + onhold_commission + canceled_commission
+                .PendingCommissionsTxtBox.Text = pending_commission
+                .CompletedCommissionsTxtBox.Text = completed_commission
+
+                .TechnicianIDTxtBox.Text = technicianID
+                .TechnicianNameTxtBox.Text = technicianName
+                .TotalWorkDoneTxtBox.Text = completed_service + onhold_service + canceled_service + pending_service
+                .PendingCommissionsTxtBox.Text = pending_service
+                .CompletedWorkTxtBox.Text = completed_service
+
+                .DeviceBrandTxtBox.Text = deviceBrand
+                .DeviceModelTxtBox.Text = deviceModel
+                .StorageCapacityTxtBox.Text = storageCapacity
+
+                .DeviceTypeTxtBox.Text = deviceType
+                .OperatingSystemTxtBox.Text = operatingSystem
+                .ProblemDescTxtBox.Text = problemDescription
+
+                Dim getCashierData As DataRow = dbHelper.GetRowByValue("employee", "employee_id", cashierID).Rows(0)
+                .AddedByTxtBox.Text = getCashierData("firstname") & " " & getCashierData("lastname")
+
+                .RepairStatusTxtBox.Text = serviceStatus
+                .DateAddedTxtBox.Text = dateAdded
+                .DateCompletedTxtBox.Text = dateCompleted
+                .RepairNotesTxtBox.Text = repairNotes
+
+                .TechnicianFeeTxtBox.Text = technicianFee
+                .PartsCostTxtBoxx.Text = partsCost
+                .TotalCostTxtBox.Text = technicianFee + partsCost
+
+                .PaymentStatusTxtBox.Text = isPaid
+                .PaymentMethodTxtBox.Text = paymentMethod
+                .TotalPaidTxtBox.Text = totalPaid
+                .CustomerChangeTxtBox.Text = customerChange
+                .DateClaimedTxtBox.Text = dateClaimed
+
+                .ShowDialog()
+            End With
+        Catch ex As Exception
+            MsgBox("Cannot display customer view modal: " & ex.Message)
+            formModal.Close()
+            AdminServiceViewModal.Close()
+        Finally
+            formModal.Dispose()
+        End Try
 
     End Sub
 
@@ -103,9 +220,10 @@ Public Class AdminServiceForm
         Finally
             EmployeeAddEditModal.Dispose()
             formModal.Dispose()
-            ' LoadDataToDGV()
+            LoadDataToDGV()
         End Try
     End Sub
+
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         Dim serviceTable As DataTable
@@ -203,4 +321,7 @@ Public Class AdminServiceForm
         End Try
     End Sub
 
+    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
+
+    End Sub
 End Class
