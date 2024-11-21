@@ -431,7 +431,6 @@ Partial Class SupplierAddEditModal
         Me.PaymentTermsCmbBox.FormattingEnabled = True
         Me.PaymentTermsCmbBox.HoverState.Parent = Me.PaymentTermsCmbBox
         Me.PaymentTermsCmbBox.ItemHeight = 20
-        Me.PaymentTermsCmbBox.Items.AddRange(New Object() {"Cash on Delivery", "Debit Card", "Others"})
         Me.PaymentTermsCmbBox.ItemsAppearance.Parent = Me.PaymentTermsCmbBox
         Me.PaymentTermsCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.PaymentTermsCmbBox.Name = "PaymentTermsCmbBox"

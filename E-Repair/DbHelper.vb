@@ -2,6 +2,7 @@
 Imports System.Management
 Imports System.Security.Cryptography
 Imports System.Text
+Imports Guna.UI2.WinForms
 Imports MySql.Data.MySqlClient
 
 Public Class DbHelper
@@ -425,12 +426,14 @@ Public Class DbHelper
             cmd.Parameters.Clear()
 
             cmd = New MySqlCommand(query, conn)
+
             readQuery(query)
 
             If cmdRead IsNot Nothing Then
-                Dim ordinal As Integer = 0 ' Start assigning ordinal values
+                Dim ordinal As Integer = 0
                 While cmdRead.Read()
                     Dim name As String = cmdRead(columnName).ToString()
+
                     enumValues.Add(New KeyValuePair(Of String, Integer)(name, ordinal))
                     ordinal += 1
                 End While
@@ -439,7 +442,10 @@ Public Class DbHelper
         Catch ex As Exception
             MsgBox("Error retrieving enum values: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            If conn.State = ConnectionState.Open Then conn.Close()
+            ' Close the connection if open
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
         End Try
 
         Return enumValues
@@ -448,20 +454,17 @@ Public Class DbHelper
     ' Load to cmb
     Public Sub LoadEnumsToCmb(comboBox As ComboBox, tableName As String, columnName As String)
         Try
-            Dim enumValues = GetEnums(tableName, columnName)
-
             comboBox.Items.Clear()
 
+            Dim enumValues As List(Of KeyValuePair(Of String, Integer)) = GetEnums(tableName, columnName)
+
             For Each kvp As KeyValuePair(Of String, Integer) In enumValues
-                comboBox.Items.Add(New With {.Name = kvp.Key, .Value = kvp.Value})
+                comboBox.Items.Add(New EnumItem(kvp.Key, kvp.Value))
             Next
 
             comboBox.DisplayMember = "Name"
             comboBox.ValueMember = "Value"
 
-            If comboBox.Items.Count > 0 Then
-                comboBox.SelectedIndex = 0
-            End If
         Catch ex As Exception
             MsgBox("Error loading enum values to ComboBox: " & ex.Message, MsgBoxStyle.Critical)
         End Try
