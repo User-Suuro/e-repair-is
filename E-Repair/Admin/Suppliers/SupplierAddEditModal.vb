@@ -73,7 +73,7 @@ Public Class SupplierAddEditModal
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
             {"estimated_delivery_time", estDelivTime},
-            {"company_picture_path", savedPath},
+            {"company_picture_path", savedPath}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
