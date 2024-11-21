@@ -3,16 +3,26 @@ Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim employeeData As DataTable = dbHelper.GetAllRowsFromTable("employees", False)
+
+        EmployeesCountLabel.Text = dbHelper.GetAllRowsFromTable("employees", False).Rows.Count
+        ServicesNumberLabel.Text = dbHelper.GetAllRowsFromTable("services", False).Rows.Count
+        CustomersNumberLabel.Text = dbHelper.GetAllRowsFromTable("customers", False).Rows.Count
+        SuppliersNumberLabel.Text = dbHelper.GetAllRowsFromTable("suppliers", False).Rows.Count
+        ItemsCountLabel.Text = dbHelper.GetAllRowsFromTable("items", False).Rows.Count
+
+        Dim getActiveEmployee As DataRow
+        Try
+            getActiveEmployee = dbHelper.GetRowByValue("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID).Rows(0)
+            WelcomeMessageLabel.Text = getActiveEmployee("firstname" & " " & "lastname")
+        Catch ex As Exception
+            MsgBox("Cannot get active user ID without session")
+        End Try
+
         Timer1.Enabled = True
         Timer2.Enabled = True
         Timer3.Enabled = True
         Timer4.Enabled = True
-        EmployeesCountLabel.Text = employeeData.Rows.Count
-
-
     End Sub
-
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Label9.Text = Date.Now.ToString("yyyy")

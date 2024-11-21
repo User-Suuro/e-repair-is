@@ -29,3 +29,6 @@ Go to C:\Users\User\AppData\Roaming
 
 Copy and Paste E-Repair Images
 
+For database:
+Change database details in dbconfig.txt
+
