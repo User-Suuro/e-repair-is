@@ -152,5 +152,9 @@ Public Class CustomerAddEditModal
     Private Sub AddressTxtBox_TextChanged(sender As Object, e As EventArgs) Handles AddressTxtBox.TextChanged
         address = AddressTxtBox.Text
     End Sub
+
+    Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
 

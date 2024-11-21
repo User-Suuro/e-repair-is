@@ -417,4 +417,8 @@
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs)
 
     End Sub
+
+    Private Sub ProfileCirclePictureBox_Click(sender As Object, e As EventArgs) Handles ProfileCirclePictureBox.Click
+
+    End Sub
 End Class

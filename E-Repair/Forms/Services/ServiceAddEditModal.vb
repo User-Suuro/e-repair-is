@@ -107,7 +107,7 @@ Public Class ServiceAddEditModal
 
     ' SELECT CUSTOMER
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
-        Dim customerForm As New AdminCustomerForm
+        Dim customerForm As New CustomerForm
         Dim getCustomerTableData As DataTable = Nothing
 
         Try

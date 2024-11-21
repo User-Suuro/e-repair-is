@@ -47,7 +47,7 @@ Public Class MainPanel
     End Sub
 
     Private Sub AdminSidenavCustomersBtn_Click(sender As Object, e As EventArgs) Handles SidenavCustomersBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminCustomerForm)
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CustomerForm)
         AdminTopNavTitle.Text = constants.getCustomerTitle
     End Sub
 

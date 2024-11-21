@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.ExceptionServices
+﻿Imports System.IO
+Imports System.Runtime.ExceptionServices
 Imports System.Security.Cryptography
 Imports Google.Protobuf.Reflection.FieldOptions.Types
 Imports Mysqlx.XDevAPI.Common
@@ -176,13 +177,9 @@ Public Class EmployeeForm
                 .ProfilePathTextBox.Text = empProfilePath
 
                 ' PROFILE
-                Try
-                    If (empProfilePath <> "") Then
-                        .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
-                    End If
-                Catch ex As Exception
-
-                End Try
+                If File.Exists(empProfilePath) Then
+                    .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
+                End If
 
                 .EmailTextBox.Text = empEmail
 
@@ -332,13 +329,11 @@ Public Class EmployeeForm
 
 
                 ' PROFILE
-                Dim profileImagePath As String = empProfilePath
-
-                If (profileImagePath <> "N/A") Then
-                    .ProfileCirclePictureBox.Image = Image.FromFile(profileImagePath)
+                If File.Exists(empProfilePath) Then
+                    .ProfileCirclePictureBox.Image = Image.FromFile(empProfilePath)
                 End If
 
-                .profileImgPath = profileImagePath
+                .profileImgPath = empProfilePath
 
                 ' EMAIL & PASSWORD
                 .EmailTextBox.Text = empEmail

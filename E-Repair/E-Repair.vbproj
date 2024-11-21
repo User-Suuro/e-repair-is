@@ -176,11 +176,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums.vb" />
-    <Compile Include="Forms\Customers\AdminCustomerForm.Designer.vb">
-      <DependentUpon>AdminCustomerForm.vb</DependentUpon>
+    <Compile Include="Forms\Customers\CustomerForm.Designer.vb">
+      <DependentUpon>CustomerForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\AdminCustomerForm.vb">
+    <Compile Include="Forms\Customers\CustomerForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Customers\CustomerAddEditModal.Designer.vb">
@@ -347,8 +346,8 @@
     <EmbeddedResource Include="Forms\Customers\CustomerAddEditModal.resx">
       <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\AdminCustomerForm.resx">
-      <DependentUpon>AdminCustomerForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Customers\CustomerForm.resx">
+      <DependentUpon>CustomerForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\CustomerViewModal.resx">
       <DependentUpon>CustomerViewModal.vb</DependentUpon>

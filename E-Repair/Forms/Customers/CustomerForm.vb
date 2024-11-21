@@ -1,7 +1,6 @@
-﻿Imports System.Runtime.Remoting
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+﻿\
 
-Public Class AdminCustomerForm
+Public Class CustomerForm
 
     Dim dbHelper As New DbHelper
     Dim formModal As New Form

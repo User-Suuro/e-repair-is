@@ -332,7 +332,6 @@ Partial Class SupplierAddEditModal
         Me.ContractTypeCmbBox.FormattingEnabled = True
         Me.ContractTypeCmbBox.HoverState.Parent = Me.ContractTypeCmbBox
         Me.ContractTypeCmbBox.ItemHeight = 20
-        Me.ContractTypeCmbBox.Items.AddRange(New Object() {"Express", "Implied", "Bilateral", "Others"})
         Me.ContractTypeCmbBox.ItemsAppearance.Parent = Me.ContractTypeCmbBox
         Me.ContractTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.ContractTypeCmbBox.Name = "ContractTypeCmbBox"
@@ -882,7 +881,6 @@ Partial Class SupplierAddEditModal
         Me.SupplierTypeCmbBox.FormattingEnabled = True
         Me.SupplierTypeCmbBox.HoverState.Parent = Me.SupplierTypeCmbBox
         Me.SupplierTypeCmbBox.ItemHeight = 20
-        Me.SupplierTypeCmbBox.Items.AddRange(New Object() {"Manufacturer", "Distributor", "Retailer", "Others"})
         Me.SupplierTypeCmbBox.ItemsAppearance.Parent = Me.SupplierTypeCmbBox
         Me.SupplierTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.SupplierTypeCmbBox.Name = "SupplierTypeCmbBox"
@@ -982,7 +980,6 @@ Partial Class SupplierAddEditModal
         Me.BnkDetailsCmbBox.FormattingEnabled = True
         Me.BnkDetailsCmbBox.HoverState.Parent = Me.BnkDetailsCmbBox
         Me.BnkDetailsCmbBox.ItemHeight = 20
-        Me.BnkDetailsCmbBox.Items.AddRange(New Object() {"BDO", "Land Bank", "GCASH", "PNB", "Others"})
         Me.BnkDetailsCmbBox.ItemsAppearance.Parent = Me.BnkDetailsCmbBox
         Me.BnkDetailsCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.BnkDetailsCmbBox.Name = "BnkDetailsCmbBox"

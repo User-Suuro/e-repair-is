@@ -274,10 +274,13 @@ Public Class SupplierAddEditModal
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
+        If File.Exists(compProfilePath) Then
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
-        Catch ex As Exception
+        End If
 
-        End Try
+        dbHelper.LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
+        dbHelper.LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type")
+        dbHelper.LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
+        dbHelper.LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details")
     End Sub
 End Class

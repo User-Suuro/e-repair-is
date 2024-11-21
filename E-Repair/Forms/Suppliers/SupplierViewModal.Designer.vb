@@ -1425,14 +1425,14 @@ Partial Class SupplierViewModal
         Me.SupplierCirclePictureBox.TabStop = False
         Me.SupplierCirclePictureBox.UseTransparentBackground = True
         '
-        'AdminSupplierViewModal
+        'SupplierViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(840, 720)
         Me.Controls.Add(Me.SupplierModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminSupplierViewModal"
+        Me.Name = "SupplierViewModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminSupplierViewModal"
         Me.TopMost = True
