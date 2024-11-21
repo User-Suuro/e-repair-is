@@ -25,9 +25,9 @@ Public Class AdminServiceForm
 
     Dim serviceStatus As String = ""
 
-    Dim technicianFee As Decimal
-    Dim partsCost As Decimal
-    Dim totalPaid As Decimal
+    Dim technicianFee As Decimal = Nothing
+    Dim partsCost As Decimal = Nothing
+    Dim totalPaid As Decimal = Nothing
 
     Dim isPaid As Boolean = False
 
@@ -100,6 +100,7 @@ Public Class AdminServiceForm
                 technicianFee = .Cells("TECHNICIAN_FEE").Value
                 partsCost = .Cells("PARTS_COST").Value
                 isPaid = .Cells("PAID").Value
+
                 totalPaid = .Cells("TOTAL_PAID").Value
                 customerChange = .Cells("CUSTOMER_CHANGE").Value
                 paymentMethod = .Cells("PAYMENT_METHOD").Value
@@ -307,7 +308,7 @@ Public Class AdminServiceForm
                 End If
 
                 ' CUSTOMER NAME
-                If row.Cells("CUSTOMER_NAME").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("CUSTOMER_NAME").Value) Then
+                If row.Cells("CUSTOMER_NAME").Value IsNot Nothing Then
                     Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", row.Cells("CUSTOMER_ID").Value)
 
                     If getCustData.Rows.Count > 0 Then
@@ -321,7 +322,5 @@ Public Class AdminServiceForm
         End Try
     End Sub
 
-    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
 
-    End Sub
 End Class

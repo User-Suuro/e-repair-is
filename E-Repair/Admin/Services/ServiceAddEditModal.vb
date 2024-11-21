@@ -58,6 +58,8 @@ Public Class ServiceAddEditModal
 
         If dbHelper.InsertRecord("services", insertData) Then
             formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True)
+            MsgBox("Service Successfully Added")
+            Me.Close()
         Else
             MsgBox("Unable to save service record")
         End If
@@ -88,6 +90,7 @@ Public Class ServiceAddEditModal
 
         If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
             MsgBox("Successfuly updated service details")
+            Me.Close()
         Else
             MsgBox("Unable to update service details")
         End If
