@@ -1089,6 +1089,7 @@ Partial Class EmployeeViewModal
         Me.PasswordTextBox.ShadowDecoration.Parent = Me.PasswordTextBox
         Me.PasswordTextBox.Size = New System.Drawing.Size(266, 26)
         Me.PasswordTextBox.TabIndex = 20
+        Me.PasswordTextBox.UseSystemPasswordChar = True
         '
         'EmailTextBox
         '

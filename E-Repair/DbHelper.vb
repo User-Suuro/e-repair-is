@@ -413,4 +413,33 @@ Public Class DbHelper
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Function
+
+    ' Enums
+    Public Function GetEnums(tableName As String) As List(Of KeyValuePair(Of String, Integer))
+        Dim enumValues As New List(Of KeyValuePair(Of String, Integer))()
+        Dim query As String = $"SELECT Name, Value FROM `{tableName}`"
+
+        Try
+            cmd.Parameters.Clear()
+
+            cmd = New MySqlCommand(query, conn)
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+                While cmdRead.Read()
+                    Dim name As String = cmdRead("Name").ToString()
+                    Dim value As Integer = Convert.ToInt32(cmdRead("Value"))
+                    enumValues.Add(New KeyValuePair(Of String, Integer)(name, value))
+                End While
+                cmdRead.Close()
+            End If
+        Catch ex As Exception
+            MsgBox("Error retrieving enum values: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        Return enumValues
+    End Function
+
 End Class

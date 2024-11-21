@@ -176,125 +176,125 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Customers\AdminCustomerForm.Designer.vb">
+    <Compile Include="Forms\Customers\AdminCustomerForm.Designer.vb">
       <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\AdminCustomerForm.vb">
+    <Compile Include="Forms\Customers\AdminCustomerForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customers\CustomerAddEditModal.Designer.vb">
+    <Compile Include="Forms\Customers\CustomerAddEditModal.Designer.vb">
       <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\CustomerAddEditModal.vb">
+    <Compile Include="Forms\Customers\CustomerAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customers\CustomerViewModal.Designer.vb">
+    <Compile Include="Forms\Customers\CustomerViewModal.Designer.vb">
       <DependentUpon>CustomerViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customers\CustomerViewModal.vb">
+    <Compile Include="Forms\Customers\CustomerViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Dashboard\AdminDashboardForm.Designer.vb">
+    <Compile Include="Forms\Dashboard\AdminDashboardForm.Designer.vb">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Dashboard\AdminDashboardForm.vb">
+    <Compile Include="Forms\Dashboard\AdminDashboardForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employees\EmployeeAddEditModal.Designer.vb">
+    <Compile Include="Forms\Employees\EmployeeAddEditModal.Designer.vb">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees\EmployeeAddEditModal.vb">
+    <Compile Include="Forms\Employees\EmployeeAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeeForm.Designer.vb">
+    <Compile Include="Forms\Employees\AdminEmployeeForm.Designer.vb">
       <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees\AdminEmployeeForm.vb">
+    <Compile Include="Forms\Employees\AdminEmployeeForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Inventory\AdminInventoryForm.Designer.vb">
+    <Compile Include="Forms\Inventory\AdminInventoryForm.Designer.vb">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Inventory\AdminInventoryForm.vb">
+    <Compile Include="Forms\Inventory\AdminInventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Inventory\InventoryUseModal.Designer.vb">
+    <Compile Include="Forms\Inventory\InventoryUseModal.Designer.vb">
       <DependentUpon>InventoryUseModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Inventory\InventoryUseModal.vb">
+    <Compile Include="Forms\Inventory\InventoryUseModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Inventory\InventoryViewModal.Designer.vb">
+    <Compile Include="Forms\Inventory\InventoryViewModal.Designer.vb">
       <DependentUpon>InventoryViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Inventory\InventoryViewModal.vb">
+    <Compile Include="Forms\Inventory\InventoryViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Inventory\InvetoryAddEditModal.Designer.vb">
+    <Compile Include="Forms\Inventory\InvetoryAddEditModal.Designer.vb">
       <DependentUpon>InvetoryAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Inventory\InvetoryAddEditModal.vb">
+    <Compile Include="Forms\Inventory\InvetoryAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Services\ServiceAddEditModal.Designer.vb">
+    <Compile Include="Forms\Services\ServiceAddEditModal.Designer.vb">
       <DependentUpon>ServiceAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Services\ServiceAddEditModal.vb">
+    <Compile Include="Forms\Services\ServiceAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Services\ServiceClaimModal.Designer.vb">
+    <Compile Include="Forms\Services\ServiceClaimModal.Designer.vb">
       <DependentUpon>ServiceClaimModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Services\ServiceClaimModal.vb">
+    <Compile Include="Forms\Services\ServiceClaimModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Services\AdminServiceForm.Designer.vb">
+    <Compile Include="Forms\Services\AdminServiceForm.Designer.vb">
       <DependentUpon>AdminServiceForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Services\AdminServiceForm.vb">
+    <Compile Include="Forms\Services\AdminServiceForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Services\ServiceViewModal.Designer.vb">
+    <Compile Include="Forms\Services\ServiceViewModal.Designer.vb">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Services\ServiceViewModal.vb">
+    <Compile Include="Forms\Services\ServiceViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Settings\AdminSettingsForm.Designer.vb">
+    <Compile Include="Forms\Settings\AdminSettingsForm.Designer.vb">
       <DependentUpon>AdminSettingsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Settings\AdminSettingsForm.vb">
+    <Compile Include="Forms\Settings\AdminSettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Suppliers\SupplierAddEditModal.Designer.vb">
+    <Compile Include="Forms\Suppliers\SupplierAddEditModal.Designer.vb">
       <DependentUpon>SupplierAddEditModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Suppliers\SupplierAddEditModal.vb">
+    <Compile Include="Forms\Suppliers\SupplierAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Suppliers\AdminSuppliersForm.Designer.vb">
+    <Compile Include="Forms\Suppliers\AdminSuppliersForm.Designer.vb">
       <DependentUpon>AdminSuppliersForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Suppliers\AdminSuppliersForm.vb">
+    <Compile Include="Forms\Suppliers\AdminSuppliersForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AdminMainPanel.vb">
+    <Compile Include="Forms\MainPanel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AdminMainPanel.Designer.vb">
-      <DependentUpon>AdminMainPanel.vb</DependentUpon>
+    <Compile Include="Forms\MainPanel.Designer.vb">
+      <DependentUpon>MainPanel.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Employees\EmployeeViewModal.Designer.vb">
+    <Compile Include="Forms\Employees\EmployeeViewModal.Designer.vb">
       <DependentUpon>EmployeeViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Employees\EmployeeViewModal.vb">
+    <Compile Include="Forms\Employees\EmployeeViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Suppliers\SupplierViewModal.Designer.vb">
+    <Compile Include="Forms\Suppliers\SupplierViewModal.Designer.vb">
       <DependentUpon>SupplierViewModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Suppliers\SupplierViewModal.vb">
+    <Compile Include="Forms\Suppliers\SupplierViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Constants.vb" />
@@ -325,64 +325,64 @@
     <Compile Include="GlobalSession.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Admin\Customers\CustomerAddEditModal.resx">
+    <EmbeddedResource Include="Forms\Customers\CustomerAddEditModal.resx">
       <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Customers\AdminCustomerForm.resx">
+    <EmbeddedResource Include="Forms\Customers\AdminCustomerForm.resx">
       <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Customers\CustomerViewModal.resx">
+    <EmbeddedResource Include="Forms\Customers\CustomerViewModal.resx">
       <DependentUpon>CustomerViewModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Dashboard\AdminDashboardForm.resx">
+    <EmbeddedResource Include="Forms\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employees\EmployeeAddEditModal.resx">
+    <EmbeddedResource Include="Forms\Employees\EmployeeAddEditModal.resx">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employees\AdminEmployeeForm.resx">
+    <EmbeddedResource Include="Forms\Employees\AdminEmployeeForm.resx">
       <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Inventory\AdminInventoryForm.resx">
+    <EmbeddedResource Include="Forms\Inventory\AdminInventoryForm.resx">
       <DependentUpon>AdminInventoryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Inventory\InventoryUseModal.resx">
+    <EmbeddedResource Include="Forms\Inventory\InventoryUseModal.resx">
       <DependentUpon>InventoryUseModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Inventory\InventoryViewModal.resx">
+    <EmbeddedResource Include="Forms\Inventory\InventoryViewModal.resx">
       <DependentUpon>InventoryViewModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Inventory\InvetoryAddEditModal.resx">
+    <EmbeddedResource Include="Forms\Inventory\InvetoryAddEditModal.resx">
       <DependentUpon>InvetoryAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Services\ServiceAddEditModal.resx">
+    <EmbeddedResource Include="Forms\Services\ServiceAddEditModal.resx">
       <DependentUpon>ServiceAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Services\ServiceClaimModal.resx">
+    <EmbeddedResource Include="Forms\Services\ServiceClaimModal.resx">
       <DependentUpon>ServiceClaimModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Services\AdminServiceForm.resx">
+    <EmbeddedResource Include="Forms\Services\AdminServiceForm.resx">
       <DependentUpon>AdminServiceForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Services\ServiceViewModal.resx">
+    <EmbeddedResource Include="Forms\Services\ServiceViewModal.resx">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Settings\AdminSettingsForm.resx">
+    <EmbeddedResource Include="Forms\Settings\AdminSettingsForm.resx">
       <DependentUpon>AdminSettingsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Suppliers\SupplierAddEditModal.resx">
+    <EmbeddedResource Include="Forms\Suppliers\SupplierAddEditModal.resx">
       <DependentUpon>SupplierAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Suppliers\AdminSuppliersForm.resx">
+    <EmbeddedResource Include="Forms\Suppliers\AdminSuppliersForm.resx">
       <DependentUpon>AdminSuppliersForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\AdminMainPanel.resx">
-      <DependentUpon>AdminMainPanel.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\MainPanel.resx">
+      <DependentUpon>MainPanel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employees\EmployeeViewModal.resx">
+    <EmbeddedResource Include="Forms\Employees\EmployeeViewModal.resx">
       <DependentUpon>EmployeeViewModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Suppliers\SupplierViewModal.resx">
+    <EmbeddedResource Include="Forms\Suppliers\SupplierViewModal.resx">
       <DependentUpon>SupplierViewModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -466,6 +466,7 @@
   <ItemGroup>
     <None Include="Resources\hand-arrow-up-bold.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

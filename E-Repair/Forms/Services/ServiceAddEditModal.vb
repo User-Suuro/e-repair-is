@@ -256,28 +256,8 @@ Public Class ServiceAddEditModal
     End Sub
 
     ' OPERATING SYSTEM
-    Private Sub OperatingSystemCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles OperatingSystemCmbBox.SelectedIndexChanged
-        With OperatingSystemTableLayout
-            ' Default
-            .ColumnStyles(0).Width = 100.0F
-            .ColumnStyles(1).Width = 0.0F
-
-            If OperatingSystemCmbBox.SelectedItem = "Others" Then
-                .ColumnStyles(0).Width = 50.0F
-                .ColumnStyles(1).Width = 50.0F
-            Else
-                operatingSystem = OperatingSystemCmbBox.SelectedItem
-
-                .ColumnStyles(0).Width = 100.0F
-                .ColumnStyles(1).Width = 0.0F
-            End If
-        End With
-    End Sub
-
-    Private Sub IfOthersOperatingSystemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersOperatingSystemTxtBox.TextChanged
-        If OperatingSystemCmbBox.SelectedItem = "Others" Then
-            operatingSystem = IfOthersOperatingSystemTxtBox.Text
-        End If
+    Private Sub OperatingSystemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles OperatingSystemTxtBox.TextChanged
+        operatingSystem = IfOthersOperatingSystemTxtBox.Text
     End Sub
 
     Private Sub DeviceProblemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceProblemTxtBox.TextChanged

@@ -54,7 +54,7 @@ Public Class LoginForm
 
             If (empDataRows("job_type") = constant.getAdminString) Then
 
-                Dim AdminForm As New AdminMainPanel
+                Dim AdminForm As New MainPanel
 
                 AdminForm.Show()
 
@@ -85,12 +85,16 @@ Public Class LoginForm
         dbHelper.UpdateConnectionString()
 
         ' CHECK IF CONNECTED TO DB
-        If dbHelper.isConnectedToLocalServer() = False Then
-            If formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!") Then
-                Me.Close()
-            End If
+        If Not dbHelper.isConnectedToLocalServer() Then
+            formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
+            Me.Close()
         End If
 
+        InitializeVLC()
+
+    End Sub
+
+    Private Sub InitializeVLC()
         ' Initialize LibVLC
         Core.Initialize()
 
@@ -102,11 +106,8 @@ Public Class LoginForm
             .MediaPlayer = mediaPlayer
         }
 
-
-        ' Add the VideoView to the Panel
         VideoPanel.Controls.Add(videoView)
 
-        ' Path to your video file
         Dim rootProjectPath As String = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName
         Dim videoPath As String = Path.Combine(rootProjectPath, "Videos", "sample.mp4")
 
@@ -120,8 +121,9 @@ Public Class LoginForm
         Else
             MessageBox.Show("Video file not found!")
         End If
-
     End Sub
+
+
     Private Sub OnEndReached(sender As Object, e As EventArgs)
         MsgBox("You have been inactive for a long time, closing form...")
         Me.Close()

@@ -94,7 +94,7 @@ Partial Class LoginForm
         Me.LoginButton.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoginButton.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.LoginButton.HoverState.Parent = Me.LoginButton
-        Me.LoginButton.Location = New System.Drawing.Point(168, 431)
+        Me.LoginButton.Location = New System.Drawing.Point(168, 403)
         Me.LoginButton.Name = "LoginButton"
         Me.LoginButton.ShadowDecoration.Parent = Me.LoginButton
         Me.LoginButton.Size = New System.Drawing.Size(289, 45)
@@ -116,7 +116,7 @@ Partial Class LoginForm
         Me.LoginPasswordTextBox.FocusedState.Parent = Me.LoginPasswordTextBox
         Me.LoginPasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LoginPasswordTextBox.HoverState.Parent = Me.LoginPasswordTextBox
-        Me.LoginPasswordTextBox.Location = New System.Drawing.Point(168, 365)
+        Me.LoginPasswordTextBox.Location = New System.Drawing.Point(168, 353)
         Me.LoginPasswordTextBox.Name = "LoginPasswordTextBox"
         Me.LoginPasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LoginPasswordTextBox.PlaceholderText = ""
@@ -131,7 +131,7 @@ Partial Class LoginForm
         Me.GunaLabel4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.GunaLabel4.AutoSize = True
         Me.GunaLabel4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.GunaLabel4.Location = New System.Drawing.Point(164, 342)
+        Me.GunaLabel4.Location = New System.Drawing.Point(164, 330)
         Me.GunaLabel4.Name = "GunaLabel4"
         Me.GunaLabel4.Size = New System.Drawing.Size(69, 20)
         Me.GunaLabel4.TabIndex = 13

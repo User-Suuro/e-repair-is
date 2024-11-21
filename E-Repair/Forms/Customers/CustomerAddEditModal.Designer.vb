@@ -454,7 +454,7 @@ Partial Class CustomerAddEditModal
         Me.GenderComboBox.FormattingEnabled = True
         Me.GenderComboBox.HoverState.Parent = Me.GenderComboBox
         Me.GenderComboBox.ItemHeight = 20
-        Me.GenderComboBox.Items.AddRange(New Object() {"Male", "Female", "Others"})
+        Me.GenderComboBox.Items.AddRange(New Object() {"Male", "Female"})
         Me.GenderComboBox.ItemsAppearance.Parent = Me.GenderComboBox
         Me.GenderComboBox.Location = New System.Drawing.Point(2, 24)
         Me.GenderComboBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)

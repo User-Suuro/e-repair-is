@@ -1377,7 +1377,7 @@ Partial Class EmployeeAddEditModal
         Me.ContractStatusComboBox.FormattingEnabled = True
         Me.ContractStatusComboBox.HoverState.Parent = Me.ContractStatusComboBox
         Me.ContractStatusComboBox.ItemHeight = 20
-        Me.ContractStatusComboBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary", "Others"})
+        Me.ContractStatusComboBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary"})
         Me.ContractStatusComboBox.ItemsAppearance.Parent = Me.ContractStatusComboBox
         Me.ContractStatusComboBox.Location = New System.Drawing.Point(547, 24)
         Me.ContractStatusComboBox.Name = "ContractStatusComboBox"

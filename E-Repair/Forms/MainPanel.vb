@@ -2,15 +2,13 @@
 Imports System.Drawing.Imaging
 Imports Guna.UI2.WinForms.Suite
 
-Public Class AdminMainPanel
+Public Class MainPanel
     Dim constants As New Constants()
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim session As New Session
 
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbHelper.UpdateConnectionString()
-
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         AdminTopNavTitle.Text = constants.DashboardTitle
 
@@ -18,7 +16,7 @@ Public Class AdminMainPanel
 
         Try
             AdminTopNavUsernameLabel.Text = GlobalSession.CurrentSession.FirstName + " " + GlobalSession.CurrentSession.LastName
-            AdminTopNavPositionLabel.Text = GlobalSession.CurrentSession.JobType
+            TopNavPositionLabel.Text = GlobalSession.CurrentSession.JobType
             AdminTopNavProfilePictureBox.Image = Image.FromFile(GlobalSession.CurrentSession.ProfilePath)
         Catch ex As Exception
 
@@ -27,33 +25,33 @@ Public Class AdminMainPanel
 
     ' FUNCTIONS FOR NAVIGATION
 
-    Private Sub SidenavDashboardBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavDashboardBtn.Click
+    Private Sub SidenavDashboardBtn_Click(sender As Object, e As EventArgs) Handles SidenavDashboardBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         AdminTopNavTitle.Text = constants.DashboardTitle
     End Sub
 
-    Private Sub SidenavEmployeesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavEmployeesBtn.Click
+    Private Sub SidenavEmployeesBtn_Click(sender As Object, e As EventArgs) Handles SidenavEmployeesBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminEmployeeForm)
         AdminTopNavTitle.Text = constants.EmployeesTitle
     End Sub
 
-    Private Sub AdminSidenavCustomersBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavCustomersBtn.Click
+    Private Sub AdminSidenavCustomersBtn_Click(sender As Object, e As EventArgs) Handles SidenavCustomersBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminCustomerForm)
         AdminTopNavTitle.Text = constants.getCustomerTitle
     End Sub
 
-    Private Sub SidenavServicesBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavServicesBtn.Click
+    Private Sub SidenavServicesBtn_Click(sender As Object, e As EventArgs) Handles SidenavServicesBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminServiceForm)
         AdminTopNavTitle.Text = constants.ServicesTitle
     End Sub
 
-    Private Sub SidenavSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavSuppliersBtn.Click
+    Private Sub SidenavSuppliersBtn_Click(sender As Object, e As EventArgs) Handles SidenavSuppliersBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminSuppliersForm)
         AdminTopNavTitle.Text = constants.SuppliersTitle
     End Sub
 
 
-    Private Sub AdminSidenavInventoryBtn_Click(sender As Object, e As EventArgs) Handles AdminSidenavInventoryBtn.Click
+    Private Sub AdminSidenavInventoryBtn_Click(sender As Object, e As EventArgs) Handles SidenavInventoryBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminInventoryForm)
         AdminTopNavTitle.Text = constants.InventoryTitle
     End Sub
@@ -72,6 +70,5 @@ Public Class AdminMainPanel
         Dim loginForm As New LoginForm()
         loginForm.Show()
     End Sub
-
 
 End Class

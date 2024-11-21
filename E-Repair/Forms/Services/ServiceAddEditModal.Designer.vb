@@ -36,7 +36,7 @@ Partial Class ServiceAddEditModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.OperatingSystemTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.OperatingSystemCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.OperatingSystemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.IfOthersOperatingSystemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -168,7 +168,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
         Me.Guna2Panel5.Location = New System.Drawing.Point(12, 192)
         Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel5.TabIndex = 48
@@ -312,7 +312,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.OperatingSystemTableLayout)
         Me.Guna2Panel1.Location = New System.Drawing.Point(423, 259)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel1.TabIndex = 46
@@ -322,7 +322,7 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemTableLayout.ColumnCount = 2
         Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.OperatingSystemTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0!))
-        Me.OperatingSystemTableLayout.Controls.Add(Me.OperatingSystemCmbBox, 0, 1)
+        Me.OperatingSystemTableLayout.Controls.Add(Me.OperatingSystemTxtBox, 0, 1)
         Me.OperatingSystemTableLayout.Controls.Add(Me.Label2, 0, 0)
         Me.OperatingSystemTableLayout.Controls.Add(Me.Label15, 1, 0)
         Me.OperatingSystemTableLayout.Controls.Add(Me.IfOthersOperatingSystemTxtBox, 1, 1)
@@ -335,27 +335,31 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemTableLayout.Size = New System.Drawing.Size(397, 53)
         Me.OperatingSystemTableLayout.TabIndex = 8
         '
-        'OperatingSystemCmbBox
+        'OperatingSystemTxtBox
         '
-        Me.OperatingSystemCmbBox.BackColor = System.Drawing.Color.Transparent
-        Me.OperatingSystemCmbBox.BorderRadius = 4
-        Me.OperatingSystemCmbBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.OperatingSystemCmbBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.OperatingSystemCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.OperatingSystemCmbBox.FocusedColor = System.Drawing.Color.Empty
-        Me.OperatingSystemCmbBox.FocusedState.Parent = Me.OperatingSystemCmbBox
-        Me.OperatingSystemCmbBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.OperatingSystemCmbBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.OperatingSystemCmbBox.FormattingEnabled = True
-        Me.OperatingSystemCmbBox.HoverState.Parent = Me.OperatingSystemCmbBox
-        Me.OperatingSystemCmbBox.ItemHeight = 20
-        Me.OperatingSystemCmbBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary", "Others"})
-        Me.OperatingSystemCmbBox.ItemsAppearance.Parent = Me.OperatingSystemCmbBox
-        Me.OperatingSystemCmbBox.Location = New System.Drawing.Point(3, 24)
-        Me.OperatingSystemCmbBox.Name = "OperatingSystemCmbBox"
-        Me.OperatingSystemCmbBox.ShadowDecoration.Parent = Me.OperatingSystemCmbBox
-        Me.OperatingSystemCmbBox.Size = New System.Drawing.Size(391, 26)
-        Me.OperatingSystemCmbBox.TabIndex = 35
+        Me.OperatingSystemTxtBox.BorderRadius = 4
+        Me.OperatingSystemTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.OperatingSystemTxtBox.DefaultText = ""
+        Me.OperatingSystemTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.OperatingSystemTxtBox.DisabledState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.OperatingSystemTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.OperatingSystemTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.OperatingSystemTxtBox.FocusedState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.OperatingSystemTxtBox.HoverState.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.OperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.OperatingSystemTxtBox.Name = "OperatingSystemTxtBox"
+        Me.OperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.OperatingSystemTxtBox.PlaceholderText = ""
+        Me.OperatingSystemTxtBox.SelectedText = ""
+        Me.OperatingSystemTxtBox.ShadowDecoration.Parent = Me.OperatingSystemTxtBox
+        Me.OperatingSystemTxtBox.Size = New System.Drawing.Size(393, 26)
+        Me.OperatingSystemTxtBox.TabIndex = 35
         '
         'Label2
         '
@@ -412,7 +416,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel4.Controls.Add(Me.DeviceTypeTableLayout)
         Me.Guna2Panel4.Location = New System.Drawing.Point(12, 259)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel4.TabIndex = 47
@@ -512,7 +516,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel5)
         Me.Guna2Panel6.Location = New System.Drawing.Point(12, 326)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel6.TabIndex = 45
@@ -598,7 +602,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0, 0, 0, 3)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel3.TabIndex = 28
@@ -873,7 +877,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel2.Location = New System.Drawing.Point(0, 67)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel2.TabIndex = 29
@@ -1032,9 +1036,9 @@ Partial Class ServiceAddEditModal
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(319, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(108, 21)
+        Me.Label19.Size = New System.Drawing.Size(112, 21)
         Me.Label19.TabIndex = 37
-        Me.Label19.Text = "Total Work Done"
+        Me.Label19.Text = "Total Work Taken"
         '
         'Panel2
         '
@@ -1285,9 +1289,9 @@ Partial Class ServiceAddEditModal
     Friend WithEvents Label22 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents OperatingSystemCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents DeviceTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents OperatingSystemTxtBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

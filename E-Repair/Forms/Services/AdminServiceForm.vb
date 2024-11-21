@@ -57,20 +57,22 @@ Public Class AdminServiceForm
     Dim canceled_service As Integer = -1
     Dim completed_service As Integer = -1
 
-    Private Function InitData() As Boolean
-        If ServiceDGV.Rows.Count = 0 Then
-            MsgBox("No Data Found!")
-            Return False
-        End If
+    Private Function InitData(Optional enableChecker As Boolean = True) As Boolean
+        If enableChecker Then
+            If ServiceDGV.Rows.Count = 0 Then
+                MsgBox("No Data Found!")
+                Return False
+            End If
 
-        If ServiceDGV.CurrentRow Is Nothing Then
-            MsgBox("No row is currently selected.")
-            Return False
-        End If
+            If ServiceDGV.CurrentRow Is Nothing Then
+                MsgBox("No row is currently selected.")
+                Return False
+            End If
 
-        If ServiceDGV.SelectedRows.Count <= 0 Then
-            MsgBox("Please Select a Row First")
-            Return False
+            If ServiceDGV.SelectedRows.Count <= 0 Then
+                MsgBox("Please Select a Row First")
+                Return False
+            End If
         End If
 
         ' INITIALIZE VALUES
@@ -323,6 +325,13 @@ Public Class AdminServiceForm
     End Sub
 
     Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
+        InitData(False)
+
+        If serviceStatus = "Finished" Then
+            ClaimServiceBtn.Visible = True
+        Else
+            ClaimServiceBtn.Visible = False
+        End If
 
     End Sub
 End Class

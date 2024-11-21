@@ -114,7 +114,7 @@ Partial Class CustomerViewModal
         Me.CustomerModalGroupBox.Location = New System.Drawing.Point(0, 0)
         Me.CustomerModalGroupBox.Name = "CustomerModalGroupBox"
         Me.CustomerModalGroupBox.ShadowDecoration.Parent = Me.CustomerModalGroupBox
-        Me.CustomerModalGroupBox.Size = New System.Drawing.Size(862, 529)
+        Me.CustomerModalGroupBox.Size = New System.Drawing.Size(862, 524)
         Me.CustomerModalGroupBox.TabIndex = 3
         Me.CustomerModalGroupBox.Text = "View Customer"
         '
@@ -1127,7 +1127,7 @@ Partial Class CustomerViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(862, 529)
+        Me.ClientSize = New System.Drawing.Size(862, 524)
         Me.Controls.Add(Me.CustomerModalGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CustomerViewModal"
