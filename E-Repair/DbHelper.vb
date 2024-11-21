@@ -33,7 +33,14 @@ Public Class DbHelper
     ' Update connection string
     Public Sub UpdateConnectionString()
         Try
-            Dim config As String = System.IO.Directory.GetCurrentDirectory & "\dbconfig.txt"
+            Dim currentDir As String = System.IO.Directory.GetCurrentDirectory()
+
+            For i As Integer = 1 To 3
+                currentDir = System.IO.Directory.GetParent(currentDir).FullName
+            Next
+
+            Dim config As String = currentDir & "\dbconfig.txt"
+
             Dim text As String = Nothing
             If System.IO.File.Exists(config) Then
                 Using reader As System.IO.StreamReader = New System.IO.StreamReader(config)
