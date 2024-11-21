@@ -201,6 +201,24 @@
     <Compile Include="Forms\Dashboard\AdminDashboardForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Dashboard\CashierDashboardForm.Designer.vb">
+      <DependentUpon>CashierDashboardForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\CashierDashboardForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\TechnicianDashboardForm.Designer.vb">
+      <DependentUpon>TechnicianDashboardForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\TechnicianDashboardForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\UtilityDashboardForm.Designer.vb">
+      <DependentUpon>UtilityDashboardForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\UtilityDashboardForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Employees\EmployeeAddEditModal.Designer.vb">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
     </Compile>
@@ -337,6 +355,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\CashierDashboardForm.resx">
+      <DependentUpon>CashierDashboardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\TechnicianDashboardForm.resx">
+      <DependentUpon>TechnicianDashboardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\UtilityDashboardForm.resx">
+      <DependentUpon>UtilityDashboardForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeAddEditModal.resx">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>

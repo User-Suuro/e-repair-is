@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
+Imports System.IO
 Imports Guna.UI2.WinForms.Suite
 
 Public Class MainPanel
@@ -15,13 +16,20 @@ Public Class MainPanel
         Try
             AdminTopNavUsernameLabel.Text = GlobalSession.CurrentSession.FirstName + " " + GlobalSession.CurrentSession.LastName
             TopNavPositionLabel.Text = GlobalSession.CurrentSession.JobType
-            AdminTopNavProfilePictureBox.Image = Image.FromFile(GlobalSession.CurrentSession.ProfilePath)
+
+            Dim imgPath = GlobalSession.CurrentSession.ProfilePath
+
+            If File.Exists(imgPath) Then
+                AdminTopNavProfilePictureBox.Image = Image.FromFile(imgPath)
+            End If
+
+            formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         Catch ex As Exception
             MsgBox("Cannot get session value to load the main panel: " & ex.Message)
         End Try
 
         ' load the form depends on posisiton
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
+
 
 
     End Sub

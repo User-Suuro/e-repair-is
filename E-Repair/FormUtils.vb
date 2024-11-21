@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports Guna.UI2.WinForms
 
 Public Class FormUtils
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
@@ -17,6 +18,7 @@ Public Class FormUtils
         frm.Show()
     End Sub
 
+    ' Ok cancel MsgBox
     Public Function ShowMessageBoxResult(title As String, content As String) As Boolean
         Dim dialogResult As DialogResult = MessageBox.Show(content, title, MessageBoxButtons.OKCancel)
 
@@ -29,6 +31,7 @@ Public Class FormUtils
         Return False
     End Function
 
+    ' Find combo box index by value
     Public Function FindComboBoxItemByText(comboBox As ComboBox, searchText As String) As Integer
         Dim index As Integer = -1
 
@@ -107,4 +110,22 @@ Public Class FormUtils
 
         Return True
     End Function
+
+    ' Search function
+    Public Function SearchFunction(dt As DataTable, searchTerm As String, searchValues As String(), searchCmbSelectedIndex As Integer) As DataTable
+        Dim searchBy As String = searchValues(0)
+
+        If searchCmbSelectedIndex >= 0 AndAlso searchCmbSelectedIndex < searchValues.Length Then
+            searchBy = searchValues(searchCmbSelectedIndex)
+        End If
+
+        If Not String.IsNullOrWhiteSpace(searchTerm) Then
+            dt.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
+        Else
+            dt.DefaultView.RowFilter = ""
+        End If
+
+        Return dt
+    End Function
+
 End Class

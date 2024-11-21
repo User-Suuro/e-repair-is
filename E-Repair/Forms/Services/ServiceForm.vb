@@ -1,8 +1,4 @@
-﻿Imports System.Linq.Expressions
-Imports System.Net.Sockets
-Imports Google.Protobuf.WellKnownTypes
-Imports Microsoft.ReportingServices.Rendering.ExcelOpenXmlRenderer
-
+﻿
 Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
@@ -244,12 +240,8 @@ Public Class ServiceForm
             "date_added"
         }
 
-        Dim searchBy As String = searchValues(SearchComboBox.SelectedIndex)
-
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            serviceTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
-        Else
-            serviceTable.DefaultView.RowFilter = ""
+            serviceTable = formUtils.SearchFunction(serviceTable, searchTerm, searchValues, SearchComboBox.SelectedIndex)
         End If
 
         ServiceDGV.AutoGenerateColumns = True
@@ -334,4 +326,6 @@ Public Class ServiceForm
         End If
 
     End Sub
+
+
 End Class

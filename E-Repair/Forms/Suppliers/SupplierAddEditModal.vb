@@ -49,6 +49,8 @@ Public Class SupplierAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
+
         Dim empIDLogged As Integer
 
         Try
@@ -85,6 +87,8 @@ Public Class SupplierAddEditModal
             MsgBox("Db Failure!")
         End If
 
+        Cursor = Cursors.Default
+
         Me.Close()
 
     End Sub
@@ -94,6 +98,8 @@ Public Class SupplierAddEditModal
     Private Sub EditModeFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
+
+        Cursor = Cursors.WaitCursor
 
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
@@ -125,6 +131,8 @@ Public Class SupplierAddEditModal
         End If
 
         If Not File.Exists(savedPath) Then formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
+
+        Cursor = Cursors.WaitCursor
 
         Me.Close()
 

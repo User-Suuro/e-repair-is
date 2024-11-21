@@ -49,14 +49,11 @@
         ' Exit if canceled
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
+
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
-        Dim empIDLogged As Integer
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-
-        End Try
+        Dim empIDLogged As Integer = empIDLogged = GlobalSession.CurrentSession.EmployeeID
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"middlename", middleName}, ' Exception
@@ -113,11 +110,16 @@
             Next
         End If
 
-        If Not dbHelper.InsertRecord("employees", insertData) Then Exit Sub
-
-        MsgBox("Employee Successfully Added")
+        If Not dbHelper.InsertRecord("employees", insertData) Then
+            MsgBox("Failed to save employee record")
+            Exit Sub
+        End If
 
         formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
+
+        Cursor = Cursors.Default
+
+        MsgBox("Employee Successfully Added")
 
         Me.Close()
     End Sub
@@ -125,6 +127,8 @@
     Private Sub EditEmpFunction()
 
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
+
+        Cursor = Cursors.WaitCursor
 
         ' UPDATE EMPLOYEE
         Dim updateData As New Dictionary(Of String, Object) From {
@@ -184,6 +188,8 @@
         Else
             MsgBox("Db Failure")
         End If
+
+        Cursor = Cursors.Default
 
         Me.Close()
     End Sub
@@ -408,5 +414,7 @@
         End If
     End Sub
 
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs)
 
+    End Sub
 End Class

@@ -33,6 +33,8 @@ Public Class ServiceAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this service?")) Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
+
         Dim empIDLogged As Integer
 
         Try
@@ -59,11 +61,13 @@ Public Class ServiceAddEditModal
         If dbHelper.InsertRecord("services", insertData) Then
             formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True)
             MsgBox("Service Successfully Added")
-            Me.Close()
         Else
             MsgBox("Unable to save service record")
         End If
 
+        Cursor = Cursors.Default
+
+        Me.Close()
     End Sub
 
     ' EDIT
@@ -71,6 +75,8 @@ Public Class ServiceAddEditModal
     Private Sub EditDataFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this service?")) Then Exit Sub
+
+        Cursor = Cursors.WaitCursor
 
         Dim updateData As New Dictionary(Of String, Object) From {
             {"customer_id", customerID},
@@ -90,11 +96,13 @@ Public Class ServiceAddEditModal
 
         If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
             MsgBox("Successfuly updated service details")
-            Me.Close()
         Else
             MsgBox("Unable to update service details")
         End If
 
+        Cursor = Cursors.Default
+
+        Me.Close()
     End Sub
 
     ' SELECT CUSTOMER

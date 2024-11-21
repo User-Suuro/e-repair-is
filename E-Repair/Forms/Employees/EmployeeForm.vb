@@ -475,13 +475,8 @@ Public Class EmployeeForm
            "date_added"
         }
 
-        Dim searchBy As String = searchValues(SearchComboBox.SelectedIndex)
-
-        ' Search
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            employeesTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
-        Else
-            employeesTable.DefaultView.RowFilter = ""
+            employeesTable = formUtils.SearchFunction(employeesTable, searchTerm, searchValues, SearchComboBox.SelectedIndex)
         End If
 
         EmpDGV.AutoGenerateColumns = True
@@ -544,4 +539,7 @@ Public Class EmployeeForm
         Me.Close()
     End Sub
 
+    Private Sub EmpDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpDGV.CellContentClick
+
+    End Sub
 End Class

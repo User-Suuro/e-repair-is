@@ -316,12 +316,8 @@ Public Class AdminCustomerForm
             "date_added"
         }
 
-        Dim searchBy As String = searchValues(SearchComboBox.SelectedIndex)
-
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            customersTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
-        Else
-            customersTable.DefaultView.RowFilter = ""
+            customersTable = formUtils.SearchFunction(customersTable, searchTerm, searchValues, SearchComboBox.SelectedIndex)
         End If
 
         CustomerDGV.AutoGenerateColumns = True
@@ -398,5 +394,7 @@ Public Class AdminCustomerForm
         Me.Close()
     End Sub
 
+    Private Sub CustomerDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CustomerDGV.CellContentClick
 
+    End Sub
 End Class

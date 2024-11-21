@@ -278,8 +278,6 @@ Public Class SuppliersForm
             suppliersTable = dbHelper.GetAllRowsFromTable("suppliers", False)
         End If
 
-        Dim searchBy As String = "company_name"
-
         Dim searchValues() As String = {
            "company_name",
            "contact_person",
@@ -291,12 +289,8 @@ Public Class SuppliersForm
            "date_added"
         }
 
-        searchBy = searchValues(SearchComboBox.SelectedIndex)
-
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            suppliersTable.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) Like '%{searchTerm}%'"
-        Else
-            suppliersTable.DefaultView.RowFilter = ""
+            suppliersTable = formUtils.SearchFunction(suppliersTable, searchTerm, searchValues, SearchComboBox.SelectedIndex)
         End If
 
         SuppliersDGV.AutoGenerateColumns = True
@@ -362,5 +356,7 @@ Public Class SuppliersForm
         End Try
     End Sub
 
+    Private Sub SuppliersDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SuppliersDGV.CellContentClick
 
+    End Sub
 End Class

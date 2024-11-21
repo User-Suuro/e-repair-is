@@ -536,7 +536,7 @@ Partial Class SuppliersForm
         Me.DATE_ARCHIVED.ReadOnly = True
         Me.DATE_ARCHIVED.Visible = False
         '
-        'AdminSuppliersForm
+        'SuppliersForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -545,7 +545,7 @@ Partial Class SuppliersForm
         Me.Controls.Add(Me.AdminSidenavPanel)
         Me.Controls.Add(Me.SuppliersDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminSuppliersForm"
+        Me.Name = "SuppliersForm"
         Me.Text = "AdminSuppliersForm"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
