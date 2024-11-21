@@ -1,4 +1,4 @@
-﻿Public Class AdminSettingsForm
+﻿Public Class SettingsForm
     Private Sub AdminSettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.ReportViewer1.RefreshReport()

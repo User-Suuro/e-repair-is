@@ -14,7 +14,6 @@ Public Class LoginForm
     Private videoView As VideoView
     Private currentMedia As Media
 
-
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
         If (LoginEmailTextBox.Text = "" Or LoginPasswordTextBox.Text = "") Then
             MsgBox("Please Fill All Necessary Details", MessageBoxButtons.OK)
@@ -37,46 +36,28 @@ Public Class LoginForm
             Exit Sub
         End If
 
-
-        If (empDataRows("email") = LoginEmailTextBox.Text AndAlso dbHelper.DecryptPassword(empDataRows("password"), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
-            ' CREATE SESSION 
-            GlobalSession.InitializeSession(empDataRows)
-
-            ' UPDATE ACCESS DATE
-
-            Dim updatedValues As New Dictionary(Of String, Object) From {
-                                {"last_accessed", DateTime.Now}
-                            }
-
-            Dim result As Boolean = dbHelper.UpdateRecord("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID, updatedValues)
-
-            ' GO TO UI BASE SA JOB TYPE
-
-            If (empDataRows("job_type") = constant.getAdminString) Then
-
-                Dim AdminForm As New MainPanel
-
-                AdminForm.Show()
-
-                Me.Hide()
-
-                releaseMemory()
-
-            ElseIf (empDataRows("job_type") = constant.getCashierString) Then
-                MsgBox("Cashier Page coming soon")
-
-            ElseIf (empDataRows("job_type") = constant.getTechnicianString) Then
-                MsgBox("Technician Page coming soon")
-
-            ElseIf (empDataRows("job_type") = constant.getUtilityPersonnelString) Then
-                MsgBox("Utlity Personnel Page coming soon")
-
-            End If
-
-        Else
+        If Not (empDataRows("email") = LoginEmailTextBox.Text AndAlso dbHelper.DecryptPassword(empDataRows("password"), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
             MsgBox("Incorrect Email or Passsowrd")
             Exit Sub
         End If
+
+        GlobalSession.InitializeSession(empDataRows)
+
+        ' UPDATE ACCESS DATE
+
+        Dim updatedValues As New Dictionary(Of String, Object) From {
+                            {"last_accessed", DateTime.Now}
+        }
+
+        dbHelper.UpdateRecord("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID, updatedValues)
+
+        Dim MainPanel As New MainPanel
+
+        MainPanel.Show()
+
+        Me.Hide()
+
+        releaseMemory()
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

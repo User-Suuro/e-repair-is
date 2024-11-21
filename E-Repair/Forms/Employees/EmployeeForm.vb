@@ -4,7 +4,7 @@ Imports Google.Protobuf.Reflection.FieldOptions.Types
 Imports Mysqlx.XDevAPI.Common
 Imports ZstdSharp.Unsafe
 
-Public Class AdminEmployeeForm
+Public Class EmployeeForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants

@@ -1,7 +1,7 @@
 ﻿Imports System.Linq.Expressions
 Imports Google.Protobuf.Compiler
 
-Public Class AdminSuppliersForm
+Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils

@@ -3,7 +3,7 @@ Imports System.Net.Sockets
 Imports Google.Protobuf.WellKnownTypes
 Imports Microsoft.ReportingServices.Rendering.ExcelOpenXmlRenderer
 
-Public Class AdminServiceForm
+Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils

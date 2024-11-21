@@ -155,7 +155,7 @@ Public Class ServiceAddEditModal
 
     ' SELECT TECHNICIAN
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
-        Dim employeeForm As New AdminEmployeeForm
+        Dim employeeForm As New EmployeeForm
         Dim getTechnicianTableData As DataTable = Nothing
 
         Try

@@ -176,6 +176,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.vb" />
     <Compile Include="Forms\Customers\AdminCustomerForm.Designer.vb">
       <DependentUpon>AdminCustomerForm.vb</DependentUpon>
     </Compile>
@@ -206,16 +207,16 @@
     <Compile Include="Forms\Employees\EmployeeAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\AdminEmployeeForm.Designer.vb">
-      <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
+    <Compile Include="Forms\Employees\EmployeeForm.Designer.vb">
+      <DependentUpon>EmployeeForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\AdminEmployeeForm.vb">
+    <Compile Include="Forms\Employees\EmployeeForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory\AdminInventoryForm.Designer.vb">
-      <DependentUpon>AdminInventoryForm.vb</DependentUpon>
+    <Compile Include="Forms\Inventory\InventoryForm.Designer.vb">
+      <DependentUpon>InventoryForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory\AdminInventoryForm.vb">
+    <Compile Include="Forms\Inventory\InventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Inventory\InventoryUseModal.Designer.vb">
@@ -248,10 +249,10 @@
     <Compile Include="Forms\Services\ServiceClaimModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Services\AdminServiceForm.Designer.vb">
-      <DependentUpon>AdminServiceForm.vb</DependentUpon>
+    <Compile Include="Forms\Services\ServiceForm.Designer.vb">
+      <DependentUpon>ServiceForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Services\AdminServiceForm.vb">
+    <Compile Include="Forms\Services\ServiceForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Services\ServiceViewModal.Designer.vb">
@@ -260,10 +261,10 @@
     <Compile Include="Forms\Services\ServiceViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\AdminSettingsForm.Designer.vb">
-      <DependentUpon>AdminSettingsForm.vb</DependentUpon>
+    <Compile Include="Forms\Settings\SettingsForm.Designer.vb">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\AdminSettingsForm.vb">
+    <Compile Include="Forms\Settings\SettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Suppliers\SupplierAddEditModal.Designer.vb">
@@ -272,10 +273,10 @@
     <Compile Include="Forms\Suppliers\SupplierAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Suppliers\AdminSuppliersForm.Designer.vb">
-      <DependentUpon>AdminSuppliersForm.vb</DependentUpon>
+    <Compile Include="Forms\Suppliers\SuppliersForm.Designer.vb">
+      <DependentUpon>SuppliersForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Suppliers\AdminSuppliersForm.vb">
+    <Compile Include="Forms\Suppliers\SuppliersForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainPanel.vb">
@@ -340,11 +341,11 @@
     <EmbeddedResource Include="Forms\Employees\EmployeeAddEditModal.resx">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\AdminEmployeeForm.resx">
-      <DependentUpon>AdminEmployeeForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Employees\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory\AdminInventoryForm.resx">
-      <DependentUpon>AdminInventoryForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory\InventoryForm.resx">
+      <DependentUpon>InventoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\InventoryUseModal.resx">
       <DependentUpon>InventoryUseModal.vb</DependentUpon>
@@ -361,20 +362,20 @@
     <EmbeddedResource Include="Forms\Services\ServiceClaimModal.resx">
       <DependentUpon>ServiceClaimModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Services\AdminServiceForm.resx">
-      <DependentUpon>AdminServiceForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Services\ServiceForm.resx">
+      <DependentUpon>ServiceForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Services\ServiceViewModal.resx">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\AdminSettingsForm.resx">
-      <DependentUpon>AdminSettingsForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Suppliers\SupplierAddEditModal.resx">
       <DependentUpon>SupplierAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Suppliers\AdminSuppliersForm.resx">
-      <DependentUpon>AdminSuppliersForm.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Suppliers\SuppliersForm.resx">
+      <DependentUpon>SuppliersForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainPanel.resx">
       <DependentUpon>MainPanel.vb</DependentUpon>

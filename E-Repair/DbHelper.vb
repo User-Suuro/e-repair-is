@@ -415,9 +415,11 @@ Public Class DbHelper
     End Function
 
     ' Enums
-    Public Function GetEnums(tableName As String) As List(Of KeyValuePair(Of String, Integer))
+
+    ' Get
+    Public Function GetEnums(tableName As String, columnName As String) As List(Of KeyValuePair(Of String, Integer))
         Dim enumValues As New List(Of KeyValuePair(Of String, Integer))()
-        Dim query As String = $"SELECT Name, Value FROM `{tableName}`"
+        Dim query As String = $"SELECT DISTINCT {columnName} FROM `{tableName}`"
 
         Try
             cmd.Parameters.Clear()
@@ -426,10 +428,11 @@ Public Class DbHelper
             readQuery(query)
 
             If cmdRead IsNot Nothing Then
+                Dim ordinal As Integer = 0 ' Start assigning ordinal values
                 While cmdRead.Read()
-                    Dim name As String = cmdRead("Name").ToString()
-                    Dim value As Integer = Convert.ToInt32(cmdRead("Value"))
-                    enumValues.Add(New KeyValuePair(Of String, Integer)(name, value))
+                    Dim name As String = cmdRead(columnName).ToString()
+                    enumValues.Add(New KeyValuePair(Of String, Integer)(name, ordinal))
+                    ordinal += 1
                 End While
                 cmdRead.Close()
             End If
@@ -442,4 +445,57 @@ Public Class DbHelper
         Return enumValues
     End Function
 
+    ' Load to cmb
+    Public Sub LoadEnumsToCmb(comboBox As ComboBox, tableName As String, columnName As String)
+        Try
+            Dim enumValues = GetEnums(tableName, columnName)
+
+            comboBox.Items.Clear()
+
+            For Each kvp As KeyValuePair(Of String, Integer) In enumValues
+                comboBox.Items.Add(New With {.Name = kvp.Key, .Value = kvp.Value})
+            Next
+
+            comboBox.DisplayMember = "Name"
+            comboBox.ValueMember = "Value"
+
+            If comboBox.Items.Count > 0 Then
+                comboBox.SelectedIndex = 0
+            End If
+        Catch ex As Exception
+            MsgBox("Error loading enum values to ComboBox: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    ' Update
+    Public Sub AlterEnums(tableName As String, columnName As String, enumType As Type)
+        Try
+            ' Check if the provided type is an Enum
+            If Not enumType.IsEnum Then
+                Throw New ArgumentException("The provided type must be an Enum.")
+            End If
+
+            ' Iterate over the Enum values and construct ALTER statements
+            For Each value In [Enum].GetValues(enumType)
+                Dim enumValue As String = value.ToString()
+                Dim query As String = $"ALTER TABLE `{tableName}` MODIFY COLUMN `{columnName}` ENUM({GetEnumsForAlter(enumType)})"
+
+                ' Use readQuery to execute the alteration
+                cmd.Parameters.Clear()
+                cmd = New MySqlCommand(query, conn)
+                readQuery(query)
+            Next
+
+            MsgBox("Enum values added successfully to the database!", MsgBoxStyle.Information)
+        Catch ex As Exception
+            MsgBox("Error altering enum values: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Sub
+
+    Private Function GetEnumsForAlter(enumType As Type) As String
+        Dim values As String = String.Join(",", [Enum].GetValues(enumType).Cast(Of Object).Select(Function(e) $"'{e.ToString()}'"))
+        Return values
+    End Function
 End Class
