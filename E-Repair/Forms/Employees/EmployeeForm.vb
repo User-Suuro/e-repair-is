@@ -296,7 +296,7 @@ Public Class EmployeeForm
                 Dim sexIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
                 Dim civilIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
                 Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
-                Dim adminPosIndex = -1
+                Dim adminPosIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
                 Dim jobTypeIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
 
                 .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
@@ -315,12 +315,7 @@ Public Class EmployeeForm
 
                 ' JOBS
                 .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
-
-                If .JobTypeComboBox.SelectedItem = constants.getAdminString Then
-                    adminPosIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
-                ElseIf .JobTypeComboBox.SelectedItem = constants.getUtilityPersonnelString Then
-                    .AssignedLocationTextBox.Text = utilityPersonnelDestination
-                End If
+                .AssignedLocationTextBox.Text = utilityPersonnelDestination
 
                 ' JOB INFO 
 
@@ -341,7 +336,7 @@ Public Class EmployeeForm
                 .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
                 .ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
 
-                .InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex )
+                .InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
 
                 .ShowDialog()
             End With

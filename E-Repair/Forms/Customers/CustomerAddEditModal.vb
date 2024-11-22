@@ -115,21 +115,7 @@ Public Class CustomerAddEditModal
 
     ' GENDER COMBO BOX
     Private Sub GenderComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GenderComboBox.SelectedIndexChanged
-        With GenderTableLayout
-            ' Default
-            .ColumnStyles(0).Width = 100.0F
-            .ColumnStyles(1).Width = 0.0F
-
-            If GenderComboBox.SelectedItem = "Others" Then
-                .ColumnStyles(0).Width = 50.0F
-                .ColumnStyles(1).Width = 50.0F
-            Else
-                gender = GenderComboBox.SelectedItem
-
-                .ColumnStyles(0).Width = 100.0F
-                .ColumnStyles(1).Width = 0.0F
-            End If
-        End With
+        gender = GenderComboBox.SelectedItem
     End Sub
 
     ' GENDER OTHERS
@@ -155,8 +141,11 @@ Public Class CustomerAddEditModal
     End Sub
 
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender")
+        If Not editMode Then InitCmbDs(-1)
     End Sub
 
+    Public Sub InitCmbDs(index01 As Integer)
+        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
+    End Sub
 End Class
 

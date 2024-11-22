@@ -229,7 +229,6 @@ Public Class EmployeeAddEditModal
         isEmailDuplicate = False
 
         If Not editMode Then InitCmbDs(-1, -1, -1, -1, -1)
-
     End Sub
 
     Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)

@@ -127,13 +127,7 @@
                 .LastNameTxtBox.Text = lastName
 
                 Dim genderIndex = formUtils.FindComboBoxItemByText(.GenderComboBox, custGender)
-
-                If genderIndex <> -1 Then
-                    .GenderComboBox.SelectedIndex = genderIndex
-                Else
-                    .GenderComboBox.SelectedItem = "Others"
-                    .GenderOthersTxtBox.Text = custGender
-                End If
+                .InitCmbDs(genderIndex)
 
                 .EmailTxtBox.Text = custEmail
                 .editMode = True
@@ -250,7 +244,7 @@
 
                 pending = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
                 onHold = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
-                canceled = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
+                canceled = .GetRowByTwoValues("services", "cu       stomer_id", customerID, "service_status", "Canceled").Rows.Count
                 completed = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
                 totalServices = pending + onHold + canceled
 

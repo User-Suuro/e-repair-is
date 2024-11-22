@@ -2,6 +2,8 @@
 Imports Guna.UI2.WinForms
 
 Public Class FormUtils
+    Dim dbHelper As New DbHelper
+
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
         If targetPanel.Controls.Count > 0 Then
@@ -126,4 +128,5 @@ Public Class FormUtils
 
         Return dt
     End Function
+
 End Class
