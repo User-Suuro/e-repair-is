@@ -188,6 +188,8 @@ Public Class ServiceForm
                 .CustomerChangeTxtBox.Text = customerChange
                 .DateClaimedTxtBox.Text = dateClaimed
 
+                .ProfilePathTxtBox.Text = deviceProfilePath
+
                 .ShowDialog()
             End With
         Catch ex As Exception
@@ -327,5 +329,7 @@ Public Class ServiceForm
 
     End Sub
 
+    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
 
+    End Sub
 End Class

@@ -116,7 +116,7 @@ Public Class SupplierAddEditModal
         If Not formUtils.AreAllValuesFilled(insertUpdate) Then Exit Sub
 
         ' COMPARE PREV VALUE
-        Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("supplier", "supplier_id", selectedSupplierID).Rows(0)
+        Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedSupplierID).Rows(0)
 
         If savedPath <> getSupplierPrevValue("company_picture_path") Then insertUpdate.Add("company_picture_path", formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True))
 
@@ -272,7 +272,7 @@ Public Class SupplierAddEditModal
         If Not editMode Then InitCmbDs(-1, -1, -1, -1)
     End Sub
 
-    Public Sub InitCmbDs(index01, index02, index03, index04)
+    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer)
         With dbHelper
             .LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type", index01)
             .LoadEnumsToCmb(ContractTypeCmbBox, "suppliers", "supplier_contract", index02)

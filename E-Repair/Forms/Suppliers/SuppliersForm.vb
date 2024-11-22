@@ -109,6 +109,7 @@ Public Class SuppliersForm
                 .LocationTxtBox.Text = suppLoc
                 .EstDelivTimeTxtBox.Text = deliveryTime
                 .CompanyDescTxtBox.Text = companyDesc
+                .compProfilePath = suppProfilePath
 
                 Dim supplierIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
                 Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)

@@ -64,6 +64,8 @@ Partial Class ServiceViewModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.ProfilePathTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StorageCapacityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -880,10 +882,13 @@ Partial Class ServiceViewModal
         '
         'JobDetailsTableLayout
         '
-        Me.JobDetailsTableLayout.ColumnCount = 3
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.44481!))
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.44481!))
-        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.11037!))
+        Me.JobDetailsTableLayout.ColumnCount = 4
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.JobDetailsTableLayout.Controls.Add(Me.ProfilePathTxtBox, 3, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.Label4, 3, 0)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label1, 1, 0)
         Me.JobDetailsTableLayout.Controls.Add(Me.StorageCapacityTxtBox, 2, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label6, 2, 0)
@@ -899,12 +904,50 @@ Partial Class ServiceViewModal
         Me.JobDetailsTableLayout.Size = New System.Drawing.Size(808, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
         '
+        'ProfilePathTxtBox
+        '
+        Me.ProfilePathTxtBox.BorderRadius = 4
+        Me.ProfilePathTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ProfilePathTxtBox.DefaultText = ""
+        Me.ProfilePathTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ProfilePathTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ProfilePathTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProfilePathTxtBox.DisabledState.Parent = Me.ProfilePathTxtBox
+        Me.ProfilePathTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProfilePathTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ProfilePathTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProfilePathTxtBox.FocusedState.Parent = Me.ProfilePathTxtBox
+        Me.ProfilePathTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProfilePathTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProfilePathTxtBox.HoverState.Parent = Me.ProfilePathTxtBox
+        Me.ProfilePathTxtBox.Location = New System.Drawing.Point(608, 24)
+        Me.ProfilePathTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ProfilePathTxtBox.Name = "ProfilePathTxtBox"
+        Me.ProfilePathTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ProfilePathTxtBox.PlaceholderText = ""
+        Me.ProfilePathTxtBox.ReadOnly = True
+        Me.ProfilePathTxtBox.SelectedText = ""
+        Me.ProfilePathTxtBox.ShadowDecoration.Parent = Me.ProfilePathTxtBox
+        Me.ProfilePathTxtBox.Size = New System.Drawing.Size(198, 26)
+        Me.ProfilePathTxtBox.TabIndex = 40
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(609, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(111, 20)
+        Me.Label4.TabIndex = 39
+        Me.Label4.Text = "Storage Capacity"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(273, 0)
+        Me.Label1.Location = New System.Drawing.Point(205, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 20)
         Me.Label1.TabIndex = 38
@@ -926,7 +969,7 @@ Partial Class ServiceViewModal
         Me.StorageCapacityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StorageCapacityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StorageCapacityTxtBox.HoverState.Parent = Me.StorageCapacityTxtBox
-        Me.StorageCapacityTxtBox.Location = New System.Drawing.Point(542, 24)
+        Me.StorageCapacityTxtBox.Location = New System.Drawing.Point(406, 24)
         Me.StorageCapacityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.StorageCapacityTxtBox.Name = "StorageCapacityTxtBox"
         Me.StorageCapacityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -934,7 +977,7 @@ Partial Class ServiceViewModal
         Me.StorageCapacityTxtBox.ReadOnly = True
         Me.StorageCapacityTxtBox.SelectedText = ""
         Me.StorageCapacityTxtBox.ShadowDecoration.Parent = Me.StorageCapacityTxtBox
-        Me.StorageCapacityTxtBox.Size = New System.Drawing.Size(264, 26)
+        Me.StorageCapacityTxtBox.Size = New System.Drawing.Size(198, 26)
         Me.StorageCapacityTxtBox.TabIndex = 37
         '
         'Label6
@@ -942,7 +985,7 @@ Partial Class ServiceViewModal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(543, 0)
+        Me.Label6.Location = New System.Drawing.Point(407, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(111, 20)
         Me.Label6.TabIndex = 36
@@ -964,7 +1007,7 @@ Partial Class ServiceViewModal
         Me.DeviceModelTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeviceModelTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeviceModelTxtBox.HoverState.Parent = Me.DeviceModelTxtBox
-        Me.DeviceModelTxtBox.Location = New System.Drawing.Point(272, 24)
+        Me.DeviceModelTxtBox.Location = New System.Drawing.Point(204, 24)
         Me.DeviceModelTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DeviceModelTxtBox.Name = "DeviceModelTxtBox"
         Me.DeviceModelTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -972,7 +1015,7 @@ Partial Class ServiceViewModal
         Me.DeviceModelTxtBox.ReadOnly = True
         Me.DeviceModelTxtBox.SelectedText = ""
         Me.DeviceModelTxtBox.ShadowDecoration.Parent = Me.DeviceModelTxtBox
-        Me.DeviceModelTxtBox.Size = New System.Drawing.Size(266, 26)
+        Me.DeviceModelTxtBox.Size = New System.Drawing.Size(198, 26)
         Me.DeviceModelTxtBox.TabIndex = 30
         '
         'DeviceBrandTxtBox
@@ -999,7 +1042,7 @@ Partial Class ServiceViewModal
         Me.DeviceBrandTxtBox.ReadOnly = True
         Me.DeviceBrandTxtBox.SelectedText = ""
         Me.DeviceBrandTxtBox.ShadowDecoration.Parent = Me.DeviceBrandTxtBox
-        Me.DeviceBrandTxtBox.Size = New System.Drawing.Size(266, 26)
+        Me.DeviceBrandTxtBox.Size = New System.Drawing.Size(198, 26)
         Me.DeviceBrandTxtBox.TabIndex = 29
         '
         'Label3
@@ -1724,7 +1767,7 @@ Partial Class ServiceViewModal
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(850, 197)
+        Me.Label10.Location = New System.Drawing.Point(851, 192)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 20)
         Me.Label10.TabIndex = 38
@@ -1734,7 +1777,7 @@ Partial Class ServiceViewModal
         '
         Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(837, 220)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(839, 215)
         Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
         Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
@@ -1886,4 +1929,6 @@ Partial Class ServiceViewModal
     Friend WithEvents Label28 As Label
     Friend WithEvents OperatingSystemTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DeviceTypeTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ProfilePathTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label4 As Label
 End Class

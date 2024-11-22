@@ -1,4 +1,5 @@
-﻿Imports System.Numerics
+﻿Imports System.IO
+Imports System.Numerics
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports LibVLCSharp.[Shared]
 Imports Microsoft.Reporting.Map.WebForms.BingMaps
@@ -288,7 +289,18 @@ Public Class ServiceAddEditModal
         Me.Close()
     End Sub
 
+    ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type")
+        If Not editMode Then LoadCmbDs(-1)
+
+        If File.Exists(deviceImgPath) Then
+            DeviceCirclePictureBox.Image = Image.FromFile(deviceImgPath)
+        End If
+
+    End Sub
+
+    ' LOAD ENUMS TO CMB
+    Public Sub LoadCmbDs(index01)
+        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type", index01)
     End Sub
 End Class
