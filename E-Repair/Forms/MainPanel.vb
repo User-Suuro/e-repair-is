@@ -9,13 +9,18 @@ Public Class MainPanel
     Dim formUtils As New FormUtils
     Dim session As New Session
 
+    Private userPosition As String
+
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AdminTopNavTitle.Text = constants.DashboardTitle
 
         ' READ SESSION VALUES
         Try
             AdminTopNavUsernameLabel.Text = GlobalSession.CurrentSession.FirstName + " " + GlobalSession.CurrentSession.LastName
-            TopNavPositionLabel.Text = GlobalSession.CurrentSession.JobType
+
+            ' SET UP DISPLAY
+            userPosition = GlobalSession.CurrentSession.JobType
+            TopNavPositionLabel.Text = userPosition
 
             Dim imgPath = GlobalSession.CurrentSession.ProfilePath
 
@@ -23,21 +28,49 @@ Public Class MainPanel
                 AdminTopNavProfilePictureBox.Image = Image.FromFile(imgPath)
             End If
 
+            ' SET UP SIDENAVS
+            With constants
+                Select Case userPosition
+                    Case .getAdminString
+                        SidenavCustomersBtn.Visible = True
+                        SidenavServicesBtn.Visible = True
+                        SidenavSuppliersBtn.Visible = True
+                        SidenavInventoryBtn.Visible = True
+                    Case .getCashierString
+                        SidenavCustomersBtn.Visible = True
+                        SidenavServicesBtn.Visible = True
+                    Case .getTechnicianString
+                        SidenavServicesBtn.Visible = True
+                        SidenavInventoryBtn.Visible = True
+                End Select
+            End With
+
             formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         Catch ex As Exception
             MsgBox("Cannot get session value to load the main panel: " & ex.Message)
         End Try
 
         ' load the form depends on posisiton
-
-
-
+        dashboardHandler()
+    End Sub
+    Private Sub dashboardHandler()
+        With constants
+            Select Case userPosition
+                Case .getAdminString
+                    formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
+                Case .getCashierString
+                    formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CashierDashboardForm)
+                Case .getTechnicianString
+                    formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New TechnicianDashboardForm)
+            End Select
+        End With
     End Sub
 
     ' FUNCTIONS FOR NAVIGATION
 
     Private Sub SidenavDashboardBtn_Click(sender As Object, e As EventArgs) Handles SidenavDashboardBtn.Click
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
+        ' Do additional handlers for dashboard
+        dashboardHandler()
         AdminTopNavTitle.Text = constants.DashboardTitle
     End Sub
 

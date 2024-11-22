@@ -52,14 +52,14 @@ Partial Class InventoryForm
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.DeleteEmployeeBtn = New System.Windows.Forms.Button()
         Me.ArchiveEmployeeBtn = New System.Windows.Forms.Button()
         Me.EditEmployeeBtn = New System.Windows.Forms.Button()
         Me.AddEmployeeBtn = New System.Windows.Forms.Button()
         Me.ViewEmployeeBtn = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.SeeSuppliedItemsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -106,7 +106,7 @@ Partial Class InventoryForm
         Me.SeeSuppliedItemsDGV.ReadOnly = True
         Me.SeeSuppliedItemsDGV.RowHeadersVisible = False
         Me.SeeSuppliedItemsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SeeSuppliedItemsDGV.Size = New System.Drawing.Size(960, 505)
+        Me.SeeSuppliedItemsDGV.Size = New System.Drawing.Size(960, 494)
         Me.SeeSuppliedItemsDGV.TabIndex = 37
         Me.SeeSuppliedItemsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -369,7 +369,6 @@ Partial Class InventoryForm
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
         Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
-        Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
@@ -404,6 +403,40 @@ Partial Class InventoryForm
         Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
         Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
         Me.SearchTextBox.TabIndex = 31
+        '
+        'BtnSelect
+        '
+        Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
+        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(880, 566)
+        Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.TabIndex = 41
+        Me.BtnSelect.Text = "Select"
+        Me.BtnSelect.Visible = False
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(27, 567)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 40
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.Visible = False
         '
         'DeleteEmployeeBtn
         '
@@ -516,41 +549,7 @@ Partial Class InventoryForm
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
-        'BtnSelect
-        '
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(880, 566)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSelect.TabIndex = 41
-        Me.BtnSelect.Text = "Select"
-        Me.BtnSelect.Visible = False
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(27, 567)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 40
-        Me.BtnClose.Text = "Close"
-        Me.BtnClose.Visible = False
-        '
-        'AdminInventoryForm
+        'InventoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -561,7 +560,7 @@ Partial Class InventoryForm
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.SeeSuppliedItemsDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "AdminInventoryForm"
+        Me.Name = "InventoryForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminInventoryForm"
         Me.TopMost = True

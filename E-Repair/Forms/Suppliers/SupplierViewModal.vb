@@ -13,9 +13,8 @@ Public Class SupplierViewModal
 
     End Sub
 
-    ' TO DO
     Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
-
+        ' TO DO
     End Sub
 
 

@@ -24,6 +24,7 @@ Partial Class ServiceClaimModal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceClaimModal))
         Me.GenerateReceiptBtn = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PartsCostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -57,8 +58,8 @@ Partial Class ServiceClaimModal
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.GenerateReceiptBtn.SuspendLayout()
+        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -67,7 +68,6 @@ Partial Class ServiceClaimModal
         Me.TableLayoutPanel7.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
-        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GenerateReceiptBtn
@@ -90,6 +90,20 @@ Partial Class ServiceClaimModal
         Me.GenerateReceiptBtn.Size = New System.Drawing.Size(984, 383)
         Me.GenerateReceiptBtn.TabIndex = 2
         Me.GenerateReceiptBtn.Text = "Claim Service"
+        '
+        'DeviceCirclePictureBox
+        '
+        Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
+        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(839, 53)
+        Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"
+        Me.DeviceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.DeviceCirclePictureBox.ShadowDecoration.Parent = Me.DeviceCirclePictureBox
+        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(130, 128)
+        Me.DeviceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.DeviceCirclePictureBox.TabIndex = 56
+        Me.DeviceCirclePictureBox.TabStop = False
+        Me.DeviceCirclePictureBox.UseTransparentBackground = True
         '
         'Guna2Panel2
         '
@@ -682,20 +696,6 @@ Partial Class ServiceClaimModal
         Me.Guna2Separator1.Size = New System.Drawing.Size(1059, 10)
         Me.Guna2Separator1.TabIndex = 44
         '
-        'DeviceCirclePictureBox
-        '
-        Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(839, 53)
-        Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"
-        Me.DeviceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.DeviceCirclePictureBox.ShadowDecoration.Parent = Me.DeviceCirclePictureBox
-        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(130, 128)
-        Me.DeviceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.DeviceCirclePictureBox.TabIndex = 56
-        Me.DeviceCirclePictureBox.TabStop = False
-        Me.DeviceCirclePictureBox.UseTransparentBackground = True
-        '
         'ServiceClaimModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -708,6 +708,7 @@ Partial Class ServiceClaimModal
         Me.Text = "AdminClaimServicesModal"
         Me.TopMost = True
         Me.GenerateReceiptBtn.ResumeLayout(False)
+        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
@@ -720,7 +721,6 @@ Partial Class ServiceClaimModal
         Me.Guna2Panel7.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
-        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

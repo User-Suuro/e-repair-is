@@ -80,6 +80,7 @@ Partial Class MainPanel
         Me.SidenavInventoryBtn.Text = "Inventory"
         Me.SidenavInventoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.SidenavInventoryBtn.UseVisualStyleBackColor = True
+        Me.SidenavInventoryBtn.Visible = False
         '
         'SidenavSuppliersBtn
         '
@@ -98,6 +99,7 @@ Partial Class MainPanel
         Me.SidenavSuppliersBtn.Text = "Suppliers"
         Me.SidenavSuppliersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.SidenavSuppliersBtn.UseVisualStyleBackColor = True
+        Me.SidenavSuppliersBtn.Visible = False
         '
         'SidenavServicesBtn
         '
@@ -116,6 +118,7 @@ Partial Class MainPanel
         Me.SidenavServicesBtn.Text = "Services"
         Me.SidenavServicesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.SidenavServicesBtn.UseVisualStyleBackColor = True
+        Me.SidenavServicesBtn.Visible = False
         '
         'SidenavCustomersBtn
         '
@@ -134,6 +137,7 @@ Partial Class MainPanel
         Me.SidenavCustomersBtn.Text = "Customers"
         Me.SidenavCustomersBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.SidenavCustomersBtn.UseVisualStyleBackColor = True
+        Me.SidenavCustomersBtn.Visible = False
         '
         'Guna2Separator1
         '
@@ -179,6 +183,7 @@ Partial Class MainPanel
         Me.SidenavEmployeesBtn.Text = "Employees" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.SidenavEmployeesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.SidenavEmployeesBtn.UseVisualStyleBackColor = True
+        Me.SidenavEmployeesBtn.Visible = False
         '
         'SidenavDashboardBtn
         '

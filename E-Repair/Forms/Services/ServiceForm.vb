@@ -329,7 +329,9 @@ Public Class ServiceForm
 
     End Sub
 
-    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
+    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+
 End Class

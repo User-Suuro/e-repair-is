@@ -1767,7 +1767,7 @@ Partial Class ServiceViewModal
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(851, 192)
+        Me.Label10.Location = New System.Drawing.Point(851, 207)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 20)
         Me.Label10.TabIndex = 38
@@ -1777,7 +1777,7 @@ Partial Class ServiceViewModal
         '
         Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(839, 215)
+        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(839, 230)
         Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
         Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox

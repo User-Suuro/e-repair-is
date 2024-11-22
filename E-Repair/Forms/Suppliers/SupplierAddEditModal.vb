@@ -63,7 +63,7 @@ Public Class SupplierAddEditModal
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
-            {"added_by", empIDLogged}, ' optional
+            {"estimated_delivery_time", estDelivTime}, ' optional
             {"company_name", compName},
             {"company_description", compDesc},
             {"contact_person", compContactPerson},
@@ -74,8 +74,8 @@ Public Class SupplierAddEditModal
             {"supplier_contract", contractType},
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
-            {"estimated_delivery_time", estDelivTime},
-            {"company_picture_path", savedPath}
+            {"company_picture_path", savedPath},
+            {"added_by", empIDLogged}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
@@ -92,7 +92,6 @@ Public Class SupplierAddEditModal
     End Sub
 
     ' EDIT
-
     Private Sub EditModeFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
@@ -100,6 +99,7 @@ Public Class SupplierAddEditModal
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertUpdate As New Dictionary(Of String, Object) From {
+            {"estimated_delivery_time", estDelivTime}, ' optional
             {"company_name", compName},
             {"company_description", compDesc},
             {"contact_person", compContactPerson},
@@ -110,10 +110,9 @@ Public Class SupplierAddEditModal
             {"supplier_contract", contractType},
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
-            {"estimated_delivery_time", estDelivTime}
         }
 
-        If Not formUtils.AreAllValuesFilled(insertUpdate) Then Exit Sub
+        If Not formUtils.AreAllValuesFilled(insertUpdate, 1) Then Exit Sub
 
         ' COMPARE PREV VALUE
         Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedSupplierID).Rows(0)

@@ -38,19 +38,19 @@ Partial Class AdminDashboardForm
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.ItemsPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.ItemsCountLabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SuppliersPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.SuppliersNumberLabel = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.EmployeesPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.EmployeesCountLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.CustomersPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.CustomersNumberLabel = New System.Windows.Forms.Label()
         Me.StatusCustomersLabel = New System.Windows.Forms.Label()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.ServicesPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.ServicesNumberLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -58,11 +58,11 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusTableLayout.SuspendLayout()
-        Me.Guna2Panel8.SuspendLayout()
-        Me.Guna2Panel7.SuspendLayout()
-        Me.Guna2Panel6.SuspendLayout()
-        Me.Guna2Panel5.SuspendLayout()
-        Me.Guna2Panel1.SuspendLayout()
+        Me.ItemsPanel.SuspendLayout()
+        Me.SuppliersPanel.SuspendLayout()
+        Me.EmployeesPanel.SuspendLayout()
+        Me.CustomersPanel.SuspendLayout()
+        Me.ServicesPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -233,11 +233,11 @@ Partial Class AdminDashboardForm
         Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel8, 4, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel7, 3, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel6, 0, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel5, 2, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel1, 1, 0)
+        Me.StatusTableLayout.Controls.Add(Me.ItemsPanel, 4, 0)
+        Me.StatusTableLayout.Controls.Add(Me.SuppliersPanel, 3, 0)
+        Me.StatusTableLayout.Controls.Add(Me.EmployeesPanel, 0, 0)
+        Me.StatusTableLayout.Controls.Add(Me.CustomersPanel, 2, 0)
+        Me.StatusTableLayout.Controls.Add(Me.ServicesPanel, 1, 0)
         Me.StatusTableLayout.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.StatusTableLayout.Location = New System.Drawing.Point(34, 137)
         Me.StatusTableLayout.Name = "StatusTableLayout"
@@ -246,22 +246,22 @@ Partial Class AdminDashboardForm
         Me.StatusTableLayout.Size = New System.Drawing.Size(1125, 97)
         Me.StatusTableLayout.TabIndex = 6
         '
-        'Guna2Panel8
+        'ItemsPanel
         '
-        Me.Guna2Panel8.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel8.BorderRadius = 4
-        Me.Guna2Panel8.Controls.Add(Me.ItemsCountLabel)
-        Me.Guna2Panel8.Controls.Add(Me.Label2)
-        Me.Guna2Panel8.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel8.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel8.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel8.Location = New System.Drawing.Point(900, 0)
-        Me.Guna2Panel8.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel8.Name = "Guna2Panel8"
-        Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
-        Me.Guna2Panel8.Size = New System.Drawing.Size(213, 85)
-        Me.Guna2Panel8.TabIndex = 8
+        Me.ItemsPanel.BackColor = System.Drawing.Color.Transparent
+        Me.ItemsPanel.BorderRadius = 4
+        Me.ItemsPanel.Controls.Add(Me.ItemsCountLabel)
+        Me.ItemsPanel.Controls.Add(Me.Label2)
+        Me.ItemsPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.ItemsPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.ItemsPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ItemsPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ItemsPanel.Location = New System.Drawing.Point(900, 0)
+        Me.ItemsPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.ItemsPanel.Name = "ItemsPanel"
+        Me.ItemsPanel.ShadowDecoration.Parent = Me.ItemsPanel
+        Me.ItemsPanel.Size = New System.Drawing.Size(213, 85)
+        Me.ItemsPanel.TabIndex = 8
         '
         'ItemsCountLabel
         '
@@ -286,22 +286,22 @@ Partial Class AdminDashboardForm
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Items"
         '
-        'Guna2Panel7
+        'SuppliersPanel
         '
-        Me.Guna2Panel7.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel7.BorderRadius = 4
-        Me.Guna2Panel7.Controls.Add(Me.SuppliersNumberLabel)
-        Me.Guna2Panel7.Controls.Add(Me.Label11)
-        Me.Guna2Panel7.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel7.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel7.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel7.Location = New System.Drawing.Point(675, 0)
-        Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(213, 85)
-        Me.Guna2Panel7.TabIndex = 7
+        Me.SuppliersPanel.BackColor = System.Drawing.Color.Transparent
+        Me.SuppliersPanel.BorderRadius = 4
+        Me.SuppliersPanel.Controls.Add(Me.SuppliersNumberLabel)
+        Me.SuppliersPanel.Controls.Add(Me.Label11)
+        Me.SuppliersPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.SuppliersPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.SuppliersPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuppliersPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SuppliersPanel.Location = New System.Drawing.Point(675, 0)
+        Me.SuppliersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.SuppliersPanel.Name = "SuppliersPanel"
+        Me.SuppliersPanel.ShadowDecoration.Parent = Me.SuppliersPanel
+        Me.SuppliersPanel.Size = New System.Drawing.Size(213, 85)
+        Me.SuppliersPanel.TabIndex = 7
         '
         'SuppliersNumberLabel
         '
@@ -326,22 +326,22 @@ Partial Class AdminDashboardForm
         Me.Label11.TabIndex = 2
         Me.Label11.Text = "Suppliers"
         '
-        'Guna2Panel6
+        'EmployeesPanel
         '
-        Me.Guna2Panel6.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel6.BorderRadius = 4
-        Me.Guna2Panel6.Controls.Add(Me.EmployeesCountLabel)
-        Me.Guna2Panel6.Controls.Add(Me.Label13)
-        Me.Guna2Panel6.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel6.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel6.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(213, 85)
-        Me.Guna2Panel6.TabIndex = 6
+        Me.EmployeesPanel.BackColor = System.Drawing.Color.Transparent
+        Me.EmployeesPanel.BorderRadius = 4
+        Me.EmployeesPanel.Controls.Add(Me.EmployeesCountLabel)
+        Me.EmployeesPanel.Controls.Add(Me.Label13)
+        Me.EmployeesPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.EmployeesPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.EmployeesPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.EmployeesPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.EmployeesPanel.Location = New System.Drawing.Point(0, 0)
+        Me.EmployeesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.EmployeesPanel.Name = "EmployeesPanel"
+        Me.EmployeesPanel.ShadowDecoration.Parent = Me.EmployeesPanel
+        Me.EmployeesPanel.Size = New System.Drawing.Size(213, 85)
+        Me.EmployeesPanel.TabIndex = 6
         '
         'EmployeesCountLabel
         '
@@ -366,22 +366,22 @@ Partial Class AdminDashboardForm
         Me.Label13.TabIndex = 2
         Me.Label13.Text = "Employees"
         '
-        'Guna2Panel5
+        'CustomersPanel
         '
-        Me.Guna2Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel5.BorderRadius = 4
-        Me.Guna2Panel5.Controls.Add(Me.CustomersNumberLabel)
-        Me.Guna2Panel5.Controls.Add(Me.StatusCustomersLabel)
-        Me.Guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel5.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel5.Location = New System.Drawing.Point(450, 0)
-        Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(213, 85)
-        Me.Guna2Panel5.TabIndex = 5
+        Me.CustomersPanel.BackColor = System.Drawing.Color.Transparent
+        Me.CustomersPanel.BorderRadius = 4
+        Me.CustomersPanel.Controls.Add(Me.CustomersNumberLabel)
+        Me.CustomersPanel.Controls.Add(Me.StatusCustomersLabel)
+        Me.CustomersPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.CustomersPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.CustomersPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomersPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.CustomersPanel.Location = New System.Drawing.Point(450, 0)
+        Me.CustomersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.CustomersPanel.Name = "CustomersPanel"
+        Me.CustomersPanel.ShadowDecoration.Parent = Me.CustomersPanel
+        Me.CustomersPanel.Size = New System.Drawing.Size(213, 85)
+        Me.CustomersPanel.TabIndex = 5
         '
         'CustomersNumberLabel
         '
@@ -406,22 +406,22 @@ Partial Class AdminDashboardForm
         Me.StatusCustomersLabel.TabIndex = 2
         Me.StatusCustomersLabel.Text = "Customers"
         '
-        'Guna2Panel1
+        'ServicesPanel
         '
-        Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel1.BorderRadius = 4
-        Me.Guna2Panel1.Controls.Add(Me.ServicesNumberLabel)
-        Me.Guna2Panel1.Controls.Add(Me.Label3)
-        Me.Guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel1.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel1.Location = New System.Drawing.Point(225, 0)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(213, 85)
-        Me.Guna2Panel1.TabIndex = 3
+        Me.ServicesPanel.BackColor = System.Drawing.Color.Transparent
+        Me.ServicesPanel.BorderRadius = 4
+        Me.ServicesPanel.Controls.Add(Me.ServicesNumberLabel)
+        Me.ServicesPanel.Controls.Add(Me.Label3)
+        Me.ServicesPanel.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.ServicesPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.ServicesPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ServicesPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ServicesPanel.Location = New System.Drawing.Point(225, 0)
+        Me.ServicesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.ServicesPanel.Name = "ServicesPanel"
+        Me.ServicesPanel.ShadowDecoration.Parent = Me.ServicesPanel
+        Me.ServicesPanel.Size = New System.Drawing.Size(213, 85)
+        Me.ServicesPanel.TabIndex = 3
         '
         'ServicesNumberLabel
         '
@@ -465,16 +465,16 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.PerformLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusTableLayout.ResumeLayout(False)
-        Me.Guna2Panel8.ResumeLayout(False)
-        Me.Guna2Panel8.PerformLayout()
-        Me.Guna2Panel7.ResumeLayout(False)
-        Me.Guna2Panel7.PerformLayout()
-        Me.Guna2Panel6.ResumeLayout(False)
-        Me.Guna2Panel6.PerformLayout()
-        Me.Guna2Panel5.ResumeLayout(False)
-        Me.Guna2Panel5.PerformLayout()
-        Me.Guna2Panel1.ResumeLayout(False)
-        Me.Guna2Panel1.PerformLayout()
+        Me.ItemsPanel.ResumeLayout(False)
+        Me.ItemsPanel.PerformLayout()
+        Me.SuppliersPanel.ResumeLayout(False)
+        Me.SuppliersPanel.PerformLayout()
+        Me.EmployeesPanel.ResumeLayout(False)
+        Me.EmployeesPanel.PerformLayout()
+        Me.CustomersPanel.ResumeLayout(False)
+        Me.CustomersPanel.PerformLayout()
+        Me.ServicesPanel.ResumeLayout(False)
+        Me.ServicesPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -491,19 +491,19 @@ Partial Class AdminDashboardForm
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents StatusTableLayout As TableLayoutPanel
-    Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents ItemsPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ItemsCountLabel As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SuppliersPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents SuppliersNumberLabel As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents EmployeesPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents EmployeesCountLabel As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents CustomersPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents CustomersNumberLabel As Label
     Friend WithEvents StatusCustomersLabel As Label
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents ServicesPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ServicesNumberLabel As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label10 As Label
