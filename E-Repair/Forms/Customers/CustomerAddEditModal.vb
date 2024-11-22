@@ -87,7 +87,12 @@ Public Class CustomerAddEditModal
 
         If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
 
-        If dbHelper.UpdateRecord("customers", "customer_id", selectedCustomerID, insertUpdate) Then MsgBox("Customer Successfully Updated")
+        If dbHelper.UpdateRecord("customers", "customer_id", selectedCustomerID, insertUpdate) Then
+
+            MsgBox("Customer Successfully Updated")
+        Else
+            MsgBox("Db Problem")
+        End If
 
         Me.Close()
 
@@ -120,9 +125,7 @@ Public Class CustomerAddEditModal
 
     ' GENDER OTHERS
     Private Sub GenderOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles GenderOthersTxtBox.TextChanged
-        If GenderComboBox.SelectedItem = "Others" Then
-            gender = GenderOthersTxtBox.Text
-        End If
+
     End Sub
 
     ' EMAIL

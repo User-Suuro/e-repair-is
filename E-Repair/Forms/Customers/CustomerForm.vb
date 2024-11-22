@@ -120,6 +120,7 @@
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
                 .CustomerModalGroupBox.Text = "Edit Customer"
+                .InitCmbDs(-1)
 
                 .selectedCustomerID = customerID
                 .FirstNameTxtBox.Text = firstName
@@ -244,7 +245,7 @@
 
                 pending = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
                 onHold = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
-                canceled = .GetRowByTwoValues("services", "cu       stomer_id", customerID, "service_status", "Canceled").Rows.Count
+                canceled = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
                 completed = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
                 totalServices = pending + onHold + canceled
 
@@ -385,7 +386,5 @@
         Me.Close()
     End Sub
 
-    Private Sub CustomerDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles CustomerDGV.CellContentClick
 
-    End Sub
 End Class
