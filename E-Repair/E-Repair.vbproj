@@ -176,7 +176,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumItem.vb" />
     <Compile Include="Forms\Customers\CustomerForm.Designer.vb">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </Compile>
