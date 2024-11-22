@@ -316,9 +316,9 @@ Public Class EmployeeForm
                 ' JOBS
                 .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
 
-                If .JobTypeComboBox.Text = constants.getAdminString Then
+                If .JobTypeComboBox.SelectedItem = constants.getAdminString Then
                     adminPosIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
-                ElseIf .JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
+                ElseIf .JobTypeComboBox.SelectedItem = constants.getUtilityPersonnelString Then
                     .AssignedLocationTextBox.Text = utilityPersonnelDestination
                 End If
 
@@ -341,7 +341,7 @@ Public Class EmployeeForm
                 .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
                 .ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
 
-                .InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
+                .InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex )
 
                 .ShowDialog()
             End With

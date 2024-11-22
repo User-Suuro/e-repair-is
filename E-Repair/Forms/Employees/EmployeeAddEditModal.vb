@@ -228,7 +228,8 @@ Public Class EmployeeAddEditModal
         AlreadyTakenLabel.Visible = False
         isEmailDuplicate = False
 
-        InitCmbDs(-1, -1, -1, -1, -1)
+        If Not editMode Then InitCmbDs(-1, -1, -1, -1, -1)
+
     End Sub
 
     Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
@@ -422,6 +423,5 @@ Public Class EmployeeAddEditModal
             PassMismatchLabel.Visible = False
         End If
     End Sub
-
 
 End Class
