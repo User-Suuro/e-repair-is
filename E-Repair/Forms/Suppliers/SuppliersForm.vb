@@ -149,7 +149,6 @@ Public Class SuppliersForm
 
             With supplierAddEditModal
                 .Owner = formModal
-                .StartPosition = FormStartPosition.CenterScreen
                 .SupplierModalGroupBox.Text = "Edit Supplier"
                 .InitCmbDs(-1, -1, -1, -1)
 
@@ -219,58 +218,16 @@ Public Class SuppliersForm
     ' ARCHIVE
     Private Sub ArchiveSupplierBtn_Click(sender As Object, e As EventArgs) Handles ArchiveSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-
-        Dim loggedUser As String
-
-        If archivedStatus Then
-            MsgBox("This supplier is already archived!")
-            Exit Sub
-        End If
-
-        Try
-            loggedUser = GlobalSession.CurrentSession.EmployeeID
-
-        Catch ex As Exception
-            loggedUser = "N/A"
-            MsgBox("There is no current active user!")
-        End Try
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Suppplier?") Then Exit Sub
-
-        Dim updatedValues As New Dictionary(Of String, Object) From {
-            {"archived", True},
-            {"archived_by", loggedUser},
-            {"date_archived", DateTime.Now}
-        }
-
-        Try
-            dbHelper.UpdateRecord("suppliers", "supplier_id", suppID, updatedValues)
-
-            MsgBox("Successfull Archived")
-            LoadDataToDGV()
-
-        Catch ex As Exception
-            MsgBox("Cannot archive the selected supplier: " & ex.Message)
-        End Try
-    End Sub
-
-    ' DELETE
-    Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
-        If Not InitValues() Then Exit Sub
-
-        If Not archivedStatus Then
-            MsgBox("Archive the supplier first")
-            Exit Sub
-        End If
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this Suppplier?") Then Exit Sub
-
-        If dbHelper.DeleteRowById("suppliers", "supplier_id", suppID) Then MsgBox("Successfull Deleted")
-
+        formUtils.archiveRow(archivedStatus, "suppliers", "supplier_id", suppID)
         LoadDataToDGV()
     End Sub
 
-
+    ' DELETE
+    Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
+        If Not InitValues() Then Exit Sub
+        formUtils.delRow(archivedStatus, "suppliers", "supplier_id", suppID)
+        LoadDataToDGV()
+    End Sub
 
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -280,13 +237,6 @@ Public Class SuppliersForm
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
-        Dim suppliersTable As DataTable
-
-        If ShowArchiveCheckBox.Checked Then
-            suppliersTable = dbHelper.GetAllRowsFromTable("suppliers", True, True)
-        Else
-            suppliersTable = dbHelper.GetAllRowsFromTable("suppliers", False)
-        End If
 
         Dim searchValues() As String = {
            "company_name",
@@ -299,14 +249,14 @@ Public Class SuppliersForm
            "date_added"
         }
 
-        If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            suppliersTable = formUtils.SearchFunction(suppliersTable, searchTerm, searchValues, SearchComboBox.SelectedIndex)
-        End If
+        formUtils.LoadToDGV(SuppliersDGV, "suppliers", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
+        formUtils.FormatDGVForArchive(SuppliersDGV)
+    End Sub
 
-        SuppliersDGV.AutoGenerateColumns = True
-        SuppliersDGV.DataSource = suppliersTable
-
-        FormatDataGridViewRows()
+    ' SHOW ARCHIVE CHECKBOX
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        LoadDataToDGV()
+        formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
     End Sub
 
     ' SEARCH
@@ -314,62 +264,7 @@ Public Class SuppliersForm
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
-    ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        LoadDataToDGV()
-
-        If ShowArchiveCheckBox.Checked Then
-            DeleteServiceBtn.Visible = True
-            ArchiveSupplierBtn.Visible = False
-            EditSupplierBtn.Visible = False
-            AddSupplierBtn.Visible = False
-
-            SuppliersDGV.Columns("DATE_ARCHIVED").Visible = True
-            SuppliersDGV.Columns("ARCHIVED_BY").Visible = True
-        Else
-            DeleteServiceBtn.Visible = False
-            ArchiveSupplierBtn.Visible = True
-            EditSupplierBtn.Visible = True
-            AddSupplierBtn.Visible = True
-            SuppliersDGV.Columns("DATE_ARCHIVED").Visible = False
-            SuppliersDGV.Columns("ARCHIVED_BY").Visible = False
-        End If
-    End Sub
-
-    ' ROW STYLES
-    Private Sub FormatDataGridViewRows()
-        Try
-            For Each row As DataGridViewRow In SuppliersDGV.Rows
-
-                If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
-                    row.DefaultCellStyle.BackColor = Color.LightPink
-                Else
-                    row.DefaultCellStyle.BackColor = Color.White ' Default color
-                End If
-
-                If row.Cells("SUPPLIED_ITEMS").Value Then
-                    row.Cells("SUPPLIED_ITEMS").Value = dbHelper.GetRowByValue("suppliers", "supplier_id", row.Cells("supplier_id").Value).Rows.Count
-                End If
-            Next
-
-            For Each row As DataGridViewRow In SuppliersDGV.Rows
-                If row.Cells("ARCHIVED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ARCHIVED_BY").Value) Then
-                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ARCHIVED_BY").Value)
-
-                    If getEmpData.Rows.Count > 0 Then
-                        row.Cells("ARCHIVED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
-                    End If
-                End If
-            Next
-        Catch ex As Exception
-            MsgBox("Unable to style DGV: " & ex.Message)
-        End Try
-    End Sub
-
-    Private Sub SuppliersDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SuppliersDGV.CellContentClick
-
-    End Sub
-
+    ' SELECT
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
 
     End Sub

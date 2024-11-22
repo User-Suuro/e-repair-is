@@ -22,10 +22,10 @@ Partial Class SuppliersForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -35,7 +35,7 @@ Partial Class SuppliersForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DeleteServiceBtn = New System.Windows.Forms.Button()
+        Me.DeleteSupplierBtn = New System.Windows.Forms.Button()
         Me.ArchiveSupplierBtn = New System.Windows.Forms.Button()
         Me.EditSupplierBtn = New System.Windows.Forms.Button()
         Me.AddSupplierBtn = New System.Windows.Forms.Button()
@@ -209,7 +209,7 @@ Partial Class SuppliersForm
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.DeleteServiceBtn)
+        Me.Panel3.Controls.Add(Me.DeleteSupplierBtn)
         Me.Panel3.Controls.Add(Me.ArchiveSupplierBtn)
         Me.Panel3.Controls.Add(Me.EditSupplierBtn)
         Me.Panel3.Controls.Add(Me.AddSupplierBtn)
@@ -221,24 +221,24 @@ Partial Class SuppliersForm
         Me.Panel3.Size = New System.Drawing.Size(65, 427)
         Me.Panel3.TabIndex = 0
         '
-        'DeleteServiceBtn
+        'DeleteSupplierBtn
         '
-        Me.DeleteServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DeleteServiceBtn.FlatAppearance.BorderSize = 0
-        Me.DeleteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.DeleteServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeleteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.DeleteServiceBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
-        Me.DeleteServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteServiceBtn.Location = New System.Drawing.Point(0, 300)
-        Me.DeleteServiceBtn.Name = "DeleteServiceBtn"
-        Me.DeleteServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.DeleteServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.DeleteServiceBtn.TabIndex = 29
-        Me.DeleteServiceBtn.Text = "Delete"
-        Me.DeleteServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.DeleteServiceBtn.UseVisualStyleBackColor = True
-        Me.DeleteServiceBtn.Visible = False
+        Me.DeleteSupplierBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeleteSupplierBtn.FlatAppearance.BorderSize = 0
+        Me.DeleteSupplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteSupplierBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteSupplierBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.DeleteSupplierBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
+        Me.DeleteSupplierBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.DeleteSupplierBtn.Location = New System.Drawing.Point(0, 300)
+        Me.DeleteSupplierBtn.Name = "DeleteSupplierBtn"
+        Me.DeleteSupplierBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.DeleteSupplierBtn.Size = New System.Drawing.Size(65, 75)
+        Me.DeleteSupplierBtn.TabIndex = 29
+        Me.DeleteSupplierBtn.Text = "Delete"
+        Me.DeleteSupplierBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.DeleteSupplierBtn.UseVisualStyleBackColor = True
+        Me.DeleteSupplierBtn.Visible = False
         '
         'ArchiveSupplierBtn
         '
@@ -326,8 +326,8 @@ Partial Class SuppliersForm
         '
         Me.SuppliersDGV.AllowUserToAddRows = False
         Me.SuppliersDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.SuppliersDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.SuppliersDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.SuppliersDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -336,32 +336,32 @@ Partial Class SuppliersForm
         Me.SuppliersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.SuppliersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.SuppliersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SuppliersDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SuppliersDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.SuppliersDGV.ColumnHeadersHeight = 48
         Me.SuppliersDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SUPPLIER_ID, Me.COMPANY_NAME, Me.COMPANY_DESCRIPTION, Me.CONTACT_PERSON, Me.CONTACT_NUMBER, Me.COMPANY_EMAIL, Me.LOCATION, Me.SUPPLIER_TYPE, Me.SUPPLIER_CONTRACT, Me.BANK_DETAILS, Me.PAYMENT_TERMS, Me.ESTIMATED_DELIVERY_TIME, Me.TOTAL_PAID, Me.SUPPLIED_ITEMS, Me.PICTURE_PATH, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.SuppliersDGV.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.SuppliersDGV.DefaultCellStyle = DataGridViewCellStyle7
         Me.SuppliersDGV.EnableHeadersVisualStyles = False
         Me.SuppliersDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.SuppliersDGV.Location = New System.Drawing.Point(12, 66)
         Me.SuppliersDGV.Name = "SuppliersDGV"
         Me.SuppliersDGV.ReadOnly = True
         Me.SuppliersDGV.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.SuppliersDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        Me.SuppliersDGV.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.SuppliersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.SuppliersDGV.Size = New System.Drawing.Size(986, 495)
         Me.SuppliersDGV.TabIndex = 34
@@ -606,7 +606,7 @@ Partial Class SuppliersForm
     Friend WithEvents AdminSidenavPanel As Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents DeleteServiceBtn As Button
+    Friend WithEvents DeleteSupplierBtn As Button
     Friend WithEvents ArchiveSupplierBtn As Button
     Friend WithEvents EditSupplierBtn As Button
     Friend WithEvents AddSupplierBtn As Button

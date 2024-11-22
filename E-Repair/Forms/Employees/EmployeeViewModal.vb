@@ -2,8 +2,17 @@
     Dim formUtils As New FormUtils
     Dim constants As New Constants
 
+    Public Property viewSelectedID As Integer = -1
+
     Private Sub AdminViewEmployeeModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ManageJobDescriptionView()
+
+        If viewSelectedID = -1 Then Exit Sub
+
+
+
+
+
     End Sub
 
     Private Sub ManageJobDescriptionView()
