@@ -18,10 +18,10 @@ Public Class SupplierAddEditModal
     Dim estDelivTime As String = ""
     Dim compDesc As String = ""
 
-    Dim supplierType As EnumItem = Nothing
-    Dim contractType As EnumItem = Nothing
-    Dim bankDetails As EnumItem = Nothing
-    Dim paymentTerms As EnumItem = Nothing
+    Dim supplierType As String = ""
+    Dim contractType As String = ""
+    Dim bankDetails As String = ""
+    Dim paymentTerms As String = ""
 
     Public Property editMode As Boolean = False
     Public Property selectedSupplierID As Integer = -1

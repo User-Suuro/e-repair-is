@@ -45,8 +45,7 @@ Public Class FormUtils
         Return index
     End Function
 
-    ' CREATE BG FORM
-
+    ' Create Bg Form
     Public Function CreateBgFormModal() As Form
 
         Dim form As New Form
@@ -127,7 +126,4 @@ Public Class FormUtils
 
         Return dt
     End Function
-
-
-
 End Class

@@ -432,14 +432,16 @@ Public Class DbHelper
             readQuery(query, True)
 
             If cmdRead IsNot Nothing AndAlso cmdRead.Read() Then
-                ' remove (quote)
                 Dim columnType As String = cmdRead("Type").ToString()
+
+                ' remove quote
                 Dim match As Match = Regex.Match(columnType, "^enum\('(.*)'\)$")
 
-                ' remove (comma)
                 If match.Success Then
+                    ' remove comma
                     Dim rawValues As String = match.Groups(1).Value.Replace(",", "")
-                    enumValues = rawValues.Split("','").ToList()
+                    ' remove whitespaces
+                    enumValues = match.Groups(1).Value.Split("','").Select(Function(v) v.Replace(",", "").Trim()).ToList()
                 End If
 
                 cmdRead.Close()
