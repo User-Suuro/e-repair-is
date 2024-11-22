@@ -1783,7 +1783,7 @@ Partial Class EmployeeViewModal
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ProfileCirclePictureBox.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
-        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(678, 79)
+        Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(678, 54)
         Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
         Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.ProfileCirclePictureBox.ShadowDecoration.Parent = Me.ProfileCirclePictureBox

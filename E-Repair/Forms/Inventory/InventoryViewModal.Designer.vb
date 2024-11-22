@@ -24,7 +24,6 @@ Partial Class InventoryViewModal
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -111,7 +110,6 @@ Partial Class InventoryViewModal
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel12)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel10)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel7)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel6)
@@ -137,22 +135,6 @@ Partial Class InventoryViewModal
         Me.Guna2Separator3.Size = New System.Drawing.Size(704, 13)
         Me.Guna2Separator3.TabIndex = 37
         '
-        'BtnSave
-        '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(580, 548)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 36
-        Me.BtnSave.Text = "Save"
-        '
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
@@ -167,7 +149,7 @@ Partial Class InventoryViewModal
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 35
-        Me.BtnClose.Text = "Cancel"
+        Me.BtnClose.Text = "Close"
         '
         'Guna2Panel7
         '
@@ -488,7 +470,7 @@ Partial Class InventoryViewModal
         Me.SelectSupplierBtn.ShadowDecoration.Parent = Me.SelectSupplierBtn
         Me.SelectSupplierBtn.Size = New System.Drawing.Size(163, 28)
         Me.SelectSupplierBtn.TabIndex = 42
-        Me.SelectSupplierBtn.Text = "Select Supplier"
+        Me.SelectSupplierBtn.Text = "See Supplier"
         '
         'Label7
         '
@@ -1186,7 +1168,6 @@ Partial Class InventoryViewModal
     Friend WithEvents Label15 As Label
     Friend WithEvents Guna2TextBox6 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel

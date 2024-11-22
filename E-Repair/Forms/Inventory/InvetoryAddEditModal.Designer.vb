@@ -384,7 +384,7 @@ Partial Class InvetoryAddEditModal
         Me.SelectSupplierBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SelectSupplierBtn.Name = "SelectSupplierBtn"
         Me.SelectSupplierBtn.ShadowDecoration.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.Size = New System.Drawing.Size(153, 28)
+        Me.SelectSupplierBtn.Size = New System.Drawing.Size(163, 28)
         Me.SelectSupplierBtn.TabIndex = 42
         Me.SelectSupplierBtn.Text = "Select Supplier"
         '
