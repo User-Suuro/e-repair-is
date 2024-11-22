@@ -33,8 +33,6 @@ Public Class ServiceAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this service?")) Then Exit Sub
 
-        Cursor = Cursors.WaitCursor
-
         Dim empIDLogged As Integer
 
         Try
@@ -50,7 +48,7 @@ Public Class ServiceAddEditModal
           {"technician_id", technicianID},
           {"cashier_id", empIDLogged},
           {"device_type", deviceType},
-          {"device_profile_path", deviceImgPath},
+          {"device_profile_path", savedPath},
           {"device_model", deviceModel},
           {"device_brand", deviceBrand},
           {"operating_system", operatingSystem},
@@ -65,7 +63,6 @@ Public Class ServiceAddEditModal
             MsgBox("Unable to save service record")
         End If
 
-        Cursor = Cursors.Default
 
         Me.Close()
     End Sub
@@ -75,8 +72,6 @@ Public Class ServiceAddEditModal
     Private Sub EditDataFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this service?")) Then Exit Sub
-
-        Cursor = Cursors.WaitCursor
 
         Dim updateData As New Dictionary(Of String, Object) From {
             {"customer_id", customerID},
@@ -99,8 +94,6 @@ Public Class ServiceAddEditModal
         Else
             MsgBox("Unable to update service details")
         End If
-
-        Cursor = Cursors.Default
 
         Me.Close()
     End Sub
@@ -275,12 +268,15 @@ Public Class ServiceAddEditModal
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Try
+            Cursor = Cursors.WaitCursor
             If editMode Then
                 EditDataFunction()
             Else
                 AddDataFunction()
             End If
+            Cursor = Cursors.Default
         Catch ex As Exception
+            Cursor = Cursors.Default
             MsgBox("Failed to save / edit: " & ex.Message)
         End Try
     End Sub

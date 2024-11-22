@@ -183,11 +183,9 @@ Public Class EmployeeForm
 
                 .EmailTextBox.Text = empEmail
 
-                If (empPassword <> "") Then
-                    .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
-                Else
-                    .PasswordTextBox.Text = "N/A"
-                End If
+
+                .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
+
 
                 ' ARCHIVE INFO
 

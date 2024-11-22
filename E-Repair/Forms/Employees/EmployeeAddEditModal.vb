@@ -51,11 +51,9 @@ Public Class EmployeeAddEditModal
         ' Exit if canceled
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
 
-        Cursor = Cursors.WaitCursor
-
         Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
-        Dim empIDLogged As Integer = empIDLogged = GlobalSession.CurrentSession.EmployeeID
+        Dim empIDLogged As Integer = GlobalSession.CurrentSession.EmployeeID
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"middlename", middleName}, ' Exception
@@ -72,7 +70,7 @@ Public Class EmployeeAddEditModal
             {"employment_status", contractStatus},
             {"date_hired", dateHired},
             {"job_type", jobType},
-            {"profile_path", profileImgPath},
+            {"profile_path", savedPath},
             {"email", email},
             {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
             {"added_by", empIDLogged}
@@ -119,8 +117,6 @@ Public Class EmployeeAddEditModal
 
         formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
 
-        Cursor = Cursors.Default
-
         MsgBox("Employee Successfully Added")
 
         Me.Close()
@@ -129,8 +125,6 @@ Public Class EmployeeAddEditModal
     Private Sub EditEmpFunction()
 
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
-
-        Cursor = Cursors.WaitCursor
 
         ' UPDATE EMPLOYEE
         Dim updateData As New Dictionary(Of String, Object) From {
@@ -191,8 +185,6 @@ Public Class EmployeeAddEditModal
             MsgBox("Db Failure")
         End If
 
-        Cursor = Cursors.Default
-
         Me.Close()
     End Sub
 
@@ -204,6 +196,7 @@ Public Class EmployeeAddEditModal
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
+        ' Additional checkers
         If isEmailDuplicate AndAlso email <> emailFirstValue Then
             MsgBox("This email is already saved in database. Please try other emails")
             Exit Sub
@@ -215,11 +208,13 @@ Public Class EmployeeAddEditModal
         End If
 
         Try
+            Cursor = Cursors.WaitCursor
             If editMode Then
                 EditEmpFunction()
             Else
                 CreateEmpFunction()
             End If
+            Cursor = Cursors.Default
         Catch ex As Exception
             MsgBox("Failed to Edit / Add Employee: " & ex.Message)
         End Try

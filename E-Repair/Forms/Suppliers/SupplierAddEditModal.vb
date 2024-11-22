@@ -31,15 +31,17 @@ Public Class SupplierAddEditModal
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
         Try
+            Cursor = Cursors.WaitCursor
             If editMode Then
                 EditModeFunction()
             Else
                 AddSupplierFunction()
             End If
+            Cursor = Cursors.Default
         Catch ex As Exception
+            Cursor = Cursors.Default
             MsgBox("Failed to save / edit supplier: " & ex.Message)
         End Try
-
     End Sub
 
     ' ADD 
@@ -48,8 +50,6 @@ Public Class SupplierAddEditModal
 
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then Exit Sub
-
-        Cursor = Cursors.WaitCursor
 
         Dim empIDLogged As Integer
 
@@ -87,8 +87,6 @@ Public Class SupplierAddEditModal
             MsgBox("Db Failure!")
         End If
 
-        Cursor = Cursors.Default
-
         Me.Close()
 
     End Sub
@@ -98,8 +96,6 @@ Public Class SupplierAddEditModal
     Private Sub EditModeFunction()
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
-
-        Cursor = Cursors.WaitCursor
 
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
@@ -129,10 +125,6 @@ Public Class SupplierAddEditModal
         Else
             MsgBox("Db Failure!")
         End If
-
-        If Not File.Exists(savedPath) Then formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
-
-        Cursor = Cursors.WaitCursor
 
         Me.Close()
 
@@ -277,9 +269,6 @@ Public Class SupplierAddEditModal
             .LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details")
             .LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
         End With
-
-
     End Sub
-
 
 End Class

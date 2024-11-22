@@ -20,17 +20,18 @@ Public Class CustomerAddEditModal
 
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-
         Try
+            Cursor = Cursors.WaitCursor
             If editMode Then
                 EditCustomerFunction()
             Else
                 AddCustomerFunction()
             End If
+            Cursor = Cursors.Default
         Catch ex As Exception
+            Cursor = Cursors.Default
             MsgBox("Failed to save / edit customer: " & ex.Message)
         End Try
-
     End Sub
 
     ' ADD 
@@ -156,5 +157,6 @@ Public Class CustomerAddEditModal
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender")
     End Sub
+
 End Class
 
