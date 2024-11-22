@@ -120,12 +120,29 @@ Public Class CustomerAddEditModal
 
     ' GENDER COMBO BOX
     Private Sub GenderComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GenderComboBox.SelectedIndexChanged
+
+        'With GenderTableLayout
+        '    ' Default
+        '    .ColumnStyles(0).Width = 100.0F
+        '    .ColumnStyles(1).Width = 0.0F
+        '    If GenderComboBox.SelectedItem = "Others" Then
+        '        .ColumnStyles(0).Width = 50.0F
+        '        .ColumnStyles(1).Width = 50.0F
+        '    Else
+        '        gender = GenderComboBox.SelectedItem
+        '        .ColumnStyles(0).Width = 100.0F
+        '        .ColumnStyles(1).Width = 0.0F
+        '    End If
+        'End With
+
         gender = GenderComboBox.SelectedItem
     End Sub
 
     ' GENDER OTHERS
     Private Sub GenderOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles GenderOthersTxtBox.TextChanged
-
+        'If GenderComboBox.SelectedItem = "Others" Then
+        '    gender = GenderOthersTxtBox.Text
+        'End If
     End Sub
 
     ' EMAIL

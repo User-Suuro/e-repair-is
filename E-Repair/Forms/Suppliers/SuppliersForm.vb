@@ -100,6 +100,7 @@ Public Class SuppliersForm
             With supplierAddEditModal
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
+                .InitCmbDs(-1, -1, -1, -1)
 
                 .CompanyNameTxtBox.Text = suppCompName
                 .ContactPersonTxtBox.Text = contactPerson
@@ -113,35 +114,38 @@ Public Class SuppliersForm
                 Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
                 Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
                 Dim paymentIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
-                Dim othersChoice As String = "Others"
 
-                If supplierIndex = -1 Then
-                    .SupplierTypeCmbBox.SelectedItem = othersChoice
-                    .SupplierTypeIfOthersTxtBox.Text = supplierType
-                Else
-                    .SupplierTypeCmbBox.SelectedIndex = supplierIndex
-                End If
+                .InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
 
-                If contractIndex = -1 Then
-                    .ContractTypeCmbBox.SelectedItem = othersChoice
-                    .ContractTypeIfOthersTxtBox.Text = contractType
-                Else
-                    .ContractTypeCmbBox.SelectedIndex = contractIndex
-                End If
+                'Dim othersChoice As String = "Others"
 
-                If BankIndex = -1 Then
-                    .BnkDetailsCmbBox.SelectedItem = othersChoice
-                    .BankDetailsIfOthersTxtBox.Text = bankDetails
-                Else
-                    .BnkDetailsCmbBox.SelectedIndex = BankIndex
-                End If
+                'If supplierIndex = -1 Then
+                '    .SupplierTypeCmbBox.SelectedItem = othersChoice
+                '    .SupplierTypeIfOthersTxtBox.Text = supplierType
+                'Else
+                '    .SupplierTypeCmbBox.SelectedIndex = supplierIndex
+                'End If
 
-                If paymentIndex = -1 Then
-                    .PaymentTermsCmbBox.SelectedItem = othersChoice
-                    .PaymentTermsIfOthersTxtBox.Text = paymentTerms
-                Else
-                    .PaymentTermsCmbBox.SelectedIndex = paymentIndex
-                End If
+                'If contractIndex = -1 Then
+                '    .ContractTypeCmbBox.SelectedItem = othersChoice
+                '    .ContractTypeIfOthersTxtBox.Text = contractType
+                'Else
+                '    .ContractTypeCmbBox.SelectedIndex = contractIndex
+                'End If
+
+                'If BankIndex = -1 Then
+                '    .BnkDetailsCmbBox.SelectedItem = othersChoice
+                '    .BankDetailsIfOthersTxtBox.Text = bankDetails
+                'Else
+                '    .BnkDetailsCmbBox.SelectedIndex = BankIndex
+                'End If
+
+                'If paymentIndex = -1 Then
+                '    .PaymentTermsCmbBox.SelectedItem = othersChoice
+                '    .PaymentTermsIfOthersTxtBox.Text = paymentTerms
+                'Else
+                '    .PaymentTermsCmbBox.SelectedIndex = paymentIndex
+                'End If
 
                 .selectedSupplierID = suppID
 

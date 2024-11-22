@@ -293,29 +293,31 @@ Public Class EmployeeAddEditModal
     ' CONTRACT STATUS
     Private Sub ContractStatusComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractStatusComboBox.SelectedIndexChanged
 
-        If ContractStatusComboBox.SelectedItem = "Others" Then
-            With JobDetailsTableLayout
-                .ColumnStyles(0).Width = 25.0F
-                .ColumnStyles(1).Width = 25.0F
-                .ColumnStyles(2).Width = 25.0F
-                .ColumnStyles(3).Width = 25.0F
-            End With
-        Else
-            contractStatus = ContractStatusComboBox.SelectedItem
-            With JobDetailsTableLayout
-                .ColumnStyles(0).Width = 33.3F
-                .ColumnStyles(1).Width = 33.3F
-                .ColumnStyles(2).Width = 33.3F
-                .ColumnStyles(3).Width = 0.0F
-            End With
-        End If
+        'If ContractStatusComboBox.SelectedItem = "Others" Then
+        '    With JobDetailsTableLayout
+        '        .ColumnStyles(0).Width = 25.0F
+        '        .ColumnStyles(1).Width = 25.0F
+        '        .ColumnStyles(2).Width = 25.0F
+        '        .ColumnStyles(3).Width = 25.0F
+        '    End With
+        'Else
+
+        '    With JobDetailsTableLayout
+        '        .ColumnStyles(0).Width = 33.3F
+        '        .ColumnStyles(1).Width = 33.3F
+        '        .ColumnStyles(2).Width = 33.3F
+        '        .ColumnStyles(3).Width = 0.0F
+        '    End With
+        'End If
+
+        contractStatus = ContractStatusComboBox.SelectedItem
     End Sub
 
     ' OTHERS TEXTBOX
     Private Sub OthersTextBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersTxtBox.TextChanged
-        If ContractStatusComboBox.SelectedItem = "Others" Then
-            contractStatus = IfOthersTxtBox.Text
-        End If
+        'If ContractStatusComboBox.SelectedItem = "Others" Then
+        '    contractStatus = IfOthersTxtBox.Text
+        'End If
     End Sub
 
     ' DATE HIRED
