@@ -10,22 +10,21 @@ Public Class SupplierAddEditModal
     Dim constants As New Constants
 
     ' SCHEMA
-    Dim compName As String = ""
-    Dim compContactPerson As String = ""
-    Dim compEmail As String = ""
-    Dim compContactNumber As String = ""
-    Dim compLoc As String = ""
-    Dim estDelivTime As String = ""
-    Dim compDesc As String = ""
+    Private compName As String = ""
+    Private compContactPerson As String = ""
+    Private compEmail As String = ""
+    Private compContactNumber As String = ""
+    Private compLoc As String = ""
+    Private estDelivTime As String = ""
+    Private compDesc As String = ""
 
-    Dim supplierType As String = ""
-    Dim contractType As String = ""
-    Dim bankDetails As String = ""
-    Dim paymentTerms As String = ""
-
-    Public Property editMode As Boolean = False
+    Private supplierType As String = ""
+    Private contractType As String = ""
+    Private bankDetails As String = ""
+    Private paymentTerms As String = ""
+    Private compProfilePath As String = ""
     Public Property selectedID As Integer = -1
-    Public Property compProfilePath As String
+    Public Property editMode As Integer = -1
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,7 +32,9 @@ Public Class SupplierAddEditModal
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
         End If
 
-        If Not editMode Then Exit Sub
+        InitCmbDs(-1, -1, -1, -1)
+
+        If selectedID = -1 Then Exit Sub
 
         InitData()
     End Sub
@@ -51,16 +52,14 @@ Public Class SupplierAddEditModal
             LocationTxtBox.Text = .Item("location")
             EstDelivTimeTxtBox.Text = .Item("estimated_delivery_time")
             CompanyDescTxtBox.Text = .Item("company_description")
+
+            Dim supplierIndex = formUtils.FindComboBoxItemByText(SupplierTypeCmbBox, .Item("supplier_type"))
+            Dim contractIndex = formUtils.FindComboBoxItemByText(ContractTypeCmbBox, .Item("supplier_contract"))
+            Dim BankIndex = formUtils.FindComboBoxItemByText(BnkDetailsCmbBox, .Item("bank_details"))
+            Dim paymentIndex = formUtils.FindComboBoxItemByText(PaymentTermsCmbBox, .Item("payment_terms"))
+
+            InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
         End With
-
-        InitCmbDs(-1, -1, -1, -1)
-
-        Dim supplierIndex = formUtils.FindComboBoxItemByText(SupplierTypeCmbBox, supplierType)
-        Dim contractIndex = formUtils.FindComboBoxItemByText(ContractTypeCmbBox, contractType)
-        Dim BankIndex = formUtils.FindComboBoxItemByText(BnkDetailsCmbBox, bankDetails)
-        Dim paymentIndex = formUtils.FindComboBoxItemByText(PaymentTermsCmbBox, paymentTerms)
-
-        InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
     End Sub
 
     Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer)

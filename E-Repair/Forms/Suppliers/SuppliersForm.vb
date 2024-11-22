@@ -6,17 +6,19 @@ Public Class SuppliersForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
 
-    Private suppID As String
+    Private suppID As Integer
     Private archivedStatus As Boolean
     Public selectMode As Boolean = False
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
         If Not formUtils.dgvValChecker(SuppliersDGV) Then Return False
+
         With SuppliersDGV.CurrentRow
             suppID = .Cells("SUPPLIER_ID").Value
             archivedStatus = .Cells("ARCHIVED").Value
         End With
+
 
         Return True
     End Function
@@ -68,6 +70,7 @@ Public Class SuppliersForm
         Function(id)
             Dim modal As New SupplierAddEditModal()
             modal.selectedID = id
+            modal.editMode = True
             Return modal
         End Function,
         suppID,
