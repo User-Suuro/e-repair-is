@@ -1,10 +1,12 @@
 ﻿Imports System.IO
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 
 Public Class SupplierViewModal
     Dim dbHelper As New DbHelper
 
     Public Property selectedID As Integer = -1
+    Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InitValues()
+    End Sub
 
     Private Sub InitValues()
 
@@ -38,25 +40,13 @@ Public Class SupplierViewModal
         With empDT.Rows(0)
             AddedByTxtBox.Text = .Item("firstname") & " " & .Item("lastname")
         End With
-    End Sub
-
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
-    End Sub
-
-    Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         If File.Exists(CompanyPathTxtBox.Text) Then
             SupplierCirclePictureBox.Image = Image.FromFile(CompanyPathTxtBox.Text)
         End If
-
     End Sub
 
-    Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
-        ' TO DO
-    End Sub
-
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
-
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
     End Sub
 End Class

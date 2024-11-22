@@ -28,12 +28,6 @@ Public Class SupplierAddEditModal
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If File.Exists(compProfilePath) Then
-            SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
-        End If
-
-        InitCmbDs(-1, -1, -1, -1)
-
         If selectedID = -1 Then Exit Sub
 
         InitData()
@@ -52,6 +46,9 @@ Public Class SupplierAddEditModal
             LocationTxtBox.Text = .Item("location")
             EstDelivTimeTxtBox.Text = .Item("estimated_delivery_time")
             CompanyDescTxtBox.Text = .Item("company_description")
+            compProfilePath = .Item("company_profile_path")
+
+            InitCmbDs(-1, -1, -1, -1)
 
             Dim supplierIndex = formUtils.FindComboBoxItemByText(SupplierTypeCmbBox, .Item("supplier_type"))
             Dim contractIndex = formUtils.FindComboBoxItemByText(ContractTypeCmbBox, .Item("supplier_contract"))
@@ -60,6 +57,10 @@ Public Class SupplierAddEditModal
 
             InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
         End With
+
+        If File.Exists(compProfilePath) Then
+            SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
+        End If
     End Sub
 
     Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer)
@@ -95,14 +96,6 @@ Public Class SupplierAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then Exit Sub
 
-        Dim empIDLogged As Integer
-
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            empIDLogged = -1
-        End Try
-
         ' Save Image Locally
         Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
@@ -119,7 +112,7 @@ Public Class SupplierAddEditModal
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
             {"company_picture_path", savedPath},
-            {"added_by", empIDLogged}
+            {"added_by", GlobalSession.CurrentSession.EmployeeID}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
