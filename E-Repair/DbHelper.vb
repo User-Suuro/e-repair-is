@@ -489,13 +489,10 @@ Public Class DbHelper
 
     Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String, columnName As String)
         Try
+
             Dim enumValues As List(Of String) = GetEnums(tableName, columnName)
 
-            ' cmb.Items.Clear()
-
-            For Each value As String In enumValues
-                cmb.Items.Add(value)
-            Next
+            cmb.DataSource = enumValues
 
         Catch ex As Exception
             MsgBox("Error populating ComboBox: " & ex.Message, MsgBoxStyle.Critical)

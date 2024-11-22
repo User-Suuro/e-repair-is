@@ -285,6 +285,7 @@ Public Class EmployeeForm
                 .StartPosition = FormStartPosition.CenterScreen
                 .editMode = True
                 .EmployeeModalGroupBox.Text = "Edit Employee Details"
+                .InitCmbDs()
 
                 ' BASIC INFO
                 .selectedEmployeeId = employeeID
@@ -292,18 +293,26 @@ Public Class EmployeeForm
                 .MiddleNameTextBox.Text = empMiddleName
                 .LastNameTextBox.Text = empLastName
 
-                .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
-                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
+                .SexComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
 
+                .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
+                .CivilStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
                 .AddressTextBox.Text = empAddress
                 .ContactNumberTextBox.Text = empContactNumber
 
-                .SexComboBox.SelectedItem = empSex
-                .CivilStatusComboBox.SelectedItem = empCivilStatus
-                .ContractStatusComboBox.SelectedIndex = empContractStatus
+                ' CONTRACT STATUS CMB
+                Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+                If contractStatusBoxIndex = -1 Then
+                    .ContractStatusComboBox.SelectedItem = "Others"
+                    .IfOthersTxtBox.Text = empContractStatus
+                Else
+                    .ContractStatusComboBox.SelectedIndex = contractStatusBoxIndex
+                End If
 
                 ' JOBS
-                .JobTypeComboBox.SelectedItem = empjobType
+
+                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
+                .JobTypeComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
 
                 If .JobTypeComboBox.Text = constants.getAdminString Then
                     .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)

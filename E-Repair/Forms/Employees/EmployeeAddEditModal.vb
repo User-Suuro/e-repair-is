@@ -228,6 +228,10 @@ Public Class EmployeeAddEditModal
         AlreadyTakenLabel.Visible = False
         isEmailDuplicate = False
 
+        InitCmbDs()
+    End Sub
+
+    Public Sub InitCmbDs()
         With dbHelper
             .LoadEnumsToCmb(SexComboBox, "employees", "sex")
             .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus")
@@ -419,11 +423,5 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs)
 
-    End Sub
-
-    Private Sub ProfileCirclePictureBox_Click(sender As Object, e As EventArgs) Handles ProfileCirclePictureBox.Click
-
-    End Sub
 End Class
