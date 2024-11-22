@@ -15,9 +15,9 @@
         If custDt.Rows.Count = 0 Then Exit Sub
 
         With custDt.Rows(0)
-            FirstNameTextBox.Text = .Item("firstname")
-            MiddleNameTextBox.Text = .Item("middlename")
-            LastNameTextBox.Text = .Item("lastname")
+            FirstNameTextBox.Text = .Item("first_name")
+            MiddleNameTextBox.Text = .Item("middle_name")
+            LastNameTextBox.Text = .Item("last_name")
             GenderTxtBox.Text = .Item("gender")
             EmailTxtBox.Text = .Item("email")
             ContactNumberTxtBox.Text = .Item("contact_number")
