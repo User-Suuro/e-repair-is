@@ -272,6 +272,12 @@
     <Compile Include="Forms\Services\ServiceForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Services\ServiceEvaluationModal.Designer.vb">
+      <DependentUpon>ServiceEvaluationModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Services\ServiceEvaluationModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Services\ServiceViewModal.Designer.vb">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </Compile>
@@ -390,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Services\ServiceForm.resx">
       <DependentUpon>ServiceForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Services\ServiceEvaluationModal.resx">
+      <DependentUpon>ServiceEvaluationModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Services\ServiceViewModal.resx">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
