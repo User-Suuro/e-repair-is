@@ -491,7 +491,7 @@ Public Class DbHelper
         Try
             Dim enumValues As List(Of String) = GetEnums(tableName, columnName)
 
-            cmb.Items.Clear()
+            ' cmb.Items.Clear()
 
             For Each value As String In enumValues
                 cmb.Items.Add(value)

@@ -466,7 +466,6 @@ Partial Class EmployeeAddEditModal
         Me.SexComboBox.FormattingEnabled = True
         Me.SexComboBox.HoverState.Parent = Me.SexComboBox
         Me.SexComboBox.ItemHeight = 20
-        Me.SexComboBox.Items.AddRange(New Object() {"Male", "Female"})
         Me.SexComboBox.ItemsAppearance.Parent = Me.SexComboBox
         Me.SexComboBox.Location = New System.Drawing.Point(3, 24)
         Me.SexComboBox.Name = "SexComboBox"

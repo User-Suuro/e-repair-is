@@ -287,31 +287,23 @@ Public Class EmployeeForm
                 .EmployeeModalGroupBox.Text = "Edit Employee Details"
 
                 ' BASIC INFO
-
                 .selectedEmployeeId = employeeID
                 .FirstNameTextBox.Text = empFirstName
                 .MiddleNameTextBox.Text = empMiddleName
                 .LastNameTextBox.Text = empLastName
-                .SexComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
 
                 .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
-                .CivilStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
+                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
+
                 .AddressTextBox.Text = empAddress
                 .ContactNumberTextBox.Text = empContactNumber
 
-                ' CONTRACT STATUS CMB
-                Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
-                If contractStatusBoxIndex = -1 Then
-                    .ContractStatusComboBox.SelectedItem = "Others"
-                    .IfOthersTxtBox.Text = empContractStatus
-                Else
-                    .ContractStatusComboBox.SelectedIndex = contractStatusBoxIndex
-                End If
+                .SexComboBox.SelectedItem = empSex
+                .CivilStatusComboBox.SelectedItem = empCivilStatus
+                .ContractStatusComboBox.SelectedIndex = empContractStatus
 
                 ' JOBS
-
-                .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
-                .JobTypeComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
+                .JobTypeComboBox.SelectedItem = empjobType
 
                 If .JobTypeComboBox.Text = constants.getAdminString Then
                     .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)

@@ -235,7 +235,6 @@ Public Class EmployeeAddEditModal
             .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type")
             .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position")
         End With
-
     End Sub
 
     ' FIRST NAME
