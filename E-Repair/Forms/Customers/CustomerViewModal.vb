@@ -12,22 +12,24 @@
 
         Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedCustomerID)
 
+        If custDt.Rows.Count = 0 Then Exit Sub
+
         With custDt.Rows(0)
-            FirstNameTextBox.Text = ("firstname")
-            MiddleNameTextBox.Text = ("middlename")
-            LastNameTextBox.Text = ("lastname")
-            GenderTxtBox.Text = ("gender")
-            EmailTxtBox.Text = ("email")
-            ContactNumberTxtBox.Text = ("contact_number")
-            AddressTxtBox.Text = ("address")
-            TotalPaidTxtBox.Text = ("total_paid")
-            LastTransactionTxtBox.Text = ("last_transaction")
-            DateAddedTxtBox.Text = ("date_added")
-            ArchivedStatusTxtBox.Text = ("archived")
-            ArchivedByTxtBox.Text = ("archived_by")
+            FirstNameTextBox.Text = .Item("firstname")
+            MiddleNameTextBox.Text = .Item("middlename")
+            LastNameTextBox.Text = .Item("lastname")
+            GenderTxtBox.Text = .Item("gender")
+            EmailTxtBox.Text = .Item("email")
+            ContactNumberTxtBox.Text = .Item("contact_number")
+            AddressTxtBox.Text = .Item("address")
+            TotalPaidTxtBox.Text = .Item("total_paid")
+            LastTransactionTxtBox.Text = .Item("last_transaction")
+            DateAddedTxtBox.Text = .Item("date_added")
+            ArchivedStatusTxtBox.Text = .Item("archived")
+            ArchivedByTxtBox.Text = .Item("archived_by")
             DateAddedTxtBox.Text = ("date_added")
 
-            Dim empDt As DataRow = dbHelper.GetRowByValue("employees", "employee_id", ("added_by")).Rows(0)
+            Dim empDt As DataRow = dbHelper.GetRowByValue("employees", "employee_id", .Item("added_by")).Rows(0)
             AddedByTxtBox.Text = empDt("firstname") & " " & empDt("lastname")
         End With
 
