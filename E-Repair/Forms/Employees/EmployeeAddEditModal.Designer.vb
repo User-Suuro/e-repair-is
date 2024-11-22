@@ -715,11 +715,10 @@ Partial Class EmployeeAddEditModal
         Me.PositionComboBox.HoverState.Parent = Me.PositionComboBox
         Me.PositionComboBox.ItemHeight = 20
         Me.PositionComboBox.ItemsAppearance.Parent = Me.PositionComboBox
-        Me.PositionComboBox.Location = New System.Drawing.Point(3, 24)
-        Me.PositionComboBox.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.PositionComboBox.Location = New System.Drawing.Point(6, 24)
         Me.PositionComboBox.Name = "PositionComboBox"
         Me.PositionComboBox.ShadowDecoration.Parent = Me.PositionComboBox
-        Me.PositionComboBox.Size = New System.Drawing.Size(819, 26)
+        Me.PositionComboBox.Size = New System.Drawing.Size(813, 26)
         Me.PositionComboBox.TabIndex = 17
         '
         'Label19

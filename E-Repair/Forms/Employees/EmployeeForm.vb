@@ -534,5 +534,15 @@ Public Class EmployeeForm
 
     Private Sub EmpDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpDGV.CellContentClick
 
+        ViewEmployeeBtn.Visible = False
+        EditEmployeeBtn.Visible = False
+        ArchiveEmployeeBtn.Visible = False
+
+        If EmpDGV.CurrentRow Is Nothing Then Exit Sub
+
+        ViewEmployeeBtn.Visible = True
+        EditEmployeeBtn.Visible = True
+        ArchiveEmployeeBtn.Visible = True
+
     End Sub
 End Class

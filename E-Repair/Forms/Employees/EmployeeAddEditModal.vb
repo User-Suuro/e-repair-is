@@ -331,6 +331,7 @@ Public Class EmployeeAddEditModal
         personnelDestination = ""
         adminPosition = ""
         PositionComboBox.SelectedIndex = -1
+        JobDescriptionFlowLayout.Visible = False
 
         If JobTypeComboBox.SelectedItem = JobTypeComboBox.Items(0) Then
             ' IF ADMIN THEN
