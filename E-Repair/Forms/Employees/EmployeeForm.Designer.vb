@@ -155,7 +155,6 @@ Partial Class EmployeeForm
         Me.ArchiveEmployeeBtn.Text = "Archive"
         Me.ArchiveEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ArchiveEmployeeBtn.UseVisualStyleBackColor = True
-        Me.ArchiveEmployeeBtn.Visible = False
         '
         'EditEmployeeBtn
         '
@@ -174,7 +173,6 @@ Partial Class EmployeeForm
         Me.EditEmployeeBtn.Text = "Edit"
         Me.EditEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.EditEmployeeBtn.UseVisualStyleBackColor = True
-        Me.EditEmployeeBtn.Visible = False
         '
         'AddEmployeeBtn
         '
@@ -211,7 +209,6 @@ Partial Class EmployeeForm
         Me.ViewEmployeeBtn.Text = "Details"
         Me.ViewEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ViewEmployeeBtn.UseVisualStyleBackColor = True
-        Me.ViewEmployeeBtn.Visible = False
         '
         'Panel1
         '

@@ -109,7 +109,7 @@ Public Class SupplierAddEditModal
             {"supplier_type", supplierType},
             {"supplier_contract", contractType},
             {"bank_details", bankDetails},
-            {"payment_terms", paymentTerms},
+            {"payment_terms", paymentTerms}
         }
 
         If Not formUtils.AreAllValuesFilled(insertUpdate, 1) Then Exit Sub

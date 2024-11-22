@@ -32,10 +32,11 @@ Public Class MainPanel
             With constants
                 Select Case userPosition
                     Case .getAdminString
-                        SidenavCustomersBtn.Visible = True
-                        SidenavServicesBtn.Visible = True
-                        SidenavSuppliersBtn.Visible = True
                         SidenavInventoryBtn.Visible = True
+                        SidenavSuppliersBtn.Visible = True
+                        SidenavServicesBtn.Visible = True
+                        SidenavCustomersBtn.Visible = True
+                        SidenavEmployeesBtn.Visible = True
                     Case .getCashierString
                         SidenavCustomersBtn.Visible = True
                         SidenavServicesBtn.Visible = True
@@ -45,7 +46,6 @@ Public Class MainPanel
                 End Select
             End With
 
-            formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
         Catch ex As Exception
             MsgBox("Cannot get session value to load the main panel: " & ex.Message)
         End Try
@@ -98,11 +98,6 @@ Public Class MainPanel
     Private Sub AdminSidenavInventoryBtn_Click(sender As Object, e As EventArgs) Handles SidenavInventoryBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New InventoryForm)
         AdminTopNavTitle.Text = constants.InventoryTitle
-    End Sub
-
-    Private Sub AdminSideNavCustomerBtn_Click(sender As Object, e As EventArgs)
-        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New SettingsForm)
-        AdminTopNavTitle.Text = constants.SettingsTitle
     End Sub
 
     Private Sub LogoutBtn_Click(sender As Object, e As EventArgs) Handles LogoutBtn.Click
