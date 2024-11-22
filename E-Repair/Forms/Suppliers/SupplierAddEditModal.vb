@@ -18,10 +18,10 @@ Public Class SupplierAddEditModal
     Dim estDelivTime As String = ""
     Dim compDesc As String = ""
 
-    Dim supplierType As String = ""
-    Dim contractType As String = ""
-    Dim bankDetails As String = ""
-    Dim paymentTerms As String = ""
+    Dim supplierType As EnumItem = Nothing
+    Dim contractType As EnumItem = Nothing
+    Dim bankDetails As EnumItem = Nothing
+    Dim paymentTerms As EnumItem = Nothing
 
     Public Property editMode As Boolean = False
     Public Property selectedSupplierID As Integer = -1
@@ -180,9 +180,7 @@ Public Class SupplierAddEditModal
 
     ' SUPPLIER TYPE
     Private Sub SupplierTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierTypeIfOthersTxtBox.TextChanged
-        If SupplierTypeCmbBox.SelectedItem = "Others" Then
-            supplierType = SupplierTypeIfOthersTxtBox.Text
-        End If
+        'If SupplierTypeCmbBox.SelectedItem = "Others" Then supplierType = SupplierTypeIfOthersTxtBox.Text
     End Sub
     Private Sub SupplierTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SupplierTypeCmbBox.SelectedIndexChanged
         If SupplierTypeCmbBox.SelectedItem = "Others" Then
@@ -201,9 +199,8 @@ Public Class SupplierAddEditModal
 
     ' CONTRACT TYPE
     Private Sub ContractTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContractTypeIfOthersTxtBox.TextChanged
-        If ContractTypeCmbBox.SelectedItem = "Others" Then
-            contractType = ContractTypeIfOthersTxtBox.Text
-        End If
+        ' If ContractTypeCmbBox.SelectedItem = "Others" Then contractType = ContractTypeIfOthersTxtBox.Text
+
     End Sub
     Private Sub ContractTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractTypeCmbBox.SelectedIndexChanged
         If ContractTypeCmbBox.SelectedItem = "Others" Then
@@ -222,9 +219,7 @@ Public Class SupplierAddEditModal
 
     ' BANK DETAILS
     Private Sub BankDetailsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles BankDetailsIfOthersTxtBox.TextChanged
-        If BnkDetailsCmbBox.SelectedItem = "Others" Then
-            bankDetails = BankDetailsIfOthersTxtBox.Text
-        End If
+        ' If BnkDetailsCmbBox.SelectedItem = "Others" Then bankDetails = BankDetailsIfOthersTxtBox.Text
     End Sub
 
     Private Sub BnkDetailsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BnkDetailsCmbBox.SelectedIndexChanged
@@ -244,9 +239,7 @@ Public Class SupplierAddEditModal
 
     ' PAYMENT TERMS
     Private Sub PaymentTermsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PaymentTermsIfOthersTxtBox.TextChanged
-        If PaymentTermsCmbBox.SelectedItem = "Others" Then
-            paymentTerms = PaymentTermsIfOthersTxtBox.Text
-        End If
+        ' If PaymentTermsCmbBox.SelectedItem = "Others" Then paymentTerms = PaymentTermsIfOthersTxtBox.Text
     End Sub
     Private Sub PaymentTermsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PaymentTermsCmbBox.SelectedIndexChanged
         If PaymentTermsCmbBox.SelectedItem = "Others" Then
@@ -278,9 +271,9 @@ Public Class SupplierAddEditModal
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
         End If
 
-        dbHelper.LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
         dbHelper.LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type")
-        dbHelper.LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
-        dbHelper.LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details")
+
+
     End Sub
+
 End Class

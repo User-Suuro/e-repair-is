@@ -2,8 +2,10 @@
 Imports System.Management
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Text.RegularExpressions
 Imports Guna.UI2.WinForms
 Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
 
 Public Class DbHelper
 
@@ -418,57 +420,36 @@ Public Class DbHelper
     ' Enums
 
     ' Get
-    Public Function GetEnums(tableName As String, columnName As String) As List(Of KeyValuePair(Of String, Integer))
-        Dim enumValues As New List(Of KeyValuePair(Of String, Integer))()
-        Dim query As String = $"SELECT DISTINCT {columnName} FROM `{tableName}`"
+    Public Function GetEnums(tableName As String, columnName As String) As List(Of String)
+        Dim enumValues As New List(Of String)()
+        Dim query As String = $"SHOW COLUMNS FROM `{tableName}` WHERE Field = @columnName"
 
         Try
             cmd.Parameters.Clear()
 
             cmd = New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@columnName", columnName)
+            readQuery(query, True)
 
-            readQuery(query)
+            If cmdRead IsNot Nothing AndAlso cmdRead.Read() Then
+                Dim columnType As String = cmdRead("Type").ToString()
+                Dim match As Match = Regex.Match(columnType, "^enum\('(.*)'\)$")
 
-            If cmdRead IsNot Nothing Then
-                Dim ordinal As Integer = 0
-                While cmdRead.Read()
-                    Dim name As String = cmdRead(columnName).ToString()
+                If match.Success Then
+                    enumValues = match.Groups(1).Value.Split("','").ToList()
+                End If
 
-                    enumValues.Add(New KeyValuePair(Of String, Integer)(name, ordinal))
-                    ordinal += 1
-                End While
                 cmdRead.Close()
             End If
+
         Catch ex As Exception
             MsgBox("Error retrieving enum values: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            ' Close the connection if open
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
 
         Return enumValues
     End Function
-
-    ' Load to cmb
-    Public Sub LoadEnumsToCmb(comboBox As ComboBox, tableName As String, columnName As String)
-        Try
-            comboBox.Items.Clear()
-
-            Dim enumValues As List(Of KeyValuePair(Of String, Integer)) = GetEnums(tableName, columnName)
-
-            For Each kvp As KeyValuePair(Of String, Integer) In enumValues
-                comboBox.Items.Add(New EnumItem(kvp.Key, kvp.Value))
-            Next
-
-            comboBox.DisplayMember = "Name"
-            comboBox.ValueMember = "Value"
-
-        Catch ex As Exception
-            MsgBox("Error loading enum values to ComboBox: " & ex.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
 
     ' Update
     Public Sub AlterEnums(tableName As String, columnName As String, enumType As Type)
@@ -501,4 +482,20 @@ Public Class DbHelper
         Dim values As String = String.Join(",", [Enum].GetValues(enumType).Cast(Of Object).Select(Function(e) $"'{e.ToString()}'"))
         Return values
     End Function
+
+    Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String, columnName As String)
+        Try
+            Dim enumValues As List(Of String) = GetEnums(tableName, columnName)
+
+            cmb.Items.Clear()
+
+            For Each value As String In enumValues
+                cmb.Items.Add(value)
+            Next
+
+        Catch ex As Exception
+            MsgBox("Error populating ComboBox: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
 End Class
