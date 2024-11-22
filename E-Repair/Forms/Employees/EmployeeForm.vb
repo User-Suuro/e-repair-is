@@ -285,7 +285,7 @@ Public Class EmployeeForm
                 .StartPosition = FormStartPosition.CenterScreen
                 .editMode = True
                 .EmployeeModalGroupBox.Text = "Edit Employee Details"
-                .InitCmbDs()
+                .InitCmbDs(-1, -1, -1, -1, -1)
 
                 ' BASIC INFO
                 .selectedEmployeeId = employeeID
@@ -293,15 +293,19 @@ Public Class EmployeeForm
                 .MiddleNameTextBox.Text = empMiddleName
                 .LastNameTextBox.Text = empLastName
 
-                .SexComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
+                Dim sexIndex = formUtils.FindComboBoxItemByText(.SexComboBox, empSex)
+                Dim civilIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
+                Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+                Dim adminPosIndex = -1
+                Dim jobTypeIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
 
                 .BirthdateDateTimePicker.Value = DateTime.Parse(empBirthDate)
-                .CivilStatusComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.CivilStatusComboBox, empCivilStatus)
+
                 .AddressTextBox.Text = empAddress
                 .ContactNumberTextBox.Text = empContactNumber
 
                 ' CONTRACT STATUS CMB
-                Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(.ContractStatusComboBox, empContractStatus)
+
                 If contractStatusBoxIndex = -1 Then
                     .ContractStatusComboBox.SelectedItem = "Others"
                     .IfOthersTxtBox.Text = empContractStatus
@@ -310,12 +314,10 @@ Public Class EmployeeForm
                 End If
 
                 ' JOBS
-
                 .DateHiredDateTimePicker.Value = DateTime.Parse(empDateHired)
-                .JobTypeComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.JobTypeComboBox, empjobType)
 
                 If .JobTypeComboBox.Text = constants.getAdminString Then
-                    .PositionComboBox.SelectedIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
+                    adminPosIndex = formUtils.FindComboBoxItemByText(.PositionComboBox, adminPosition)
                 ElseIf .JobTypeComboBox.Text = constants.getUtilityPersonnelString Then
                     .AssignedLocationTextBox.Text = utilityPersonnelDestination
                 End If
@@ -338,6 +340,8 @@ Public Class EmployeeForm
                 .EmailTextBox.Text = empEmail
                 .PasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
                 .ConfirmPasswordTextBox.Text = dbHelper.DecryptPassword(empPassword, constants.EncryptionKey)
+
+                .InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
 
                 .ShowDialog()
             End With

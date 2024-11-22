@@ -487,12 +487,14 @@ Public Class DbHelper
         Return values
     End Function
 
-    Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String, columnName As String)
+    Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String, columnName As String, Optional startingIndex As Integer = -1)
         Try
 
             Dim enumValues As List(Of String) = GetEnums(tableName, columnName)
 
             cmb.DataSource = enumValues
+
+            cmb.SelectedIndex = startingIndex
 
         Catch ex As Exception
             MsgBox("Error populating ComboBox: " & ex.Message, MsgBoxStyle.Critical)

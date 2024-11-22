@@ -228,16 +228,16 @@ Public Class EmployeeAddEditModal
         AlreadyTakenLabel.Visible = False
         isEmailDuplicate = False
 
-        InitCmbDs()
+        InitCmbDs(-1, -1, -1, -1, -1)
     End Sub
 
-    Public Sub InitCmbDs()
+    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
         With dbHelper
-            .LoadEnumsToCmb(SexComboBox, "employees", "sex")
-            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus")
-            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status")
-            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type")
-            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position")
+            .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
+            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
+            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
+            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04)
+            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
         End With
     End Sub
 
