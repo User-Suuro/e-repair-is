@@ -23,10 +23,10 @@
             ContactNumberTxtBox.Text = .Item("contact_number")
             AddressTxtBox.Text = .Item("address")
             TotalPaidTxtBox.Text = .Item("total_paid")
-            LastTransactionTxtBox.Text = .Item("last_transaction")
+            LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item("last_transaction"))
             DateAddedTxtBox.Text = .Item("date_added")
             ArchivedStatusTxtBox.Text = .Item("archived")
-            ArchivedByTxtBox.Text = .Item("archived_by")
+            ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item("archived_by"))
             DateAddedTxtBox.Text = ("date_added")
 
             Dim empDt As DataRow = dbHelper.GetRowByValue("employees", "employee_id", .Item("added_by")).Rows(0)
