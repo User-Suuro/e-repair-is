@@ -24,8 +24,53 @@ Public Class SupplierAddEditModal
     Dim paymentTerms As String = ""
 
     Public Property editMode As Boolean = False
-    Public Property selectedSupplierID As Integer = -1
+    Public Property selectedID As Integer = -1
     Public Property compProfilePath As String
+
+    ' ONLOAD
+    Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(compProfilePath) Then
+            SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
+        End If
+
+        If Not editMode Then Exit Sub
+
+        InitData()
+    End Sub
+
+    Private Sub InitData()
+        Dim suppDT As DataTable = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID)
+
+        If suppDT.Rows.Count = 0 Then Exit Sub
+
+        With suppDT.Rows(0)
+            CompanyNameTxtBox.Text = .Item("company_name")
+            ContactPersonTxtBox.Text = .Item("contact_person")
+            CompanyEmailTxtBox.Text = .Item("company_email")
+            ContactNumberTxtBox.Text = .Item("contact_number")
+            LocationTxtBox.Text = .Item("location")
+            EstDelivTimeTxtBox.Text = .Item("estimated_delivery_time")
+            CompanyDescTxtBox.Text = .Item("company_description")
+        End With
+
+        InitCmbDs(-1, -1, -1, -1)
+
+        Dim supplierIndex = formUtils.FindComboBoxItemByText(SupplierTypeCmbBox, supplierType)
+        Dim contractIndex = formUtils.FindComboBoxItemByText(ContractTypeCmbBox, contractType)
+        Dim BankIndex = formUtils.FindComboBoxItemByText(BnkDetailsCmbBox, bankDetails)
+        Dim paymentIndex = formUtils.FindComboBoxItemByText(PaymentTermsCmbBox, paymentTerms)
+
+        InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
+    End Sub
+
+    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer)
+        With dbHelper
+            .LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type", index01)
+            .LoadEnumsToCmb(ContractTypeCmbBox, "suppliers", "supplier_contract", index02)
+            .LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details", index03)
+            .LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms", index04)
+        End With
+    End Sub
 
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
@@ -115,11 +160,11 @@ Public Class SupplierAddEditModal
         If Not formUtils.AreAllValuesFilled(insertUpdate, 1) Then Exit Sub
 
         ' COMPARE PREV VALUE
-        Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedSupplierID).Rows(0)
+        Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID).Rows(0)
 
         If savedPath <> getSupplierPrevValue("company_picture_path") Then insertUpdate.Add("company_picture_path", formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True))
 
-        If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedSupplierID, insertUpdate) Then
+        If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedID, insertUpdate) Then
             MsgBox("Supplier Successfully Updated")
         Else
             MsgBox("Db Failure!")
@@ -261,24 +306,4 @@ Public Class SupplierAddEditModal
             compProfilePath = imgPath
         End If
     End Sub
-
-    ' ONLOAD
-    Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If File.Exists(compProfilePath) Then
-            SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
-        End If
-
-        If Not editMode Then InitCmbDs(-1, -1, -1, -1)
-    End Sub
-
-    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer)
-        With dbHelper
-            .LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type", index01)
-            .LoadEnumsToCmb(ContractTypeCmbBox, "suppliers", "supplier_contract", index02)
-            .LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details", index03)
-            .LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms", index04)
-        End With
-    End Sub
-
-
 End Class

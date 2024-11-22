@@ -7,113 +7,35 @@ Public Class SuppliersForm
     Dim formUtils As New FormUtils
 
     Private suppID As String
-    Private suppCompName As String
-    Private companyDesc As String
-    Private contactPerson As String
-    Private contactNumber As String
-    Private email As String
-    Private suppLoc As String
-    Private supplierType As String
-    Private contractType As String
-    Private bankDetails As String
-    Private paymentTerms As String
-    Private deliveryTime As String
-    Private noSuppliedItems As Integer
-    Private totalPaid As Decimal
-    Private suppProfilePath As String
-    Private dateAdded As DateTime
-    Private addedBy As String
     Private archivedStatus As Boolean
-    Private dateArchived As DateTime
-
     Public selectMode As Boolean = False
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
-
-        If SuppliersDGV.Rows.Count = 0 Then
-            MsgBox("No Data Found!")
-            Return False
-        End If
-
-        If SuppliersDGV.CurrentRow Is Nothing Then
-            MsgBox("No row is currently selected.")
-            Return False
-        End If
-
-        If SuppliersDGV.SelectedRows.Count <= 0 Then
-            MsgBox("Please Select a Row First")
-            Return False
-        End If
-
-        Try
-            With SuppliersDGV.CurrentRow
-                suppID = .Cells("SUPPLIER_ID").Value
-                suppCompName = .Cells("COMPANY_NAME").Value
-                companyDesc = .Cells("COMPANY_DESCRIPTION").Value
-                contactPerson = .Cells("CONTACT_PERSON").Value
-                contactNumber = .Cells("CONTACT_NUMBER").Value
-                email = .Cells("COMPANY_EMAIL").Value
-                suppLoc = .Cells("LOCATION").Value
-                supplierType = .Cells("SUPPLIER_TYPE").Value
-                contractType = .Cells("SUPPLIER_CONTRACT").Value
-                bankDetails = .Cells("BANK_DETAILS").Value
-                paymentTerms = .Cells("PAYMENT_TERMS").Value
-                deliveryTime = .Cells("ESTIMATED_DELIVERY_TIME").Value
-                noSuppliedItems = dbHelper.GetRowByValue("items", "supplier_id", suppID).Rows.Count
-                totalPaid = .Cells("TOTAL_PAID").Value
-                suppProfilePath = .Cells("PICTURE_PATH").Value
-                dateAdded = .Cells("DATE_ADDED").Value
-                addedBy = .Cells("ADDED_BY").Value
-                archivedStatus = .Cells("ARCHIVED").Value
-            End With
-
-        Catch ex As Exception
-            MsgBox("Cannot initialize suppliers value: " & ex.Message)
-            Return False
-        End Try
+        If Not formUtils.dgvValChecker(SuppliersDGV) Then Return False
+        With SuppliersDGV.CurrentRow
+            suppID = .Cells("SUPPLIER_ID").Value
+            archivedStatus = .Cells("ARCHIVED").Value
+        End With
 
         Return True
     End Function
 
     ' VIEW
     Private Sub ViewSupplierBtn_Click(sender As Object, e As EventArgs) Handles ViewSupplierBtn.Click
-        Dim supplierViewModal As New SupplierViewModal
-
         If Not InitValues() Then Exit Sub
 
-        Try
-            formModal = formUtils.CreateBgFormModal()
-
-            Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", addedBy)
-
-            With supplierViewModal
-                .CompanyNameTxtBox.Text = suppCompName
-                .ContactPersonTxtBox.Text = contactPerson
-                .CompanyEmailTxtBox.Text = email
-                .ContactNumberTxtBox.Text = contactNumber
-                .LocationTxtBox.Text = suppLoc
-                .EstDelivTimeTxtBox.Text = deliveryTime
-                .CompanyDescTxtBox.Text = companyDesc
-                .SupplierTypeTxtBox.Text = supplierType
-                .ContractTypeTxtBox.Text = contractType
-                .BankDetailsTxtBox.Text = bankDetails
-                .PaymentTermsTxtBox.Text = paymentTerms
-                .SupplierIdTextBox.Text = suppID
-                .NoSuppliedItemTxtBox.Text = noSuppliedItems
-                .TotalPaidTxtBox.Text = totalPaid
-                .DateAddedTxtBox.Text = dateAdded
-                .AddedByTxtBox.Text = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
-                .CompanyPathTxtBox.Text = suppProfilePath
-                .ShowDialog()
-            End With
-        Catch ex As Exception
-            MsgBox("Cannot create view supplier modal: " & ex.Message)
-        Finally
-            supplierViewModal.Dispose()
-            formModal.Dispose()
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New SupplierViewModal()
+            modal.selectedID = id
+            Return modal
+        End Function,
+        suppID,
+        Sub()
             LoadDataToDGV()
-        End Try
+        End Sub
+    )
     End Sub
 
     ' ADD
@@ -140,79 +62,19 @@ Public Class SuppliersForm
 
     'EDIT
     Private Sub EditSupplierBtn_Click(sender As Object, e As EventArgs) Handles EditSupplierBtn.Click
-        Dim supplierAddEditModal As New SupplierAddEditModal
-
         If Not InitValues() Then Exit Sub
 
-        Try
-            formModal = formUtils.CreateBgFormModal()
-
-            With supplierAddEditModal
-                .Owner = formModal
-                .SupplierModalGroupBox.Text = "Edit Supplier"
-                .InitCmbDs(-1, -1, -1, -1)
-
-                .CompanyNameTxtBox.Text = suppCompName
-                .ContactPersonTxtBox.Text = contactPerson
-                .CompanyEmailTxtBox.Text = email
-                .ContactNumberTxtBox.Text = contactNumber
-                .LocationTxtBox.Text = suppLoc
-                .EstDelivTimeTxtBox.Text = deliveryTime
-                .CompanyDescTxtBox.Text = companyDesc
-                .compProfilePath = suppProfilePath
-
-                Dim supplierIndex = formUtils.FindComboBoxItemByText(.SupplierTypeCmbBox, supplierType)
-                Dim contractIndex = formUtils.FindComboBoxItemByText(.ContractTypeCmbBox, contractType)
-                Dim BankIndex = formUtils.FindComboBoxItemByText(.BnkDetailsCmbBox, bankDetails)
-                Dim paymentIndex = formUtils.FindComboBoxItemByText(.PaymentTermsCmbBox, paymentTerms)
-
-                .InitCmbDs(supplierIndex, contractIndex, BankIndex, paymentIndex)
-
-                'Dim othersChoice As String = "Others"
-
-                'If supplierIndex = -1 Then
-                '    .SupplierTypeCmbBox.SelectedItem = othersChoice
-                '    .SupplierTypeIfOthersTxtBox.Text = supplierType
-                'Else
-                '    .SupplierTypeCmbBox.SelectedIndex = supplierIndex
-                'End If
-
-                'If contractIndex = -1 Then
-                '    .ContractTypeCmbBox.SelectedItem = othersChoice
-                '    .ContractTypeIfOthersTxtBox.Text = contractType
-                'Else
-                '    .ContractTypeCmbBox.SelectedIndex = contractIndex
-                'End If
-
-                'If BankIndex = -1 Then
-                '    .BnkDetailsCmbBox.SelectedItem = othersChoice
-                '    .BankDetailsIfOthersTxtBox.Text = bankDetails
-                'Else
-                '    .BnkDetailsCmbBox.SelectedIndex = BankIndex
-                'End If
-
-                'If paymentIndex = -1 Then
-                '    .PaymentTermsCmbBox.SelectedItem = othersChoice
-                '    .PaymentTermsIfOthersTxtBox.Text = paymentTerms
-                'Else
-                '    .PaymentTermsCmbBox.SelectedIndex = paymentIndex
-                'End If
-
-                .selectedSupplierID = suppID
-
-                .editMode = True
-                .ShowDialog()
-            End With
-
-        Catch ex As Exception
-            MsgBox("Unable to show add/edit modal: " & ex.Message)
-            formModal.Close()
-            supplierAddEditModal.Close()
-        Finally
-            supplierAddEditModal.Dispose()
-            formModal.Dispose()
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New SupplierAddEditModal()
+            modal.selectedID = id
+            Return modal
+        End Function,
+        suppID,
+        Sub()
             LoadDataToDGV()
-        End Try
+        End Sub
+    )
     End Sub
 
     ' ARCHIVE

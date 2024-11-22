@@ -269,4 +269,23 @@ Public Class FormUtils
         End Try
     End Sub
 
+    Public Function dgvValChecker(dgv As DataGridView)
+        If dgv.Rows.Count = 0 Then
+            MsgBox("No Data Found!")
+            Return False
+        End If
+
+        If dgv.CurrentRow Is Nothing Then
+            MsgBox("No row is currently selected.")
+            Return False
+        End If
+
+        If dgv.SelectedRows.Count <= 0 Then
+            MsgBox("Please Select a Row First")
+            Return False
+        End If
+
+        Return True
+    End Function
+
 End Class

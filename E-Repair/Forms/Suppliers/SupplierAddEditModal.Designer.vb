@@ -62,6 +62,13 @@ Partial Class SupplierAddEditModal
         Me.CompanyEmailTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.EstDelivTimeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.LocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SupplierTypeTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -78,13 +85,6 @@ Partial Class SupplierAddEditModal
         Me.GunaLabel1 = New Guna.UI.WinForms.GunaLabel()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SupplierFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.LocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.EstDelivTimeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.SupplierModalGroupBox.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -101,13 +101,13 @@ Partial Class SupplierAddEditModal
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
+        Me.Guna2Panel7.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.SupplierTypeTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.BankDetailsTableLayout.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.Guna2Panel7.SuspendLayout()
         Me.SuspendLayout()
         '
         'SupplierModalGroupBox
@@ -736,6 +736,123 @@ Partial Class SupplierAddEditModal
         Me.Guna2Panel4.Size = New System.Drawing.Size(658, 61)
         Me.Guna2Panel4.TabIndex = 30
         '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel4.Controls.Add(Me.Guna2Panel7, 1, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label2, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.EstDelivTimeTxtBox, 1, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.LocationTxtBox, 0, 1)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(650, 53)
+        Me.TableLayoutPanel4.TabIndex = 8
+        '
+        'Guna2Panel7
+        '
+        Me.Guna2Panel7.Controls.Add(Me.Label5)
+        Me.Guna2Panel7.Controls.Add(Me.Label4)
+        Me.Guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel7.Location = New System.Drawing.Point(325, 0)
+        Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel7.Name = "Guna2Panel7"
+        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
+        Me.Guna2Panel7.Size = New System.Drawing.Size(325, 21)
+        Me.Guna2Panel7.TabIndex = 43
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label5.Location = New System.Drawing.Point(276, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(49, 15)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "*optional"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(0, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(154, 20)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Estimated Delivery Time"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 20)
+        Me.Label2.TabIndex = 32
+        Me.Label2.Text = "Location"
+        '
+        'EstDelivTimeTxtBox
+        '
+        Me.EstDelivTimeTxtBox.BorderRadius = 4
+        Me.EstDelivTimeTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.EstDelivTimeTxtBox.DefaultText = ""
+        Me.EstDelivTimeTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.EstDelivTimeTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.EstDelivTimeTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EstDelivTimeTxtBox.DisabledState.Parent = Me.EstDelivTimeTxtBox
+        Me.EstDelivTimeTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EstDelivTimeTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EstDelivTimeTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EstDelivTimeTxtBox.FocusedState.Parent = Me.EstDelivTimeTxtBox
+        Me.EstDelivTimeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstDelivTimeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EstDelivTimeTxtBox.HoverState.Parent = Me.EstDelivTimeTxtBox
+        Me.EstDelivTimeTxtBox.Location = New System.Drawing.Point(327, 24)
+        Me.EstDelivTimeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.EstDelivTimeTxtBox.Name = "EstDelivTimeTxtBox"
+        Me.EstDelivTimeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.EstDelivTimeTxtBox.PlaceholderText = ""
+        Me.EstDelivTimeTxtBox.SelectedText = ""
+        Me.EstDelivTimeTxtBox.ShadowDecoration.Parent = Me.EstDelivTimeTxtBox
+        Me.EstDelivTimeTxtBox.Size = New System.Drawing.Size(321, 26)
+        Me.EstDelivTimeTxtBox.TabIndex = 30
+        '
+        'LocationTxtBox
+        '
+        Me.LocationTxtBox.BorderRadius = 4
+        Me.LocationTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.LocationTxtBox.DefaultText = ""
+        Me.LocationTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.LocationTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.LocationTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.LocationTxtBox.DisabledState.Parent = Me.LocationTxtBox
+        Me.LocationTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.LocationTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LocationTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LocationTxtBox.FocusedState.Parent = Me.LocationTxtBox
+        Me.LocationTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LocationTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LocationTxtBox.HoverState.Parent = Me.LocationTxtBox
+        Me.LocationTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.LocationTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.LocationTxtBox.Name = "LocationTxtBox"
+        Me.LocationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.LocationTxtBox.PlaceholderText = ""
+        Me.LocationTxtBox.SelectedText = ""
+        Me.LocationTxtBox.ShadowDecoration.Parent = Me.LocationTxtBox
+        Me.LocationTxtBox.Size = New System.Drawing.Size(321, 26)
+        Me.LocationTxtBox.TabIndex = 29
+        '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.Transparent
@@ -984,123 +1101,6 @@ Partial Class SupplierAddEditModal
         Me.SupplierFileDialog.FileName = "OpenFileDialog1"
         Me.SupplierFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
         '
-        'LocationTxtBox
-        '
-        Me.LocationTxtBox.BorderRadius = 4
-        Me.LocationTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.LocationTxtBox.DefaultText = ""
-        Me.LocationTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.LocationTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.LocationTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.LocationTxtBox.DisabledState.Parent = Me.LocationTxtBox
-        Me.LocationTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.LocationTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LocationTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LocationTxtBox.FocusedState.Parent = Me.LocationTxtBox
-        Me.LocationTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LocationTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LocationTxtBox.HoverState.Parent = Me.LocationTxtBox
-        Me.LocationTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.LocationTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.LocationTxtBox.Name = "LocationTxtBox"
-        Me.LocationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.LocationTxtBox.PlaceholderText = ""
-        Me.LocationTxtBox.SelectedText = ""
-        Me.LocationTxtBox.ShadowDecoration.Parent = Me.LocationTxtBox
-        Me.LocationTxtBox.Size = New System.Drawing.Size(321, 26)
-        Me.LocationTxtBox.TabIndex = 29
-        '
-        'EstDelivTimeTxtBox
-        '
-        Me.EstDelivTimeTxtBox.BorderRadius = 4
-        Me.EstDelivTimeTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.EstDelivTimeTxtBox.DefaultText = ""
-        Me.EstDelivTimeTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.EstDelivTimeTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.EstDelivTimeTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.EstDelivTimeTxtBox.DisabledState.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.EstDelivTimeTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EstDelivTimeTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.EstDelivTimeTxtBox.FocusedState.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstDelivTimeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.EstDelivTimeTxtBox.HoverState.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.Location = New System.Drawing.Point(327, 24)
-        Me.EstDelivTimeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.EstDelivTimeTxtBox.Name = "EstDelivTimeTxtBox"
-        Me.EstDelivTimeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.EstDelivTimeTxtBox.PlaceholderText = ""
-        Me.EstDelivTimeTxtBox.SelectedText = ""
-        Me.EstDelivTimeTxtBox.ShadowDecoration.Parent = Me.EstDelivTimeTxtBox
-        Me.EstDelivTimeTxtBox.Size = New System.Drawing.Size(321, 26)
-        Me.EstDelivTimeTxtBox.TabIndex = 30
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(3, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 20)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Location"
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 2
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel4.Controls.Add(Me.Guna2Panel7, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label2, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.EstDelivTimeTxtBox, 1, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.LocationTxtBox, 0, 1)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(650, 53)
-        Me.TableLayoutPanel4.TabIndex = 8
-        '
-        'Guna2Panel7
-        '
-        Me.Guna2Panel7.Controls.Add(Me.Label5)
-        Me.Guna2Panel7.Controls.Add(Me.Label4)
-        Me.Guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel7.Location = New System.Drawing.Point(325, 0)
-        Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(325, 21)
-        Me.Guna2Panel7.TabIndex = 43
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label5.Location = New System.Drawing.Point(276, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 15)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "*optional"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(0, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 20)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "Estimated Delivery Time"
-        '
         'SupplierAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1134,6 +1134,10 @@ Partial Class SupplierAddEditModal
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Guna2Panel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
+        Me.Guna2Panel7.ResumeLayout(False)
+        Me.Guna2Panel7.PerformLayout()
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.Guna2Panel3.ResumeLayout(False)
         Me.SupplierTypeTableLayout.ResumeLayout(False)
@@ -1141,10 +1145,6 @@ Partial Class SupplierAddEditModal
         Me.Guna2Panel6.ResumeLayout(False)
         Me.BankDetailsTableLayout.ResumeLayout(False)
         Me.BankDetailsTableLayout.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
-        Me.Guna2Panel7.ResumeLayout(False)
-        Me.Guna2Panel7.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
