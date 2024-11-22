@@ -154,7 +154,7 @@ Public Class CustomerAddEditModal
     End Sub
 
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender")
     End Sub
 End Class
 

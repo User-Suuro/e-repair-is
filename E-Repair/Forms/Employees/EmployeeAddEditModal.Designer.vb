@@ -412,7 +412,6 @@ Partial Class EmployeeAddEditModal
         Me.CivilStatusComboBox.FormattingEnabled = True
         Me.CivilStatusComboBox.HoverState.Parent = Me.CivilStatusComboBox
         Me.CivilStatusComboBox.ItemHeight = 20
-        Me.CivilStatusComboBox.Items.AddRange(New Object() {"Single", "Married", "Widowed", "Divorced"})
         Me.CivilStatusComboBox.ItemsAppearance.Parent = Me.CivilStatusComboBox
         Me.CivilStatusComboBox.Location = New System.Drawing.Point(447, 24)
         Me.CivilStatusComboBox.Name = "CivilStatusComboBox"
@@ -716,7 +715,6 @@ Partial Class EmployeeAddEditModal
         Me.PositionComboBox.FormattingEnabled = True
         Me.PositionComboBox.HoverState.Parent = Me.PositionComboBox
         Me.PositionComboBox.ItemHeight = 20
-        Me.PositionComboBox.Items.AddRange(New Object() {"Owner", "Manager", "Team Leader"})
         Me.PositionComboBox.ItemsAppearance.Parent = Me.PositionComboBox
         Me.PositionComboBox.Location = New System.Drawing.Point(3, 24)
         Me.PositionComboBox.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
@@ -1312,7 +1310,6 @@ Partial Class EmployeeAddEditModal
         Me.JobTypeComboBox.FormattingEnabled = True
         Me.JobTypeComboBox.HoverState.Parent = Me.JobTypeComboBox
         Me.JobTypeComboBox.ItemHeight = 20
-        Me.JobTypeComboBox.Items.AddRange(New Object() {"Admin", "Technician", "Cashier", "Utility Personnel"})
         Me.JobTypeComboBox.ItemsAppearance.Parent = Me.JobTypeComboBox
         Me.JobTypeComboBox.Location = New System.Drawing.Point(275, 24)
         Me.JobTypeComboBox.Name = "JobTypeComboBox"
@@ -1377,7 +1374,6 @@ Partial Class EmployeeAddEditModal
         Me.ContractStatusComboBox.FormattingEnabled = True
         Me.ContractStatusComboBox.HoverState.Parent = Me.ContractStatusComboBox
         Me.ContractStatusComboBox.ItemHeight = 20
-        Me.ContractStatusComboBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary"})
         Me.ContractStatusComboBox.ItemsAppearance.Parent = Me.ContractStatusComboBox
         Me.ContractStatusComboBox.Location = New System.Drawing.Point(547, 24)
         Me.ContractStatusComboBox.Name = "ContractStatusComboBox"

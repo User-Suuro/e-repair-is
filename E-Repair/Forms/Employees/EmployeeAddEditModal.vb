@@ -1,4 +1,6 @@
-﻿Public Class EmployeeAddEditModal
+﻿Imports LibVLCSharp.[Shared]
+
+Public Class EmployeeAddEditModal
 
     Dim constants As New Constants
     Dim dbUtils As New DbHelper
@@ -230,6 +232,15 @@
 
         AlreadyTakenLabel.Visible = False
         isEmailDuplicate = False
+
+        With dbHelper
+            .LoadEnumsToCmb(SexComboBox, "employees", "sex")
+            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus")
+            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status")
+            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type")
+            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position")
+        End With
+
     End Sub
 
     ' FIRST NAME

@@ -271,9 +271,15 @@ Public Class SupplierAddEditModal
             SupplierCirclePictureBox.Image = Image.FromFile(compProfilePath)
         End If
 
-        dbHelper.LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type")
+        With dbHelper
+            .LoadEnumsToCmb(SupplierTypeCmbBox, "suppliers", "supplier_type")
+            .LoadEnumsToCmb(ContractTypeCmbBox, "suppliers", "supplier_contract")
+            .LoadEnumsToCmb(BnkDetailsCmbBox, "suppliers", "bank_details")
+            .LoadEnumsToCmb(PaymentTermsCmbBox, "suppliers", "payment_terms")
+        End With
 
 
     End Sub
+
 
 End Class

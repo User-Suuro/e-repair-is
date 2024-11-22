@@ -290,5 +290,7 @@ Public Class ServiceAddEditModal
         Me.Close()
     End Sub
 
-
+    Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type")
+    End Sub
 End Class

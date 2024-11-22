@@ -433,17 +433,16 @@ Public Class DbHelper
 
             If cmdRead IsNot Nothing AndAlso cmdRead.Read() Then
                 Dim columnType As String = cmdRead("Type").ToString()
-
-                ' remove quote
+                'remove quotes
                 Dim match As Match = Regex.Match(columnType, "^enum\('(.*)'\)$")
 
                 If match.Success Then
-                    ' remove comma
-                    Dim rawValues As String = match.Groups(1).Value.Replace(",", "")
-                    ' remove whitespaces
-                    enumValues = match.Groups(1).Value.Split("','").Select(Function(v) v.Replace(",", "").Trim()).ToList()
+                    ' Remove commas, trim values, and exclude blank entries
+                    enumValues = match.Groups(1).Value.Split("','").
+                                  Select(Function(v) v.Replace(",", "").Trim()).
+                                  Where(Function(v) Not String.IsNullOrWhiteSpace(v)).
+                                  ToList()
                 End If
-
                 cmdRead.Close()
             End If
 

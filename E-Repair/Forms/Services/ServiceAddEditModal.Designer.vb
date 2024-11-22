@@ -453,7 +453,6 @@ Partial Class ServiceAddEditModal
         Me.DeviceTypeCmbBox.FormattingEnabled = True
         Me.DeviceTypeCmbBox.HoverState.Parent = Me.DeviceTypeCmbBox
         Me.DeviceTypeCmbBox.ItemHeight = 20
-        Me.DeviceTypeCmbBox.Items.AddRange(New Object() {"Full Time", "Part Time", "Contractual", "Temporary", "Others"})
         Me.DeviceTypeCmbBox.ItemsAppearance.Parent = Me.DeviceTypeCmbBox
         Me.DeviceTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.DeviceTypeCmbBox.Name = "DeviceTypeCmbBox"
