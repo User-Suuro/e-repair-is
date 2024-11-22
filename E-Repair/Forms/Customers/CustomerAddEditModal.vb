@@ -18,6 +18,13 @@ Public Class CustomerAddEditModal
     Public Property editMode As Boolean = False
     Public Property selectedCustomerID As Integer = -1
 
+    ' ONLOAD
+    Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not editMode Then InitCmbDs(-1)
+
+
+
+    End Sub
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Try
@@ -160,10 +167,7 @@ Public Class CustomerAddEditModal
         address = AddressTxtBox.Text
     End Sub
 
-    Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not editMode Then InitCmbDs(-1)
-    End Sub
-
+    ' INIT CMBDS
     Public Sub InitCmbDs(index01 As Integer)
         dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
     End Sub

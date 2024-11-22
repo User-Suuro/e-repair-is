@@ -150,6 +150,7 @@ Public Class SuppliersForm
             With supplierAddEditModal
                 .Owner = formModal
                 .StartPosition = FormStartPosition.CenterScreen
+                .SupplierModalGroupBox.Text = "Edit Supplier"
                 .InitCmbDs(-1, -1, -1, -1)
 
                 .CompanyNameTxtBox.Text = suppCompName

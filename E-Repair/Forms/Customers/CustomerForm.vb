@@ -34,6 +34,7 @@
     Public Property selectedCustID As Integer = -1
     Public Property selectModeTable As DataTable
 
+    ' VIEW
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         Dim AdminCustomerViewModal As New CustomerViewModal
 
@@ -41,36 +42,10 @@
 
         Try
             formModal = formUtils.CreateBgFormModal()
-            Dim getEmpData As DataRow = dbHelper.GetRowByValue("employees", "employee_id", addedBy).Rows(0)
 
             With AdminCustomerViewModal
                 .Owner = formModal
-
-                .FirstNameTextBox.Text = firstName
-                .MiddleNameTextBox.Text = middleName
-                .LastNameTextBox.Text = lastName
-                .GenderTxtBox.Text = custGender
-                .EmailTxtBox.Text = custEmail
-                .ContactNumberTxtBox.Text = contactNumber
-                .AddressTxtBox.Text = custAddress
-
-                .PendingServicesTxtBox.Text = pending
-                .OnholdTxtBox.Text = onHold
-                .CanceledTxtBox.Text = canceled
-                .CompletedServicesTxtBox.Text = completed
-                .TotalServicesTxtBox.Text = totalServices
-
-                .TotalPaidTxtBox.Text = totalPaid
-                .LastTransactionTxtBox.Text = lastTransaction
-
-                .AddedByTxtBox.Text = getEmpData("firstname") & " " & getEmpData("lastname")
-                .DateAddedTxtBox.Text = dateAdded
-
-                .ArchivedStatusTxtBox.Text = archivedStatus
-
-                .ArchivedByTxtBox.Text = archivedBy
-                .DateAddedTxtBox.Text = dateAdded
-
+                .selectedCustomerID = customerID
                 .ShowDialog()
             End With
         Catch ex As Exception
@@ -81,9 +56,9 @@
             formModal.Dispose()
         End Try
 
-
     End Sub
 
+    ' ADD
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
 
         Dim addEditModal As New CustomerAddEditModal
@@ -108,6 +83,7 @@
         End Try
     End Sub
 
+    ' EDIT
     Private Sub EditCustomerBtn_Click(sender As Object, e As EventArgs) Handles EditCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
@@ -148,13 +124,14 @@
 
     End Sub
 
+    ' ARCHIVE
     Private Sub ArchiveCustomerBtn_Click(sender As Object, e As EventArgs) Handles ArchiveCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
         Dim loggedUser As String
 
         If archivedStatus Then
-            MsgBox("This employee is already archived!")
+            MsgBox("This is already archived!")
             Exit Sub
         End If
 
@@ -165,7 +142,7 @@
             MsgBox("There is no current active user!")
         End Try
 
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this Customer") Then Exit Sub
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this customer") Then Exit Sub
 
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
@@ -385,6 +362,4 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
-
 End Class

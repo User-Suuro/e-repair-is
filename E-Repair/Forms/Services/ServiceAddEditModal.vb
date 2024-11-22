@@ -304,5 +304,4 @@ Public Class ServiceAddEditModal
         dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type", index01)
     End Sub
 
-
 End Class

@@ -114,6 +114,8 @@ Partial Class ServiceViewModal
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.SeeCustomerBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.SeeTechnicianBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -1288,12 +1290,14 @@ Partial Class ServiceViewModal
         '
         'TableLayoutPanel3
         '
-        Me.TableLayoutPanel3.ColumnCount = 5
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel3.ColumnCount = 6
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66944!))
+        Me.TableLayoutPanel3.Controls.Add(Me.SeeCustomerBtn, 5, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.CompletedCommissionsTxtBox, 4, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.PendingCommissionsTxtBox, 3, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.TotalCommissionsTxtBoxx, 2, 1)
@@ -1329,7 +1333,7 @@ Partial Class ServiceViewModal
         Me.CompletedCommissionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CompletedCommissionsTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedCommissionsTxtBox.HoverState.Parent = Me.CompletedCommissionsTxtBox
-        Me.CompletedCommissionsTxtBox.Location = New System.Drawing.Point(758, 24)
+        Me.CompletedCommissionsTxtBox.Location = New System.Drawing.Point(634, 24)
         Me.CompletedCommissionsTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CompletedCommissionsTxtBox.Name = "CompletedCommissionsTxtBox"
         Me.CompletedCommissionsTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1337,7 +1341,7 @@ Partial Class ServiceViewModal
         Me.CompletedCommissionsTxtBox.ReadOnly = True
         Me.CompletedCommissionsTxtBox.SelectedText = ""
         Me.CompletedCommissionsTxtBox.ShadowDecoration.Parent = Me.CompletedCommissionsTxtBox
-        Me.CompletedCommissionsTxtBox.Size = New System.Drawing.Size(189, 26)
+        Me.CompletedCommissionsTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.CompletedCommissionsTxtBox.TabIndex = 43
         '
         'PendingCommissionsTxtBox
@@ -1356,7 +1360,7 @@ Partial Class ServiceViewModal
         Me.PendingCommissionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PendingCommissionsTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingCommissionsTxtBox.HoverState.Parent = Me.PendingCommissionsTxtBox
-        Me.PendingCommissionsTxtBox.Location = New System.Drawing.Point(569, 24)
+        Me.PendingCommissionsTxtBox.Location = New System.Drawing.Point(476, 24)
         Me.PendingCommissionsTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.PendingCommissionsTxtBox.Name = "PendingCommissionsTxtBox"
         Me.PendingCommissionsTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1364,7 +1368,7 @@ Partial Class ServiceViewModal
         Me.PendingCommissionsTxtBox.ReadOnly = True
         Me.PendingCommissionsTxtBox.SelectedText = ""
         Me.PendingCommissionsTxtBox.ShadowDecoration.Parent = Me.PendingCommissionsTxtBox
-        Me.PendingCommissionsTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.PendingCommissionsTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.PendingCommissionsTxtBox.TabIndex = 42
         '
         'TotalCommissionsTxtBoxx
@@ -1383,7 +1387,7 @@ Partial Class ServiceViewModal
         Me.TotalCommissionsTxtBoxx.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalCommissionsTxtBoxx.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalCommissionsTxtBoxx.HoverState.Parent = Me.TotalCommissionsTxtBoxx
-        Me.TotalCommissionsTxtBoxx.Location = New System.Drawing.Point(380, 24)
+        Me.TotalCommissionsTxtBoxx.Location = New System.Drawing.Point(318, 24)
         Me.TotalCommissionsTxtBoxx.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalCommissionsTxtBoxx.Name = "TotalCommissionsTxtBoxx"
         Me.TotalCommissionsTxtBoxx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1391,7 +1395,7 @@ Partial Class ServiceViewModal
         Me.TotalCommissionsTxtBoxx.ReadOnly = True
         Me.TotalCommissionsTxtBoxx.SelectedText = ""
         Me.TotalCommissionsTxtBoxx.ShadowDecoration.Parent = Me.TotalCommissionsTxtBoxx
-        Me.TotalCommissionsTxtBoxx.Size = New System.Drawing.Size(185, 26)
+        Me.TotalCommissionsTxtBoxx.Size = New System.Drawing.Size(154, 26)
         Me.TotalCommissionsTxtBoxx.TabIndex = 41
         '
         'Label17
@@ -1400,11 +1404,11 @@ Partial Class ServiceViewModal
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label17.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(759, 0)
+        Me.Label17.Location = New System.Drawing.Point(635, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(75, 21)
+        Me.Label17.Size = New System.Drawing.Size(83, 21)
         Me.Label17.TabIndex = 39
-        Me.Label17.Text = "Completed"
+        Me.Label17.Text = "Completed Commission"
         '
         'Label16
         '
@@ -1412,7 +1416,7 @@ Partial Class ServiceViewModal
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label16.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(570, 0)
+        Me.Label16.Location = New System.Drawing.Point(477, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(137, 21)
         Me.Label16.TabIndex = 38
@@ -1424,7 +1428,7 @@ Partial Class ServiceViewModal
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label12.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(381, 0)
+        Me.Label12.Location = New System.Drawing.Point(319, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(115, 21)
         Me.Label12.TabIndex = 37
@@ -1434,10 +1438,10 @@ Partial Class ServiceViewModal
         '
         Me.Panel3.Controls.Add(Me.Label13)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(189, 0)
+        Me.Panel3.Location = New System.Drawing.Point(158, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(189, 21)
+        Me.Panel3.Size = New System.Drawing.Size(158, 21)
         Me.Panel3.TabIndex = 35
         '
         'Label13
@@ -1468,7 +1472,7 @@ Partial Class ServiceViewModal
         Me.CustomerNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomerNameTxtBox.HoverState.Parent = Me.CustomerNameTxtBox
-        Me.CustomerNameTxtBox.Location = New System.Drawing.Point(191, 24)
+        Me.CustomerNameTxtBox.Location = New System.Drawing.Point(160, 24)
         Me.CustomerNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CustomerNameTxtBox.Name = "CustomerNameTxtBox"
         Me.CustomerNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1476,7 +1480,7 @@ Partial Class ServiceViewModal
         Me.CustomerNameTxtBox.ReadOnly = True
         Me.CustomerNameTxtBox.SelectedText = ""
         Me.CustomerNameTxtBox.ShadowDecoration.Parent = Me.CustomerNameTxtBox
-        Me.CustomerNameTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.CustomerNameTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.CustomerNameTxtBox.TabIndex = 30
         '
         'CustomerIDTxtBox
@@ -1503,7 +1507,7 @@ Partial Class ServiceViewModal
         Me.CustomerIDTxtBox.ReadOnly = True
         Me.CustomerIDTxtBox.SelectedText = ""
         Me.CustomerIDTxtBox.ShadowDecoration.Parent = Me.CustomerIDTxtBox
-        Me.CustomerIDTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.CustomerIDTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.CustomerIDTxtBox.TabIndex = 29
         '
         'Label14
@@ -1532,12 +1536,14 @@ Partial Class ServiceViewModal
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.ColumnCount = 5
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel2.ColumnCount = 6
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66611!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66944!))
+        Me.TableLayoutPanel2.Controls.Add(Me.SeeTechnicianBtn, 5, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.CompletedWorkTxtBox, 4, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.PendingWorkTxtBox, 3, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.TotalWorkDoneTxtBox, 2, 1)
@@ -1573,7 +1579,7 @@ Partial Class ServiceViewModal
         Me.CompletedWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CompletedWorkTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedWorkTxtBox.HoverState.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Location = New System.Drawing.Point(758, 24)
+        Me.CompletedWorkTxtBox.Location = New System.Drawing.Point(634, 24)
         Me.CompletedWorkTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CompletedWorkTxtBox.Name = "CompletedWorkTxtBox"
         Me.CompletedWorkTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1581,7 +1587,7 @@ Partial Class ServiceViewModal
         Me.CompletedWorkTxtBox.ReadOnly = True
         Me.CompletedWorkTxtBox.SelectedText = ""
         Me.CompletedWorkTxtBox.ShadowDecoration.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Size = New System.Drawing.Size(189, 26)
+        Me.CompletedWorkTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.CompletedWorkTxtBox.TabIndex = 43
         '
         'PendingWorkTxtBox
@@ -1600,7 +1606,7 @@ Partial Class ServiceViewModal
         Me.PendingWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PendingWorkTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingWorkTxtBox.HoverState.Parent = Me.PendingWorkTxtBox
-        Me.PendingWorkTxtBox.Location = New System.Drawing.Point(569, 24)
+        Me.PendingWorkTxtBox.Location = New System.Drawing.Point(476, 24)
         Me.PendingWorkTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.PendingWorkTxtBox.Name = "PendingWorkTxtBox"
         Me.PendingWorkTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1608,7 +1614,7 @@ Partial Class ServiceViewModal
         Me.PendingWorkTxtBox.ReadOnly = True
         Me.PendingWorkTxtBox.SelectedText = ""
         Me.PendingWorkTxtBox.ShadowDecoration.Parent = Me.PendingWorkTxtBox
-        Me.PendingWorkTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.PendingWorkTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.PendingWorkTxtBox.TabIndex = 42
         '
         'TotalWorkDoneTxtBox
@@ -1627,7 +1633,7 @@ Partial Class ServiceViewModal
         Me.TotalWorkDoneTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalWorkDoneTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalWorkDoneTxtBox.HoverState.Parent = Me.TotalWorkDoneTxtBox
-        Me.TotalWorkDoneTxtBox.Location = New System.Drawing.Point(380, 24)
+        Me.TotalWorkDoneTxtBox.Location = New System.Drawing.Point(318, 24)
         Me.TotalWorkDoneTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalWorkDoneTxtBox.Name = "TotalWorkDoneTxtBox"
         Me.TotalWorkDoneTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1635,7 +1641,7 @@ Partial Class ServiceViewModal
         Me.TotalWorkDoneTxtBox.ReadOnly = True
         Me.TotalWorkDoneTxtBox.SelectedText = ""
         Me.TotalWorkDoneTxtBox.ShadowDecoration.Parent = Me.TotalWorkDoneTxtBox
-        Me.TotalWorkDoneTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.TotalWorkDoneTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.TotalWorkDoneTxtBox.TabIndex = 41
         '
         'Label9
@@ -1644,7 +1650,7 @@ Partial Class ServiceViewModal
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(759, 0)
+        Me.Label9.Location = New System.Drawing.Point(635, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(110, 21)
         Me.Label9.TabIndex = 39
@@ -1656,7 +1662,7 @@ Partial Class ServiceViewModal
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(570, 0)
+        Me.Label11.Location = New System.Drawing.Point(477, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(94, 21)
         Me.Label11.TabIndex = 38
@@ -1668,7 +1674,7 @@ Partial Class ServiceViewModal
         Me.Label19.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label19.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(381, 0)
+        Me.Label19.Location = New System.Drawing.Point(319, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(108, 21)
         Me.Label19.TabIndex = 37
@@ -1678,10 +1684,10 @@ Partial Class ServiceViewModal
         '
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(189, 0)
+        Me.Panel2.Location = New System.Drawing.Point(158, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(189, 21)
+        Me.Panel2.Size = New System.Drawing.Size(158, 21)
         Me.Panel2.TabIndex = 35
         '
         'Label20
@@ -1712,7 +1718,7 @@ Partial Class ServiceViewModal
         Me.TechnicianNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TechnicianNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TechnicianNameTxtBox.HoverState.Parent = Me.TechnicianNameTxtBox
-        Me.TechnicianNameTxtBox.Location = New System.Drawing.Point(191, 24)
+        Me.TechnicianNameTxtBox.Location = New System.Drawing.Point(160, 24)
         Me.TechnicianNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TechnicianNameTxtBox.Name = "TechnicianNameTxtBox"
         Me.TechnicianNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -1720,7 +1726,7 @@ Partial Class ServiceViewModal
         Me.TechnicianNameTxtBox.ReadOnly = True
         Me.TechnicianNameTxtBox.SelectedText = ""
         Me.TechnicianNameTxtBox.ShadowDecoration.Parent = Me.TechnicianNameTxtBox
-        Me.TechnicianNameTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.TechnicianNameTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.TechnicianNameTxtBox.TabIndex = 30
         '
         'TechnicianIDTxtBox
@@ -1747,7 +1753,7 @@ Partial Class ServiceViewModal
         Me.TechnicianIDTxtBox.ReadOnly = True
         Me.TechnicianIDTxtBox.SelectedText = ""
         Me.TechnicianIDTxtBox.ShadowDecoration.Parent = Me.TechnicianIDTxtBox
-        Me.TechnicianIDTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.TechnicianIDTxtBox.Size = New System.Drawing.Size(154, 26)
         Me.TechnicianIDTxtBox.TabIndex = 29
         '
         'Label21
@@ -1786,6 +1792,42 @@ Partial Class ServiceViewModal
         Me.SupplierCirclePictureBox.TabIndex = 32
         Me.SupplierCirclePictureBox.TabStop = False
         Me.SupplierCirclePictureBox.UseTransparentBackground = True
+        '
+        'SeeCustomerBtn
+        '
+        Me.SeeCustomerBtn.BorderRadius = 4
+        Me.SeeCustomerBtn.CheckedState.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.CustomImages.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SeeCustomerBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeCustomerBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeCustomerBtn.HoverState.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SeeCustomerBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeCustomerBtn.Name = "SeeCustomerBtn"
+        Me.SeeCustomerBtn.ShadowDecoration.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Size = New System.Drawing.Size(153, 28)
+        Me.SeeCustomerBtn.TabIndex = 55
+        Me.SeeCustomerBtn.Text = "See Customer"
+        '
+        'SeeTechnicianBtn
+        '
+        Me.SeeTechnicianBtn.BorderRadius = 4
+        Me.SeeTechnicianBtn.CheckedState.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.CustomImages.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SeeTechnicianBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeTechnicianBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeTechnicianBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeTechnicianBtn.HoverState.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SeeTechnicianBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeTechnicianBtn.Name = "SeeTechnicianBtn"
+        Me.SeeTechnicianBtn.ShadowDecoration.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Size = New System.Drawing.Size(153, 28)
+        Me.SeeTechnicianBtn.TabIndex = 56
+        Me.SeeTechnicianBtn.Text = "See Technician"
         '
         'ServiceViewModal
         '
@@ -1931,4 +1973,6 @@ Partial Class ServiceViewModal
     Friend WithEvents DeviceTypeTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ProfilePathTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents SeeCustomerBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents SeeTechnicianBtn As Guna.UI2.WinForms.Guna2Button
 End Class

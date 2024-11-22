@@ -47,11 +47,13 @@ Public Class ServiceForm
     Dim onhold_commission As Integer = -1
     Dim canceled_commission As Integer = -1
     Dim completed_commission As Integer = -1
+    Dim total_commisions As Integer = -1
 
     Dim pending_service As Integer = -1
     Dim onhold_service As Integer = -1
     Dim canceled_service As Integer = -1
     Dim completed_service As Integer = -1
+    Dim total_service
 
     Private Function InitData(Optional enableChecker As Boolean = True) As Boolean
         If enableChecker Then
@@ -117,11 +119,14 @@ Public Class ServiceForm
                 onhold_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
                 canceled_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
                 completed_service = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
+                total_service = pending_service + onhold_service + canceled_service + completed_service
 
                 pending_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
                 onhold_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
                 canceled_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
                 completed_commission = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
+                total_commisions = pending_commission + onhold_commission + canceled_commission + completed_commission
+
             End With
 
         Catch ex As Exception
@@ -152,13 +157,13 @@ Public Class ServiceForm
             With AdminServiceViewModal
                 .CustomerIDTxtBox.Text = customerID
                 .CustomerNameTxtBox.Text = customerName
-                .TotalCommissionsTxtBoxx.Text = pending_commission + completed_commission + onhold_commission + canceled_commission
+                .TotalCommissionsTxtBoxx.Text = total_commisions
                 .PendingCommissionsTxtBox.Text = pending_commission
                 .CompletedCommissionsTxtBox.Text = completed_commission
 
                 .TechnicianIDTxtBox.Text = technicianID
                 .TechnicianNameTxtBox.Text = technicianName
-                .TotalWorkDoneTxtBox.Text = completed_service + onhold_service + canceled_service + pending_service
+                .TotalWorkDoneTxtBox.Text = total_service
                 .PendingCommissionsTxtBox.Text = pending_service
                 .CompletedWorkTxtBox.Text = completed_service
 
@@ -201,7 +206,7 @@ Public Class ServiceForm
         End Try
 
     End Sub
-
+    ' ADD 
     Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
         Dim addEditModal As New ServiceAddEditModal
 
@@ -224,6 +229,51 @@ Public Class ServiceForm
             LoadDataToDGV()
         End Try
     End Sub
+
+    ' EDIT
+
+    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
+        Dim addEditModal As New ServiceAddEditModal
+
+        If Not InitData() Then Exit Sub
+
+        Try
+            formModal = formUtils.CreateBgFormModal()
+
+            With addEditModal
+                .Owner = formModal
+                .StartPosition = FormStartPosition.CenterScreen
+                .ShowDialog()
+                .LoadCmbDs(-1)
+                .Guna2GroupBox1.Text = "Edit Service"
+
+                .CustomerIDTxtBox.Text = customerID
+                .CustomerNameTxtBox.Text = customerName
+                .TotalCommissionsTxtBox.Text = total_commisions
+                .PendingCommisionsTxtBox.Text = pending_commission
+                .CompletedCommissionTxtBox.Text = completed_commission
+
+                .TechnicianIDTxtBox.Text = technicianID
+                .TechnicianNameTxtBox.Text = technicianName
+                .TotalWorkDoneTxtBox.Text = total_commisions
+                .PendingCommisionsTxtBox.Text = pending_commission
+                .CompletedCommissionTxtBox.Text = completed_commission
+
+
+
+            End With
+
+        Catch ex As Exception
+            MsgBox("Unable to show add service modal: " & ex.ToString)
+            formModal.Close()
+            EmployeeAddEditModal.Close()
+        Finally
+            EmployeeAddEditModal.Dispose()
+            formModal.Dispose()
+            LoadDataToDGV()
+        End Try
+    End Sub
+
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
@@ -329,7 +379,6 @@ Public Class ServiceForm
 
     End Sub
 
-    Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs)
 
     End Sub
 
