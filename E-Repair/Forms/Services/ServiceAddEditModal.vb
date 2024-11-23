@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Numerics
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+Imports System.Web.UI.Design
 Imports LibVLCSharp.[Shared]
 Imports Microsoft.Reporting.Map.WebForms.BingMaps
 
@@ -28,6 +29,79 @@ Public Class ServiceAddEditModal
     Public Property selectedID As Integer = -1
     Public Property deviceImgPath As String = ""
 
+    ' BTN SAVE
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        Try
+            Cursor = Cursors.WaitCursor
+            If editMode Then
+                EditDataFunction()
+            Else
+                AddDataFunction()
+            End If
+            Cursor = Cursors.Default
+        Catch ex As Exception
+            Cursor = Cursors.Default
+            MsgBox("Failed to save / edit: " & ex.Message)
+        End Try
+    End Sub
+
+    ' CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
+    ' ONLOAD
+    Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        LoadCmbDs(-1)
+
+        If selectedID = -1 Then Exit Sub
+
+        LoadData()
+
+    End Sub
+
+    ' LOAD DATA
+    Private Sub LoadData()
+        Dim servDt As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
+
+        If servDt.Rows.Count = 0 Then Exit Sub
+
+        Guna2GroupBox1.Text = "Edit Service"
+
+        With servDt.Rows(0)
+            CustomerIDTxtBox.Text = .Item("customer_id")
+            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
+            TotalCommissionsTxtBox.Text = getCustStatsNumber("Finished") + getCustStatsNumber("Pending") + getCustStatsNumber("Onhold") + getCustStatsNumber("Canceled")
+            PendingCommisionsTxtBox.Text = getCustStatsNumber("Pending")
+            CompletedCommissionTxtBox.Text = getCustStatsNumber("Finished")
+
+            TechnicianIDTxtBox.Text = .Item("technician_id")
+            TechnicianNameTxtBox.Text = formUtils.getTechnicianName(.Item("technician_id"))
+            TotalWorkDoneTxtBox.Text = getTechStatsNumber("Finished") + getTechStatsNumber("Pending") + getTechStatsNumber("Onhold") + getTechStatsNumber("Canceled")
+            PendingCommisionsTxtBox.Text = getTechStatsNumber("Pending")
+
+            deviceImgPath = .Item("device_profile_path")
+            DeviceBrandTxtBox.Text = .Item("device_brand")
+            DeviceModelTxtBox.Text = .Item("device_model")
+            StorageCapacityTxtBox.Text = .Item("storage_capacity")
+
+            Dim deviceTypeIndex = formUtils.FindComboBoxItemByText(DeviceTypeCmbBox, .Item("device_type"))
+            LoadCmbDs(deviceType)
+
+            OperatingSystemTxtBox.Text = .Item("operating_system")
+            DeviceProblemTxtBox.Text = .Item("problem_description")
+        End With
+
+        If File.Exists(deviceImgPath) Then
+            DeviceCirclePictureBox.Image = Image.FromFile(deviceImgPath)
+        End If
+    End Sub
+
+    ' LOAD ENUMS TO CMB
+    Public Sub LoadCmbDs(index01)
+        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type", index01)
+    End Sub
     ' ADD 
     Private Sub AddDataFunction()
 
@@ -101,110 +175,63 @@ Public Class ServiceAddEditModal
 
     ' SELECT CUSTOMER
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
-        Dim customerForm As New CustomerForm
-        Dim getCustomerTableData As DataTable = Nothing
 
-        Try
-            formModal = formUtils.CreateBgFormModal()
+        Dim idResult As Integer = Nothing
 
-            With customerForm
-                .Owner = formModal
-                .StartPosition = FormStartPosition.CenterScreen
-                .selectMode = True
+        formUtils.ShowModalWithHandler(
+               Function(id)
+                   Dim modal As New CustomerForm
+                   modal.selectMode = True
+                   modal.selectModeTable = dbHelper.GetAllRowsFromTable("customers", False)
+                   idResult = modal.selectedCustID
+                   Return modal
+               End Function,
+               -1,
+               Sub()
+               End Sub
+         )
 
-                getCustomerTableData = dbHelper.GetAllRowsFromTable("customers", False)
+        Dim pending_commission = formUtils.getCustStatusNumber("Pending", idResult)
+        Dim onhold_commission = formUtils.getCustStatusNumber("Onhold", idResult)
+        Dim canceled_commission = formUtils.getCustStatusNumber("Canceled", idResult)
+        Dim completed_commission = formUtils.getCustStatusNumber("Finished", idResult)
 
-                .selectModeTable = getCustomerTableData
+        Dim total_commisions = pending_commission + onhold_commission + canceled_commission + completed_commission
 
-
-                If .ShowDialog() = DialogResult.OK Then
-                    customerID = .selectedCustID
-
-                    If Not customerID = -1 Then
-
-                        ' LOAD SELECTED DATA
-                        CustomerIDTxtBox.Text = customerID
-
-                        With getCustomerTableData
-                            CustomerNameTxtBox.Text = .Rows(0)("first_name") & " " & .Rows(0)("last_name")
-                        End With
-
-                        With dbHelper
-                            Dim pending_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Pending").Rows.Count
-                            Dim onHold_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Onhold").Rows.Count
-                            Dim canceled_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Canceled").Rows.Count
-                            Dim completed_C As Integer = .GetRowByTwoValues("services", "customer_id", customerID, "service_status", "Finished").Rows.Count
-
-                            PendingCommisionsTxtBox.Text = pending_C
-                            CompletedCommissionTxtBox.Text = completed_C
-                            TotalCommissionsTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
-                        End With
-                    End If
-                End If
-            End With
-
-        Catch ex As Exception
-            MsgBox("Unable to customer modal: " & ex.ToString)
-            formModal.Close()
-            customerForm.Close()
-        Finally
-            customerForm.Dispose()
-            formModal.Dispose()
-        End Try
-
-
+        CustomerIDTxtBox.Text = idResult
+        CustomerNameTxtBox.Text = formUtils.getCustomerName(idResult)
+        TotalCommissionsTxtBox.Text = total_commisions
+        PendingCommisionsTxtBox.Text = pending_commission
+        CompletedCommissionTxtBox.Text = completed_commission
     End Sub
 
     ' SELECT TECHNICIAN
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
-        Dim employeeForm As New EmployeeForm
-        Dim getTechnicianTableData As DataTable = Nothing
+        Dim idResult As Integer = Nothing
 
-        Try
-            formModal = formUtils.CreateBgFormModal()
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New EmployeeForm
+               modal.selectMode = True
+               modal.selectModeTable = dbHelper.GetRowByValue("employees", "job_type", "Technician")
+               idResult = modal.selectedEmpID
+               Return modal
+           End Function,
+           -1,
+           Sub()
+           End Sub
+        )
 
-            With employeeForm
-                .Owner = formModal
-                .StartPosition = FormStartPosition.CenterScreen
-                .selectMode = True
+        Dim techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", idResult)
+        Dim techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", idResult)
+        Dim techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", idResult)
+        Dim techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", idResult)
 
-                getTechnicianTableData = dbHelper.GetRowByValue("employees", "job_type", "Technician")
-
-                .selectModeTable = getTechnicianTableData
-
-                If .ShowDialog() = DialogResult.OK Then
-                    technicianID = .selectedEmpID
-                    If Not technicianID = -1 Then
-                        ' LOAD SELECTED DATA
-                        TechnicianIDTxtBox.Text = technicianID
-
-                        With getTechnicianTableData
-                            TechnicianNameTxtBox.Text = .Rows(0)("firstname") & " " & .Rows(0)("lastname")
-                        End With
-
-                        With dbHelper
-                            Dim pending_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Pending").Rows.Count
-                            Dim onHold_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Onhold").Rows.Count
-                            Dim canceled_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Canceled").Rows.Count
-                            Dim completed_C As Integer = .GetRowByTwoValues("services", "technician_id", technicianID, "service_status", "Finished").Rows.Count
-
-                            PendingWorkTxtBox.Text = pending_C
-                            CompletedWorkTxtBox.Text = completed_C
-
-                            TotalWorkDoneTxtBox.Text = pending_C + onHold_C + canceled_C + completed_C
-                        End With
-                    End If
-                End If
-            End With
-        Catch ex As Exception
-            MsgBox("Unable to open employee modal: " & ex.ToString)
-            formModal.Close()
-            employeeForm.Close()
-        Finally
-            employeeForm.Dispose()
-            formModal.Dispose()
-        End Try
-
+        TechnicianIDTxtBox.Text = idResult
+        TechnicianNameTxtBox.Text = formUtils.getTechnicianName(idResult)
+        TotalCommissionsTxtBox.Text = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
+        PendingCommisionsTxtBox.Text = techNumberPendingServices
+        CompletedCommissionTxtBox.Text = techNumberFinishedServices
     End Sub
 
     'DEVICE BRAND
@@ -253,11 +280,11 @@ Public Class ServiceAddEditModal
     End Sub
 
     ' DEVICE TYPE OTHERS
-    'Private Sub IfOthersDeviceTypeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersDeviceTypeTxtBox.TextChanged
-    '    If DeviceTypeCmbBox.SelectedItem = "Others" Then
-    '        deviceType = IfOthersDeviceTypeTxtBox.Text
-    '    End If
-    'End Sub
+    Private Sub IfOthersDeviceTypeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersDeviceTypeTxtBox.TextChanged
+        '    If DeviceTypeCmbBox.SelectedItem = "Others" Then
+        '        deviceType = IfOthersDeviceTypeTxtBox.Text
+        '    End If
+    End Sub
 
     ' OPERATING SYSTEM
     Private Sub OperatingSystemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles OperatingSystemTxtBox.TextChanged
@@ -268,40 +295,14 @@ Public Class ServiceAddEditModal
         problemDescription = DeviceProblemTxtBox.Text
     End Sub
 
-    ' BTN SAVE
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Try
-            Cursor = Cursors.WaitCursor
-            If editMode Then
-                EditDataFunction()
-            Else
-                AddDataFunction()
-            End If
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            Cursor = Cursors.Default
-            MsgBox("Failed to save / edit: " & ex.Message)
-        End Try
-    End Sub
+    ' GET TECH NUMBER
+    Private Function getTechStatsNumber(status As String) As Integer
+        Return formUtils.getTechStatsNumbers(status, selectedID)
+    End Function
 
-    ' CLOSE
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
-    End Sub
-
-    ' ONLOAD
-    Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not editMode Then LoadCmbDs(-1)
-
-        If File.Exists(deviceImgPath) Then
-            DeviceCirclePictureBox.Image = Image.FromFile(deviceImgPath)
-        End If
-
-    End Sub
-
-    ' LOAD ENUMS TO CMB
-    Public Sub LoadCmbDs(index01)
-        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type", index01)
-    End Sub
+    ' GET CUST NUMBER
+    Private Function getCustStatsNumber(status As String) As Integer
+        Return formUtils.getCustStatusNumber(status, selectedID)
+    End Function
 
 End Class

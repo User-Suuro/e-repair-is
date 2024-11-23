@@ -27,6 +27,7 @@
     ' VIEW
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
         If Not InitData() Then Exit Sub
+
         formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New EmployeeViewModal()
@@ -73,6 +74,7 @@
         End Sub
         )
     End Sub
+
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
         If Not InitData() Then Exit Sub

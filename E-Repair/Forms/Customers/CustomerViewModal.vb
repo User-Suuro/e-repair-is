@@ -1,5 +1,6 @@
 ﻿Public Class CustomerViewModal
     Dim dbHelper As New DbHelper
+    Dim formUtils As New FormUtils
     Public Property selectedID As Integer = -1
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -48,10 +49,7 @@
     End Sub
 
     Private Function getStatusNumber(status As String) As Integer
-        Return dbHelper.GetRowByTwoValues("services", "customer_id", selectedID, "service_status", status).Rows.Count
+        Return formUtils.getCustStatusNumber(status, selectedID)
     End Function
 
-    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
-
-    End Sub
 End Class

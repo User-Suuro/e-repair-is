@@ -194,6 +194,24 @@ Public Class FormUtils
         End Try
     End Sub
 
+    Public Sub FormDGVForCustomerName(dgv As DataGridView)
+        ' CUSTOMER NAME
+        Try
+            For Each row As DataGridViewRow In dgv.Rows
+                If row.Cells("CUSTOMER_NAME").Value IsNot Nothing Then
+                    Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", row.Cells("CUSTOMER_ID").Value)
+
+                    If getCustData.Rows.Count > 0 Then
+                        row.Cells("CUSTOMER_NAME").Value = getCustData.Rows(0)("first_name") & " " & getCustData.Rows(0)("last_name")
+                    End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("Unable to format DGV for customer name: " & ex.Message)
+        End Try
+    End Sub
+
+    ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, tableName As String, searchValues() As String, searchIndex As Integer, archivedChkBox As CheckBox, Optional searchTerm As String = "")
         Dim dt As DataTable
 
@@ -207,7 +225,7 @@ Public Class FormUtils
             dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
         End If
 
-        dgv.AutoGenerateColumns = True
+        dgv.AutoGenerateColumns = False
         dgv.DataSource = dt
     End Sub
 
@@ -283,6 +301,8 @@ Public Class FormUtils
         End Try
     End Sub
 
+
+
     Public Function dgvValChecker(dgv As DataGridView)
         If dgv.Rows.Count = 0 Then
             MsgBox("No Data Found!")
@@ -313,5 +333,33 @@ Public Class FormUtils
             archiChk.Visible = True
         End If
     End Sub
+
+    Public Function getCustomerName(customerIndex As Integer) As String
+        Dim getCustDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerIndex)
+
+        If getCustDt.Rows.Count = 0 Then Exit Function
+
+        With getCustDt.Rows(0)
+            Return .Item("first_name") & " " & .Item("last_name")
+        End With
+    End Function
+
+    Public Function getTechnicianName(technicianIndex As Integer) As String
+        Dim getTechDt As DataTable = dbHelper.GetRowByTwoValues("employees", "employee_id", technicianIndex, "job_type", "Technician")
+
+        If getTechDt.Rows.Count = 0 Then Exit Function
+
+        With getTechDt.Rows(0)
+            Return .Item("firstname") & " " & .Item("lastname")
+        End With
+    End Function
+
+    Public Function getTechStatsNumbers(status As String, techID As Integer) As Integer
+        Return dbHelper.GetRowByTwoValues("services", "technician_id", techID, "service_status", status).Rows.Count
+    End Function
+
+    Public Function getCustStatusNumber(status As String, customerID As Integer) As Integer
+        Return dbHelper.GetRowByTwoValues("services", "customer_id", customerID, "service_status", status).Rows.Count
+    End Function
 
 End Class

@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports Google.Protobuf.WellKnownTypes
 
 Public Class EmployeeViewModal
     Dim formUtils As New FormUtils
@@ -7,7 +6,6 @@ Public Class EmployeeViewModal
     Dim dbHelper As New DbHelper
 
     Public Property selectedID As Integer = -1
-
 
     Private Sub AdminViewEmployeeModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ManageJobDescriptionView()
@@ -66,27 +64,24 @@ Public Class EmployeeViewModal
 
             ElseIf empJobType = constants.getTechnicianString Then
                 ' TECH
-                DevicesRepairedTextBox.Text = getTechnicianStatus("Finished")
-                NumberJobsAssignedTextBox.Text = getTechnicianStatus("Pending") + getTechnicianStatus("Finished") + getTechnicianStatus("Onhold") + getTechnicianStatus("Canceled")
+                DevicesRepairedTextBox.Text = getTechStatsNumbers("Finished")
+                NumberJobsAssignedTextBox.Text = getTechStatsNumbers("Pending") + getTechStatsNumbers("Finished") + getTechStatsNumbers("Onhold") + getTechStatsNumbers("Canceled")
 
-            ElseIf empjobType = constants.getCashierString Then
+            ElseIf empJobType = constants.getCashierString Then
                 ' CASHIER
                 CustomersHandledTextBox.Text = dbHelper.GetRowByValue("customers", "added_by", selectedID).Rows.Count
                 ServiceHandledTxtBox.Text = dbHelper.GetRowByValue("services", "cashier_id", selectedID).Rows.Count
 
-            ElseIf empjobType = constants.getUtilityPersonnelString Then
+            ElseIf empJobType = constants.getUtilityPersonnelString Then
                 ' PERSONNEL
                 AssignedLocationTextBox.Text = .Item("personnel_destination")
             End If
 
         End With
-
-
-
     End Sub
 
-    Private Function getTechnicianStatus(status As String) As Integer
-        Return dbHelper.GetRowByTwoValues("services", "technician_id", selectedID, "service_status", status).Rows.Count
+    Public Function getTechStatsNumbers(status As String) As Integer
+        Return formUtils.getTechStatsNumbers(status, selectedID)
     End Function
 
     Private Sub ManageJobDescriptionView()
@@ -117,7 +112,5 @@ Public Class EmployeeViewModal
         Me.Close()
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 End Class

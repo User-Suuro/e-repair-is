@@ -44,22 +44,17 @@ Public Class SuppliersForm
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
         Dim supplierAddEditModal As New SupplierAddEditModal
 
-        Try
-            formModal = formUtils.CreateBgFormModal()
-            With supplierAddEditModal
-                .Owner = formModal
-                .StartPosition = FormStartPosition.CenterScreen
-                .ShowDialog()
-            End With
-        Catch ex As Exception
-            MsgBox("Unable to show add suppliers modal: " & ex.Message)
-            formModal.Close()
-            supplierAddEditModal.Close()
-        Finally
-            supplierAddEditModal.Dispose()
-            formModal.Dispose()
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New SupplierViewModal()
+            modal.selectedID = id
+            Return modal
+        End Function,
+        -1,
+        Sub()
             LoadDataToDGV()
-        End Try
+        End Sub
+    )
     End Sub
 
     'EDIT

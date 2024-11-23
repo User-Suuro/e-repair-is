@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 
 Public Class SupplierViewModal
     Dim dbHelper As New DbHelper
@@ -49,4 +50,12 @@ Public Class SupplierViewModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
+    Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
+        If selectedID = -1 Then Exit Sub
+
+
+    End Sub
+
+
 End Class

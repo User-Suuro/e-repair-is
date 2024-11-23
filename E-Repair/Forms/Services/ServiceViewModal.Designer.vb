@@ -88,6 +88,7 @@ Partial Class ServiceViewModal
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SeeCustomerBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.CompletedCommissionsTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PendingCommissionsTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TotalCommissionsTxtBoxx = New Guna.UI2.WinForms.Guna2TextBox()
@@ -101,6 +102,7 @@ Partial Class ServiceViewModal
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SeeTechnicianBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.CompletedWorkTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PendingWorkTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TotalWorkDoneTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -114,8 +116,6 @@ Partial Class ServiceViewModal
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.SeeCustomerBtn = New Guna.UI2.WinForms.Guna2Button()
-        Me.SeeTechnicianBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel10.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -1317,6 +1317,24 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel3.TabIndex = 8
         '
+        'SeeCustomerBtn
+        '
+        Me.SeeCustomerBtn.BorderRadius = 4
+        Me.SeeCustomerBtn.CheckedState.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.CustomImages.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SeeCustomerBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeCustomerBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeCustomerBtn.HoverState.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SeeCustomerBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeCustomerBtn.Name = "SeeCustomerBtn"
+        Me.SeeCustomerBtn.ShadowDecoration.Parent = Me.SeeCustomerBtn
+        Me.SeeCustomerBtn.Size = New System.Drawing.Size(153, 28)
+        Me.SeeCustomerBtn.TabIndex = 55
+        Me.SeeCustomerBtn.Text = "See Customer"
+        '
         'CompletedCommissionsTxtBox
         '
         Me.CompletedCommissionsTxtBox.BorderRadius = 4
@@ -1563,6 +1581,24 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel2.TabIndex = 8
         '
+        'SeeTechnicianBtn
+        '
+        Me.SeeTechnicianBtn.BorderRadius = 4
+        Me.SeeTechnicianBtn.CheckedState.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.CustomImages.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SeeTechnicianBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeTechnicianBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeTechnicianBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeTechnicianBtn.HoverState.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SeeTechnicianBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeTechnicianBtn.Name = "SeeTechnicianBtn"
+        Me.SeeTechnicianBtn.ShadowDecoration.Parent = Me.SeeTechnicianBtn
+        Me.SeeTechnicianBtn.Size = New System.Drawing.Size(153, 28)
+        Me.SeeTechnicianBtn.TabIndex = 56
+        Me.SeeTechnicianBtn.Text = "See Technician"
+        '
         'CompletedWorkTxtBox
         '
         Me.CompletedWorkTxtBox.BorderRadius = 4
@@ -1792,42 +1828,6 @@ Partial Class ServiceViewModal
         Me.SupplierCirclePictureBox.TabIndex = 32
         Me.SupplierCirclePictureBox.TabStop = False
         Me.SupplierCirclePictureBox.UseTransparentBackground = True
-        '
-        'SeeCustomerBtn
-        '
-        Me.SeeCustomerBtn.BorderRadius = 4
-        Me.SeeCustomerBtn.CheckedState.Parent = Me.SeeCustomerBtn
-        Me.SeeCustomerBtn.CustomImages.Parent = Me.SeeCustomerBtn
-        Me.SeeCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SeeCustomerBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SeeCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SeeCustomerBtn.ForeColor = System.Drawing.Color.White
-        Me.SeeCustomerBtn.HoverState.Parent = Me.SeeCustomerBtn
-        Me.SeeCustomerBtn.Location = New System.Drawing.Point(793, 23)
-        Me.SeeCustomerBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SeeCustomerBtn.Name = "SeeCustomerBtn"
-        Me.SeeCustomerBtn.ShadowDecoration.Parent = Me.SeeCustomerBtn
-        Me.SeeCustomerBtn.Size = New System.Drawing.Size(153, 28)
-        Me.SeeCustomerBtn.TabIndex = 55
-        Me.SeeCustomerBtn.Text = "See Customer"
-        '
-        'SeeTechnicianBtn
-        '
-        Me.SeeTechnicianBtn.BorderRadius = 4
-        Me.SeeTechnicianBtn.CheckedState.Parent = Me.SeeTechnicianBtn
-        Me.SeeTechnicianBtn.CustomImages.Parent = Me.SeeTechnicianBtn
-        Me.SeeTechnicianBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SeeTechnicianBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SeeTechnicianBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SeeTechnicianBtn.ForeColor = System.Drawing.Color.White
-        Me.SeeTechnicianBtn.HoverState.Parent = Me.SeeTechnicianBtn
-        Me.SeeTechnicianBtn.Location = New System.Drawing.Point(793, 23)
-        Me.SeeTechnicianBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SeeTechnicianBtn.Name = "SeeTechnicianBtn"
-        Me.SeeTechnicianBtn.ShadowDecoration.Parent = Me.SeeTechnicianBtn
-        Me.SeeTechnicianBtn.Size = New System.Drawing.Size(153, 28)
-        Me.SeeTechnicianBtn.TabIndex = 56
-        Me.SeeTechnicianBtn.Text = "See Technician"
         '
         'ServiceViewModal
         '

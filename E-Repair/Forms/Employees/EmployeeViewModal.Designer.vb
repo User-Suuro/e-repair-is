@@ -51,6 +51,8 @@ Partial Class EmployeeViewModal
         Me.Label28 = New System.Windows.Forms.Label()
         Me.CashierDescriptionPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ServiceHandledTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.CustomersHandledTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.PersonnelDescriptionPanel = New Guna.UI2.WinForms.Guna2Panel()
@@ -117,8 +119,6 @@ Partial Class EmployeeViewModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FirstNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ServiceHandledTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
@@ -659,6 +659,43 @@ Partial Class EmployeeViewModal
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
         Me.TableLayoutPanel7.Size = New System.Drawing.Size(822, 61)
         Me.TableLayoutPanel7.TabIndex = 8
+        '
+        'ServiceHandledTxtBox
+        '
+        Me.ServiceHandledTxtBox.BorderRadius = 4
+        Me.ServiceHandledTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ServiceHandledTxtBox.DefaultText = ""
+        Me.ServiceHandledTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ServiceHandledTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ServiceHandledTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ServiceHandledTxtBox.DisabledState.Parent = Me.ServiceHandledTxtBox
+        Me.ServiceHandledTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ServiceHandledTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ServiceHandledTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ServiceHandledTxtBox.FocusedState.Parent = Me.ServiceHandledTxtBox
+        Me.ServiceHandledTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceHandledTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ServiceHandledTxtBox.HoverState.Parent = Me.ServiceHandledTxtBox
+        Me.ServiceHandledTxtBox.Location = New System.Drawing.Point(413, 24)
+        Me.ServiceHandledTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ServiceHandledTxtBox.Name = "ServiceHandledTxtBox"
+        Me.ServiceHandledTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ServiceHandledTxtBox.PlaceholderText = ""
+        Me.ServiceHandledTxtBox.SelectedText = ""
+        Me.ServiceHandledTxtBox.ShadowDecoration.Parent = Me.ServiceHandledTxtBox
+        Me.ServiceHandledTxtBox.Size = New System.Drawing.Size(404, 26)
+        Me.ServiceHandledTxtBox.TabIndex = 21
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label12.Location = New System.Drawing.Point(414, 3)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(141, 18)
+        Me.Label12.TabIndex = 20
+        Me.Label12.Text = "Total Service Handled"
         '
         'CustomersHandledTextBox
         '
@@ -1795,43 +1832,6 @@ Partial Class EmployeeViewModal
         Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(414, 3)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(141, 18)
-        Me.Label12.TabIndex = 20
-        Me.Label12.Text = "Total Service Handled"
-        '
-        'ServiceHandledTxtBox
-        '
-        Me.ServiceHandledTxtBox.BorderRadius = 4
-        Me.ServiceHandledTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ServiceHandledTxtBox.DefaultText = ""
-        Me.ServiceHandledTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ServiceHandledTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ServiceHandledTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ServiceHandledTxtBox.DisabledState.Parent = Me.ServiceHandledTxtBox
-        Me.ServiceHandledTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ServiceHandledTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ServiceHandledTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ServiceHandledTxtBox.FocusedState.Parent = Me.ServiceHandledTxtBox
-        Me.ServiceHandledTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceHandledTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ServiceHandledTxtBox.HoverState.Parent = Me.ServiceHandledTxtBox
-        Me.ServiceHandledTxtBox.Location = New System.Drawing.Point(413, 24)
-        Me.ServiceHandledTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ServiceHandledTxtBox.Name = "ServiceHandledTxtBox"
-        Me.ServiceHandledTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ServiceHandledTxtBox.PlaceholderText = ""
-        Me.ServiceHandledTxtBox.SelectedText = ""
-        Me.ServiceHandledTxtBox.ShadowDecoration.Parent = Me.ServiceHandledTxtBox
-        Me.ServiceHandledTxtBox.Size = New System.Drawing.Size(404, 26)
-        Me.ServiceHandledTxtBox.TabIndex = 21
         '
         'EmployeeViewModal
         '
