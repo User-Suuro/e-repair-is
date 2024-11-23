@@ -10,10 +10,12 @@
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property empDT As DataTable = dbHelper.GetAllRowsFromTable("employees", True)
+    Public Property empDT As DataTable
 
     ' INIT DATA
     Private Function InitData() As Boolean
+
+
         If Not formUtils.dgvValChecker(EmpDGV) Then Return False
 
         With EmpDGV.CurrentRow
@@ -51,11 +53,10 @@
         End Function,
         -1,
         Function(modal)
+            LoadDataToDGV()
             Return Nothing
         End Function
         )
-
-        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -113,6 +114,8 @@
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+
+        If Not selectMode Then empDT = dbHelper.GetAllRowsFromTable("employees", True)
 
         Dim searchValues() As String = {
            "firstname",
