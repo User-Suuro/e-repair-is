@@ -8,7 +8,7 @@ Public Class AdminDashboardForm
         ServicesNumberLabel.Text = dbHelper.GetAllRowsFromTable("services", False).Rows.Count
         CustomersNumberLabel.Text = dbHelper.GetAllRowsFromTable("customers", False).Rows.Count
         SuppliersNumberLabel.Text = dbHelper.GetAllRowsFromTable("suppliers", False).Rows.Count
-        ItemsCountLabel.Text = dbHelper.GetAllRowsFromTable("items", False).Rows.Count
+        ItemsCountLabel.Text = dbHelper.GetAllRowsFromTable("inventory", False).Rows.Count
 
         Try
             Dim getActiveEmployee As DataRow = dbHelper.GetRowByValue("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID).Rows(0)

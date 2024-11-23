@@ -225,6 +225,8 @@ Public Class FormUtils
             dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
         End If
 
+        If Not dt.Columns.Contains("archived") Then Exit Sub
+
         With dt.DefaultView
             If showChkBox.Checked Then
                 .RowFilter = "archived = True"
