@@ -37,10 +37,7 @@
         employeeID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        End Function
         )
     End Sub
 
@@ -55,11 +52,10 @@
         -1,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        End Function
         )
+
+        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -77,11 +73,10 @@
         employeeID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        End Function
         )
+
+        LoadDataToDGV()
     End Sub
 
     'ARCHIVE

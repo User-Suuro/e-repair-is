@@ -291,8 +291,7 @@ Public Class FormUtils
     Public Function ShowModalWithHandler(Of T As {Form, New}, TResult)(
         createModal As Func(Of Object, T),
         selectedID As Object,
-        Optional getResult As Func(Of T, TResult) = Nothing,
-        Optional dataReloadAction As Action = Nothing) As TResult
+        Optional getResult As Func(Of T, TResult) = Nothing) As TResult
 
         Dim modalForm As T = Nothing
         Dim backgroundForm As Form = Nothing
@@ -312,11 +311,9 @@ Public Class FormUtils
             MsgBox("Unable to show modal: " & ex.Message)
             If backgroundForm IsNot Nothing Then backgroundForm.Close()
             If modalForm IsNot Nothing Then modalForm.Close()
-
         Finally
             If modalForm IsNot Nothing Then modalForm.Dispose()
             If backgroundForm IsNot Nothing Then backgroundForm.Dispose()
-            If dataReloadAction IsNot Nothing Then dataReloadAction.Invoke()
         End Try
 
         Return result

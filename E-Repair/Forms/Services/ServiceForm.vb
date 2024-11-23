@@ -19,6 +19,11 @@ Public Class ServiceForm
         Return True
     End Function
 
+    ' FORM ONLOAD
+    Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadDataToDGV()
+    End Sub
+
     ' CLAIM
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
         If Not InitData() Then Exit Sub
@@ -49,10 +54,7 @@ Public Class ServiceForm
            serviceID,
            Function(modal)
                Return Nothing
-           End Function,
-           Sub()
-               LoadDataToDGV()
-           End Sub
+           End Function
            )
     End Sub
 
@@ -68,11 +70,10 @@ Public Class ServiceForm
         -1,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        End Function
         )
+
+        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -90,11 +91,9 @@ Public Class ServiceForm
         serviceID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
-        )
+        End Function)
+
+        LoadDataToDGV 
     End Sub
 
 
@@ -125,7 +124,5 @@ Public Class ServiceForm
         LoadDataToDGV()
     End Sub
 
-    Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 End Class

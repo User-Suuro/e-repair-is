@@ -36,11 +36,10 @@ Public Class SuppliersForm
         suppID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
-    )
+        End Function
+        )
+
+        LoadDataToDGV()
     End Sub
 
     ' ADD
@@ -56,11 +55,10 @@ Public Class SuppliersForm
         -1,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
-    )
+        End Function
+          )
+
+        LoadDataToDGV()
     End Sub
 
     'EDIT
@@ -77,11 +75,10 @@ Public Class SuppliersForm
         suppID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
-    )
+        End Function
+        )
+
+        LoadDataToDGV()
     End Sub
 
     ' ARCHIVE

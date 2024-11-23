@@ -39,11 +39,8 @@ Public Class CustomerForm
             customerID,
             Function(modal)
                 Return Nothing
-            End Function,
-            Sub()
-                LoadDataToDGV()
-            End Sub
-        )
+            End Function
+            )
     End Sub
 
     ' ADD
@@ -57,11 +54,9 @@ Public Class CustomerForm
         -1,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
-        )
+        End Function)
+
+        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -78,11 +73,10 @@ Public Class CustomerForm
         customerID,
         Function(modal)
             Return Nothing
-        End Function,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        End Function
         )
+
+        LoadDataToDGV()
     End Sub
 
     ' ARCHIVE
@@ -101,9 +95,9 @@ Public Class CustomerForm
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDataToDGV()
         CustomerDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        LoadDataToDGV()
     End Sub
 
     ' LOAD DATA
@@ -117,6 +111,7 @@ Public Class CustomerForm
             "email",
             "date_added"
         }
+
         Dim customersDt = dbHelper.GetAllRowsFromTable("customers", True)
         formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
         formUtils.FormatDGVForArchive(CustomerDGV)
