@@ -40,14 +40,10 @@ Public Class EmployeeAddEditModal
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
 
-
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1, -1)
         loadValues()
-
-        emailFirstValue = EmailTextBox.Text
-        initialJobType = JobTypeComboBox.Text
     End Sub
 
     Private Sub loadValues()
@@ -74,6 +70,8 @@ Public Class EmployeeAddEditModal
             profileImgPath = .Item("profile_path")
 
             EmailTextBox.Text = .Item("email")
+            emailFirstValue = .Item("email") ' for checker
+
             PasswordTextBox.Text = dbHelper.DecryptPassword(.Item("password"), constants.EncryptionKey)
             ConfirmPasswordTextBox.Text = PasswordTextBox.Text
 
@@ -81,13 +79,9 @@ Public Class EmployeeAddEditModal
             Dim civilIndex = formUtils.FindComboBoxItemByText(CivilStatusComboBox, .Item("civilstatus"))
             Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(ContractStatusComboBox, .Item("employment_status"))
             Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item("job_type"))
-            Dim adminPosIndex = -1
+            Dim adminPosIndex = formUtils.FindComboBoxItemByText(PositionComboBox, .Item("admin_position"))
 
-            If .Item("job_type") = constants.getAdminString Then
-                formUtils.FindComboBoxItemByText(PositionComboBox, .Item("admin_position"))
-            ElseIf .Item("job_type") = constants.getUtilityPersonnelString Then
-                AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item("personnel_destination"))
-            End If
+            AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item("personnel_destination"))
 
             InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
         End With
