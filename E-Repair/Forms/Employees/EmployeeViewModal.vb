@@ -2,14 +2,21 @@
     Dim formUtils As New FormUtils
     Dim constants As New Constants
 
-    Public Property viewSelectedID As Integer = -1
+    Public Property selectedID As Integer = -1
 
     Private Sub AdminViewEmployeeModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ManageJobDescriptionView()
 
-        If viewSelectedID = -1 Then Exit Sub
+        If selectedID = -1 Then Exit Sub
+
+        InitValues()
+    End Sub
+
+    Private Sub InitValues()
+
 
     End Sub
+
 
     Private Sub ManageJobDescriptionView()
         AdminDescriptionPanel.Visible = False
@@ -38,6 +45,5 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class

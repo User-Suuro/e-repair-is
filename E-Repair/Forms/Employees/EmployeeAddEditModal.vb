@@ -1,4 +1,4 @@
-﻿Imports LibVLCSharp.[Shared]
+﻿Imports System.IO
 
 Public Class EmployeeAddEditModal
 
@@ -8,42 +8,110 @@ Public Class EmployeeAddEditModal
     Dim formUtils As New FormUtils
 
     ' CONSTANTS
-    Dim emailFirstValue As String
-    Dim initialJobType As String
-
-    ' IMPORTED STATES
-    Public Property editMode As Boolean = False
-    Public Property selectedEmployeeId As Integer = -1
+    Private emailFirstValue As String
+    Private initialJobType As String
 
     ' STATES
-    Dim isEmailDuplicate As Boolean = False
+    Private isEmailDuplicate As Boolean = False
 
     ' SCHEMA
-    Dim firstName As String = ""
-    Dim middleName As String = ""
-    Dim lastName As String = ""
-    Dim sex As String = ""
-    Dim birthdate As Date
-    Dim civilStatus As String = ""
-    Dim address As String = ""
-    Dim contactNumber As String = ""
-    Dim contractStatus As String = ""
-    Dim dateHired As Date
-    Dim jobType As String = ""
-    Dim sss As String = ""
-    Dim nbi As String = ""
-    Dim tin As String = ""
-    Dim pagibig As String = ""
-    Dim email As String = ""
-    Dim password As String = ""
-    Dim confirmPassword As String = ""
-    Public Property profileImgPath As String = ""
+    Private firstName As String = ""
+    Private middleName As String = ""
+    Private lastName As String = ""
+    Private sex As String = ""
+    Private birthdate As Date
+    Private civilStatus As String = ""
+    Private address As String = ""
+    Private contactNumber As String = ""
+    Private contractStatus As String = ""
+    Private dateHired As Date
+    Private jobType As String = ""
+    Private sss As String = ""
+    Private nbi As String = ""
+    Private tin As String = ""
+    Private pagibig As String = ""
+    Private email As String = ""
+    Private password As String = ""
+    Private confirmPassword As String = ""
+    Private personnelDestination As String = ""
+    Private adminPosition As String = ""
+    Private othersTextBoxContent As String = ""
+    Private Property profileImgPath As String = ""
 
-    ' FOREIGN SCHEMA
-    Dim personnelDestination As String = ""
-    Dim adminPosition As String = ""
+    Public Property editMode As Boolean = False
+    Public Property selectedID As Integer = -1
 
-    Dim othersTextBoxContent As String = ""
+
+    ' FORM ONLOAD
+    Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        emailFirstValue = EmailTextBox.Text
+        initialJobType = JobTypeComboBox.Text
+
+        AlreadyTakenLabel.Visible = False
+        isEmailDuplicate = False
+
+        InitCmbDs(-1, -1, -1, -1, -1)
+        loadValues()
+    End Sub
+
+    Private Sub loadValues()
+        If selectedID = -1 Then Exit Sub
+
+        Dim empDt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
+
+        If empDt.Rows.Count = 0 Then Exit Sub
+
+        With empDt.Rows(0)
+            FirstNameTextBox.Text = .Item("firstname")
+            MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item("middlename"))
+            LastNameTextBox.Text = .Item("lastname")
+            BirthdateDateTimePicker.Value = DateTime.Parse(.Item("birthdate"))
+
+            AddressTextBox.Text = .Item("address")
+            ContactNumberTextBox.Text = .Item("contact_number")
+            DateHiredDateTimePicker.Value = DateTime.Parse(.Item("date_hired"))
+
+            SSSTextBox.Text = .Item("sss_no")
+            PagIbigTextBox.Text = .Item("pagibig_no")
+            TINTextBox.Text = .Item("tin_no")
+
+            profileImgPath = .Item("profile_path")
+
+            EmailTextBox.Text = .Item("email")
+            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item("password"), constants.EncryptionKey)
+            ConfirmPasswordTextBox.Text = PasswordTextBox.Text
+
+            Dim sexIndex = formUtils.FindComboBoxItemByText(SexComboBox, .Item("sex"))
+            Dim civilIndex = formUtils.FindComboBoxItemByText(CivilStatusComboBox, .Item("civilstatus"))
+            Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(ContractStatusComboBox, .Item("employment_status"))
+            Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item("job_type"))
+            Dim adminPosIndex = -1
+
+            If .Item("job_type") = constants.getAdminString Then
+                formUtils.FindComboBoxItemByText(PositionComboBox, .Item("admin_position"))
+            ElseIf .Item("job_type") = constants.getUtilityPersonnelString Then
+                AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item("personnel_destination"))
+            End If
+
+            InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
+        End With
+
+        ' PROFILE
+        If File.Exists(profileImgPath) Then
+            ProfileCirclePictureBox.Image = Image.FromFile(profileImgPath)
+        End If
+    End Sub
+
+    ' INIT CMBDS
+    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
+        With dbHelper
+            .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
+            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
+            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
+            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04)
+            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
+        End With
+    End Sub
 
     ' CREATE EMPLOYEE
     Private Sub CreateEmpFunction()
@@ -149,7 +217,7 @@ Public Class EmployeeAddEditModal
         If Not formUtils.AreAllValuesFilled(updateData, 4) Then Exit Sub
 
         ' get prev value
-        Dim prevEmployeeValue As DataRow = dbUtils.GetRowByValue("employees", "employee_id", selectedEmployeeId).Rows(0)
+        Dim prevEmployeeValue As DataRow = dbUtils.GetRowByValue("employees", "employee_id", selectedID).Rows(0)
 
         ' UDPDATE FOREIGN VALUES
 
@@ -179,7 +247,7 @@ Public Class EmployeeAddEditModal
         ' Save image locally
         If prevEmployeeValue("profile_path") <> profileImgPath Then updateAdminValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
 
-        If dbHelper.UpdateRecord("employees", "employee_id", selectedEmployeeId, updateData) Then
+        If dbHelper.UpdateRecord("employees", "employee_id", selectedID, updateData) Then
             MsgBox("Employee Details Sucessfully Updated")
         Else
             MsgBox("Db Failure")
@@ -218,27 +286,6 @@ Public Class EmployeeAddEditModal
         Catch ex As Exception
             MsgBox("Failed to Edit / Add Employee: " & ex.Message)
         End Try
-    End Sub
-
-    ' FORM ONLOAD
-    Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        emailFirstValue = EmailTextBox.Text
-        initialJobType = JobTypeComboBox.Text
-
-        AlreadyTakenLabel.Visible = False
-        isEmailDuplicate = False
-
-        If Not editMode Then InitCmbDs(-1, -1, -1, -1, -1)
-    End Sub
-
-    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
-        With dbHelper
-            .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
-            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
-            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
-            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04)
-            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
-        End With
     End Sub
 
     ' FIRST NAME
@@ -426,4 +473,7 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
+    Private Sub EmployeeModalGroupBox_Click(sender As Object, e As EventArgs) Handles EmployeeModalGroupBox.Click
+
+    End Sub
 End Class

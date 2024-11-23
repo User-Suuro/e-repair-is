@@ -1,6 +1,4 @@
 ﻿
-Imports Org.BouncyCastle.Math.EC
-
 Public Class CustomerAddEditModal
     ' TOOLS
     Dim formModal As New Form
@@ -24,13 +22,12 @@ Public Class CustomerAddEditModal
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1)
 
-        MsgBox(selectedID)
-
         If selectedID = -1 Then Exit Sub
 
         InitValues()
     End Sub
 
+    ' INIT VALUES
     Private Sub InitValues()
         Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
 
