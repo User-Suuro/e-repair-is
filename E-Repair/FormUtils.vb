@@ -134,6 +134,9 @@ Public Class FormUtils
 
     ' Format dgv for archive
     Public Sub FormatChkBoxForArchive(dgv As DataGridView, chkbox As CheckBox, delBtn As Button, archBtn As Button, editBtn As Button, addBtn As Button)
+
+        Dim dt As DataTable = TryCast(dgv.DataSource, DataTable)
+
         Try
             If chkbox.Checked Then
                 delBtn.Visible = True
@@ -144,6 +147,9 @@ Public Class FormUtils
 
                 dgv.Columns("DATE_ARCHIVED").Visible = True
                 dgv.Columns("ARCHIVED_BY").Visible = True
+
+                dt.DefaultView.RowFilter = "CONVERT(archived, 'System.String') LIKE '%1%'"
+
             Else
                 delBtn.Visible = False
                 archBtn.Visible = True
@@ -153,7 +159,11 @@ Public Class FormUtils
 
                 dgv.Columns("DATE_ARCHIVED").Visible = False
                 dgv.Columns("ARCHIVED_BY").Visible = False
+
+                dt.DefaultView.RowFilter = String.Empty
             End If
+
+            dgv.DataSource = dt.DefaultView.ToTable()
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try
@@ -213,15 +223,7 @@ Public Class FormUtils
     End Sub
 
     ' Load dgv
-    Public Sub LoadToDGV(dgv As DataGridView, tableName As String, searchValues() As String, searchIndex As Integer, archivedChkBox As CheckBox, Optional searchTerm As String = "")
-        Dim dt As DataTable
-
-        If archivedChkBox.Checked Then
-            dt = dbHelper.GetAllRowsFromTable(tableName, True, True)
-        Else
-            dt = dbHelper.GetAllRowsFromTable(tableName, False)
-        End If
-
+    Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
             dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
         End If
@@ -231,7 +233,6 @@ Public Class FormUtils
     End Sub
 
     ' Archive Row
-
     Public Sub archiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
         Dim loggedUser As String
 
@@ -280,9 +281,6 @@ Public Class FormUtils
     End Sub
 
     ' add / edit row
-
-
-
     Public Function ShowModalWithHandler(Of T As {Form, New}, TResult)(
         createModal As Func(Of Object, T),
         selectedID As Object,

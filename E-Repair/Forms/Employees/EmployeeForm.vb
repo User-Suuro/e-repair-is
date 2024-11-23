@@ -128,7 +128,10 @@
            "last_accessed",
            "date_added"
         }
-        formUtils.LoadToDGV(EmpDGV, "employees", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
+
+        Dim empDt = dbHelper.GetAllRowsFromTable("employees", True)
+        formUtils.LoadToDGV(EmpDGV, empDt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+
         formUtils.FormatDGVForArchive(EmpDGV)
         formUtils.FormatDGVForAddBy(EmpDGV)
     End Sub

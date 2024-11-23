@@ -108,7 +108,9 @@ Public Class ServiceForm
             "date_added"
         }
 
-        formUtils.LoadToDGV(ServiceDGV, "services", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
+        Dim servicesDt = dbHelper.GetAllRowsFromTable("services", True)
+
+        formUtils.LoadToDGV(ServiceDGV, servicesDt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(ServiceDGV)
         formUtils.FormDGVForCustomerName(ServiceDGV)
     End Sub

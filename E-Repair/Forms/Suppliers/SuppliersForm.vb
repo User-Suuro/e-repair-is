@@ -118,14 +118,16 @@ Public Class SuppliersForm
            "date_added"
         }
 
-        formUtils.LoadToDGV(SuppliersDGV, "suppliers", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
+        Dim suppdt = dbHelper.GetAllRowsFromTable("suppliers", True)
+
+        formUtils.LoadToDGV(SuppliersDGV, suppdt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(SuppliersDGV)
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
+        LoadDataToDGV()
     End Sub
 
     ' SEARCH
