@@ -171,5 +171,7 @@ Public Class CustomerAddEditModal
     Public Sub InitCmbDs(index01 As Integer)
         dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
     End Sub
+
+
 End Class
 

@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Net.Sockets
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports Guna.UI2.WinForms
 
@@ -287,5 +288,17 @@ Public Class FormUtils
 
         Return True
     End Function
+
+    Public Sub InitSelectMode(selectMode As Boolean, selectBtn As Guna2Button, closeBtn As Guna2Button, archiChk As CheckBox)
+        If selectMode Then
+            selectBtn.Visible = True
+            closeBtn.Visible = True
+            archiChk.Visible = False
+        Else
+            selectBtn.Visible = False
+            closeBtn.Visible = False
+            archiChk.Visible = True
+        End If
+    End Sub
 
 End Class

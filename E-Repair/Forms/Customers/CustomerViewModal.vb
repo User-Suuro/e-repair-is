@@ -1,6 +1,5 @@
 ﻿Public Class CustomerViewModal
     Dim dbHelper As New DbHelper
-
     Public Property selectedCustomerID As Integer = -1
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -34,10 +33,10 @@
         End With
 
         With dbHelper
-            Dim pending = .GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", "Pending").Rows.Count
-            Dim onHold = .GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", "Onhold").Rows.Count
-            Dim canceled = .GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", "Canceled").Rows.Count
-            Dim completed = .GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", "Finished").Rows.Count
+            Dim pending = getStatusNumber("Pending")
+            Dim onHold = getStatusNumber("Onhold")
+            Dim canceled = getStatusNumber("Canceled")
+            Dim completed = getStatusNumber("Finished")
             Dim totalServices = pending + onHold + canceled
 
             OnholdTxtBox.Text = onHold
@@ -47,4 +46,8 @@
             PendingServicesTxtBox.Text = pending
         End With
     End Sub
+
+    Private Function getStatusNumber(status As String) As Integer
+        Return dbHelper.GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", status).Rows.Count
+    End Function
 End Class
