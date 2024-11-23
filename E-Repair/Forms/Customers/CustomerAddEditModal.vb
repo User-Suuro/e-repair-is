@@ -33,6 +33,8 @@ Public Class CustomerAddEditModal
 
         If custDt.Rows.Count = 0 Then Exit Sub
 
+        CustomerModalGroupBox.Text = "Edit Customer"
+
         With custDt.Rows(0)
             FirstNameTxtBox.Text = .Item("first_name")
             MiddleNameTxtBox.Text = .Item("middle_name")

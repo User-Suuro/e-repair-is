@@ -28,12 +28,14 @@ Public Class SupplierAddEditModal
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If selectedID = -1 Then Exit Sub
-
         InitData()
     End Sub
 
     Private Sub InitData()
+        If selectedID = -1 Then Exit Sub
+
+        SupplierModalGroupBox.Text = "Edit Supplier"
+
         Dim suppDT As DataTable = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID)
 
         If suppDT.Rows.Count = 0 Then Exit Sub

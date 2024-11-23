@@ -8,8 +8,8 @@ Public Class EmployeeAddEditModal
     Dim formUtils As New FormUtils
 
     ' CONSTANTS
-    Private emailFirstValue As String
-    Private initialJobType As String
+    Private emailFirstValue As String = ""
+    Private initialJobType As String = ""
 
     ' STATES
     Private isEmailDuplicate As Boolean = False
@@ -48,6 +48,8 @@ Public Class EmployeeAddEditModal
 
     Private Sub loadValues()
         If selectedID = -1 Then Exit Sub
+
+        EmployeeModalGroupBox.Text = "Edit Employee"
 
         Dim empDt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
 
@@ -435,6 +437,8 @@ Public Class EmployeeAddEditModal
             AlreadyTakenLabel.Visible = False
             isEmailDuplicate = False
         End If
+
+        MsgBox(email & emailFirstValue)
 
         If (email = emailFirstValue) Then
             AlreadyTakenLabel.Visible = False
