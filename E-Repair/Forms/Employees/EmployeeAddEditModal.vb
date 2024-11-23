@@ -450,7 +450,6 @@ Public Class EmployeeAddEditModal
                 isEmailDuplicate = False
             End If
         End With
-
     End Sub
 
     ' PASSWORD
