@@ -186,10 +186,8 @@ Public Class ServiceAddEditModal
                -1,
                Function(modal)
                    Return modal.selectedCustID
-               End Function,
-               Sub()
-               End Sub
-         )
+               End Function
+            )
 
         If idResult = -1 Then Exit Sub
 
@@ -220,9 +218,7 @@ Public Class ServiceAddEditModal
            -1,
            Function(modal)
                Return modal.selectedEmpID
-           End Function,
-           Sub()
-           End Sub
+           End Function
         )
 
         If idResult = -1 Then Exit Sub
