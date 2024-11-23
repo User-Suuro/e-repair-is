@@ -72,7 +72,6 @@ Public Class EmployeeAddEditModal
             profileImgPath = .Item("profile_path")
 
             EmailTextBox.Text = .Item("email")
-            emailFirstValue = .Item("email") ' for checker
 
             PasswordTextBox.Text = dbHelper.DecryptPassword(.Item("password"), constants.EncryptionKey)
             ConfirmPasswordTextBox.Text = PasswordTextBox.Text
@@ -430,21 +429,20 @@ Public Class EmployeeAddEditModal
 
         Dim getEmailInDb As DataTable = dbHelper.GetRowByValue("employees", "email", email)
 
-        If (getEmailInDb.Rows.Count > 0) Then
+        Dim getPrevEmail As DataRow = dbHelper.GetRowByValue("employees", "employee_id", selectedID).Rows(0)
+
+        If (getEmailInDb.Rows.Count = 0) Then
+            AlreadyTakenLabel.Visible = False
+            isEmailDuplicate = False
+        Else
             AlreadyTakenLabel.Visible = True
             isEmailDuplicate = True
-        Else
+        End If
+
+        If (email = getPrevEmail("email")) Then
             AlreadyTakenLabel.Visible = False
             isEmailDuplicate = False
         End If
-
-        MsgBox(email & emailFirstValue)
-
-        If (email = emailFirstValue) Then
-            AlreadyTakenLabel.Visible = False
-            isEmailDuplicate = False
-        End If
-
     End Sub
 
     ' PASSWORD
