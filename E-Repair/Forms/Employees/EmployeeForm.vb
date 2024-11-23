@@ -129,7 +129,7 @@
 
         formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(EmpDGV)
-        formUtils.FormatDGVForAddBy(EmpDGV)
+        formUtils.FormatDGVForName(EmpDGV)
     End Sub
 
     ' BTN CLOSE

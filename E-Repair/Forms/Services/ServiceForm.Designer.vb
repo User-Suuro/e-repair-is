@@ -44,6 +44,8 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ServiceDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -70,8 +72,6 @@ Partial Class ServiceForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -431,6 +431,40 @@ Partial Class ServiceForm
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
+        'BtnSelect
+        '
+        Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
+        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
+        Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.TabIndex = 43
+        Me.BtnSelect.Text = "Select"
+        Me.BtnSelect.Visible = False
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 42
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.Visible = False
+        '
         'SERVICE_ID
         '
         Me.SERVICE_ID.DataPropertyName = "service_id"
@@ -465,7 +499,6 @@ Partial Class ServiceForm
         '
         'CUSTOMER_NAME
         '
-        Me.CUSTOMER_NAME.DataPropertyName = "customer_name"
         Me.CUSTOMER_NAME.HeaderText = "Customer Name"
         Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
         Me.CUSTOMER_NAME.ReadOnly = True
@@ -631,40 +664,6 @@ Partial Class ServiceForm
         Me.DATE_ARCHIVED.ReadOnly = True
         Me.DATE_ARCHIVED.Visible = False
         '
-        'BtnSelect
-        '
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSelect.TabIndex = 43
-        Me.BtnSelect.Text = "Select"
-        Me.BtnSelect.Visible = False
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 42
-        Me.BtnClose.Text = "Close"
-        Me.BtnClose.Visible = False
-        '
         'ServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -703,6 +702,14 @@ Partial Class ServiceForm
     Friend WithEvents ServiceDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents EvaluateServiceBtn As Button
     Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents DeleteServiceBtn As Button
+    Friend WithEvents ArchiveServiceBtn As Button
+    Friend WithEvents EditServiceBtn As Button
+    Friend WithEvents AddServiceBtn As Button
+    Friend WithEvents ViewServiceBtn As Button
+    Friend WithEvents ClaimServiceBtn As Button
+    Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents SERVICE_ID As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_ID As DataGridViewTextBoxColumn
@@ -729,12 +736,4 @@ Partial Class ServiceForm
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
-    Friend WithEvents DeleteServiceBtn As Button
-    Friend WithEvents ArchiveServiceBtn As Button
-    Friend WithEvents EditServiceBtn As Button
-    Friend WithEvents AddServiceBtn As Button
-    Friend WithEvents ViewServiceBtn As Button
-    Friend WithEvents ClaimServiceBtn As Button
-    Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
 End Class

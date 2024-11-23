@@ -189,32 +189,36 @@ Public Class FormUtils
         End Try
     End Sub
 
-    Public Sub FormatDGVForAddBy(dgv As DataGridView)
+    Public Sub FormatDGVForName(dgv As DataGridView)
         Try
-            For Each row As DataGridViewRow In dgv.Rows
-                If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
-                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ADDED_BY").Value)
-                    If getEmpData.Rows.Count > 0 Then row.Cells("ADDED_BY_NAME").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
-                End If
-            Next
+            If dgv.Columns.Contains("ADDED_BY") Then
+                For Each row As DataGridViewRow In dgv.Rows
+                    If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
+                        Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ADDED_BY").Value)
+                        If getEmpData.Rows.Count > 0 Then row.Cells("ADDED_BY_NAME").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
+                    End If
+                Next
+            End If
+
+            If dgv.Columns.Contains("CUSTOMER_NAME") Then
+                For Each row As DataGridViewRow In dgv.Rows
+                    Dim customerId = row.Cells("CUSTOMER_ID").Value
+                    If customerId IsNot Nothing Then
+                        Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerId)
+                        If getCustData IsNot Nothing AndAlso getCustData.Rows.Count > 0 Then
+                            Dim firstName As String = getCustData.Rows(0)("first_name").ToString()
+                            Dim lastName As String = getCustData.Rows(0)("last_name").ToString()
+                            row.Cells("CUSTOMER_NAME").Value = firstName & " " & lastName
+                        End If
+                    End If
+                Next
+            End If
+
         Catch ex As Exception
             MsgBox("Unable to format DGV for add by: " & ex.Message)
         End Try
     End Sub
 
-    Public Sub FormatDGVForCustomerName(dgv As DataGridView)
-        ' CUSTOMER NAME
-        Try
-            For Each row As DataGridViewRow In dgv.Rows
-                Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", row.Cells("CUSTOMER_ID").Value)
-                If getCustData.Rows.Count > 0 Then
-                    row.Cells("CUSTOMER_NAME").Value = getCustData.Rows(0)("first_name") & " " & getCustData.Rows(0)("last_name")
-                End If
-            Next
-        Catch ex As Exception
-            MsgBox("Unable to format DGV for customer name: " & ex.Message)
-        End Try
-    End Sub
 
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, showChkBox As CheckBox, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
