@@ -178,7 +178,6 @@ Public Class ServiceAddEditModal
             MsgBox("Unable to save service record")
         End If
 
-
         Me.Close()
     End Sub
 

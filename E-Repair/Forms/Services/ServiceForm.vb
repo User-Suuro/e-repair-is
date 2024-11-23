@@ -64,7 +64,6 @@ Public Class ServiceForm
         Function(id)
             Dim modal As New ServiceAddEditModal()
             modal.selectedID = id
-            modal.editMode = True
             Return modal
         End Function,
         -1,
