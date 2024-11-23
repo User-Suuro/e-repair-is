@@ -2,6 +2,7 @@
 Imports System.Net.Sockets
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports Guna.UI2.WinForms
+Imports Mysqlx.XDevAPI.Common
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
@@ -280,14 +281,27 @@ Public Class FormUtils
 
     ' add / edit row
 
-    Public Sub ShowModalWithHandler(Of T As {Form, New})(createModal As Func(Of Object, T), selectedID As Object, dataReloadAction As Action)
+
+
+    Public Function ShowModalWithHandler(Of T As {Form, New}, TResult)(
+        createModal As Func(Of Object, T),
+        selectedID As Object,
+        Optional getResult As Func(Of T, TResult) = Nothing,
+        Optional dataReloadAction As Action = Nothing) As TResult
+
         Dim modalForm As T = Nothing
         Dim backgroundForm As Form = Nothing
+        Dim result As TResult = Nothing
 
         Try
             backgroundForm = CreateBgFormModal()
+
             modalForm = createModal.Invoke(selectedID)
             modalForm.ShowDialog()
+
+            If getResult IsNot Nothing Then
+                result = getResult.Invoke(modalForm)
+            End If
 
         Catch ex As Exception
             MsgBox("Unable to show modal: " & ex.Message)
@@ -299,9 +313,9 @@ Public Class FormUtils
             If backgroundForm IsNot Nothing Then backgroundForm.Dispose()
             If dataReloadAction IsNot Nothing Then dataReloadAction.Invoke()
         End Try
-    End Sub
 
-
+        Return result
+    End Function
 
     Public Function dgvValChecker(dgv As DataGridView)
         If dgv.Rows.Count = 0 Then

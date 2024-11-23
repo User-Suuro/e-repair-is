@@ -176,17 +176,17 @@ Public Class ServiceAddEditModal
     ' SELECT CUSTOMER
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
 
-        Dim idResult As Integer = Nothing
-
-        formUtils.ShowModalWithHandler(
+        Dim idResult As Integer = formUtils.ShowModalWithHandler(
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
                    modal.selectModeTable = dbHelper.GetAllRowsFromTable("customers", False)
-                   idResult = modal.selectedCustID
                    Return modal
                End Function,
                -1,
+               Function(modal)
+                   Return modal.selectedCustID
+               End Function,
                Sub()
                End Sub
          )
@@ -207,17 +207,18 @@ Public Class ServiceAddEditModal
 
     ' SELECT TECHNICIAN
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
-        Dim idResult As Integer = Nothing
 
-        formUtils.ShowModalWithHandler(
+        Dim idResult As Integer = formUtils.ShowModalWithHandler(
            Function(id)
                Dim modal As New EmployeeForm
                modal.selectMode = True
                modal.selectModeTable = dbHelper.GetRowByValue("employees", "job_type", "Technician")
-               idResult = modal.selectedEmpID
                Return modal
            End Function,
            -1,
+           Function(modal)
+               Return modal.selectedEmpID
+           End Function,
            Sub()
            End Sub
         )

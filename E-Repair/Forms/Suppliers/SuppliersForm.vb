@@ -34,6 +34,9 @@ Public Class SuppliersForm
             Return modal
         End Function,
         suppID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -51,6 +54,9 @@ Public Class SuppliersForm
             Return modal
         End Function,
         -1,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -69,6 +75,9 @@ Public Class SuppliersForm
             Return modal
         End Function,
         suppID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub

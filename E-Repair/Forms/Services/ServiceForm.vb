@@ -47,6 +47,9 @@ Public Class ServiceForm
                Return modal
            End Function,
            serviceID,
+           Function(modal)
+               Return Nothing
+           End Function,
            Sub()
                LoadDataToDGV()
            End Sub
@@ -63,6 +66,9 @@ Public Class ServiceForm
             Return modal
         End Function,
         -1,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -82,6 +88,9 @@ Public Class ServiceForm
             Return modal
         End Function,
         serviceID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub

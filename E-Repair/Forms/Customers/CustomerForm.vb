@@ -1,4 +1,6 @@
-﻿Public Class CustomerForm
+﻿Imports System.Runtime.Remoting.Messaging
+
+Public Class CustomerForm
 
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
@@ -28,16 +30,19 @@
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
-        formUtils.ShowModalWithHandler(
-        Function(id)
-            Dim modal As New CustomerViewModal
-            modal.selectedID = id
-            Return modal
-        End Function,
-        customerID,
-        Sub()
-            LoadDataToDGV()
-        End Sub
+        Dim result = formUtils.ShowModalWithHandler(
+            Function(id As Object)
+                Dim modal As New CustomerViewModal()
+                modal.selectedID = id
+                Return modal
+            End Function,
+            customerID,
+            Function(modal)
+                Return Nothing
+            End Function,
+            Sub()
+                LoadDataToDGV()
+            End Sub
         )
     End Sub
 
@@ -50,6 +55,9 @@
             Return modal
         End Function,
         -1,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -68,6 +76,9 @@
             Return modal
         End Function,
         customerID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub

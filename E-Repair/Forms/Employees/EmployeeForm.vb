@@ -35,6 +35,9 @@
             Return modal
         End Function,
         employeeID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -50,6 +53,9 @@
             Return modal
         End Function,
         -1,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -69,6 +75,9 @@
             Return modal
         End Function,
         employeeID,
+        Function(modal)
+            Return Nothing
+        End Function,
         Sub()
             LoadDataToDGV()
         End Sub
