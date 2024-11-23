@@ -86,9 +86,6 @@ Public Class EmployeeAddEditModal
             AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item("personnel_destination"))
 
             InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
-
-            AlreadyTakenLabel.Visible = False
-            isEmailDuplicate = False
         End With
 
         ' PROFILE
@@ -440,6 +437,20 @@ Public Class EmployeeAddEditModal
             AlreadyTakenLabel.Visible = True
             isEmailDuplicate = True
         End If
+
+        ' Check if yours
+
+        Dim getPrevEmail As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
+
+        If getPrevEmail.Rows.Count = 0 Then Exit Sub
+
+        With getPrevEmail.Rows(0)
+            If (.Item("email") = email) Then
+                AlreadyTakenLabel.Visible = False
+                isEmailDuplicate = False
+            End If
+        End With
+
     End Sub
 
     ' PASSWORD
