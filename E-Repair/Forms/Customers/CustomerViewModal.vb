@@ -1,15 +1,15 @@
 ﻿Public Class CustomerViewModal
     Dim dbHelper As New DbHelper
-    Public Property selectedCustomerID As Integer = -1
+    Public Property selectedID As Integer = -1
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
 
     Private Sub CustomerViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If selectedCustomerID = -1 Then Exit Sub
+        If selectedID = -1 Then Exit Sub
 
-        Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedCustomerID)
+        Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
 
         If custDt.Rows.Count = 0 Then Exit Sub
 
@@ -48,6 +48,10 @@
     End Sub
 
     Private Function getStatusNumber(status As String) As Integer
-        Return dbHelper.GetRowByTwoValues("services", "customer_id", selectedCustomerID, "service_status", status).Rows.Count
+        Return dbHelper.GetRowByTwoValues("services", "customer_id", selectedID, "service_status", status).Rows.Count
     End Function
+
+    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
+
+    End Sub
 End Class

@@ -1,4 +1,6 @@
 ﻿
+Imports Org.BouncyCastle.Math.EC
+
 Public Class CustomerAddEditModal
     ' TOOLS
     Dim formModal As New Form
@@ -16,15 +18,42 @@ Public Class CustomerAddEditModal
     Dim address As String = ""
 
     Public Property editMode As Boolean = False
-    Public Property selectedCustomerID As Integer = -1
+    Public Property selectedID As Integer = -1
 
     ' ONLOAD
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not editMode Then InitCmbDs(-1)
+        InitCmbDs(-1)
 
+        If selectedID = -1 Then Exit Sub
 
+        InitValues()
 
     End Sub
+
+    Private Sub InitValues()
+        Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
+
+        If custDt.Rows.Count = 0 Then Exit Sub
+
+        With custDt.Rows(0)
+            FirstNameTxtBox.Text = .Item("first_name")
+            MiddleNameTxtBox.Text = .Item("middle_name")
+            LastNameTxtBox.Text = .Item("last_name")
+            EmailTxtBox.Text = .Item("email")
+            ContactTxtBox.Text = .Item("contact_number")
+            AddressTxtBox.Text = .Item("address")
+
+            Dim genderIndex = formUtils.FindComboBoxItemByText(GenderComboBox, .Item("gender"))
+
+            InitCmbDs(genderIndex)
+        End With
+    End Sub
+
+    ' INIT CMBDS
+    Public Sub InitCmbDs(index01 As Integer)
+        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
+    End Sub
+
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Try
@@ -94,7 +123,7 @@ Public Class CustomerAddEditModal
 
         If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
 
-        If dbHelper.UpdateRecord("customers", "customer_id", selectedCustomerID, insertUpdate) Then
+        If dbHelper.UpdateRecord("customers", "customer_id", selectedID, insertUpdate) Then
 
             MsgBox("Customer Successfully Updated")
         Else
@@ -167,11 +196,8 @@ Public Class CustomerAddEditModal
         address = AddressTxtBox.Text
     End Sub
 
-    ' INIT CMBDS
-    Public Sub InitCmbDs(index01 As Integer)
-        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
+    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
+
     End Sub
-
-
 End Class
 

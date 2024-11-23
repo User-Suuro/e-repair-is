@@ -9,10 +9,6 @@
 
         If viewSelectedID = -1 Then Exit Sub
 
-
-
-
-
     End Sub
 
     Private Sub ManageJobDescriptionView()

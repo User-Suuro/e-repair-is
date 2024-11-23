@@ -1,4 +1,6 @@
-﻿Public Class CustomerForm
+﻿Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+
+Public Class CustomerForm
 
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
@@ -14,24 +16,52 @@
 
     ' VIEW
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
-        Dim AdminCustomerViewModal As New CustomerViewModal
+        If Not InitValues() Then Exit Sub
 
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New CustomerViewModal
+            modal.selectedID = id
+            Return modal
+        End Function,
+        customerID,
+        Sub()
+            LoadDataToDGV()
+        End Sub
+        )
     End Sub
 
     ' ADD
     Private Sub AddCustomerBtn_Click(sender As Object, e As EventArgs) Handles AddCustomerBtn.Click
-
-        Dim addEditModal As New CustomerAddEditModal
-
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New CustomerAddEditModal()
+            modal.selectedID = id
+            Return modal
+        End Function,
+        selectedCustID,
+        Sub()
+            LoadDataToDGV()
+        End Sub
+        )
     End Sub
 
     ' EDIT
     Private Sub EditCustomerBtn_Click(sender As Object, e As EventArgs) Handles EditCustomerBtn.Click
         If Not InitValues() Then Exit Sub
 
-        Dim addEditModal As New CustomerAddEditModal
-
-
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New CustomerAddEditModal()
+            modal.selectedID = id
+            modal.editMode = True
+            Return modal
+        End Function,
+        selectedCustID,
+        Sub()
+            LoadDataToDGV()
+        End Sub
+        )
     End Sub
 
     ' ARCHIVE
@@ -93,8 +123,6 @@
         formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub
 
-
-
     ' SELECT MODE
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
         If Not InitValues() Then Exit Sub
@@ -106,6 +134,7 @@
         Me.Close()
     End Sub
 
+    ' BTN CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
