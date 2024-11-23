@@ -24,10 +24,11 @@ Public Class CustomerAddEditModal
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1)
 
+        MsgBox(selectedID)
+
         If selectedID = -1 Then Exit Sub
 
         InitValues()
-
     End Sub
 
     Private Sub InitValues()

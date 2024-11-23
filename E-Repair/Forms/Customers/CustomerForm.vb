@@ -14,6 +14,18 @@ Public Class CustomerForm
     Public Property selectedCustID As Integer = -1
     Public Property selectModeTable As DataTable
 
+    ' INIT VALUES
+    Private Function InitValues() As Boolean
+        If Not formUtils.dgvValChecker(CustomerDGV) Then Return False
+
+        With CustomerDGV.CurrentRow
+            customerID = .Cells("CUSTOMER_ID").Value
+            archivedStatus = .Cells("ARCHIVED").Value
+        End With
+
+        Return True
+    End Function
+
     ' VIEW
     Private Sub ViewCustomerBtn_Click(sender As Object, e As EventArgs) Handles ViewCustomerBtn.Click
         If Not InitValues() Then Exit Sub
@@ -39,7 +51,7 @@ Public Class CustomerForm
             modal.selectedID = id
             Return modal
         End Function,
-        selectedCustID,
+        -1,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -57,7 +69,7 @@ Public Class CustomerForm
             modal.editMode = True
             Return modal
         End Function,
-        selectedCustID,
+        customerID,
         Sub()
             LoadDataToDGV()
         End Sub
@@ -71,23 +83,12 @@ Public Class CustomerForm
         LoadDataToDGV()
     End Sub
 
+    ' DELETE
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
         formUtils.delRow(archivedStatus, "customers", "customer_id", customerID)
         LoadDataToDGV()
     End Sub
-
-    ' INIT VALUES
-    Private Function InitValues() As Boolean
-        If Not formUtils.dgvValChecker(CustomerDGV) Then Return False
-
-        With CustomerDGV.CurrentRow
-            customerID = .Cells("CUSTOMER_ID").Value
-            archivedStatus = .Cells("ARCHIVED").Value
-        End With
-
-        Return True
-    End Function
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
