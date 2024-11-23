@@ -37,21 +37,17 @@ Public Class EmployeeAddEditModal
     Private adminPosition As String = ""
     Private othersTextBoxContent As String = ""
     Private Property profileImgPath As String = ""
-
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
 
 
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        emailFirstValue = EmailTextBox.Text
-        initialJobType = JobTypeComboBox.Text
-
-        AlreadyTakenLabel.Visible = False
-        isEmailDuplicate = False
-
         InitCmbDs(-1, -1, -1, -1, -1)
         loadValues()
+
+        emailFirstValue = EmailTextBox.Text
+        initialJobType = JobTypeComboBox.Text
     End Sub
 
     Private Sub loadValues()
@@ -332,8 +328,10 @@ Public Class EmployeeAddEditModal
     Private Sub BtnUpload_Click(sender As Object, e As EventArgs) Handles BtnUpload.Click
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
             Dim imgPath = OpenFileDialog1.FileName
-            ProfileCirclePictureBox.Image = Image.FromFile(imgPath)
-            profileImgPath = imgPath
+            If File.Exists(imgPath) Then
+                ProfileCirclePictureBox.Image = Image.FromFile(imgPath)
+                profileImgPath = imgPath
+            End If
         End If
     End Sub
 
@@ -473,7 +471,5 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
-    Private Sub EmployeeModalGroupBox_Click(sender As Object, e As EventArgs) Handles EmployeeModalGroupBox.Click
 
-    End Sub
 End Class
