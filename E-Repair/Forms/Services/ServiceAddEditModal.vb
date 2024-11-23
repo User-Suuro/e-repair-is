@@ -4,6 +4,7 @@ Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports System.Web.UI.Design
 Imports LibVLCSharp.[Shared]
 Imports Microsoft.Reporting.Map.WebForms.BingMaps
+Imports Mysqlx.XDevAPI.Common
 
 Public Class ServiceAddEditModal
     Dim formUtils As New FormUtils
@@ -11,23 +12,53 @@ Public Class ServiceAddEditModal
     Dim constants As New Constants
     Dim formModal As New Form
 
-    Dim serviceID As Integer = -1
-    Dim customerID As Integer = -1
-    Dim technicianID As Integer = -1
+    Private serviceID As Integer = -1
+    Private customerID As Integer = -1
+    Private technicianID As Integer = -1
 
-    Dim deviceType As String = ""
-    Dim deviceModel As String = ""
-    Dim deviceBrand As String = ""
+    Private deviceType As String = ""
+    Private deviceModel As String = ""
+    Private deviceBrand As String = ""
 
-    Dim operatingSystem As String = ""
-    Dim storageCapacity As String = ""
-    Dim problemDescription As String = ""
+    Private operatingSystem As String = ""
+    Private storageCapacity As String = ""
+    Private problemDescription As String = ""
 
-    Dim dateAdded As String = ""
+    Private dateAdded As String = ""
+
+    Private pending_commission As Integer = -1
+    Private onhold_commission As Integer = -1
+    Private canceled_commission As Integer = -1
+    Private completed_commission As Integer = -1
+
+    Private total_commision As Integer = -1
+
+    Private techNumberFinishedServices As Integer = -1
+    Private techNumberPendingServices As Integer = -1
+    Private techNumberCanceledServices As Integer = -1
+    Private techNumberOnholdServices As Integer = -1
+
+    Private total_services As Integer = -1
 
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property deviceImgPath As String = ""
+
+    Private Sub InitCustCount(custID As Integer)
+        pending_commission = formUtils.getCustStatusNumber("Pending", custID)
+        onhold_commission = formUtils.getCustStatusNumber("Onhold", custID)
+        canceled_commission = formUtils.getCustStatusNumber("Canceled", custID)
+        completed_commission = formUtils.getCustStatusNumber("Finished", custID)
+        total_commision = pending_commission + onhold_commission + canceled_commission + completed_commission
+    End Sub
+
+    Private Sub InitTechCount(techID As Integer)
+        techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", technicianID)
+        techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", technicianID)
+        techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", technicianID)
+        techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", technicianID)
+        total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
+    End Sub
 
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
@@ -70,16 +101,25 @@ Public Class ServiceAddEditModal
         Guna2GroupBox1.Text = "Edit Service"
 
         With servDt.Rows(0)
-            CustomerIDTxtBox.Text = .Item("customer_id")
-            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
-            TotalCommissionsTxtBox.Text = getCustStatsNumber("Finished") + getCustStatsNumber("Pending") + getCustStatsNumber("Onhold") + getCustStatsNumber("Canceled")
-            PendingCommisionsTxtBox.Text = getCustStatsNumber("Pending")
-            CompletedCommissionTxtBox.Text = getCustStatsNumber("Finished")
+            customerID = .Item("customer_id")
+            technicianID = .Item("technician_id")
 
-            TechnicianIDTxtBox.Text = .Item("technician_id")
+            InitCustCount(customerID)
+            InitTechCount(technicianID)
+
+            CustomerIDTxtBox.Text = customerID
+            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
+
+            TotalCommissionsTxtBox.Text = total_commision
+            PendingCommisionsTxtBox.Text = pending_commission
+            CompletedCommissionTxtBox.Text = completed_commission
+
+            TechnicianIDTxtBox.Text = technicianID
             TechnicianNameTxtBox.Text = formUtils.getTechnicianName(.Item("technician_id"))
-            TotalWorkDoneTxtBox.Text = getTechStatsNumber("Finished") + getTechStatsNumber("Pending") + getTechStatsNumber("Onhold") + getTechStatsNumber("Canceled")
-            PendingCommisionsTxtBox.Text = getTechStatsNumber("Pending")
+
+            TotalWorkDoneTxtBox.Text = total_services
+            PendingCommisionsTxtBox.Text = pending_commission
+            CompletedWorkTxtBox.Text = techNumberFinishedServices
 
             deviceImgPath = .Item("device_profile_path")
             DeviceBrandTxtBox.Text = .Item("device_brand")
@@ -191,16 +231,13 @@ Public Class ServiceAddEditModal
 
         If idResult = -1 Then Exit Sub
 
-        Dim pending_commission = formUtils.getCustStatusNumber("Pending", idResult)
-        Dim onhold_commission = formUtils.getCustStatusNumber("Onhold", idResult)
-        Dim canceled_commission = formUtils.getCustStatusNumber("Canceled", idResult)
-        Dim completed_commission = formUtils.getCustStatusNumber("Finished", idResult)
-
-        Dim total_commisions = pending_commission + onhold_commission + canceled_commission + completed_commission
+        InitCustCount(idResult)
 
         CustomerIDTxtBox.Text = idResult
+
         CustomerNameTxtBox.Text = formUtils.getCustomerName(idResult)
-        TotalCommissionsTxtBox.Text = total_commisions
+
+        TotalCommissionsTxtBox.Text = total_commision
         PendingCommisionsTxtBox.Text = pending_commission
         CompletedCommissionTxtBox.Text = completed_commission
     End Sub
@@ -223,16 +260,16 @@ Public Class ServiceAddEditModal
 
         If idResult = -1 Then Exit Sub
 
-        Dim techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", idResult)
-        Dim techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", idResult)
-        Dim techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", idResult)
-        Dim techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", idResult)
+        InitTechCount(idResult)
+
 
         TechnicianIDTxtBox.Text = idResult
         TechnicianNameTxtBox.Text = formUtils.getTechnicianName(idResult)
-        TotalCommissionsTxtBox.Text = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
-        PendingCommisionsTxtBox.Text = techNumberPendingServices
-        CompletedCommissionTxtBox.Text = techNumberFinishedServices
+
+        TotalWorkDoneTxtBox.Text = total_services
+
+        CompletedWorkTxtBox.Text = techNumberFinishedServices
+        PendingWorkTxtBox.Text = techNumberPendingServices
     End Sub
 
     'DEVICE BRAND
@@ -296,14 +333,5 @@ Public Class ServiceAddEditModal
         problemDescription = DeviceProblemTxtBox.Text
     End Sub
 
-    ' GET TECH NUMBER
-    Private Function getTechStatsNumber(status As String) As Integer
-        Return formUtils.getTechStatsNumbers(status, selectedID)
-    End Function
-
-    ' GET CUST NUMBER
-    Private Function getCustStatsNumber(status As String) As Integer
-        Return formUtils.getCustStatusNumber(status, selectedID)
-    End Function
 
 End Class
