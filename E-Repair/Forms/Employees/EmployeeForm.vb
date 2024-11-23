@@ -117,7 +117,7 @@
            "last_accessed",
            "date_added"
         }
-        formUtils.LoadToDGV(EmpDGV, "employeees", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
+        formUtils.LoadToDGV(EmpDGV, "employees", searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox, searchTerm)
         formUtils.FormatDGVForArchive(EmpDGV)
         formUtils.FormatDGVForAddBy(EmpDGV)
     End Sub
