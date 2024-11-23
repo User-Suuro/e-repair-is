@@ -199,9 +199,13 @@ Public Class ServiceAddEditModal
             {"problem_description", problemDescription}
         }
 
-        Dim prevServiceValue As DataRow = dbHelper.GetRowByValue("services", "service_id", selectedID).Rows(0)
+        Dim serviceDT As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
 
-        If prevServiceValue("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
+        If serviceDT.Rows.Count = 0 Then Exit Sub
+
+        With serviceDT.Rows(0)
+            If .Item("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
+        End With
 
         If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
             MsgBox("Successfuly updated service details")
@@ -233,7 +237,6 @@ Public Class ServiceAddEditModal
         InitCustCount(idResult)
 
         CustomerIDTxtBox.Text = idResult
-
         CustomerNameTxtBox.Text = formUtils.getCustomerName(idResult)
 
         TotalCommissionsTxtBox.Text = total_commision
@@ -332,5 +335,11 @@ Public Class ServiceAddEditModal
         problemDescription = DeviceProblemTxtBox.Text
     End Sub
 
+    Private Sub CustomerIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTxtBox.TextChanged
+        customerID = CustomerIDTxtBox.Text
+    End Sub
 
+    Private Sub TechnicianIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianIDTxtBox.TextChanged
+        technicianID = TechnicianIDTxtBox.Text
+    End Sub
 End Class
