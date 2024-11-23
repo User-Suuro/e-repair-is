@@ -119,7 +119,7 @@ Public Class CustomerForm
         }
 
         Dim customersDt = dbHelper.GetAllRowsFromTable("customers", True)
-        formUtils.LoadToDGV(CustomerDGV, customersDt, searchValues, SearchComboBox.SelectedIndex)
+        formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
         formUtils.FormatDGVForArchive(CustomerDGV)
     End Sub
 

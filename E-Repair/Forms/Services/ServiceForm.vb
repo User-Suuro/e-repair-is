@@ -110,7 +110,7 @@ Public Class ServiceForm
 
         Dim servicesDt = dbHelper.GetAllRowsFromTable("services", True)
 
-        formUtils.LoadToDGV(ServiceDGV, servicesDt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+        formUtils.LoadToDGV(ServiceDGV, servicesDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(ServiceDGV)
         formUtils.FormDGVForCustomerName(ServiceDGV)
     End Sub

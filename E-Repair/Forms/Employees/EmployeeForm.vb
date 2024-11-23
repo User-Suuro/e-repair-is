@@ -130,7 +130,7 @@
         }
 
         Dim empDt = dbHelper.GetAllRowsFromTable("employees", True)
-        formUtils.LoadToDGV(EmpDGV, empDt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+        formUtils.LoadToDGV(EmpDGV, empDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
 
         formUtils.FormatDGVForArchive(EmpDGV)
         formUtils.FormatDGVForAddBy(EmpDGV)

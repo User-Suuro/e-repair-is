@@ -119,8 +119,8 @@ Public Class SuppliersForm
         }
 
         Dim suppdt = dbHelper.GetAllRowsFromTable("suppliers", True)
+        formUtils.LoadToDGV(SuppliersDGV, suppdt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
 
-        formUtils.LoadToDGV(SuppliersDGV, suppdt, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(SuppliersDGV)
     End Sub
 

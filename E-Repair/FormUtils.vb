@@ -148,8 +148,6 @@ Public Class FormUtils
                 dgv.Columns("DATE_ARCHIVED").Visible = True
                 dgv.Columns("ARCHIVED_BY").Visible = True
 
-                dt.DefaultView.RowFilter = "CONVERT(archived, 'System.String') LIKE '%1%'"
-
             Else
                 delBtn.Visible = False
                 archBtn.Visible = True
@@ -160,7 +158,6 @@ Public Class FormUtils
                 dgv.Columns("DATE_ARCHIVED").Visible = False
                 dgv.Columns("ARCHIVED_BY").Visible = False
 
-                dt.DefaultView.RowFilter = String.Empty
             End If
 
             dgv.DataSource = dt.DefaultView.ToTable()
@@ -223,10 +220,18 @@ Public Class FormUtils
     End Sub
 
     ' Load dgv
-    Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
+    Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, showChkBox As CheckBox, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
         If Not String.IsNullOrWhiteSpace(searchTerm) Then
             dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
         End If
+
+        With dt.DefaultView
+            If showChkBox.Checked Then
+                .RowFilter = "archived = True"
+            Else
+                .RowFilter = "archived = False"
+            End If
+        End With
 
         dgv.AutoGenerateColumns = False
         dgv.DataSource = dt
