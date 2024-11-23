@@ -202,16 +202,13 @@ Public Class FormUtils
         End Try
     End Sub
 
-    Public Sub FormDGVForCustomerName(dgv As DataGridView)
+    Public Sub FormatDGVForCustomerName(dgv As DataGridView)
         ' CUSTOMER NAME
         Try
             For Each row As DataGridViewRow In dgv.Rows
-                If row.Cells("CUSTOMER_NAME").Value IsNot Nothing Then
-                    Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", row.Cells("CUSTOMER_ID").Value)
-
-                    If getCustData.Rows.Count > 0 Then
-                        row.Cells("CUSTOMER_NAME").Value = getCustData.Rows(0)("first_name") & " " & getCustData.Rows(0)("last_name")
-                    End If
+                Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", row.Cells("CUSTOMER_ID").Value)
+                If getCustData.Rows.Count > 0 Then
+                    row.Cells("CUSTOMER_NAME").Value = getCustData.Rows(0)("first_name") & " " & getCustData.Rows(0)("last_name")
                 End If
             Next
         Catch ex As Exception

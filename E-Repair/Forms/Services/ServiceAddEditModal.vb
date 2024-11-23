@@ -336,10 +336,20 @@ Public Class ServiceAddEditModal
     End Sub
 
     Private Sub CustomerIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTxtBox.TextChanged
-        customerID = Integer.Parse(CustomerIDTxtBox.Text)
+        Dim value As Integer
+        If Integer.TryParse(CustomerIDTxtBox.Text, value) Then
+            customerID = value
+        Else
+            customerID = 0
+        End If
     End Sub
 
     Private Sub TechnicianIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianIDTxtBox.TextChanged
-        technicianID = Integer.Parse(TechnicianIDTxtBox.Text)
+        Dim value As Integer
+        If Integer.TryParse(TechnicianIDTxtBox.Text, value) Then
+            technicianID = value
+        Else
+            technicianID = 0
+        End If
     End Sub
 End Class
