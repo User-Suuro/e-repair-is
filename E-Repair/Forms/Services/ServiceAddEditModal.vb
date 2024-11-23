@@ -191,6 +191,8 @@ Public Class ServiceAddEditModal
                End Sub
          )
 
+        If idResult = -1 Then Exit Sub
+
         Dim pending_commission = formUtils.getCustStatusNumber("Pending", idResult)
         Dim onhold_commission = formUtils.getCustStatusNumber("Onhold", idResult)
         Dim canceled_commission = formUtils.getCustStatusNumber("Canceled", idResult)
@@ -212,7 +214,7 @@ Public Class ServiceAddEditModal
            Function(id)
                Dim modal As New EmployeeForm
                modal.selectMode = True
-               modal.selectModeTable = dbHelper.GetRowByValue("employees", "job_type", "Technician")
+               modal.empDT = dbHelper.GetRowByValue("employees", "job_type", "Technician")
                Return modal
            End Function,
            -1,
@@ -222,6 +224,8 @@ Public Class ServiceAddEditModal
            Sub()
            End Sub
         )
+
+        If idResult = -1 Then Exit Sub
 
         Dim techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", idResult)
         Dim techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", idResult)

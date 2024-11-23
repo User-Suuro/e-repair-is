@@ -10,7 +10,7 @@
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property selectModeTable As DataTable
+    Public Property empDT As DataTable = dbHelper.GetAllRowsFromTable("employees", True)
 
     ' INIT DATA
     Private Function InitData() As Boolean
@@ -129,9 +129,7 @@
            "date_added"
         }
 
-        Dim empDt = dbHelper.GetAllRowsFromTable("employees", True)
-        formUtils.LoadToDGV(EmpDGV, empDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
-
+        formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(EmpDGV)
         formUtils.FormatDGVForAddBy(EmpDGV)
     End Sub
