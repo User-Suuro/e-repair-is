@@ -80,7 +80,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property custLastTxnStr As String
+    Public ReadOnly Property custLastTransStr As String
         Get
             Return _lastTransaction
         End Get

@@ -32,9 +32,9 @@
 
             AddressTxtBox.Text = .Item(custConst.custAddressStr)
             TotalPaidTxtBox.Text = .Item(custConst.custTotalPaidStr)
-            LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custLastStr))
+            LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custLastTransStr))
 
-            DateAddedTxtBox.Text = .Item(custConst.custArchDateStr)
+            DateAddedTxtBox.Text = .Item(custConst.custDateAddedStr)
             ArchivedStatusTxtBox.Text = .Item(custConst.custArchStr)
             ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custArchByStr))
 
