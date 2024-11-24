@@ -38,7 +38,7 @@ Partial Class ServiceEvaluationModal
         Me.RepairNotesTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.RepairStatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.TechnicianFeeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DeviceTypeCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -55,7 +55,7 @@ Partial Class ServiceEvaluationModal
         Me.Guna2Panel8.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
-        Me.TableLayoutPanel6.SuspendLayout()
+        Me.RepairStatusTableLayout.SuspendLayout()
         Me.SuspendLayout()
         '
         'GenerateReceiptBtn
@@ -306,7 +306,7 @@ Partial Class ServiceEvaluationModal
         '
         Me.Guna2Panel7.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel7.BorderRadius = 4
-        Me.Guna2Panel7.Controls.Add(Me.TableLayoutPanel6)
+        Me.Guna2Panel7.Controls.Add(Me.RepairStatusTableLayout)
         Me.Guna2Panel7.Location = New System.Drawing.Point(12, 53)
         Me.Guna2Panel7.Name = "Guna2Panel7"
         Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
@@ -314,26 +314,26 @@ Partial Class ServiceEvaluationModal
         Me.Guna2Panel7.Size = New System.Drawing.Size(824, 61)
         Me.Guna2Panel7.TabIndex = 46
         '
-        'TableLayoutPanel6
+        'RepairStatusTableLayout
         '
-        Me.TableLayoutPanel6.ColumnCount = 3
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.Controls.Add(Me.TechnicianFeeTxtBox, 2, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label7, 2, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.DeviceTypeCmbBox, 0, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.DateCompletedTxtBox, 1, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label25, 1, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label23, 0, 0)
-        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 2
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(816, 53)
-        Me.TableLayoutPanel6.TabIndex = 8
+        Me.RepairStatusTableLayout.ColumnCount = 3
+        Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.RepairStatusTableLayout.Controls.Add(Me.TechnicianFeeTxtBox, 2, 1)
+        Me.RepairStatusTableLayout.Controls.Add(Me.Label7, 2, 0)
+        Me.RepairStatusTableLayout.Controls.Add(Me.DeviceTypeCmbBox, 0, 1)
+        Me.RepairStatusTableLayout.Controls.Add(Me.DateCompletedTxtBox, 1, 1)
+        Me.RepairStatusTableLayout.Controls.Add(Me.Label25, 1, 0)
+        Me.RepairStatusTableLayout.Controls.Add(Me.Label23, 0, 0)
+        Me.RepairStatusTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RepairStatusTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.RepairStatusTableLayout.Name = "RepairStatusTableLayout"
+        Me.RepairStatusTableLayout.RowCount = 2
+        Me.RepairStatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.RepairStatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.RepairStatusTableLayout.Size = New System.Drawing.Size(816, 53)
+        Me.RepairStatusTableLayout.TabIndex = 8
         '
         'TechnicianFeeTxtBox
         '
@@ -503,8 +503,8 @@ Partial Class ServiceEvaluationModal
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel7.PerformLayout()
         Me.Guna2Panel7.ResumeLayout(False)
-        Me.TableLayoutPanel6.ResumeLayout(False)
-        Me.TableLayoutPanel6.PerformLayout()
+        Me.RepairStatusTableLayout.ResumeLayout(False)
+        Me.RepairStatusTableLayout.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -524,7 +524,7 @@ Partial Class ServiceEvaluationModal
     Friend WithEvents RepairNotesTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label31 As Label
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
+    Friend WithEvents RepairStatusTableLayout As TableLayoutPanel
     Friend WithEvents DateCompletedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label25 As Label
     Friend WithEvents Label23 As Label

@@ -40,6 +40,7 @@ Public Class AdminDashboardForm
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
+    Private Sub EmployeesCountLabel_Click(sender As Object, e As EventArgs) Handles EmployeesCountLabel.Click
 
-
+    End Sub
 End Class

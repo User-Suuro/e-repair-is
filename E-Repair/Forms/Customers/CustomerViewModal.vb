@@ -1,6 +1,8 @@
 ﻿Public Class CustomerViewModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
+    Dim constants As New Constants
+
     Public Property selectedID As Integer = -1
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -38,10 +40,10 @@
         End With
 
         With dbHelper
-            Dim pending = getStatusNumber("Pending")
-            Dim onHold = getStatusNumber("Onhold")
-            Dim canceled = getStatusNumber("Canceled")
-            Dim completed = getStatusNumber("Finished")
+            Dim pending = getStatusNumber(constants.getAdminString)
+            Dim onHold = getStatusNumber(constants.getOnholdString)
+            Dim canceled = getStatusNumber(constants.getCanceledString)
+            Dim completed = getStatusNumber(constants.getFinishedString)
             Dim totalServices = pending + onHold + canceled
 
             OnholdTxtBox.Text = onHold

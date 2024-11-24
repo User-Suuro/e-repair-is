@@ -1,7 +1,5 @@
 ﻿Public Class Constants
-    ' Styles
-    Private ReadOnly _saffron As Color = ColorTranslator.FromHtml("#ECC642")
-    Private ReadOnly _borderThickness As Integer = 1
+
 
     Private ReadOnly _dashboardTitle As String = "DASHBOARD"
     Private ReadOnly _servicesTitle As String = "SERVICES"
@@ -18,6 +16,12 @@
     Private ReadOnly _technicianString As String = "Technician"
     Private ReadOnly _superAdminString As String = "Super Admin"
 
+    ' Service Statuses
+    Private ReadOnly _finishedString As String = "Finished"
+    Private ReadOnly _onholdString As String = "Onhold"
+    Private ReadOnly _pendingString As String = "Pending"
+    Private ReadOnly _canceledString As String = "Canceled"
+
     ' Security
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
 
@@ -25,6 +29,29 @@
     Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
     Private ReadOnly _devicePicturesFolderPath = "Device Pictures"
+
+    Public ReadOnly Property getFinishedString As String
+        Get
+            Return _finishedString
+        End Get
+    End Property
+
+    Public ReadOnly Property getOnholdString As String
+        Get
+            Return _onholdString
+        End Get
+    End Property
+
+    Public ReadOnly Property getPendingString As String
+        Get
+            Return _pendingString
+        End Get
+    End Property
+    Public ReadOnly Property getCanceledString As String
+        Get
+            Return _canceledString
+        End Get
+    End Property
 
     Public ReadOnly Property getSuperAdminString As String
         Get
@@ -81,19 +108,6 @@
         End Get
     End Property
 
-
-    ' Public properties (getters)
-    Public ReadOnly Property Saffron As Color
-        Get
-            Return _saffron
-        End Get
-    End Property
-
-    Public ReadOnly Property BorderThickness As Integer
-        Get
-            Return _borderThickness
-        End Get
-    End Property
 
     Public ReadOnly Property DashboardTitle As String
         Get

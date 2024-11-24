@@ -7,6 +7,8 @@ Public Class ServiceForm
 
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
+    Private serviceStatus As String = ""
+
     Private currentEmpPos = GlobalSession.CurrentSession.JobType
 
     Private Function InitData() As Boolean
@@ -16,6 +18,7 @@ Public Class ServiceForm
         With ServiceDGV.CurrentRow
             serviceID = .Cells("SERVICE_ID").Value
             is_archived = .Cells("ARCHIVED").Value
+            serviceStatus = .Cells("SERVICE_STATUS").Value
         End With
 
         Return True
@@ -47,7 +50,22 @@ Public Class ServiceForm
         If Not InitData() Then Exit Sub
 
         ' DO ADDITIONAL CHECKERS FOR CLAIMING
+        If serviceStatus <> "Finished" Then
+            MsgBox("You cannot claim unfinished service")
+            Exit Sub
+        End If
 
+        formUtils.ShowModalWithHandler(
+          Function(id)
+              Dim modal As New ServiceClaimModal
+              modal.selectedID = id
+              Return modal
+          End Function,
+          serviceID,
+          Function(modal)
+              Return Nothing
+          End Function
+          )
 
     End Sub
 
@@ -56,6 +74,18 @@ Public Class ServiceForm
         If Not InitData() Then Exit Sub
 
         ' DO ADDITIONAL CHECKERS FOR EVALUATING
+
+        formUtils.ShowModalWithHandler(
+          Function(id)
+              Dim modal As New ServiceEvaluationModal
+              modal.selectedID = id
+              Return modal
+          End Function,
+          serviceID,
+          Function(modal)
+              Return Nothing
+          End Function
+          )
 
     End Sub
 

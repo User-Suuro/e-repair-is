@@ -3,6 +3,7 @@
 Public Class ServiceViewModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
+    Dim constants As New Constants
 
     Public Property selectedID As Integer = -1
 
@@ -77,6 +78,7 @@ Public Class ServiceViewModal
             CustomerChangeTxtBox.Text = .Item("customer_change")
 
             DateClaimedTxtBox.Text = dbHelper.StrNullCheck(.Item("date_claimed"))
+            DateCompletedTxtBox.Text = dbHelper.StrNullCheck(.Item("date_completed"))
 
         End With
 
@@ -94,18 +96,18 @@ Public Class ServiceViewModal
     End Sub
 
     Private Sub InitCustCount(custID As Integer)
-        pending_commission = formUtils.getCustStatusNumber("Pending", custID)
-        onhold_commission = formUtils.getCustStatusNumber("Onhold", custID)
-        canceled_commission = formUtils.getCustStatusNumber("Canceled", custID)
-        completed_commission = formUtils.getCustStatusNumber("Finished", custID)
+        pending_commission = formUtils.getCustStatusNumber(constants.getPendingString, custID)
+        onhold_commission = formUtils.getCustStatusNumber(constants.getOnholdString, custID)
+        canceled_commission = formUtils.getCustStatusNumber(constants.getCanceledString, custID)
+        completed_commission = formUtils.getCustStatusNumber(constants.getFinishedString, custID)
         total_commision = pending_commission + onhold_commission + canceled_commission + completed_commission
     End Sub
 
     Private Sub InitTechCount(techID As Integer)
-        techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", techID)
-        techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", techID)
-        techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", techID)
-        techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", techID)
+        techNumberFinishedServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
+        techNumberPendingServices = formUtils.getTechStatsNumbers(constants.getPendingString, techID)
+        techNumberCanceledServices = formUtils.getTechStatsNumbers(constants.getCanceledString, techID)
+        techNumberOnholdServices = formUtils.getTechStatsNumbers(constants.getOnholdString, techID)
         total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
     End Sub
 
@@ -119,5 +121,7 @@ Public Class ServiceViewModal
         Me.Close()
     End Sub
 
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
+    End Sub
 End Class

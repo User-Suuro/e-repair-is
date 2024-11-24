@@ -19,7 +19,6 @@ Public Class SuppliersForm
             archivedStatus = .Cells("ARCHIVED").Value
         End With
 
-
         Return True
     End Function
 

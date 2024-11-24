@@ -26,6 +26,8 @@ Partial Class ServiceViewModal
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.GunaPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DateCompletedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.PartsUsedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.TotalCostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -52,10 +54,12 @@ Partial Class ServiceViewModal
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.RepairStatusTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AddedByTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.RepairStatusTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DateAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
@@ -111,11 +115,6 @@ Partial Class ServiceViewModal
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ServiceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.DateCompletedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.DateAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.GunaPanel.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -149,7 +148,6 @@ Partial Class ServiceViewModal
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel8)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel9)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel7)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel5)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel1)
@@ -209,6 +207,44 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel9.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel9.TabIndex = 8
+        '
+        'DateCompletedTxtBox
+        '
+        Me.DateCompletedTxtBox.BorderRadius = 4
+        Me.DateCompletedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DateCompletedTxtBox.DefaultText = ""
+        Me.DateCompletedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DateCompletedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DateCompletedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateCompletedTxtBox.DisabledState.Parent = Me.DateCompletedTxtBox
+        Me.DateCompletedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateCompletedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DateCompletedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateCompletedTxtBox.FocusedState.Parent = Me.DateCompletedTxtBox
+        Me.DateCompletedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateCompletedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateCompletedTxtBox.HoverState.Parent = Me.DateCompletedTxtBox
+        Me.DateCompletedTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.DateCompletedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DateCompletedTxtBox.Name = "DateCompletedTxtBox"
+        Me.DateCompletedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DateCompletedTxtBox.PlaceholderText = ""
+        Me.DateCompletedTxtBox.ReadOnly = True
+        Me.DateCompletedTxtBox.SelectedText = ""
+        Me.DateCompletedTxtBox.ShadowDecoration.Parent = Me.DateCompletedTxtBox
+        Me.DateCompletedTxtBox.Size = New System.Drawing.Size(185, 26)
+        Me.DateCompletedTxtBox.TabIndex = 56
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label25.Location = New System.Drawing.Point(3, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(106, 20)
+        Me.Label25.TabIndex = 55
+        Me.Label25.Text = "Date Completed"
         '
         'PartsUsedBtn
         '
@@ -686,32 +722,6 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel6.TabIndex = 8
         '
-        'RepairStatusTxtBox
-        '
-        Me.RepairStatusTxtBox.BorderRadius = 4
-        Me.RepairStatusTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.RepairStatusTxtBox.DefaultText = ""
-        Me.RepairStatusTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.RepairStatusTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.RepairStatusTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.RepairStatusTxtBox.DisabledState.Parent = Me.RepairStatusTxtBox
-        Me.RepairStatusTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.RepairStatusTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.RepairStatusTxtBox.FocusedState.Parent = Me.RepairStatusTxtBox
-        Me.RepairStatusTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RepairStatusTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.RepairStatusTxtBox.HoverState.Parent = Me.RepairStatusTxtBox
-        Me.RepairStatusTxtBox.Location = New System.Drawing.Point(634, 24)
-        Me.RepairStatusTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.RepairStatusTxtBox.Name = "RepairStatusTxtBox"
-        Me.RepairStatusTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.RepairStatusTxtBox.PlaceholderText = ""
-        Me.RepairStatusTxtBox.ReadOnly = True
-        Me.RepairStatusTxtBox.SelectedText = ""
-        Me.RepairStatusTxtBox.ShadowDecoration.Parent = Me.RepairStatusTxtBox
-        Me.RepairStatusTxtBox.Size = New System.Drawing.Size(313, 26)
-        Me.RepairStatusTxtBox.TabIndex = 41
-        '
         'AddedByTxtBox
         '
         Me.AddedByTxtBox.BorderRadius = 4
@@ -750,21 +760,79 @@ Partial Class ServiceViewModal
         Me.Label7.TabIndex = 36
         Me.Label7.Text = "Added By"
         '
-        'BtnSave
+        'Label8
         '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(862, 676)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 50
-        Me.BtnSave.Text = "Save"
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(319, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(81, 20)
+        Me.Label8.TabIndex = 44
+        Me.Label8.Text = "Date Added"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label23.Location = New System.Drawing.Point(635, 0)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(88, 20)
+        Me.Label23.TabIndex = 43
+        Me.Label23.Text = "Repair Status"
+        '
+        'RepairStatusTxtBox
+        '
+        Me.RepairStatusTxtBox.BorderRadius = 4
+        Me.RepairStatusTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.RepairStatusTxtBox.DefaultText = ""
+        Me.RepairStatusTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.RepairStatusTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.RepairStatusTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.RepairStatusTxtBox.DisabledState.Parent = Me.RepairStatusTxtBox
+        Me.RepairStatusTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.RepairStatusTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RepairStatusTxtBox.FocusedState.Parent = Me.RepairStatusTxtBox
+        Me.RepairStatusTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RepairStatusTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RepairStatusTxtBox.HoverState.Parent = Me.RepairStatusTxtBox
+        Me.RepairStatusTxtBox.Location = New System.Drawing.Point(634, 24)
+        Me.RepairStatusTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.RepairStatusTxtBox.Name = "RepairStatusTxtBox"
+        Me.RepairStatusTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.RepairStatusTxtBox.PlaceholderText = ""
+        Me.RepairStatusTxtBox.ReadOnly = True
+        Me.RepairStatusTxtBox.SelectedText = ""
+        Me.RepairStatusTxtBox.ShadowDecoration.Parent = Me.RepairStatusTxtBox
+        Me.RepairStatusTxtBox.Size = New System.Drawing.Size(313, 26)
+        Me.RepairStatusTxtBox.TabIndex = 41
+        '
+        'DateAddedTxtBox
+        '
+        Me.DateAddedTxtBox.BorderRadius = 4
+        Me.DateAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DateAddedTxtBox.DefaultText = ""
+        Me.DateAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateAddedTxtBox.FocusedState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateAddedTxtBox.HoverState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Location = New System.Drawing.Point(318, 24)
+        Me.DateAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DateAddedTxtBox.Name = "DateAddedTxtBox"
+        Me.DateAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DateAddedTxtBox.PlaceholderText = ""
+        Me.DateAddedTxtBox.ReadOnly = True
+        Me.DateAddedTxtBox.SelectedText = ""
+        Me.DateAddedTxtBox.ShadowDecoration.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Size = New System.Drawing.Size(312, 26)
+        Me.DateAddedTxtBox.TabIndex = 46
         '
         'BtnClose
         '
@@ -1624,9 +1692,9 @@ Partial Class ServiceViewModal
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(319, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(108, 21)
+        Me.Label19.Size = New System.Drawing.Size(76, 21)
         Me.Label19.TabIndex = 37
-        Me.Label19.Text = "Total Work Done"
+        Me.Label19.Text = "Total Work "
         '
         'Panel2
         '
@@ -1741,92 +1809,6 @@ Partial Class ServiceViewModal
         Me.ServiceCirclePictureBox.TabStop = False
         Me.ServiceCirclePictureBox.UseTransparentBackground = True
         '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(3, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(106, 20)
-        Me.Label25.TabIndex = 55
-        Me.Label25.Text = "Date Completed"
-        '
-        'DateCompletedTxtBox
-        '
-        Me.DateCompletedTxtBox.BorderRadius = 4
-        Me.DateCompletedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.DateCompletedTxtBox.DefaultText = ""
-        Me.DateCompletedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateCompletedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DateCompletedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateCompletedTxtBox.FocusedState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateCompletedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateCompletedTxtBox.HoverState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.DateCompletedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.DateCompletedTxtBox.Name = "DateCompletedTxtBox"
-        Me.DateCompletedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DateCompletedTxtBox.PlaceholderText = ""
-        Me.DateCompletedTxtBox.ReadOnly = True
-        Me.DateCompletedTxtBox.SelectedText = ""
-        Me.DateCompletedTxtBox.ShadowDecoration.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Size = New System.Drawing.Size(185, 26)
-        Me.DateCompletedTxtBox.TabIndex = 56
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(635, 0)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(88, 20)
-        Me.Label23.TabIndex = 43
-        Me.Label23.Text = "Repair Status"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(319, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(81, 20)
-        Me.Label8.TabIndex = 44
-        Me.Label8.Text = "Date Added"
-        '
-        'DateAddedTxtBox
-        '
-        Me.DateAddedTxtBox.BorderRadius = 4
-        Me.DateAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.DateAddedTxtBox.DefaultText = ""
-        Me.DateAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.DateAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.DateAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateAddedTxtBox.DisabledState.Parent = Me.DateAddedTxtBox
-        Me.DateAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateAddedTxtBox.FocusedState.Parent = Me.DateAddedTxtBox
-        Me.DateAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateAddedTxtBox.HoverState.Parent = Me.DateAddedTxtBox
-        Me.DateAddedTxtBox.Location = New System.Drawing.Point(318, 24)
-        Me.DateAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.DateAddedTxtBox.Name = "DateAddedTxtBox"
-        Me.DateAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DateAddedTxtBox.PlaceholderText = ""
-        Me.DateAddedTxtBox.ReadOnly = True
-        Me.DateAddedTxtBox.SelectedText = ""
-        Me.DateAddedTxtBox.ShadowDecoration.Parent = Me.DateAddedTxtBox
-        Me.DateAddedTxtBox.Size = New System.Drawing.Size(312, 26)
-        Me.DateAddedTxtBox.TabIndex = 46
-        '
         'ServiceViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1881,7 +1863,6 @@ Partial Class ServiceViewModal
     End Sub
 
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents JobDetailsTableLayout As TableLayoutPanel

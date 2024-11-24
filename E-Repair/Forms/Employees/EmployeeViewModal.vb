@@ -42,6 +42,7 @@ Public Class EmployeeViewModal
 
             ' PROFILE
             ProfilePathTextBox.Text = dbHelper.StrNullCheck(.Item("profile_path"))
+
             If File.Exists(.Item("profile_path")) Then
                 ProfileCirclePictureBox.Image = Image.FromFile(.Item("profile_path"))
             End If
@@ -68,8 +69,8 @@ Public Class EmployeeViewModal
 
             ElseIf empJobType = constants.getTechnicianString Then
                 ' TECH
-                DevicesRepairedTextBox.Text = getTechStatsNumbers("Finished")
-                NumberJobsAssignedTextBox.Text = getTechStatsNumbers("Pending") + getTechStatsNumbers("Finished") + getTechStatsNumbers("Onhold") + getTechStatsNumbers("Canceled")
+                DevicesRepairedTextBox.Text = getTechStatsNumbers(constants.getFinishedString)
+                NumberJobsAssignedTextBox.Text = getTechStatsNumbers(constants.getPendingString) + getTechStatsNumbers(constants.getFinishedString) + getTechStatsNumbers(constants.getOnholdString) + getTechStatsNumbers(constants.getCanceledString)
 
             ElseIf empJobType = constants.getCashierString Then
                 ' CASHIER

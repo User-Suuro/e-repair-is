@@ -231,21 +231,23 @@ Public Class SupplierAddEditModal
     ' CONTRACT TYPE
     Private Sub ContractTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContractTypeIfOthersTxtBox.TextChanged
         ' If ContractTypeCmbBox.SelectedItem = "Others" Then contractType = ContractTypeIfOthersTxtBox.Text
-
     End Sub
+
     Private Sub ContractTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractTypeCmbBox.SelectedIndexChanged
-        If ContractTypeCmbBox.SelectedItem = "Others" Then
-            With ContractTypeTableLayout
-                .ColumnStyles(0).Width = 50.0F
-                .ColumnStyles(1).Width = 50.0F
-            End With
-        Else
-            contractType = ContractTypeCmbBox.SelectedItem
-            With ContractTypeTableLayout
-                .ColumnStyles(0).Width = 100.0F
-                .ColumnStyles(1).Width = 0.0F
-            End With
-        End If
+        'If ContractTypeCmbBox.SelectedItem = "Others" Then
+        '    With ContractTypeTableLayout
+        '        .ColumnStyles(0).Width = 50.0F
+        '        .ColumnStyles(1).Width = 50.0F
+        '    End With
+        'Else
+
+        '    With ContractTypeTableLayout
+        '        .ColumnStyles(0).Width = 100.0F
+        '        .ColumnStyles(1).Width = 0.0F
+        '    End With
+        'End If
+
+        contractType = ContractTypeCmbBox.SelectedItem
     End Sub
 
     ' BANK DETAILS
@@ -300,5 +302,7 @@ Public Class SupplierAddEditModal
         End If
     End Sub
 
+    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
 
+    End Sub
 End Class
