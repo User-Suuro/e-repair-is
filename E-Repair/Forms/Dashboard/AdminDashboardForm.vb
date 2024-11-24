@@ -1,18 +1,25 @@
 ﻿
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
+    Dim formUtils As New FormUtils
+
+    Dim empConst As New EmployeesDBConstants
+    Dim custConst As New CustomersDBConstants
+    Dim servConst As New ServiceDBConstants
+    Dim invConst As New InventoryDBConstants
+    Dim supConst As New SuppliersDBConstants
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        EmployeesCountLabel.Text = dbHelper.GetAllData("employees", False).Rows.Count - 1  ' don't count super admin
-        ServicesNumberLabel.Text = dbHelper.GetAllData("services", False).Rows.Count
-        CustomersNumberLabel.Text = dbHelper.GetAllData("customers", False).Rows.Count
-        SuppliersNumberLabel.Text = dbHelper.GetAllData("suppliers", False).Rows.Count
-        ItemsCountLabel.Text = dbHelper.GetAllData("inventory", False).Rows.Count
+        EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchByStr, 0).Rows.Count + 1  ' don't count super admin
+        ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archByStr, 0).Rows.Count
+        CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchByStr, 0).Rows.Count
+        SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archByStr, 0).Rows.Count
+        ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archByStr, 0).Rows.Count
 
         Try
-            Dim getActiveEmployee As DataRow = dbHelper.GetRowByValue("employees", "employee_id", LoggedUser.GlobalSession.CurrentSession.EmployeeID).Rows(0)
-            WelcomeMessageLabel.Text = "Welcome, " & getActiveEmployee("firstname") & " " & getActiveEmployee("lastname")
+
+            WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
 
         Catch ex As Exception
             MsgBox("Cannot get active user ID without session")
