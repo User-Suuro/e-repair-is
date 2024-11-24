@@ -177,6 +177,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConstants\CustomersDBConstants.vb" />
+    <Compile Include="DBConstants\EmployeesDBConstants.vb" />
+    <Compile Include="DBConstants\InventoryDBConstants.vb" />
+    <Compile Include="DBConstants\ServicesDBConstants.vb" />
+    <Compile Include="DBConstants\SuppliersDBConstants.vb" />
     <Compile Include="Forms\Customers\CustomerForm.Designer.vb">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </Compile>

@@ -1,6 +1,4 @@
 ﻿Public Class Constants
-
-
     Private ReadOnly _dashboardTitle As String = "DASHBOARD"
     Private ReadOnly _servicesTitle As String = "SERVICES"
     Private ReadOnly _customersTitle As String = "CUSTOMERS"

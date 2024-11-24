@@ -5,6 +5,7 @@ Public Class CustomerAddEditModal
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
+    Dim custConst As New CustomersDBConstants
 
     ' SCHEMA
     Dim firstName As String = ""
@@ -29,21 +30,21 @@ Public Class CustomerAddEditModal
 
     ' INIT VALUES
     Private Sub InitValues()
-        Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
+        Dim custDt As DataTable = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, selectedID)
 
         If custDt.Rows.Count = 0 Then Exit Sub
 
         CustomerModalGroupBox.Text = "Edit Customer"
 
         With custDt.Rows(0)
-            FirstNameTxtBox.Text = .Item("first_name")
-            MiddleNameTxtBox.Text = .Item("middle_name")
-            LastNameTxtBox.Text = .Item("last_name")
-            EmailTxtBox.Text = .Item("email")
-            ContactTxtBox.Text = .Item("contact_number")
-            AddressTxtBox.Text = .Item("address")
+            FirstNameTxtBox.Text = .Item(custConst.custFirstStr)
+            MiddleNameTxtBox.Text = .Item(custConst.custMidStr)
+            LastNameTxtBox.Text = .Item(custConst.custLastStr)
+            EmailTxtBox.Text = .Item(custConst.custEmailStr)
+            ContactTxtBox.Text = .Item(custConst.custEmailStr)
+            AddressTxtBox.Text = .Item(custConst.custAddressStr)
 
-            Dim genderIndex = formUtils.FindComboBoxItemByText(GenderComboBox, .Item("gender"))
+            Dim genderIndex = formUtils.FindComboBoxItemByText(GenderComboBox, .Item(custConst.custGenderStr))
 
             InitCmbDs(genderIndex)
         End With
@@ -51,7 +52,7 @@ Public Class CustomerAddEditModal
 
     ' INIT CMBDS
     Public Sub InitCmbDs(index01 As Integer)
-        dbHelper.LoadEnumsToCmb(GenderComboBox, "customers", "gender", index01)
+        dbHelper.LoadEnumsToCmb(GenderComboBox, custConst.custTableStr, custConst.custGenderStr, index01)
     End Sub
 
     ' SAVE BTN
@@ -84,21 +85,23 @@ Public Class CustomerAddEditModal
             empIDLogged = -1
         End Try
 
-        Dim insertData As New Dictionary(Of String, Object) From {
-            {"middle_name", middleName}, ' optional
-            {"contact_number", contactNumber}, ' optional
-            {"address", address}, ' optional
-            {"email", email}, ' optional
-            {"added_by", empIDLogged}, ' optional
-            {"first_name", firstName},
-            {"last_name", lastName},
-            {"gender", gender},
-            {"date_added", DateTime.Now()}
-        }
+        With custConst
 
-        If Not formUtils.AreAllValuesFilled(insertData, 5) Then Exit Sub
+            Dim insertData As New Dictionary(Of String, Object) From {
+                { .custMidStr, middleName}, ' optional
+                { .custContactStr, contactNumber}, ' optional
+                { .custAddressStr, address}, ' optional
+                { .custEmailStr, email}, ' optional
+                { .custAddedByStr, empIDLogged}, ' optional
+                { .custFirstStr, firstName},
+                { .custLastStr, lastName},
+                { .custGenderStr, gender},
+                { .custDateAddedStr, DateTime.Now()}
+            }
 
-        dbHelper.InsertRecord("customers", insertData)
+            If Not formUtils.AreAllValuesFilled(insertData, 5) Then Exit Sub
+            dbHelper.InsertRecord(.custTableStr, insertData)
+        End With
 
         MsgBox("Customer Successfully Added")
 
@@ -111,27 +114,27 @@ Public Class CustomerAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this customer?")) Then Exit Sub
 
-        Dim insertUpdate As New Dictionary(Of String, Object) From {
-            {"middle_name", middleName}, ' optional
-            {"contact_number", contactNumber}, ' optional
-            {"address", address}, ' optional
-            {"email", email}, ' optional
-            {"first_name", firstName},
-            {"last_name", lastName},
-            {"gender", gender}
-        }
+        With custConst
+            Dim insertUpdate As New Dictionary(Of String, Object) From {
+                { .custMidStr, middleName}, ' optional
+                { .custContactStr, contactNumber}, ' optional
+                { .custAddressStr, address}, ' optional
+                { .custEmailStr, email}, ' optional
+                { .custFirstStr, firstName},
+                { .custLastStr, lastName},
+                { .custGenderStr, gender}
+            }
 
-        If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
+            If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
 
-        If dbHelper.UpdateRecord("customers", "customer_id", selectedID, insertUpdate) Then
-
-            MsgBox("Customer Successfully Updated")
-        Else
-            MsgBox("Db Problem")
-        End If
+            If dbHelper.UpdateRecord(.custTableStr, .custIDStr, selectedID, insertUpdate) Then
+                MsgBox("Customer Successfully Updated")
+            Else
+                MsgBox("Db Problem")
+            End If
+        End With
 
         Me.Close()
-
     End Sub
 
     ' CLOSE

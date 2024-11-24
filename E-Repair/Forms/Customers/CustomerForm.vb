@@ -5,6 +5,7 @@ Public Class CustomerForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+    Dim custConst As New CustomersDBConstants 
 
     ' SCHEMA
     Private customerID As String = ""
@@ -82,14 +83,14 @@ Public Class CustomerForm
     ' ARCHIVE
     Private Sub ArchiveCustomerBtn_Click(sender As Object, e As EventArgs) Handles ArchiveCustomerBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.archiveRow(archivedStatus, "customers", "customer_id", customerID)
+        formUtils.archiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.delRow(archivedStatus, "customers", "customer_id", customerID)
+        formUtils.delRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
         LoadDataToDGV()
     End Sub
 
@@ -102,19 +103,20 @@ Public Class CustomerForm
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
-        Dim searchValues() As String = {
-            "first_name",
-            "middle_name",
-            "last_name",
-            "contact_number",
-            "address",
-            "email",
-            "date_added"
-        }
-
-        Dim customersDt = dbHelper.GetAllRowsFromTable("customers", True)
-        formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
-        formUtils.FormatDGVForArchive(CustomerDGV)
+        With custConst
+            Dim searchValues() As String = {
+                .custFirstStr,
+                .custMidStr,
+                .custLastStr,
+                .custContactStr,
+                .custAddressStr,
+                .custEmailStr,
+                .custDateAddedStr
+            }
+            Dim customersDt = dbHelper.GetAllRowsFromTable(.custTableStr, True)
+            formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
+            formUtils.FormatDGVForArchive(CustomerDGV)
+        End With
     End Sub
 
     ' SEARCH

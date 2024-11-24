@@ -2,6 +2,7 @@
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
+    Dim custConst As New CustomersDBConstants
 
     Public Property selectedID As Integer = -1
 
@@ -16,27 +17,31 @@
             Me.Close()
         End If
 
-        Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
+        Dim custDt As DataTable = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, selectedID)
 
         If custDt.Rows.Count = 0 Then Exit Sub
 
         With custDt.Rows(0)
-            FirstNameTextBox.Text = .Item("first_name")
-            MiddleNameTextBox.Text = .Item("middle_name")
-            LastNameTextBox.Text = .Item("last_name")
-            GenderTxtBox.Text = .Item("gender")
-            EmailTxtBox.Text = .Item("email")
-            ContactNumberTxtBox.Text = .Item("contact_number")
-            AddressTxtBox.Text = .Item("address")
-            TotalPaidTxtBox.Text = .Item("total_paid")
-            LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item("last_transaction"))
-            DateAddedTxtBox.Text = .Item("date_added")
-            ArchivedStatusTxtBox.Text = .Item("archived")
-            ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item("archived_by"))
-            DateAddedTxtBox.Text = ("date_added")
+            FirstNameTextBox.Text = .Item(custConst.custFirstStr)
+            MiddleNameTextBox.Text = .Item(custConst.custMidStr)
+            LastNameTextBox.Text = .Item(custConst.custLastStr)
 
-            Dim empDt As DataRow = dbHelper.GetRowByValue("employees", "employee_id", .Item("added_by")).Rows(0)
-            AddedByTxtBox.Text = empDt("firstname") & " " & empDt("lastname")
+            GenderTxtBox.Text = .Item(custConst.custGenderStr)
+            EmailTxtBox.Text = .Item(custConst.custEmailStr)
+            ContactNumberTxtBox.Text = .Item(custConst.custContactStr)
+
+            AddressTxtBox.Text = .Item(custConst.custAddressStr)
+            TotalPaidTxtBox.Text = .Item(custConst.custTotalPaidStr)
+            LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custLastStr))
+
+            DateAddedTxtBox.Text = .Item(custConst.custArchDateStr)
+            ArchivedStatusTxtBox.Text = .Item(custConst.custArchStr)
+            ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custArchByStr))
+
+            DateAddedTxtBox.Text = (custConst.custDateAddedStr)
+
+            Dim empDt As DataRow = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, .Item(custConst.custAddedByStr)).Rows(0)
+            AddedByTxtBox.Text = empDt(custConst.custFirstStr) & " " & empDt(custConst.custLastStr)
         End With
 
         With dbHelper
