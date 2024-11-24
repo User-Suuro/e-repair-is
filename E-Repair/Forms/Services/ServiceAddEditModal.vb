@@ -179,7 +179,7 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            formUtils.EditRow(.svcTableStr, selectedID, .svcIDStr, updateData, 0, imgData)
+            formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, 0, imgData)
         End With
 
         Me.Close()

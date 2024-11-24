@@ -136,7 +136,7 @@ Public Class SupplierAddEditModal
             }
 
 
-            formUtils.EditRow(.supTableStr, selectedID, .supIDStr, insertUpdate, 1, imgData)
+            formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, 1, imgData)
         End With
 
         Me.Close()

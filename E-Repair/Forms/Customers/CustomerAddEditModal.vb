@@ -95,7 +95,7 @@ Public Class CustomerAddEditModal
                 { .custGenderStr, gender}
             }
 
-            formUtils.EditRow(.custTableStr, selectedID, .custIDStr, insertUpdate, 4)
+            formUtils.EditRow(.custTableStr, .custIDStr, selectedID, insertUpdate, 4)
         End With
 
         Me.Close()
