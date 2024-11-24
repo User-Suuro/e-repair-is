@@ -337,6 +337,7 @@ Partial Class ServiceForm
         Me.ClaimServiceBtn.Text = "Claim"
         Me.ClaimServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ClaimServiceBtn.UseVisualStyleBackColor = True
+        Me.ClaimServiceBtn.Visible = False
         '
         'EvaluateServiceBtn
         '
@@ -355,6 +356,7 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn.Text = "Evaluate"
         Me.EvaluateServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.EvaluateServiceBtn.UseVisualStyleBackColor = True
+        Me.EvaluateServiceBtn.Visible = False
         '
         'Panel1
         '

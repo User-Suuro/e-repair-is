@@ -16,6 +16,7 @@
     Private ReadOnly _cashierString As String = "Cashier"
     Private ReadOnly _utilityPersonnelString As String = "Utility Personnel"
     Private ReadOnly _technicianString As String = "Technician"
+    Private ReadOnly _superAdminString As String = "Super Admin"
 
     ' Security
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
@@ -25,6 +26,11 @@
     Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
     Private ReadOnly _devicePicturesFolderPath = "Device Pictures"
 
+    Public ReadOnly Property getSuperAdminString As String
+        Get
+            Return _superAdminString
+        End Get
+    End Property
 
     Public ReadOnly Property getDevicePicturesFolderPath As String
         Get

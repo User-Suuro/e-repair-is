@@ -120,4 +120,12 @@ Public Class LoginForm
         mediaPlayer?.Dispose()
         libVLC?.Dispose()
     End Sub
+
+    Private Sub GunaLabel5_Click(sender As Object, e As EventArgs) Handles GunaLabel5.Click
+
+    End Sub
+
+    Private Sub Guna2Separator2_Click(sender As Object, e As EventArgs) Handles Guna2Separator2.Click
+
+    End Sub
 End Class

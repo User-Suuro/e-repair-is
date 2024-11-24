@@ -171,6 +171,8 @@ Public Class ServiceAddEditModal
           {"problem_description", problemDescription}
         }
 
+        If Not formUtils.AreAllValuesFilled(insertData) Then Exit Sub
+
         If dbHelper.InsertRecord("services", insertData) Then
             formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True)
             MsgBox("Service Successfully Added")
@@ -198,6 +200,8 @@ Public Class ServiceAddEditModal
             {"storage_capacity", storageCapacity},
             {"problem_description", problemDescription}
         }
+
+        If Not formUtils.AreAllValuesFilled(updateData) Then Exit Sub
 
         Dim serviceDT As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
 
@@ -263,7 +267,6 @@ Public Class ServiceAddEditModal
         If idResult = -1 Then Exit Sub
 
         InitTechCount(idResult)
-
 
         TechnicianIDTxtBox.Text = idResult
         TechnicianNameTxtBox.Text = formUtils.getTechnicianName(idResult)
@@ -353,7 +356,5 @@ Public Class ServiceAddEditModal
         End If
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 End Class

@@ -100,7 +100,7 @@ Public Class EmployeeAddEditModal
             .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
             .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
             .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
-            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04)
+            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04 + 1) ' SUPER ADMIN MUST NOT BE SEEN
             .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
         End With
     End Sub
@@ -374,21 +374,21 @@ Public Class EmployeeAddEditModal
         PositionComboBox.SelectedIndex = -1
         JobDescriptionFlowLayout.Visible = False
 
-        If JobTypeComboBox.SelectedItem = JobTypeComboBox.Items(0) Then
+        If JobTypeComboBox.SelectedItem = constants.getAdminString Then
             ' IF ADMIN THEN
             JobDescriptionFlowLayout.Visible = True
             PositionPanel.Visible = True
             AssignedLocationPanel.Visible = False
 
-        ElseIf JobTypeComboBox.SelectedItem = JobTypeComboBox.Items(1) Then
+        ElseIf JobTypeComboBox.SelectedItem = constants.getTechnicianString Then
             ' IF TECHNICIAN THEN
             JobDescriptionFlowLayout.Visible = False
 
-        ElseIf JobTypeComboBox.SelectedItem = JobTypeComboBox.Items(2) Then
+        ElseIf JobTypeComboBox.SelectedItem = constants.getCashierString Then
             ' IF CASHIER THEN
             JobDescriptionFlowLayout.Visible = False
 
-        ElseIf JobTypeComboBox.SelectedItem = JobTypeComboBox.Items(3) Then
+        ElseIf JobTypeComboBox.SelectedItem = constants.getUtilityPersonnelString Then
             ' IF UTILITY PERSONNEL THEN
             JobDescriptionFlowLayout.Visible = True
             PositionPanel.Visible = False
@@ -474,5 +474,7 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
+    Private Sub EmployeeModalGroupBox_Click(sender As Object, e As EventArgs) Handles EmployeeModalGroupBox.Click
 
+    End Sub
 End Class

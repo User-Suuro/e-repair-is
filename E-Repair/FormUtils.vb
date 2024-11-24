@@ -239,15 +239,25 @@ Public Class FormUtils
             dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
         End If
 
-        If Not dt.Columns.Contains("archived") Then Exit Sub
+        If dt.Columns.Contains("archived") Then
+            With dt.DefaultView
+                If showChkBox.Checked Then
+                    .RowFilter = "archived = True"
+                Else
+                    .RowFilter = "archived = False"
+                End If
+            End With
+        End If
 
-        With dt.DefaultView
-            If showChkBox.Checked Then
-                .RowFilter = "archived = True"
-            Else
-                .RowFilter = "archived = False"
-            End If
-        End With
+        If dt.Columns.Contains("job_type") Then
+            With dt.DefaultView
+                If showChkBox.Checked Then
+                    .RowFilter = "archived = True AND job_type <> 'Super Admin'"
+                Else
+                    .RowFilter = "archived = False AND job_type <> 'Super Admin'"
+                End If
+            End With
+        End If
 
         dgv.AutoGenerateColumns = False
         dgv.DataSource = dt

@@ -10,20 +10,30 @@
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
+    Public Property empPosition As String = ""
     Public Property empDT As DataTable
 
     ' INIT DATA
     Private Function InitData() As Boolean
-
 
         If Not formUtils.dgvValChecker(EmpDGV) Then Return False
 
         With EmpDGV.CurrentRow
             employeeID = .Cells("EMPLOYEE_ID").Value
             empArchived = .Cells("ARCHIVED").Value
+            empPosition = .Cells("JOB_TYPE").Value
         End With
 
         Return True
+    End Function
+
+    Private Function restrictUser() As Boolean
+        If empPosition = constants.getSuperAdminString AndAlso empPosition = constants.getAdminString Then
+            MsgBox("Restricted Action")
+        End If
+
+
+        Return False
     End Function
 
     ' VIEW

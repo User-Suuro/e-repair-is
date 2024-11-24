@@ -3,9 +3,11 @@ Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+    Dim constants As New Constants
 
-    Dim serviceID As Integer = -1
-    Dim is_archived As Boolean = False
+    Private serviceID As Integer = -1
+    Private is_archived As Boolean = False
+    Private currentEmpPos = GlobalSession.CurrentSession.JobType
 
     Private Function InitData() As Boolean
         If Not formUtils.dgvValChecker(ServiceDGV) Then Return False
@@ -22,6 +24,22 @@ Public Class ServiceForm
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
+        loadUserDisplay()
+    End Sub
+
+    Private Sub loadUserDisplay()
+        Select Case currentEmpPos
+            Case constants.getSuperAdminString
+                ClaimServiceBtn.Visible = True
+                EvaluateServiceBtn.Visible = True
+            Case constants.getCashierString
+                ClaimServiceBtn.Visible = True
+                ArchiveServiceBtn.Visible = False
+                DeleteServiceBtn.Visible = False
+            Case constants.getTechnicianString
+                AddServiceBtn.Visible = False
+                EvaluateServiceBtn.Visible = False
+        End Select
     End Sub
 
     ' CLAIM

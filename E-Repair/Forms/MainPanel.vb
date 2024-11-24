@@ -31,6 +31,12 @@ Public Class MainPanel
             ' SET UP SIDENAVS
             With constants
                 Select Case userPosition
+                    Case .getSuperAdminString
+                        SidenavInventoryBtn.Visible = True
+                        SidenavSuppliersBtn.Visible = True
+                        SidenavServicesBtn.Visible = True
+                        SidenavCustomersBtn.Visible = True
+                        SidenavEmployeesBtn.Visible = True
                     Case .getAdminString
                         SidenavInventoryBtn.Visible = True
                         SidenavSuppliersBtn.Visible = True
@@ -38,11 +44,11 @@ Public Class MainPanel
                         SidenavCustomersBtn.Visible = True
                         SidenavEmployeesBtn.Visible = True
                     Case .getCashierString
+                        SidenavServicesBtn.Visible = True
                         SidenavCustomersBtn.Visible = True
-                        SidenavServicesBtn.Visible = True
                     Case .getTechnicianString
-                        SidenavServicesBtn.Visible = True
                         SidenavInventoryBtn.Visible = True
+                        SidenavServicesBtn.Visible = True
                 End Select
             End With
 
@@ -56,7 +62,7 @@ Public Class MainPanel
     Private Sub dashboardHandler()
         With constants
             Select Case userPosition
-                Case .getAdminString
+                Case .getAdminString Or .getSuperAdminString
                     formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
                 Case .getCashierString
                     formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CashierDashboardForm)

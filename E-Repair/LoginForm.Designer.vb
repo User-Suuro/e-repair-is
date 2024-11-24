@@ -33,6 +33,9 @@ Partial Class LoginForm
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.LoginEmailTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.VideoPanel = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.GunaLabel5 = New Guna.UI.WinForms.GunaLabel()
+        Me.Guna2Separator2 = New Guna.UI2.WinForms.Guna2Separator()
         Me.ViewControlPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -68,6 +71,9 @@ Partial Class LoginForm
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Separator2)
+        Me.Guna2Panel1.Controls.Add(Me.GunaLabel5)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Button1)
         Me.Guna2Panel1.Controls.Add(Me.LoginButton)
         Me.Guna2Panel1.Controls.Add(Me.LoginPasswordTextBox)
         Me.Guna2Panel1.Controls.Add(Me.GunaLabel4)
@@ -202,6 +208,45 @@ Partial Class LoginForm
         Me.VideoPanel.Size = New System.Drawing.Size(632, 681)
         Me.VideoPanel.TabIndex = 1
         '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2Button1.BorderColor = System.Drawing.Color.BlanchedAlmond
+        Me.Guna2Button1.BorderRadius = 4
+        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
+        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
+        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
+        Me.Guna2Button1.Location = New System.Drawing.Point(168, 548)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
+        Me.Guna2Button1.Size = New System.Drawing.Size(289, 45)
+        Me.Guna2Button1.TabIndex = 17
+        Me.Guna2Button1.Text = "Create Account"
+        Me.Guna2Button1.Visible = False
+        '
+        'GunaLabel5
+        '
+        Me.GunaLabel5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GunaLabel5.AutoSize = True
+        Me.GunaLabel5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.GunaLabel5.Location = New System.Drawing.Point(155, 515)
+        Me.GunaLabel5.Name = "GunaLabel5"
+        Me.GunaLabel5.Size = New System.Drawing.Size(313, 20)
+        Me.GunaLabel5.TabIndex = 18
+        Me.GunaLabel5.Text = "Please proceed to create a Super Admin Account"
+        Me.GunaLabel5.Visible = False
+        '
+        'Guna2Separator2
+        '
+        Me.Guna2Separator2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2Separator2.Location = New System.Drawing.Point(142, 477)
+        Me.Guna2Separator2.Name = "Guna2Separator2"
+        Me.Guna2Separator2.Size = New System.Drawing.Size(355, 10)
+        Me.Guna2Separator2.TabIndex = 19
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -232,4 +277,7 @@ Partial Class LoginForm
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents LoginEmailTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents VideoPanel As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents GunaLabel5 As Guna.UI.WinForms.GunaLabel
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
 End Class
