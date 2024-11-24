@@ -593,6 +593,7 @@ Partial Class EmployeeForm
         Me.ADDED_BY_NAME.HeaderText = "Added by"
         Me.ADDED_BY_NAME.Name = "ADDED_BY_NAME"
         Me.ADDED_BY_NAME.ReadOnly = True
+        Me.ADDED_BY_NAME.Visible = False
         '
         'ARCHIVED
         '

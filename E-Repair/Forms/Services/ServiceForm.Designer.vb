@@ -502,6 +502,7 @@ Partial Class ServiceForm
         Me.CUSTOMER_NAME.HeaderText = "Customer Name"
         Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
         Me.CUSTOMER_NAME.ReadOnly = True
+        Me.CUSTOMER_NAME.Visible = False
         '
         'DEVICE_TYPE
         '

@@ -110,7 +110,8 @@ Public Class ServiceForm
 
         formUtils.LoadToDGV(ServiceDGV, servicesDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(ServiceDGV)
-        formUtils.FormatDGVForName(ServiceDGV)
+        ' formUtils.FormatDGVForCustomerName(ServiceDGV)
+
     End Sub
 
     ' SEARCH
