@@ -110,14 +110,11 @@ Public Class EmployeeAddEditModal
 
     ' CREATE EMPLOYEE
     Private Sub CreateEmpFunction()
-
         ' Exception
         If password.Trim() = "" Then
             MsgBox("Please fill necessary details")
             Exit Sub
         End If
-
-        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderName, False)
 
         With empConst
             Dim insertData As New Dictionary(Of String, Object) From {
@@ -179,7 +176,6 @@ Public Class EmployeeAddEditModal
 
     Private Sub EditEmpFunction()
 
-        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderName, False)
 
         With empConst
 

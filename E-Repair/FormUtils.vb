@@ -456,14 +456,14 @@ Public Class FormUtils
     End Sub
 
     ' Save
-    Public Sub SaveEvent(editMode As Boolean, addFunction As Action, editFunction As Action)
+    Public Sub SaveEvent(editMode As Boolean, addFunction As Func(Of Boolean), editFunction As Func(Of Boolean))
         Try
             Cursor.Current = Cursors.WaitCursor
 
             If editMode Then
-                addFunction()
+                addFunction.Invoke()
             Else
-                editFunction()
+                editFunction.Invoke()
             End If
 
             Cursor.Current = Cursors.Default
