@@ -473,7 +473,7 @@ Partial Class ServiceEvaluationModal
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 49
-        Me.BtnClose.Text = "Cancel"
+        Me.BtnClose.Text = "Close"
         '
         'Guna2Separator1
         '

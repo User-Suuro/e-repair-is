@@ -262,7 +262,7 @@ Partial Class SupplierAddEditModal
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 34
-        Me.BtnClose.Text = "Cancel"
+        Me.BtnClose.Text = "Close"
         '
         'BtnUpload
         '
