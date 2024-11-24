@@ -487,7 +487,10 @@ Public Class DbHelper
         Return values
     End Function
 
-    Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String, columnName As String, Optional selectedIndex As Integer = -1, Optional startingIndex As Integer = 0)
+    Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String,
+                              columnName As String,
+                              Optional selectedIndex As Integer = -1,
+                              Optional startingIndex As Integer = 0)
         Try
             Dim enumValues As List(Of String) = GetEnums(tableName, columnName)
 
@@ -502,10 +505,14 @@ Public Class DbHelper
 
             cmb.DataSource = enumValues
 
-            ' Set the selected index if valid
-            If selectedIndex >= 0 AndAlso selectedIndex < enumValues.Count Then
+            ' Set the selected index
+            If selectedIndex = -1 Then
+                ' Default: No item selected
+                cmb.SelectedIndex = -1
+            ElseIf selectedIndex >= 0 AndAlso selectedIndex < enumValues.Count Then
                 cmb.SelectedIndex = selectedIndex
-            ElseIf selectedIndex <> -1 Then
+            Else
+                ' Invalid index
                 Throw New ArgumentOutOfRangeException(
                 "selectedIndex",
                 $"Selected index {selectedIndex} is out of range for the ComboBox items."
@@ -516,5 +523,4 @@ Public Class DbHelper
             MsgBox("Error populating ComboBox: " & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
-
 End Class
