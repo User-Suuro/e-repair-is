@@ -34,6 +34,7 @@ Public Class MainPanel
 
             dashboardHandler()
             sideNavHandler()
+            topNavHandler()
             dashboardHandler()
         End With
 
@@ -129,5 +130,7 @@ Public Class MainPanel
         loginForm.Show()
     End Sub
 
+    Private Sub AdminTopNavProfilePictureBox_Click(sender As Object, e As EventArgs) Handles AdminTopNavProfilePictureBox.Click
 
+    End Sub
 End Class
