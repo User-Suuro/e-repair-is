@@ -1,8 +1,9 @@
 ﻿Imports System.IO
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 
 Public Class SupplierViewModal
     Dim dbHelper As New DbHelper
+    Dim formUtils As New FormUtils
+    Dim supConstants As New SuppliersDBConstants
 
     Public Property selectedID As Integer = -1
     Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -16,35 +17,28 @@ Public Class SupplierViewModal
             Me.Close()
         End If
 
-        Dim suppDT As DataTable = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID)
+        Dim suppDT As DataTable = dbHelper.GetRowByValue(supConstants.supTableStr, supConstants.supIDStr, selectedID)
 
         If suppDT.Rows.Count = 0 Then Exit Sub
 
         With suppDT.Rows(0)
-            CompanyNameTxtBox.Text = .Item("company_name")
-            ContactPersonTxtBox.Text = .Item("contact_person")
-            CompanyEmailTxtBox.Text = .Item("company_email")
-            ContactNumberTxtBox.Text = .Item("contact_number")
-            LocationTxtBox.Text = .Item("location")
-            EstDelivTimeTxtBox.Text = dbHelper.StrNullCheck(.Item("estimated_delivery_time"))
-            CompanyDescTxtBox.Text = .Item("company_description")
-            SupplierTypeTxtBox.Text = .Item("supplier_type")
-            ContractTypeTxtBox.Text = .Item("supplier_contract")
-            BankDetailsTxtBox.Text = .Item("bank_details")
-            PaymentTermsTxtBox.Text = .Item("payment_terms")
-            SupplierIdTextBox.Text = .Item("supplier_id")
+            CompanyNameTxtBox.Text = .Item(supConstants.compNameStr)
+            ContactPersonTxtBox.Text = .Item(supConstants.contactPersonStr)
+            CompanyEmailTxtBox.Text = .Item(supConstants.compEmailStr)
+            ContactNumberTxtBox.Text = .Item(supConstants.contactPersonStr)
+            LocationTxtBox.Text = .Item(supConstants.locationStr)
+            EstDelivTimeTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.estDeliveryStr))
+            CompanyDescTxtBox.Text = .Item(supConstants.compDescStr)
+            SupplierTypeTxtBox.Text = .Item(supConstants.supTypeStr)
+            ContractTypeTxtBox.Text = .Item(supConstants.supContractStr)
+            BankDetailsTxtBox.Text = .Item(supConstants.bankDetailsStr)
+            PaymentTermsTxtBox.Text = .Item(supConstants.payTermsStr)
+            SupplierIdTextBox.Text = .Item(supConstants.supIDStr)
             ' NoSuppliedItemTxtBox.Text = .Item("")
-            TotalPaidTxtBox.Text = .Item("total_paid")
-            DateAddedTxtBox.Text = .Item("date_added")
-            CompanyPathTxtBox.Text = .Item("company_picture_path")
-        End With
-
-        Dim empDT As DataTable = dbHelper.GetRowByValue("employees", "employee_id", AddedByTxtBox.Text)
-
-        If empDT.Rows.Count = 0 Then Exit Sub
-
-        With empDT.Rows(0)
-            AddedByTxtBox.Text = .Item("firstname") & " " & .Item("lastname")
+            TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
+            DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
+            CompanyPathTxtBox.Text = .Item(supConstants.compPicPathStr)
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(supConstants.addedByStr))
         End With
 
         If File.Exists(CompanyPathTxtBox.Text) Then

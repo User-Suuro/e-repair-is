@@ -4,6 +4,8 @@ Public Class ServiceViewModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
+    Dim servConst As New ServiceDBConstants
+    Dim empConst As New EmployeesDBConstants
 
     Public Property selectedID As Integer = -1
 
@@ -28,66 +30,60 @@ Public Class ServiceViewModal
             Me.Close()
         End If
 
-        Dim serviceDT As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
+        Dim serviceDT As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcIDStr, selectedID)
 
         If serviceDT.Rows.Count = 0 Then Exit Sub
 
         With serviceDT.Rows(0)
-            Dim customerID = .Item("customer_id")
-            Dim technicianID = .Item("technician_id")
+            Dim customerID = .Item(servConst.custIDStr)
+            Dim technicianID = .Item(servConst.techIDStr)
 
             InitCustCount(customerID)
             InitTechCount(technicianID)
 
             CustomerIDTxtBox.Text = customerID
-            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
+            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item(servConst.custIDStr))
 
             TotalCommissionsTxtBoxx.Text = total_commision
             CompletedCommissionsTxtBox.Text = completed_commission
             PendingCommissionsTxtBox.Text = pending_commission
 
             TechnicianIDTxtBox.Text = technicianID
-            TechnicianNameTxtBox.Text = formUtils.getEmployeeName(.Item("technician_id"))
+            TechnicianNameTxtBox.Text = formUtils.getEmployeeName(.Item(servConst.techIDStr))
 
             TotalWorkDoneTxtBox.Text = total_services
             PendingWorkTxtBox.Text = techNumberPendingServices
             CompletedWorkTxtBox.Text = techNumberFinishedServices
 
-            DeviceBrandTxtBox.Text = .Item("device_brand")
-            DeviceModelTxtBox.Text = .Item("device_model")
-            StorageCapacityTxtBox.Text = .Item("storage_capacity")
-            deviceImgPath = .Item("device_profile_path")
+            DeviceBrandTxtBox.Text = .Item(servConst.devBrandStr)
+            DeviceModelTxtBox.Text = .Item(servConst.devModelStr)
+            StorageCapacityTxtBox.Text = .Item(servConst.storageCapStr)
+
+            deviceImgPath = .Item(servConst.devProfilePathStr)
             DeviceImgPathTxtBox.Text = deviceImgPath
 
-            DeviceTypeTxtBox.Text = .Item("device_type")
-            OperatingSystemTxtBox.Text = .Item("operating_system")
-            ProblemDescTxtBox.Text = .Item("problem_description")
+            DeviceTypeTxtBox.Text = .Item(servConst.devTypeStr)
+            OperatingSystemTxtBox.Text = .Item(servConst.osStr)
+            ProblemDescTxtBox.Text = .Item(servConst.probDescStr)
 
-            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item("cashier_id"))
-            RepairStatusTxtBox.Text = .Item("service_status")
-            DateAddedTxtBox.Text = .Item("date_added")
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(servConst.cashierIDStr))
+            RepairStatusTxtBox.Text = .Item(servConst.svcStatusStr)
+            DateAddedTxtBox.Text = .Item(servConst.dateAddedStr)
 
-            RepairNotesTxtBox.Text = dbHelper.StrNullCheck(.Item("repair_notes"))
-            TechnicianFeeTxtBox.Text = .Item("technician_fee")
-            PartsCostTxtBoxx.Text = .Item("parts_cost")
-            TotalCostTxtBox.Text = .Item("technician_fee") + .Item("parts_cost")
+            RepairNotesTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.repairNotesStr))
+            TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
+            PartsCostTxtBoxx.Text = .Item(servConst.partsCostStr)
+            TotalCostTxtBox.Text = .Item(servConst.techFeeStr) + .Item(servConst.partsCostStr)
 
-            PaymentStatusTxtBox.Text = .Item("paid")
-            PaymentMethodTxtBox.Text = dbHelper.StrNullCheck(.Item("payment_method"))
-            TotalPaidTxtBox.Text = .Item("total_paid")
-            CustomerChangeTxtBox.Text = .Item("customer_change")
+            PaymentStatusTxtBox.Text = .Item(servConst.paidStr)
+            PaymentMethodTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.payMethodStr))
+            TotalPaidTxtBox.Text = .Item(servConst.totalPaidStr)
+            CustomerChangeTxtBox.Text = .Item(servConst.custChangeStr)
 
-            DateClaimedTxtBox.Text = dbHelper.StrNullCheck(.Item("date_claimed"))
-            DateCompletedTxtBox.Text = dbHelper.StrNullCheck(.Item("date_completed"))
+            DateClaimedTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.dateClaimedStr))
+            DateCompletedTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.dateCompletedStr))
 
-        End With
-
-        Dim empDT As DataTable = dbHelper.GetRowByValue("employees", "employee_id", AddedByTxtBox.Text)
-
-        If empDT.Rows.Count = 0 Then Exit Sub
-
-        With empDT.Rows(0)
-            AddedByTxtBox.Text = .Item("firstname") & " " & .Item("lastname")
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(servConst.cashierIDStr))
         End With
 
         If File.Exists(DeviceImgPathTxtBox.Text) Then
@@ -111,17 +107,4 @@ Public Class ServiceViewModal
         total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
     End Sub
 
-
-
-    Private Sub PartsUsedBtn_Click(sender As Object, e As EventArgs) Handles PartsUsedBtn.Click
-
-    End Sub
-
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
-    End Sub
-
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
-
-    End Sub
 End Class

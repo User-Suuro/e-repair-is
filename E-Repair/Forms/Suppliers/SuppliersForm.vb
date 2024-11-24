@@ -5,10 +5,13 @@ Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+    Dim supConst As New SuppliersDBConstants
 
     Private suppID As Integer
     Private archivedStatus As Boolean
-    Public selectMode As Boolean = False
+
+    Public Property selectMode As Boolean = False
+    Public Property suppDT As DataTable = Nothing
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -83,14 +86,14 @@ Public Class SuppliersForm
     ' ARCHIVE
     Private Sub ArchiveSupplierBtn_Click(sender As Object, e As EventArgs) Handles ArchiveSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.archiveRow(archivedStatus, "suppliers", "supplier_id", suppID)
+        formUtils.ArchiveRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.DeleteRow(archivedStatus, "suppliers", "supplier_id", suppID)
+        formUtils.DeleteRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID)
         LoadDataToDGV()
     End Sub
 
@@ -102,20 +105,21 @@ Public Class SuppliersForm
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        With supConst
+            Dim searchValues() As String = {
+                 .compNameStr,
+                 .contactPersonStr,
+                 .contactNumStr,
+                 .compEmailStr,
+                 .locationStr,
+                 .estDeliveryStr,
+                 .totalPaidStr,
+                 .dateAddedStr
+            }
 
-        Dim searchValues() As String = {
-           "company_name",
-           "contact_person",
-           "contact_number",
-           "company_email",
-           "location",
-           "estimated_delivery_time",
-           "total_paid",
-           "date_added"
-        }
-
-        Dim suppdt = dbHelper.GetAllData("suppliers", True)
-        formUtils.LoadToDGV(SuppliersDGV, suppdt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+            If Not selectMode Then suppDT = dbHelper.GetAllData(.supTableStr)
+            formUtils.LoadToDGV(SuppliersDGV, suppdt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+        End With
 
         formUtils.FormatDGVForArchive(SuppliersDGV)
     End Sub

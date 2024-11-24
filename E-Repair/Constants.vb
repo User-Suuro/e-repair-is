@@ -24,9 +24,9 @@
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
 
     ' Folder Names
-    Private ReadOnly _employeesProfileFolderPath = "Employee Profiles"
-    Private ReadOnly _suppliersProfileFolderPath = "Supplier Profiles"
-    Private ReadOnly _devicePicturesFolderPath = "Device Pictures"
+    Private ReadOnly _employeesProfileFolderName = "Employee Profiles"
+    Private ReadOnly _suppliersProfileFolderName = "Supplier Profiles"
+    Private ReadOnly _devicePicturesFolderName = "Device Pictures"
 
     Public ReadOnly Property getFinishedString As String
         Get
@@ -57,9 +57,9 @@
         End Get
     End Property
 
-    Public ReadOnly Property getDevicePicturesFolderPath As String
+    Public ReadOnly Property getDevicePicturesFolderName As String
         Get
-            Return _devicePicturesFolderPath
+            Return _devicePicturesFolderName
         End Get
     End Property
 
@@ -70,15 +70,15 @@
     End Property
 
 
-    Public ReadOnly Property getEmpProfileFolderPath As String
+    Public ReadOnly Property getEmpProfileFolderName As String
         Get
-            Return _employeesProfileFolderPath
+            Return _employeesProfileFolderName
         End Get
     End Property
 
-    Public ReadOnly Property getSuppProfileFolderPath As String
+    Public ReadOnly Property getSuppProfileFolderName As String
         Get
-            Return _suppliersProfileFolderPath
+            Return _suppliersProfileFolderName
         End Get
     End Property
 

@@ -1,10 +1,4 @@
 ﻿Imports System.IO
-Imports System.Numerics
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
-Imports System.Web.UI.Design
-Imports LibVLCSharp.[Shared]
-Imports Microsoft.Reporting.Map.WebForms.BingMaps
-Imports Mysqlx.XDevAPI.Common
 
 Public Class ServiceAddEditModal
     Dim formUtils As New FormUtils
@@ -12,6 +6,7 @@ Public Class ServiceAddEditModal
     Dim constants As New Constants
     Dim formModal As New Form
     Dim servConst As New ServiceDBConstants
+    Dim empConst As New EmployeesDBConstants
 
 
     Private serviceID As Integer = -1
@@ -85,21 +80,21 @@ Public Class ServiceAddEditModal
             Exit Sub
         End If
 
-        Dim servDt As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
+        Dim servDt As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID)
 
         If servDt.Rows.Count = 0 Then Exit Sub
 
         Guna2GroupBox1.Text = "Edit Service"
 
         With servDt.Rows(0)
-            customerID = .Item("customer_id")
-            technicianID = .Item("technician_id")
+            customerID = .Item(servConst.custIDStr)
+            technicianID = .Item(servConst.techIDStr)
 
             InitCustCount(customerID)
             InitTechCount(technicianID)
 
             CustomerIDTxtBox.Text = customerID
-            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
+            CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item(servConst.custIDStr))
 
             TotalCommissionsTxtBox.Text = total_commision
             PendingCommisionsTxtBox.Text = pending_commission
@@ -112,16 +107,16 @@ Public Class ServiceAddEditModal
             PendingWorkTxtBox.Text = pending_commission
             CompletedWorkTxtBox.Text = techNumberFinishedServices
 
-            deviceImgPath = .Item("device_profile_path")
-            DeviceBrandTxtBox.Text = .Item("device_brand")
-            DeviceModelTxtBox.Text = .Item("device_model")
-            StorageCapacityTxtBox.Text = .Item("storage_capacity")
+            deviceImgPath = .Item(servConst.devProfilePathStr)
+            DeviceBrandTxtBox.Text = .Item(servConst.devBrandStr)
+            DeviceModelTxtBox.Text = .Item(servConst.devModelStr)
+            StorageCapacityTxtBox.Text = .Item(servConst.storageCapStr)
 
-            Dim deviceTypeIndex = formUtils.FindComboBoxItemByText(DeviceTypeCmbBox, .Item("device_type"))
+            Dim deviceTypeIndex = formUtils.FindComboBoxItemByText(DeviceTypeCmbBox, .Item(servConst.devTypeStr))
             LoadCmbDs(deviceType)
 
-            OperatingSystemTxtBox.Text = .Item("operating_system")
-            DeviceProblemTxtBox.Text = .Item("problem_description")
+            OperatingSystemTxtBox.Text = .Item(servConst.osStr)
+            DeviceProblemTxtBox.Text = .Item(servConst.probDescStr)
         End With
 
         If File.Exists(deviceImgPath) Then
@@ -137,14 +132,12 @@ Public Class ServiceAddEditModal
     Private Sub AddDataFunction()
 
         With servConst
-            Dim savedPath = formUtils.SaveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, False)
 
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
               { .cashierIDStr, LoggedUser.Current.id},
               { .devTypeStr, deviceType},
-              { .devProfilePathStr, savedPath},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},
               { .osStr, operatingSystem},
@@ -152,7 +145,13 @@ Public Class ServiceAddEditModal
               { .probDescStr, problemDescription}
             }
 
-            formUtils.AddRow(.svcTableStr, insertData, 0, savedPath, constants.getDevicePicturesFolderPath)
+            Dim imgData As New List(Of String) From {
+                .devProfilePathStr,
+                deviceImgPath,
+                constants.getDevicePicturesFolderName
+            }
+
+            formUtils.AddRow(.svcTableStr, insertData, 0, imgData)
 
         End With
 
@@ -162,36 +161,26 @@ Public Class ServiceAddEditModal
     ' EDIT
 
     Private Sub EditDataFunction()
-        ' Exit if canceled
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this service?")) Then Exit Sub
+        With servConst
+            Dim updateData As New Dictionary(Of String, Object) From {
+                { .custIDStr, customerID},
+                { .techIDStr, technicianID},
+                { .devTypeStr, deviceType},
+                { .devModelStr, deviceModel},
+                { .devBrandStr, deviceBrand},
+                { .osStr, operatingSystem},
+                { .storageCapStr, storageCapacity},
+                { .probDescStr, problemDescription}
+            }
 
-        Dim updateData As New Dictionary(Of String, Object) From {
-            {"customer_id", customerID},
-            {"technician_id", technicianID},
-            {"device_type", deviceType},
-            {"device_profile_path", deviceImgPath},
-            {"device_model", deviceModel},
-            {"device_brand", deviceBrand},
-            {"operating_system", operatingSystem},
-            {"storage_capacity", storageCapacity},
-            {"problem_description", problemDescription}
-        }
+            Dim imgData As New List(Of String) From {
+                .devProfilePathStr,
+                deviceImgPath,
+                constants.getDevicePicturesFolderName
+            }
 
-        If Not formUtils.AreAllValuesFilled(updateData) Then Exit Sub
-
-        Dim serviceDT As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
-
-        If serviceDT.Rows.Count = 0 Then Exit Sub
-
-        With serviceDT.Rows(0)
-            If .Item("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.SaveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
+            formUtils.EditRow(.svcTableStr, selectedID, .svcIDStr, updateData, 0, imgData)
         End With
-
-        If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
-            MsgBox("Successfuly updated service details")
-        Else
-            MsgBox("Unable to update service details")
-        End If
 
         Me.Close()
     End Sub
@@ -203,7 +192,7 @@ Public Class ServiceAddEditModal
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
-                   modal.customersDt = dbHelper.GetAllData("customers")
+                   modal.customersDt = dbHelper.GetAllData(servConst.custIDStr)
                    Return modal
                End Function,
                -1,
@@ -231,7 +220,7 @@ Public Class ServiceAddEditModal
            Function(id)
                Dim modal As New EmployeeForm
                modal.selectMode = True
-               modal.empDT = dbHelper.GetRowByValue("employees", "job_type", "Technician")
+               modal.empDT = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
                Return modal
            End Function,
            -1,
@@ -332,7 +321,4 @@ Public Class ServiceAddEditModal
         End If
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
-
-    End Sub
 End Class

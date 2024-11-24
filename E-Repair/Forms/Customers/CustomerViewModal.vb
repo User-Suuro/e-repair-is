@@ -61,5 +61,7 @@
         Return formUtils.getCustStatusNumber(status, selectedID)
     End Function
 
+    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
 
+    End Sub
 End Class

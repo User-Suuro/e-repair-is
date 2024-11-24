@@ -41,6 +41,7 @@ Public Class EmployeeAddEditModal
     Private Property profileImgPath As String = ""
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
+    Public Property createAccMode As Boolean = False
 
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -97,12 +98,12 @@ Public Class EmployeeAddEditModal
     End Sub
 
     ' INIT CMBDS
-    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
+    Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer, Optional createAcc As Integer = 1)
         With dbHelper
             .LoadEnumsToCmb(SexComboBox, empConst.empTableStr, empConst.empSexStr, index01)
             .LoadEnumsToCmb(CivilStatusComboBox, empConst.empTableStr, empConst.empCivilStr, index02)
             .LoadEnumsToCmb(ContractStatusComboBox, empConst.empTableStr, empConst.empStatusStr, index03)
-            .LoadEnumsToCmb(JobTypeComboBox, empConst.empTableStr, empConst.empJobPosStr, index04, 1) ' SUPER ADMIN MUST NOT BE SEEN
+            .LoadEnumsToCmb(JobTypeComboBox, empConst.empTableStr, empConst.empJobPosStr, index04, createAcc) ' SUPER ADMIN MUST NOT BE SEEN
             .LoadEnumsToCmb(PositionComboBox, empConst.empTableStr, empConst.empAdminPosStr, index05)
         End With
     End Sub
@@ -116,7 +117,7 @@ Public Class EmployeeAddEditModal
             Exit Sub
         End If
 
-        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
+        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderName, False)
 
         With empConst
             Dim insertData As New Dictionary(Of String, Object) From {
@@ -134,7 +135,6 @@ Public Class EmployeeAddEditModal
                 { .empStatusStr, contractStatus},
                 { .empHiredStr, dateHired},
                 { .empJobPosStr, jobType},
-                { .empProfileStr, savedPath},
                 { .empEmailStr, email},
                 { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
                 { .empAddedByStr, LoggedUser.Current.id}
@@ -165,13 +165,21 @@ Public Class EmployeeAddEditModal
                 Next
             End If
 
-            formUtils.AddRow(.empTableStr, insertData, 4, profileImgPath, constants.getEmpProfileFolderPath)
+            Dim imgData As New List(Of String) From {
+                .empProfileStr,
+                profileImgPath,
+                constants.getEmpProfileFolderName
+            }
+
+            formUtils.AddRow(.empTableStr, insertData, 4, imgData)
         End With
 
         Me.Close()
     End Sub
 
     Private Sub EditEmpFunction()
+
+        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderName, False)
 
         With empConst
 
@@ -222,9 +230,13 @@ Public Class EmployeeAddEditModal
 
             If prevEmpDT.Rows.Count = 0 Then Exit Sub
 
-            updateData.Add(.empProfileStr, formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False))
+            Dim imgData As New List(Of String) From {
+                .empProfileStr,
+                profileImgPath,
+                constants.getEmpProfileFolderName
+            }
 
-            formUtils.EditRow(.empTableStr, selectedID, .empIDStr, updateData, 4, profileImgPath)
+            formUtils.EditRow(.empTableStr, selectedID, .empIDStr, updateData, 4)
         End With
 
         Me.Close()

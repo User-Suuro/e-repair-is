@@ -252,6 +252,7 @@ Public Class FormUtils
             End With
         End If
 
+        dgv.RowTemplate.Height = 25
         dgv.AutoGenerateColumns = False
         dgv.DataSource = dt
     End Sub
@@ -353,24 +354,27 @@ Public Class FormUtils
 
 
     ' Add Row
-    Public Function AddRow(dbTable As String, payload As Dictionary(Of String, Object),
+    Public Function AddRow(dbTable As String, ByVal payload As Dictionary(Of String, Object),
                            Optional startCheckIndex As Integer = 0,
-                           Optional imgPath As String = Nothing,
-                           Optional imgFolderName As String = Nothing) As Boolean
+                           Optional imgData As List(Of String) = Nothing) As Boolean
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to add this data")) Then Return False
 
-        If Not AreAllValuesFilled(payload, startCheckIndex) Then Return False
+        ' Check if imgData is provided and has sufficient data
+        If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+            Dim imgColName As String = imgData(0)
+            Dim imgPath As String = imgData(1)
+            Dim imgFolderName As String = imgData(2)
 
-        If dbHelper.InsertRecord(dbTable, payload) Then
-
-            If imgPath IsNot Nothing AndAlso imgFolderName IsNot Nothing Then
+            If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
                 If Not File.Exists(imgPath) Then
+                    payload.Add(imgColName, imgPath)
                     SaveImgToLocal(imgPath, imgFolderName, True)
                 End If
-
             End If
+        End If
 
+        If dbHelper.InsertRecord(dbTable, payload) Then
             MsgBox("Successfully Added")
             Return True
         End If
@@ -381,24 +385,28 @@ Public Class FormUtils
 
     ' Edit Row
     Public Function EditRow(dbTable As String, targetID As Integer, targetColumn As String, payload As Dictionary(Of String, Object),
-                            Optional startCheckIndex As Integer = 0,
-                            Optional imgPath As String = Nothing,
-                            Optional imgFolderName As String = Nothing) As Boolean
+                          Optional startCheckIndex As Integer = 0,
+                          Optional imgData As List(Of String) = Nothing) As Boolean
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
 
         If Not AreAllValuesFilled(payload) Then Return False
 
-        If dbHelper.UpdateRecord(dbTable, targetID, targetColumn, payload) Then
+        ' Check if imgData is provided and has sufficient data
+        If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+            Dim imgColName As String = imgData(0)
+            Dim imgPath As String = imgData(1)
+            Dim imgFolderName As String = imgData(2)
 
-            If imgPath IsNot Nothing AndAlso imgFolderName IsNot Nothing Then
-
+            If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
                 If Not File.Exists(imgPath) Then
+                    payload.Add(imgColName, imgPath)
                     SaveImgToLocal(imgPath, imgFolderName, True)
                 End If
-
             End If
+        End If
 
+        If dbHelper.UpdateRecord(dbTable, targetID, targetColumn, payload) Then
             MsgBox("Successfully Edited")
             Return True
         End If
