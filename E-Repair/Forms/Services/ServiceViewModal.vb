@@ -72,11 +72,11 @@ Public Class ServiceViewModal
             TotalCostTxtBox.Text = .Item("technician_fee") + .Item("parts_cost")
 
             PaymentStatusTxtBox.Text = .Item("paid")
-            PaymentMethodTxtBox.Text = .Item("payment_method")
+            PaymentMethodTxtBox.Text = dbHelper.StrNullCheck(.Item("payment_method"))
             TotalPaidTxtBox.Text = .Item("total_paid")
             CustomerChangeTxtBox.Text = .Item("customer_change")
 
-            DateClaimedTxtBox.Text = .Item("date_claimed")
+            DateClaimedTxtBox.Text = dbHelper.StrNullCheck(.Item("date_claimed"))
 
         End With
 
@@ -109,7 +109,13 @@ Public Class ServiceViewModal
         total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
+
+    Private Sub PartsUsedBtn_Click(sender As Object, e As EventArgs) Handles PartsUsedBtn.Click
+
+    End Sub
+
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
     End Sub
 End Class

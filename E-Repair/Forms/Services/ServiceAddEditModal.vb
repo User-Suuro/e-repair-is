@@ -331,7 +331,7 @@ Public Class ServiceAddEditModal
 
     ' OPERATING SYSTEM
     Private Sub OperatingSystemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles OperatingSystemTxtBox.TextChanged
-        operatingSystem = IfOthersOperatingSystemTxtBox.Text
+        operatingSystem = OperatingSystemTxtBox.Text
     End Sub
 
     Private Sub DeviceProblemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceProblemTxtBox.TextChanged
