@@ -24,7 +24,7 @@ Partial Class ServiceViewModal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceViewModal))
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.GunaPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
         Me.PartsUsedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -64,7 +64,7 @@ Partial Class ServiceViewModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProfilePathTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DeviceImgPathTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StorageCapacityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -115,9 +115,9 @@ Partial Class ServiceViewModal
         Me.TechnicianIDTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.SupplierCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.ServiceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2GroupBox1.SuspendLayout()
-        Me.Guna2Panel10.SuspendLayout()
+        Me.GunaPanel.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
         Me.Guna2Panel8.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
@@ -140,12 +140,12 @@ Partial Class ServiceViewModal
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServiceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
         '
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel10)
+        Me.Guna2GroupBox1.Controls.Add(Me.GunaPanel)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel8)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel9)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel7)
@@ -158,7 +158,7 @@ Partial Class ServiceViewModal
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2GroupBox1.Controls.Add(Me.FlowLayoutPanel3)
         Me.Guna2GroupBox1.Controls.Add(Me.Label10)
-        Me.Guna2GroupBox1.Controls.Add(Me.SupplierCirclePictureBox)
+        Me.Guna2GroupBox1.Controls.Add(Me.ServiceCirclePictureBox)
         Me.Guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2GroupBox1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -170,18 +170,18 @@ Partial Class ServiceViewModal
         Me.Guna2GroupBox1.TabIndex = 1
         Me.Guna2GroupBox1.Text = "View Service"
         '
-        'Guna2Panel10
+        'GunaPanel
         '
-        Me.Guna2Panel10.BackColor = System.Drawing.SystemColors.Control
-        Me.Guna2Panel10.BorderRadius = 4
-        Me.Guna2Panel10.Controls.Add(Me.TableLayoutPanel9)
-        Me.Guna2Panel10.Location = New System.Drawing.Point(12, 527)
-        Me.Guna2Panel10.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.Guna2Panel10.Name = "Guna2Panel10"
-        Me.Guna2Panel10.Padding = New System.Windows.Forms.Padding(4)
-        Me.Guna2Panel10.ShadowDecoration.Parent = Me.Guna2Panel10
-        Me.Guna2Panel10.Size = New System.Drawing.Size(957, 61)
-        Me.Guna2Panel10.TabIndex = 54
+        Me.GunaPanel.BackColor = System.Drawing.SystemColors.Control
+        Me.GunaPanel.BorderRadius = 4
+        Me.GunaPanel.Controls.Add(Me.TableLayoutPanel9)
+        Me.GunaPanel.Location = New System.Drawing.Point(12, 527)
+        Me.GunaPanel.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.GunaPanel.Name = "GunaPanel"
+        Me.GunaPanel.Padding = New System.Windows.Forms.Padding(4)
+        Me.GunaPanel.ShadowDecoration.Parent = Me.GunaPanel
+        Me.GunaPanel.Size = New System.Drawing.Size(957, 61)
+        Me.GunaPanel.TabIndex = 54
         '
         'TableLayoutPanel9
         '
@@ -889,7 +889,7 @@ Partial Class ServiceViewModal
         Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.JobDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.JobDetailsTableLayout.Controls.Add(Me.ProfilePathTxtBox, 3, 1)
+        Me.JobDetailsTableLayout.Controls.Add(Me.DeviceImgPathTxtBox, 3, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label4, 3, 0)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label1, 1, 0)
         Me.JobDetailsTableLayout.Controls.Add(Me.StorageCapacityTxtBox, 2, 1)
@@ -906,32 +906,32 @@ Partial Class ServiceViewModal
         Me.JobDetailsTableLayout.Size = New System.Drawing.Size(808, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
         '
-        'ProfilePathTxtBox
+        'DeviceImgPathTxtBox
         '
-        Me.ProfilePathTxtBox.BorderRadius = 4
-        Me.ProfilePathTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ProfilePathTxtBox.DefaultText = ""
-        Me.ProfilePathTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ProfilePathTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ProfilePathTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ProfilePathTxtBox.DisabledState.Parent = Me.ProfilePathTxtBox
-        Me.ProfilePathTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ProfilePathTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ProfilePathTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProfilePathTxtBox.FocusedState.Parent = Me.ProfilePathTxtBox
-        Me.ProfilePathTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProfilePathTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProfilePathTxtBox.HoverState.Parent = Me.ProfilePathTxtBox
-        Me.ProfilePathTxtBox.Location = New System.Drawing.Point(608, 24)
-        Me.ProfilePathTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ProfilePathTxtBox.Name = "ProfilePathTxtBox"
-        Me.ProfilePathTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ProfilePathTxtBox.PlaceholderText = ""
-        Me.ProfilePathTxtBox.ReadOnly = True
-        Me.ProfilePathTxtBox.SelectedText = ""
-        Me.ProfilePathTxtBox.ShadowDecoration.Parent = Me.ProfilePathTxtBox
-        Me.ProfilePathTxtBox.Size = New System.Drawing.Size(198, 26)
-        Me.ProfilePathTxtBox.TabIndex = 40
+        Me.DeviceImgPathTxtBox.BorderRadius = 4
+        Me.DeviceImgPathTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DeviceImgPathTxtBox.DefaultText = ""
+        Me.DeviceImgPathTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DeviceImgPathTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DeviceImgPathTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceImgPathTxtBox.DisabledState.Parent = Me.DeviceImgPathTxtBox
+        Me.DeviceImgPathTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeviceImgPathTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeviceImgPathTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceImgPathTxtBox.FocusedState.Parent = Me.DeviceImgPathTxtBox
+        Me.DeviceImgPathTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeviceImgPathTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeviceImgPathTxtBox.HoverState.Parent = Me.DeviceImgPathTxtBox
+        Me.DeviceImgPathTxtBox.Location = New System.Drawing.Point(608, 24)
+        Me.DeviceImgPathTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DeviceImgPathTxtBox.Name = "DeviceImgPathTxtBox"
+        Me.DeviceImgPathTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DeviceImgPathTxtBox.PlaceholderText = ""
+        Me.DeviceImgPathTxtBox.ReadOnly = True
+        Me.DeviceImgPathTxtBox.SelectedText = ""
+        Me.DeviceImgPathTxtBox.ShadowDecoration.Parent = Me.DeviceImgPathTxtBox
+        Me.DeviceImgPathTxtBox.Size = New System.Drawing.Size(198, 26)
+        Me.DeviceImgPathTxtBox.TabIndex = 40
         '
         'Label4
         '
@@ -940,9 +940,9 @@ Partial Class ServiceViewModal
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(609, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 20)
+        Me.Label4.Size = New System.Drawing.Size(123, 20)
         Me.Label4.TabIndex = 39
-        Me.Label4.Text = "Storage Capacity"
+        Me.Label4.Text = "Device Profile Path"
         '
         'Label1
         '
@@ -1815,19 +1815,19 @@ Partial Class ServiceViewModal
         Me.Label10.TabIndex = 38
         Me.Label10.Text = "Picture of Device"
         '
-        'SupplierCirclePictureBox
+        'ServiceCirclePictureBox
         '
-        Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(839, 230)
-        Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"
-        Me.SupplierCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.SupplierCirclePictureBox.ShadowDecoration.Parent = Me.SupplierCirclePictureBox
-        Me.SupplierCirclePictureBox.Size = New System.Drawing.Size(132, 132)
-        Me.SupplierCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.SupplierCirclePictureBox.TabIndex = 32
-        Me.SupplierCirclePictureBox.TabStop = False
-        Me.SupplierCirclePictureBox.UseTransparentBackground = True
+        Me.ServiceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.ServiceCirclePictureBox.Image = CType(resources.GetObject("ServiceCirclePictureBox.Image"), System.Drawing.Image)
+        Me.ServiceCirclePictureBox.Location = New System.Drawing.Point(839, 230)
+        Me.ServiceCirclePictureBox.Name = "ServiceCirclePictureBox"
+        Me.ServiceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.ServiceCirclePictureBox.ShadowDecoration.Parent = Me.ServiceCirclePictureBox
+        Me.ServiceCirclePictureBox.Size = New System.Drawing.Size(132, 132)
+        Me.ServiceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ServiceCirclePictureBox.TabIndex = 32
+        Me.ServiceCirclePictureBox.TabStop = False
+        Me.ServiceCirclePictureBox.UseTransparentBackground = True
         '
         'ServiceViewModal
         '
@@ -1842,7 +1842,7 @@ Partial Class ServiceViewModal
         Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2GroupBox1.PerformLayout()
-        Me.Guna2Panel10.ResumeLayout(False)
+        Me.GunaPanel.ResumeLayout(False)
         Me.TableLayoutPanel9.ResumeLayout(False)
         Me.TableLayoutPanel9.PerformLayout()
         Me.Guna2Panel8.ResumeLayout(False)
@@ -1877,7 +1877,7 @@ Partial Class ServiceViewModal
         Me.TableLayoutPanel2.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.SupplierCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServiceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1932,7 +1932,7 @@ Partial Class ServiceViewModal
     Friend WithEvents TechnicianIDTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents SupplierCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents ServiceCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents DateCompletedTxtBox As Guna.UI2.WinForms.Guna2TextBox
@@ -1957,7 +1957,7 @@ Partial Class ServiceViewModal
     Friend WithEvents Label26 As Label
     Friend WithEvents DateClaimedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label33 As Label
-    Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents GunaPanel As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
     Friend WithEvents Label35 As Label
     Friend WithEvents TotalCostTxtBox As Guna.UI2.WinForms.Guna2TextBox
@@ -1971,7 +1971,7 @@ Partial Class ServiceViewModal
     Friend WithEvents Label28 As Label
     Friend WithEvents OperatingSystemTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DeviceTypeTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents ProfilePathTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DeviceImgPathTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents SeeCustomerBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents SeeTechnicianBtn As Guna.UI2.WinForms.Guna2Button

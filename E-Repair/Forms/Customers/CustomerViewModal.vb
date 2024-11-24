@@ -8,7 +8,11 @@
     End Sub
 
     Private Sub CustomerViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If selectedID = -1 Then Exit Sub
+
+        If selectedID = -1 Then
+            MsgBox("Cannot view with empty values")
+            Me.Close()
+        End If
 
         Dim custDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", selectedID)
 
@@ -52,4 +56,7 @@
         Return formUtils.getCustStatusNumber(status, selectedID)
     End Function
 
+    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
+
+    End Sub
 End Class

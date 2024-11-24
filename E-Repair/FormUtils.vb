@@ -371,8 +371,8 @@ Public Class FormUtils
         End If
     End Sub
 
-    Public Function getCustomerName(customerIndex As Integer) As String
-        Dim getCustDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerIndex)
+    Public Function getCustomerName(customerID As Integer) As String
+        Dim getCustDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerID)
 
         If getCustDt.Rows.Count = 0 Then Exit Function
 
@@ -381,12 +381,12 @@ Public Class FormUtils
         End With
     End Function
 
-    Public Function getTechnicianName(technicianIndex As Integer) As String
-        Dim getTechDt As DataTable = dbHelper.GetRowByTwoValues("employees", "employee_id", technicianIndex, "job_type", "Technician")
+    Public Function getEmployeeName(empID As Integer) As String
+        Dim dt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empID)
 
-        If getTechDt.Rows.Count = 0 Then Exit Function
+        If dt.Rows.Count = 0 Then Exit Function
 
-        With getTechDt.Rows(0)
+        With dt.Rows(0)
             Return .Item("firstname") & " " & .Item("lastname")
         End With
     End Function

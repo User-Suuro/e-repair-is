@@ -13,7 +13,11 @@ Public Class EmployeeViewModal
     End Sub
 
     Private Sub loadValues()
-        If selectedID = -1 Then Exit Sub
+
+        If selectedID = -1 Then
+            MsgBox("Cannot view with empty values")
+            Me.Close()
+        End If
 
         Dim empDt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
 

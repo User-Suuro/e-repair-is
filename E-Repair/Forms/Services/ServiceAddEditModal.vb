@@ -53,10 +53,10 @@ Public Class ServiceAddEditModal
     End Sub
 
     Private Sub InitTechCount(techID As Integer)
-        techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", technicianID)
-        techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", technicianID)
-        techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", technicianID)
-        techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", technicianID)
+        techNumberFinishedServices = formUtils.getTechStatsNumbers("Finished", techID)
+        techNumberPendingServices = formUtils.getTechStatsNumbers("Pending", techID)
+        techNumberCanceledServices = formUtils.getTechStatsNumbers("Canceled", techID)
+        techNumberOnholdServices = formUtils.getTechStatsNumbers("Onhold", techID)
         total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
     End Sub
 
@@ -83,17 +83,17 @@ Public Class ServiceAddEditModal
 
     ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         LoadCmbDs(-1)
-
-        If selectedID = -1 Then Exit Sub
-
-        LoadData()
-
+        If editMode Then LoadData()
     End Sub
 
     ' LOAD DATA
     Private Sub LoadData()
+        If selectedID = -1 Then
+            MsgBox("Canot edit with empty values")
+            Exit Sub
+        End If
+
         Dim servDt As DataTable = dbHelper.GetRowByValue("services", "service_id", selectedID)
 
         If servDt.Rows.Count = 0 Then Exit Sub
@@ -115,7 +115,7 @@ Public Class ServiceAddEditModal
             CompletedCommissionTxtBox.Text = completed_commission
 
             TechnicianIDTxtBox.Text = technicianID
-            TechnicianNameTxtBox.Text = formUtils.getTechnicianName(.Item("technician_id"))
+            TechnicianNameTxtBox.Text = formUtils.getEmployeeName(technicianID)
 
             TotalWorkDoneTxtBox.Text = total_services
             PendingCommisionsTxtBox.Text = pending_commission
@@ -269,7 +269,7 @@ Public Class ServiceAddEditModal
         InitTechCount(idResult)
 
         TechnicianIDTxtBox.Text = idResult
-        TechnicianNameTxtBox.Text = formUtils.getTechnicianName(idResult)
+        TechnicianNameTxtBox.Text = formUtils.getEmployeeName(idResult)
 
         TotalWorkDoneTxtBox.Text = total_services
 
@@ -355,6 +355,5 @@ Public Class ServiceAddEditModal
             technicianID = 0
         End If
     End Sub
-
 
 End Class

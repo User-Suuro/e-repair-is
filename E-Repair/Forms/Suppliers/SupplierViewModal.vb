@@ -11,6 +11,11 @@ Public Class SupplierViewModal
 
     Private Sub InitValues()
 
+        If selectedID = -1 Then
+            MsgBox("Cannot view with empty values")
+            Me.Close()
+        End If
+
         Dim suppDT As DataTable = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID)
 
         If suppDT.Rows.Count = 0 Then Exit Sub
@@ -54,7 +59,7 @@ Public Class SupplierViewModal
     Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
         If selectedID = -1 Then Exit Sub
 
-
     End Sub
+
 
 End Class
