@@ -16,7 +16,7 @@ Public Class MainPanel
 
         Dim dt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, Current.id)
 
-        If dt.Rows.Count Then
+        If dt.Rows.Count = 0 Then
             MsgBox("No user detected")
             Me.Close()
             Exit Sub
