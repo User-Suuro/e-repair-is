@@ -22,10 +22,11 @@
 
         Dim empDtRow As DataRow = dt.Rows(0)
 
-        Dim empID As Integer
-        If Not Integer.TryParse(empCust.empIDStr, empID) Then
-            MsgBox("Invalid Employee ID")
-            Return
+        Dim empID As Integer = Nothing
+
+        If Not Integer.TryParse(empDtRow(empCust.empIDStr), empID) Then
+            MsgBox("Invalid ID")
+            Exit Sub
         End If
 
         CurrentUsr = New LoggedConstructor With {
