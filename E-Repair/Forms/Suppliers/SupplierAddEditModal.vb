@@ -98,7 +98,7 @@ Public Class SupplierAddEditModal
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this supplier?")) Then Exit Sub
 
         ' Save Image Locally
-        Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
+        Dim savedPath = formUtils.SaveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertData As New Dictionary(Of String, Object) From {
             {"estimated_delivery_time", estDelivTime}, ' optional
@@ -113,13 +113,13 @@ Public Class SupplierAddEditModal
             {"bank_details", bankDetails},
             {"payment_terms", paymentTerms},
             {"company_picture_path", savedPath},
-            {"added_by", GlobalSession.CurrentSession.EmployeeID}
+            {"added_by", LoggedUser.GlobalSession.CurrentSession.EmployeeID}
         }
 
         If Not formUtils.AreAllValuesFilled(insertData, 1) Then Exit Sub
 
         If dbHelper.InsertRecord("suppliers", insertData) Then
-            formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
+            formUtils.SaveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True)
             MsgBox("Supplier Successfully Added")
         Else
             MsgBox("Db Failure!")
@@ -134,7 +134,7 @@ Public Class SupplierAddEditModal
         ' Exit if canceled
         If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this supplier?")) Then Exit Sub
 
-        Dim savedPath = formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
+        Dim savedPath = formUtils.SaveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, False)
 
         Dim insertUpdate As New Dictionary(Of String, Object) From {
             {"estimated_delivery_time", estDelivTime}, ' optional
@@ -155,7 +155,7 @@ Public Class SupplierAddEditModal
         ' COMPARE PREV VALUE
         Dim getSupplierPrevValue As DataRow = dbHelper.GetRowByValue("suppliers", "supplier_id", selectedID).Rows(0)
 
-        If savedPath <> getSupplierPrevValue("company_picture_path") Then insertUpdate.Add("company_picture_path", formUtils.saveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True))
+        If savedPath <> getSupplierPrevValue("company_picture_path") Then insertUpdate.Add("company_picture_path", formUtils.SaveImgToLocal(compProfilePath, constants.getSuppProfileFolderPath, True))
 
         If dbHelper.UpdateRecord("suppliers", "supplier_id", selectedID, insertUpdate) Then
             MsgBox("Supplier Successfully Updated")

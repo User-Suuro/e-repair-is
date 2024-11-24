@@ -11,6 +11,8 @@ Public Class ServiceAddEditModal
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
     Dim formModal As New Form
+    Dim servConst As New ServiceDBConstants
+
 
     Private serviceID As Integer = -1
     Private customerID As Integer = -1
@@ -62,18 +64,7 @@ Public Class ServiceAddEditModal
 
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Try
-            Cursor = Cursors.WaitCursor
-            If editMode Then
-                EditDataFunction()
-            Else
-                AddDataFunction()
-            End If
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            Cursor = Cursors.Default
-            MsgBox("Failed to save / edit: " & ex.Message)
-        End Try
+        formUtils.SaveEvent(editMode, AddressOf AddDataFunction, AddressOf EditDataFunction)
     End Sub
 
     ' CLOSE
@@ -90,7 +81,7 @@ Public Class ServiceAddEditModal
     ' LOAD DATA
     Private Sub LoadData()
         If selectedID = -1 Then
-            MsgBox("Canot edit with empty values")
+            MsgBox("Cannot edit with empty values")
             Exit Sub
         End If
 
@@ -140,45 +131,30 @@ Public Class ServiceAddEditModal
 
     ' LOAD ENUMS TO CMB
     Public Sub LoadCmbDs(index01)
-        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, "services", "device_type", index01)
+        dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, servConst.svcTableStr, servConst.devTypeStr, index01)
     End Sub
     ' ADD 
     Private Sub AddDataFunction()
 
-        ' Exit if canceled
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this service?")) Then Exit Sub
+        With servConst
+            Dim savedPath = formUtils.SaveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, False)
 
-        Dim empIDLogged As Integer
+            Dim insertData As New Dictionary(Of String, Object) From {
+              { .custIDStr, customerID},
+              { .techIDStr, technicianID},
+              { .cashierIDStr, LoggedUser.Current.id},
+              { .devTypeStr, deviceType},
+              { .devProfilePathStr, savedPath},
+              { .devModelStr, deviceModel},
+              { .devBrandStr, deviceBrand},
+              { .osStr, operatingSystem},
+              { .storageCapStr, storageCapacity},
+              { .probDescStr, problemDescription}
+            }
 
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            empIDLogged = -1
-        End Try
+            formUtils.AddRow(.svcTableStr, insertData, 0, savedPath, constants.getDevicePicturesFolderPath)
 
-        Dim savedPath = formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, False)
-
-        Dim insertData As New Dictionary(Of String, Object) From {
-          {"customer_id", customerID},
-          {"technician_id", technicianID},
-          {"cashier_id", empIDLogged},
-          {"device_type", deviceType},
-          {"device_profile_path", savedPath},
-          {"device_model", deviceModel},
-          {"device_brand", deviceBrand},
-          {"operating_system", operatingSystem},
-          {"storage_capacity", storageCapacity},
-          {"problem_description", problemDescription}
-        }
-
-        If Not formUtils.AreAllValuesFilled(insertData) Then Exit Sub
-
-        If dbHelper.InsertRecord("services", insertData) Then
-            formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True)
-            MsgBox("Service Successfully Added")
-        Else
-            MsgBox("Unable to save service record")
-        End If
+        End With
 
         Me.Close()
     End Sub
@@ -208,7 +184,7 @@ Public Class ServiceAddEditModal
         If serviceDT.Rows.Count = 0 Then Exit Sub
 
         With serviceDT.Rows(0)
-            If .Item("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.saveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
+            If .Item("device_profile_path") <> deviceImgPath Then updateData.Add("profile_path", formUtils.SaveImgToLocal(deviceImgPath, constants.getDevicePicturesFolderPath, True))
         End With
 
         If dbHelper.UpdateRecord("services", "service_id", selectedID, updateData) Then
@@ -227,7 +203,7 @@ Public Class ServiceAddEditModal
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
-                   modal.selectModeTable = dbHelper.GetAllRowsFromTable("customers", False)
+                   modal.customersDt = dbHelper.GetAllData("customers")
                    Return modal
                End Function,
                -1,

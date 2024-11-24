@@ -90,7 +90,7 @@ Public Class SuppliersForm
     ' DELETE
     Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.delRow(archivedStatus, "suppliers", "supplier_id", suppID)
+        formUtils.DeleteRow(archivedStatus, "suppliers", "supplier_id", suppID)
         LoadDataToDGV()
     End Sub
 
@@ -114,7 +114,7 @@ Public Class SuppliersForm
            "date_added"
         }
 
-        Dim suppdt = dbHelper.GetAllRowsFromTable("suppliers", True)
+        Dim suppdt = dbHelper.GetAllData("suppliers", True)
         formUtils.LoadToDGV(SuppliersDGV, suppdt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
 
         formUtils.FormatDGVForArchive(SuppliersDGV)

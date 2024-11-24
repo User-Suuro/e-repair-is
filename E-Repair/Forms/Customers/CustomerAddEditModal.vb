@@ -57,62 +57,32 @@ Public Class CustomerAddEditModal
 
     ' SAVE BTN
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Try
-            Cursor = Cursors.WaitCursor
-            If editMode Then
-                EditCustomerFunction()
-            Else
-                AddCustomerFunction()
-            End If
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            Cursor = Cursors.Default
-            MsgBox("Failed to save / edit customer: " & ex.Message)
-        End Try
+        formUtils.SaveEvent(editMode, AddressOf AddCustomerFunction, AddressOf EditCustomerFunction)
     End Sub
 
     ' ADD 
     Private Sub AddCustomerFunction()
-
-        ' Exit if canceled
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this customer?")) Then Exit Sub
-
-        Dim empIDLogged As Integer
-
-        Try
-            empIDLogged = GlobalSession.CurrentSession.EmployeeID
-        Catch ex As Exception
-            empIDLogged = -1
-        End Try
-
         With custConst
-
             Dim insertData As New Dictionary(Of String, Object) From {
                 { .custMidStr, middleName}, ' optional
                 { .custContactStr, contactNumber}, ' optional
                 { .custAddressStr, address}, ' optional
                 { .custEmailStr, email}, ' optional
-                { .custAddedByStr, empIDLogged}, ' optional
+                { .custAddedByStr, LoggedUser.Current.id},
                 { .custFirstStr, firstName},
                 { .custLastStr, lastName},
                 { .custGenderStr, gender},
                 { .custDateAddedStr, DateTime.Now()}
             }
 
-            If Not formUtils.AreAllValuesFilled(insertData, 5) Then Exit Sub
-            dbHelper.InsertRecord(.custTableStr, insertData)
+            formUtils.AddRow(.custTableStr, insertData, 4)
         End With
 
-        MsgBox("Customer Successfully Added")
-
         Me.Close()
-
     End Sub
 
     ' EDIT
     Private Sub EditCustomerFunction()
-        ' Exit if canceled
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this customer?")) Then Exit Sub
 
         With custConst
             Dim insertUpdate As New Dictionary(Of String, Object) From {
@@ -125,13 +95,7 @@ Public Class CustomerAddEditModal
                 { .custGenderStr, gender}
             }
 
-            If Not formUtils.AreAllValuesFilled(insertUpdate, 4) Then Exit Sub
-
-            If dbHelper.UpdateRecord(.custTableStr, .custIDStr, selectedID, insertUpdate) Then
-                MsgBox("Customer Successfully Updated")
-            Else
-                MsgBox("Db Problem")
-            End If
+            formUtils.EditRow(.custTableStr, selectedID, .custIDStr, insertUpdate, 4)
         End With
 
         Me.Close()

@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports Microsoft.Reporting.Map.WebForms.BingMaps
 
 Public Class EmployeeAddEditModal
 
@@ -6,6 +7,7 @@ Public Class EmployeeAddEditModal
     Dim dbUtils As New DbHelper
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
+    Dim empConst As New EmployeesDBConstants
 
     ' CONSTANTS
     Private emailFirstValue As String = ""
@@ -52,38 +54,38 @@ Public Class EmployeeAddEditModal
 
         EmployeeModalGroupBox.Text = "Edit Employee"
 
-        Dim empDt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
+        Dim empDt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, selectedID)
 
         If empDt.Rows.Count = 0 Then Exit Sub
 
         With empDt.Rows(0)
-            FirstNameTextBox.Text = .Item("firstname")
-            MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item("middlename"))
-            LastNameTextBox.Text = .Item("lastname")
-            BirthdateDateTimePicker.Value = DateTime.Parse(.Item("birthdate"))
+            FirstNameTextBox.Text = .Item(empConst.empFirstStr)
+            MiddleNameTextBox.Text = dbHelper.StrNullCheck(empConst.empMidStr)
+            LastNameTextBox.Text = .Item(empConst.empLastStr)
+            BirthdateDateTimePicker.Value = DateTime.Parse(.Item(empConst.empBirthStr))
 
-            AddressTextBox.Text = .Item("address")
-            ContactNumberTextBox.Text = .Item("contact_number")
-            DateHiredDateTimePicker.Value = DateTime.Parse(.Item("date_hired"))
+            AddressTextBox.Text = .Item(empConst.empAddrStr)
+            ContactNumberTextBox.Text = .Item(empConst.empContactStr)
+            DateHiredDateTimePicker.Value = DateTime.Parse(.Item(empConst.empHiredStr))
 
-            SSSTextBox.Text = .Item("sss_no")
-            PagIbigTextBox.Text = .Item("pagibig_no")
-            TINTextBox.Text = .Item("tin_no")
+            SSSTextBox.Text = .Item(empConst.empSSSStr)
+            PagIbigTextBox.Text = .Item(empConst.empPagibigStr)
+            TINTextBox.Text = .Item(empConst.empTINStr)
 
-            profileImgPath = .Item("profile_path")
+            profileImgPath = .Item(empConst.empProfileStr)
 
-            EmailTextBox.Text = .Item("email")
+            EmailTextBox.Text = .Item(empConst.empEmailStr)
 
-            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item("password"), constants.EncryptionKey)
+            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
             ConfirmPasswordTextBox.Text = PasswordTextBox.Text
 
-            Dim sexIndex = formUtils.FindComboBoxItemByText(SexComboBox, .Item("sex"))
-            Dim civilIndex = formUtils.FindComboBoxItemByText(CivilStatusComboBox, .Item("civilstatus"))
-            Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(ContractStatusComboBox, .Item("employment_status"))
-            Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item("job_type"))
-            Dim adminPosIndex = formUtils.FindComboBoxItemByText(PositionComboBox, .Item("admin_position"))
+            Dim sexIndex = formUtils.FindComboBoxItemByText(SexComboBox, .Item(empConst.empSexStr))
+            Dim civilIndex = formUtils.FindComboBoxItemByText(CivilStatusComboBox, .Item(empConst.empCivilStr))
+            Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(ContractStatusComboBox, .Item(empConst.empStatusStr))
+            Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item(empConst.empJobPosStr))
+            Dim adminPosIndex = formUtils.FindComboBoxItemByText(PositionComboBox, .Item(empConst.empAdminPosStr))
 
-            AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item("personnel_destination"))
+            AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empDestStr))
 
             InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
         End With
@@ -97,47 +99,16 @@ Public Class EmployeeAddEditModal
     ' INIT CMBDS
     Public Sub InitCmbDs(index01 As Integer, index02 As Integer, index03 As Integer, index04 As Integer, index05 As Integer)
         With dbHelper
-            .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
-            .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
-            .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
-            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04, 1) ' SUPER ADMIN MUST NOT BE SEEN
-            .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
+            .LoadEnumsToCmb(SexComboBox, empConst.empTableStr, empConst.empSexStr, index01)
+            .LoadEnumsToCmb(CivilStatusComboBox, empConst.empTableStr, empConst.empCivilStr, index02)
+            .LoadEnumsToCmb(ContractStatusComboBox, empConst.empTableStr, empConst.empStatusStr, index03)
+            .LoadEnumsToCmb(JobTypeComboBox, empConst.empTableStr, empConst.empJobPosStr, index04, 1) ' SUPER ADMIN MUST NOT BE SEEN
+            .LoadEnumsToCmb(PositionComboBox, empConst.empTableStr, empConst.empAdminPosStr, index05)
         End With
     End Sub
 
     ' CREATE EMPLOYEE
     Private Sub CreateEmpFunction()
-
-        ' Exit if canceled
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this employee?") Then Exit Sub
-
-        Dim savedPath = formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
-
-        Dim empIDLogged As Integer = GlobalSession.CurrentSession.EmployeeID
-
-        Dim insertData As New Dictionary(Of String, Object) From {
-            {"middlename", middleName}, ' Exception
-            {"sss_no", sss}, ' Exception
-            {"pagibig_no", pagibig}, ' Exception
-            {"tin_no", tin}, ' Exception
-            {"firstname", firstName},
-            {"lastname", lastName},
-            {"sex", sex},
-            {"birthdate", birthdate},
-            {"civilstatus", civilStatus},
-            {"address", address},
-            {"contact_number", contactNumber},
-            {"employment_status", contractStatus},
-            {"date_hired", dateHired},
-            {"job_type", jobType},
-            {"profile_path", savedPath},
-            {"email", email},
-            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-            {"added_by", empIDLogged}
-        }
-
-        ' start in index 4 cuz of some optional values
-        If Not formUtils.AreAllValuesFilled(insertData, 4) Then Exit Sub
 
         ' Exception
         If password.Trim() = "" Then
@@ -145,112 +116,123 @@ Public Class EmployeeAddEditModal
             Exit Sub
         End If
 
-        ' UDPDATE FOREIGN VALUES
+        Dim savedPath = formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False)
 
-        Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                {"admin_position", adminPosition}
-        }
+        With empConst
+            Dim insertData As New Dictionary(Of String, Object) From {
+                { .empMidStr, middleName}, ' Exception
+                { .empSSSStr, sss}, ' Exception
+                { .empPagibigStr, pagibig}, ' Exception
+                { .empTINStr, tin}, ' Exception
+                { .empFirstStr, firstName},
+                { .empLastStr, lastName},
+                { .empSexStr, sex},
+                { .empBirthStr, birthdate},
+                { .empCivilStr, civilStatus},
+                { .empAddrStr, address},
+                { .empContactStr, contactNumber},
+                { .empStatusStr, contractStatus},
+                { .empHiredStr, dateHired},
+                { .empJobPosStr, jobType},
+                { .empProfileStr, savedPath},
+                { .empEmailStr, email},
+                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                { .empAddedByStr, LoggedUser.Current.id}
+            }
 
-        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                {"personnel_destination", personnelDestination}
-        }
+            ' UDPDATE FOREIGN VALUES
 
-        If jobType = constants.getAdminString Then
-            ' Admin
-            If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
-            For Each kvp In updateAdminValues
-                insertData.Add(kvp.Key, kvp.Value)
-            Next
+            Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                    { .empAdminPosStr, adminPosition}
+            }
 
-        ElseIf jobType = constants.getUtilityPersonnelString Then
-            ' Utility
-            If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
-            For Each kvp In updateUtilityValues
-                insertData.Add(kvp.Key, kvp.Value)
-            Next
-        End If
+            Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                    { .empDestStr, personnelDestination}
+            }
 
-        If Not dbHelper.InsertRecord("employees", insertData) Then
-            MsgBox("Failed to save employee record")
-            Exit Sub
-        End If
+            If jobType = constants.getAdminString Then
+                ' Admin
+                If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
+                For Each kvp In updateAdminValues
+                    insertData.Add(kvp.Key, kvp.Value)
+                Next
 
-        formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True)
+            ElseIf jobType = constants.getUtilityPersonnelString Then
+                ' Utility
+                If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+                For Each kvp In updateUtilityValues
+                    insertData.Add(kvp.Key, kvp.Value)
+                Next
+            End If
 
-        MsgBox("Employee Successfully Added")
+            formUtils.AddRow(.empTableStr, insertData, 4, profileImgPath, constants.getEmpProfileFolderPath)
+        End With
 
         Me.Close()
     End Sub
 
     Private Sub EditEmpFunction()
 
-        If Not (formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to update this employee?")) Then Exit Sub
+        With empConst
 
-        ' UPDATE EMPLOYEE
-        Dim updateData As New Dictionary(Of String, Object) From {
-            {"sss_no", sss},' Optional
-            {"pagibig_no", pagibig}, ' Optional
-            {"tin_no", tin},  ' Optional
-            {"middlename", middleName}, ' Optional
-            {"firstname", firstName},
-            {"lastname", lastName},
-            {"email", email},
-            {"job_type", jobType},
-            {"password", dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-            {"sex", sex},
-            {"birthdate", birthdate},
-            {"civilstatus", civilStatus},
-            {"address", address},
-            {"contact_number", contactNumber},
-            {"employment_status", contractStatus},
-            {"date_hired", dateHired}
-        }
+            Dim updateData As New Dictionary(Of String, Object) From {
+                { .empSSSStr, sss},' Optional
+                { .empPagibigStr, pagibig}, ' Optional
+                { .empTINStr, tin},  ' Optional
+                { .empMidStr, middleName}, ' Optional
+                { .empFirstStr, firstName},
+                { .empLastStr, lastName},
+                { .empEmailStr, email},
+                { .empJobPosStr, jobType},
+                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                { .empSexStr, sex},
+                { .empBirthStr, birthdate},
+                { .empCivilStr, civilStatus},
+                { .empAddrStr, address},
+                { .empContactStr, contactNumber},
+                { .empStatusStr, contractStatus},
+                { .empHiredStr, dateHired}
+            }
+            ' UDPDATE FOREIGN VALUES
 
-        If Not formUtils.AreAllValuesFilled(updateData, 4) Then Exit Sub
+            Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                    { .empAdminPosStr, adminPosition}
+            }
 
-        ' get prev value
-        Dim prevEmployeeValue As DataRow = dbUtils.GetRowByValue("employees", "employee_id", selectedID).Rows(0)
+            Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                    { .empDestStr, personnelDestination}
+            }
 
-        ' UDPDATE FOREIGN VALUES
+            If jobType = constants.getAdminString Then
+                ' Admin
+                If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
+                For Each kvp In updateAdminValues
+                    updateData.Add(kvp.Key, kvp.Value)
+                Next
 
-        Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                {"admin_position", adminPosition}
-        }
+            ElseIf jobType = constants.getUtilityPersonnelString Then
+                ' Utility
+                If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+                For Each kvp In updateUtilityValues
+                    updateData.Add(kvp.Key, kvp.Value)
+                Next
+            End If
 
-        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                {"personnel_destination", personnelDestination}
-        }
+            Dim prevEmpDT As DataTable = dbUtils.GetRowByValue(.empTableStr, .empIDStr, selectedID)
 
-        If jobType = constants.getAdminString Then
-            ' Admin
-            If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
-            For Each kvp In updateAdminValues
-                updateData.Add(kvp.Key, kvp.Value)
-            Next
+            If prevEmpDT.Rows.Count = 0 Then Exit Sub
 
-        ElseIf jobType = constants.getUtilityPersonnelString Then
-            ' Utility
-            If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
-            For Each kvp In updateUtilityValues
-                updateData.Add(kvp.Key, kvp.Value)
-            Next
-        End If
+            updateData.Add(.empProfileStr, formUtils.SaveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, False))
 
-        ' Save image locally
-        If prevEmployeeValue("profile_path") <> profileImgPath Then updateAdminValues.Add("profile_path", formUtils.saveImgToLocal(profileImgPath, constants.getEmpProfileFolderPath, True))
-
-        If dbHelper.UpdateRecord("employees", "employee_id", selectedID, updateData) Then
-            MsgBox("Employee Details Sucessfully Updated")
-        Else
-            MsgBox("Db Failure")
-        End If
+            formUtils.EditRow(.empTableStr, selectedID, .empIDStr, updateData, 4, profileImgPath)
+        End With
 
         Me.Close()
     End Sub
 
     ' BTN CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Close()
+        Me.Close()
     End Sub
 
     ' BTN SAVE
@@ -267,17 +249,7 @@ Public Class EmployeeAddEditModal
             Exit Sub
         End If
 
-        Try
-            Cursor = Cursors.WaitCursor
-            If editMode Then
-                EditEmpFunction()
-            Else
-                CreateEmpFunction()
-            End If
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            MsgBox("Failed to Edit / Add Employee: " & ex.Message)
-        End Try
+        formUtils.SaveEvent(editMode, AddressOf CreateEmpFunction, AddressOf EditEmpFunction)
     End Sub
 
     ' FIRST NAME
@@ -428,7 +400,7 @@ Public Class EmployeeAddEditModal
     Private Sub EmailTextBox_TextChanged(sender As Object, e As EventArgs) Handles EmailTextBox.TextChanged
         email = EmailTextBox.Text
 
-        Dim getEmailInDb As DataTable = dbHelper.GetRowByValue("employees", "email", email)
+        Dim getEmailInDb As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empEmailStr, email)
 
         If (getEmailInDb.Rows.Count = 0) Then
             AlreadyTakenLabel.Visible = False
@@ -440,7 +412,7 @@ Public Class EmployeeAddEditModal
 
         ' Check if yours
 
-        Dim getPrevEmail As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
+        Dim getPrevEmail As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, selectedID)
 
         If getPrevEmail.Rows.Count = 0 Then Exit Sub
 

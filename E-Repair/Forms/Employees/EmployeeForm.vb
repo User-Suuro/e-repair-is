@@ -3,6 +3,7 @@
     Dim formUtils As New FormUtils
     Dim constants As New Constants
     Dim formModal As Form
+    Dim empConst As New EmployeesDBConstants
 
     ' SCHEMA
     Dim employeeID As Integer = -1
@@ -31,7 +32,6 @@
         If empPosition = constants.getSuperAdminString AndAlso empPosition = constants.getAdminString Then
             MsgBox("Restricted Action")
         End If
-
 
         Return False
     End Function
@@ -93,14 +93,14 @@
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
         If Not InitData() Then Exit Sub
-        formUtils.archiveRow(empArchived, "employees", "employee_id", employeeID)
+        formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
         If Not InitData() Then Exit Sub
-        formUtils.delRow(empArchived, "employees", "employee_id", employeeID)
+        formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
 
@@ -124,20 +124,20 @@
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        With empConst
+            Dim searchValues() As String = {
+              .empFirstStr,
+              .empMidStr,
+              .empLastStr,
+              .empHiredStr,
+              .empEmailStr,
+              .empLastAccessedStr,
+              .empAddDateStr
+            }
+            If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
+            formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+        End With
 
-        If Not selectMode Then empDT = dbHelper.GetAllRowsFromTable("employees", True)
-
-        Dim searchValues() As String = {
-           "firstname",
-           "middlename",
-           "lastname",
-           "date_hired",
-           "email",
-           "last_accessed",
-           "date_added"
-        }
-
-        formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(EmpDGV)
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub

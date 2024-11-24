@@ -4,12 +4,17 @@ Public Class ServiceForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
     Dim constants As New Constants
+    Dim servConst As New ServiceDBConstants
 
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
     Private serviceStatus As String = ""
 
-    Private currentEmpPos = GlobalSession.CurrentSession.JobType
+    Private currentEmpPos = LoggedUser.Current.position
+
+    Public Property selectMode As Boolean = False
+    Public Property selectedID As Integer = -1
+    Public Property serviceDT As DataTable = Nothing
 
     Private Function InitData() As Boolean
         If Not formUtils.dgvValChecker(ServiceDGV) Then Return False
@@ -50,7 +55,7 @@ Public Class ServiceForm
         If Not InitData() Then Exit Sub
 
         ' DO ADDITIONAL CHECKERS FOR CLAIMING
-        If serviceStatus <> "Finished" Then
+        If serviceStatus <> constants.getFinishedString Then
             MsgBox("You cannot claim unfinished service")
             Exit Sub
         End If
@@ -140,26 +145,26 @@ Public Class ServiceForm
             Return Nothing
         End Function)
 
-        LoadDataToDGV 
+        LoadDataToDGV()
     End Sub
 
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        With servConst
+            Dim searchValues() As String = {
+                .devModelStr,
+                .devBrandStr,
+                .dateAddedStr
+            }
 
-        Dim searchValues() As String = {
-            "customer_name",
-            "device_model",
-            "device_brand",
-            "date_added"
-        }
+            If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
+            formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+        End With
 
-        Dim servicesDt = dbHelper.GetAllRowsFromTable("services", True)
-
-        formUtils.LoadToDGV(ServiceDGV, servicesDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         formUtils.FormatDGVForArchive(ServiceDGV)
-        ' formUtils.FormatDGVForCustomerName(ServiceDGV)
 
+        ' formUtils.FormatDGVForCustomerName(ServiceDGV)
     End Sub
 
     ' SEARCH
@@ -171,6 +176,4 @@ Public Class ServiceForm
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
     End Sub
-
-
 End Class

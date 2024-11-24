@@ -5,6 +5,10 @@ Public Class EmployeeViewModal
     Dim constants As New Constants
     Dim dbHelper As New DbHelper
 
+    Dim empConst As New EmployeesDBConstants
+    Dim custConst As New CustomersDBConstants
+    Dim servConst As New ServiceDBConstants
+
     Public Property selectedID As Integer = -1
 
     Private Sub AdminViewEmployeeModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -19,68 +23,61 @@ Public Class EmployeeViewModal
             Me.Close()
         End If
 
-        Dim empDt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", selectedID)
+        Dim empDt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, selectedID)
 
         If empDt.Rows.Count = 0 Then Exit Sub
 
         With empDt.Rows(0)
-            FirstNameTextBox.Text = .Item("firstname")
-            MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item("middlename"))
-            LastNameTextBox.Text = .Item("lastname")
-            BirthDateTextBox.Text = .Item("birthdate")
+            FirstNameTextBox.Text = .Item(empConst.empFirstStr)
+            MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empMidStr))
+            LastNameTextBox.Text = .Item(empConst.empLastStr)
+            BirthDateTextBox.Text = .Item(empConst.empBirthStr)
 
-            AddressTextBox.Text = .Item("address")
-            ContactNumberTextBox.Text = .Item("contact_number")
-            DateHiredTextBox.Text = .Item("date_hired")
+            AddressTextBox.Text = .Item(empConst.empAddrStr)
+            ContactNumberTextBox.Text = .Item(empConst.empContactStr)
+            DateHiredTextBox.Text = .Item(empConst.empHiredStr)
 
-            SSSTextBox.Text = .Item("sss_no")
-            PagIbigTextBox.Text = .Item("pagibig_no")
-            TINTextBox.Text = .Item("tin_no")
+            SSSTextBox.Text = .Item(empConst.empSSSStr)
+            PagIbigTextBox.Text = .Item(empConst.empPagibigStr)
+            TINTextBox.Text = .Item(empConst.empTINStr)
 
-            JobTypeTextBox.Text = .Item("job_type")
-            ContractStatusTextBox.Text = .Item("employment_status")
+            JobTypeTextBox.Text = .Item(empConst.empJobPosStr)
+            ContractStatusTextBox.Text = .Item(empConst.empStatusStr)
 
             ' PROFILE
-            ProfilePathTextBox.Text = dbHelper.StrNullCheck(.Item("profile_path"))
+            ProfilePathTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empProfileStr))
 
-            If File.Exists(.Item("profile_path")) Then
-                ProfileCirclePictureBox.Image = Image.FromFile(.Item("profile_path"))
+            If File.Exists(.Item(empConst.empProfileStr)) Then
+                ProfileCirclePictureBox.Image = Image.FromFile(.Item(empConst.empProfileStr))
             End If
 
-            EmailTextBox.Text = .Item("email")
-            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item("password"), constants.EncryptionKey)
+            EmailTextBox.Text = .Item(empConst.empEmailStr)
+            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
 
             ' ARCHIVE INFO
-            ArchiveStatusTextBox.Text = .Item("archived")
+            ArchiveStatusTextBox.Text = .Item(empConst.empArchByStr)
 
-            LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item("last_accessed"))
-
-            Dim getAddedByData As DataRow = dbHelper.GetRowByValue("employees", "employee_id", .Item("added_by")).Rows(0)
-            AddedByTextBox.Text = getAddedByData("firstname") & " " & getAddedByData("lastname")
-
-            Dim empJobType = .Item("job_type")
+            LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empLastAccessedStr))
+            AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.empAddedByStr))
+            Dim empJobType = .Item(empConst.empJobPosStr)
 
             ' JOB INFO
+            Select Case empJobType
+                Case constants.getAdminString
+                    PositionTextBox.Text = .Item(empConst.empAdminPosStr)
+                    EmployeeAddedTextBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empAddedByStr, selectedID).Rows.Count
 
-            If empJobType = constants.getAdminString Then
-                ' ADMIN
-                PositionTextBox.Text = .Item("admin_position")
-                EmployeeAddedTextBox.Text = dbHelper.GetRowByValue("employees", "added_by", selectedID).Rows.Count
+                Case constants.getTechnicianString
+                    DevicesRepairedTextBox.Text = getTechStatsNumbers(constants.getFinishedString)
+                    NumberJobsAssignedTextBox.Text = getTechStatsNumbers(constants.getPendingString) + getTechStatsNumbers(constants.getFinishedString) + getTechStatsNumbers(constants.getOnholdString) + getTechStatsNumbers(constants.getCanceledString)
 
-            ElseIf empJobType = constants.getTechnicianString Then
-                ' TECH
-                DevicesRepairedTextBox.Text = getTechStatsNumbers(constants.getFinishedString)
-                NumberJobsAssignedTextBox.Text = getTechStatsNumbers(constants.getPendingString) + getTechStatsNumbers(constants.getFinishedString) + getTechStatsNumbers(constants.getOnholdString) + getTechStatsNumbers(constants.getCanceledString)
+                Case constants.getCashierString
+                    CustomersHandledTextBox.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custAddedByStr, selectedID).Rows.Count
+                    ServiceHandledTxtBox.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID).Rows.Count
 
-            ElseIf empJobType = constants.getCashierString Then
-                ' CASHIER
-                CustomersHandledTextBox.Text = dbHelper.GetRowByValue("customers", "added_by", selectedID).Rows.Count
-                ServiceHandledTxtBox.Text = dbHelper.GetRowByValue("services", "cashier_id", selectedID).Rows.Count
-
-            ElseIf empJobType = constants.getUtilityPersonnelString Then
-                ' PERSONNEL
-                AssignedLocationTextBox.Text = .Item("personnel_destination")
-            End If
+                Case constants.getUtilityPersonnelString
+                    AssignedLocationTextBox.Text = .Item(empConst.empDestStr)
+            End Select
 
         End With
     End Sub
@@ -117,7 +114,4 @@ Public Class EmployeeViewModal
         Me.Close()
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
-
-    End Sub
 End Class

@@ -4,14 +4,14 @@ Public Class AdminDashboardForm
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        EmployeesCountLabel.Text = dbHelper.GetAllRowsFromTable("employees", False).Rows.Count
-        ServicesNumberLabel.Text = dbHelper.GetAllRowsFromTable("services", False).Rows.Count
-        CustomersNumberLabel.Text = dbHelper.GetAllRowsFromTable("customers", False).Rows.Count
-        SuppliersNumberLabel.Text = dbHelper.GetAllRowsFromTable("suppliers", False).Rows.Count
-        ItemsCountLabel.Text = dbHelper.GetAllRowsFromTable("inventory", False).Rows.Count
+        EmployeesCountLabel.Text = dbHelper.GetAllData("employees", False).Rows.Count - 1  ' don't count super admin
+        ServicesNumberLabel.Text = dbHelper.GetAllData("services", False).Rows.Count
+        CustomersNumberLabel.Text = dbHelper.GetAllData("customers", False).Rows.Count
+        SuppliersNumberLabel.Text = dbHelper.GetAllData("suppliers", False).Rows.Count
+        ItemsCountLabel.Text = dbHelper.GetAllData("inventory", False).Rows.Count
 
         Try
-            Dim getActiveEmployee As DataRow = dbHelper.GetRowByValue("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID).Rows(0)
+            Dim getActiveEmployee As DataRow = dbHelper.GetRowByValue("employees", "employee_id", LoggedUser.GlobalSession.CurrentSession.EmployeeID).Rows(0)
             WelcomeMessageLabel.Text = "Welcome, " & getActiveEmployee("firstname") & " " & getActiveEmployee("lastname")
 
         Catch ex As Exception

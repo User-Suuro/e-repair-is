@@ -120,13 +120,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property empJobStr As String
+    Public ReadOnly Property empJobPosStr As String
         Get
             Return _jobType
         End Get
     End Property
 
-    Public ReadOnly Property empAdminStr As String
+    Public ReadOnly Property empAdminPosStr As String
         Get
             Return _adminPosition
         End Get
@@ -168,7 +168,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property empLastAccStr As String
+    Public ReadOnly Property empLastAccessedStr As String
         Get
             Return _lastAccessed
         End Get

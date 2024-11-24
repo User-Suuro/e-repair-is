@@ -7,7 +7,7 @@ Public Class LoginForm
     Dim dbHelper As New DbHelper
     Dim constant As New Constants
     Dim formUtils As New FormUtils
-    Dim session As New Session
+    Dim empConst As New EmployeesDBConstants
 
     Private libVLC As LibVLC
     Private mediaPlayer As MediaPlayer
@@ -15,41 +15,42 @@ Public Class LoginForm
     Private currentMedia As Media
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
-        If (LoginEmailTextBox.Text = "" Or LoginPasswordTextBox.Text = "") Then
+
+        If (LoginEmailTextBox.Text.Trim = "" Or LoginPasswordTextBox.Text.Trim = "") Then
             MsgBox("Please Fill All Necessary Details", MessageBoxButtons.OK)
             Exit Sub
         End If
 
         ' FIND THE EMAIL IN DB
-        Dim getEmployeeData As DataTable = dbHelper.GetRowByValue("employees", "email", LoginEmailTextBox.Text)
+        Dim empDT As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empEmailStr, LoginEmailTextBox.Text)
 
         ' IF NOT EXIST THEN WARN
-        If (getEmployeeData.Rows.Count <= 0) Then
+        If (empDT.Rows.Count <= 0) Then
             MsgBox("Email Not Found")
             Exit Sub
         End If
 
-        Dim empDataRows As DataRow = getEmployeeData.Rows(0)
+        Dim empDataRows As DataRow = empDT.Rows(0)
 
-        If empDataRows("archived") Then
+        If empDataRows(empConst.empArchStr) Then
             MsgBox("This account is already archived")
             Exit Sub
         End If
 
-        If Not (empDataRows("email") = LoginEmailTextBox.Text AndAlso dbHelper.DecryptPassword(empDataRows("password"), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
+        If Not (empDataRows(empConst.empEmailStr) = LoginEmailTextBox.Text AndAlso dbHelper.DecryptPassword(empDataRows(empConst.empPassStr), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
             MsgBox("Incorrect Email or Passsowrd")
             Exit Sub
         End If
 
-        GlobalSession.InitializeSession(empDataRows)
+        LoggedUser.InitializeSession(empDT)
 
         ' UPDATE ACCESS DATE
 
         Dim updatedValues As New Dictionary(Of String, Object) From {
-                            {"last_accessed", DateTime.Now}
+            {empConst.empLastAccessedStr, DateTime.Now}
         }
 
-        dbHelper.UpdateRecord("employees", "employee_id", GlobalSession.CurrentSession.EmployeeID, updatedValues)
+        dbHelper.UpdateRecord(empConst.empTableStr, empConst.empIDStr, LoggedUser.Current.id, updatedValues)
 
         Dim MainPanel As New MainPanel
 

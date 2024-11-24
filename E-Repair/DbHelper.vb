@@ -1,12 +1,8 @@
 ﻿Imports System.IO
-Imports System.Management
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
-Imports Guna.UI2.WinForms
 Imports MySql.Data.MySqlClient
-Imports Mysqlx.XDevAPI.Relational
-
 Public Class DbHelper
 
     Public myadocon, conn As New MySqlConnection
@@ -21,17 +17,6 @@ Public Class DbHelper
     Public db_name As String = "e_repair_db"
 
     Public strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
-
-    Public CurrentLoggedUser As LoggedUser = Nothing
-
-    Public Structure LoggedUser
-        Dim id As Integer
-        Dim name As String
-        Dim position As String
-        Dim username As String
-        Dim password As String
-        Dim type As Integer
-    End Structure
 
     ' Update connection string
     Public Sub UpdateConnectionString()
@@ -200,10 +185,10 @@ Public Class DbHelper
         Return cipherText
     End Function
 
-    Sub Logs(ByVal transaction As String, Optional ByVal events As String = "*_Click")
+    Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
             readQuery(String.Format("INSERT INTO `logs`(`dt`, `user_accounts_id`, `event`, `transactions`) VALUES ({0},{1},'{2}','{3}')", "now()",
-                                    CurrentLoggedUser.id,
+                                    id,
                                     events,
                                     transaction))
         Catch ex As Exception
@@ -355,19 +340,9 @@ Public Class DbHelper
 
     ' Get All Rows From Table (tableName)
 
-    Public Function GetAllRowsFromTable(tableName As String, includeArchive As Boolean, Optional showArchivedOnly As Boolean = False) As DataTable
+    Public Function GetAllData(tableName As String) As DataTable
         Dim resultTable As New DataTable()
-        Dim query As String
-
-        If (includeArchive) Then
-            query = $"SELECT * FROM `{tableName}`"
-        Else
-            query = $"SELECT * FROM `{tableName}` WHERE archived = 0"
-        End If
-
-        If showArchivedOnly Then
-            query = $"SELECT * FROM `{tableName}` WHERE archived = 1"
-        End If
+        Dim query As String = $"SELECT * FROM `{tableName}`"
 
         Try
             cmd.Parameters.Clear()
@@ -391,7 +366,7 @@ Public Class DbHelper
 
     ' Delete Row By Id (tableName, targetColumn, targetId)
 
-    Public Function DeleteRowById(tableName As String, columnName As String, id As Integer) As Boolean
+    Public Function DeleteRowByID(tableName As String, columnName As String, id As Integer) As Boolean
         Dim query As String = $"DELETE FROM `{tableName}` WHERE {columnName} = @id"
 
         Try

@@ -4,64 +4,75 @@ Imports System.IO
 Imports Guna.UI2.WinForms.Suite
 
 Public Class MainPanel
-    Dim constants As New Constants()
+    Dim constants As New Constants
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
-    Dim session As New Session
+    Dim empConst As New EmployeesDBConstants
 
-    Private userPosition As String
+    Private position As String = Nothing
+    Private username As String = Nothing
 
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        AdminTopNavTitle.Text = constants.DashboardTitle
 
-        ' READ SESSION VALUES
-        Try
-            AdminTopNavUsernameLabel.Text = GlobalSession.CurrentSession.FirstName + " " + GlobalSession.CurrentSession.LastName
+        Dim dt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, LoggedUser.Current.id)
 
-            ' SET UP DISPLAY
-            userPosition = GlobalSession.CurrentSession.JobType
-            TopNavPositionLabel.Text = userPosition
+        If dt.Rows.Count Then
+            MsgBox("No user detected")
+            Me.Close()
+            Exit Sub
+        End If
 
-            Dim imgPath = GlobalSession.CurrentSession.ProfilePath
+        With dt.Rows(0)
+            position = .Item(empConst.empJobPosStr)
+            username = formUtils.getEmployeeName(.Item(empConst.empIDStr))
+
+            Dim imgPath As String = .Item(empConst.empProfileStr)
 
             If File.Exists(imgPath) Then
                 AdminTopNavProfilePictureBox.Image = Image.FromFile(imgPath)
             End If
 
-            ' SET UP SIDENAVS
-            With constants
-                Select Case userPosition
-                    Case .getSuperAdminString
-                        SidenavInventoryBtn.Visible = True
-                        SidenavSuppliersBtn.Visible = True
-                        SidenavServicesBtn.Visible = True
-                        SidenavCustomersBtn.Visible = True
-                        SidenavEmployeesBtn.Visible = True
-                    Case .getAdminString
-                        SidenavInventoryBtn.Visible = True
-                        SidenavSuppliersBtn.Visible = True
-                        SidenavServicesBtn.Visible = True
-                        SidenavCustomersBtn.Visible = True
-                        SidenavEmployeesBtn.Visible = True
-                    Case .getCashierString
-                        SidenavServicesBtn.Visible = True
-                        SidenavCustomersBtn.Visible = True
-                    Case .getTechnicianString
-                        SidenavInventoryBtn.Visible = True
-                        SidenavServicesBtn.Visible = True
-                End Select
-            End With
+            dashboardHandler()
+            sideNavHandler()
+            dashboardHandler()
+        End With
 
-        Catch ex As Exception
-            MsgBox("Cannot get session value to load the main panel: " & ex.Message)
-        End Try
-
-        ' load the form depends on posisiton
-        dashboardHandler()
     End Sub
+    Private Sub topNavHandler()
+        AdminTopNavTitle.Text = constants.DashboardTitle
+        AdminTopNavUsernameLabel.Text = username
+        TopNavPositionLabel.Text = position
+    End Sub
+
+    Private Sub sideNavHandler()
+        With constants
+            Select Case position
+                Case .getSuperAdminString
+                    SidenavInventoryBtn.Visible = True
+                    SidenavSuppliersBtn.Visible = True
+                    SidenavServicesBtn.Visible = True
+                    SidenavCustomersBtn.Visible = True
+                    SidenavEmployeesBtn.Visible = True
+                Case .getAdminString
+                    SidenavInventoryBtn.Visible = True
+                    SidenavSuppliersBtn.Visible = True
+                    SidenavServicesBtn.Visible = True
+                    SidenavCustomersBtn.Visible = True
+                    SidenavEmployeesBtn.Visible = True
+                Case .getCashierString
+                    SidenavServicesBtn.Visible = True
+                    SidenavCustomersBtn.Visible = True
+                Case .getTechnicianString
+                    SidenavInventoryBtn.Visible = True
+                    SidenavServicesBtn.Visible = True
+            End Select
+        End With
+
+    End Sub
+
     Private Sub dashboardHandler()
         With constants
-            Select Case userPosition
+            Select Case position
                 Case .getAdminString
                     formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
                 Case .getSuperAdminString
@@ -113,10 +124,9 @@ Public Class MainPanel
     End Sub
 
     Private Sub AdminMainPanel_Close(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-        GlobalSession.ClearSession()
+        LoggedUser.ClearSession()
         Dim loginForm As New LoginForm()
         loginForm.Show()
     End Sub
-
 
 End Class

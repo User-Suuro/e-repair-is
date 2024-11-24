@@ -1,8 +1,6 @@
 ﻿Imports System.IO
-Imports System.Net.Sockets
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 Imports Guna.UI2.WinForms
-Imports Mysqlx.XDevAPI.Common
+Imports Mysqlx.Expr
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
@@ -52,7 +50,6 @@ Public Class FormUtils
 
     ' Create Bg Form
     Public Function CreateBgFormModal() As Form
-
         Dim form As New Form
 
         form.FormBorderStyle = FormBorderStyle.None
@@ -64,11 +61,10 @@ Public Class FormUtils
         form.Show()
 
         Return form
-
     End Function
 
     ' Copy image to pc's appdata then return the path
-    Public Function saveImgToLocal(sourceFilePath As String, folderName As String, commit As Boolean) As String
+    Public Function SaveImgToLocal(sourceFilePath As String, folderName As String, commit As Boolean) As String
 
         If File.Exists(sourceFilePath) Then
             Dim image As Image = Image.FromFile(sourceFilePath)
@@ -260,86 +256,6 @@ Public Class FormUtils
         dgv.DataSource = dt
     End Sub
 
-    ' Archive Row
-    Public Sub archiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
-        Dim loggedUser As String
-
-        If archivedStatus Then
-            MsgBox("This row is already archived!")
-            Exit Sub
-        End If
-
-        Try
-            loggedUser = GlobalSession.CurrentSession.EmployeeID
-
-        Catch ex As Exception
-            loggedUser = "N/A"
-            MsgBox("There is no current active user!")
-        End Try
-
-        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
-
-        Dim updatedValues As New Dictionary(Of String, Object) From {
-            {"archived", True},
-            {"archived_by", loggedUser},
-            {"date_archived", DateTime.Now}
-}
-        Try
-            dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
-            MsgBox("Successfull Archived")
-
-        Catch ex As Exception
-            MsgBox("Cannot archive the selected row: " & ex.Message)
-        End Try
-    End Sub
-
-    ' del row
-
-    Public Sub delRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
-
-        If Not archivedStatus Then
-            MsgBox("Archive the row first")
-            Exit Sub
-        End If
-
-        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this row") Then Exit Sub
-
-        If dbHelper.DeleteRowById(tableName, columnName, targetID) Then MsgBox("Successfully Deleted")
-
-    End Sub
-
-    ' add / edit row
-    Public Function ShowModalWithHandler(Of T As {Form, New}, TResult)(
-        createModal As Func(Of Object, T),
-        selectedID As Object,
-        Optional getResult As Func(Of T, TResult) = Nothing) As TResult
-
-        Dim modalForm As T = Nothing
-        Dim backgroundForm As Form = Nothing
-        Dim result As TResult = Nothing
-
-        Try
-            backgroundForm = CreateBgFormModal()
-
-            modalForm = createModal.Invoke(selectedID)
-            modalForm.ShowDialog()
-
-            If getResult IsNot Nothing Then
-                result = getResult.Invoke(modalForm)
-            End If
-
-        Catch ex As Exception
-            MsgBox("Unable to show modal: " & ex.Message)
-            If backgroundForm IsNot Nothing Then backgroundForm.Close()
-            If modalForm IsNot Nothing Then modalForm.Close()
-        Finally
-            If modalForm IsNot Nothing Then modalForm.Dispose()
-            If backgroundForm IsNot Nothing Then backgroundForm.Dispose()
-        End Try
-
-        Return result
-    End Function
-
     Public Function dgvValChecker(dgv As DataGridView)
         If dgv.Rows.Count = 0 Then
             MsgBox("No Data Found!")
@@ -374,21 +290,25 @@ Public Class FormUtils
     Public Function getCustomerName(customerID As Integer) As String
         Dim getCustDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerID)
 
-        If getCustDt.Rows.Count = 0 Then Exit Function
+        If getCustDt.Rows.Count = 0 Then Return Nothing
 
         With getCustDt.Rows(0)
             Return .Item("first_name") & " " & .Item("last_name")
         End With
+
+        Return Nothing
     End Function
 
     Public Function getEmployeeName(empID As Integer) As String
         Dim dt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empID)
 
-        If dt.Rows.Count = 0 Then Exit Function
+        If dt.Rows.Count = 0 Then Return Nothing
 
         With dt.Rows(0)
             Return .Item("firstname") & " " & .Item("lastname")
         End With
+
+        Return Nothing
     End Function
 
     Public Function getTechStatsNumbers(status As String, techID As Integer) As Integer
@@ -399,4 +319,149 @@ Public Class FormUtils
         Return dbHelper.GetRowByTwoValues("services", "customer_id", customerID, "service_status", status).Rows.Count
     End Function
 
+    ' show modal
+    Public Function ShowModalWithHandler(Of T As {Form, New}, TResult)(
+        createModal As Func(Of Object, T),
+        selectedID As Object,
+        Optional getResult As Func(Of T, TResult) = Nothing) As TResult
+
+        Dim modalForm As T = Nothing
+        Dim backgroundForm As Form = Nothing
+        Dim result As TResult = Nothing
+
+        Try
+            backgroundForm = CreateBgFormModal()
+
+            modalForm = createModal.Invoke(selectedID)
+            modalForm.ShowDialog()
+
+            If getResult IsNot Nothing Then
+                result = getResult.Invoke(modalForm)
+            End If
+
+        Catch ex As Exception
+            MsgBox("Unable to show modal: " & ex.Message)
+            If backgroundForm IsNot Nothing Then backgroundForm.Close()
+            If modalForm IsNot Nothing Then modalForm.Close()
+        Finally
+            If modalForm IsNot Nothing Then modalForm.Dispose()
+            If backgroundForm IsNot Nothing Then backgroundForm.Dispose()
+        End Try
+
+        Return result
+    End Function
+
+
+    ' Add Row
+    Public Function AddRow(dbTable As String, payload As Dictionary(Of String, Object),
+                           Optional startCheckIndex As Integer = 0,
+                           Optional imgPath As String = Nothing,
+                           Optional imgFolderName As String = Nothing) As Boolean
+        ' Exit if canceled
+        If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to add this data")) Then Return False
+
+        If Not AreAllValuesFilled(payload, startCheckIndex) Then Return False
+
+        If dbHelper.InsertRecord(dbTable, payload) Then
+
+            If imgPath IsNot Nothing AndAlso imgFolderName IsNot Nothing Then
+                If Not File.Exists(imgPath) Then
+                    SaveImgToLocal(imgPath, imgFolderName, True)
+                End If
+
+            End If
+
+            MsgBox("Successfully Added")
+            Return True
+        End If
+
+        MsgBox("Unable to edit this row")
+        Return False
+    End Function
+
+    ' Edit Row
+    Public Function EditRow(dbTable As String, targetID As Integer, targetColumn As String, payload As Dictionary(Of String, Object),
+                            Optional startCheckIndex As Integer = 0,
+                            Optional imgPath As String = Nothing,
+                            Optional imgFolderName As String = Nothing) As Boolean
+        ' Exit if canceled
+        If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
+
+        If Not AreAllValuesFilled(payload) Then Return False
+
+        If dbHelper.UpdateRecord(dbTable, targetID, targetColumn, payload) Then
+
+            If imgPath IsNot Nothing AndAlso imgFolderName IsNot Nothing Then
+
+                If Not File.Exists(imgPath) Then
+                    SaveImgToLocal(imgPath, imgFolderName, True)
+                End If
+
+            End If
+
+            MsgBox("Successfully Edited")
+            Return True
+        End If
+
+        MsgBox("Unable to edit this row")
+        Return False
+    End Function
+
+
+    ' Archive Row
+    Public Sub ArchiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
+
+        If archivedStatus Then
+            MsgBox("This row is already archived!")
+            Exit Sub
+        End If
+
+        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
+
+        Dim updatedValues As New Dictionary(Of String, Object) From {
+            {"archived", True},
+            {"archived_by", LoggedUser.Current.id},
+            {"date_archived", DateTime.Now}
+        }
+
+        Try
+            dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
+            MsgBox("Successfull Archived")
+
+        Catch ex As Exception
+            MsgBox("Cannot archive the selected row: " & ex.Message)
+        End Try
+    End Sub
+
+    ' del row
+
+    Public Sub DeleteRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
+
+        If Not archivedStatus Then
+            MsgBox("Archive the row first")
+            Exit Sub
+        End If
+
+        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this row") Then Exit Sub
+
+        If dbHelper.DeleteRowByID(tableName, columnName, targetID) Then MsgBox("Successfully Deleted")
+    End Sub
+
+    ' Save
+    Public Sub SaveEvent(editMode As Boolean, addFunction As Action, editFunction As Action)
+        Try
+            Cursor.Current = Cursors.WaitCursor
+
+            If editMode Then
+                addFunction()
+            Else
+                editFunction()
+            End If
+
+            Cursor.Current = Cursors.Default
+        Catch ex As Exception
+            Cursor.Current = Cursors.Default
+            MsgBox("Failed to save / edit row: " & ex.Message)
+        End Try
+    End Sub
 End Class

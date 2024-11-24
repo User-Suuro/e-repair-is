@@ -14,7 +14,7 @@
     Private ReadOnly _technicianString As String = "Technician"
     Private ReadOnly _superAdminString As String = "Super Admin"
 
-    ' Service Statuses
+    ' Service Status
     Private ReadOnly _finishedString As String = "Finished"
     Private ReadOnly _onholdString As String = "Onhold"
     Private ReadOnly _pendingString As String = "Pending"

@@ -39,9 +39,7 @@
             ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custArchByStr))
 
             DateAddedTxtBox.Text = (custConst.custDateAddedStr)
-
-            Dim empDt As DataRow = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, .Item(custConst.custAddedByStr)).Rows(0)
-            AddedByTxtBox.Text = empDt(custConst.custFirstStr) & " " & empDt(custConst.custLastStr)
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(custConst.custIDStr))
         End With
 
         With dbHelper
@@ -63,7 +61,5 @@
         Return formUtils.getCustStatusNumber(status, selectedID)
     End Function
 
-    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
 
-    End Sub
 End Class

@@ -5,7 +5,7 @@ Public Class CustomerForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
-    Dim custConst As New CustomersDBConstants 
+    Dim custConst As New CustomersDBConstants
 
     ' SCHEMA
     Private customerID As String = ""
@@ -13,7 +13,7 @@ Public Class CustomerForm
 
     Public Property selectMode As Boolean = False
     Public Property selectedCustID As Integer = -1
-    Public Property selectModeTable As DataTable
+    Public Property customersDt As DataTable = Nothing
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -90,7 +90,7 @@ Public Class CustomerForm
     ' DELETE
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.delRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
+        formUtils.DeleteRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
         LoadDataToDGV()
     End Sub
 
@@ -113,7 +113,9 @@ Public Class CustomerForm
                 .custEmailStr,
                 .custDateAddedStr
             }
-            Dim customersDt = dbHelper.GetAllRowsFromTable(.custTableStr, True)
+
+            If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
+
             formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
             formUtils.FormatDGVForArchive(CustomerDGV)
         End With

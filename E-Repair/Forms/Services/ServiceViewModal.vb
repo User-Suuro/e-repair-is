@@ -82,7 +82,7 @@ Public Class ServiceViewModal
 
         End With
 
-        Dim empDT As DataTable = DbHelper.GetRowByValue("employees", "employee_id", AddedByTxtBox.Text)
+        Dim empDT As DataTable = dbHelper.GetRowByValue("employees", "employee_id", AddedByTxtBox.Text)
 
         If empDT.Rows.Count = 0 Then Exit Sub
 

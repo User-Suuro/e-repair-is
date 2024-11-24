@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2024 at 12:54 PM
+-- Generation Time: Nov 24, 2024 at 01:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `date_added`) VALUES
 (5, 'asd', 'asd', 'asd', 'asd', 'asd', 'Male', 'asd', 0.00, NULL, 1, '40', '2024-11-23 08:15:43', 40, '2024-11-22 22:15:36'),
-(6, 'sdfasdasd', 'asdasd', '', '', '', 'Male', 'asdasd', 0.00, NULL, 0, NULL, NULL, 40, '2024-11-23 12:27:41');
+(6, 'sdfasdasd', 'asdasd', '', '123', 'asdasd', 'Male', 'asdasd', 0.00, NULL, 0, NULL, NULL, 40, '2024-11-23 12:27:41');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `employees` (
   `sss_no` varchar(100) DEFAULT NULL,
   `pagibig_no` varchar(100) DEFAULT NULL,
   `tin_no` varchar(100) DEFAULT NULL,
-  `job_type` enum('Admin','Technician','Cashier','Utility Personnel') NOT NULL,
+  `job_type` enum('Super Admin','Admin','Technician','Cashier','Utility Personnel') NOT NULL,
   `admin_position` enum('Owner','Manager','Team Leader') NOT NULL,
   `personnel_destination` varchar(255) DEFAULT NULL,
   `profile_path` varchar(255) NOT NULL,
@@ -93,10 +93,10 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `job_type`, `admin_position`, `personnel_destination`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Married', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-23 19:25:37', NULL, 40, '2024-11-09 14:51:29'),
-(50, '123', '', 'asd', 'Female', '2024-11-22', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', 'pag-ibig', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', '2024-11-20 17:08:08', NULL, 40, '2024-11-14 23:44:04'),
-(51, 'asdasd', 'dasd', 'as', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', 'asdasd', 'asdasd', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asddd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-19 17:19:35', 40, '2024-11-15 01:47:17'),
-(62, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Full Time', '2024-11-01', 'asd', '', '', 'Admin', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-23 01:05:46');
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'Super Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-24 20:17:47', NULL, 40, '2024-11-09 14:51:29'),
+(50, '12312312', 'asdas', '12312', 'Female', '2024-11-22', 'Divorced', 'asdsad', 'asdadsada', 'Part Time', '2024-11-01', '12312', 'pag-ibig', '', 'Technician', 'Manager', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asdasd', 'wGS57RbwGWUqNHDFtLIMdA==', 0, '', '2024-11-20 17:08:08', NULL, 40, '2024-11-14 23:44:04'),
+(62, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Part Time', '2024-11-01', 'asd', '', '', 'Admin', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-23 01:05:46'),
+(63, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-24', 'ad', 'sad', '', 'Technician', 'Owner', NULL, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-pixabay-33597.jpg', 'asddddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-24 20:18:19');
 
 -- --------------------------------------------------------
 
@@ -145,9 +145,9 @@ CREATE TABLE `items` (
 
 CREATE TABLE `services` (
   `service_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `technician_id` int(11) NOT NULL,
-  `cashier_id` int(11) NOT NULL COMMENT 'Can act as added by',
+  `customer_id` int(11) DEFAULT NULL,
+  `technician_id` int(11) DEFAULT NULL,
+  `cashier_id` int(11) DEFAULT NULL,
   `device_type` enum('Mobile Phone','Tablet','PC','Laptop') NOT NULL,
   `device_model` varchar(255) NOT NULL,
   `device_brand` varchar(100) NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE `services` (
   `operating_system` varchar(100) NOT NULL,
   `storage_capacity` varchar(100) NOT NULL,
   `problem_description` varchar(255) NOT NULL,
-  `repair_notes` varchar(255) NOT NULL,
+  `repair_notes` varchar(255) DEFAULT NULL,
   `service_status` enum('Pending','Finished','Onhold','Canceled') NOT NULL DEFAULT 'Pending',
   `technician_fee` decimal(10,2) NOT NULL DEFAULT 0.00,
   `parts_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
@@ -167,9 +167,17 @@ CREATE TABLE `services` (
   `date_claimed` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `archived` tinyint(1) NOT NULL DEFAULT 0,
-  `archived_by` int(11) NOT NULL,
+  `archived_by` int(11) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`service_id`, `customer_id`, `technician_id`, `cashier_id`, `device_type`, `device_model`, `device_brand`, `device_profile_path`, `operating_system`, `storage_capacity`, `problem_description`, `repair_notes`, `service_status`, `technician_fee`, `parts_cost`, `paid`, `total_paid`, `customer_change`, `payment_method`, `date_completed`, `date_claimed`, `date_added`, `archived`, `archived_by`, `date_archived`) VALUES
+(8, 6, 62, 40, 'Mobile Phone', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\cash-register-bold.png', '', 'asd', 'asd', NULL, 'Pending', 0.00, 0.00, 0, 0.00, 0.00, NULL, NULL, NULL, '2024-11-24 00:32:17', 0, 0, NULL),
+(9, 6, 50, 40, 'PC', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\3-removebg-preview.png', 'asd', 'asd', 'sad', NULL, 'Pending', 0.00, 0.00, 0, 0.00, 0.00, NULL, NULL, NULL, '2024-11-24 16:53:15', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,13 +271,13 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -287,7 +295,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -322,9 +330,9 @@ ALTER TABLE `items`
 -- Constraints for table `services`
 --
 ALTER TABLE `services`
-  ADD CONSTRAINT `cashier_const` FOREIGN KEY (`cashier_id`) REFERENCES `employees` (`employee_id`),
-  ADD CONSTRAINT `customer_const` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `technician_const` FOREIGN KEY (`technician_id`) REFERENCES `employees` (`employee_id`);
+  ADD CONSTRAINT `cashier_const` FOREIGN KEY (`cashier_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `customer_const` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `technician_const` FOREIGN KEY (`technician_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
