@@ -222,9 +222,6 @@ Public Class EmployeeAddEditModal
                 Next
             End If
 
-            Dim prevEmpDT As DataTable = dbUtils.GetRowByValue(.empTableStr, .empIDStr, selectedID)
-
-            If prevEmpDT.Rows.Count = 0 Then Exit Sub
 
             Dim imgData As New List(Of String) From {
                 .empProfileStr,

@@ -379,12 +379,12 @@ Public Class FormUtils
             Return True
         End If
 
-        MsgBox("Unable to edit this row")
+        MsgBox("Unable to add this row")
         Return False
     End Function
 
     ' Edit Row
-    Public Function EditRow(dbTable As String, targetID As Integer, targetColumn As String, payload As Dictionary(Of String, Object),
+    Public Function EditRow(dbTable As String, targetColumn As String, targetID As Integer, payload As Dictionary(Of String, Object),
                           Optional startCheckIndex As Integer = 0,
                           Optional imgData As List(Of String) = Nothing) As Boolean
         ' Exit if canceled
@@ -406,7 +406,7 @@ Public Class FormUtils
             End If
         End If
 
-        If dbHelper.UpdateRecord(dbTable, targetID, targetColumn, payload) Then
+        If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
             MsgBox("Successfully Edited")
             Return True
         End If
