@@ -461,9 +461,9 @@ Public Class FormUtils
             Cursor.Current = Cursors.WaitCursor
 
             If editMode Then
-                addFunction.Invoke()
-            Else
                 editFunction.Invoke()
+            Else
+                addFunction.Invoke()
             End If
 
             Cursor.Current = Cursors.Default
