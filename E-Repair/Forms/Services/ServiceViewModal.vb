@@ -19,7 +19,6 @@ Public Class ServiceViewModal
     Private techNumberOnholdServices As Integer = -1
 
     Private total_services As Integer = -1
-
     Private deviceImgPath As String = ""
 
     Private Sub ServiceViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -43,14 +42,14 @@ Public Class ServiceViewModal
             CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item("customer_id"))
 
             TotalCommissionsTxtBoxx.Text = total_commision
-            PendingCommissionsTxtBox.Text = pending_commission
             CompletedCommissionsTxtBox.Text = completed_commission
+            PendingCommissionsTxtBox.Text = pending_commission
 
             TechnicianIDTxtBox.Text = technicianID
             TechnicianNameTxtBox.Text = formUtils.getEmployeeName(.Item("technician_id"))
 
             TotalWorkDoneTxtBox.Text = total_services
-            PendingCommissionsTxtBox.Text = pending_commission
+            PendingWorkTxtBox.Text = techNumberPendingServices
             CompletedWorkTxtBox.Text = techNumberFinishedServices
 
             DeviceBrandTxtBox.Text = .Item("device_brand")
@@ -63,7 +62,21 @@ Public Class ServiceViewModal
             OperatingSystemTxtBox.Text = .Item("operating_system")
             ProblemDescTxtBox.Text = .Item("problem_description")
 
-            AddedByTxtBox.Text = 
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item("cashier_id"))
+            RepairStatusTxtBox.Text = .Item("service_status")
+            DateAddedTxtBox.Text = .Item("date_added")
+
+            RepairNotesTxtBox.Text = dbHelper.StrNullCheck(.Item("repair_notes"))
+            TechnicianFeeTxtBox.Text = .Item("technician_fee")
+            PartsCostTxtBoxx.Text = .Item("parts_cost")
+            TotalCostTxtBox.Text = .Item("technician_fee") + .Item("parts_cost")
+
+            PaymentStatusTxtBox.Text = .Item("paid")
+            PaymentMethodTxtBox.Text = .Item("payment_method")
+            TotalPaidTxtBox.Text = .Item("total_paid")
+            CustomerChangeTxtBox.Text = .Item("customer_change")
+
+            DateClaimedTxtBox.Text = .Item("date_claimed")
 
         End With
 

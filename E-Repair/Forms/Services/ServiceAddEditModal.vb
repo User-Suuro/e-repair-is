@@ -118,7 +118,7 @@ Public Class ServiceAddEditModal
             TechnicianNameTxtBox.Text = formUtils.getEmployeeName(technicianID)
 
             TotalWorkDoneTxtBox.Text = total_services
-            PendingCommisionsTxtBox.Text = pending_commission
+            PendingWorkTxtBox.Text = pending_commission
             CompletedWorkTxtBox.Text = techNumberFinishedServices
 
             deviceImgPath = .Item("device_profile_path")
@@ -356,4 +356,7 @@ Public Class ServiceAddEditModal
         End If
     End Sub
 
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
+
+    End Sub
 End Class
