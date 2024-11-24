@@ -28,6 +28,8 @@ Public Class EmployeeViewModal
         If empDt.Rows.Count = 0 Then Exit Sub
 
         With empDt.Rows(0)
+            EmployeeIDTextBox.Text = selectedID
+
             FirstNameTextBox.Text = .Item(empConst.empFirstStr)
             MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empMidStr))
             LastNameTextBox.Text = .Item(empConst.empLastStr)
@@ -57,8 +59,8 @@ Public Class EmployeeViewModal
             PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
 
             ' ARCHIVE INFO
-            ArchiveStatusTextBox.Text = .Item(empConst.empArchByStr)
-
+            ArchiveStatusTextBox.Text = .Item(empConst.empArchStr)
+            DateAddedTextBox.Text = .Item(empConst.empAddDateStr)
 
             LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empLastAccessedStr))
             AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.empAddedByStr))
