@@ -230,9 +230,6 @@ Public Class FormUtils
         End If
 
     End Sub
-
-
-
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, showChkBox As CheckBox, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
         If Not String.IsNullOrWhiteSpace(searchTerm) Then

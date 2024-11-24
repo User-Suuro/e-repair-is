@@ -62,7 +62,9 @@ Public Class MainPanel
     Private Sub dashboardHandler()
         With constants
             Select Case userPosition
-                Case .getAdminString Or .getSuperAdminString
+                Case .getAdminString
+                    formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
+                Case .getSuperAdminString
                     formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New AdminDashboardForm)
                 Case .getCashierString
                     formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New CashierDashboardForm)

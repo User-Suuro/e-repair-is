@@ -100,7 +100,7 @@ Public Class EmployeeAddEditModal
             .LoadEnumsToCmb(SexComboBox, "employees", "sex", index01)
             .LoadEnumsToCmb(CivilStatusComboBox, "employees", "civilstatus", index02)
             .LoadEnumsToCmb(ContractStatusComboBox, "employees", "employment_status", index03)
-            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04 + 1) ' SUPER ADMIN MUST NOT BE SEEN
+            .LoadEnumsToCmb(JobTypeComboBox, "employees", "job_type", index04, 1) ' SUPER ADMIN MUST NOT BE SEEN
             .LoadEnumsToCmb(PositionComboBox, "employees", "admin_position", index05)
         End With
     End Sub
