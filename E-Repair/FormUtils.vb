@@ -456,7 +456,7 @@ Public Class FormUtils
     End Sub
 
     ' Save
-    Public Sub SaveEvent(editMode As Boolean, addFunction As Func(Of Boolean), editFunction As Func(Of Boolean))
+    Public Sub SaveEvent(editMode As Boolean, addFunction As Action, editFunction As Action)
         Try
             Cursor.Current = Cursors.WaitCursor
 
