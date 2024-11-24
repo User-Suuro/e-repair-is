@@ -96,7 +96,7 @@ Public Class SupplierAddEditModal
                { .supContractStr, contractType},
                { .bankDetailsStr, bankDetails},
                { .payTermsStr, paymentTerms},
-               { .addedByStr, CurrentUsr.id}
+               { .addedByStr, Current.id}
             }
 
             Dim imgData As New List(Of String) From {

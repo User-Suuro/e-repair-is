@@ -136,7 +136,7 @@ Public Class ServiceAddEditModal
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
-              { .cashierIDStr, CurrentUsr.id},
+              { .cashierIDStr, Current.id},
               { .devTypeStr, deviceType},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},

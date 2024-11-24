@@ -68,7 +68,7 @@ Public Class CustomerAddEditModal
                 { .custContactStr, contactNumber}, ' optional
                 { .custAddressStr, address}, ' optional
                 { .custEmailStr, email}, ' optional
-                { .custAddedByStr, CurrentUsr.id},
+                { .custAddedByStr, Current.id},
                 { .custFirstStr, firstName},
                 { .custLastStr, lastName},
                 { .custGenderStr, gender},

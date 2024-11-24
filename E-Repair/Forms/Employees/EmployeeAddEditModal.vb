@@ -137,7 +137,7 @@ Public Class EmployeeAddEditModal
                 { .empJobPosStr, jobType},
                 { .empEmailStr, email},
                 { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                { .empAddedByStr, CurrentUsr.id}
+                { .empAddedByStr, Current.id}
             }
 
             ' UDPDATE FOREIGN VALUES

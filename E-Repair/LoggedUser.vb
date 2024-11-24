@@ -11,7 +11,7 @@
         Public Property password As String
     End Class
 
-    Public CurrentUsr As LoggedConstructor = Nothing
+    Public Current As LoggedConstructor = Nothing
 
     Public Sub InitializeSession(dt As DataTable)
 
@@ -29,9 +29,9 @@
             Exit Sub
         End If
 
-        CurrentUsr = New LoggedConstructor With {
+        Current = New LoggedConstructor With {
             .id = empID,
-            .name = formUtils.getEmployeeName(empCust.empIDStr),
+            .name = formUtils.getEmployeeName(empID),
             .position = empDtRow(empCust.empJobPosStr),
             .email = empDtRow(empCust.empEmailStr),
             .password = empDtRow(empCust.empPassStr)
@@ -40,10 +40,10 @@
     End Sub
 
     Public Sub ClearSession()
-        CurrentUsr = Nothing
+        Current = Nothing
     End Sub
 
     Public Function IsSessionActive() As Boolean
-        Return CurrentUsr IsNot Nothing
+        Return Current IsNot Nothing
     End Function
 End Module
