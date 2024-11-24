@@ -32,6 +32,8 @@ Public Class EmployeeViewModal
             MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empMidStr))
             LastNameTextBox.Text = .Item(empConst.empLastStr)
             BirthDateTextBox.Text = .Item(empConst.empBirthStr)
+            SexTextBox.Text = .Item(empConst.empSexStr)
+            CivilStatusTextBox.Text = .Item(empConst.empCivilStr)
 
             AddressTextBox.Text = .Item(empConst.empAddrStr)
             ContactNumberTextBox.Text = .Item(empConst.empContactStr)
@@ -56,6 +58,7 @@ Public Class EmployeeViewModal
 
             ' ARCHIVE INFO
             ArchiveStatusTextBox.Text = .Item(empConst.empArchByStr)
+
 
             LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empLastAccessedStr))
             AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.empAddedByStr))
@@ -113,5 +116,6 @@ Public Class EmployeeViewModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class

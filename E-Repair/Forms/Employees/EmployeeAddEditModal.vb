@@ -232,7 +232,7 @@ Public Class EmployeeAddEditModal
                 constants.getEmpProfileFolderName
             }
 
-            formUtils.EditRow(.empTableStr, selectedID, .empIDStr, updateData, 4)
+            formUtils.EditRow(.empTableStr, selectedID, .empIDStr, updateData, 4, imgData)
         End With
 
         Me.Close()

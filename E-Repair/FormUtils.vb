@@ -367,10 +367,10 @@ Public Class FormUtils
             Dim imgFolderName As String = imgData(2)
 
             If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
-                If Not File.Exists(imgPath) Then
-                    payload.Add(imgColName, imgPath)
-                    SaveImgToLocal(imgPath, imgFolderName, True)
-                End If
+
+                Dim savedPath = SaveImgToLocal(imgPath, imgFolderName, True)
+                payload.Add(imgColName, imgPath)
+
             End If
         End If
 
@@ -399,10 +399,10 @@ Public Class FormUtils
             Dim imgFolderName As String = imgData(2)
 
             If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
-                If Not File.Exists(imgPath) Then
-                    payload.Add(imgColName, imgPath)
-                    SaveImgToLocal(imgPath, imgFolderName, True)
-                End If
+
+                Dim savedPath = SaveImgToLocal(imgPath, imgFolderName, True)
+                payload.Add(imgColName, savedPath)
+
             End If
         End If
 
