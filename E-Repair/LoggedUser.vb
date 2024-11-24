@@ -11,7 +11,7 @@
         Public Property password As String
     End Class
 
-    Public Current As LoggedConstructor = Nothing
+    Public CurrentUsr As LoggedConstructor = Nothing
 
     Public Sub InitializeSession(dt As DataTable)
 
@@ -22,8 +22,14 @@
 
         Dim empDtRow As DataRow = dt.Rows(0)
 
-        Current = New LoggedConstructor With {
-            .id = empDtRow(empCust.empIDStr),
+        Dim empID As Integer
+        If Not Integer.TryParse(empCust.empIDStr, empID) Then
+            MsgBox("Invalid Employee ID")
+            Return
+        End If
+
+        CurrentUsr = New LoggedConstructor With {
+            .id = empID,
             .name = formUtils.getEmployeeName(empCust.empIDStr),
             .position = empDtRow(empCust.empJobPosStr),
             .email = empDtRow(empCust.empEmailStr),
@@ -33,10 +39,10 @@
     End Sub
 
     Public Sub ClearSession()
-        Current = Nothing
+        CurrentUsr = Nothing
     End Sub
 
     Public Function IsSessionActive() As Boolean
-        Return Current IsNot Nothing
+        Return CurrentUsr IsNot Nothing
     End Function
 End Module

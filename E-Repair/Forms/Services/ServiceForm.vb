@@ -10,7 +10,7 @@ Public Class ServiceForm
     Private is_archived As Boolean = False
     Private serviceStatus As String = ""
 
-    Private currentEmpPos = LoggedUser.Current.position
+    Private currentEmpPos = CurrentUsr.position
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1

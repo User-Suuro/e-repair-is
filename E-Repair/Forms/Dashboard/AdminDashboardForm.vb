@@ -19,7 +19,7 @@ Public Class AdminDashboardForm
 
         Try
 
-            WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
+            WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.CurrentUsr.id)
 
         Catch ex As Exception
             MsgBox("Cannot get active user ID without session")

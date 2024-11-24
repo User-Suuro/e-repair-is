@@ -14,7 +14,7 @@ Public Class MainPanel
 
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim dt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, LoggedUser.Current.id)
+        Dim dt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, LoggedUser.CurrentUsr.id)
 
         If dt.Rows.Count Then
             MsgBox("No user detected")

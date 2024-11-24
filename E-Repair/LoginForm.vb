@@ -50,7 +50,7 @@ Public Class LoginForm
             {empConst.empLastAccessedStr, DateTime.Now}
         }
 
-        dbHelper.UpdateRecord(empConst.empTableStr, empConst.empIDStr, LoggedUser.Current.id, updatedValues)
+        dbHelper.UpdateRecord(empConst.empTableStr, empConst.empIDStr, CurrentUsr.id, updatedValues)
 
         Dim MainPanel As New MainPanel
 
