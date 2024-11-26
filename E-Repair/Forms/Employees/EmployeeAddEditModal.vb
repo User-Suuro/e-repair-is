@@ -149,20 +149,20 @@ Public Class EmployeeAddEditModal
 
             If jobType = constants.getAdminString Then
                 ' Admin
-                If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
+                If Not formUtils.AreAllDictValuesFilled(updateAdminValues) Then Exit Sub
                 For Each kvp In updateAdminValues
                     insertData.Add(kvp.Key, kvp.Value)
                 Next
 
             ElseIf jobType = constants.getUtilityPersonnelString Then
                 ' Utility
-                If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+                If Not formUtils.AreAllDictValuesFilled(updateUtilityValues) Then Exit Sub
                 For Each kvp In updateUtilityValues
                     insertData.Add(kvp.Key, kvp.Value)
                 Next
             End If
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .empProfileStr,
                 profileImgPath,
                 constants.getEmpProfileFolderName
@@ -209,21 +209,21 @@ Public Class EmployeeAddEditModal
 
             If jobType = constants.getAdminString Then
                 ' Admin
-                If Not formUtils.AreAllValuesFilled(updateAdminValues) Then Exit Sub
+                If Not formUtils.AreAllDictValuesFilled(updateAdminValues) Then Exit Sub
                 For Each kvp In updateAdminValues
                     updateData.Add(kvp.Key, kvp.Value)
                 Next
 
             ElseIf jobType = constants.getUtilityPersonnelString Then
                 ' Utility
-                If Not formUtils.AreAllValuesFilled(updateUtilityValues) Then Exit Sub
+                If Not formUtils.AreAllDictValuesFilled(updateUtilityValues) Then Exit Sub
                 For Each kvp In updateUtilityValues
                     updateData.Add(kvp.Key, kvp.Value)
                 Next
             End If
 
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .empProfileStr,
                 profileImgPath,
                 constants.getEmpProfileFolderName

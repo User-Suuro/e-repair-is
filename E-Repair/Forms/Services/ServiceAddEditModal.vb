@@ -145,7 +145,7 @@ Public Class ServiceAddEditModal
               { .probDescStr, problemDescription}
             }
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .devProfilePathStr,
                 deviceImgPath,
                 constants.getDevicePicturesFolderName
@@ -173,7 +173,7 @@ Public Class ServiceAddEditModal
                 { .probDescStr, problemDescription}
             }
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .devProfilePathStr,
                 deviceImgPath,
                 constants.getDevicePicturesFolderName

@@ -98,18 +98,7 @@ Public Class FormUtils
         End If
     End Function
 
-    ' VALUE CHECKER
-    Public Function AreAllValuesFilled(values As Dictionary(Of String, Object), Optional startingIndex As Integer = 0) As Boolean
-        For i As Integer = startingIndex To values.Count - 1
-            Dim kvp As KeyValuePair(Of String, Object) = values.ElementAt(i) ' Access key-value pair by index
-            If kvp.Value Is Nothing OrElse kvp.Value.ToString().Trim() = "" OrElse kvp.Value.ToString() = "-1" Then
-                MsgBox("Please fill all necessary details")
-                Return False
-            End If
-        Next
 
-        Return True
-    End Function
 
     ' Search function
     Public Function SearchFunction(dt As DataTable, searchTerm As String, searchValues As String(), searchCmbSelectedIndex As Integer) As DataTable
@@ -352,19 +341,47 @@ Public Class FormUtils
         Return result
     End Function
 
+    ' VALUE CHECKERS
+    Public Function AreAllDictValuesFilled(values As Dictionary(Of String, Object), Optional startingIndex As Integer = 0) As Boolean
+        For i As Integer = startingIndex To values.Count - 1
+            Dim kvp As KeyValuePair(Of String, Object) = values.ElementAt(i) ' Access key-value pair by index
+            If kvp.Value Is Nothing OrElse kvp.Value.ToString().Trim() = "" OrElse kvp.Value.ToString() = "-1" Then
+                MsgBox("Please fill all necessary details")
+                Return False
+            End If
+        Next
+
+        Return True
+    End Function
+
+    Public Function AreAllListValuesFilled(values As List(Of Object), Optional startingIndex As Integer = 0) As Boolean
+        For i As Integer = startingIndex To values.Count - 1
+            Dim value As Object = values(i) ' Access value by index
+            If value Is Nothing OrElse value.ToString().Trim() = "" OrElse value.ToString() = "-1" Then
+                MsgBox("Please fill all necessary details")
+                Return False
+            End If
+        Next
+
+        Return True
+    End Function
 
     ' Add Row
     Public Function AddRow(dbTable As String, ByVal payload As Dictionary(Of String, Object),
                            Optional startCheckIndex As Integer = 0,
-                           Optional imgData As List(Of String) = Nothing) As Boolean
+                           Optional imgData As List(Of Object) = Nothing) As Boolean
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to add this data")) Then Return False
 
         ' Check if imgData is provided and has sufficient data
         If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+
+            If Not AreAllListValuesFilled(imgData) Then Return False
+
             Dim imgColName As String = imgData(0)
             Dim imgPath As String = imgData(1)
             Dim imgFolderName As String = imgData(2)
+
 
             If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
 
@@ -386,14 +403,14 @@ Public Class FormUtils
     ' Edit Row
     Public Function EditRow(dbTable As String, targetColumn As String, targetID As Integer, payload As Dictionary(Of String, Object),
                           Optional startCheckIndex As Integer = 0,
-                          Optional imgData As List(Of String) = Nothing) As Boolean
+                          Optional imgData As List(Of Object) = Nothing) As Boolean
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
 
-        If Not AreAllValuesFilled(payload) Then Return False
-
         ' Check if imgData is provided and has sufficient data
         If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+            If Not AreAllListValuesFilled(imgData) Then Return False
+
             Dim imgColName As String = imgData(0)
             Dim imgPath As String = imgData(1)
             Dim imgFolderName As String = imgData(2)
@@ -405,6 +422,8 @@ Public Class FormUtils
 
             End If
         End If
+
+        If Not AreAllDictValuesFilled(payload) Then Return False
 
         If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
             MsgBox("Successfully Edited")

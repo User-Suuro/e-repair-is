@@ -99,7 +99,7 @@ Public Class SupplierAddEditModal
                { .addedByStr, Current.id}
             }
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .compPicPathStr,
                 compImgPath,
                 constants.getSuppProfileFolderName
@@ -129,12 +129,11 @@ Public Class SupplierAddEditModal
                { .payTermsStr, paymentTerms}
             }
 
-            Dim imgData As New List(Of String) From {
+            Dim imgData As New List(Of Object) From {
                 .compPicPathStr,
                 compImgPath,
                 constants.getSuppProfileFolderName
             }
-
 
             formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, 1, imgData)
         End With
