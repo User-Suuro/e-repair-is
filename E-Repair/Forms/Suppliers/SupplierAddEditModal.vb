@@ -25,7 +25,7 @@ Public Class SupplierAddEditModal
     Private compImgPath As String = ""
 
     Public Property selectedID As Integer = -1
-    Public Property editMode As Integer = -1
+    Public Property editMode As Integer = False
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load

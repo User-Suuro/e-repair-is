@@ -47,7 +47,6 @@ Public Class SuppliersForm
     ' ADD
     Private Sub AddSuppliersBtn_Click(sender As Object, e As EventArgs) Handles AddSupplierBtn.Click
 
-
         formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New SupplierAddEditModal()
