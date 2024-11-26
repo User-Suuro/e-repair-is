@@ -502,4 +502,32 @@ Public Class FormUtils
 
         Return True
     End Function
+
+    Public Function calcDecimalDT(dt As DataTable, columnName As String) As Decimal
+        Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)(columnName))
+    End Function
+
+
+    Public Function ValidateDecimalInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "." Then
+            Return False
+        End If
+
+        If e.KeyChar = "." Then
+            If txtBox.Text.Contains(".") Then
+                Return False
+            End If
+        End If
+
+        If txtBox.Text.Contains(".") Then
+            Dim decimalPointIndex As Integer = txtBox.Text.IndexOf(".")
+            Dim decimalsAfterPoint As String = txtBox.Text.Substring(decimalPointIndex + 1)
+
+            If decimalsAfterPoint.Length >= 2 Then
+                Return False
+            End If
+        End If
+
+        Return True
+    End Function
 End Class

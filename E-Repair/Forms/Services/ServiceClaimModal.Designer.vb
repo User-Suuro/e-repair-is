@@ -23,7 +23,7 @@ Partial Class ServiceClaimModal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceClaimModal))
-        Me.GenerateReceiptBtn = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.GroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -37,6 +37,8 @@ Partial Class ServiceClaimModal
         Me.PartsUsedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PaymentMethodCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ChangeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -55,10 +57,10 @@ Partial Class ServiceClaimModal
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
+        Me.GenerateReceipt = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.GenerateReceiptBtn.SuspendLayout()
+        Me.GroupBox.SuspendLayout()
         CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -70,26 +72,26 @@ Partial Class ServiceClaimModal
         Me.TableLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GenerateReceiptBtn
+        'GroupBox
         '
-        Me.GenerateReceiptBtn.Controls.Add(Me.DeviceCirclePictureBox)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel2)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel1)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel8)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel7)
-        Me.GenerateReceiptBtn.Controls.Add(Me.BtnSave)
-        Me.GenerateReceiptBtn.Controls.Add(Me.BtnClose)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Separator1)
-        Me.GenerateReceiptBtn.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GenerateReceiptBtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GenerateReceiptBtn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GenerateReceiptBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.GenerateReceiptBtn.Location = New System.Drawing.Point(0, 0)
-        Me.GenerateReceiptBtn.Name = "GenerateReceiptBtn"
-        Me.GenerateReceiptBtn.ShadowDecoration.Parent = Me.GenerateReceiptBtn
-        Me.GenerateReceiptBtn.Size = New System.Drawing.Size(984, 383)
-        Me.GenerateReceiptBtn.TabIndex = 2
-        Me.GenerateReceiptBtn.Text = "Claim Service"
+        Me.GroupBox.Controls.Add(Me.DeviceCirclePictureBox)
+        Me.GroupBox.Controls.Add(Me.Guna2Panel2)
+        Me.GroupBox.Controls.Add(Me.Guna2Panel1)
+        Me.GroupBox.Controls.Add(Me.Guna2Panel8)
+        Me.GroupBox.Controls.Add(Me.Guna2Panel7)
+        Me.GroupBox.Controls.Add(Me.GenerateReceipt)
+        Me.GroupBox.Controls.Add(Me.BtnClose)
+        Me.GroupBox.Controls.Add(Me.Guna2Separator1)
+        Me.GroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GroupBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.GroupBox.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox.Name = "GroupBox"
+        Me.GroupBox.ShadowDecoration.Parent = Me.GroupBox
+        Me.GroupBox.Size = New System.Drawing.Size(984, 383)
+        Me.GroupBox.TabIndex = 2
+        Me.GroupBox.Text = "Claim Service"
         '
         'DeviceCirclePictureBox
         '
@@ -302,11 +304,13 @@ Partial Class ServiceClaimModal
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.PaymentMethodCmb, 3, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ChangeTxtBox, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 2, 0)
@@ -321,6 +325,38 @@ Partial Class ServiceClaimModal
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel1.TabIndex = 8
+        '
+        'PaymentMethodCmb
+        '
+        Me.PaymentMethodCmb.BackColor = System.Drawing.Color.Transparent
+        Me.PaymentMethodCmb.BorderRadius = 4
+        Me.PaymentMethodCmb.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PaymentMethodCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.PaymentMethodCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.PaymentMethodCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.PaymentMethodCmb.FocusedState.Parent = Me.PaymentMethodCmb
+        Me.PaymentMethodCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.PaymentMethodCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.PaymentMethodCmb.FormattingEnabled = True
+        Me.PaymentMethodCmb.HoverState.Parent = Me.PaymentMethodCmb
+        Me.PaymentMethodCmb.ItemHeight = 20
+        Me.PaymentMethodCmb.ItemsAppearance.Parent = Me.PaymentMethodCmb
+        Me.PaymentMethodCmb.Location = New System.Drawing.Point(714, 24)
+        Me.PaymentMethodCmb.Name = "PaymentMethodCmb"
+        Me.PaymentMethodCmb.ShadowDecoration.Parent = Me.PaymentMethodCmb
+        Me.PaymentMethodCmb.Size = New System.Drawing.Size(232, 26)
+        Me.PaymentMethodCmb.TabIndex = 58
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(714, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(110, 20)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Payment Method"
         '
         'Label5
         '
@@ -344,19 +380,20 @@ Partial Class ServiceClaimModal
         Me.ChangeTxtBox.DisabledState.Parent = Me.ChangeTxtBox
         Me.ChangeTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ChangeTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ChangeTxtBox.Enabled = False
         Me.ChangeTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangeTxtBox.FocusedState.Parent = Me.ChangeTxtBox
         Me.ChangeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChangeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangeTxtBox.HoverState.Parent = Me.ChangeTxtBox
-        Me.ChangeTxtBox.Location = New System.Drawing.Point(634, 24)
+        Me.ChangeTxtBox.Location = New System.Drawing.Point(476, 24)
         Me.ChangeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ChangeTxtBox.Name = "ChangeTxtBox"
         Me.ChangeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ChangeTxtBox.PlaceholderText = ""
         Me.ChangeTxtBox.SelectedText = ""
         Me.ChangeTxtBox.ShadowDecoration.Parent = Me.ChangeTxtBox
-        Me.ChangeTxtBox.Size = New System.Drawing.Size(313, 26)
+        Me.ChangeTxtBox.Size = New System.Drawing.Size(233, 26)
         Me.ChangeTxtBox.TabIndex = 53
         '
         'Label1
@@ -364,7 +401,7 @@ Partial Class ServiceClaimModal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(635, 0)
+        Me.Label1.Location = New System.Drawing.Point(477, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 20)
         Me.Label1.TabIndex = 52
@@ -386,14 +423,14 @@ Partial Class ServiceClaimModal
         Me.TotalPaidTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalPaidTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalPaidTxtBox.HoverState.Parent = Me.TotalPaidTxtBox
-        Me.TotalPaidTxtBox.Location = New System.Drawing.Point(318, 24)
+        Me.TotalPaidTxtBox.Location = New System.Drawing.Point(239, 24)
         Me.TotalPaidTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalPaidTxtBox.Name = "TotalPaidTxtBox"
         Me.TotalPaidTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalPaidTxtBox.PlaceholderText = ""
         Me.TotalPaidTxtBox.SelectedText = ""
         Me.TotalPaidTxtBox.ShadowDecoration.Parent = Me.TotalPaidTxtBox
-        Me.TotalPaidTxtBox.Size = New System.Drawing.Size(312, 26)
+        Me.TotalPaidTxtBox.Size = New System.Drawing.Size(233, 26)
         Me.TotalPaidTxtBox.TabIndex = 51
         '
         'Label2
@@ -401,7 +438,7 @@ Partial Class ServiceClaimModal
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(319, 0)
+        Me.Label2.Location = New System.Drawing.Point(240, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(68, 20)
         Me.Label2.TabIndex = 50
@@ -432,7 +469,7 @@ Partial Class ServiceClaimModal
         Me.TotalCostTxtBox.ReadOnly = True
         Me.TotalCostTxtBox.SelectedText = ""
         Me.TotalCostTxtBox.ShadowDecoration.Parent = Me.TotalCostTxtBox
-        Me.TotalCostTxtBox.Size = New System.Drawing.Size(312, 26)
+        Me.TotalCostTxtBox.Size = New System.Drawing.Size(233, 26)
         Me.TotalCostTxtBox.TabIndex = 49
         '
         'Guna2Panel8
@@ -656,21 +693,21 @@ Partial Class ServiceClaimModal
         Me.Label23.TabIndex = 38
         Me.Label23.Text = "Repair Status"
         '
-        'BtnSave
+        'GenerateReceipt
         '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(861, 338)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 50
-        Me.BtnSave.Text = "Generate Receipt"
+        Me.GenerateReceipt.BorderRadius = 4
+        Me.GenerateReceipt.CheckedState.Parent = Me.GenerateReceipt
+        Me.GenerateReceipt.CustomImages.Parent = Me.GenerateReceipt
+        Me.GenerateReceipt.FillColor = System.Drawing.Color.DarkGreen
+        Me.GenerateReceipt.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GenerateReceipt.ForeColor = System.Drawing.Color.White
+        Me.GenerateReceipt.HoverState.Parent = Me.GenerateReceipt
+        Me.GenerateReceipt.Location = New System.Drawing.Point(861, 338)
+        Me.GenerateReceipt.Name = "GenerateReceipt"
+        Me.GenerateReceipt.ShadowDecoration.Parent = Me.GenerateReceipt
+        Me.GenerateReceipt.Size = New System.Drawing.Size(107, 32)
+        Me.GenerateReceipt.TabIndex = 50
+        Me.GenerateReceipt.Text = "Generate Receipt"
         '
         'BtnClose
         '
@@ -701,13 +738,13 @@ Partial Class ServiceClaimModal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 383)
-        Me.Controls.Add(Me.GenerateReceiptBtn)
+        Me.Controls.Add(Me.GroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ServiceClaimModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminClaimServicesModal"
         Me.TopMost = True
-        Me.GenerateReceiptBtn.ResumeLayout(False)
+        Me.GroupBox.ResumeLayout(False)
         CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -725,7 +762,7 @@ Partial Class ServiceClaimModal
 
     End Sub
 
-    Friend WithEvents GenerateReceiptBtn As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents GroupBox As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents RepairNotesTxtBox As Guna.UI2.WinForms.Guna2TextBox
@@ -737,7 +774,7 @@ Partial Class ServiceClaimModal
     Friend WithEvents Label25 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents GenerateReceipt As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
@@ -760,4 +797,6 @@ Partial Class ServiceClaimModal
     Friend WithEvents Label3 As Label
     Friend WithEvents DateClaimedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DeviceCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents PaymentMethodCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Label4 As Label
 End Class

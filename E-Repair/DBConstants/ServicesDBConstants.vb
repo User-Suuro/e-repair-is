@@ -17,9 +17,11 @@
     Private ReadOnly _repairNotes As String = "repair_notes"
     Private ReadOnly _serviceStatus As String = "service_status"
     Private ReadOnly _technicianFee As String = "technician_fee"
+    Private ReadOnly _partsUsed As String = "parts_used"
     Private ReadOnly _partsCost As String = "parts_cost"
-    Private ReadOnly _paid As String = "paid"
+    Private ReadOnly _totalCost As String = "total_cost"
     Private ReadOnly _totalPaid As String = "total_paid"
+    Private ReadOnly _paid As String = "paid"
     Private ReadOnly _customerChange As String = "customer_change"
     Private ReadOnly _paymentMethod As String = "payment_method"
     Private ReadOnly _dateCompleted As String = "date_completed"
@@ -28,6 +30,8 @@
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
+
+
 
     ' Getters for each attribute name
     Public ReadOnly Property svcTableStr As String
@@ -185,5 +189,14 @@
             Return _dateArchived
         End Get
     End Property
-
+    Public ReadOnly Property PartsUsed As String
+        Get
+            Return _partsUsed
+        End Get
+    End Property
+    Public ReadOnly Property TotalCost As String
+        Get
+            Return _totalCost
+        End Get
+    End Property
 End Class
