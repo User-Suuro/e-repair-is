@@ -13,9 +13,11 @@ Public Class AdminDashboardForm
 
         EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchByStr, 0).Rows.Count + 1  ' don't count super admin
         ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archByStr, 0).Rows.Count
-        CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchByStr, 0).Rows.Count
-        SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archByStr, 0).Rows.Count
-        ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archByStr, 0).Rows.Count
+
+        CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
+        SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
+
+        ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
 
         Try
 
@@ -48,6 +50,10 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub EmployeesCountLabel_Click(sender As Object, e As EventArgs) Handles EmployeesCountLabel.Click
+
+    End Sub
+
+    Private Sub CustomersNumberLabel_Click(sender As Object, e As EventArgs) Handles CustomersNumberLabel.Click
 
     End Sub
 End Class
