@@ -71,15 +71,16 @@ Public Class ServiceEvaluationModal
     Private Sub DateCompletedDTP_ValueChanged(sender As Object, e As EventArgs) Handles DateCompletedDTP.ValueChanged
         dateCompleted = DateCompletedDTP.Value
     End Sub
+    Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TechnicianFeeTxtBox.KeyPress
+        If Not formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e) Then
+            e.Handled = True
+        End If
+    End Sub
 
     Private Sub TechnicianFeeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianFeeTxtBox.TextChanged
         Decimal.TryParse(TechnicianFeeTxtBox.Text, technicianFee)
         totalCost = technicianFee + partsCost
         TotalCostTxtBox.Text = totalCost
-    End Sub
-
-    Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TechnicianFeeTxtBox.KeyPress
-        formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e)
     End Sub
 
     Private Sub RepairNotesTxtBox_TextChanged(sender As Object, e As EventArgs) Handles RepairNotesTxtBox.TextChanged

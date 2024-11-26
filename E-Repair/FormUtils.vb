@@ -408,7 +408,7 @@ Public Class FormUtils
                           Optional startCheckIndex As Integer = 0,
                           Optional imgData As List(Of Object) = Nothing) As Boolean
         ' Exit if canceled
-        If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
+        If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to modify data")) Then Return False
 
         If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
 

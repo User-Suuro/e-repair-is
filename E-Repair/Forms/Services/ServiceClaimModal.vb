@@ -52,7 +52,9 @@
     End Sub
 
     Private Sub TotalPaidTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TotalPaidTxtBox.KeyPress
-        formUtils.ValidateDecimalInput(TotalCostTxtBox, e)
+        If Not formUtils.ValidateDecimalInput(TotalCostTxtBox, e) Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub ChangeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ChangeTxtBox.TextChanged
@@ -122,5 +124,6 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class
