@@ -33,7 +33,7 @@ Public Class ServiceForm
     End Sub
 
     Private Sub loadUserDisplay()
-        Select Case Current.id
+        Select Case Current.position
             Case constants.getSuperAdminString
                 ClaimServiceBtn.Visible = True
                 EvaluateServiceBtn.Visible = True
