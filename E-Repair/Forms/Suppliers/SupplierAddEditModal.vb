@@ -29,6 +29,7 @@ Public Class SupplierAddEditModal
 
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InitCmbDs(-1, -1, -1, -1)
         InitData()
     End Sub
 
@@ -50,8 +51,6 @@ Public Class SupplierAddEditModal
             EstDelivTimeTxtBox.Text = .Item(supConst.estDeliveryStr)
             CompanyDescTxtBox.Text = .Item(supConst.compDescStr)
             compImgPath = .Item(supConst.compPicPathStr)
-
-            InitCmbDs(-1, -1, -1, -1)
 
             Dim supplierIndex = formUtils.FindComboBoxItemByText(SupplierTypeCmbBox, .Item(supConst.supTypeStr))
             Dim contractIndex = formUtils.FindComboBoxItemByText(ContractTypeCmbBox, .Item(supConst.supContractStr))
@@ -276,7 +275,5 @@ Public Class SupplierAddEditModal
         End If
     End Sub
 
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
 
-    End Sub
 End Class
