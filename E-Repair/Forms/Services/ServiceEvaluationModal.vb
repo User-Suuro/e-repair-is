@@ -49,6 +49,7 @@ Public Class ServiceEvaluationModal
 
             TechnicianFeeTxtBox.Text = (.Item(servConst.techFeeStr)) ' load the current fee
             PartsUsedTxtBox.Text = (.Item(servConst.PartsUsed))
+            RepairNotesTxtBox.Text = (.Item(servConst.repairNotesStr))
 
             partsCost = .Item(servConst.partsCostStr) ' get existing parts cost
             PartsCostTxtBox.Text = partsCost
@@ -110,7 +111,7 @@ Public Class ServiceEvaluationModal
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .svcStatusStr, repairStatus},
                 { .dateCompletedStr, dateCompleted},
-                { .repairNotesStr, repairStatus},
+                { .repairNotesStr, repairNotes},
                 { .techFeeStr, technicianFee},
                 { .TotalCost, totalCost}
             }
