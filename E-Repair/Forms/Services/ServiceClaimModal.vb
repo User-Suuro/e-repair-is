@@ -23,7 +23,7 @@
 
     Private Sub loadValues()
 
-        Dim serviceDT As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID)
+        Dim serviceDT As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcIDStr, selectedID)
 
         If serviceDT.Rows.Count = 0 Then Exit Sub
 
