@@ -12,20 +12,14 @@ Public Class AdminDashboardForm
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchByStr, 0).Rows.Count + 1  ' don't count super admin
-        ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archByStr, 0).Rows.Count
+        ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
 
         CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
         SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
 
         ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
 
-        Try
-
-            WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
-
-        Catch ex As Exception
-            MsgBox("Cannot get active user ID without session")
-        End Try
+        WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
 
         Timer1.Enabled = True
         Timer2.Enabled = True

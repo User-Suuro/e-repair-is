@@ -10,22 +10,38 @@
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then e.Handled = True
     End Sub
 
-    Private Sub GenerateReceiptBtn_Click(sender As Object, e As EventArgs) Handles GenerateReceiptBtn.Click
+
+
+    Private Sub LoadCmds(index As Integer)
 
     End Sub
 
-
     Private Sub DeviceTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DeviceTypeCmbBox.SelectedIndexChanged
-        'If PaymentTermsCmbBox.SelectedItem = "Others" Then
-        '    With PaymentTermsTableLayout
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    End With
-        'Else
 
-        If DeviceTypeCmbBox.SelectedItem = constants.getFinishedString Then
+    End Sub
 
-        End If
+    Private Sub DateCompletedTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DateCompletedTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub TechnicianFeeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianFeeTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub RepairNotesTxtBox_TextChanged(sender As Object, e As EventArgs) Handles RepairNotesTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub PartsUsedTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PartsUsedTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub PartsCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PartsCostTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub GenerateReceiptBtn_Click(sender As Object, e As EventArgs) Handles GenerateReceiptBtn.Click
+
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click

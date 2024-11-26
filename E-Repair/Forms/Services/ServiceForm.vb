@@ -9,9 +9,6 @@ Public Class ServiceForm
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
     Private serviceStatus As String = ""
-
-    Private currentEmpPos = Current.position
-
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property serviceDT As DataTable = Nothing
@@ -36,7 +33,7 @@ Public Class ServiceForm
     End Sub
 
     Private Sub loadUserDisplay()
-        Select Case currentEmpPos
+        Select Case Current.id
             Case constants.getSuperAdminString
                 ClaimServiceBtn.Visible = True
                 EvaluateServiceBtn.Visible = True
@@ -175,5 +172,9 @@ Public Class ServiceForm
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
+    End Sub
+
+    Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
+        formUtils.FormatDGVForArchive(ServiceDGV)
     End Sub
 End Class

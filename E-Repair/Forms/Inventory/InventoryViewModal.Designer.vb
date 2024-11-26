@@ -25,41 +25,41 @@ Partial Class InventoryViewModal
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel12 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox8 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DateArchivedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox9 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ArchivedByTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Guna2Panel13 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox10 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ArchivedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel10 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox7 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.AddedByTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox5 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.DateAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Guna2Panel11 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox6 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.RestockDateTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox3 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.QuantityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.CostPerItemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.PhysicalLocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel9 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SerialNumberTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.SelectSupplierBtn = New Guna.UI2.WinForms.Guna2Button()
@@ -144,12 +144,12 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox8, 2, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.DateArchivedTxtBox, 2, 1)
         Me.TableLayoutPanel7.Controls.Add(Me.Label17, 2, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox9, 1, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.ArchivedByTxtBox, 1, 1)
         Me.TableLayoutPanel7.Controls.Add(Me.Label18, 1, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.Guna2Panel13, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.Guna2TextBox10, 0, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.ArchivedTxtBox, 0, 1)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
@@ -159,31 +159,31 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel7.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel7.TabIndex = 13
         '
-        'Guna2TextBox8
+        'DateArchivedTxtBox
         '
-        Me.Guna2TextBox8.BorderRadius = 4
-        Me.Guna2TextBox8.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox8.DefaultText = ""
-        Me.Guna2TextBox8.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox8.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox8.DisabledState.Parent = Me.Guna2TextBox8
-        Me.Guna2TextBox8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox8.FocusedState.Parent = Me.Guna2TextBox8
-        Me.Guna2TextBox8.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox8.HoverState.Parent = Me.Guna2TextBox8
-        Me.Guna2TextBox8.Location = New System.Drawing.Point(446, 24)
-        Me.Guna2TextBox8.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox8.Name = "Guna2TextBox8"
-        Me.Guna2TextBox8.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox8.PlaceholderText = ""
-        Me.Guna2TextBox8.SelectedText = ""
-        Me.Guna2TextBox8.ShadowDecoration.Parent = Me.Guna2TextBox8
-        Me.Guna2TextBox8.Size = New System.Drawing.Size(219, 26)
-        Me.Guna2TextBox8.TabIndex = 47
+        Me.DateArchivedTxtBox.BorderRadius = 4
+        Me.DateArchivedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DateArchivedTxtBox.DefaultText = ""
+        Me.DateArchivedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DateArchivedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DateArchivedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateArchivedTxtBox.DisabledState.Parent = Me.DateArchivedTxtBox
+        Me.DateArchivedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateArchivedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DateArchivedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateArchivedTxtBox.FocusedState.Parent = Me.DateArchivedTxtBox
+        Me.DateArchivedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateArchivedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateArchivedTxtBox.HoverState.Parent = Me.DateArchivedTxtBox
+        Me.DateArchivedTxtBox.Location = New System.Drawing.Point(446, 24)
+        Me.DateArchivedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DateArchivedTxtBox.Name = "DateArchivedTxtBox"
+        Me.DateArchivedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DateArchivedTxtBox.PlaceholderText = ""
+        Me.DateArchivedTxtBox.SelectedText = ""
+        Me.DateArchivedTxtBox.ShadowDecoration.Parent = Me.DateArchivedTxtBox
+        Me.DateArchivedTxtBox.Size = New System.Drawing.Size(219, 26)
+        Me.DateArchivedTxtBox.TabIndex = 47
         '
         'Label17
         '
@@ -197,31 +197,31 @@ Partial Class InventoryViewModal
         Me.Label17.TabIndex = 46
         Me.Label17.Text = "Date Archived"
         '
-        'Guna2TextBox9
+        'ArchivedByTxtBox
         '
-        Me.Guna2TextBox9.BorderRadius = 4
-        Me.Guna2TextBox9.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox9.DefaultText = ""
-        Me.Guna2TextBox9.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox9.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox9.DisabledState.Parent = Me.Guna2TextBox9
-        Me.Guna2TextBox9.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox9.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox9.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox9.FocusedState.Parent = Me.Guna2TextBox9
-        Me.Guna2TextBox9.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox9.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox9.HoverState.Parent = Me.Guna2TextBox9
-        Me.Guna2TextBox9.Location = New System.Drawing.Point(224, 24)
-        Me.Guna2TextBox9.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox9.Name = "Guna2TextBox9"
-        Me.Guna2TextBox9.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox9.PlaceholderText = ""
-        Me.Guna2TextBox9.SelectedText = ""
-        Me.Guna2TextBox9.ShadowDecoration.Parent = Me.Guna2TextBox9
-        Me.Guna2TextBox9.Size = New System.Drawing.Size(218, 26)
-        Me.Guna2TextBox9.TabIndex = 45
+        Me.ArchivedByTxtBox.BorderRadius = 4
+        Me.ArchivedByTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ArchivedByTxtBox.DefaultText = ""
+        Me.ArchivedByTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ArchivedByTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ArchivedByTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ArchivedByTxtBox.DisabledState.Parent = Me.ArchivedByTxtBox
+        Me.ArchivedByTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ArchivedByTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ArchivedByTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ArchivedByTxtBox.FocusedState.Parent = Me.ArchivedByTxtBox
+        Me.ArchivedByTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchivedByTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ArchivedByTxtBox.HoverState.Parent = Me.ArchivedByTxtBox
+        Me.ArchivedByTxtBox.Location = New System.Drawing.Point(224, 24)
+        Me.ArchivedByTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ArchivedByTxtBox.Name = "ArchivedByTxtBox"
+        Me.ArchivedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ArchivedByTxtBox.PlaceholderText = ""
+        Me.ArchivedByTxtBox.SelectedText = ""
+        Me.ArchivedByTxtBox.ShadowDecoration.Parent = Me.ArchivedByTxtBox
+        Me.ArchivedByTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.ArchivedByTxtBox.TabIndex = 45
         '
         'Label18
         '
@@ -258,31 +258,31 @@ Partial Class InventoryViewModal
         Me.Label19.TabIndex = 16
         Me.Label19.Text = "Archived"
         '
-        'Guna2TextBox10
+        'ArchivedTxtBox
         '
-        Me.Guna2TextBox10.BorderRadius = 4
-        Me.Guna2TextBox10.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox10.DefaultText = ""
-        Me.Guna2TextBox10.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox10.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox10.DisabledState.Parent = Me.Guna2TextBox10
-        Me.Guna2TextBox10.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox10.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox10.FocusedState.Parent = Me.Guna2TextBox10
-        Me.Guna2TextBox10.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox10.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox10.HoverState.Parent = Me.Guna2TextBox10
-        Me.Guna2TextBox10.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox10.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox10.Name = "Guna2TextBox10"
-        Me.Guna2TextBox10.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox10.PlaceholderText = ""
-        Me.Guna2TextBox10.SelectedText = ""
-        Me.Guna2TextBox10.ShadowDecoration.Parent = Me.Guna2TextBox10
-        Me.Guna2TextBox10.Size = New System.Drawing.Size(218, 26)
-        Me.Guna2TextBox10.TabIndex = 21
+        Me.ArchivedTxtBox.BorderRadius = 4
+        Me.ArchivedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ArchivedTxtBox.DefaultText = ""
+        Me.ArchivedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ArchivedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ArchivedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ArchivedTxtBox.DisabledState.Parent = Me.ArchivedTxtBox
+        Me.ArchivedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ArchivedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ArchivedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ArchivedTxtBox.FocusedState.Parent = Me.ArchivedTxtBox
+        Me.ArchivedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchivedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ArchivedTxtBox.HoverState.Parent = Me.ArchivedTxtBox
+        Me.ArchivedTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.ArchivedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ArchivedTxtBox.Name = "ArchivedTxtBox"
+        Me.ArchivedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ArchivedTxtBox.PlaceholderText = ""
+        Me.ArchivedTxtBox.SelectedText = ""
+        Me.ArchivedTxtBox.ShadowDecoration.Parent = Me.ArchivedTxtBox
+        Me.ArchivedTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.ArchivedTxtBox.TabIndex = 21
         '
         'Guna2Panel10
         '
@@ -301,12 +301,12 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox7, 2, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.AddedByTxtBox, 2, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.Label16, 2, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox5, 1, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.DateAddedTxtBox, 1, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.Label14, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Guna2Panel11, 0, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2TextBox6, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestockDateTxtBox, 0, 1)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
@@ -316,31 +316,31 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel6.TabIndex = 13
         '
-        'Guna2TextBox7
+        'AddedByTxtBox
         '
-        Me.Guna2TextBox7.BorderRadius = 4
-        Me.Guna2TextBox7.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox7.DefaultText = ""
-        Me.Guna2TextBox7.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox7.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox7.DisabledState.Parent = Me.Guna2TextBox7
-        Me.Guna2TextBox7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox7.FocusedState.Parent = Me.Guna2TextBox7
-        Me.Guna2TextBox7.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox7.HoverState.Parent = Me.Guna2TextBox7
-        Me.Guna2TextBox7.Location = New System.Drawing.Point(446, 24)
-        Me.Guna2TextBox7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox7.Name = "Guna2TextBox7"
-        Me.Guna2TextBox7.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox7.PlaceholderText = ""
-        Me.Guna2TextBox7.SelectedText = ""
-        Me.Guna2TextBox7.ShadowDecoration.Parent = Me.Guna2TextBox7
-        Me.Guna2TextBox7.Size = New System.Drawing.Size(219, 26)
-        Me.Guna2TextBox7.TabIndex = 47
+        Me.AddedByTxtBox.BorderRadius = 4
+        Me.AddedByTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.AddedByTxtBox.DefaultText = ""
+        Me.AddedByTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.AddedByTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.AddedByTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddedByTxtBox.DisabledState.Parent = Me.AddedByTxtBox
+        Me.AddedByTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddedByTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AddedByTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddedByTxtBox.FocusedState.Parent = Me.AddedByTxtBox
+        Me.AddedByTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddedByTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddedByTxtBox.HoverState.Parent = Me.AddedByTxtBox
+        Me.AddedByTxtBox.Location = New System.Drawing.Point(446, 24)
+        Me.AddedByTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.AddedByTxtBox.Name = "AddedByTxtBox"
+        Me.AddedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.AddedByTxtBox.PlaceholderText = ""
+        Me.AddedByTxtBox.SelectedText = ""
+        Me.AddedByTxtBox.ShadowDecoration.Parent = Me.AddedByTxtBox
+        Me.AddedByTxtBox.Size = New System.Drawing.Size(219, 26)
+        Me.AddedByTxtBox.TabIndex = 47
         '
         'Label16
         '
@@ -354,31 +354,31 @@ Partial Class InventoryViewModal
         Me.Label16.TabIndex = 46
         Me.Label16.Text = "Added By"
         '
-        'Guna2TextBox5
+        'DateAddedTxtBox
         '
-        Me.Guna2TextBox5.BorderRadius = 4
-        Me.Guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox5.DefaultText = ""
-        Me.Guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox5.DisabledState.Parent = Me.Guna2TextBox5
-        Me.Guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox5.FocusedState.Parent = Me.Guna2TextBox5
-        Me.Guna2TextBox5.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox5.HoverState.Parent = Me.Guna2TextBox5
-        Me.Guna2TextBox5.Location = New System.Drawing.Point(224, 24)
-        Me.Guna2TextBox5.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox5.Name = "Guna2TextBox5"
-        Me.Guna2TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox5.PlaceholderText = ""
-        Me.Guna2TextBox5.SelectedText = ""
-        Me.Guna2TextBox5.ShadowDecoration.Parent = Me.Guna2TextBox5
-        Me.Guna2TextBox5.Size = New System.Drawing.Size(218, 26)
-        Me.Guna2TextBox5.TabIndex = 45
+        Me.DateAddedTxtBox.BorderRadius = 4
+        Me.DateAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DateAddedTxtBox.DefaultText = ""
+        Me.DateAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateAddedTxtBox.DisabledState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DateAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DateAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateAddedTxtBox.FocusedState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DateAddedTxtBox.HoverState.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Location = New System.Drawing.Point(224, 24)
+        Me.DateAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DateAddedTxtBox.Name = "DateAddedTxtBox"
+        Me.DateAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DateAddedTxtBox.PlaceholderText = ""
+        Me.DateAddedTxtBox.SelectedText = ""
+        Me.DateAddedTxtBox.ShadowDecoration.Parent = Me.DateAddedTxtBox
+        Me.DateAddedTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.DateAddedTxtBox.TabIndex = 45
         '
         'Label14
         '
@@ -415,31 +415,31 @@ Partial Class InventoryViewModal
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "Restock Date"
         '
-        'Guna2TextBox6
+        'RestockDateTxtBox
         '
-        Me.Guna2TextBox6.BorderRadius = 4
-        Me.Guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox6.DefaultText = ""
-        Me.Guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.Parent = Me.Guna2TextBox6
-        Me.Guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox6.FocusedState.Parent = Me.Guna2TextBox6
-        Me.Guna2TextBox6.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox6.HoverState.Parent = Me.Guna2TextBox6
-        Me.Guna2TextBox6.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox6.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox6.Name = "Guna2TextBox6"
-        Me.Guna2TextBox6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox6.PlaceholderText = ""
-        Me.Guna2TextBox6.SelectedText = ""
-        Me.Guna2TextBox6.ShadowDecoration.Parent = Me.Guna2TextBox6
-        Me.Guna2TextBox6.Size = New System.Drawing.Size(218, 26)
-        Me.Guna2TextBox6.TabIndex = 21
+        Me.RestockDateTxtBox.BorderRadius = 4
+        Me.RestockDateTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.RestockDateTxtBox.DefaultText = ""
+        Me.RestockDateTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.RestockDateTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.RestockDateTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.RestockDateTxtBox.DisabledState.Parent = Me.RestockDateTxtBox
+        Me.RestockDateTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.RestockDateTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.RestockDateTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RestockDateTxtBox.FocusedState.Parent = Me.RestockDateTxtBox
+        Me.RestockDateTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RestockDateTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RestockDateTxtBox.HoverState.Parent = Me.RestockDateTxtBox
+        Me.RestockDateTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.RestockDateTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.RestockDateTxtBox.Name = "RestockDateTxtBox"
+        Me.RestockDateTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.RestockDateTxtBox.PlaceholderText = ""
+        Me.RestockDateTxtBox.SelectedText = ""
+        Me.RestockDateTxtBox.ShadowDecoration.Parent = Me.RestockDateTxtBox
+        Me.RestockDateTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.RestockDateTxtBox.TabIndex = 21
         '
         'Guna2Separator3
         '
@@ -481,10 +481,10 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel5.ColumnCount = 2
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Guna2TextBox3, 1, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.QuantityTxtBox, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label9, 1, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Guna2Panel8, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Guna2TextBox2, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.CostPerItemTxtBox, 0, 1)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -494,31 +494,31 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel5.TabIndex = 13
         '
-        'Guna2TextBox3
+        'QuantityTxtBox
         '
-        Me.Guna2TextBox3.BorderRadius = 4
-        Me.Guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox3.DefaultText = ""
-        Me.Guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox3.DisabledState.Parent = Me.Guna2TextBox3
-        Me.Guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox3.FocusedState.Parent = Me.Guna2TextBox3
-        Me.Guna2TextBox3.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox3.HoverState.Parent = Me.Guna2TextBox3
-        Me.Guna2TextBox3.Location = New System.Drawing.Point(335, 24)
-        Me.Guna2TextBox3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox3.Name = "Guna2TextBox3"
-        Me.Guna2TextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox3.PlaceholderText = ""
-        Me.Guna2TextBox3.SelectedText = ""
-        Me.Guna2TextBox3.ShadowDecoration.Parent = Me.Guna2TextBox3
-        Me.Guna2TextBox3.Size = New System.Drawing.Size(330, 26)
-        Me.Guna2TextBox3.TabIndex = 45
+        Me.QuantityTxtBox.BorderRadius = 4
+        Me.QuantityTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.QuantityTxtBox.DefaultText = ""
+        Me.QuantityTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.QuantityTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.QuantityTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityTxtBox.DisabledState.Parent = Me.QuantityTxtBox
+        Me.QuantityTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.QuantityTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityTxtBox.FocusedState.Parent = Me.QuantityTxtBox
+        Me.QuantityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuantityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityTxtBox.HoverState.Parent = Me.QuantityTxtBox
+        Me.QuantityTxtBox.Location = New System.Drawing.Point(335, 24)
+        Me.QuantityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.QuantityTxtBox.Name = "QuantityTxtBox"
+        Me.QuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.QuantityTxtBox.PlaceholderText = ""
+        Me.QuantityTxtBox.SelectedText = ""
+        Me.QuantityTxtBox.ShadowDecoration.Parent = Me.QuantityTxtBox
+        Me.QuantityTxtBox.Size = New System.Drawing.Size(330, 26)
+        Me.QuantityTxtBox.TabIndex = 45
         '
         'Label9
         '
@@ -555,31 +555,31 @@ Partial Class InventoryViewModal
         Me.Label11.TabIndex = 16
         Me.Label11.Text = "Cost per item"
         '
-        'Guna2TextBox2
+        'CostPerItemTxtBox
         '
-        Me.Guna2TextBox2.BorderRadius = 4
-        Me.Guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox2.DefaultText = ""
-        Me.Guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox2.DisabledState.Parent = Me.Guna2TextBox2
-        Me.Guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox2.FocusedState.Parent = Me.Guna2TextBox2
-        Me.Guna2TextBox2.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox2.HoverState.Parent = Me.Guna2TextBox2
-        Me.Guna2TextBox2.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox2.Name = "Guna2TextBox2"
-        Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox2.PlaceholderText = ""
-        Me.Guna2TextBox2.SelectedText = ""
-        Me.Guna2TextBox2.ShadowDecoration.Parent = Me.Guna2TextBox2
-        Me.Guna2TextBox2.Size = New System.Drawing.Size(329, 26)
-        Me.Guna2TextBox2.TabIndex = 21
+        Me.CostPerItemTxtBox.BorderRadius = 4
+        Me.CostPerItemTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CostPerItemTxtBox.DefaultText = ""
+        Me.CostPerItemTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CostPerItemTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CostPerItemTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CostPerItemTxtBox.DisabledState.Parent = Me.CostPerItemTxtBox
+        Me.CostPerItemTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CostPerItemTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CostPerItemTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CostPerItemTxtBox.FocusedState.Parent = Me.CostPerItemTxtBox
+        Me.CostPerItemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CostPerItemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CostPerItemTxtBox.HoverState.Parent = Me.CostPerItemTxtBox
+        Me.CostPerItemTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.CostPerItemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CostPerItemTxtBox.Name = "CostPerItemTxtBox"
+        Me.CostPerItemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CostPerItemTxtBox.PlaceholderText = ""
+        Me.CostPerItemTxtBox.SelectedText = ""
+        Me.CostPerItemTxtBox.ShadowDecoration.Parent = Me.CostPerItemTxtBox
+        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(329, 26)
+        Me.CostPerItemTxtBox.TabIndex = 21
         '
         'Guna2Panel6
         '
@@ -597,10 +597,10 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel3.ColumnCount = 2
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Guna2TextBox4, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.PhysicalLocationTxtBox, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Guna2Panel9, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Guna2Panel3, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Guna2TextBox1, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.SerialNumberTxtBox, 0, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -610,31 +610,31 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel3.TabIndex = 13
         '
-        'Guna2TextBox4
+        'PhysicalLocationTxtBox
         '
-        Me.Guna2TextBox4.BorderRadius = 4
-        Me.Guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox4.DefaultText = ""
-        Me.Guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox4.DisabledState.Parent = Me.Guna2TextBox4
-        Me.Guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox4.FocusedState.Parent = Me.Guna2TextBox4
-        Me.Guna2TextBox4.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox4.HoverState.Parent = Me.Guna2TextBox4
-        Me.Guna2TextBox4.Location = New System.Drawing.Point(335, 24)
-        Me.Guna2TextBox4.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox4.Name = "Guna2TextBox4"
-        Me.Guna2TextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox4.PlaceholderText = ""
-        Me.Guna2TextBox4.SelectedText = ""
-        Me.Guna2TextBox4.ShadowDecoration.Parent = Me.Guna2TextBox4
-        Me.Guna2TextBox4.Size = New System.Drawing.Size(330, 26)
-        Me.Guna2TextBox4.TabIndex = 45
+        Me.PhysicalLocationTxtBox.BorderRadius = 4
+        Me.PhysicalLocationTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.PhysicalLocationTxtBox.DefaultText = ""
+        Me.PhysicalLocationTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.PhysicalLocationTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.PhysicalLocationTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PhysicalLocationTxtBox.DisabledState.Parent = Me.PhysicalLocationTxtBox
+        Me.PhysicalLocationTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PhysicalLocationTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PhysicalLocationTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PhysicalLocationTxtBox.FocusedState.Parent = Me.PhysicalLocationTxtBox
+        Me.PhysicalLocationTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhysicalLocationTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PhysicalLocationTxtBox.HoverState.Parent = Me.PhysicalLocationTxtBox
+        Me.PhysicalLocationTxtBox.Location = New System.Drawing.Point(335, 24)
+        Me.PhysicalLocationTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.PhysicalLocationTxtBox.Name = "PhysicalLocationTxtBox"
+        Me.PhysicalLocationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PhysicalLocationTxtBox.PlaceholderText = ""
+        Me.PhysicalLocationTxtBox.SelectedText = ""
+        Me.PhysicalLocationTxtBox.ShadowDecoration.Parent = Me.PhysicalLocationTxtBox
+        Me.PhysicalLocationTxtBox.Size = New System.Drawing.Size(330, 26)
+        Me.PhysicalLocationTxtBox.TabIndex = 45
         '
         'Guna2Panel9
         '
@@ -708,31 +708,31 @@ Partial Class InventoryViewModal
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Serial Number"
         '
-        'Guna2TextBox1
+        'SerialNumberTxtBox
         '
-        Me.Guna2TextBox1.BorderRadius = 4
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.HoverState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(2, 24)
-        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = ""
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShadowDecoration.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(329, 26)
-        Me.Guna2TextBox1.TabIndex = 21
+        Me.SerialNumberTxtBox.BorderRadius = 4
+        Me.SerialNumberTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SerialNumberTxtBox.DefaultText = ""
+        Me.SerialNumberTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SerialNumberTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SerialNumberTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SerialNumberTxtBox.DisabledState.Parent = Me.SerialNumberTxtBox
+        Me.SerialNumberTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SerialNumberTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SerialNumberTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SerialNumberTxtBox.FocusedState.Parent = Me.SerialNumberTxtBox
+        Me.SerialNumberTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SerialNumberTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SerialNumberTxtBox.HoverState.Parent = Me.SerialNumberTxtBox
+        Me.SerialNumberTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.SerialNumberTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.SerialNumberTxtBox.Name = "SerialNumberTxtBox"
+        Me.SerialNumberTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SerialNumberTxtBox.PlaceholderText = ""
+        Me.SerialNumberTxtBox.SelectedText = ""
+        Me.SerialNumberTxtBox.ShadowDecoration.Parent = Me.SerialNumberTxtBox
+        Me.SerialNumberTxtBox.Size = New System.Drawing.Size(329, 26)
+        Me.SerialNumberTxtBox.TabIndex = 21
         '
         'Guna2Panel4
         '
@@ -1160,32 +1160,32 @@ Partial Class InventoryViewModal
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Guna2Panel10 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
-    Friend WithEvents Guna2TextBox7 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents AddedByTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents Guna2TextBox5 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DateAddedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Guna2Panel11 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label15 As Label
-    Friend WithEvents Guna2TextBox6 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents RestockDateTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents Guna2TextBox3 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents QuantityTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label11 As Label
-    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents CostPerItemTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents PhysicalLocationTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel9 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SerialNumberTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents SelectSupplierBtn As Guna.UI2.WinForms.Guna2Button
@@ -1210,11 +1210,11 @@ Partial Class InventoryViewModal
     Friend WithEvents ItemNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel12 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents Guna2TextBox8 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DateArchivedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents Guna2TextBox9 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ArchivedByTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Guna2Panel13 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label19 As Label
-    Friend WithEvents Guna2TextBox10 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ArchivedTxtBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

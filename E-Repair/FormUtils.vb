@@ -383,7 +383,6 @@ Public Class FormUtils
             Dim imgPath As String = imgData(1)
             Dim imgFolderName As String = imgData(2)
 
-
             If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
 
                 Dim savedPath = SaveImgToLocal(imgPath, imgFolderName, True)

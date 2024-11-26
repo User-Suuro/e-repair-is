@@ -1,7 +1,6 @@
 ﻿Public Class ServiceClaimModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
-
     Public Property selectedID As Integer = -1
 
 
