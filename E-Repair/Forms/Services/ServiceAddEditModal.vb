@@ -58,7 +58,7 @@ Public Class ServiceAddEditModal
             Exit Sub
         End If
 
-        Dim servDt As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID)
+        Dim servDt As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcIDStr, selectedID)
 
         If servDt.Rows.Count = 0 Then Exit Sub
 
@@ -327,5 +327,7 @@ Public Class ServiceAddEditModal
         Me.Close()
     End Sub
 
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
+    End Sub
 End Class
