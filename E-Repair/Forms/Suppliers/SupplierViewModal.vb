@@ -7,15 +7,16 @@ Public Class SupplierViewModal
 
     Public Property selectedID As Integer = -1
     Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
+            Exit Sub
+        End If
+
         InitValues()
     End Sub
 
     Private Sub InitValues()
-
-        If selectedID = -1 Then
-            MsgBox("Cannot view with empty values")
-            Me.Close()
-        End If
 
         Dim suppDT As DataTable = dbHelper.GetRowByValue(supConstants.supTableStr, supConstants.supIDStr, selectedID)
 
@@ -51,11 +52,8 @@ Public Class SupplierViewModal
     End Sub
 
     Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
-        If selectedID = -1 Then Exit Sub
 
     End Sub
 
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
 
-    End Sub
 End Class

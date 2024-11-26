@@ -491,4 +491,15 @@ Public Class FormUtils
             MsgBox("Failed to save / edit row: " & ex.Message)
         End Try
     End Sub
+
+
+    Public Function checkIfLoad(selectedID As Integer) As Boolean
+
+        If selectedID = -1 Then
+            MsgBox("You cannot modify this row without active value")
+            Return False
+        End If
+
+        Return True
+    End Function
 End Class

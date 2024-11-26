@@ -41,32 +41,6 @@ Public Class ServiceAddEditModal
     Public Property selectedID As Integer = -1
     Public Property deviceImgPath As String = ""
 
-    Private Sub InitCustCount(custID As Integer)
-        pending_commission = formUtils.getCustStatusNumber(constants.getPendingString, custID)
-        onhold_commission = formUtils.getCustStatusNumber(constants.getOnholdString, custID)
-        canceled_commission = formUtils.getCustStatusNumber(constants.getCanceledString, custID)
-        completed_commission = formUtils.getCustStatusNumber(constants.getFinishedString, custID)
-        total_commision = pending_commission + onhold_commission + canceled_commission + completed_commission
-    End Sub
-
-    Private Sub InitTechCount(techID As Integer)
-        techNumberFinishedServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
-        techNumberPendingServices = formUtils.getTechStatsNumbers(constants.getPendingString, techID)
-        techNumberCanceledServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
-        techNumberOnholdServices = formUtils.getTechStatsNumbers(constants.getOnholdString, techID)
-        total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
-    End Sub
-
-    ' BTN SAVE
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        formUtils.SaveEvent(editMode, AddressOf AddDataFunction, AddressOf EditDataFunction)
-    End Sub
-
-    ' CLOSE
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
-    End Sub
-
     ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbDs(-1)
@@ -75,8 +49,9 @@ Public Class ServiceAddEditModal
 
     ' LOAD DATA
     Private Sub LoadData()
-        If selectedID = -1 Then
-            MsgBox("Cannot edit with empty values")
+
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
             Exit Sub
         End If
 
@@ -243,6 +218,23 @@ Public Class ServiceAddEditModal
         PendingWorkTxtBox.Text = techNumberPendingServices
     End Sub
 
+    Private Sub InitCustCount(custID As Integer)
+        pending_commission = formUtils.getCustStatusNumber(constants.getPendingString, custID)
+        onhold_commission = formUtils.getCustStatusNumber(constants.getOnholdString, custID)
+        canceled_commission = formUtils.getCustStatusNumber(constants.getCanceledString, custID)
+        completed_commission = formUtils.getCustStatusNumber(constants.getFinishedString, custID)
+        total_commision = pending_commission + onhold_commission + canceled_commission + completed_commission
+    End Sub
+
+    Private Sub InitTechCount(techID As Integer)
+        techNumberFinishedServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
+        techNumberPendingServices = formUtils.getTechStatsNumbers(constants.getPendingString, techID)
+        techNumberCanceledServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
+        techNumberOnholdServices = formUtils.getTechStatsNumbers(constants.getOnholdString, techID)
+        total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
+    End Sub
+
+
     'DEVICE BRAND
     Private Sub DeviceBrandTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceBrandTxtBox.TextChanged
         deviceBrand = DeviceBrandTxtBox.Text
@@ -322,7 +314,14 @@ Public Class ServiceAddEditModal
         End If
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
-
+    ' BTN SAVE
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        formUtils.SaveEvent(editMode, AddressOf AddDataFunction, AddressOf EditDataFunction)
     End Sub
+
+    ' CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
 End Class

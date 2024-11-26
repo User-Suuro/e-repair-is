@@ -23,7 +23,7 @@ Partial Class ServiceEvaluationModal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceEvaluationModal))
-        Me.GenerateReceiptBtn = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Groupbox = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -39,16 +39,16 @@ Partial Class ServiceEvaluationModal
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.RepairStatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.DateCompletedDTP = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.TechnicianFeeTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DeviceTypeCmbBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.DateCompletedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.GenerateReceiptBtn.SuspendLayout()
+        Me.Groupbox.SuspendLayout()
         CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -58,25 +58,25 @@ Partial Class ServiceEvaluationModal
         Me.RepairStatusTableLayout.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GenerateReceiptBtn
+        'Groupbox
         '
-        Me.GenerateReceiptBtn.Controls.Add(Me.DeviceCirclePictureBox)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel2)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel8)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Panel7)
-        Me.GenerateReceiptBtn.Controls.Add(Me.BtnSave)
-        Me.GenerateReceiptBtn.Controls.Add(Me.BtnClose)
-        Me.GenerateReceiptBtn.Controls.Add(Me.Guna2Separator1)
-        Me.GenerateReceiptBtn.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GenerateReceiptBtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GenerateReceiptBtn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GenerateReceiptBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.GenerateReceiptBtn.Location = New System.Drawing.Point(0, 0)
-        Me.GenerateReceiptBtn.Name = "GenerateReceiptBtn"
-        Me.GenerateReceiptBtn.ShadowDecoration.Parent = Me.GenerateReceiptBtn
-        Me.GenerateReceiptBtn.Size = New System.Drawing.Size(986, 313)
-        Me.GenerateReceiptBtn.TabIndex = 3
-        Me.GenerateReceiptBtn.Text = "Technician Service Evaluation"
+        Me.Groupbox.Controls.Add(Me.DeviceCirclePictureBox)
+        Me.Groupbox.Controls.Add(Me.Guna2Panel2)
+        Me.Groupbox.Controls.Add(Me.Guna2Panel8)
+        Me.Groupbox.Controls.Add(Me.Guna2Panel7)
+        Me.Groupbox.Controls.Add(Me.BtnSave)
+        Me.Groupbox.Controls.Add(Me.BtnClose)
+        Me.Groupbox.Controls.Add(Me.Guna2Separator1)
+        Me.Groupbox.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Groupbox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Groupbox.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Groupbox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.Groupbox.Location = New System.Drawing.Point(0, 0)
+        Me.Groupbox.Name = "Groupbox"
+        Me.Groupbox.ShadowDecoration.Parent = Me.Groupbox
+        Me.Groupbox.Size = New System.Drawing.Size(986, 313)
+        Me.Groupbox.TabIndex = 3
+        Me.Groupbox.Text = "Technician Service Evaluation"
         '
         'DeviceCirclePictureBox
         '
@@ -320,10 +320,10 @@ Partial Class ServiceEvaluationModal
         Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.RepairStatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.RepairStatusTableLayout.Controls.Add(Me.DateCompletedDTP, 1, 1)
         Me.RepairStatusTableLayout.Controls.Add(Me.TechnicianFeeTxtBox, 2, 1)
         Me.RepairStatusTableLayout.Controls.Add(Me.Label7, 2, 0)
         Me.RepairStatusTableLayout.Controls.Add(Me.DeviceTypeCmbBox, 0, 1)
-        Me.RepairStatusTableLayout.Controls.Add(Me.DateCompletedTxtBox, 1, 1)
         Me.RepairStatusTableLayout.Controls.Add(Me.Label25, 1, 0)
         Me.RepairStatusTableLayout.Controls.Add(Me.Label23, 0, 0)
         Me.RepairStatusTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
@@ -334,6 +334,27 @@ Partial Class ServiceEvaluationModal
         Me.RepairStatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.RepairStatusTableLayout.Size = New System.Drawing.Size(816, 53)
         Me.RepairStatusTableLayout.TabIndex = 8
+        '
+        'DateCompletedDTP
+        '
+        Me.DateCompletedDTP.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.DateCompletedDTP.BorderRadius = 4
+        Me.DateCompletedDTP.BorderThickness = 1
+        Me.DateCompletedDTP.CheckedState.Parent = Me.DateCompletedDTP
+        Me.DateCompletedDTP.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DateCompletedDTP.FillColor = System.Drawing.Color.White
+        Me.DateCompletedDTP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateCompletedDTP.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.DateCompletedDTP.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DateCompletedDTP.HoverState.Parent = Me.DateCompletedDTP
+        Me.DateCompletedDTP.Location = New System.Drawing.Point(275, 24)
+        Me.DateCompletedDTP.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateCompletedDTP.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateCompletedDTP.Name = "DateCompletedDTP"
+        Me.DateCompletedDTP.ShadowDecoration.Parent = Me.DateCompletedDTP
+        Me.DateCompletedDTP.Size = New System.Drawing.Size(266, 25)
+        Me.DateCompletedDTP.TabIndex = 61
+        Me.DateCompletedDTP.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
         'TechnicianFeeTxtBox
         '
@@ -393,33 +414,6 @@ Partial Class ServiceEvaluationModal
         Me.DeviceTypeCmbBox.ShadowDecoration.Parent = Me.DeviceTypeCmbBox
         Me.DeviceTypeCmbBox.Size = New System.Drawing.Size(266, 26)
         Me.DeviceTypeCmbBox.TabIndex = 44
-        '
-        'DateCompletedTxtBox
-        '
-        Me.DateCompletedTxtBox.BorderRadius = 4
-        Me.DateCompletedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.DateCompletedTxtBox.DefaultText = ""
-        Me.DateCompletedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateCompletedTxtBox.DisabledState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DateCompletedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DateCompletedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateCompletedTxtBox.FocusedState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateCompletedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateCompletedTxtBox.HoverState.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Location = New System.Drawing.Point(274, 24)
-        Me.DateCompletedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.DateCompletedTxtBox.Name = "DateCompletedTxtBox"
-        Me.DateCompletedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DateCompletedTxtBox.PlaceholderText = ""
-        Me.DateCompletedTxtBox.ReadOnly = True
-        Me.DateCompletedTxtBox.SelectedText = ""
-        Me.DateCompletedTxtBox.ShadowDecoration.Parent = Me.DateCompletedTxtBox
-        Me.DateCompletedTxtBox.Size = New System.Drawing.Size(268, 26)
-        Me.DateCompletedTxtBox.TabIndex = 43
         '
         'Label25
         '
@@ -488,13 +482,13 @@ Partial Class ServiceEvaluationModal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(986, 313)
-        Me.Controls.Add(Me.GenerateReceiptBtn)
+        Me.Controls.Add(Me.Groupbox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ServiceEvaluationModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ServiceRepairResult"
         Me.TopMost = True
-        Me.GenerateReceiptBtn.ResumeLayout(False)
+        Me.Groupbox.ResumeLayout(False)
         CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -509,7 +503,7 @@ Partial Class ServiceEvaluationModal
 
     End Sub
 
-    Friend WithEvents GenerateReceiptBtn As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents Groupbox As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents DeviceCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
@@ -525,7 +519,6 @@ Partial Class ServiceEvaluationModal
     Friend WithEvents Label31 As Label
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents RepairStatusTableLayout As TableLayoutPanel
-    Friend WithEvents DateCompletedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label25 As Label
     Friend WithEvents Label23 As Label
     Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
@@ -534,4 +527,5 @@ Partial Class ServiceEvaluationModal
     Friend WithEvents DeviceTypeCmbBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents TechnicianFeeTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents DateCompletedDTP As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class

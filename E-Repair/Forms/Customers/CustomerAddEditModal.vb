@@ -4,6 +4,7 @@ Public Class CustomerAddEditModal
     Dim formModal As New Form
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
+
     Dim constants As New Constants
     Dim custConst As New CustomersDBConstants
 
@@ -23,13 +24,16 @@ Public Class CustomerAddEditModal
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1)
 
-        If selectedID = -1 Then Exit Sub
-
-        InitValues()
+        If editMode Then InitValues()
     End Sub
 
     ' INIT VALUES
     Private Sub InitValues()
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
+            Exit Sub
+        End If
+
         Dim custDt As DataTable = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, selectedID)
 
         If custDt.Rows.Count = 0 Then Exit Sub

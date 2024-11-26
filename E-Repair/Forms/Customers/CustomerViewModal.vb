@@ -12,9 +12,9 @@
 
     Private Sub CustomerViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        If selectedID = -1 Then
-            MsgBox("Cannot view with empty values")
+        If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
+            Exit Sub
         End If
 
         Dim custDt As DataTable = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custIDStr, selectedID)

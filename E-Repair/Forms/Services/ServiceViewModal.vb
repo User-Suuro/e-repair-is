@@ -25,9 +25,9 @@ Public Class ServiceViewModal
     Private deviceImgPath As String = ""
 
     Private Sub ServiceViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If selectedID = -1 Then
-            MsgBox("Cannot view with empty values")
+        If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
+            Exit Sub
         End If
 
         Dim serviceDT As DataTable = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcIDStr, selectedID)
@@ -110,4 +110,6 @@ Public Class ServiceViewModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
+
 End Class

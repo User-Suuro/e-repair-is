@@ -30,11 +30,15 @@ Public Class SupplierAddEditModal
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1)
-        InitData()
+        If editMode Then InitData()
     End Sub
 
     Private Sub InitData()
-        If selectedID = -1 Then Exit Sub
+
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
+            Exit Sub
+        End If
 
         SupplierModalGroupBox.Text = "Edit Supplier"
 

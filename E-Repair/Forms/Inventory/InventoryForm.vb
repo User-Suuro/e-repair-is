@@ -1,18 +1,32 @@
 ﻿Public Class InventoryForm
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-    End Sub
 
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+
+    Private Sub ViewEmployeeBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
 
     End Sub
 
+    Private Sub AddEmployeeBtn_Click(sender As Object, e As EventArgs) Handles AddEmployeeBtn.Click
 
+    End Sub
 
+    Private Sub EditEmployeeBtn_Click(sender As Object, e As EventArgs) Handles EditEmployeeBtn.Click
 
+    End Sub
+
+    Private Sub ArchiveEmployeeBtn_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
+
+    End Sub
+
+    Private Sub DeleteEmployeeBtn_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
+
+    End Sub
+
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+
+    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()

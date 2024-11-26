@@ -18,8 +18,8 @@ Public Class EmployeeViewModal
 
     Private Sub loadValues()
 
-        If selectedID = -1 Then
-            MsgBox("Cannot view with empty values")
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Exit Sub
             Me.Close()
         End If
 
@@ -119,5 +119,7 @@ Public Class EmployeeViewModal
         Me.Close()
     End Sub
 
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
+    End Sub
 End Class

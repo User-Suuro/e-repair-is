@@ -46,12 +46,16 @@ Public Class EmployeeAddEditModal
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1, -1)
-        loadValues()
+        If editMode Then loadValues()
     End Sub
 
     ' EDIT MODE
     Private Sub loadValues()
-        If selectedID = -1 Then Exit Sub
+
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
+            Exit Sub
+        End If
 
         EmployeeModalGroupBox.Text = "Edit Employee"
 
