@@ -374,6 +374,8 @@ Public Class FormUtils
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to add this data")) Then Return False
 
+        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
+
         ' Check if imgData is provided and has sufficient data
         If imgData IsNot Nothing Then
 
@@ -391,7 +393,6 @@ Public Class FormUtils
             End If
         End If
 
-        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
 
         If dbHelper.InsertRecord(dbTable, payload) Then
             MsgBox("Successfully Added")
@@ -409,6 +410,8 @@ Public Class FormUtils
         ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
 
+        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
+
         ' Check if imgData is provided and has sufficient data
         If imgData IsNot Nothing Then
             If Not AreAllListValuesFilled(imgData) Then Return False
@@ -424,8 +427,6 @@ Public Class FormUtils
 
             End If
         End If
-
-        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
 
         If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
             MsgBox("Successfully Edited")
