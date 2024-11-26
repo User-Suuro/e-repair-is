@@ -114,12 +114,6 @@ Public Class EmployeeAddEditModal
 
     ' CREATE EMPLOYEE
     Private Sub CreateEmpFunction()
-        ' Exception
-        If password.Trim() = "" Then
-            MsgBox("Please fill necessary details")
-            Exit Sub
-        End If
-
         With empConst
             Dim insertData As New Dictionary(Of String, Object) From {
                 { .empMidStr, middleName}, ' Exception
@@ -143,24 +137,23 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                    { .empAdminPosStr, adminPosition}
-            }
-
-            Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                    { .empDestStr, personnelDestination}
-            }
-
             If jobType = constants.getAdminString Then
                 ' Admin
-                If Not formUtils.AreAllDictValuesFilled(updateAdminValues) Then Exit Sub
+                Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                    { .empAdminPosStr, adminPosition}
+                }
+
                 For Each kvp In updateAdminValues
                     insertData.Add(kvp.Key, kvp.Value)
                 Next
 
             ElseIf jobType = constants.getUtilityPersonnelString Then
                 ' Utility
-                If Not formUtils.AreAllDictValuesFilled(updateUtilityValues) Then Exit Sub
+
+                Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                    { .empDestStr, personnelDestination}
+                }
+
                 For Each kvp In updateUtilityValues
                     insertData.Add(kvp.Key, kvp.Value)
                 Next
@@ -180,10 +173,7 @@ Public Class EmployeeAddEditModal
     End Sub
 
     Private Sub EditEmpFunction()
-
-
         With empConst
-
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .empSSSStr, sss},' Optional
                 { .empPagibigStr, pagibig}, ' Optional
@@ -204,27 +194,28 @@ Public Class EmployeeAddEditModal
             }
             ' UDPDATE FOREIGN VALUES
 
-            Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                    { .empAdminPosStr, adminPosition}
-            }
-
-            Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                    { .empDestStr, personnelDestination}
-            }
-
             If jobType = constants.getAdminString Then
                 ' Admin
-                If Not formUtils.AreAllDictValuesFilled(updateAdminValues) Then Exit Sub
+
+                Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                    { .empAdminPosStr, adminPosition}
+                }
+
                 For Each kvp In updateAdminValues
                     updateData.Add(kvp.Key, kvp.Value)
                 Next
 
             ElseIf jobType = constants.getUtilityPersonnelString Then
+
                 ' Utility
-                If Not formUtils.AreAllDictValuesFilled(updateUtilityValues) Then Exit Sub
+                Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                    { .empDestStr, personnelDestination}
+                }
+
                 For Each kvp In updateUtilityValues
                     updateData.Add(kvp.Key, kvp.Value)
                 Next
+
             End If
 
 
@@ -257,6 +248,11 @@ Public Class EmployeeAddEditModal
 
         If confirmPassword <> password Then
             MsgBox("The confirmed password does not match")
+            Exit Sub
+        End If
+
+        If password.Trim() = "" Then
+            MsgBox("Please fill necessary details")
             Exit Sub
         End If
 
