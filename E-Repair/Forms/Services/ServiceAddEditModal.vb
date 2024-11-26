@@ -6,8 +6,10 @@ Public Class ServiceAddEditModal
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
     Dim formModal As New Form
+
     Dim servConst As New ServiceDBConstants
     Dim empConst As New EmployeesDBConstants
+    Dim custConst As New CustomersDBConstants
 
 
     Private serviceID As Integer = -1
@@ -169,7 +171,7 @@ Public Class ServiceAddEditModal
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
-                   modal.customersDt = dbHelper.GetAllData(servConst.custIDStr)
+                   modal.customersDt = dbHelper.GetAllData(custConst.custTableStr)
                    Return modal
                End Function,
                -1,

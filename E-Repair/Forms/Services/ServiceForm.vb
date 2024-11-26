@@ -29,6 +29,7 @@ Public Class ServiceForm
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
+        ServiceDGV.ClearSelection()
         loadUserDisplay()
     End Sub
 

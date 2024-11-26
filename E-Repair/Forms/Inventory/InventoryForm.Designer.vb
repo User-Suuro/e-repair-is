@@ -22,10 +22,10 @@ Partial Class InventoryForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.SeeSuppliedItemsDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.InventoryDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ITEM_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SUPPLIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,76 +60,76 @@ Partial Class InventoryForm
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        CType(Me.SeeSuppliedItemsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'SeeSuppliedItemsDGV
+        'InventoryDGV
         '
-        Me.SeeSuppliedItemsDGV.AllowUserToAddRows = False
-        Me.SeeSuppliedItemsDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle22
-        Me.SeeSuppliedItemsDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.InventoryDGV.AllowUserToAddRows = False
+        Me.InventoryDGV.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.InventoryDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.InventoryDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SeeSuppliedItemsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.SeeSuppliedItemsDGV.BackgroundColor = System.Drawing.Color.White
-        Me.SeeSuppliedItemsDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.SeeSuppliedItemsDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.SeeSuppliedItemsDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle23.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SeeSuppliedItemsDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle23
-        Me.SeeSuppliedItemsDGV.ColumnHeadersHeight = 48
-        Me.SeeSuppliedItemsDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_ID, Me.SERVICE_ID, Me.SUPPLIER_ID, Me.ITEM_CATEGORY, Me.ITEM_NAME, Me.ITEM_DESCRIPTION, Me.SERIAL_NUMBER, Me.HAZARDOUS_CLASSIFICATION, Me.QUANTITY, Me.TOTAL_VALUE, Me.ITEM_STATUS, Me.PHYSICAL_LOCATION, Me.RESTOCK_DATE, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle24.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.SeeSuppliedItemsDGV.DefaultCellStyle = DataGridViewCellStyle24
-        Me.SeeSuppliedItemsDGV.EnableHeadersVisualStyles = False
-        Me.SeeSuppliedItemsDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.Location = New System.Drawing.Point(27, 55)
-        Me.SeeSuppliedItemsDGV.Name = "SeeSuppliedItemsDGV"
-        Me.SeeSuppliedItemsDGV.ReadOnly = True
-        Me.SeeSuppliedItemsDGV.RowHeadersVisible = False
-        Me.SeeSuppliedItemsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SeeSuppliedItemsDGV.Size = New System.Drawing.Size(960, 494)
-        Me.SeeSuppliedItemsDGV.TabIndex = 37
-        Me.SeeSuppliedItemsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
-        Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.SeeSuppliedItemsDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.SeeSuppliedItemsDGV.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.SeeSuppliedItemsDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.SeeSuppliedItemsDGV.ThemeStyle.HeaderStyle.Height = 48
-        Me.SeeSuppliedItemsDGV.ThemeStyle.ReadOnly = True
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.Height = 22
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        Me.SeeSuppliedItemsDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        Me.InventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.InventoryDGV.BackgroundColor = System.Drawing.Color.White
+        Me.InventoryDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.InventoryDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.InventoryDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.InventoryDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.InventoryDGV.ColumnHeadersHeight = 48
+        Me.InventoryDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_ID, Me.SERVICE_ID, Me.SUPPLIER_ID, Me.ITEM_CATEGORY, Me.ITEM_NAME, Me.ITEM_DESCRIPTION, Me.SERIAL_NUMBER, Me.HAZARDOUS_CLASSIFICATION, Me.QUANTITY, Me.TOTAL_VALUE, Me.ITEM_STATUS, Me.PHYSICAL_LOCATION, Me.RESTOCK_DATE, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.InventoryDGV.DefaultCellStyle = DataGridViewCellStyle3
+        Me.InventoryDGV.EnableHeadersVisualStyles = False
+        Me.InventoryDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.InventoryDGV.Location = New System.Drawing.Point(27, 55)
+        Me.InventoryDGV.Name = "InventoryDGV"
+        Me.InventoryDGV.ReadOnly = True
+        Me.InventoryDGV.RowHeadersVisible = False
+        Me.InventoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.InventoryDGV.Size = New System.Drawing.Size(960, 494)
+        Me.InventoryDGV.TabIndex = 37
+        Me.InventoryDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
+        Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.InventoryDGV.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.InventoryDGV.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.InventoryDGV.ThemeStyle.HeaderStyle.Height = 48
+        Me.InventoryDGV.ThemeStyle.ReadOnly = True
+        Me.InventoryDGV.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.InventoryDGV.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.InventoryDGV.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        Me.InventoryDGV.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
+        Me.InventoryDGV.ThemeStyle.RowsStyle.Height = 22
+        Me.InventoryDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.InventoryDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
         'ITEM_ID
         '
@@ -560,13 +560,13 @@ Partial Class InventoryForm
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Controls.Add(Me.SeeSuppliedItemsDGV)
+        Me.Controls.Add(Me.InventoryDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "InventoryForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminInventoryForm"
         Me.TopMost = True
-        CType(Me.SeeSuppliedItemsDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -576,7 +576,7 @@ Partial Class InventoryForm
 
     End Sub
 
-    Friend WithEvents SeeSuppliedItemsDGV As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents InventoryDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel

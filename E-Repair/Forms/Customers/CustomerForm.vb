@@ -96,9 +96,9 @@ Public Class CustomerForm
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CustomerDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
         LoadDataToDGV()
+        CustomerDGV.ClearSelection()
     End Sub
 
     ' LOAD DATA
@@ -117,7 +117,6 @@ Public Class CustomerForm
             If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
 
             formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
-            formUtils.FormatDGVForArchive(CustomerDGV)
         End With
     End Sub
 
@@ -129,6 +128,7 @@ Public Class CustomerForm
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
+        formUtils.FormatDGVForArchive(CustomerDGV)
         formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub
 
@@ -147,4 +147,6 @@ Public Class CustomerForm
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
+
 End Class

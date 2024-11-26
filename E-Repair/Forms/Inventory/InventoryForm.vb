@@ -1,7 +1,7 @@
 ﻿Public Class InventoryForm
 
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        InventoryDGV.ClearSelection()
     End Sub
 
     Private Sub ViewEmployeeBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
@@ -32,6 +32,10 @@
         Me.Close()
     End Sub
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+
+    End Sub
+
+    Private Sub SeeSuppliedItemsDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles InventoryDGV.CellContentClick
 
     End Sub
 End Class
