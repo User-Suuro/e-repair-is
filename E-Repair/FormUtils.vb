@@ -391,6 +391,8 @@ Public Class FormUtils
             End If
         End If
 
+        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
+
         If dbHelper.InsertRecord(dbTable, payload) Then
             MsgBox("Successfully Added")
             Return True
@@ -423,7 +425,7 @@ Public Class FormUtils
             End If
         End If
 
-        If Not AreAllDictValuesFilled(payload) Then Return False
+        If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
 
         If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
             MsgBox("Successfully Edited")

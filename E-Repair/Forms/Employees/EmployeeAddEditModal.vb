@@ -192,6 +192,7 @@ Public Class EmployeeAddEditModal
                 { .empStatusStr, contractStatus},
                 { .empHiredStr, dateHired}
             }
+
             ' UDPDATE FOREIGN VALUES
 
             If jobType = constants.getAdminString Then
