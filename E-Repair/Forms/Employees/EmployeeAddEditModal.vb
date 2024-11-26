@@ -7,7 +7,9 @@ Public Class EmployeeAddEditModal
     Dim dbUtils As New DbHelper
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
+
     Dim empConst As New EmployeesDBConstants
+    Dim servConst As New ServiceDBConstants
 
     ' CONSTANTS
     Private emailFirstValue As String = ""
@@ -15,6 +17,7 @@ Public Class EmployeeAddEditModal
 
     ' STATES
     Private isEmailDuplicate As Boolean = False
+    Private hasWorkToDo As Boolean = False
 
     ' SCHEMA
     Private firstName As String = ""
@@ -219,12 +222,19 @@ Public Class EmployeeAddEditModal
 
             End If
 
-
             Dim imgData As New List(Of Object) From {
                 .empProfileStr,
                 profileImgPath,
                 constants.getEmpProfileFolderName
             }
+
+            Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedID)
+
+            ' check active work, if has one cannot change job type
+
+            If pendingWork <> 0 Then
+                MsgBox("You cannot change this employee job type because it has " & pendingWork & " pending work to do")
+            End If
 
             If formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, 4, imgData) Then
                 Me.Close()

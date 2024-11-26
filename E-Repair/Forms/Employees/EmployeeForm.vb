@@ -93,6 +93,15 @@
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
         If Not InitData() Then Exit Sub
+
+        If empPosition = constants.getTechnicianString Then
+            Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
+
+            If pendingWork <> 0 Then
+                MsgBox("You cannot archive employee that has " & pendingWork & " pending work")
+            End If
+        End If
+
         formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
