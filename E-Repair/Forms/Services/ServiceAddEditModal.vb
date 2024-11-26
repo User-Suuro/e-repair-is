@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel.Design
+Imports System.IO
 
 Public Class ServiceAddEditModal
     Dim formUtils As New FormUtils
@@ -323,5 +324,6 @@ Public Class ServiceAddEditModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class

@@ -229,7 +229,7 @@ Public Class EmployeeAddEditModal
             }
 
             ' check active work, if has one cannot change job type
-            If .empJobPosStr = constants.getTechnicianString Then
+            If jobType = constants.getTechnicianString Then
                 Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedID)
 
                 If pendingWork <> 0 Then
