@@ -168,10 +168,11 @@ Public Class EmployeeAddEditModal
                 constants.getEmpProfileFolderName
             }
 
-            formUtils.AddRow(.empTableStr, insertData, 4, imgData)
+            If formUtils.AddRow(.empTableStr, insertData, 4, imgData) Then
+                Me.Close()
+            End If
         End With
 
-        Me.Close()
     End Sub
 
     Private Sub EditEmpFunction()
@@ -229,10 +230,11 @@ Public Class EmployeeAddEditModal
                 constants.getEmpProfileFolderName
             }
 
-            formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, 4, imgData)
+            If formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, 4, imgData) Then
+                Me.Close()
+            End If
         End With
 
-        Me.Close()
     End Sub
 
     ' BTN CLOSE

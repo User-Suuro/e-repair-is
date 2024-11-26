@@ -355,6 +355,7 @@ Public Class FormUtils
     End Function
 
     Public Function AreAllListValuesFilled(values As List(Of Object), Optional startingIndex As Integer = 0) As Boolean
+
         For i As Integer = startingIndex To values.Count - 1
             Dim value As Object = values(i) ' Access value by index
             If value Is Nothing OrElse value.ToString().Trim() = "" OrElse value.ToString() = "-1" Then
@@ -374,7 +375,7 @@ Public Class FormUtils
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to add this data")) Then Return False
 
         ' Check if imgData is provided and has sufficient data
-        If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+        If imgData IsNot Nothing Then
 
             If Not AreAllListValuesFilled(imgData) Then Return False
 
@@ -408,7 +409,7 @@ Public Class FormUtils
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to edit data")) Then Return False
 
         ' Check if imgData is provided and has sufficient data
-        If imgData IsNot Nothing AndAlso imgData.Count = 3 Then
+        If imgData IsNot Nothing Then
             If Not AreAllListValuesFilled(imgData) Then Return False
 
             Dim imgColName As String = imgData(0)

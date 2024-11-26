@@ -132,7 +132,6 @@ Public Class ServiceAddEditModal
     Private Sub AddDataFunction()
 
         With servConst
-
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
@@ -151,11 +150,11 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            formUtils.AddRow(.svcTableStr, insertData, 0, imgData)
+            If formUtils.AddRow(.svcTableStr, insertData, 0, imgData) Then
+                Me.Close()
+            End If
 
         End With
-
-        Me.Close()
     End Sub
 
     ' EDIT
@@ -179,7 +178,9 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, 0, imgData)
+            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, 0, imgData) Then
+                Me.Close()
+            End If
         End With
 
         Me.Close()

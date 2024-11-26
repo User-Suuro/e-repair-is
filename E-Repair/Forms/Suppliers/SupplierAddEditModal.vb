@@ -104,11 +104,11 @@ Public Class SupplierAddEditModal
                 compImgPath,
                 constants.getSuppProfileFolderName
             }
-            formUtils.AddRow(.supTableStr, insertData, 1, imgData)
+
+            If formUtils.AddRow(.supTableStr, insertData, 1, imgData) Then
+                Me.Close()
+            End If
         End With
-
-        Me.Close()
-
     End Sub
 
     ' EDIT
@@ -135,10 +135,10 @@ Public Class SupplierAddEditModal
                 constants.getSuppProfileFolderName
             }
 
-            formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, 1, imgData)
+            If formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, 1, imgData) Then
+                Me.Close()
+            End If
         End With
-
-        Me.Close()
     End Sub
 
     ' CLOSE

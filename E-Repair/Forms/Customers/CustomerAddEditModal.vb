@@ -75,10 +75,11 @@ Public Class CustomerAddEditModal
                 { .custDateAddedStr, DateTime.Now()}
             }
 
-            formUtils.AddRow(.custTableStr, insertData, 4)
-        End With
 
-        Me.Close()
+            If formUtils.AddRow(.custTableStr, insertData, 4) Then
+                Me.Close()
+            End If
+        End With
     End Sub
 
     ' EDIT
@@ -95,10 +96,10 @@ Public Class CustomerAddEditModal
                 { .custGenderStr, gender}
             }
 
-            formUtils.EditRow(.custTableStr, .custIDStr, selectedID, insertUpdate, 4)
+            If formUtils.EditRow(.custTableStr, .custIDStr, selectedID, insertUpdate, 4) Then
+                Me.Close()
+            End If
         End With
-
-        Me.Close()
     End Sub
 
     ' CLOSE
