@@ -5,9 +5,10 @@
     Dim servConst As New ServiceDBConstants
 
     Public Property selectedID As Integer = -1
-    Private Property totalPaid As Integer
-    Private Property change As Integer
+    Private Property totalPaid As Decimal
+    Private Property change As Decimal
     Private Property paymentMethod As String
+    Private Property totalCost As Decimal
 
     ' REQUIRED
     Private Sub ServiceClaimModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,7 +34,8 @@
             RepairNotesTxtBox.Text = .Item(servConst.repairNotesStr)
             PartsUsedTxtBox.Text = .Item(servConst.PartsUsed)
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
-            TotalCostTxtBox.Text = .Item(servConst.TotalCost)
+            totalCost = .Item(servConst.TotalCost)
+            TotalCostTxtBox.Text = totalCost
         End With
 
     End Sub
@@ -49,6 +51,7 @@
 
     Private Sub TotalPaidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalPaidTxtBox.TextChanged
         Decimal.TryParse(TotalPaidTxtBox.Text, totalPaid)
+        ChangeTxtBox.Text = totalPaid - totalCost
     End Sub
 
     Private Sub TotalPaidTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TotalPaidTxtBox.KeyPress
@@ -101,6 +104,10 @@
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles GenerateReceipt.Click
+        If change < 0 Then
+            MsgBox("Insufficient Payment")
+            Exit Sub
+        End If
 
         ' to do generate receipt
         With servConst
