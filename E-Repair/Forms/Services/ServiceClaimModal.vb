@@ -52,9 +52,7 @@
     End Sub
 
     Private Sub TotalPaidTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TotalPaidTxtBox.KeyPress
-        If Not formUtils.ValidateDecimalInput(TotalCostTxtBox, e) Then
-            e.Handled = True
-        End If
+        e.Handled = Not formUtils.ValidateDecimalInput(TotalPaidTxtBox, e)
     End Sub
 
     Private Sub ChangeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ChangeTxtBox.TextChanged

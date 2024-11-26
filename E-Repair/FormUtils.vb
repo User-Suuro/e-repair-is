@@ -429,7 +429,7 @@ Public Class FormUtils
         End If
 
         If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
-            MsgBox("Successfully Edited")
+            MsgBox("Successfully Modified")
             Return True
         End If
 
@@ -512,25 +512,35 @@ Public Class FormUtils
 
 
     Public Function ValidateDecimalInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
-        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "." Then
-            Return False
+        ' Allow control characters (e.g., Backspace, Delete)
+        If Char.IsControl(e.KeyChar) Then
+            Return True ' Allow the keypress
         End If
 
+        ' Allow only digits and a single decimal point
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "." Then
+            Return False ' Block the keypress
+        End If
+
+        ' Allow only one decimal point
         If e.KeyChar = "." Then
             If txtBox.Text.Contains(".") Then
-                Return False
+                Return False ' Block the keypress
             End If
         End If
 
+        ' Ensure that only two decimal places are allowed
         If txtBox.Text.Contains(".") Then
             Dim decimalPointIndex As Integer = txtBox.Text.IndexOf(".")
             Dim decimalsAfterPoint As String = txtBox.Text.Substring(decimalPointIndex + 1)
 
+            ' If there are already two decimal places, prevent further input
             If decimalsAfterPoint.Length >= 2 Then
-                Return False
+                Return False ' Block the keypress
             End If
         End If
 
+        ' If all checks pass, return True
         Return True
     End Function
 End Class

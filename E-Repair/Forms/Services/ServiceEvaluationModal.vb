@@ -72,9 +72,7 @@ Public Class ServiceEvaluationModal
         dateCompleted = DateCompletedDTP.Value
     End Sub
     Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TechnicianFeeTxtBox.KeyPress
-        If Not formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e) Then
-            e.Handled = True
-        End If
+        e.Handled = Not formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e)
     End Sub
 
     Private Sub TechnicianFeeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianFeeTxtBox.TextChanged
