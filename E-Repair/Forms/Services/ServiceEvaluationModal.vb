@@ -65,20 +65,20 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub RepairStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RepairStatusCmb.SelectedIndexChanged
-        repairStatus = RepairStatusCmb.SelectedIndex
+        repairStatus = RepairStatusCmb.SelectedItem
     End Sub
 
     Private Sub DateCompletedDTP_ValueChanged(sender As Object, e As EventArgs) Handles DateCompletedDTP.ValueChanged
         dateCompleted = DateCompletedDTP.Value
     End Sub
 
-    Private Sub TechnicianFeeTxtBox_TextChanged(sender As Object, e As EventArgs)
+    Private Sub TechnicianFeeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianFeeTxtBox.TextChanged
         Decimal.TryParse(TechnicianFeeTxtBox.Text, technicianFee)
         totalCost = technicianFee + partsCost
         TotalCostTxtBox.Text = totalCost
     End Sub
 
-    Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs)
+    Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TechnicianFeeTxtBox.KeyPress
         formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e)
     End Sub
 

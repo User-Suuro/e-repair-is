@@ -194,7 +194,6 @@ Partial Class ServiceEvaluationModal
         Me.TechnicianFeeTxtBox.Name = "TechnicianFeeTxtBox"
         Me.TechnicianFeeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TechnicianFeeTxtBox.PlaceholderText = ""
-        Me.TechnicianFeeTxtBox.ReadOnly = True
         Me.TechnicianFeeTxtBox.SelectedText = ""
         Me.TechnicianFeeTxtBox.ShadowDecoration.Parent = Me.TechnicianFeeTxtBox
         Me.TechnicianFeeTxtBox.Size = New System.Drawing.Size(185, 26)
@@ -369,7 +368,6 @@ Partial Class ServiceEvaluationModal
         Me.RepairNotesTxtBox.Name = "RepairNotesTxtBox"
         Me.RepairNotesTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.RepairNotesTxtBox.PlaceholderText = ""
-        Me.RepairNotesTxtBox.ReadOnly = True
         Me.RepairNotesTxtBox.SelectedText = ""
         Me.RepairNotesTxtBox.ShadowDecoration.Parent = Me.RepairNotesTxtBox
         Me.RepairNotesTxtBox.Size = New System.Drawing.Size(812, 26)
