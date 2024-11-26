@@ -97,6 +97,7 @@ Public Class ServiceEvaluationModal
     Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
         ' for viewing
     End Sub
+
     Private Sub TotalCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalCostTxtBox.TextChanged
         ' for viewing
     End Sub
@@ -124,6 +125,4 @@ Public Class ServiceEvaluationModal
     Private Sub Groupbox_Click(sender As Object, e As EventArgs) Handles Groupbox.Click
 
     End Sub
-
-
 End Class
