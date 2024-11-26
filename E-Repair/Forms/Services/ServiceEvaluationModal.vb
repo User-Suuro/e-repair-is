@@ -38,7 +38,7 @@ Public Class ServiceEvaluationModal
 
         With servDT.Rows(0)
             ' device type
-            Dim deviceIndex As Integer = formUtils.FindComboBoxItemByText(RepairStatusCmb, .Item(servConst.devTypeStr))
+            Dim deviceIndex As Integer = formUtils.FindComboBoxItemByText(RepairStatusCmb, .Item(servConst.svcStatusStr))
             LoadCmbds(deviceIndex)
 
             ' load image
@@ -60,7 +60,7 @@ Public Class ServiceEvaluationModal
 
     Private Sub LoadCmbds(index As Integer)
         With dbHelper
-            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.devTypeStr, index)
+            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index)
         End With
     End Sub
 

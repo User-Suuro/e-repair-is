@@ -241,7 +241,7 @@ Public Class FormUtils
             End With
         End If
 
-        dgv.RowTemplate.Height = 25
+        dgv.RowTemplate.Height = 40
         dgv.AutoGenerateColumns = False
         dgv.DataSource = dt
     End Sub
