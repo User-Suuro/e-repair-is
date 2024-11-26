@@ -99,6 +99,7 @@
 
             If pendingWork <> 0 Then
                 MsgBox("You cannot archive employee that has " & pendingWork & " pending work")
+                Exit Sub
             End If
         End If
 

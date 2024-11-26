@@ -228,12 +228,14 @@ Public Class EmployeeAddEditModal
                 constants.getEmpProfileFolderName
             }
 
-            Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedID)
-
             ' check active work, if has one cannot change job type
+            If .empJobPosStr = constants.getTechnicianString Then
+                Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedID)
 
-            If pendingWork <> 0 Then
-                MsgBox("You cannot change this employee job type because it has " & pendingWork & " pending work to do")
+                If pendingWork <> 0 Then
+                    MsgBox("You cannot change this employee job type because it has " & pendingWork & " pending work to do")
+                    Exit Sub
+                End If
             End If
 
             If formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, 4, imgData) Then
