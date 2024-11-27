@@ -9,6 +9,8 @@ Public Class ServiceForm
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
     Private serviceStatus As String = ""
+    Private is_paid As Boolean
+
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property serviceDT As DataTable = Nothing
@@ -21,6 +23,7 @@ Public Class ServiceForm
             serviceID = .Cells("SERVICE_ID").Value
             is_archived = .Cells("ARCHIVED").Value
             serviceStatus = .Cells("SERVICE_STATUS").Value
+            is_paid = .Cells("PAID").Value
         End With
 
         Return True
@@ -77,6 +80,10 @@ Public Class ServiceForm
         If Not InitData() Then Exit Sub
 
         ' DO ADDITIONAL CHECKERS FOR EVALUATING
+        If is_paid Then
+            MsgBox("You cannot evaluate claimed service")
+            Exit Sub
+        End If
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -147,7 +154,7 @@ Public Class ServiceForm
     End Sub
 
 
-    ' LOAD DATA
+    ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With servConst
             Dim searchValues() As String = {
@@ -157,6 +164,15 @@ Public Class ServiceForm
             }
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
+
+            Dim additionalPayload As New Dictionary(Of String, String)
+
+            For Each row As DataRow In serviceDT.Rows
+                additionalPayload.Add("customer_name", formUtils.getCustomerName(row(servConst.cashierIDStr)))
+                additionalPayload.Add("technician_name", formUtils.getEmployeeName(row(servConst.techIDStr)))
+            Next
+
+            serviceDT = formUtils.AddColToDt(serviceDT, additionalPayload)
             formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
 
@@ -173,6 +189,7 @@ Public Class ServiceForm
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
+        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
     End Sub
 
     Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick

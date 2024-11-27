@@ -57,7 +57,7 @@ Partial Class ServiceClaimModal
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.GenerateReceipt = New Guna.UI2.WinForms.Guna2Button()
+        Me.GenerateReceiptBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.GroupBox.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class ServiceClaimModal
         Me.GroupBox.Controls.Add(Me.Guna2Panel1)
         Me.GroupBox.Controls.Add(Me.Guna2Panel8)
         Me.GroupBox.Controls.Add(Me.Guna2Panel7)
-        Me.GroupBox.Controls.Add(Me.GenerateReceipt)
+        Me.GroupBox.Controls.Add(Me.GenerateReceiptBtn)
         Me.GroupBox.Controls.Add(Me.BtnClose)
         Me.GroupBox.Controls.Add(Me.Guna2Separator1)
         Me.GroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -693,21 +693,21 @@ Partial Class ServiceClaimModal
         Me.Label23.TabIndex = 38
         Me.Label23.Text = "Repair Status"
         '
-        'GenerateReceipt
+        'GenerateReceiptBtn
         '
-        Me.GenerateReceipt.BorderRadius = 4
-        Me.GenerateReceipt.CheckedState.Parent = Me.GenerateReceipt
-        Me.GenerateReceipt.CustomImages.Parent = Me.GenerateReceipt
-        Me.GenerateReceipt.FillColor = System.Drawing.Color.DarkGreen
-        Me.GenerateReceipt.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GenerateReceipt.ForeColor = System.Drawing.Color.White
-        Me.GenerateReceipt.HoverState.Parent = Me.GenerateReceipt
-        Me.GenerateReceipt.Location = New System.Drawing.Point(861, 338)
-        Me.GenerateReceipt.Name = "GenerateReceipt"
-        Me.GenerateReceipt.ShadowDecoration.Parent = Me.GenerateReceipt
-        Me.GenerateReceipt.Size = New System.Drawing.Size(107, 32)
-        Me.GenerateReceipt.TabIndex = 50
-        Me.GenerateReceipt.Text = "Generate Receipt"
+        Me.GenerateReceiptBtn.BorderRadius = 4
+        Me.GenerateReceiptBtn.CheckedState.Parent = Me.GenerateReceiptBtn
+        Me.GenerateReceiptBtn.CustomImages.Parent = Me.GenerateReceiptBtn
+        Me.GenerateReceiptBtn.FillColor = System.Drawing.Color.DarkGreen
+        Me.GenerateReceiptBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GenerateReceiptBtn.ForeColor = System.Drawing.Color.White
+        Me.GenerateReceiptBtn.HoverState.Parent = Me.GenerateReceiptBtn
+        Me.GenerateReceiptBtn.Location = New System.Drawing.Point(861, 338)
+        Me.GenerateReceiptBtn.Name = "GenerateReceiptBtn"
+        Me.GenerateReceiptBtn.ShadowDecoration.Parent = Me.GenerateReceiptBtn
+        Me.GenerateReceiptBtn.Size = New System.Drawing.Size(107, 32)
+        Me.GenerateReceiptBtn.TabIndex = 50
+        Me.GenerateReceiptBtn.Text = "Generate Receipt"
         '
         'BtnClose
         '
@@ -774,7 +774,7 @@ Partial Class ServiceClaimModal
     Friend WithEvents Label25 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents GenerateReceipt As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents GenerateReceiptBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel

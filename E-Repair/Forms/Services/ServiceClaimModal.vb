@@ -1,4 +1,6 @@
-﻿Public Class ServiceClaimModal
+﻿Imports System.IO
+
+Public Class ServiceClaimModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
 
@@ -36,6 +38,12 @@
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
             totalCost = .Item(servConst.TotalCost)
             TotalCostTxtBox.Text = totalCost
+
+            Dim deviceImg = .Item(servConst.devProfilePathStr)
+            If File.Exists(deviceImg) Then
+                DeviceCirclePictureBox = deviceImg
+            End If
+
         End With
 
     End Sub
@@ -103,7 +111,8 @@
 
     End Sub
 
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles GenerateReceipt.Click
+    Private Sub GenerateReceiptBtn_Click(sender As Object, e As EventArgs) Handles GenerateReceiptBtn.Click
+
         If change < 0 Then
             MsgBox("Insufficient Payment")
             Exit Sub
@@ -115,12 +124,17 @@
                 { .totalPaidStr, totalPaid},
                 { .dateClaimedStr, DateTime.Now()},
                 { .custChangeStr, change},
-                { .totalPaidStr, totalPaid},
-                { .payMethodStr, paymentMethod}
+                { .payMethodStr, paymentMethod},
+                { .paidStr, True}
             }
 
             If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
                 Me.Close()
+
+                ' to do generate receipt
+
+
+
             End If
         End With
 
@@ -129,6 +143,5 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class

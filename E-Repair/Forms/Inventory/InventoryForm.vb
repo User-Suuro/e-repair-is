@@ -4,27 +4,28 @@
         InventoryDGV.ClearSelection()
     End Sub
 
-    Private Sub ViewEmployeeBtn_Click(sender As Object, e As EventArgs) Handles ViewEmployeeBtn.Click
+
+    Private Sub UseBtn_Click(sender As Object, e As EventArgs) Handles UseBtn.Click
 
     End Sub
 
-    Private Sub AddEmployeeBtn_Click(sender As Object, e As EventArgs) Handles AddEmployeeBtn.Click
+    Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewBtn.Click
 
     End Sub
 
-    Private Sub EditEmployeeBtn_Click(sender As Object, e As EventArgs) Handles EditEmployeeBtn.Click
+    Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
 
     End Sub
 
-    Private Sub ArchiveEmployeeBtn_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
+    Private Sub EdtBtn_Click(sender As Object, e As EventArgs) Handles EdtBtn.Click
 
     End Sub
 
-    Private Sub DeleteEmployeeBtn_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
+    Private Sub ArchivedBtn_Click(sender As Object, e As EventArgs) Handles ArchivedBtn.Click
 
     End Sub
 
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+    Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
 
     End Sub
 
@@ -35,7 +36,15 @@
 
     End Sub
 
-    Private Sub SeeSuppliedItemsDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles InventoryDGV.CellContentClick
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+
+    End Sub
+
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
 
     End Sub
 End Class

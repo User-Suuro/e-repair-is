@@ -44,11 +44,14 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ServiceDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CASHIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TECHNICIAN_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_TYPE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_MODEL = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_BRAND = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -58,9 +61,9 @@ Partial Class ServiceForm
         Me.REPAIR_NOTES = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICE_STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_FEE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PARTS_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TOTAL_PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PAID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_PROFILE_PATH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_CHANGE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PAYMENT_METHOD = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -70,8 +73,6 @@ Partial Class ServiceForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -390,7 +391,7 @@ Partial Class ServiceForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
-        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PAID, Me.TOTAL_PAID, Me.PARTS_COST, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.TECHNICIAN_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PARTS_COST, Me.TOTAL_PAID, Me.PAID, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -433,6 +434,40 @@ Partial Class ServiceForm
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
+        'BtnSelect
+        '
+        Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
+        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
+        Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.TabIndex = 43
+        Me.BtnSelect.Text = "Select"
+        Me.BtnSelect.Visible = False
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 42
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.Visible = False
+        '
         'SERVICE_ID
         '
         Me.SERVICE_ID.DataPropertyName = "service_id"
@@ -470,7 +505,13 @@ Partial Class ServiceForm
         Me.CUSTOMER_NAME.HeaderText = "Customer Name"
         Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
         Me.CUSTOMER_NAME.ReadOnly = True
-        Me.CUSTOMER_NAME.Visible = False
+        '
+        'TECHNICIAN_NAME
+        '
+        Me.TECHNICIAN_NAME.DataPropertyName = "technician_name"
+        Me.TECHNICIAN_NAME.HeaderText = "Technician name"
+        Me.TECHNICIAN_NAME.Name = "TECHNICIAN_NAME"
+        Me.TECHNICIAN_NAME.ReadOnly = True
         '
         'DEVICE_TYPE
         '
@@ -538,14 +579,13 @@ Partial Class ServiceForm
         Me.TECHNICIAN_FEE.HeaderText = "Technician Fee"
         Me.TECHNICIAN_FEE.Name = "TECHNICIAN_FEE"
         Me.TECHNICIAN_FEE.ReadOnly = True
-        Me.TECHNICIAN_FEE.Visible = False
         '
-        'PAID
+        'PARTS_COST
         '
-        Me.PAID.DataPropertyName = "paid"
-        Me.PAID.HeaderText = "Payment Status"
-        Me.PAID.Name = "PAID"
-        Me.PAID.ReadOnly = True
+        Me.PARTS_COST.DataPropertyName = "parts_cost"
+        Me.PARTS_COST.HeaderText = "Parts Cost"
+        Me.PARTS_COST.Name = "PARTS_COST"
+        Me.PARTS_COST.ReadOnly = True
         '
         'TOTAL_PAID
         '
@@ -555,12 +595,12 @@ Partial Class ServiceForm
         Me.TOTAL_PAID.ReadOnly = True
         Me.TOTAL_PAID.Visible = False
         '
-        'PARTS_COST
+        'PAID
         '
-        Me.PARTS_COST.DataPropertyName = "parts_cost"
-        Me.PARTS_COST.HeaderText = "Parts Cost"
-        Me.PARTS_COST.Name = "PARTS_COST"
-        Me.PARTS_COST.ReadOnly = True
+        Me.PAID.DataPropertyName = "paid"
+        Me.PAID.HeaderText = "Payment Status"
+        Me.PAID.Name = "PAID"
+        Me.PAID.ReadOnly = True
         '
         'DEVICE_PROFILE_PATH
         '
@@ -633,40 +673,6 @@ Partial Class ServiceForm
         Me.DATE_ARCHIVED.ReadOnly = True
         Me.DATE_ARCHIVED.Visible = False
         '
-        'BtnSelect
-        '
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSelect.TabIndex = 43
-        Me.BtnSelect.Text = "Select"
-        Me.BtnSelect.Visible = False
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 42
-        Me.BtnClose.Text = "Close"
-        Me.BtnClose.Visible = False
-        '
         'ServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -718,6 +724,7 @@ Partial Class ServiceForm
     Friend WithEvents TECHNICIAN_ID As DataGridViewTextBoxColumn
     Friend WithEvents CASHIER_ID As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents TECHNICIAN_NAME As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_TYPE As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_MODEL As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_BRAND As DataGridViewTextBoxColumn
@@ -727,9 +734,9 @@ Partial Class ServiceForm
     Friend WithEvents REPAIR_NOTES As DataGridViewTextBoxColumn
     Friend WithEvents SERVICE_STATUS As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_FEE As DataGridViewTextBoxColumn
-    Friend WithEvents PAID As DataGridViewTextBoxColumn
-    Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
     Friend WithEvents PARTS_COST As DataGridViewTextBoxColumn
+    Friend WithEvents TOTAL_PAID As DataGridViewTextBoxColumn
+    Friend WithEvents PAID As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_PROFILE_PATH As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_CHANGE As DataGridViewTextBoxColumn
     Friend WithEvents PAYMENT_METHOD As DataGridViewTextBoxColumn
