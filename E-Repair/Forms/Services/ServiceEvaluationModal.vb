@@ -47,7 +47,7 @@ Public Class ServiceEvaluationModal
             End If
 
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr) ' load the current fee
-            RepairNotesTxtBox.Text = .Item(servConst.repairNotesStr)
+            RepairNotesTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.repairNotesStr))
 
             PartsUsedTxtBox.Text = .Item(servConst.PartsUsed)
             partsCost = .Item(servConst.partsCostStr) ' get existing parts cost
@@ -66,6 +66,11 @@ Public Class ServiceEvaluationModal
 
     Private Sub RepairStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RepairStatusCmb.SelectedIndexChanged
         repairStatus = RepairStatusCmb.SelectedItem
+        If RepairStatusCmb.SelectedItem <> constants.getFinishedString Then
+            TechnicianFeeTxtBox.Enabled = False
+        Else
+            TechnicianFeeTxtBox.Enabled = True
+        End If
     End Sub
 
     Private Sub DateCompletedDTP_ValueChanged(sender As Object, e As EventArgs) Handles DateCompletedDTP.ValueChanged

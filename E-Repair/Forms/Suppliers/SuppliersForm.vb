@@ -139,5 +139,7 @@
 
     End Sub
 
-
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+        LoadDataToDGV(SearchTextBox.Text)
+    End Sub
 End Class

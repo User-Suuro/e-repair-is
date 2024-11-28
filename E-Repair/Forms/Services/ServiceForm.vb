@@ -1,4 +1,5 @@
-﻿Imports Org.BouncyCastle.Math.EC
+﻿Imports System.Runtime.CompilerServices
+Imports Org.BouncyCastle.Math.EC
 
 Public Class ServiceForm
     Dim dbHelper As New DbHelper
@@ -80,7 +81,7 @@ Public Class ServiceForm
 
     ' CLAIM
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
-        If Not InitData() Or Not isFinished() Then Exit Sub
+        If Not InitData() Or Not isFinished() Or isPaid() Then Exit Sub
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -99,12 +100,12 @@ Public Class ServiceForm
 
     ' EVALUATE
     Private Sub EvaluateServiceBtn_Click(sender As Object, e As EventArgs) Handles EvaluateServiceBtn.Click
-        If Not InitData() Then Exit Sub
 
-        If isPaid() Then
-            MsgBox("This service is already claimed by customer")
-            Exit Sub
+        If is_paid Then
+            MsgBox("Sevice was already claimed by the customer")
         End If
+
+        If Not InitData() Then Exit Sub
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -209,7 +210,7 @@ Public Class ServiceForm
                 .svcStatusStr,
                 .svcStatusStr,
                 .svcStatusStr,
-                .svcStatusStr,
+                .svcStatusStr
             }
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
@@ -255,5 +256,9 @@ Public Class ServiceForm
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
         LoadDataToDGV()
+    End Sub
+
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+        LoadDataToDGV(SearchTextBox.Text)
     End Sub
 End Class
