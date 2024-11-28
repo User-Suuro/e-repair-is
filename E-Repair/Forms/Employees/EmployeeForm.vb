@@ -157,7 +157,7 @@
             }
 
             If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
-            formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub

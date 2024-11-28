@@ -118,7 +118,7 @@
             }
 
             suppDT = dbHelper.GetAllData(.supTableStr)
-            formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
     End Sub
 

@@ -146,7 +146,7 @@ Public Class InventoryForm
             }
 
             If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
-            formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
     End Sub
 
