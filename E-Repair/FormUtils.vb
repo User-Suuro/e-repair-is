@@ -496,10 +496,10 @@ Public Class FormUtils
 
         If ByPassMsg Then
             dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
+            Exit Sub
         End If
 
         If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
-
 
         Try
             dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
