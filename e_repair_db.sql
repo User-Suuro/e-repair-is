@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2024 at 08:38 PM
+-- Generation Time: Nov 28, 2024 at 04:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,12 +94,12 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`, `job_type`, `admin_position`, `personnel_destination`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-27 03:34:41', NULL, 40, '2024-11-09 14:51:29', 'Super Admin', 'Owner', NULL),
-(50, '12312312', 'middlename', '12312', 'Female', '2024-11-22', 'Divorced', 'asdsad', 'asdadsada', 'Part Time', '2024-11-01', '12312', 'pag-ibig', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asdasd', 'wGS57RbwGWUqNHDFtLIMdA==', 0, '', '2024-11-20 17:08:08', NULL, 40, '2024-11-14 23:44:04', 'Technician', 'Owner', NULL),
-(62, 'asd', 'middlename', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Part Time', '2024-11-01', 'asd', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-23 01:05:46', 'Admin', 'Owner', NULL),
-(63, 'tech', 'middlename', 'asd', 'Female', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-24', 'ad', 'sad', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\qrcode_135065957_df13f3200dda9d8b4a43af28f070c84f.png', 'asddddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '', NULL, NULL, 40, '2024-11-24 20:18:19', 'Technician', 'Owner', NULL),
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-28 09:48:47', NULL, 40, '2024-11-09 14:51:29', 'Super Admin', 'Owner', NULL),
+(50, '12312312', 'middlename', '12312', 'Female', '2024-11-22', 'Divorced', 'asdsad', 'asdadsada', 'Part Time', '2024-11-01', '12312', 'pag-ibig', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asdasd', 'wGS57RbwGWUqNHDFtLIMdA==', 0, '0', '2024-11-20 17:08:08', NULL, 40, '2024-11-14 23:44:04', 'Technician', 'Owner', NULL),
+(62, 'asd', 'middlename', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Part Time', '2024-11-01', 'asd', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', NULL, NULL, 40, '2024-11-23 01:05:46', 'Admin', 'Owner', NULL),
+(63, 'tech', 'middlename', 'asd', 'Female', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-24', 'ad', 'sad', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\qrcode_135065957_df13f3200dda9d8b4a43af28f070c84f.png', 'asddddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', NULL, NULL, 40, '2024-11-24 20:18:19', 'Technician', 'Owner', NULL),
 (65, 'asd', 'asdsa', 'dad', 'Male', '2024-11-01', 'Single', 'asd', 'asdsad', 'Part Time', '2024-11-01', '', '', '', '', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, NULL, '2024-11-26 13:54:09', NULL, 40, '2024-11-26 13:33:34', 'Admin', 'Manager', NULL),
-(66, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\Downloads\\pexels-pixabay-33597.jpg', 'asddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, NULL, NULL, NULL, 40, '2024-11-26 14:04:08', 'Admin', 'Owner', NULL);
+(66, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\Downloads\\pexels-pixabay-33597.jpg', 'asddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-27 03:43:02', 40, '2024-11-26 14:04:08', 'Admin', 'Owner', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,6 +138,19 @@ CREATE TABLE `items` (
   `service_id` int(11) DEFAULT NULL,
   `used` tinyint(1) NOT NULL,
   `cost` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `log_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `transaction` varchar(255) NOT NULL,
+  `events` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -183,7 +196,7 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`service_id`, `customer_id`, `technician_id`, `cashier_id`, `device_type`, `device_model`, `device_brand`, `device_profile_path`, `operating_system`, `storage_capacity`, `problem_description`, `repair_notes`, `service_status`, `technician_fee`, `parts_used`, `parts_cost`, `total_cost`, `total_paid`, `paid`, `customer_change`, `payment_method`, `date_completed`, `date_claimed`, `date_added`, `archived`, `archived_by`, `date_archived`) VALUES
 (8, 6, 62, 40, 'Mobile Phone', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\cash-register-bold.png', '', 'asd', 'asd', '1', 'Pending', 0.00, 0, 0.00, 0.00, 0.00, 0, 0.00, NULL, '2024-11-27 02:56:42', NULL, '2024-11-24 00:32:17', 0, 0, NULL),
 (9, 6, 50, 40, 'PC', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\3-removebg-preview.png', 'asd', 'asd', 'sad', NULL, 'Pending', 0.00, 0, 0.00, 0.00, 0.00, 0, 0.00, NULL, NULL, NULL, '2024-11-24 16:53:15', 0, NULL, NULL),
-(10, 6, 63, 40, 'Mobile Phone', 'dasd', 'asdas', 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asd', 'ada', 'asd', 'Finished', 'Finished', 0.00, 0, 0.00, 0.00, 0.00, 0, 0.00, NULL, '2024-11-27 03:20:34', NULL, '2024-11-27 03:10:30', 0, NULL, NULL);
+(10, 6, 63, 40, 'Mobile Phone', 'dasd', 'asdas', 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asd', 'ada', 'asd', 'Finished', 'Finished', 100.00, 0, 0.00, 100.00, 100.00, 1, 0.00, 'Cash On Hand', '2024-11-27 03:43:48', '2024-11-27 19:40:31', '2024-11-27 03:10:30', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -256,6 +269,12 @@ ALTER TABLE `items`
   ADD KEY `service_const` (`service_id`);
 
 --
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`log_id`);
+
+--
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
@@ -297,6 +316,12 @@ ALTER TABLE `inventory`
 --
 ALTER TABLE `items`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `services`

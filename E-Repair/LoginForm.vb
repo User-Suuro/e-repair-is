@@ -122,11 +122,11 @@ Public Class LoginForm
         libVLC?.Dispose()
     End Sub
 
-    Private Sub GunaLabel5_Click(sender As Object, e As EventArgs) Handles GunaLabel5.Click
+    Private Sub GunaLabel5_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Guna2Separator2_Click(sender As Object, e As EventArgs) Handles Guna2Separator2.Click
+    Private Sub Guna2Separator2_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class
