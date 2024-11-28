@@ -6,6 +6,7 @@ Imports Mysqlx.Expr
 Public Class FormUtils
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
+    Dim empCosnt As New EmployeesDBConstants
 
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
@@ -187,7 +188,6 @@ Public Class FormUtils
 
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
-                         Optional showChkBox As CheckBox = Nothing,
                          Optional searchTerm As String = Nothing,
                          Optional searchValues As List(Of String) = Nothing,
                          Optional searchCmb As Guna2ComboBox = Nothing
@@ -196,10 +196,10 @@ Public Class FormUtils
         Try
             If searchValues IsNot Nothing Then
 
-                Dim searchBy As String = searchValues(0)
+                Dim searchBy = searchValues(searchCmb.SelectedIndex)
 
                 If searchCmb.SelectedIndex = -1 Then
-                    searchBy = searchValues(searchCmb.SelectedIndex)
+                    searchBy = searchValues(0)
                 End If
 
                 With dt.DefaultView
@@ -211,33 +211,11 @@ Public Class FormUtils
                 End With
 
             End If
-
-            If showChkBox IsNot Nothing Then
-                If dt.Columns.Contains("archived") Then
-                    With dt.DefaultView
-                        If showChkBox.Checked Then
-                            .RowFilter = "archived = True"
-                        Else
-                            .RowFilter = "archived = False"
-                        End If
-                    End With
-                End If
-
-                If dt.Columns.Contains("job_type") Then
-                    With dt.DefaultView
-                        If showChkBox.Checked Then
-                            .RowFilter = $"archived = True AND job_type <> '{constants.getSuperAdminString}'"
-                        Else
-                            .RowFilter = $"archived = False AND job_type <> '{constants.getSuperAdminString}'"
-                        End If
-                    End With
-                End If
-            End If
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
+        dgv.AutoGenerateColumns = False
         dgv.RowTemplate.Height = 40
         dgv.DataSource = dt
     End Sub

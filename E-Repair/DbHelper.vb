@@ -340,9 +340,21 @@ Public Class DbHelper
 
     ' Get All Rows From Table (tableName)
 
-    Public Function GetAllData(tableName As String) As DataTable
+    Public Function GetAllData(tableName As String,
+                               Optional nonArchivedOnly As Boolean = True,
+                               Optional ArchivedOnly As Boolean = False,
+                               Optional IncludeAll As Boolean = False) As DataTable
         Dim resultTable As New DataTable()
-        Dim query As String = $"SELECT * FROM `{tableName}`"
+
+        Dim query As String = ""
+
+        If ArchivedOnly Then
+            query = $"SELECT * FROM {tableName} WHERE archived = TRUE;"
+        ElseIf nonArchivedOnly Then
+            query = $"SELECT * FROM {tableName} WHERE archived = FALSE;"
+        ElseIf IncludeAll Then
+            query = $"SELECT * FROM {tableName};"
+        End If
 
         Try
             cmd.Parameters.Clear()

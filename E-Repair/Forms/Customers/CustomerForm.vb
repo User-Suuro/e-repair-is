@@ -126,7 +126,7 @@ Public Class CustomerForm
             }
 
             If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
-            formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(CustomerDGV, customersDt)
         End With
     End Sub
 
