@@ -115,7 +115,7 @@ Public Class CustomerForm
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With custConst
-            Dim searchValues() As String = {
+            Dim searchValues As New List(Of String) From {
                 .custFirstStr,
                 .custMidStr,
                 .custLastStr,
@@ -126,7 +126,7 @@ Public Class CustomerForm
             }
 
             If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
-            formUtils.LoadToDGV(CustomerDGV, customersDt)
+            formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
         End With
     End Sub
 

@@ -146,7 +146,7 @@
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With empConst
-            Dim searchValues() As String = {
+            Dim searchValues As New List(Of String) From {
               .empFirstStr,
               .empMidStr,
               .empLastStr,
@@ -157,7 +157,7 @@
             }
 
             If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
-            formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub

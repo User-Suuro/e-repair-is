@@ -192,7 +192,7 @@ Public Class ServiceForm
         Dim techCol As String = "technician_name"
 
         With servConst
-            Dim searchValues() As String = {
+            Dim searchValues As New List(Of String) From {
                 custCol,
                 techCol,
                 .devModelStr,
@@ -211,7 +211,7 @@ Public Class ServiceForm
                 row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
-            formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(ServiceDGV, serviceDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
         End With
     End Sub
 

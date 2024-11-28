@@ -135,7 +135,7 @@ Public Class InventoryForm
     ' LOAD DATA
     Public Sub LoadDataToDGV(Optional searchTerm As String = "")
         With invConst
-            Dim searchValues() As String = {
+            Dim searchValues As New List(Of String) From {
                 .itemCatStr,
                 .itemNameStr,
                 .qtyStr,
@@ -146,7 +146,7 @@ Public Class InventoryForm
             }
 
             If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
-            formUtils.LoadToDGV(InventoryDGV, invDT, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
         End With
     End Sub
 
