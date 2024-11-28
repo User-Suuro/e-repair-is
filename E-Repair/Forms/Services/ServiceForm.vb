@@ -81,7 +81,7 @@ Public Class ServiceForm
 
     ' CLAIM
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
-        If Not InitData() Or Not isFinished() Or isPaid() Then Exit Sub
+        If Not InitData() AndAlso Not isFinished() AndAlso isPaid() Then Exit Sub
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -101,11 +101,11 @@ Public Class ServiceForm
     ' EVALUATE
     Private Sub EvaluateServiceBtn_Click(sender As Object, e As EventArgs) Handles EvaluateServiceBtn.Click
 
+        If Not InitData() Then Exit Sub
+
         If is_paid Then
             MsgBox("Sevice was already claimed by the customer")
         End If
-
-        If Not InitData() Then Exit Sub
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -179,14 +179,14 @@ Public Class ServiceForm
 
     ' ARCHIVE
     Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
-        If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
+        If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
         formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
         LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' DELETE
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
-        If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
+        If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
         formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
         LoadDataToDGV(currentSearchVal)
     End Sub

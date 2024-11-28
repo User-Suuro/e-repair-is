@@ -129,6 +129,11 @@ Public Class ServiceClaimModal
             If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
                 Me.Close()
 
+                ' archive it as well
+                formUtils.ArchiveRow(False, servConst.svcTableStr, servConst.archivedStr, selectedID)
+
+
+
                 ' to do generate receipt
 
 

@@ -137,7 +137,4 @@ Public Class ServiceEvaluationModal
         End With
     End Sub
 
-    Private Sub Groupbox_Click(sender As Object, e As EventArgs) Handles Groupbox.Click
-
-    End Sub
 End Class
