@@ -4,6 +4,7 @@ Public Class ServiceForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
     Dim constants As New Constants
+
     Dim servConst As New ServiceDBConstants
 
     Private serviceID As Integer = -1
@@ -156,8 +157,13 @@ Public Class ServiceForm
 
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        Dim custCol As String = "customer_name"
+        Dim techCol As String = "technician_name"
+
         With servConst
             Dim searchValues() As String = {
+                custCol,
+                techCol,
                 .devModelStr,
                 .devBrandStr,
                 .dateAddedStr
@@ -165,15 +171,13 @@ Public Class ServiceForm
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
 
-            Dim customerNames As New List(Of String)
-            Dim techNames As New List(Of String)
-
-            serviceDT.Columns.Add("customer_name", GetType(String))
-            serviceDT.Columns.Add("technician_name", GetType(String))
+            ' Additonal payload
+            serviceDT.Columns.Add(custCol, GetType(String))
+            serviceDT.Columns.Add(techCol, GetType(String))
 
             For Each row As DataRow In serviceDT.Rows
-                row("customer_name") = formUtils.getCustomerName(row(servConst.custIDStr))
-                row("technician_name") = formUtils.getEmployeeName(row(servConst.techIDStr))
+                row(custCol) = formUtils.getCustomerName(row(servConst.custIDStr))
+                row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
             formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
@@ -195,7 +199,4 @@ Public Class ServiceForm
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
     End Sub
 
-    Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
-        formUtils.FormatDGVForArchive(ServiceDGV)
-    End Sub
 End Class

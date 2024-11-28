@@ -187,7 +187,7 @@ Public Class DbHelper
 
     Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
-            readQuery(String.Format("INSERT INTO `logs`(`dt`, `user_accounts_id`, `event`, `transactions`) VALUES ({0},{1},'{2}','{3}')", "now()",
+            readQuery(String.Format("INSERT INTO `logs`(`dt`, `user_accounts_id`, `event`, `transactions`) VALUES ({0},{1},'{2}','{3}')",
                                     id,
                                     events,
                                     transaction))

@@ -119,6 +119,11 @@
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
+    ' SEARCH CMB
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+        LoadDataToDGV(SearchTextBox.Text)
+    End Sub
+
     ' SHOW ARCHIVE
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
@@ -171,4 +176,6 @@
     Private Sub EmpDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpDGV.CellContentClick
         formUtils.FormatDGVForArchive(EmpDGV)
     End Sub
+
+
 End Class

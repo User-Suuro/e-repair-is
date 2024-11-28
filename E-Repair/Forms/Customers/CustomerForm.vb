@@ -1,10 +1,9 @@
-﻿Imports System.Runtime.Remoting.Messaging
-
-Public Class CustomerForm
+﻿Public Class CustomerForm
 
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+
     Dim custConst As New CustomersDBConstants
 
     ' SCHEMA
@@ -20,8 +19,8 @@ Public Class CustomerForm
         If Not formUtils.dgvValChecker(CustomerDGV) Then Return False
 
         With CustomerDGV.CurrentRow
-            customerID = .Cells("CUSTOMER_ID").Value
-            archivedStatus = .Cells("ARCHIVED").Value
+            customerID = .Cells(custConst.custIDStr).Value
+            archivedStatus = .Cells(custConst.custArchStr).Value
         End With
 
         Return True
@@ -83,7 +82,7 @@ Public Class CustomerForm
     ' ARCHIVE
     Private Sub ArchiveCustomerBtn_Click(sender As Object, e As EventArgs) Handles ArchiveCustomerBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.archiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
+        formUtils.ArchiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
         LoadDataToDGV()
     End Sub
 
@@ -122,6 +121,11 @@ Public Class CustomerForm
 
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+        LoadDataToDGV(SearchTextBox.Text)
+    End Sub
+
+    ' SEARCH CMB
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 

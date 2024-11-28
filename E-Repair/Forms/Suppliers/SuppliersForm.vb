@@ -139,7 +139,7 @@ Public Class SuppliersForm
 
     End Sub
 
-    Private Sub SuppliersDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SuppliersDGV.CellContentClick
-        formUtils.FormatDGVForArchive(SuppliersDGV)
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+
     End Sub
 End Class
