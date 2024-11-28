@@ -8,6 +8,8 @@ Public Class FormUtils
     Dim constants As New Constants
     Dim empCosnt As New EmployeesDBConstants
 
+    Dim rowHeight As Integer = 40
+
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
         If targetPanel.Controls.Count > 0 Then
@@ -186,6 +188,7 @@ Public Class FormUtils
         End Try
     End Sub
 
+
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
                       Optional searchTerm As String = Nothing,
@@ -228,7 +231,7 @@ Public Class FormUtils
             dt.DefaultView.RowFilter = filter
 
             dgv.AutoGenerateColumns = False
-            dgv.RowTemplate.Height = 40
+            dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -239,60 +242,45 @@ Public Class FormUtils
                                  Optional secondSearchTerm As String = Nothing,
                                  Optional searchValues1 As List(Of String) = Nothing,
                                  Optional searchValues2 As List(Of String) = Nothing,
-                                 Optional searchIndex As Integer = Nothing,
-                                 Optional showChkBox As CheckBox = Nothing)
+                                 Optional searchIndex1 As Integer = -1,
+                                 Optional searchIndex2 As Integer = -1
+                                )
 
         Try
+            ' Initialize a list to hold all filters
+            Dim filters As New List(Of String)
 
-            Dim filter As String = ""
-
-            ' first term filter
-            If searchValues1 IsNot Nothing AndAlso searchIndex <> -1 Then
-
-                Dim searchBy As String = If(searchIndex >= 0, searchValues1(searchIndex), searchValues1(0))
-
+            ' Handle the first search term
+            If searchValues1 IsNot Nothing AndAlso searchIndex1 >= 0 AndAlso searchIndex1 < searchValues1.Count Then
+                Dim searchBy1 As String = searchValues1(searchIndex1)
                 If Not String.IsNullOrWhiteSpace(searchTerm) Then
-                    filter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
+                    filters.Add($"CONVERT([{searchBy1}], System.String) LIKE '%{searchTerm}%'")
                 End If
             End If
 
-            ' second term filter
-            If Not String.IsNullOrWhiteSpace(secondSearchTerm) AndAlso searchValues2 IsNot Nothing AndAlso searchValues2.Count > 0 Then
-
-                Dim secondSearchBy As String = searchValues2(0)
-
-                If Not String.IsNullOrWhiteSpace(filter) Then
-                    filter &= $" AND CONVERT([{secondSearchBy}], System.String) LIKE '%{secondSearchTerm}%'"
-                Else
-                    filter = $"CONVERT([{secondSearchBy}], System.String) LIKE '%{secondSearchTerm}%'"
+            ' Handle the second search term
+            If searchValues2 IsNot Nothing AndAlso searchIndex2 >= 0 AndAlso searchIndex2 < searchValues2.Count Then
+                Dim searchBy2 As String = searchValues2(searchIndex2)
+                If Not String.IsNullOrWhiteSpace(secondSearchTerm) Then
+                    filters.Add($"CONVERT([{searchBy2}], System.String) LIKE '%{secondSearchTerm}%'")
                 End If
             End If
 
-            ' archive filter
-            If showChkBox IsNot Nothing AndAlso dt.Columns.Contains("archived") Then
-                Dim archivedFilter As String = If(showChkBox.Checked, "archived = True", "archived = False")
-                If Not String.IsNullOrWhiteSpace(filter) Then
-                    filter &= $" AND {archivedFilter}"
-                Else
-                    filter = archivedFilter
-                End If
-            End If
-
-            ' job type filter
+            ' Handle additional "job_type" filtering
             If dt.Columns.Contains(empCosnt.empJobPosStr) Then
                 Dim jobTypeFilter As String = $"{empCosnt.empJobPosStr} <> '{constants.getSuperAdminString}'"
-                If Not String.IsNullOrWhiteSpace(filter) Then
-                    filter &= $" AND {jobTypeFilter}"
-                Else
-                    filter = jobTypeFilter
-                End If
+                filters.Add(jobTypeFilter)
             End If
 
+            ' Combine all filters using AND
+            Dim combinedFilter As String = String.Join(" AND ", filters)
 
-            dt.DefaultView.RowFilter = filter
+            ' Apply the combined filter
+            dt.DefaultView.RowFilter = combinedFilter
 
+            ' Bind the filtered DataTable to DataGridView
             dgv.AutoGenerateColumns = False
-            dgv.RowTemplate.Height = 40
+            dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView
         Catch ex As Exception
             MsgBox(ex.Message)

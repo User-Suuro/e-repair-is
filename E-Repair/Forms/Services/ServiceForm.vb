@@ -16,13 +16,14 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
-    Dim searchStatusList = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+    Dim searchStatusList As List(Of String) = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property serviceDT As DataTable = Nothing
 
     Private Function InitData() As Boolean
+        searchStatusList.Add("Archived")
         If Not formUtils.dgvValChecker(ServiceDGV) Then Return False
 
         ' INITIALIZE VALUES
@@ -207,7 +208,11 @@ Public Class ServiceForm
             }
 
             Dim searchCols02 As New List(Of String) From {
-                .svcStatusStr
+                .svcStatusStr,
+                .svcStatusStr,
+                .svcStatusStr,
+                .svcStatusStr,
+                .archivedStr
             }
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
@@ -221,7 +226,14 @@ Public Class ServiceForm
                 row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
-            formUtils.LoadToDGVByTwoValues(ServiceDGV, serviceDT, searchTerm, currentSearchVal, searchCols01, searchCols02, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+            formUtils.LoadToDGVByTwoValues(ServiceDGV,
+                                           serviceDT,
+                                           searchTerm,
+                                           currentSearchVal,
+                                           searchCols01,
+                                           searchCols02,
+                                           SearchComboBox.SelectedIndex,
+                                           SearchStatusCmb.SelectedIndex)
         End With
     End Sub
 
@@ -230,11 +242,6 @@ Public Class ServiceForm
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
-    ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckStateChanged
-        LoadDataToDGV()
-        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
-    End Sub
 
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
@@ -244,6 +251,11 @@ Public Class ServiceForm
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
+
+        If SearchStatusCmb.SelectedItem("Archived") Then
+            formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+        End If
+
         LoadDataToDGV()
     End Sub
 
