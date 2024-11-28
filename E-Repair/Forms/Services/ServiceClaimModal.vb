@@ -67,12 +67,13 @@ Public Class ServiceClaimModal
     End Sub
 
     Private Sub ChangeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ChangeTxtBox.TextChanged
-        ' for view
+        Integer.TryParse(ChangeTxtBox.Text, change)
     End Sub
 
     Private Sub PaymentMethodCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PaymentMethodCmb.SelectedIndexChanged
         paymentMethod = PaymentMethodCmb.SelectedItem
     End Sub
+
     Private Sub RepairNotesTxtBox_TextChanged(sender As Object, e As EventArgs) Handles RepairNotesTxtBox.TextChanged
 
     End Sub

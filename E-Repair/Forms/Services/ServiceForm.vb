@@ -104,6 +104,7 @@ Public Class ServiceForm
 
         If is_paid Then
             MsgBox("Sevice was already claimed by the customer")
+            Exit Sub
         End If
 
         formUtils.ShowModalWithHandler(
