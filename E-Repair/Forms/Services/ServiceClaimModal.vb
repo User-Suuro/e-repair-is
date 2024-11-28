@@ -73,7 +73,9 @@ Public Class ServiceClaimModal
     Private Sub PaymentMethodCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PaymentMethodCmb.SelectedIndexChanged
         paymentMethod = PaymentMethodCmb.SelectedItem
     End Sub
+    Private Sub RepairNotesTxtBox_TextChanged(sender As Object, e As EventArgs) Handles RepairNotesTxtBox.TextChanged
 
+    End Sub
     ' FOR VIEW
 
     Private Sub TotalCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalCostTxtBox.TextChanged
@@ -85,10 +87,6 @@ Public Class ServiceClaimModal
     End Sub
 
     Private Sub DateCompletedTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DateCompletedTxtBox.TextChanged
-        ' for view
-    End Sub
-
-    Private Sub RepairNotesTxtBox_TextChanged(sender As Object, e As EventArgs) Handles RepairNotesTxtBox.TextChanged
         ' for view
     End Sub
 

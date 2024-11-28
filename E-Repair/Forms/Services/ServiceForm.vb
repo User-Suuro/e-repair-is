@@ -12,7 +12,7 @@ Public Class ServiceForm
     Private serviceStatus As String = ""
     Private is_paid As Boolean = False
 
-    Private currentSearchVal As String = "Pending"
+    Private currentSearchVal As String = ""
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
@@ -34,7 +34,7 @@ Public Class ServiceForm
 
     Private Function isFinished() As Boolean
         If serviceStatus <> constants.getFinishedString Then
-            MsgBox("Restricted Action due to unclaimed service")
+            MsgBox("Restricted Action due to pending/unclaimed service")
             Return False
         End If
 
@@ -44,7 +44,7 @@ Public Class ServiceForm
     Private Function isPaid() As Boolean
         ' DO ADDITIONAL CHECKERS FOR EVALUATING
         If Not is_paid Then
-            MsgBox("Restricted action due to unpaid service")
+            MsgBox("Restricted action due unpaid service")
             Return False
         End If
 
@@ -96,6 +96,11 @@ Public Class ServiceForm
     ' EVALUATE
     Private Sub EvaluateServiceBtn_Click(sender As Object, e As EventArgs) Handles EvaluateServiceBtn.Click
         If Not InitData() Then Exit Sub
+
+        If isPaid() Then
+            MsgBox("This service is already claimed by customer")
+            Exit Sub
+        End If
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -171,14 +176,14 @@ Public Class ServiceForm
     Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
         If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
         formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' DELETE
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
         formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' LOAD TO DGV
@@ -216,7 +221,7 @@ Public Class ServiceForm
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckStateChanged
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
     End Sub
@@ -233,4 +238,7 @@ Public Class ServiceForm
         LoadDataToDGV(currentSearchVal)
     End Sub
 
+    Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
+
+    End Sub
 End Class

@@ -27,10 +27,7 @@ Public Class ServiceEvaluationModal
 
     Private Sub loadVals()
 
-        If Not formUtils.checkIfLoad(selectedID) Then
-            Me.Close()
-            Exit Sub
-        End If
+        If selectedID = -1 Then Exit Sub
 
         ' SERVICE
 
@@ -49,10 +46,10 @@ Public Class ServiceEvaluationModal
                 DeviceCirclePictureBox.Image = Image.FromFile(deviceImgPath)
             End If
 
-            TechnicianFeeTxtBox.Text = (.Item(servConst.techFeeStr)) ' load the current fee
-            RepairNotesTxtBox.Text = (.Item(servConst.repairNotesStr))
+            TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr) ' load the current fee
+            RepairNotesTxtBox.Text = .Item(servConst.repairNotesStr)
 
-            PartsUsedTxtBox.Text = (.Item(servConst.PartsUsed))
+            PartsUsedTxtBox.Text = .Item(servConst.PartsUsed)
             partsCost = .Item(servConst.partsCostStr) ' get existing parts cost
             PartsCostTxtBox.Text = partsCost
         End With
@@ -135,5 +132,7 @@ Public Class ServiceEvaluationModal
         End With
     End Sub
 
+    Private Sub Groupbox_Click(sender As Object, e As EventArgs) Handles Groupbox.Click
 
+    End Sub
 End Class
