@@ -16,9 +16,7 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
-
-    Private custCol As String = "customer_name"
-    Private techCol As String = "technician_name"
+    Dim searchStatusList = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
@@ -60,7 +58,8 @@ Public Class ServiceForm
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initCmbds(0)
-        LoadDataToDGV(currentSearchVal)
+        currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
+        LoadDataToDGV()
         ServiceDGV.ClearSelection()
         loadUserDisplay()
     End Sub
@@ -96,7 +95,7 @@ Public Class ServiceForm
           End Function
           )
 
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' EVALUATE
@@ -120,7 +119,7 @@ Public Class ServiceForm
           End Function
           )
 
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' VIEW
@@ -244,7 +243,6 @@ Public Class ServiceForm
 
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
-        Dim searchStatusList = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
         currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
     End Sub
 
