@@ -1,5 +1,4 @@
-﻿
-Public Class ServiceForm
+﻿Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils

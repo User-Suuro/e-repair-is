@@ -584,7 +584,9 @@ Partial Class SuppliersForm
         Me.Controls.Add(Me.SuppliersDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "SuppliersForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminSuppliersForm"
+        Me.TopMost = True
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
