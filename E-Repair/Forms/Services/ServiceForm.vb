@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports Org.BouncyCastle.Math.EC
+﻿
 
 Public Class ServiceForm
     Dim dbHelper As New DbHelper
@@ -138,7 +137,7 @@ Public Class ServiceForm
            End Function
            )
 
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' ADD 
@@ -155,7 +154,7 @@ Public Class ServiceForm
         End Function
         )
 
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -174,21 +173,21 @@ Public Class ServiceForm
             Return Nothing
         End Function)
 
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' ARCHIVE
     Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
         If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
         formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
         formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
-        LoadDataToDGV(currentSearchVal)
+        LoadDataToDGV()
     End Sub
 
     ' LOAD TO DGV

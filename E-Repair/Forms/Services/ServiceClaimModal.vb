@@ -41,7 +41,7 @@ Public Class ServiceClaimModal
 
             Dim deviceImg = .Item(servConst.devProfilePathStr)
             If File.Exists(deviceImg) Then
-                DeviceCirclePictureBox = deviceImg
+                DeviceCirclePictureBox.Image = Image.FromFile(deviceImg)
             End If
 
         End With
