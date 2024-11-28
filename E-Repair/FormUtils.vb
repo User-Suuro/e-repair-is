@@ -545,21 +545,5 @@ Public Class FormUtils
     End Function
 
 
-    Public Function AddColToDt(sourceDT As DataTable, additionalColumns As Dictionary(Of String, String)) As DataTable
-        ' Add new columns to the source DataTable
-        For Each colName As String In additionalColumns.Keys
-            If Not sourceDT.Columns.Contains(colName) Then
-                sourceDT.Columns.Add(colName, GetType(String))
-            End If
-        Next
 
-        ' Populate the new columns for each row with the fixed values from the Dictionary
-        For Each row As DataRow In sourceDT.Rows
-            For Each colName As String In additionalColumns.Keys
-                row(colName) = additionalColumns(colName)
-            Next
-        Next
-
-        Return sourceDT
-    End Function
 End Class

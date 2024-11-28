@@ -165,14 +165,14 @@ Public Class ServiceForm
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
 
-            Dim additionalPayload As New Dictionary(Of String, String)
+            Dim customerNames As New List(Of String)
+            Dim techNames As New List(Of String)
 
             For Each row As DataRow In serviceDT.Rows
-                additionalPayload.Add("customer_name", formUtils.getCustomerName(row(servConst.cashierIDStr)))
-                additionalPayload.Add("technician_name", formUtils.getEmployeeName(row(servConst.techIDStr)))
+                row("customer_name") = formUtils.getCustomerName(row(servConst.cashierIDStr))
+                row("technician_name") = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
-            serviceDT = formUtils.AddColToDt(serviceDT, additionalPayload)
             formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
 
