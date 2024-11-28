@@ -31,8 +31,8 @@ Public Class InventoryForm
 
     ' FORM ONLOAD
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        InventoryDGV.ClearSelection()
         LoadDataToDGV()
+        InventoryDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
 
         If selectedID = -1 Then

@@ -490,8 +490,21 @@ Public Class FormUtils
     Public Function calcDecimalDT(dt As DataTable, columnName As String) As Decimal
         Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)(columnName))
     End Function
+    Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
+        ' Filter the rows based on the provided filter expression
+        Dim filteredRows As DataRow() = sourceTable.Select(filterExpression, sortOrder)
 
+        ' Check if any rows match the filter
+        If filteredRows.Any() Then
+            ' Return a new DataTable with the filtered rows
+            Return filteredRows.CopyToDataTable()
+        Else
+            ' Return an empty DataTable with the same schema
+            Return sourceTable.Clone()
+        End If
+    End Function
 
+    ' Decimal Validator
     Public Function ValidateDecimalInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
         ' Allow control characters (e.g., Backspace, Delete)
         If Char.IsControl(e.KeyChar) Then
@@ -525,17 +538,20 @@ Public Class FormUtils
         Return True
     End Function
 
-    Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
-        ' Filter the rows based on the provided filter expression
-        Dim filteredRows As DataRow() = sourceTable.Select(filterExpression, sortOrder)
-
-        ' Check if any rows match the filter
-        If filteredRows.Any() Then
-            ' Return a new DataTable with the filtered rows
-            Return filteredRows.CopyToDataTable()
-        Else
-            ' Return an empty DataTable with the same schema
-            Return sourceTable.Clone()
+    ' Integer Validator
+    Public Function ValidateIntegerInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
+        ' Allow control characters (e.g., Backspace, Delete)
+        If Char.IsControl(e.KeyChar) Then
+            Return True ' Allow the keypress
         End If
+
+        ' Allow only digits
+        If Not Char.IsDigit(e.KeyChar) Then
+            Return False ' Block the keypress
+        End If
+
+        ' If all checks pass, return True
+        Return True
     End Function
+
 End Class
