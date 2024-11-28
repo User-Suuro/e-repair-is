@@ -190,15 +190,15 @@ Public Class FormUtils
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
                       Optional searchTerm As String = Nothing,
                       Optional searchValues As List(Of String) = Nothing,
-                      Optional searchCmb As Guna2ComboBox = Nothing,
+                      Optional searchIndex As Integer = Nothing,
                       Optional showChkBox As CheckBox = Nothing)
 
         Try
             Dim filter As String = ""
 
             ' Handle search
-            If searchValues IsNot Nothing AndAlso searchCmb IsNot Nothing Then
-                Dim searchBy As String = If(searchCmb.SelectedIndex >= 0, searchValues(searchCmb.SelectedIndex), searchValues(0))
+            If searchValues IsNot Nothing Then
+                Dim searchBy As String = If(searchIndex >= 0, searchValues(searchIndex), searchValues(0))
 
                 If Not String.IsNullOrWhiteSpace(searchTerm) Then
                     filter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"

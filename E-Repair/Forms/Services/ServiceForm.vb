@@ -1,4 +1,6 @@
-﻿Public Class ServiceForm
+﻿Imports Org.BouncyCastle.Math.EC
+
+Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
@@ -11,13 +13,34 @@
     Private serviceStatus As String = ""
     Private is_paid As Boolean = False
 
+    ' CONSTANTS
     Private currentSearchVal As String = ""
+    Private currentSearchCol As String = ""
+
+    Private searchValues As New List(Of String)
+    Private custCol As String = "customer_name"
+    Private techCol As String = "technician_name"
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property serviceDT As DataTable = Nothing
 
     Private Function InitData() As Boolean
+        With servConst
+            Dim searchList() As String = {
+                .devModelStr,
+                .devBrandStr,
+                .dateAddedStr
+            }
+
+            searchValues.Add(custCol)
+            searchValues.Add(techCol)
+
+            For Each item In searchList
+                searchValues.Add(item)
+            Next
+        End With
+
         If Not formUtils.dgvValChecker(ServiceDGV) Then Return False
 
         ' INITIALIZE VALUES
@@ -187,18 +210,7 @@
 
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
-        Dim custCol As String = "customer_name"
-        Dim techCol As String = "technician_name"
-
         With servConst
-            Dim searchValues As New List(Of String) From {
-                custCol,
-                techCol,
-                .devModelStr,
-                .devBrandStr,
-                .dateAddedStr
-            }
-
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
 
             ' Additonal payload
@@ -210,7 +222,7 @@
                 row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
-            formUtils.LoadToDGV(ServiceDGV, serviceDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(ServiceDGV, serviceDT, searchTerm, searchValues, formUtils.FindComboBoxItemByText(SearchComboBox, currentSearchCol), ShowArchiveCheckBox)
         End With
     End Sub
 
@@ -234,7 +246,7 @@
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         Dim searchList = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
         currentSearchVal = searchList(SearchComboBox.SelectedIndex)
-        LoadDataToDGV(currentSearchVal)
+        currentSearchCol = searchValues(SearchStatusCmb.SelectedIndex)
     End Sub
 
     Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
