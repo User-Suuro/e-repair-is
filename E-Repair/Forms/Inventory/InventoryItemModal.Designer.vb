@@ -45,10 +45,10 @@ Partial Class InventoryItemModal
         '
         'Guna2GroupBox1
         '
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button2)
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button1)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnSelect)
         Me.Guna2GroupBox1.Controls.Add(Me.CostTxtBox)
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button2)
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button1)
         Me.Guna2GroupBox1.Controls.Add(Me.ItemsDGV)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
@@ -80,7 +80,7 @@ Partial Class InventoryItemModal
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 406)
+        Me.BtnClose.Location = New System.Drawing.Point(12, 408)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
@@ -120,13 +120,13 @@ Partial Class InventoryItemModal
         Me.ItemsDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.ItemsDGV.EnableHeadersVisualStyles = False
         Me.ItemsDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.ItemsDGV.Location = New System.Drawing.Point(12, 87)
+        Me.ItemsDGV.Location = New System.Drawing.Point(12, 52)
         Me.ItemsDGV.Name = "ItemsDGV"
         Me.ItemsDGV.ReadOnly = True
         Me.ItemsDGV.RowHeadersVisible = False
         Me.ItemsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ItemsDGV.Size = New System.Drawing.Size(806, 299)
-        Me.ItemsDGV.TabIndex = 38
+        Me.ItemsDGV.Size = New System.Drawing.Size(806, 334)
+        Me.ItemsDGV.TabIndex = 51
         Me.ItemsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.ItemsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.ItemsDGV.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -196,6 +196,7 @@ Partial Class InventoryItemModal
         '
         'Guna2Button2
         '
+        Me.Guna2Button2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Button2.BorderRadius = 4
         Me.Guna2Button2.CheckedState.Parent = Me.Guna2Button2
         Me.Guna2Button2.CustomImages.Parent = Me.Guna2Button2
@@ -204,14 +205,16 @@ Partial Class InventoryItemModal
         Me.Guna2Button2.ForeColor = System.Drawing.Color.White
         Me.Guna2Button2.HoverState.Parent = Me.Guna2Button2
         Me.Guna2Button2.Image = Global.E_Repair.My.Resources.Resources.minus_bold
-        Me.Guna2Button2.Location = New System.Drawing.Point(720, 49)
+        Me.Guna2Button2.Location = New System.Drawing.Point(734, 408)
         Me.Guna2Button2.Name = "Guna2Button2"
         Me.Guna2Button2.ShadowDecoration.Parent = Me.Guna2Button2
-        Me.Guna2Button2.Size = New System.Drawing.Size(46, 32)
-        Me.Guna2Button2.TabIndex = 48
+        Me.Guna2Button2.Size = New System.Drawing.Size(39, 32)
+        Me.Guna2Button2.TabIndex = 53
+        Me.Guna2Button2.Visible = False
         '
         'Guna2Button1
         '
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Button1.BorderRadius = 4
         Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
         Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
@@ -220,15 +223,16 @@ Partial Class InventoryItemModal
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
         Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
         Me.Guna2Button1.Image = Global.E_Repair.My.Resources.Resources.plus_bold1
-        Me.Guna2Button1.Location = New System.Drawing.Point(772, 49)
+        Me.Guna2Button1.Location = New System.Drawing.Point(779, 408)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Size = New System.Drawing.Size(46, 32)
-        Me.Guna2Button1.TabIndex = 47
+        Me.Guna2Button1.Size = New System.Drawing.Size(39, 32)
+        Me.Guna2Button1.TabIndex = 52
         Me.Guna2Button1.Visible = False
         '
         'BtnSelect
         '
+        Me.BtnSelect.BackColor = System.Drawing.Color.Transparent
         Me.BtnSelect.BorderRadius = 4
         Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
         Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
@@ -236,16 +240,17 @@ Partial Class InventoryItemModal
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
         Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(258, 49)
+        Me.BtnSelect.Location = New System.Drawing.Point(515, 408)
         Me.BtnSelect.Name = "BtnSelect"
         Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(86, 32)
-        Me.BtnSelect.TabIndex = 46
+        Me.BtnSelect.Size = New System.Drawing.Size(59, 32)
+        Me.BtnSelect.TabIndex = 55
         Me.BtnSelect.Text = "Apply"
         Me.BtnSelect.Visible = False
         '
         'CostTxtBox
         '
+        Me.CostTxtBox.BackColor = System.Drawing.Color.Transparent
         Me.CostTxtBox.BorderRadius = 4
         Me.CostTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CostTxtBox.DefaultText = ""
@@ -260,7 +265,7 @@ Partial Class InventoryItemModal
         Me.CostTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CostTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTxtBox.HoverState.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Location = New System.Drawing.Point(12, 49)
+        Me.CostTxtBox.Location = New System.Drawing.Point(269, 408)
         Me.CostTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CostTxtBox.Name = "CostTxtBox"
         Me.CostTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -268,7 +273,8 @@ Partial Class InventoryItemModal
         Me.CostTxtBox.SelectedText = ""
         Me.CostTxtBox.ShadowDecoration.Parent = Me.CostTxtBox
         Me.CostTxtBox.Size = New System.Drawing.Size(241, 32)
-        Me.CostTxtBox.TabIndex = 45
+        Me.CostTxtBox.TabIndex = 54
+        Me.CostTxtBox.Visible = False
         '
         'InventoryItemModal
         '
@@ -290,6 +296,8 @@ Partial Class InventoryItemModal
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ItemsDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents ITEM_ID As DataGridViewTextBoxColumn
     Friend WithEvents SERVICE_ID As DataGridViewTextBoxColumn
@@ -297,8 +305,6 @@ Partial Class InventoryItemModal
     Friend WithEvents ITEM_NAME As DataGridViewTextBoxColumn
     Friend WithEvents COST As DataGridViewTextBoxColumn
     Friend WithEvents Used As DataGridViewTextBoxColumn
-    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents CostTxtBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

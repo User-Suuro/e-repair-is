@@ -50,9 +50,9 @@ Public Class ServiceEvaluationModal
             End If
 
             TechnicianFeeTxtBox.Text = (.Item(servConst.techFeeStr)) ' load the current fee
-            PartsUsedTxtBox.Text = (.Item(servConst.PartsUsed))
             RepairNotesTxtBox.Text = (.Item(servConst.repairNotesStr))
 
+            PartsUsedTxtBox.Text = (.Item(servConst.PartsUsed))
             partsCost = .Item(servConst.partsCostStr) ' get existing parts cost
             PartsCostTxtBox.Text = partsCost
         End With
@@ -100,16 +100,11 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
-        ' get inventory table
-        Dim itemDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
-        Dim filterExpression As String = itemConst.ServiceId & " = " & selectedID
-        itemDT = formUtils.FilterDataTable(itemDT, filterExpression)
-
         ' for viewing
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
          Function(id)
-             Dim modal As New InventoryForm
-             modal.invDT = itemDT
+             Dim modal As New InventoryItemModal
+             modal.itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
              Return modal
          End Function,
          selectedID,
@@ -139,5 +134,6 @@ Public Class ServiceEvaluationModal
             End If
         End With
     End Sub
+
 
 End Class
