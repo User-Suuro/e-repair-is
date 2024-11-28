@@ -27,11 +27,14 @@ Partial Class ServiceForm
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SearchStatusCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -44,8 +47,6 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ServiceDGV = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -73,8 +74,11 @@ Partial Class ServiceForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
+        Me.Guna2Panel2.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -88,8 +92,8 @@ Partial Class ServiceForm
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.ShowArchiveCheckBox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel2, 1, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(15, 23)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -97,25 +101,6 @@ Partial Class ServiceForm
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(986, 28)
         Me.TableLayoutPanel1.TabIndex = 39
-        '
-        'ShowArchiveCheckBox
-        '
-        Me.ShowArchiveCheckBox.AutoSize = True
-        Me.ShowArchiveCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.CheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(891, 3)
-        Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
-        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
-        Me.ShowArchiveCheckBox.TabIndex = 30
-        Me.ShowArchiveCheckBox.Text = "Show Archive"
-        Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UncheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.UncheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UseVisualStyleBackColor = True
         '
         'Guna2Panel1
         '
@@ -188,6 +173,70 @@ Partial Class ServiceForm
         Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
         Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
         Me.SearchTextBox.TabIndex = 31
+        '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.Controls.Add(Me.SearchStatusCmb)
+        Me.Guna2Panel2.Controls.Add(Me.Panel4)
+        Me.Guna2Panel2.Controls.Add(Me.ShowArchiveCheckBox)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Guna2Panel2.Location = New System.Drawing.Point(525, 0)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
+        Me.Guna2Panel2.Size = New System.Drawing.Size(461, 28)
+        Me.Guna2Panel2.TabIndex = 32
+        '
+        'SearchStatusCmb
+        '
+        Me.SearchStatusCmb.Animated = True
+        Me.SearchStatusCmb.BackColor = System.Drawing.Color.Transparent
+        Me.SearchStatusCmb.BorderRadius = 4
+        Me.SearchStatusCmb.DisplayMember = "(none)"
+        Me.SearchStatusCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.SearchStatusCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.SearchStatusCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SearchStatusCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.SearchStatusCmb.FocusedState.Parent = Me.SearchStatusCmb
+        Me.SearchStatusCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.SearchStatusCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.SearchStatusCmb.FormattingEnabled = True
+        Me.SearchStatusCmb.HoverState.Parent = Me.SearchStatusCmb
+        Me.SearchStatusCmb.ItemHeight = 22
+        Me.SearchStatusCmb.ItemsAppearance.Parent = Me.SearchStatusCmb
+        Me.SearchStatusCmb.Location = New System.Drawing.Point(146, 0)
+        Me.SearchStatusCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.SearchStatusCmb.Name = "SearchStatusCmb"
+        Me.SearchStatusCmb.ShadowDecoration.Parent = Me.SearchStatusCmb
+        Me.SearchStatusCmb.Size = New System.Drawing.Size(207, 28)
+        Me.SearchStatusCmb.TabIndex = 35
+        '
+        'Panel4
+        '
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel4.Location = New System.Drawing.Point(353, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(16, 28)
+        Me.Panel4.TabIndex = 33
+        '
+        'ShowArchiveCheckBox
+        '
+        Me.ShowArchiveCheckBox.AutoSize = True
+        Me.ShowArchiveCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckBox.CheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(369, 0)
+        Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
+        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 28)
+        Me.ShowArchiveCheckBox.TabIndex = 31
+        Me.ShowArchiveCheckBox.Text = "Show Archive"
+        Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckBox.UncheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckBox.UncheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckBox.UseVisualStyleBackColor = True
         '
         'AdminSidenavPanel
         '
@@ -434,40 +483,6 @@ Partial Class ServiceForm
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'BtnSelect
-        '
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSelect.TabIndex = 43
-        Me.BtnSelect.Text = "Select"
-        Me.BtnSelect.Visible = False
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 42
-        Me.BtnClose.Text = "Close"
-        Me.BtnClose.Visible = False
-        '
         'SERVICE_ID
         '
         Me.SERVICE_ID.DataPropertyName = "service_id"
@@ -674,6 +689,40 @@ Partial Class ServiceForm
         Me.DATE_ARCHIVED.ReadOnly = True
         Me.DATE_ARCHIVED.Visible = False
         '
+        'BtnSelect
+        '
+        Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
+        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
+        Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.TabIndex = 43
+        Me.BtnSelect.Text = "Select"
+        Me.BtnSelect.Visible = False
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 42
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.Visible = False
+        '
         'ServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -689,8 +738,9 @@ Partial Class ServiceForm
         Me.Name = "ServiceForm"
         Me.Text = "AdminServicesForm"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Guna2Panel2.PerformLayout()
         Me.AdminSidenavPanel.ResumeLayout(False)
         Me.AdminSidenavPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -711,7 +761,6 @@ Partial Class ServiceForm
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ServiceDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents EvaluateServiceBtn As Button
-    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents DeleteServiceBtn As Button
     Friend WithEvents ArchiveServiceBtn As Button
     Friend WithEvents EditServiceBtn As Button
@@ -747,4 +796,8 @@ Partial Class ServiceForm
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SearchStatusCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
 End Class

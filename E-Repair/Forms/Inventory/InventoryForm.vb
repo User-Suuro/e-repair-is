@@ -55,6 +55,8 @@ Public Class InventoryForm
               Return Nothing
           End Function
           )
+
+        LoadDataToDGV()
     End Sub
 
     ' VIEW
@@ -72,6 +74,8 @@ Public Class InventoryForm
              Return Nothing
          End Function
          )
+
+        LoadDataToDGV()
     End Sub
 
     ' ADD
@@ -86,6 +90,8 @@ Public Class InventoryForm
              Return Nothing
          End Function
          )
+
+        LoadDataToDGV()
     End Sub
 
     ' EDIT
@@ -102,28 +108,22 @@ Public Class InventoryForm
              Return Nothing
          End Function
          )
+
+        LoadDataToDGV()
     End Sub
 
     ' ARCHIVED
     Private Sub ArchivedBtn_Click(sender As Object, e As EventArgs) Handles ArchivedBtn.Click
         If Not InitData() Then Exit Sub
-
+        formUtils.ArchiveRow(is_archived, invConst.invTableStr, invConst.svcIDStr, selectedID)
+        LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         If Not InitData() Then Exit Sub
-
-    End Sub
-
-    ' CLOSE
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-
-    End Sub
-
-    ' SELECT
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-
+        formUtils.DeleteRow(is_archived, invConst.invTableStr, invConst.svcIDStr, selectedID)
+        LoadDataToDGV()
     End Sub
 
     ' LOAD DATA
@@ -140,7 +140,6 @@ Public Class InventoryForm
             }
 
             If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
-
             formUtils.LoadToDGV(InventoryDGV, invDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
     End Sub
@@ -159,5 +158,15 @@ Public Class InventoryForm
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(InventoryDGV, ShowArchiveCheckBox, DeleteBtn, ArchivedBtn, EdtBtn, AddBtn)
+    End Sub
+
+    ' CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
+    ' SELECT
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+
     End Sub
 End Class

@@ -10,7 +10,9 @@ Public Class ServiceForm
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
     Private serviceStatus As String = ""
-    Private is_paid As Boolean
+    Private is_paid As Boolean = False
+
+    Private currentSearchVal As String = "Pending"
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
@@ -30,9 +32,29 @@ Public Class ServiceForm
         Return True
     End Function
 
+    Private Function isFinished() As Boolean
+        If serviceStatus <> constants.getFinishedString Then
+            MsgBox("Restricted Action due to unclaimed service")
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Function isPaid() As Boolean
+        ' DO ADDITIONAL CHECKERS FOR EVALUATING
+        If Not is_paid Then
+            MsgBox("Restricted action due to unpaid service")
+            Return False
+        End If
+
+        Return True
+    End Function
+
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDataToDGV()
+        initCmbds(0)
+        LoadDataToDGV(currentSearchVal)
         ServiceDGV.ClearSelection()
         loadUserDisplay()
     End Sub
@@ -54,13 +76,7 @@ Public Class ServiceForm
 
     ' CLAIM
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
-        If Not InitData() Then Exit Sub
-
-        ' DO ADDITIONAL CHECKERS FOR CLAIMING
-        If serviceStatus <> constants.getFinishedString Then
-            MsgBox("You cannot claim unfinished service")
-            Exit Sub
-        End If
+        If Not InitData() Or Not isFinished() Then Exit Sub
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -74,18 +90,12 @@ Public Class ServiceForm
           End Function
           )
 
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' EVALUATE
     Private Sub EvaluateServiceBtn_Click(sender As Object, e As EventArgs) Handles EvaluateServiceBtn.Click
         If Not InitData() Then Exit Sub
-
-        ' DO ADDITIONAL CHECKERS FOR EVALUATING
-        If is_paid Then
-            MsgBox("You cannot evaluate claimed service")
-            Exit Sub
-        End If
 
         formUtils.ShowModalWithHandler(
           Function(id)
@@ -99,7 +109,7 @@ Public Class ServiceForm
           End Function
           )
 
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' VIEW
@@ -118,7 +128,7 @@ Public Class ServiceForm
            End Function
            )
 
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' ADD 
@@ -135,11 +145,10 @@ Public Class ServiceForm
         End Function
         )
 
-        LoadDataToDGV()
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' EDIT
-
     Private Sub EditServiceBtn_Click(sender As Object, e As EventArgs) Handles EditServiceBtn.Click
         If Not InitData() Then Exit Sub
 
@@ -155,9 +164,22 @@ Public Class ServiceForm
             Return Nothing
         End Function)
 
+        LoadDataToDGV(currentSearchVal)
+    End Sub
+
+    ' ARCHIVE
+    Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
+        If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
+        formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
         LoadDataToDGV()
     End Sub
 
+    ' DELETE
+    Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
+        If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
+        formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
+        LoadDataToDGV()
+    End Sub
 
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
@@ -194,9 +216,21 @@ Public Class ServiceForm
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs)
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+    End Sub
+
+    ' INIT CMBDS
+    Private Sub initCmbds(index01 As Integer)
+        dbHelper.LoadEnumsToCmb(SearchStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index01)
+    End Sub
+
+    ' SEARCH TXT BOX
+    Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
+        Dim searchList = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        currentSearchVal = searchList(SearchComboBox.SelectedIndex)
+        LoadDataToDGV(currentSearchVal)
     End Sub
 
 End Class

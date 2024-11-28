@@ -107,7 +107,7 @@ Public Class ServiceClaimModal
     Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
         ' for view
 
-        ' to do
+
 
     End Sub
 
@@ -143,5 +143,6 @@ Public Class ServiceClaimModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class CustomerForm
+﻿Imports System.Net.Sockets
+
+Public Class CustomerForm
 
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
@@ -144,19 +146,19 @@
         formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub
 
+    ' BTN CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
     ' SELECT MODE
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-        If Not InitValues() Then Exit Sub
+        If Not InitValues() Or Not selectMode Then Exit Sub
 
         selectedCustID = customerID
 
         Me.DialogResult = DialogResult.OK
 
-        Me.Close()
-    End Sub
-
-    ' BTN CLOSE
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
 

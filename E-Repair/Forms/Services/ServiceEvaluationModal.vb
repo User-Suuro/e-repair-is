@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Runtime.Remoting
 
 Public Class ServiceEvaluationModal
     Dim dbHelper As New DbHelper
@@ -93,13 +94,25 @@ Public Class ServiceEvaluationModal
     Private Sub PartsCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PartsCostTxtBox.TextChanged
         ' for viewing
     End Sub
-
-    Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
+    Private Sub TotalCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalCostTxtBox.TextChanged
         ' for viewing
     End Sub
 
-    Private Sub TotalCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalCostTxtBox.TextChanged
+    Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
         ' for viewing
+        Dim resultID As Integer = formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New ServiceClaimModal
+             modal.selectedID = id
+             Return modal
+         End Function,
+         selectedID,
+         Function(modal)
+             Return Nothing
+         End Function
+         )
+
+
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -122,7 +135,5 @@ Public Class ServiceEvaluationModal
         End With
     End Sub
 
-    Private Sub Groupbox_Click(sender As Object, e As EventArgs) Handles Groupbox.Click
 
-    End Sub
 End Class

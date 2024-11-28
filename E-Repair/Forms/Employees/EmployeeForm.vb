@@ -15,12 +15,13 @@
     Public Property empDT As DataTable
 
     ' RESTRICT ACTIONS
-    Private Function restrictUser() As Boolean
+    Private Function isRestricted() As Boolean
         If empPosition = constants.getSuperAdminString AndAlso empPosition = constants.getAdminString Then
             MsgBox("Restricted Action")
+            Return False
         End If
 
-        Return False
+        Return True
     End Function
 
     ' INIT DATA
@@ -33,6 +34,20 @@
             empArchived = .Cells(empConst.empArchStr).Value
             empPosition = .Cells(empConst.empJobPosStr).Value
         End With
+
+        Return True
+    End Function
+
+
+    Private Function hasPendingWork() As Boolean
+        If empPosition = constants.getTechnicianString Then
+            Dim pendingWork As Integer = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
+
+            If pendingWork <> 0 Then
+                MsgBox("You cannot archive employee that has " & pendingWork & " pending work")
+                Return False
+            End If
+        End If
 
         Return True
     End Function
@@ -93,24 +108,14 @@
 
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
-        If Not InitData() Then Exit Sub
-
-        If empPosition = constants.getTechnicianString Then
-            Dim pendingWork As Integer = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
-
-            If pendingWork <> 0 Then
-                MsgBox("You cannot archive employee that has " & pendingWork & " pending work")
-                Exit Sub
-            End If
-        End If
-
+        If Not InitData() Or hasPendingWork() Then Exit Sub
         formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
-        If Not InitData() Then Exit Sub
+        If Not InitData() Or hasPendingWork() Then Exit Sub
         formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
@@ -153,8 +158,6 @@
             If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
             formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
-
-
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub
 
@@ -165,7 +168,7 @@
 
     ' BTN SELECT
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-        If Not InitData() Then Exit Sub
+        If Not InitData() Or Not selectMode Then Exit Sub
 
         selectedEmpID = employeeID
 
@@ -173,6 +176,4 @@
 
         Me.Close()
     End Sub
-
-
 End Class

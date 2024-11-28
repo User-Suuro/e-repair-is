@@ -111,5 +111,14 @@ Public Class ServiceViewModal
         Me.Close()
     End Sub
 
+    Private Sub SeeCustomerBtn_Click(sender As Object, e As EventArgs) Handles SeeCustomerBtn.Click
 
+    End Sub
+
+    Private Sub SeeTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SeeTechnicianBtn.Click
+
+    End Sub
+    Private Sub PartsUsedBtn_Click(sender As Object, e As EventArgs) Handles PartsUsedBtn.Click
+
+    End Sub
 End Class
