@@ -101,18 +101,22 @@ Public Class FormUtils
 
 
     ' Search function
-    Public Function SearchFunction(dt As DataTable, searchTerm As String, searchValues As String(), searchCmbSelectedIndex As Integer) As DataTable
-        Dim searchBy As String = searchValues(0)
+    Public Function SearchFunction(ByVal dt As DataTable, searchTerm As String, searchValues As List(Of String), searchCmb As Guna2ComboBox) As DataTable
+        Try
+            Dim searchBy As String = searchValues(0)
 
-        If searchCmbSelectedIndex >= 0 AndAlso searchCmbSelectedIndex < searchValues.Length Then
-            searchBy = searchValues(searchCmbSelectedIndex)
-        End If
+            If searchCmb.SelectedIndex = -1 Then
+                searchBy = searchValues(searchCmb.SelectedIndex)
+            End If
 
-        If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            dt.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
-        Else
+            If Not String.IsNullOrWhiteSpace(searchTerm) Then
+                dt.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
+            Else
+                dt.DefaultView.RowFilter = ""
+            End If
+        Catch ex As Exception
             dt.DefaultView.RowFilter = ""
-        End If
+        End Try
 
         Return dt
     End Function
@@ -145,9 +149,9 @@ Public Class FormUtils
 
             End If
 
-            dgv.DataSource = dt.DefaultView.ToTable()
             FormatDGVForArchive(dgv)
-            dgv.ClearSelection()
+          
+
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try
@@ -156,6 +160,8 @@ Public Class FormUtils
     Private Sub FormatDGVForArchive(dgv As DataGridView)
         Try
             For Each row As DataGridViewRow In dgv.Rows
+
+
 
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
@@ -176,12 +182,14 @@ Public Class FormUtils
         End Try
     End Sub
 
-    Public Sub FormatDGVForAddedBy(dgv As DataGridView)
-        If Not dgv.Columns.Contains("ADDED_BY_NAME") Then
-            dgv.Columns.Add("ADDED_BY_NAME", "Added By")
-        End If
 
+
+    Public Sub FormatDGVForAddedBy(dgv As DataGridView)
         Try
+            If Not dgv.Columns.Contains("ADDED_BY_NAME") Then
+                dgv.Columns.Add("ADDED_BY_NAME", "Added By")
+            End If
+
             If dgv.Columns.Contains("ADDED_BY_NAME") Then
                 For Each row As DataGridViewRow In dgv.Rows
                     If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
@@ -197,10 +205,7 @@ Public Class FormUtils
     End Sub
 
     ' Load dgv
-    Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, showChkBox As CheckBox, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
-        If Not String.IsNullOrWhiteSpace(searchTerm) Then
-            dt = SearchFunction(dt, searchTerm, searchValues, searchIndex)
-        End If
+    Public Sub LoadToDGV(dgv As DataGridView, ByVal dt As DataTable, showChkBox As CheckBox)
 
         If dt.Columns.Contains("archived") Then
             With dt.DefaultView

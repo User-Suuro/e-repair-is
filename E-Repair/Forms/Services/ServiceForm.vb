@@ -211,7 +211,7 @@ Public Class ServiceForm
                 row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
-            formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+            formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox)
         End With
     End Sub
 

@@ -12,7 +12,7 @@
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property empDT As DataTable
+    Public Property empDT As DataTable = Nothing
 
     ' RESTRICT ACTIONS
     Private Function isRestricted() As Boolean
@@ -155,8 +155,9 @@
               .empLastAccessedStr,
               .empAddDateStr
             }
+
             If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
-            formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
+            formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox)
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub
