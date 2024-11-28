@@ -16,7 +16,6 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
-
     Dim searchStatusList As List(Of String) = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
 
     Public Property selectMode As Boolean = False
@@ -254,7 +253,7 @@ Public Class ServiceForm
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
 
-        If SearchStatusCmb.SelectedItem =  Then
+        If SearchStatusCmb.SelectedItem = "Archived" Then
             formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
         End If
 
