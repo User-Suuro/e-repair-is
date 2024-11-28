@@ -244,9 +244,8 @@ Public Class ServiceForm
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
+        LoadDataToDGV()
     End Sub
 
-    Private Sub ServiceDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDGV.CellContentClick
 
-    End Sub
 End Class
