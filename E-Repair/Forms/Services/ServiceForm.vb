@@ -172,7 +172,7 @@ Public Class ServiceForm
             serviceDT.Columns.Add("technician_name", GetType(String))
 
             For Each row As DataRow In serviceDT.Rows
-                row("customer_name") = formUtils.getCustomerName(row(servConst.cashierIDStr))
+                row("customer_name") = formUtils.getCustomerName(row(servConst.custIDStr))
                 row("technician_name") = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
