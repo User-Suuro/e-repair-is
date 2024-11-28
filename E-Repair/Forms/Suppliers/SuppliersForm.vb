@@ -99,6 +99,7 @@
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         SuppliersDGV.ClearSelection()
+        
     End Sub
 
     ' LOAD DATA
@@ -117,8 +118,7 @@
             }
 
             suppDT = dbHelper.GetAllData(.supTableStr)
-            formUtils.LoadToDGV(SuppliersDGV, suppDT, ShowArchiveCheckBox, searchTerm, searchValues, SearchComboBox)
-
+            formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox, ShowArchiveCheckBox)
         End With
     End Sub
 
@@ -126,6 +126,7 @@
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
+
     End Sub
 
     ' SEARCH

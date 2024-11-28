@@ -188,38 +188,52 @@ Public Class FormUtils
 
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
-                         Optional searchTerm As String = Nothing,
-                         Optional searchValues As List(Of String) = Nothing,
-                         Optional searchCmb As Guna2ComboBox = Nothing
-                         )
+                      Optional searchTerm As String = Nothing,
+                      Optional searchValues As List(Of String) = Nothing,
+                      Optional searchCmb As Guna2ComboBox = Nothing,
+                      Optional showChkBox As CheckBox = Nothing)
 
         Try
-            If searchValues IsNot Nothing Then
+            Dim filter As String = ""
 
-                Dim searchBy = searchValues(searchCmb.SelectedIndex)
+            ' Handle search
+            If searchValues IsNot Nothing AndAlso searchCmb IsNot Nothing Then
+                Dim searchBy As String = If(searchCmb.SelectedIndex >= 0, searchValues(searchCmb.SelectedIndex), searchValues(0))
 
-                If searchCmb.SelectedIndex = -1 Then
-                    searchBy = searchValues(0)
+                If Not String.IsNullOrWhiteSpace(searchTerm) Then
+                    filter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
                 End If
-
-                With dt.DefaultView
-                    If Not String.IsNullOrWhiteSpace(searchTerm) Then
-                        .RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
-                    Else
-                        .RowFilter = ""
-                    End If
-                End With
-
             End If
+
+            ' Handle checkbox for archived
+            If showChkBox IsNot Nothing AndAlso dt.Columns.Contains("archived") Then
+                Dim archivedFilter As String = If(showChkBox.Checked, "archived = True", "archived = False")
+                If Not String.IsNullOrWhiteSpace(filter) Then
+                    filter &= $" AND {archivedFilter}"
+                Else
+                    filter = archivedFilter
+                End If
+            End If
+
+            ' Handle additional "job_type" filtering
+            If dt.Columns.Contains(empCosnt.empJobPosStr) Then
+                Dim jobTypeFilter As String = $"{empCosnt.empJobPosStr } <> '{constants.getSuperAdminString}'"
+                If Not String.IsNullOrWhiteSpace(filter) Then
+                    filter &= $" AND {jobTypeFilter}"
+                Else
+                    filter = jobTypeFilter
+                End If
+            End If
+
+            dt.DefaultView.RowFilter = filter
+
+            dgv.AutoGenerateColumns = False
+            dgv.RowTemplate.Height = 40
+            dgv.DataSource = dt.DefaultView
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-        dgv.AutoGenerateColumns = False
-        dgv.RowTemplate.Height = 40
-        dgv.DataSource = dt
     End Sub
-
     Public Function dgvValChecker(dgv As DataGridView)
         If dgv.Rows.Count = 0 Then
             MsgBox("No Data Found!")
