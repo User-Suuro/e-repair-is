@@ -5,6 +5,7 @@ Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+
     Dim supConst As New SuppliersDBConstants
 
     Private suppID As Integer
@@ -12,14 +13,15 @@ Public Class SuppliersForm
 
     Public Property selectMode As Boolean = False
     Public Property suppDT As DataTable = Nothing
+    Public Property selectedID As Integer = -1
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
         If Not formUtils.dgvValChecker(SuppliersDGV) Then Return False
 
         With SuppliersDGV.CurrentRow
-            suppID = .Cells("SUPPLIER_ID").Value
-            archivedStatus = .Cells("ARCHIVED").Value
+            suppID = .Cells(supConst.supIDStr).Value
+            archivedStatus = .Cells(supConst.archivedStr).Value
         End With
 
         Return True

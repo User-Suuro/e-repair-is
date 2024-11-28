@@ -21,10 +21,10 @@ Public Class ServiceForm
 
         ' INITIALIZE VALUES
         With ServiceDGV.CurrentRow
-            serviceID = .Cells("SERVICE_ID").Value
-            is_archived = .Cells("ARCHIVED").Value
-            serviceStatus = .Cells("SERVICE_STATUS").Value
-            is_paid = .Cells("PAID").Value
+            serviceID = .Cells(servConst.svcIDStr).Value
+            is_archived = .Cells(servConst.archivedStr).Value
+            serviceStatus = .Cells(servConst.svcStatusStr).Value
+            is_paid = .Cells(servConst.paidStr).Value
         End With
 
         Return True

@@ -7,7 +7,7 @@
     Dim invConst As New InventoryDBConstants
 
     Private inventoryID As Integer = -1
-    Private quantity As Integer = -1
+    Private itemQuantity As Integer = -1
     Private is_archived = False
 
     Public Property selectedID As Integer = -1
@@ -19,7 +19,9 @@
         If Not formUtils.dgvValChecker(InventoryDGV) Then Return False
 
         With InventoryDGV.CurrentRow
-            inventoryID = .Cells("INVENTORY_ID").Value
+            inventoryID = .Cells(invConst.supIDStr).Value
+            itemQuantity = .Cells(invConst.qtyStr).Value
+            is_archived = .Cells(invConst.archivedStr)
         End With
 
         Return True
