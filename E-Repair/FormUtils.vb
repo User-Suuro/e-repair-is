@@ -5,6 +5,7 @@ Imports Mysqlx.Expr
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
+    Dim constants As New Constants
 
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
@@ -194,13 +195,12 @@ Public Class FormUtils
 
         If searchValues IsNot Nothing Then
             Dim searchBy As String = searchValues(0)
-
             If searchCmb.SelectedIndex = -1 Then
                 searchBy = searchValues(searchCmb.SelectedIndex)
             End If
-
             With dt.DefaultView
                 Try
+
                     If Not String.IsNullOrWhiteSpace(searchTerm) Then
                         .RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
                     Else
@@ -211,6 +211,7 @@ Public Class FormUtils
                 End Try
             End With
         End If
+
 
         If showChkBox IsNot Nothing Then
             If dt.Columns.Contains("archived") Then
@@ -226,13 +227,15 @@ Public Class FormUtils
             If dt.Columns.Contains("job_type") Then
                 With dt.DefaultView
                     If showChkBox.Checked Then
-                        .RowFilter = "archived = True AND job_type <> 'Super Admin'"
+                        .RowFilter = $"archived = True AND job_type <> '{constants.getSuperAdminString}'"
                     Else
-                        .RowFilter = "archived = False AND job_type <> 'Super Admin'"
+                        .RowFilter = $"archived = False AND job_type <> '{constants.getSuperAdminString}'"
                     End If
                 End With
             End If
         End If
+
+        dt.AcceptChanges()
 
         dgv.RowTemplate.Height = 40
         dgv.AutoGenerateColumns = True
