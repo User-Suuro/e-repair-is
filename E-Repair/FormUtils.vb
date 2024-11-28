@@ -193,52 +193,52 @@ Public Class FormUtils
                          Optional searchCmb As Guna2ComboBox = Nothing
                          )
 
-        If searchValues IsNot Nothing Then
-            Dim searchBy As String = searchValues(0)
-            If searchCmb.SelectedIndex = -1 Then
-                searchBy = searchValues(searchCmb.SelectedIndex)
-            End If
-            With dt.DefaultView
-                Try
+        Try
+            If searchValues IsNot Nothing Then
 
+                Dim searchBy As String = searchValues(0)
+
+                If searchCmb.SelectedIndex = -1 Then
+                    searchBy = searchValues(searchCmb.SelectedIndex)
+                End If
+
+                With dt.DefaultView
                     If Not String.IsNullOrWhiteSpace(searchTerm) Then
                         .RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
                     Else
                         .RowFilter = ""
                     End If
-                Catch ex As Exception
-                    .RowFilter = ""
-                End Try
-            End With
-        End If
-
-
-        If showChkBox IsNot Nothing Then
-            If dt.Columns.Contains("archived") Then
-                With dt.DefaultView
-                    If showChkBox.Checked Then
-                        .RowFilter = "archived = True"
-                    Else
-                        .RowFilter = "archived = False"
-                    End If
                 End With
+
             End If
 
-            If dt.Columns.Contains("job_type") Then
-                With dt.DefaultView
-                    If showChkBox.Checked Then
-                        .RowFilter = $"archived = True AND job_type <> '{constants.getSuperAdminString}'"
-                    Else
-                        .RowFilter = $"archived = False AND job_type <> '{constants.getSuperAdminString}'"
-                    End If
-                End With
-            End If
-        End If
+            If showChkBox IsNot Nothing Then
+                If dt.Columns.Contains("archived") Then
+                    With dt.DefaultView
+                        If showChkBox.Checked Then
+                            .RowFilter = "archived = True"
+                        Else
+                            .RowFilter = "archived = False"
+                        End If
+                    End With
+                End If
 
-        dt.AcceptChanges()
+                If dt.Columns.Contains("job_type") Then
+                    With dt.DefaultView
+                        If showChkBox.Checked Then
+                            .RowFilter = $"archived = True AND job_type <> '{constants.getSuperAdminString}'"
+                        Else
+                            .RowFilter = $"archived = False AND job_type <> '{constants.getSuperAdminString}'"
+                        End If
+                    End With
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
         dgv.RowTemplate.Height = 40
-        dgv.AutoGenerateColumns = True
         dgv.DataSource = dt
     End Sub
 

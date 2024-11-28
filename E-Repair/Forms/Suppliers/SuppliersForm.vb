@@ -103,6 +103,7 @@
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+
         With supConst
             Dim searchValues As New List(Of String) From {
                  .compNameStr,
@@ -115,8 +116,9 @@
                  .dateAddedStr
             }
 
-            If Not selectMode Then suppDT = dbHelper.GetAllData(.supTableStr)
+            suppDT = dbHelper.GetAllData(.supTableStr)
             formUtils.LoadToDGV(SuppliersDGV, suppDT, ShowArchiveCheckBox, searchTerm, searchValues, SearchComboBox)
+
         End With
     End Sub
 
