@@ -147,6 +147,7 @@ Public Class FormUtils
 
             dgv.DataSource = dt.DefaultView.ToTable()
             FormatDGVForArchive(dgv)
+            dgv.ClearSelection()
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try

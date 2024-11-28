@@ -5,6 +5,8 @@
     Dim formUtils As New FormUtils
 
     Dim custConst As New CustomersDBConstants
+    Dim servConst As New ServiceDBConstants
+    Dim constants As New Constants
 
     ' SCHEMA
     Private customerID As String = ""
@@ -82,6 +84,14 @@
     ' ARCHIVE
     Private Sub ArchiveCustomerBtn_Click(sender As Object, e As EventArgs) Handles ArchiveCustomerBtn.Click
         If Not InitValues() Then Exit Sub
+
+        Dim pendingCommissions As Integer = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.custIDStr, customerID, servConst.svcStatusStr, constants.getPendingString).Rows.Count
+
+        If pendingCommissions <> 0 Then
+            MsgBox("You cannot archive customers that has " & pendingCommissions & " pending commissions")
+            Exit Sub
+        End If
+
         formUtils.ArchiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
         LoadDataToDGV()
     End Sub

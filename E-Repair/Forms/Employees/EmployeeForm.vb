@@ -96,7 +96,7 @@
         If Not InitData() Then Exit Sub
 
         If empPosition = constants.getTechnicianString Then
-            Dim pendingWork = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
+            Dim pendingWork As Integer = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
 
             If pendingWork <> 0 Then
                 MsgBox("You cannot archive employee that has " & pendingWork & " pending work")

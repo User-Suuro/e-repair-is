@@ -125,8 +125,8 @@ Public Class SuppliersForm
 
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
         LoadDataToDGV()
+        formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
     End Sub
 
     ' SEARCH
@@ -139,7 +139,5 @@ Public Class SuppliersForm
 
     End Sub
 
-    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
 
-    End Sub
 End Class
