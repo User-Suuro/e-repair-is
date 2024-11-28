@@ -33,6 +33,11 @@ Public Class InventoryForm
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InventoryDGV.ClearSelection()
         LoadDataToDGV()
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+
+        If selectedID = -1 Then
+            BtnSelect.Visible = False
+        End If
     End Sub
 
     ' USE

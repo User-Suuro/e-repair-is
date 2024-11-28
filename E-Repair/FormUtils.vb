@@ -525,6 +525,17 @@ Public Class FormUtils
         Return True
     End Function
 
+    Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
+        ' Filter the rows based on the provided filter expression
+        Dim filteredRows As DataRow() = sourceTable.Select(filterExpression, sortOrder)
 
-
+        ' Check if any rows match the filter
+        If filteredRows.Any() Then
+            ' Return a new DataTable with the filtered rows
+            Return filteredRows.CopyToDataTable()
+        Else
+            ' Return an empty DataTable with the same schema
+            Return sourceTable.Clone()
+        End If
+    End Function
 End Class

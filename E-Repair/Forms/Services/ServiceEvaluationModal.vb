@@ -7,6 +7,7 @@ Public Class ServiceEvaluationModal
     Dim constants As New Constants
 
     Dim servConst As New ServiceDBConstants
+    Dim invConst As New InventoryDBConstants
     Dim itemConst As New ItemsDBConstants
 
     Private repairStatus As String = Nothing
@@ -99,11 +100,16 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
+        ' get inventory table
+        Dim itemDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
+        Dim filterExpression As String = itemConst.ServiceId & " = " & selectedID
+        itemDT = formUtils.FilterDataTable(itemDT, filterExpression)
+
         ' for viewing
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
          Function(id)
-             Dim modal As New ServiceClaimModal
-             modal.selectedID = id
+             Dim modal As New InventoryForm
+             modal.invDT = itemDT
              Return modal
          End Function,
          selectedID,
@@ -111,7 +117,6 @@ Public Class ServiceEvaluationModal
              Return Nothing
          End Function
          )
-
 
     End Sub
 
@@ -134,6 +139,5 @@ Public Class ServiceEvaluationModal
             End If
         End With
     End Sub
-
 
 End Class

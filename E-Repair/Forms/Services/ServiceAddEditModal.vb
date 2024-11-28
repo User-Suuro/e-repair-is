@@ -11,7 +11,6 @@ Public Class ServiceAddEditModal
     Dim empConst As New EmployeesDBConstants
     Dim custConst As New CustomersDBConstants
 
-
     Private serviceID As Integer = -1
     Private customerID As Integer = -1
     Private technicianID As Integer = -1
@@ -326,6 +325,5 @@ Public Class ServiceAddEditModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class

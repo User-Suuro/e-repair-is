@@ -101,7 +101,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
         Me.Guna2GroupBox1.Size = New System.Drawing.Size(704, 458)
         Me.Guna2GroupBox1.TabIndex = 1
-        Me.Guna2GroupBox1.Text = "Add Item"
+        Me.Guna2GroupBox1.Text = "Add Inventory"
         '
         'Guna2Separator3
         '

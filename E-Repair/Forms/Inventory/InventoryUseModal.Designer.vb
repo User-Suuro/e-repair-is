@@ -82,7 +82,7 @@ Partial Class InventoryUseModal
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
         Me.Guna2GroupBox1.Size = New System.Drawing.Size(706, 326)
         Me.Guna2GroupBox1.TabIndex = 3
-        Me.Guna2GroupBox1.Text = "Use Item"
+        Me.Guna2GroupBox1.Text = "Use Inventory"
         '
         'Guna2Panel1
         '
@@ -301,7 +301,7 @@ Partial Class InventoryUseModal
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 35
-        Me.BtnClose.Text = "Cancel"
+        Me.BtnClose.Text = "Close"
         '
         'UseQuantityTxtBox
         '
@@ -501,7 +501,7 @@ Partial Class InventoryUseModal
         Me.SelectItemTxtBox.ShadowDecoration.Parent = Me.SelectItemTxtBox
         Me.SelectItemTxtBox.Size = New System.Drawing.Size(163, 28)
         Me.SelectItemTxtBox.TabIndex = 42
-        Me.SelectItemTxtBox.Text = "Select Item"
+        Me.SelectItemTxtBox.Text = "Select Inventory"
         '
         'Label7
         '
@@ -599,9 +599,9 @@ Partial Class InventoryUseModal
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(3, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(50, 20)
+        Me.Label10.Size = New System.Drawing.Size(79, 20)
         Me.Label10.TabIndex = 0
-        Me.Label10.Text = "Item ID"
+        Me.Label10.Text = "Inventory ID"
         '
         'ItemIDTxtBox
         '
