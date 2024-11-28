@@ -50,8 +50,8 @@ Partial Class ServiceForm
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CASHIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CUSTOMER_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CUSTOMER_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_TYPE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_MODEL = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEVICE_BRAND = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -391,7 +391,7 @@ Partial Class ServiceForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
-        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.TECHNICIAN_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PARTS_COST, Me.TOTAL_PAID, Me.PAID, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.TECHNICIAN_NAME, Me.CUSTOMER_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PARTS_COST, Me.TOTAL_PAID, Me.PAID, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -500,18 +500,19 @@ Partial Class ServiceForm
         Me.CASHIER_ID.ReadOnly = True
         Me.CASHIER_ID.Visible = False
         '
-        'CUSTOMER_NAME
-        '
-        Me.CUSTOMER_NAME.HeaderText = "Customer Name"
-        Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
-        Me.CUSTOMER_NAME.ReadOnly = True
-        '
         'TECHNICIAN_NAME
         '
         Me.TECHNICIAN_NAME.DataPropertyName = "technician_name"
-        Me.TECHNICIAN_NAME.HeaderText = "Technician name"
+        Me.TECHNICIAN_NAME.HeaderText = "Technician Name"
         Me.TECHNICIAN_NAME.Name = "TECHNICIAN_NAME"
         Me.TECHNICIAN_NAME.ReadOnly = True
+        '
+        'CUSTOMER_NAME
+        '
+        Me.CUSTOMER_NAME.DataPropertyName = "customer_name"
+        Me.CUSTOMER_NAME.HeaderText = "Customer Name"
+        Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
+        Me.CUSTOMER_NAME.ReadOnly = True
         '
         'DEVICE_TYPE
         '
@@ -723,8 +724,8 @@ Partial Class ServiceForm
     Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_ID As DataGridViewTextBoxColumn
     Friend WithEvents CASHIER_ID As DataGridViewTextBoxColumn
-    Friend WithEvents CUSTOMER_NAME As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents CUSTOMER_NAME As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_TYPE As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_MODEL As DataGridViewTextBoxColumn
     Friend WithEvents DEVICE_BRAND As DataGridViewTextBoxColumn

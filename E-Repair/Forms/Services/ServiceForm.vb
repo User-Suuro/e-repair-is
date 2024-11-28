@@ -168,6 +168,9 @@ Public Class ServiceForm
             Dim customerNames As New List(Of String)
             Dim techNames As New List(Of String)
 
+            serviceDT.Columns.Add("customer_name", GetType(String))
+            serviceDT.Columns.Add("technician_name", GetType(String))
+
             For Each row As DataRow In serviceDT.Rows
                 row("customer_name") = formUtils.getCustomerName(row(servConst.cashierIDStr))
                 row("technician_name") = formUtils.getEmployeeName(row(servConst.techIDStr))
