@@ -102,6 +102,7 @@ Public Class InventoryForm
     ' EDIT
     Private Sub EdtBtn_Click(sender As Object, e As EventArgs) Handles EdtBtn.Click
         If Not InitData() Then Exit Sub
+
         formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New InvetoryAddEditModal

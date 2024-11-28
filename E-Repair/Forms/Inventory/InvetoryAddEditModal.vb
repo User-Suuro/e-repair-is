@@ -2,6 +2,15 @@
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
 
+    Private supplierID As Integer = -1
+    Private itemName As String = ""
+    Private itemCategory As String = ""
+    Private hazardous As String = ""
+    Private itemDesc As String = ""
+    Private serialNumber As String = ""
+    Private physicalLocation As String = ""
+    Private cost
+
     Public Property selectedID As Integer = -1
     Public Property editMode As Boolean = False
 
@@ -13,17 +22,21 @@
         formUtils.checkIfLoad(selectedID)
     End Sub
 
-    Private Sub SupplierIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierIDTxtBox.TextChanged
+    Private Sub SelectSupplierBtn_Click(sender As Object, e As EventArgs) Handles SelectSupplierBtn.Click
 
+    End Sub
+    Private Sub SupplierIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierIDTxtBox.TextChanged
+        ' for viewing
     End Sub
 
     Private Sub CompanyNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompanyNameTxtBox.TextChanged
-
+        ' for viewing
     End Sub
 
     Private Sub ItemsSuppliedTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ItemsSuppliedTxtBox.TextChanged
-
+        ' for viewing
     End Sub
+
 
     Private Sub ItemNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ItemNameTxtBox.TextChanged
 
@@ -65,7 +78,5 @@
 
     End Sub
 
-    Private Sub SelectSupplierBtn_Click(sender As Object, e As EventArgs) Handles SelectSupplierBtn.Click
 
-    End Sub
 End Class

@@ -4,8 +4,10 @@ Public Class ServiceViewModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
+
     Dim servConst As New ServiceDBConstants
     Dim empConst As New EmployeesDBConstants
+    Dim itemConst As New ItemsDBConstants
 
     Public Property selectedID As Integer = -1
 
@@ -112,13 +114,44 @@ Public Class ServiceViewModal
     End Sub
 
     Private Sub SeeCustomerBtn_Click(sender As Object, e As EventArgs) Handles SeeCustomerBtn.Click
-
+        formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New CustomerViewModal
+             modal.selectedID = id
+             Return modal
+         End Function,
+         selectedID,
+         Function(modal)
+             Return Nothing
+         End Function
+        )
     End Sub
 
     Private Sub SeeTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SeeTechnicianBtn.Click
-
+        formUtils.ShowModalWithHandler(
+       Function(id)
+           Dim modal As New EmployeeViewModal
+           modal.selectedID = id
+           Return modal
+       End Function,
+       selectedID,
+       Function(modal)
+           Return Nothing
+       End Function
+       )
     End Sub
     Private Sub PartsUsedBtn_Click(sender As Object, e As EventArgs) Handles PartsUsedBtn.Click
 
+        Dim resultID As Integer = formUtils.ShowModalWithHandler(
+       Function(id)
+           Dim modal As New InventoryItemModal
+           modal.itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
+           Return modal
+       End Function,
+       selectedID,
+       Function(modal)
+           Return Nothing
+       End Function
+       )
     End Sub
 End Class
