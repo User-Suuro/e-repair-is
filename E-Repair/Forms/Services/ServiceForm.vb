@@ -210,7 +210,6 @@ Public Class ServiceForm
                 .svcStatusStr,
                 .svcStatusStr,
                 .svcStatusStr,
-                .archivedStr
             }
 
             If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
@@ -243,7 +242,6 @@ Public Class ServiceForm
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
         Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr))
-        getStatusEnums.Add("Archived")
         SearchStatusCmb.DataSource = getStatusEnums
         SearchStatusCmb.SelectedIndex = index01
     End Sub
@@ -251,11 +249,11 @@ Public Class ServiceForm
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = SearchStatusCmb.SelectedItem
-        If SearchStatusCmb.SelectedItem = "Archived" Then
-            formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
-        End If
         LoadDataToDGV()
     End Sub
 
-
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+        LoadDataToDGV()
+    End Sub
 End Class
