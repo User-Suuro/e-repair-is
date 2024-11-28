@@ -242,9 +242,10 @@ Public Class ServiceForm
 
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
-        Dim getStatusEnums As List(Of String) = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
         getStatusEnums.Add("Archived")
-        SearchComboBox.DataSource = getStatusEnums
+        SearchStatusCmb.DataSource = getStatusEnums
+        SearchStatusCmb.SelectedIndex = index01
     End Sub
 
     ' SEARCH TXT BOX
