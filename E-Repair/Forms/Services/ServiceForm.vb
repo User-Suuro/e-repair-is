@@ -16,7 +16,8 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
-    Dim searchStatusList As List(Of String) = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+
+    Dim searchStatusList As List(Of String)
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
@@ -58,8 +59,14 @@ Public Class ServiceForm
 
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         initCmbds(0)
+
+        For Each item In dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+            searchStatusList.Add(item)
+        Next
         searchStatusList.Add("Archived")
+
         currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
         LoadDataToDGV()
         ServiceDGV.ClearSelection()
