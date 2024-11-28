@@ -17,8 +17,6 @@ Public Class ServiceForm
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
 
-    Dim searchStatusList As New List(Of String)
-
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property serviceDT As DataTable = Nothing
@@ -59,15 +57,7 @@ Public Class ServiceForm
 
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         initCmbds(0)
-
-        For Each item In dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
-            searchStatusList.Add(item)
-        Next
-        searchStatusList.Add("Archived")
-
-        currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
         LoadDataToDGV()
         ServiceDGV.ClearSelection()
         loadUserDisplay()
@@ -250,20 +240,19 @@ Public Class ServiceForm
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
-
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
-        dbHelper.LoadEnumsToCmb(SearchStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index01)
+        Dim getStatusEnums As List(Of String) = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        getStatusEnums.Add("Archived")
+        SearchComboBox.DataSource = getStatusEnums
     End Sub
 
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
-        currentSearchVal = searchStatusList(SearchStatusCmb.SelectedIndex)
-
+        currentSearchVal = SearchStatusCmb.SelectedItem
         If SearchStatusCmb.SelectedItem = "Archived" Then
             formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
         End If
-
         LoadDataToDGV()
     End Sub
 
