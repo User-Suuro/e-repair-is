@@ -109,8 +109,8 @@ Public Class FormUtils
                 searchBy = searchValues(searchCmb.SelectedIndex)
             End If
 
-            If Not String.IsNullOrWhiteSpace(searchTerm) Then
-                dt.DefaultView.RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
+            If Not String.IsNullOrWhiteSpace(searchTerm.Trim()) Then
+                dt.DefaultView.RowFilter = $"{searchBy} LIKE `%{searchTerm}%`"
             Else
                 dt.DefaultView.RowFilter = ""
             End If

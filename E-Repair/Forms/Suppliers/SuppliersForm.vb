@@ -1,7 +1,4 @@
-﻿Imports System.Linq.Expressions
-Imports Google.Protobuf.Compiler
-
-Public Class SuppliersForm
+﻿Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
@@ -107,7 +104,7 @@ Public Class SuppliersForm
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With supConst
-            Dim searchValues() As String = {
+            Dim searchValues As New List(Of String) From {
                  .compNameStr,
                  .contactPersonStr,
                  .contactNumStr,
