@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Runtime.InteropServices
 Imports Guna.UI2.WinForms
 Imports Mysqlx.Expr
 
@@ -101,25 +102,6 @@ Public Class FormUtils
 
 
     ' Search function
-    Public Function SearchFunction(ByVal dt As DataTable, searchTerm As String, searchValues As List(Of String), searchCmb As Guna2ComboBox) As DataTable
-        Try
-            Dim searchBy As String = searchValues(0)
-
-            If searchCmb.SelectedIndex = -1 Then
-                searchBy = searchValues(searchCmb.SelectedIndex)
-            End If
-
-            If Not String.IsNullOrWhiteSpace(searchTerm.Trim()) Then
-                dt.DefaultView.RowFilter = $"{searchBy} LIKE `%{searchTerm}%`"
-            Else
-                dt.DefaultView.RowFilter = ""
-            End If
-        Catch ex As Exception
-            dt.DefaultView.RowFilter = ""
-        End Try
-
-        Return dt
-    End Function
 
     ' Format dgv for archive
     Public Sub FormatChkBoxForArchive(dgv As DataGridView, chkbox As CheckBox, delBtn As Button, archBtn As Button, editBtn As Button, addBtn As Button)
@@ -150,7 +132,7 @@ Public Class FormUtils
             End If
 
             FormatDGVForArchive(dgv)
-          
+
 
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
@@ -160,8 +142,6 @@ Public Class FormUtils
     Private Sub FormatDGVForArchive(dgv As DataGridView)
         Try
             For Each row As DataGridViewRow In dgv.Rows
-
-
 
                 If row.Cells("ARCHIVED").Value IsNot Nothing AndAlso CBool(row.Cells("ARCHIVED").Value) = True Then
                     row.DefaultCellStyle.BackColor = Color.LightPink
@@ -205,30 +185,57 @@ Public Class FormUtils
     End Sub
 
     ' Load dgv
-    Public Sub LoadToDGV(dgv As DataGridView, ByVal dt As DataTable, showChkBox As CheckBox)
+    Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
+                         Optional showChkBox As CheckBox = Nothing,
+                         Optional searchTerm As String = Nothing,
+                         Optional searchValues As List(Of String) = Nothing,
+                         Optional searchCmb As Guna2ComboBox = Nothing
+                         )
 
-        If dt.Columns.Contains("archived") Then
+        If searchValues IsNot Nothing Then
+            Dim searchBy As String = searchValues(0)
+
+            If searchCmb.SelectedIndex = -1 Then
+                searchBy = searchValues(searchCmb.SelectedIndex)
+            End If
+
             With dt.DefaultView
-                If showChkBox.Checked Then
-                    .RowFilter = "archived = True"
-                Else
-                    .RowFilter = "archived = False"
-                End If
+                Try
+                    If Not String.IsNullOrWhiteSpace(searchTerm) Then
+                        .RowFilter = $"CONVERT([{searchBy}], System.String) LIKE '%{searchTerm}%'"
+                    Else
+                        .RowFilter = ""
+                    End If
+                Catch ex As Exception
+                    .RowFilter = ""
+                End Try
             End With
         End If
 
-        If dt.Columns.Contains("job_type") Then
-            With dt.DefaultView
-                If showChkBox.Checked Then
-                    .RowFilter = "archived = True AND job_type <> 'Super Admin'"
-                Else
-                    .RowFilter = "archived = False AND job_type <> 'Super Admin'"
-                End If
-            End With
+        If showChkBox IsNot Nothing Then
+            If dt.Columns.Contains("archived") Then
+                With dt.DefaultView
+                    If showChkBox.Checked Then
+                        .RowFilter = "archived = True"
+                    Else
+                        .RowFilter = "archived = False"
+                    End If
+                End With
+            End If
+
+            If dt.Columns.Contains("job_type") Then
+                With dt.DefaultView
+                    If showChkBox.Checked Then
+                        .RowFilter = "archived = True AND job_type <> 'Super Admin'"
+                    Else
+                        .RowFilter = "archived = False AND job_type <> 'Super Admin'"
+                    End If
+                End With
+            End If
         End If
 
         dgv.RowTemplate.Height = 40
-        dgv.AutoGenerateColumns = False
+        dgv.AutoGenerateColumns = True
         dgv.DataSource = dt
     End Sub
 

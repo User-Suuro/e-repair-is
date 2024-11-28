@@ -116,8 +116,7 @@
             }
 
             If Not selectMode Then suppDT = dbHelper.GetAllData(.supTableStr)
-            suppDT = formUtils.SearchFunction(suppDT, searchTerm, searchValues, SearchComboBox)
-            formUtils.LoadToDGV(SuppliersDGV, suppDT, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(SuppliersDGV, suppDT, ShowArchiveCheckBox, searchTerm, searchValues, SearchComboBox)
         End With
     End Sub
 
