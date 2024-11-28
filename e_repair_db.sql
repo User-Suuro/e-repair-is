@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 04:04 AM
+-- Generation Time: Nov 28, 2024 at 04:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -148,9 +148,9 @@ CREATE TABLE `items` (
 
 CREATE TABLE `logs` (
   `log_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `transaction` varchar(255) NOT NULL,
-  `events` varchar(255) DEFAULT NULL,
+  `user_accounts_id` int(11) NOT NULL,
+  `transactions` varchar(255) NOT NULL,
+  `event` varchar(255) DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
