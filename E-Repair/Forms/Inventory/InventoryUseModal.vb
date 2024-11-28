@@ -1,7 +1,6 @@
 ﻿Public Class InventoryUseModal
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
+    Public Property selectedID As Integer = -1
 
-    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()

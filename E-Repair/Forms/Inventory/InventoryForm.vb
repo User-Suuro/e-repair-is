@@ -1,4 +1,6 @@
-﻿Public Class InventoryForm
+﻿Imports System.Runtime.Remoting
+
+Public Class InventoryForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
@@ -37,31 +39,81 @@
     Private Sub UseBtn_Click(sender As Object, e As EventArgs) Handles UseBtn.Click
         If Not InitData() Then Exit Sub
 
+        If itemQuantity = 0 Then
+            MsgBox("Insufficient Quantity")
+            Exit Sub
+        End If
+
+        formUtils.ShowModalWithHandler(
+          Function(id)
+              Dim modal As New InventoryUseModal
+              modal.selectedID = id
+              Return modal
+          End Function,
+          inventoryID,
+          Function(modal)
+              Return Nothing
+          End Function
+          )
     End Sub
 
     ' VIEW
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewBtn.Click
         If Not InitData() Then Exit Sub
+
+        formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New InventoryViewModal
+             modal.selectedID = id
+             Return modal
+         End Function,
+         inventoryID,
+         Function(modal)
+             Return Nothing
+         End Function
+         )
     End Sub
 
     ' ADD
     Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
-
+        formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New InvetoryAddEditModal
+             Return modal
+         End Function,
+         -1,
+         Function(modal)
+             Return Nothing
+         End Function
+         )
     End Sub
 
     ' EDIT
     Private Sub EdtBtn_Click(sender As Object, e As EventArgs) Handles EdtBtn.Click
         If Not InitData() Then Exit Sub
+        formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New InvetoryAddEditModal
+             modal.selectedID = id
+             Return modal
+         End Function,
+         inventoryID,
+         Function(modal)
+             Return Nothing
+         End Function
+         )
     End Sub
 
     ' ARCHIVED
     Private Sub ArchivedBtn_Click(sender As Object, e As EventArgs) Handles ArchivedBtn.Click
         If Not InitData() Then Exit Sub
+
     End Sub
 
     ' DELETE
     Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         If Not InitData() Then Exit Sub
+
     End Sub
 
     ' CLOSE
@@ -88,6 +140,8 @@
             }
 
             If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
+
+            formUtils.LoadToDGV(InventoryDGV, invDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
     End Sub
 
@@ -106,6 +160,4 @@
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(InventoryDGV, ShowArchiveCheckBox, DeleteBtn, ArchivedBtn, EdtBtn, AddBtn)
     End Sub
-
-
 End Class

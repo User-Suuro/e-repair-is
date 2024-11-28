@@ -146,12 +146,13 @@ Public Class FormUtils
             End If
 
             dgv.DataSource = dt.DefaultView.ToTable()
+            FormatDGVForArchive(dgv)
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try
     End Sub
 
-    Public Sub FormatDGVForArchive(dgv As DataGridView)
+    Private Sub FormatDGVForArchive(dgv As DataGridView)
         Try
             For Each row As DataGridViewRow In dgv.Rows
 
@@ -194,27 +195,6 @@ Public Class FormUtils
         End Try
     End Sub
 
-    Public Sub FormatDGVForCustomerName(dgv As DataGridView)
-
-        If Not dgv.Columns.Contains("CUSTOMER_NAME") Then
-            dgv.Columns.Add("CUSTOMER_NAME", "Customer Name")
-        End If
-
-        If dgv.Columns.Contains("CUSTOMER_NAME") Then
-            For Each row As DataGridViewRow In dgv.Rows
-                Dim customerId = row.Cells("CUSTOMER_ID").Value
-                If customerId IsNot Nothing Then
-                    Dim getCustData As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerId)
-                    If getCustData IsNot Nothing AndAlso getCustData.Rows.Count > 0 Then
-                        Dim firstName As String = getCustData.Rows(0)("first_name").ToString()
-                        Dim lastName As String = getCustData.Rows(0)("last_name").ToString()
-                        row.Cells("CUSTOMER_NAME").Value = firstName & " " & lastName
-                    End If
-                End If
-            Next
-        End If
-
-    End Sub
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable, showChkBox As CheckBox, searchValues() As String, searchIndex As Integer, Optional searchTerm As String = "")
         If Not String.IsNullOrWhiteSpace(searchTerm) Then

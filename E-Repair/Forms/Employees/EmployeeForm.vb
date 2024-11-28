@@ -154,7 +154,7 @@
             formUtils.LoadToDGV(EmpDGV, empDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
 
-        formUtils.FormatDGVForArchive(EmpDGV)
+
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub
 
@@ -174,7 +174,5 @@
         Me.Close()
     End Sub
 
-    Private Sub EmpDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EmpDGV.CellContentClick
-        formUtils.FormatDGVForArchive(EmpDGV)
-    End Sub
+
 End Class

@@ -74,6 +74,7 @@ Public Class ServiceForm
           End Function
           )
 
+        LoadDataToDGV()
     End Sub
 
     ' EVALUATE
@@ -98,6 +99,7 @@ Public Class ServiceForm
           End Function
           )
 
+        LoadDataToDGV()
     End Sub
 
     ' VIEW
@@ -115,6 +117,8 @@ Public Class ServiceForm
                Return Nothing
            End Function
            )
+
+        LoadDataToDGV()
     End Sub
 
     ' ADD 
@@ -182,10 +186,6 @@ Public Class ServiceForm
 
             formUtils.LoadToDGV(ServiceDGV, serviceDT, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
-
-        formUtils.FormatDGVForArchive(ServiceDGV)
-
-        ' formUtils.FormatDGVForCustomerName(ServiceDGV)
     End Sub
 
     ' SEARCH

@@ -114,7 +114,6 @@
             }
 
             If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
-
             formUtils.LoadToDGV(CustomerDGV, customersDt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex)
         End With
     End Sub
@@ -132,7 +131,6 @@
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         LoadDataToDGV()
-        formUtils.FormatDGVForArchive(CustomerDGV)
         formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub
 
@@ -151,6 +149,5 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class

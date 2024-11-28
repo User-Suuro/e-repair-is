@@ -121,8 +121,6 @@ Public Class SuppliersForm
             If Not selectMode Then suppDT = dbHelper.GetAllData(.supTableStr)
             formUtils.LoadToDGV(SuppliersDGV, suppdt, ShowArchiveCheckBox, searchValues, SearchComboBox.SelectedIndex, searchTerm)
         End With
-
-        formUtils.FormatDGVForArchive(SuppliersDGV)
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
