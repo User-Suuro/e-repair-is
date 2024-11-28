@@ -250,6 +250,15 @@ Public Class ServiceForm
     ' SEARCH TXT BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = SearchStatusCmb.SelectedItem
+
+        If currentSearchVal <> constants.getFinishedString Then
+            ClaimServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = True
+        Else
+            ClaimServiceBtn.Visible = True
+            EvaluateServiceBtn.Visible = False
+        End If
+
         LoadDataToDGV()
     End Sub
 

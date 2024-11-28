@@ -59,7 +59,8 @@ Public Class ServiceClaimModal
 
     Private Sub TotalPaidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalPaidTxtBox.TextChanged
         Decimal.TryParse(TotalPaidTxtBox.Text, totalPaid)
-        ChangeTxtBox.Text = totalPaid - totalCost
+        change = totalPaid - totalCost
+        ChangeTxtBox.Text = change
     End Sub
 
     Private Sub TotalPaidTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TotalPaidTxtBox.KeyPress
@@ -112,6 +113,8 @@ Public Class ServiceClaimModal
 
     Private Sub GenerateReceiptBtn_Click(sender As Object, e As EventArgs) Handles GenerateReceiptBtn.Click
 
+        MsgBox(change)
+
         If change < 0 Then
             MsgBox("Insufficient Payment")
             Exit Sub
@@ -131,9 +134,7 @@ Public Class ServiceClaimModal
                 Me.Close()
 
                 ' archive it as well
-                formUtils.ArchiveRow(False, servConst.svcTableStr, servConst.archivedStr, selectedID)
-
-
+                formUtils.ArchiveRow(False, servConst.svcTableStr, servConst.archivedStr, selectedID, True)
 
                 ' to do generate receipt
 

@@ -26,8 +26,10 @@ Partial Class InventoryItemModal
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.CostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.ItemsDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ITEM_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,10 +37,8 @@ Partial Class InventoryItemModal
         Me.ITEM_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Used = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.CostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         CType(Me.ItemsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,29 +63,87 @@ Partial Class InventoryItemModal
         Me.Guna2GroupBox1.TabIndex = 4
         Me.Guna2GroupBox1.Text = "Items"
         '
-        'Guna2Separator3
+        'BtnSelect
         '
-        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 392)
-        Me.Guna2Separator3.Name = "Guna2Separator3"
-        Me.Guna2Separator3.Size = New System.Drawing.Size(830, 13)
-        Me.Guna2Separator3.TabIndex = 37
+        Me.BtnSelect.BackColor = System.Drawing.Color.Transparent
+        Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
+        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(515, 408)
+        Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(59, 32)
+        Me.BtnSelect.TabIndex = 55
+        Me.BtnSelect.Text = "Apply"
+        Me.BtnSelect.Visible = False
         '
-        'BtnClose
+        'CostTxtBox
         '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 408)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 35
-        Me.BtnClose.Text = "Close"
+        Me.CostTxtBox.BackColor = System.Drawing.Color.Transparent
+        Me.CostTxtBox.BorderRadius = 4
+        Me.CostTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CostTxtBox.DefaultText = ""
+        Me.CostTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CostTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CostTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CostTxtBox.DisabledState.Parent = Me.CostTxtBox
+        Me.CostTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CostTxtBox.Enabled = False
+        Me.CostTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CostTxtBox.FocusedState.Parent = Me.CostTxtBox
+        Me.CostTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CostTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CostTxtBox.HoverState.Parent = Me.CostTxtBox
+        Me.CostTxtBox.Location = New System.Drawing.Point(269, 408)
+        Me.CostTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CostTxtBox.Name = "CostTxtBox"
+        Me.CostTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CostTxtBox.PlaceholderText = "Cost"
+        Me.CostTxtBox.SelectedText = ""
+        Me.CostTxtBox.ShadowDecoration.Parent = Me.CostTxtBox
+        Me.CostTxtBox.Size = New System.Drawing.Size(241, 32)
+        Me.CostTxtBox.TabIndex = 54
+        Me.CostTxtBox.Visible = False
+        '
+        'Guna2Button2
+        '
+        Me.Guna2Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button2.BorderRadius = 4
+        Me.Guna2Button2.CheckedState.Parent = Me.Guna2Button2
+        Me.Guna2Button2.CustomImages.Parent = Me.Guna2Button2
+        Me.Guna2Button2.FillColor = System.Drawing.Color.DarkRed
+        Me.Guna2Button2.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button2.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button2.HoverState.Parent = Me.Guna2Button2
+        Me.Guna2Button2.Image = Global.E_Repair.My.Resources.Resources.minus_bold
+        Me.Guna2Button2.Location = New System.Drawing.Point(734, 408)
+        Me.Guna2Button2.Name = "Guna2Button2"
+        Me.Guna2Button2.ShadowDecoration.Parent = Me.Guna2Button2
+        Me.Guna2Button2.Size = New System.Drawing.Size(39, 32)
+        Me.Guna2Button2.TabIndex = 53
+        Me.Guna2Button2.Visible = False
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.BorderRadius = 4
+        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
+        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
+        Me.Guna2Button1.FillColor = System.Drawing.Color.DarkGreen
+        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
+        Me.Guna2Button1.Image = Global.E_Repair.My.Resources.Resources.plus_bold1
+        Me.Guna2Button1.Location = New System.Drawing.Point(779, 408)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
+        Me.Guna2Button1.Size = New System.Drawing.Size(39, 32)
+        Me.Guna2Button1.TabIndex = 52
+        Me.Guna2Button1.Visible = False
         '
         'ItemsDGV
         '
@@ -95,6 +153,7 @@ Partial Class InventoryItemModal
         Me.ItemsDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.ItemsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ItemsDGV.BackgroundColor = System.Drawing.Color.White
+        Me.ItemsDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ItemsDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.ItemsDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -191,87 +250,29 @@ Partial Class InventoryItemModal
         Me.Used.Name = "Used"
         Me.Used.ReadOnly = True
         '
-        'Guna2Button2
+        'Guna2Separator3
         '
-        Me.Guna2Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button2.BorderRadius = 4
-        Me.Guna2Button2.CheckedState.Parent = Me.Guna2Button2
-        Me.Guna2Button2.CustomImages.Parent = Me.Guna2Button2
-        Me.Guna2Button2.FillColor = System.Drawing.Color.DarkRed
-        Me.Guna2Button2.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button2.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button2.HoverState.Parent = Me.Guna2Button2
-        Me.Guna2Button2.Image = Global.E_Repair.My.Resources.Resources.minus_bold
-        Me.Guna2Button2.Location = New System.Drawing.Point(734, 408)
-        Me.Guna2Button2.Name = "Guna2Button2"
-        Me.Guna2Button2.ShadowDecoration.Parent = Me.Guna2Button2
-        Me.Guna2Button2.Size = New System.Drawing.Size(39, 32)
-        Me.Guna2Button2.TabIndex = 53
-        Me.Guna2Button2.Visible = False
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 392)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(830, 13)
+        Me.Guna2Separator3.TabIndex = 37
         '
-        'Guna2Button1
+        'BtnClose
         '
-        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.BorderRadius = 4
-        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
-        Me.Guna2Button1.FillColor = System.Drawing.Color.DarkGreen
-        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Image = Global.E_Repair.My.Resources.Resources.plus_bold1
-        Me.Guna2Button1.Location = New System.Drawing.Point(779, 408)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Size = New System.Drawing.Size(39, 32)
-        Me.Guna2Button1.TabIndex = 52
-        Me.Guna2Button1.Visible = False
-        '
-        'BtnSelect
-        '
-        Me.BtnSelect.BackColor = System.Drawing.Color.Transparent
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(515, 408)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(59, 32)
-        Me.BtnSelect.TabIndex = 55
-        Me.BtnSelect.Text = "Apply"
-        Me.BtnSelect.Visible = False
-        '
-        'CostTxtBox
-        '
-        Me.CostTxtBox.BackColor = System.Drawing.Color.Transparent
-        Me.CostTxtBox.BorderRadius = 4
-        Me.CostTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CostTxtBox.DefaultText = ""
-        Me.CostTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CostTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CostTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CostTxtBox.DisabledState.Parent = Me.CostTxtBox
-        Me.CostTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CostTxtBox.Enabled = False
-        Me.CostTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTxtBox.FocusedState.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CostTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTxtBox.HoverState.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Location = New System.Drawing.Point(269, 408)
-        Me.CostTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.CostTxtBox.Name = "CostTxtBox"
-        Me.CostTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTxtBox.PlaceholderText = "Cost"
-        Me.CostTxtBox.SelectedText = ""
-        Me.CostTxtBox.ShadowDecoration.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Size = New System.Drawing.Size(241, 32)
-        Me.CostTxtBox.TabIndex = 54
-        Me.CostTxtBox.Visible = False
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(12, 408)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 35
+        Me.BtnClose.Text = "Close"
         '
         'InventoryItemModal
         '

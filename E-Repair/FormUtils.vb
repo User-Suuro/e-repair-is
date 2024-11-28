@@ -481,20 +481,25 @@ Public Class FormUtils
 
 
     ' Archive Row
-    Public Sub ArchiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
+    Public Sub ArchiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer, Optional ByPassMsg As Boolean = False)
 
         If archivedStatus Then
             MsgBox("This row is already archived!")
             Exit Sub
         End If
 
-        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
-
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
             {"archived_by", Current.id},
             {"date_archived", DateTime.Now}
         }
+
+        If ByPassMsg Then
+            dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
+        End If
+
+        If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
+
 
         Try
             dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
