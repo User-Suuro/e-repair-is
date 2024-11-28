@@ -179,14 +179,14 @@ Public Class ServiceForm
     ' ARCHIVE
     Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
         If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
-        formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
+        formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
         LoadDataToDGV(currentSearchVal)
     End Sub
 
     ' DELETE
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If Not InitData() Or Not isFinished() Or Not isPaid() Then Exit Sub
-        formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, selectedID)
+        formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
         LoadDataToDGV(currentSearchVal)
     End Sub
 
@@ -242,7 +242,7 @@ Public Class ServiceForm
 
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
-        Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr))
         getStatusEnums.Add("Archived")
         SearchStatusCmb.DataSource = getStatusEnums
         SearchStatusCmb.SelectedIndex = index01
