@@ -17,7 +17,7 @@ Public Class ServiceForm
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
 
-    Dim searchStatusList As List(Of String)
+    Dim searchStatusList As New List(Of String)
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
