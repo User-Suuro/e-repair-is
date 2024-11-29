@@ -1,7 +1,5 @@
 ﻿Imports System.IO
-Imports System.Runtime.InteropServices
 Imports Guna.UI2.WinForms
-Imports Mysqlx.Expr
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
@@ -625,4 +623,11 @@ Public Class FormUtils
         Return True
     End Function
 
+    Public Function GetCurrentID(dt As DataTable, idColumnName As String) As Integer
+        If dt.Rows.Count = 0 Then
+            Return 0
+        Else
+            Return dt.AsEnumerable().Max(Function(row) row.Field(Of Integer)(idColumnName))
+        End If
+    End Function
 End Class
