@@ -26,6 +26,8 @@ Partial Class InventoryItemModal
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.EditPanel = New System.Windows.Forms.Panel()
+        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
         Me.CostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
@@ -39,18 +41,14 @@ Partial Class InventoryItemModal
         Me.Used = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
+        Me.EditPanel.SuspendLayout()
         CType(Me.ItemsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
         '
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2TextBox1)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSelect)
-        Me.Guna2GroupBox1.Controls.Add(Me.CostTxtBox)
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button2)
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button1)
+        Me.Guna2GroupBox1.Controls.Add(Me.EditPanel)
         Me.Guna2GroupBox1.Controls.Add(Me.ItemsDGV)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
@@ -65,6 +63,47 @@ Partial Class InventoryItemModal
         Me.Guna2GroupBox1.TabIndex = 4
         Me.Guna2GroupBox1.Text = "Items"
         '
+        'EditPanel
+        '
+        Me.EditPanel.BackColor = System.Drawing.Color.Transparent
+        Me.EditPanel.Controls.Add(Me.Guna2TextBox1)
+        Me.EditPanel.Controls.Add(Me.BtnSelect)
+        Me.EditPanel.Controls.Add(Me.CostTxtBox)
+        Me.EditPanel.Controls.Add(Me.Guna2Button2)
+        Me.EditPanel.Controls.Add(Me.Guna2Button1)
+        Me.EditPanel.Location = New System.Drawing.Point(244, 401)
+        Me.EditPanel.Name = "EditPanel"
+        Me.EditPanel.Size = New System.Drawing.Size(583, 46)
+        Me.EditPanel.TabIndex = 57
+        Me.EditPanel.Visible = False
+        '
+        'Guna2TextBox1
+        '
+        Me.Guna2TextBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2TextBox1.BorderRadius = 4
+        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox1.DefaultText = ""
+        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.Parent = Me.Guna2TextBox1
+        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.Enabled = False
+        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.FocusedState.Parent = Me.Guna2TextBox1
+        Me.Guna2TextBox1.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.HoverState.Parent = Me.Guna2TextBox1
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(408, 7)
+        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.Guna2TextBox1.Name = "Guna2TextBox1"
+        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox1.PlaceholderText = "Quantity"
+        Me.Guna2TextBox1.SelectedText = ""
+        Me.Guna2TextBox1.ShadowDecoration.Parent = Me.Guna2TextBox1
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(117, 32)
+        Me.Guna2TextBox1.TabIndex = 61
+        '
         'BtnSelect
         '
         Me.BtnSelect.BackColor = System.Drawing.Color.Transparent
@@ -75,13 +114,12 @@ Partial Class InventoryItemModal
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
         Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(472, 408)
+        Me.BtnSelect.Location = New System.Drawing.Point(212, 7)
         Me.BtnSelect.Name = "BtnSelect"
         Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
         Me.BtnSelect.Size = New System.Drawing.Size(59, 32)
-        Me.BtnSelect.TabIndex = 55
+        Me.BtnSelect.TabIndex = 60
         Me.BtnSelect.Text = "Apply"
-        Me.BtnSelect.Visible = False
         '
         'CostTxtBox
         '
@@ -100,16 +138,15 @@ Partial Class InventoryItemModal
         Me.CostTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CostTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTxtBox.HoverState.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Location = New System.Drawing.Point(315, 408)
+        Me.CostTxtBox.Location = New System.Drawing.Point(32, 7)
         Me.CostTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CostTxtBox.Name = "CostTxtBox"
         Me.CostTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTxtBox.PlaceholderText = "Cost"
         Me.CostTxtBox.SelectedText = ""
         Me.CostTxtBox.ShadowDecoration.Parent = Me.CostTxtBox
-        Me.CostTxtBox.Size = New System.Drawing.Size(152, 32)
-        Me.CostTxtBox.TabIndex = 54
-        Me.CostTxtBox.Visible = False
+        Me.CostTxtBox.Size = New System.Drawing.Size(175, 32)
+        Me.CostTxtBox.TabIndex = 59
         '
         'Guna2Button2
         '
@@ -122,12 +159,11 @@ Partial Class InventoryItemModal
         Me.Guna2Button2.ForeColor = System.Drawing.Color.White
         Me.Guna2Button2.HoverState.Parent = Me.Guna2Button2
         Me.Guna2Button2.Image = Global.E_Repair.My.Resources.Resources.minus_bold
-        Me.Guna2Button2.Location = New System.Drawing.Point(628, 408)
+        Me.Guna2Button2.Location = New System.Drawing.Point(364, 7)
         Me.Guna2Button2.Name = "Guna2Button2"
         Me.Guna2Button2.ShadowDecoration.Parent = Me.Guna2Button2
         Me.Guna2Button2.Size = New System.Drawing.Size(39, 32)
-        Me.Guna2Button2.TabIndex = 53
-        Me.Guna2Button2.Visible = False
+        Me.Guna2Button2.TabIndex = 58
         '
         'Guna2Button1
         '
@@ -140,12 +176,11 @@ Partial Class InventoryItemModal
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
         Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
         Me.Guna2Button1.Image = Global.E_Repair.My.Resources.Resources.plus_bold1
-        Me.Guna2Button1.Location = New System.Drawing.Point(784, 408)
+        Me.Guna2Button1.Location = New System.Drawing.Point(530, 7)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
         Me.Guna2Button1.Size = New System.Drawing.Size(39, 32)
-        Me.Guna2Button1.TabIndex = 52
-        Me.Guna2Button1.Visible = False
+        Me.Guna2Button1.TabIndex = 57
         '
         'ItemsDGV
         '
@@ -276,34 +311,6 @@ Partial Class InventoryItemModal
         Me.BtnClose.TabIndex = 35
         Me.BtnClose.Text = "Close"
         '
-        'Guna2TextBox1
-        '
-        Me.Guna2TextBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2TextBox1.BorderRadius = 4
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.Enabled = False
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.HoverState.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(672, 408)
-        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = "Quantity"
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShadowDecoration.Parent = Me.Guna2TextBox1
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(107, 32)
-        Me.Guna2TextBox1.TabIndex = 56
-        Me.Guna2TextBox1.Visible = False
-        '
         'InventoryItemModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -316,6 +323,7 @@ Partial Class InventoryItemModal
         Me.Text = "InventoryItemDgv"
         Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
+        Me.EditPanel.ResumeLayout(False)
         CType(Me.ItemsDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -324,8 +332,6 @@ Partial Class InventoryItemModal
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ItemsDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents ITEM_ID As DataGridViewTextBoxColumn
     Friend WithEvents SERVICE_ID As DataGridViewTextBoxColumn
@@ -333,7 +339,10 @@ Partial Class InventoryItemModal
     Friend WithEvents ITEM_NAME As DataGridViewTextBoxColumn
     Friend WithEvents COST As DataGridViewTextBoxColumn
     Friend WithEvents Used As DataGridViewTextBoxColumn
+    Friend WithEvents EditPanel As Panel
+    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents CostTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class

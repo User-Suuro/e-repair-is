@@ -179,6 +179,7 @@ Partial Class InventoryViewModal
         Me.DateArchivedTxtBox.Name = "DateArchivedTxtBox"
         Me.DateArchivedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DateArchivedTxtBox.PlaceholderText = ""
+        Me.DateArchivedTxtBox.ReadOnly = True
         Me.DateArchivedTxtBox.SelectedText = ""
         Me.DateArchivedTxtBox.ShadowDecoration.Parent = Me.DateArchivedTxtBox
         Me.DateArchivedTxtBox.Size = New System.Drawing.Size(219, 26)
@@ -217,6 +218,7 @@ Partial Class InventoryViewModal
         Me.ArchivedByTxtBox.Name = "ArchivedByTxtBox"
         Me.ArchivedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ArchivedByTxtBox.PlaceholderText = ""
+        Me.ArchivedByTxtBox.ReadOnly = True
         Me.ArchivedByTxtBox.SelectedText = ""
         Me.ArchivedByTxtBox.ShadowDecoration.Parent = Me.ArchivedByTxtBox
         Me.ArchivedByTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -278,6 +280,7 @@ Partial Class InventoryViewModal
         Me.ArchivedTxtBox.Name = "ArchivedTxtBox"
         Me.ArchivedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ArchivedTxtBox.PlaceholderText = ""
+        Me.ArchivedTxtBox.ReadOnly = True
         Me.ArchivedTxtBox.SelectedText = ""
         Me.ArchivedTxtBox.ShadowDecoration.Parent = Me.ArchivedTxtBox
         Me.ArchivedTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -336,6 +339,7 @@ Partial Class InventoryViewModal
         Me.AddedByTxtBox.Name = "AddedByTxtBox"
         Me.AddedByTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddedByTxtBox.PlaceholderText = ""
+        Me.AddedByTxtBox.ReadOnly = True
         Me.AddedByTxtBox.SelectedText = ""
         Me.AddedByTxtBox.ShadowDecoration.Parent = Me.AddedByTxtBox
         Me.AddedByTxtBox.Size = New System.Drawing.Size(219, 26)
@@ -374,6 +378,7 @@ Partial Class InventoryViewModal
         Me.DateAddedTxtBox.Name = "DateAddedTxtBox"
         Me.DateAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DateAddedTxtBox.PlaceholderText = ""
+        Me.DateAddedTxtBox.ReadOnly = True
         Me.DateAddedTxtBox.SelectedText = ""
         Me.DateAddedTxtBox.ShadowDecoration.Parent = Me.DateAddedTxtBox
         Me.DateAddedTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -435,6 +440,7 @@ Partial Class InventoryViewModal
         Me.RestockDateTxtBox.Name = "RestockDateTxtBox"
         Me.RestockDateTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.RestockDateTxtBox.PlaceholderText = ""
+        Me.RestockDateTxtBox.ReadOnly = True
         Me.RestockDateTxtBox.SelectedText = ""
         Me.RestockDateTxtBox.ShadowDecoration.Parent = Me.RestockDateTxtBox
         Me.RestockDateTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -517,6 +523,7 @@ Partial Class InventoryViewModal
         Me.TotalValueTxtBox.Name = "TotalValueTxtBox"
         Me.TotalValueTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalValueTxtBox.PlaceholderText = ""
+        Me.TotalValueTxtBox.ReadOnly = True
         Me.TotalValueTxtBox.SelectedText = ""
         Me.TotalValueTxtBox.ShadowDecoration.Parent = Me.TotalValueTxtBox
         Me.TotalValueTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -555,6 +562,7 @@ Partial Class InventoryViewModal
         Me.QuantityTxtBox.Name = "QuantityTxtBox"
         Me.QuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTxtBox.PlaceholderText = ""
+        Me.QuantityTxtBox.ReadOnly = True
         Me.QuantityTxtBox.SelectedText = ""
         Me.QuantityTxtBox.ShadowDecoration.Parent = Me.QuantityTxtBox
         Me.QuantityTxtBox.Size = New System.Drawing.Size(218, 26)
@@ -639,6 +647,7 @@ Partial Class InventoryViewModal
         Me.PhysicalLocationTxtBox.Name = "PhysicalLocationTxtBox"
         Me.PhysicalLocationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PhysicalLocationTxtBox.PlaceholderText = ""
+        Me.PhysicalLocationTxtBox.ReadOnly = True
         Me.PhysicalLocationTxtBox.SelectedText = ""
         Me.PhysicalLocationTxtBox.ShadowDecoration.Parent = Me.PhysicalLocationTxtBox
         Me.PhysicalLocationTxtBox.Size = New System.Drawing.Size(330, 26)
@@ -737,6 +746,7 @@ Partial Class InventoryViewModal
         Me.SerialNumberTxtBox.Name = "SerialNumberTxtBox"
         Me.SerialNumberTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SerialNumberTxtBox.PlaceholderText = ""
+        Me.SerialNumberTxtBox.ReadOnly = True
         Me.SerialNumberTxtBox.SelectedText = ""
         Me.SerialNumberTxtBox.ShadowDecoration.Parent = Me.SerialNumberTxtBox
         Me.SerialNumberTxtBox.Size = New System.Drawing.Size(329, 26)
@@ -850,6 +860,7 @@ Partial Class InventoryViewModal
         Me.ItemsSuppliedTxtBox.Name = "ItemsSuppliedTxtBox"
         Me.ItemsSuppliedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemsSuppliedTxtBox.PlaceholderText = ""
+        Me.ItemsSuppliedTxtBox.ReadOnly = True
         Me.ItemsSuppliedTxtBox.SelectedText = ""
         Me.ItemsSuppliedTxtBox.ShadowDecoration.Parent = Me.ItemsSuppliedTxtBox
         Me.ItemsSuppliedTxtBox.Size = New System.Drawing.Size(162, 25)
@@ -876,6 +887,7 @@ Partial Class InventoryViewModal
         Me.CompanyNameTxtBox.Name = "CompanyNameTxtBox"
         Me.CompanyNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTxtBox.PlaceholderText = ""
+        Me.CompanyNameTxtBox.ReadOnly = True
         Me.CompanyNameTxtBox.SelectedText = ""
         Me.CompanyNameTxtBox.ShadowDecoration.Parent = Me.CompanyNameTxtBox
         Me.CompanyNameTxtBox.Size = New System.Drawing.Size(162, 25)
@@ -913,6 +925,7 @@ Partial Class InventoryViewModal
         Me.SupplierIDTxtBox.Name = "SupplierIDTxtBox"
         Me.SupplierIDTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SupplierIDTxtBox.PlaceholderText = ""
+        Me.SupplierIDTxtBox.ReadOnly = True
         Me.SupplierIDTxtBox.SelectedText = ""
         Me.SupplierIDTxtBox.ShadowDecoration.Parent = Me.SupplierIDTxtBox
         Me.SupplierIDTxtBox.Size = New System.Drawing.Size(162, 25)
@@ -967,6 +980,7 @@ Partial Class InventoryViewModal
         Me.ItemDescriptionTxtBox.Name = "ItemDescriptionTxtBox"
         Me.ItemDescriptionTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemDescriptionTxtBox.PlaceholderText = ""
+        Me.ItemDescriptionTxtBox.ReadOnly = True
         Me.ItemDescriptionTxtBox.SelectedText = ""
         Me.ItemDescriptionTxtBox.ShadowDecoration.Parent = Me.ItemDescriptionTxtBox
         Me.ItemDescriptionTxtBox.Size = New System.Drawing.Size(663, 26)
@@ -1037,6 +1051,7 @@ Partial Class InventoryViewModal
         Me.HazardousClassificationTxtBox.Name = "HazardousClassificationTxtBox"
         Me.HazardousClassificationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.HazardousClassificationTxtBox.PlaceholderText = ""
+        Me.HazardousClassificationTxtBox.ReadOnly = True
         Me.HazardousClassificationTxtBox.SelectedText = ""
         Me.HazardousClassificationTxtBox.ShadowDecoration.Parent = Me.HazardousClassificationTxtBox
         Me.HazardousClassificationTxtBox.Size = New System.Drawing.Size(219, 25)
@@ -1063,6 +1078,7 @@ Partial Class InventoryViewModal
         Me.ItemCategoryTextBox.Name = "ItemCategoryTextBox"
         Me.ItemCategoryTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemCategoryTextBox.PlaceholderText = ""
+        Me.ItemCategoryTextBox.ReadOnly = True
         Me.ItemCategoryTextBox.SelectedText = ""
         Me.ItemCategoryTextBox.ShadowDecoration.Parent = Me.ItemCategoryTextBox
         Me.ItemCategoryTextBox.Size = New System.Drawing.Size(218, 25)
@@ -1122,6 +1138,7 @@ Partial Class InventoryViewModal
         Me.ItemNameTxtBox.Name = "ItemNameTxtBox"
         Me.ItemNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemNameTxtBox.PlaceholderText = ""
+        Me.ItemNameTxtBox.ReadOnly = True
         Me.ItemNameTxtBox.SelectedText = ""
         Me.ItemNameTxtBox.ShadowDecoration.Parent = Me.ItemNameTxtBox
         Me.ItemNameTxtBox.Size = New System.Drawing.Size(218, 25)

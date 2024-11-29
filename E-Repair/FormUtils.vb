@@ -1,10 +1,13 @@
 ﻿Imports System.IO
+Imports System.Runtime.CompilerServices
 Imports Guna.UI2.WinForms
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
+
     Dim empCosnt As New EmployeesDBConstants
+    Dim invConst As New InventoryDBConstants
 
     Dim rowHeight As Integer = 40
 
@@ -488,7 +491,7 @@ Public Class FormUtils
 
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
-            {"archived_by", Current.id},
+            {"archived_by", getEmployeeName(Current.id)},
             {"date_archived", DateTime.Now}
         }
 
@@ -630,4 +633,10 @@ Public Class FormUtils
             Return dt.AsEnumerable().Max(Function(row) row.Field(Of Integer)(idColumnName))
         End If
     End Function
+
+    Public Function GetSuppliedItems(supplierID As Integer) As Integer
+        Dim invSuppDT As DataTable = dbHelper.GetRowByTwoValues(invConst.invTableStr, invConst.supIDStr, supplierID, invConst.archivedStr, False)
+        Return CalcIntegerDTCol(invSuppDT, invConst.qtyStr)
+    End Function
+
 End Class

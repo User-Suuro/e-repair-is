@@ -13,11 +13,21 @@ Public Class LoginForm
     Private mediaPlayer As MediaPlayer
     Private videoView As VideoView
     Private currentMedia As Media
+    Private Sub SetupDBBtn_Click(sender As Object, e As EventArgs) Handles SetupDBBtn.Click
+
+    End Sub
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
+        dbHelper.UpdateConnectionString()
+
+        ' CHECK IF CONNECTED TO DB
+        If Not dbHelper.isConnectedToLocalServer() Then
+            formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
+            Exit Sub
+        End If
 
         If (LoginEmailTextBox.Text.Trim = "" Or LoginPasswordTextBox.Text.Trim = "") Then
-            MsgBox("Please Fill All Necessary Details", MessageBoxButtons.OK)
+            MsgBox("Please Fill All Necessary Details")
             Exit Sub
         End If
 
@@ -62,18 +72,7 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        ' CONNECT TO DB -> dbconfig.txt
-        dbHelper.UpdateConnectionString()
-
-        ' CHECK IF CONNECTED TO DB
-        If Not dbHelper.isConnectedToLocalServer() Then
-            formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
-            Me.Close()
-        End If
-
         InitializeVLC()
-
     End Sub
 
     Private Sub InitializeVLC()
@@ -105,7 +104,6 @@ Public Class LoginForm
         End If
     End Sub
 
-
     Private Sub OnEndReached(sender As Object, e As EventArgs)
         MsgBox("You have been inactive for a long time, closing form...")
         Me.Close()
@@ -122,11 +120,4 @@ Public Class LoginForm
         libVLC?.Dispose()
     End Sub
 
-    Private Sub GunaLabel5_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Guna2Separator2_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

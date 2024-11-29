@@ -528,6 +528,9 @@
   <ItemGroup>
     <None Include="Resources\minus-bold.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-bold.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

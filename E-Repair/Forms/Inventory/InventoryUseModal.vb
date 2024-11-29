@@ -39,7 +39,6 @@
         ' for viewing
     End Sub
 
-
     Private Sub ItemCostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ItemCostTxtBox.TextChanged
         ' for viewing
     End Sub
