@@ -5,6 +5,9 @@
     Dim constants As New Constants
     Dim suppConst As New SuppliersDBConstants
     Dim invConst As New InventoryDBConstants
+    Dim itemConst As New ItemsDBConstants
+
+    Private initInvID As Integer = -1
 
     Private supplierID As Integer = -1
     Private itemName As String = ""
@@ -14,23 +17,20 @@
     Private serialNumber As String = ""
     Private physicalLocation As String = ""
 
-    Private costPerItem As Decimal
-    Private quantity As Integer
+    Private totalValue As Decimal = -1
+    Private quantity As Integer = -1
+    Private costPerItem As Decimal = -1
 
     Public Property selectedID As Integer = -1
     Public Property editMode As Boolean = False
 
-
     Private Sub InvetoryAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If editMode Then loadValues()
-    End Sub
-    Private Sub loadValues()
-        formUtils.checkIfLoad(selectedID)
+        LoadCmbds(-1, -1)
     End Sub
 
     Private Sub SelectSupplierBtn_Click(sender As Object, e As EventArgs) Handles SelectSupplierBtn.Click
 
-        Dim resultID = formUtils.ShowModalWithHandler(
+        supplierID = formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New SuppliersForm
             modal.selectedID = id
@@ -44,15 +44,35 @@
         End Function
         )
 
+        If supplierID - 1 Then Exit Sub
+
+        SupplierIDTxtBox.Text = supplierID
+
+        Dim suppDT As DataTable = dbHelper.GetRowByValue(suppConst.supTableStr, suppConst.supIDStr, supplierID)
+
+        If suppDT.Rows.Count = 0 Then Exit Sub
+
+        With suppDT.Rows(0)
+            CompanyNameTxtBox.Text = .Item(suppConst.compNameStr)
+        End With
+
+        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.supIDStr, suppDT)
+        If invDT.Rows.Count = 0 Then Exit Sub
+        ItemsSuppliedTxtBox.Text = formUtils.CalcIntegerDTCol(invDT, invConst.qtyStr)
+
     End Sub
+
+    ' SUPPLIER ID
     Private Sub SupplierIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierIDTxtBox.TextChanged
         ' for viewing
     End Sub
 
+    ' COMPANY NAME
     Private Sub CompanyNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompanyNameTxtBox.TextChanged
         ' for viewing
     End Sub
 
+    ' ITEMS SUPPLIED
     Private Sub ItemsSuppliedTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ItemsSuppliedTxtBox.TextChanged
         ' for viewing
     End Sub
@@ -87,13 +107,15 @@
         physicalLocation = PhysicalLocationTxtBox.Text
     End Sub
 
-    ' COST PER ITEM
+    ' TOTAL VALUE
     Private Sub CostPerItemTxtBox_KeyPressed(sender As Object, e As KeyPressEventArgs) Handles CostPerItemTxtBox.KeyPress
         e.Handled = Not formUtils.ValidateDecimalInput(CostPerItemTxtBox, e)
     End Sub
 
     Private Sub CostPerItemTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CostPerItemTxtBox.TextChanged
         Decimal.TryParse(CostPerItemTxtBox.Text, costPerItem)
+        totalValue = costPerItem * quantity
+        TotalValueTxtBox.Text = totalValue
     End Sub
 
     ' QUANTITY
@@ -103,14 +125,115 @@
 
     Private Sub QuantityTxtBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTxtBox.TextChanged
         Integer.TryParse(QuantityTxtBox.Text, quantity)
+        totalValue = costPerItem * quantity
+        TotalValueTxtBox.Text = totalValue
     End Sub
+
+    ' TOTAL VALUE
+    Private Sub TotalValueTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalValueTxtBox.TextChanged
+        ' for view
+    End Sub
+
+    ' MANAGE ITEMS BTN
+    Private Sub ManageItemsBtn_Click(sender As Object, e As EventArgs) Handles ManageItemsBtn.Click
+        ' only happens in edit mode
+        If editMode Then Exit Sub
+    End Sub
+
+    'SAVE
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        formUtils.SaveEvent(editMode, AddressOf AddData, AddressOf EditData)
+    End Sub
+
+    ' LOAD CMBDS
+    Private Sub LoadCmbds(index01 As Integer, index02 As Integer)
+        With invConst
+            dbHelper.LoadEnumsToCmb(ItemCategoryCmb, .invTableStr, .itemCatStr, index01)
+            dbHelper.LoadEnumsToCmb(HazardousCmb, .invTableStr, .hazClassStr, index02)
+        End With
+    End Sub
+
+    Private Sub loadValues()
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Me.Close()
+            Exit Sub
+        End If
+
+        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, selectedID)
+
+        If invDT.Rows.Count = 0 Then Exit Sub
+
+        Guna2GroupBox1.Text = "Edit Inventory"
+
+        With invDT.Rows(0)
+            SupplierIDTxtBox.Text = .Item(invConst.supIDStr)
+            ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
+
+            Dim itemCategoryIndex As Integer = formUtils.FindComboBoxItemByText(ItemCategoryCmb, .Item(invConst.itemCatStr))
+            Dim hazardousIndex As Integer = formUtils.FindComboBoxItemByText(HazardousCmb, .Item(invConst.hazClassStr))
+            LoadCmbds(itemCategoryIndex, hazardousIndex)
+
+            ItemDescriptionTxtBox.Text = .Item(invConst.itemDescStr)
+            SerialNumberTxtBox.Text = .Item(invConst.serialNumStr)
+            PhysicalLocationTxtBox.Text = .Item(invConst.physLocStr)
+
+            TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
+        End With
+
+        Dim itemDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ItemId, selectedID)
+        QuantityTxtBox.Text = itemDT.Rows.Count
+    End Sub
+
+    'Private totalValue As Decimal = -1
+    'Private quantity As Integer = -1
+    'Private costPerItem As Decimal = -1
+
+    Private Sub AddData()
+
+        ' adjust view for add
+        With ItemDetailsTableLayout
+            .ColumnStyles(3).Width = 0.0F
+        End With
+
+        With invConst
+
+            Dim insertData As New Dictionary(Of String, Object) From {
+                { .supIDStr, supplierID},
+                { .itemNameStr, itemName},
+                { .itemCatStr, itemCategory},
+                { .hazClassStr, hazardous},
+                { .itemDescStr, itemDesc},
+                { .serialNumStr, serialNumber},
+                { .physLocStr, physicalLocation},
+            }
+
+            ' insert data
+
+            ' update item details
+
+        End With
+    End Sub
+
+
+    Private Sub EditData()
+
+        ' adjust view for edit
+        With ItemDetailsTableLayout
+            .ColumnStyles(0).Width = 0.0F
+        End With
+
+        CostPerItemTxtBox.Enabled = False
+        QuantityTxtBox.Enabled = False
+
+        loadValues()
+
+        ' do your things
+
+    End Sub
+
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
-    End Sub
-
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-
     End Sub
 
 

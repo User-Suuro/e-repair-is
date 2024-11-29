@@ -553,9 +553,14 @@ Public Class FormUtils
         Return True
     End Function
 
-    Public Function calcDecimalDT(dt As DataTable, columnName As String) As Decimal
+    Public Function calcDecimalDTCol(dt As DataTable, columnName As String) As Decimal
         Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)(columnName))
     End Function
+
+    Public Function CalcIntegerDTCol(dt As DataTable, columnName As String) As Integer
+        Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Integer)(columnName))
+    End Function
+
     Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
         ' Filter the rows based on the provided filter expression
         Dim filteredRows As DataRow() = sourceTable.Select(filterExpression, sortOrder)

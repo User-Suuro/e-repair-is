@@ -16,9 +16,10 @@
 
     ' Service Status
     Private ReadOnly _finishedString As String = "Finished"
+    Private ReadOnly _claimedString As String = "Finished"
+    Private ReadOnly _canceledString As String = "Canceled"
     Private ReadOnly _onholdString As String = "Onhold"
     Private ReadOnly _pendingString As String = "Pending"
-    Private ReadOnly _canceledString As String = "Canceled"
 
     ' Security
     Private ReadOnly _encryptionKey As String = "0123456789abcdef0123456789abcdef"
@@ -27,6 +28,11 @@
     Private ReadOnly _employeesProfileFolderName = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderName = "Supplier Profiles"
     Private ReadOnly _devicePicturesFolderName = "Device Pictures"
+    Public ReadOnly Property getClaimedString As String
+        Get
+            Return _claimedString
+        End Get
+    End Property
 
     Public ReadOnly Property getFinishedString As String
         Get

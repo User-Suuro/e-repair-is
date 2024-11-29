@@ -4,7 +4,8 @@
     Private ReadOnly _itemId As String = "item_id"
     Private ReadOnly _inventoryId As String = "inventory_id"
     Private ReadOnly _serviceId As String = "service_id"
-
+    Private ReadOnly _costperitem As String = "cost"
+    Private ReadOnly _itemstatus As String = "used"
 
     ' Getter for table name
     Public ReadOnly Property TableName As String
@@ -33,5 +34,17 @@
             Return _serviceId
         End Get
     End Property
+
+    Public ReadOnly Property costPerItem As String
+        Get
+            Return _costperitem
+        End Get
+    End Property
+    Public ReadOnly Property isUsed As String
+        Get
+            Return _itemstatus
+        End Get
+    End Property
+
 
 End Class

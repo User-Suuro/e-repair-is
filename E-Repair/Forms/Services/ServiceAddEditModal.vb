@@ -46,7 +46,6 @@ Public Class ServiceAddEditModal
     ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbDs(-1)
-        If editMode Then LoadData()
     End Sub
 
     ' LOAD DATA
@@ -102,7 +101,7 @@ Public Class ServiceAddEditModal
     End Sub
 
     ' LOAD ENUMS TO CMB
-    Public Sub LoadCmbDs(index01)
+    Private Sub LoadCmbDs(index01 As Integer)
         dbHelper.LoadEnumsToCmb(DeviceTypeCmbBox, servConst.svcTableStr, servConst.devTypeStr, index01)
     End Sub
     ' ADD 
@@ -112,7 +111,7 @@ Public Class ServiceAddEditModal
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
-              { .cashierIDStr, Current.id},
+              { .cashierIDStr, formUtils.getEmployeeName(Current.id)},
               { .devTypeStr, deviceType},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},
@@ -137,6 +136,8 @@ Public Class ServiceAddEditModal
     ' EDIT
 
     Private Sub EditDataFunction()
+        LoadData()
+
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .custIDStr, customerID},
@@ -215,7 +216,6 @@ Public Class ServiceAddEditModal
         TechnicianNameTxtBox.Text = formUtils.getEmployeeName(idResult)
 
         TotalWorkDoneTxtBox.Text = total_services
-
         CompletedWorkTxtBox.Text = techNumberFinishedServices
         PendingWorkTxtBox.Text = techNumberPendingServices
     End Sub

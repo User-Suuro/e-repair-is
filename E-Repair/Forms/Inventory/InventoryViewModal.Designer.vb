@@ -45,9 +45,11 @@ Partial Class InventoryViewModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ViewModifyItemBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.TotalValueTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.QuantityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.ViewModifyItemBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.PhysicalLocationTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -80,8 +82,6 @@ Partial Class InventoryViewModal
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ItemNameTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TotalValueTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel12.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
@@ -496,22 +496,43 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel5.TabIndex = 13
         '
-        'ViewModifyItemBtn
+        'TotalValueTxtBox
         '
-        Me.ViewModifyItemBtn.BorderRadius = 4
-        Me.ViewModifyItemBtn.CheckedState.Parent = Me.ViewModifyItemBtn
-        Me.ViewModifyItemBtn.CustomImages.Parent = Me.ViewModifyItemBtn
-        Me.ViewModifyItemBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ViewModifyItemBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewModifyItemBtn.ForeColor = System.Drawing.Color.White
-        Me.ViewModifyItemBtn.HoverState.Parent = Me.ViewModifyItemBtn
-        Me.ViewModifyItemBtn.Location = New System.Drawing.Point(447, 23)
-        Me.ViewModifyItemBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ViewModifyItemBtn.Name = "ViewModifyItemBtn"
-        Me.ViewModifyItemBtn.ShadowDecoration.Parent = Me.ViewModifyItemBtn
-        Me.ViewModifyItemBtn.Size = New System.Drawing.Size(217, 28)
-        Me.ViewModifyItemBtn.TabIndex = 47
-        Me.ViewModifyItemBtn.Text = "View or Modify each item"
+        Me.TotalValueTxtBox.BorderRadius = 4
+        Me.TotalValueTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TotalValueTxtBox.DefaultText = ""
+        Me.TotalValueTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TotalValueTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TotalValueTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TotalValueTxtBox.DisabledState.Parent = Me.TotalValueTxtBox
+        Me.TotalValueTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TotalValueTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TotalValueTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TotalValueTxtBox.FocusedState.Parent = Me.TotalValueTxtBox
+        Me.TotalValueTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalValueTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TotalValueTxtBox.HoverState.Parent = Me.TotalValueTxtBox
+        Me.TotalValueTxtBox.Location = New System.Drawing.Point(224, 24)
+        Me.TotalValueTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TotalValueTxtBox.Name = "TotalValueTxtBox"
+        Me.TotalValueTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TotalValueTxtBox.PlaceholderText = ""
+        Me.TotalValueTxtBox.SelectedText = ""
+        Me.TotalValueTxtBox.ShadowDecoration.Parent = Me.TotalValueTxtBox
+        Me.TotalValueTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.TotalValueTxtBox.TabIndex = 50
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label20.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label20.Location = New System.Drawing.Point(225, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(75, 21)
+        Me.Label20.TabIndex = 48
+        Me.Label20.Text = "Total Value"
         '
         'QuantityTxtBox
         '
@@ -550,6 +571,23 @@ Partial Class InventoryViewModal
         Me.Label9.Size = New System.Drawing.Size(56, 21)
         Me.Label9.TabIndex = 44
         Me.Label9.Text = "Quantity"
+        '
+        'ViewModifyItemBtn
+        '
+        Me.ViewModifyItemBtn.BorderRadius = 4
+        Me.ViewModifyItemBtn.CheckedState.Parent = Me.ViewModifyItemBtn
+        Me.ViewModifyItemBtn.CustomImages.Parent = Me.ViewModifyItemBtn
+        Me.ViewModifyItemBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ViewModifyItemBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewModifyItemBtn.ForeColor = System.Drawing.Color.White
+        Me.ViewModifyItemBtn.HoverState.Parent = Me.ViewModifyItemBtn
+        Me.ViewModifyItemBtn.Location = New System.Drawing.Point(447, 23)
+        Me.ViewModifyItemBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ViewModifyItemBtn.Name = "ViewModifyItemBtn"
+        Me.ViewModifyItemBtn.ShadowDecoration.Parent = Me.ViewModifyItemBtn
+        Me.ViewModifyItemBtn.Size = New System.Drawing.Size(217, 28)
+        Me.ViewModifyItemBtn.TabIndex = 47
+        Me.ViewModifyItemBtn.Text = "View or Modify each item"
         '
         'Guna2Panel6
         '
@@ -1088,44 +1126,6 @@ Partial Class InventoryViewModal
         Me.ItemNameTxtBox.ShadowDecoration.Parent = Me.ItemNameTxtBox
         Me.ItemNameTxtBox.Size = New System.Drawing.Size(218, 25)
         Me.ItemNameTxtBox.TabIndex = 18
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label20.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(225, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(75, 21)
-        Me.Label20.TabIndex = 48
-        Me.Label20.Text = "Total Value"
-        '
-        'TotalValueTxtBox
-        '
-        Me.TotalValueTxtBox.BorderRadius = 4
-        Me.TotalValueTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TotalValueTxtBox.DefaultText = ""
-        Me.TotalValueTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TotalValueTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TotalValueTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TotalValueTxtBox.DisabledState.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TotalValueTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TotalValueTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TotalValueTxtBox.FocusedState.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TotalValueTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TotalValueTxtBox.HoverState.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Location = New System.Drawing.Point(224, 24)
-        Me.TotalValueTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.TotalValueTxtBox.Name = "TotalValueTxtBox"
-        Me.TotalValueTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TotalValueTxtBox.PlaceholderText = ""
-        Me.TotalValueTxtBox.SelectedText = ""
-        Me.TotalValueTxtBox.ShadowDecoration.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Size = New System.Drawing.Size(218, 26)
-        Me.TotalValueTxtBox.TabIndex = 50
         '
         'InventoryViewModal
         '

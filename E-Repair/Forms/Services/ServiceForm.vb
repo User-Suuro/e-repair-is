@@ -254,9 +254,11 @@ Public Class ServiceForm
         If currentSearchVal <> constants.getFinishedString Then
             ClaimServiceBtn.Visible = False
             EvaluateServiceBtn.Visible = True
+            ArchiveServiceBtn.Visible = False
         Else
             ClaimServiceBtn.Visible = True
             EvaluateServiceBtn.Visible = False
+            ArchiveServiceBtn.Visible = True
         End If
 
         LoadDataToDGV()
@@ -265,6 +267,12 @@ Public Class ServiceForm
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
         LoadDataToDGV()
+
+        If ShowArchiveCheckBox.Checked Then
+            ClaimServiceBtn.Visible = False
+        Else
+            ClaimServiceBtn.Visible = True
+        End If
     End Sub
 
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged

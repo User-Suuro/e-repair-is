@@ -4,6 +4,7 @@ Public Class ServiceClaimModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
 
+    Dim constants As New Constants
     Dim servConst As New ServiceDBConstants
 
     Public Property selectedID As Integer = -1
@@ -11,6 +12,7 @@ Public Class ServiceClaimModal
     Private Property change As Decimal
     Private Property paymentMethod As String
     Private Property totalCost As Decimal
+    Private Property archivedStatus As Boolean = False
 
     ' REQUIRED
     Private Sub ServiceClaimModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,6 +40,8 @@ Public Class ServiceClaimModal
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
             totalCost = .Item(servConst.TotalCost)
             TotalCostTxtBox.Text = totalCost
+
+            archivedStatus = .Item(servConst.archivedStr)
 
             Dim deviceImg = .Item(servConst.devProfilePathStr)
             If File.Exists(deviceImg) Then
@@ -121,6 +125,7 @@ Public Class ServiceClaimModal
         ' to do generate receipt
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
+                { .svcStatusStr, constants.getClaimedString},
                 { .totalPaidStr, totalPaid},
                 { .dateClaimedStr, DateTime.Now()},
                 { .custChangeStr, change},
@@ -132,7 +137,7 @@ Public Class ServiceClaimModal
                 Me.Close()
 
                 ' archive it as well
-                formUtils.ArchiveRow(True, servConst.svcTableStr, servConst.svcIDStr, selectedID, True)
+                formUtils.ArchiveRow(False, servConst.svcTableStr, servConst.svcIDStr, selectedID, True)
 
                 ' to do generate receipt
 

@@ -23,8 +23,6 @@ Public Class CustomerAddEditModal
     ' ONLOAD
     Private Sub CustomerAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1)
-
-        If editMode Then InitValues()
     End Sub
 
     ' INIT VALUES
@@ -72,7 +70,7 @@ Public Class CustomerAddEditModal
                 { .custContactStr, contactNumber}, ' optional
                 { .custAddressStr, address}, ' optional
                 { .custEmailStr, email}, ' optional
-                { .custAddedByStr, Current.id},
+                { .custAddedByStr, formUtils.getEmployeeName(Current.id)},
                 { .custFirstStr, firstName},
                 { .custLastStr, lastName},
                 { .custGenderStr, gender},
@@ -88,6 +86,7 @@ Public Class CustomerAddEditModal
 
     ' EDIT
     Private Sub EditCustomerFunction()
+        InitValues()
 
         With custConst
             Dim insertUpdate As New Dictionary(Of String, Object) From {

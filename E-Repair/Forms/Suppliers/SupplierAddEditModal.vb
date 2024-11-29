@@ -30,7 +30,6 @@ Public Class SupplierAddEditModal
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1)
-        If editMode Then InitData()
     End Sub
 
     Private Sub InitData()
@@ -99,7 +98,7 @@ Public Class SupplierAddEditModal
                { .supContractStr, contractType},
                { .bankDetailsStr, bankDetails},
                { .payTermsStr, paymentTerms},
-               { .addedByStr, Current.id}
+               { .addedByStr, formUtils.getEmployeeName(Current.id)}
             }
 
             Dim imgData As New List(Of Object) From {
@@ -116,6 +115,7 @@ Public Class SupplierAddEditModal
 
     ' EDIT
     Private Sub EditModeFunction()
+        InitData()
 
         With supConst
             Dim insertUpdate As New Dictionary(Of String, Object) From {

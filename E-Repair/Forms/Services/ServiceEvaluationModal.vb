@@ -60,7 +60,7 @@ Public Class ServiceEvaluationModal
 
     Private Sub LoadCmbds(index As Integer)
         With dbHelper
-            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index)
+            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index, 1)
         End With
     End Sub
 
