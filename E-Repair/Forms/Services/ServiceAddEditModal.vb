@@ -89,8 +89,8 @@ Public Class ServiceAddEditModal
             DeviceModelTxtBox.Text = .Item(servConst.devModelStr)
             StorageCapacityTxtBox.Text = .Item(servConst.storageCapStr)
 
-            Dim deviceTypeIndex = formUtils.FindComboBoxItemByText(DeviceTypeCmbBox, .Item(servConst.devTypeStr))
-            LoadCmbDs(deviceType)
+            Dim deviceTypeIndex As Integer = formUtils.FindComboBoxItemByText(DeviceTypeCmbBox, .Item(servConst.devTypeStr))
+            LoadCmbDs(deviceTypeIndex)
 
             OperatingSystemTxtBox.Text = .Item(servConst.osStr)
             DeviceProblemTxtBox.Text = .Item(servConst.probDescStr)
