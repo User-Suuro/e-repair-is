@@ -63,21 +63,21 @@ Public Class EmployeeViewModal
             DateAddedTextBox.Text = .Item(empConst.empAddDateStr)
 
             LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empLastAccessedStr))
-            AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.empAddedByStr))
+            AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.addedById))
             Dim empJobType = .Item(empConst.empJobPosStr)
 
             ' JOB INFO
             Select Case empJobType
                 Case constants.getAdminString
                     PositionTextBox.Text = .Item(empConst.empAdminPosStr)
-                    EmployeeAddedTextBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empAddedByStr, selectedID).Rows.Count
+                    EmployeeAddedTextBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.addedById, selectedID).Rows.Count
 
                 Case constants.getTechnicianString
                     DevicesRepairedTextBox.Text = getTechStatsNumbers(constants.getFinishedString)
                     NumberJobsAssignedTextBox.Text = getTechStatsNumbers(constants.getPendingString) + getTechStatsNumbers(constants.getFinishedString) + getTechStatsNumbers(constants.getOnholdString) + getTechStatsNumbers(constants.getCanceledString)
 
                 Case constants.getCashierString
-                    CustomersHandledTextBox.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custAddedByStr, selectedID).Rows.Count
+                    CustomersHandledTextBox.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.getAddedByID, selectedID).Rows.Count
                     ServiceHandledTxtBox.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID).Rows.Count
 
                 Case constants.getUtilityPersonnelString
@@ -119,4 +119,7 @@ Public Class EmployeeViewModal
         Me.Close()
     End Sub
 
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
+
+    End Sub
 End Class

@@ -134,7 +134,8 @@ Public Class EmployeeAddEditModal
                 { .empJobPosStr, jobType},
                 { .empEmailStr, email},
                 { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                { .empAddedByStr, formUtils.getEmployeeName(Current.id)}
+                { .empAddedByName, formUtils.getEmployeeName(Current.id)},
+                { .addedById, Current.id},
             }
 
             ' UDPDATE FOREIGN VALUES
@@ -469,7 +470,5 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
-    Private Sub EmployeeModalGroupBox_Click(sender As Object, e As EventArgs) Handles EmployeeModalGroupBox.Click
 
-    End Sub
 End Class

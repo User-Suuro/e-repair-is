@@ -26,16 +26,17 @@
     Private ReadOnly _paymentMethod As String = "payment_method"
     Private ReadOnly _dateCompleted As String = "date_completed"
     Private ReadOnly _dateClaimed As String = "date_claimed"
-    Private ReadOnly _dateAdded As String = "date_added"
-    Private ReadOnly _addedby As String = "added_by"
+
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
 
+    Private ReadOnly _dateAdded As String = "date_added"
+    Private ReadOnly _addedbyName As String = "added_by"
 
-    Public ReadOnly Property getAddedBy As String
+    Public ReadOnly Property getAddedByName As String
         Get
-            Return _addedby
+            Return _addedbyName
         End Get
     End Property
 

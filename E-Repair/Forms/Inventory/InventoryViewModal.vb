@@ -46,7 +46,7 @@
 
             RestockDateTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.restockDateStr))
             DateAddedTxtBox.Text = .Item(invConst.dateAddedStr)
-            AddedByTxtBox.Text = .Item(invConst.addedByStr)
+            AddedByTxtBox.Text = .Item(invConst.addedByIDStr)
 
             ArchivedByTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.archByStr))
             DateArchivedTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.dateArchivedStr))

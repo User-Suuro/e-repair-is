@@ -142,7 +142,7 @@ Public Class InventoryForm
                 .physLocStr,
                 .totalCostStr,
                 .dateAddedStr,
-                .addedByStr
+                .addedByIdName
             }
 
             If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
@@ -172,7 +172,5 @@ Public Class InventoryForm
     End Sub
 
     ' SELECT
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
 
-    End Sub
 End Class

@@ -118,7 +118,8 @@ Public Class ServiceAddEditModal
               { .osStr, operatingSystem},
               { .storageCapStr, storageCapacity},
               { .probDescStr, problemDescription},
-              { .getAddedBy, formUtils.getEmployeeName(Current.id)}
+              { .getAddedByName, formUtils.getEmployeeName(Current.id)},
+              { .dateAddedStr, DateTime.Now()}
             }
 
             Dim imgData As New List(Of Object) From {

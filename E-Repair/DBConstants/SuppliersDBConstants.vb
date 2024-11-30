@@ -18,16 +18,26 @@
     Private ReadOnly _totalPaid As String = "total_paid"
     Private ReadOnly _companyPicturePath As String = "company_picture_path"
     Private ReadOnly _dateAdded As String = "date_added"
-    Private ReadOnly _addedBy As String = "added_by"
+
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
-    Private ReadOnly _addedById As String = "added_by_id"
-    Public ReadOnly Property addedById As String
+
+    Private ReadOnly _addedByName As String = "added_by"
+    Private ReadOnly _addedByID As String = "added_by_id"
+
+    Public ReadOnly Property addedByName As String
         Get
-            Return _addedById
+            Return _addedByName
         End Get
     End Property
+
+    Public ReadOnly Property addedByID As String
+        Get
+            Return _addedByID
+        End Get
+    End Property
+
 
     ' Getters for each attribute name
     Public ReadOnly Property supTableStr As String
@@ -126,11 +136,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property addedByStr As String
-        Get
-            Return _addedBy
-        End Get
-    End Property
+
 
     Public ReadOnly Property archivedStr As String
         Get

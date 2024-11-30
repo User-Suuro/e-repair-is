@@ -16,13 +16,21 @@
     Private ReadOnly _physicalLocation As String = "physical_location"
     Private ReadOnly _restockDate As String = "restock_date"
     Private ReadOnly _dateAdded As String = "date_added"
-    Private ReadOnly _addedBy As String = "added_by"
+
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
 
+    Private ReadOnly _addedByName As String = "added_by"
     Private ReadOnly _addedById As String = "added_by_id"
-    Public ReadOnly Property addedById As String
+
+    Public ReadOnly Property addedByIdName As String
+        Get
+            Return _addedByName
+        End Get
+    End Property
+
+    Public ReadOnly Property addedByIDStr As String
         Get
             Return _addedById
         End Get
@@ -113,11 +121,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property addedByStr As String
-        Get
-            Return _addedBy
-        End Get
-    End Property
+
 
     Public ReadOnly Property archivedStr As String
         Get

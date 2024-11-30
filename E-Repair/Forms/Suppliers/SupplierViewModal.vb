@@ -41,7 +41,7 @@ Public Class SupplierViewModal
             TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
             CompanyPathTxtBox.Text = .Item(supConstants.compPicPathStr)
-            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(supConstants.addedByStr))
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(supConstants.addedByID))
         End With
 
         If File.Exists(CompanyPathTxtBox.Text) Then

@@ -98,8 +98,8 @@ Public Class SupplierAddEditModal
                { .supContractStr, contractType},
                { .bankDetailsStr, bankDetails},
                { .payTermsStr, paymentTerms},
-               { .addedByStr, formUtils.getEmployeeName(Current.id)},
-               { .addedById, Current.id}
+               { .addedByName, formUtils.getEmployeeName(Current.id)},
+               { .addedByID, Current.id}
             }
 
             Dim imgData As New List(Of Object) From {
