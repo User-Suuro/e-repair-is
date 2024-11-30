@@ -139,6 +139,7 @@
 
     ' SELECT
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+        If Not InitValues() Then Exit Sub
         selectedID = suppID
         Me.Close()
     End Sub

@@ -22,10 +22,10 @@ Partial Class ServiceForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -38,13 +38,6 @@ Partial Class ServiceForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DeleteServiceBtn = New System.Windows.Forms.Button()
-        Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
-        Me.EditServiceBtn = New System.Windows.Forms.Button()
-        Me.AddServiceBtn = New System.Windows.Forms.Button()
-        Me.ViewServiceBtn = New System.Windows.Forms.Button()
-        Me.ClaimServiceBtn = New System.Windows.Forms.Button()
-        Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ServiceDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -76,6 +69,13 @@ Partial Class ServiceForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.DeleteServiceBtn = New System.Windows.Forms.Button()
+        Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
+        Me.EditServiceBtn = New System.Windows.Forms.Button()
+        Me.AddServiceBtn = New System.Windows.Forms.Button()
+        Me.ViewServiceBtn = New System.Windows.Forms.Button()
+        Me.ClaimServiceBtn = New System.Windows.Forms.Button()
+        Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -278,137 +278,6 @@ Partial Class ServiceForm
         Me.Panel3.Size = New System.Drawing.Size(65, 579)
         Me.Panel3.TabIndex = 0
         '
-        'DeleteServiceBtn
-        '
-        Me.DeleteServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DeleteServiceBtn.FlatAppearance.BorderSize = 0
-        Me.DeleteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.DeleteServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeleteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.DeleteServiceBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
-        Me.DeleteServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteServiceBtn.Location = New System.Drawing.Point(0, 450)
-        Me.DeleteServiceBtn.Name = "DeleteServiceBtn"
-        Me.DeleteServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.DeleteServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.DeleteServiceBtn.TabIndex = 41
-        Me.DeleteServiceBtn.Text = "Delete"
-        Me.DeleteServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.DeleteServiceBtn.UseVisualStyleBackColor = True
-        Me.DeleteServiceBtn.Visible = False
-        '
-        'ArchiveServiceBtn
-        '
-        Me.ArchiveServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ArchiveServiceBtn.FlatAppearance.BorderSize = 0
-        Me.ArchiveServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ArchiveServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ArchiveServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ArchiveServiceBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
-        Me.ArchiveServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ArchiveServiceBtn.Location = New System.Drawing.Point(0, 375)
-        Me.ArchiveServiceBtn.Name = "ArchiveServiceBtn"
-        Me.ArchiveServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ArchiveServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ArchiveServiceBtn.TabIndex = 40
-        Me.ArchiveServiceBtn.TabStop = False
-        Me.ArchiveServiceBtn.Text = "Archive"
-        Me.ArchiveServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ArchiveServiceBtn.UseVisualStyleBackColor = True
-        Me.ArchiveServiceBtn.Visible = False
-        '
-        'EditServiceBtn
-        '
-        Me.EditServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EditServiceBtn.FlatAppearance.BorderSize = 0
-        Me.EditServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EditServiceBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
-        Me.EditServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EditServiceBtn.Location = New System.Drawing.Point(0, 300)
-        Me.EditServiceBtn.Name = "EditServiceBtn"
-        Me.EditServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.EditServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.EditServiceBtn.TabIndex = 39
-        Me.EditServiceBtn.Text = "Edit"
-        Me.EditServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.EditServiceBtn.UseVisualStyleBackColor = True
-        '
-        'AddServiceBtn
-        '
-        Me.AddServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AddServiceBtn.FlatAppearance.BorderSize = 0
-        Me.AddServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AddServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AddServiceBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
-        Me.AddServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AddServiceBtn.Location = New System.Drawing.Point(0, 225)
-        Me.AddServiceBtn.Name = "AddServiceBtn"
-        Me.AddServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AddServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.AddServiceBtn.TabIndex = 38
-        Me.AddServiceBtn.Text = "Add"
-        Me.AddServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AddServiceBtn.UseVisualStyleBackColor = True
-        '
-        'ViewServiceBtn
-        '
-        Me.ViewServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ViewServiceBtn.FlatAppearance.BorderSize = 0
-        Me.ViewServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ViewServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ViewServiceBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
-        Me.ViewServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ViewServiceBtn.Location = New System.Drawing.Point(0, 150)
-        Me.ViewServiceBtn.Name = "ViewServiceBtn"
-        Me.ViewServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ViewServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ViewServiceBtn.TabIndex = 37
-        Me.ViewServiceBtn.Text = "Details"
-        Me.ViewServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ViewServiceBtn.UseVisualStyleBackColor = True
-        '
-        'ClaimServiceBtn
-        '
-        Me.ClaimServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ClaimServiceBtn.FlatAppearance.BorderSize = 0
-        Me.ClaimServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ClaimServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ClaimServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ClaimServiceBtn.Image = Global.E_Repair.My.Resources.Resources.cash_register_bold
-        Me.ClaimServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ClaimServiceBtn.Location = New System.Drawing.Point(0, 75)
-        Me.ClaimServiceBtn.Name = "ClaimServiceBtn"
-        Me.ClaimServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ClaimServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ClaimServiceBtn.TabIndex = 36
-        Me.ClaimServiceBtn.Text = "Claim"
-        Me.ClaimServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ClaimServiceBtn.UseVisualStyleBackColor = True
-        Me.ClaimServiceBtn.Visible = False
-        '
-        'EvaluateServiceBtn
-        '
-        Me.EvaluateServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EvaluateServiceBtn.FlatAppearance.BorderSize = 0
-        Me.EvaluateServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EvaluateServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EvaluateServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EvaluateServiceBtn.Image = Global.E_Repair.My.Resources.Resources.check_square_bold
-        Me.EvaluateServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EvaluateServiceBtn.Location = New System.Drawing.Point(0, 0)
-        Me.EvaluateServiceBtn.Name = "EvaluateServiceBtn"
-        Me.EvaluateServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.EvaluateServiceBtn.Size = New System.Drawing.Size(65, 75)
-        Me.EvaluateServiceBtn.TabIndex = 30
-        Me.EvaluateServiceBtn.Text = "Evaluate"
-        Me.EvaluateServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.EvaluateServiceBtn.UseVisualStyleBackColor = True
-        Me.EvaluateServiceBtn.Visible = False
-        '
         'Panel1
         '
         Me.Panel1.AutoSize = True
@@ -422,8 +291,8 @@ Partial Class ServiceForm
         '
         Me.ServiceDGV.AllowUserToAddRows = False
         Me.ServiceDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.ServiceDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.ServiceDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.ServiceDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -432,32 +301,32 @@ Partial Class ServiceForm
         Me.ServiceDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ServiceDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.ServiceDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
         Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.TECHNICIAN_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PARTS_COST, Me.TOTAL_PAID, Me.PAID, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ServiceDGV.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ServiceDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.ServiceDGV.EnableHeadersVisualStyles = False
         Me.ServiceDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.ServiceDGV.Location = New System.Drawing.Point(15, 59)
         Me.ServiceDGV.Name = "ServiceDGV"
         Me.ServiceDGV.ReadOnly = True
         Me.ServiceDGV.RowHeadersVisible = False
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        Me.ServiceDGV.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.ServiceDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.ServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ServiceDGV.Size = New System.Drawing.Size(986, 498)
         Me.ServiceDGV.TabIndex = 40
@@ -723,6 +592,137 @@ Partial Class ServiceForm
         Me.BtnClose.TabIndex = 42
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
+        '
+        'DeleteServiceBtn
+        '
+        Me.DeleteServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeleteServiceBtn.FlatAppearance.BorderSize = 0
+        Me.DeleteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.DeleteServiceBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
+        Me.DeleteServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.DeleteServiceBtn.Location = New System.Drawing.Point(0, 450)
+        Me.DeleteServiceBtn.Name = "DeleteServiceBtn"
+        Me.DeleteServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.DeleteServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.DeleteServiceBtn.TabIndex = 41
+        Me.DeleteServiceBtn.Text = "Delete"
+        Me.DeleteServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.DeleteServiceBtn.UseVisualStyleBackColor = True
+        Me.DeleteServiceBtn.Visible = False
+        '
+        'ArchiveServiceBtn
+        '
+        Me.ArchiveServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ArchiveServiceBtn.FlatAppearance.BorderSize = 0
+        Me.ArchiveServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ArchiveServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchiveServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ArchiveServiceBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
+        Me.ArchiveServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ArchiveServiceBtn.Location = New System.Drawing.Point(0, 375)
+        Me.ArchiveServiceBtn.Name = "ArchiveServiceBtn"
+        Me.ArchiveServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ArchiveServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ArchiveServiceBtn.TabIndex = 40
+        Me.ArchiveServiceBtn.TabStop = False
+        Me.ArchiveServiceBtn.Text = "Archive"
+        Me.ArchiveServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ArchiveServiceBtn.UseVisualStyleBackColor = True
+        Me.ArchiveServiceBtn.Visible = False
+        '
+        'EditServiceBtn
+        '
+        Me.EditServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EditServiceBtn.FlatAppearance.BorderSize = 0
+        Me.EditServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.EditServiceBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
+        Me.EditServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.EditServiceBtn.Location = New System.Drawing.Point(0, 300)
+        Me.EditServiceBtn.Name = "EditServiceBtn"
+        Me.EditServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.EditServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.EditServiceBtn.TabIndex = 39
+        Me.EditServiceBtn.Text = "Edit"
+        Me.EditServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.EditServiceBtn.UseVisualStyleBackColor = True
+        '
+        'AddServiceBtn
+        '
+        Me.AddServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AddServiceBtn.FlatAppearance.BorderSize = 0
+        Me.AddServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AddServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AddServiceBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
+        Me.AddServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AddServiceBtn.Location = New System.Drawing.Point(0, 225)
+        Me.AddServiceBtn.Name = "AddServiceBtn"
+        Me.AddServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AddServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.AddServiceBtn.TabIndex = 38
+        Me.AddServiceBtn.Text = "Add"
+        Me.AddServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AddServiceBtn.UseVisualStyleBackColor = True
+        '
+        'ViewServiceBtn
+        '
+        Me.ViewServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ViewServiceBtn.FlatAppearance.BorderSize = 0
+        Me.ViewServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ViewServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ViewServiceBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
+        Me.ViewServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ViewServiceBtn.Location = New System.Drawing.Point(0, 150)
+        Me.ViewServiceBtn.Name = "ViewServiceBtn"
+        Me.ViewServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ViewServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ViewServiceBtn.TabIndex = 37
+        Me.ViewServiceBtn.Text = "Details"
+        Me.ViewServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ViewServiceBtn.UseVisualStyleBackColor = True
+        '
+        'ClaimServiceBtn
+        '
+        Me.ClaimServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ClaimServiceBtn.FlatAppearance.BorderSize = 0
+        Me.ClaimServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClaimServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClaimServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ClaimServiceBtn.Image = Global.E_Repair.My.Resources.Resources.cash_register_bold
+        Me.ClaimServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ClaimServiceBtn.Location = New System.Drawing.Point(0, 75)
+        Me.ClaimServiceBtn.Name = "ClaimServiceBtn"
+        Me.ClaimServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ClaimServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ClaimServiceBtn.TabIndex = 36
+        Me.ClaimServiceBtn.Text = "Claim"
+        Me.ClaimServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ClaimServiceBtn.UseVisualStyleBackColor = True
+        Me.ClaimServiceBtn.Visible = False
+        '
+        'EvaluateServiceBtn
+        '
+        Me.EvaluateServiceBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EvaluateServiceBtn.FlatAppearance.BorderSize = 0
+        Me.EvaluateServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EvaluateServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EvaluateServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.EvaluateServiceBtn.Image = Global.E_Repair.My.Resources.Resources.check_square_bold
+        Me.EvaluateServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.EvaluateServiceBtn.Location = New System.Drawing.Point(0, 0)
+        Me.EvaluateServiceBtn.Name = "EvaluateServiceBtn"
+        Me.EvaluateServiceBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.EvaluateServiceBtn.Size = New System.Drawing.Size(65, 75)
+        Me.EvaluateServiceBtn.TabIndex = 30
+        Me.EvaluateServiceBtn.Text = "Evaluate"
+        Me.EvaluateServiceBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.EvaluateServiceBtn.UseVisualStyleBackColor = True
+        Me.EvaluateServiceBtn.Visible = False
         '
         'ServiceForm
         '

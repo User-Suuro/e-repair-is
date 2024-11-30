@@ -286,24 +286,17 @@ Public Class ServiceForm
 
         If currentSearchVal = constants.getClaimedString Then
             EvaluateServiceBtn.Visible = False
+            ArchiveServiceBtn.Visible = True
         Else
             EvaluateServiceBtn.Visible = True
+            ArchiveServiceBtn.Visible = False
         End If
 
         ' for archive / delete
 
-        If currentSearchVal = constants.getClaimedString Then
-            ArchiveServiceBtn.Visible = True
-            DeleteServiceBtn.Visible = False
-        Else
-            ArchiveServiceBtn.Visible = False
-            DeleteServiceBtn.Visible = False
-        End If
-
-        If currentSearchVal = "All" Then
+        If SearchStatusCmb.SelectedItem = "All" Then
             EvaluateServiceBtn.Visible = False
-        Else
-            EvaluateServiceBtn.Visible = True
+            ClaimServiceBtn.Visible = False
         End If
 
         ' positions
@@ -336,5 +329,9 @@ Public Class ServiceForm
 
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
         LoadDataToDGV(SearchTextBox.Text)
+    End Sub
+
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+
     End Sub
 End Class
