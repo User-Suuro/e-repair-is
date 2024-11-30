@@ -41,12 +41,14 @@
 
     Private Function hasPendingWork() As Boolean
         If empPosition = constants.getTechnicianString Then
-            Dim pendingWork As Integer = formUtils.getTechStatsNumbers(constants.getPendingString, selectedEmpID)
+            Dim pendingWork As Integer = formUtils.getTechStatsNumbers(constants.getPendingString, employeeID)
 
             If pendingWork <> 0 Then
                 MsgBox("You cannot archive employee that has " & pendingWork & " pending work")
                 Return False
             End If
+
+            Return True
         End If
 
         Return True
@@ -108,14 +110,18 @@
 
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
-        If Not InitData() Or hasPendingWork() Then Exit Sub
+
+        If Not InitData() Then Exit Sub
+
+        If Not hasPendingWork() Then Exit Sub
+
         formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
-        If Not InitData() Or hasPendingWork() Then Exit Sub
+        If Not InitData() Or Not hasPendingWork() Then Exit Sub
         formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub

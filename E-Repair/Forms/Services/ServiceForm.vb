@@ -277,6 +277,7 @@ Public Class ServiceForm
     End Sub
 
     Private Sub loadToolsView()
+
         If currentSearchVal <> constants.getFinishedString Then
             ClaimServiceBtn.Visible = False
             EvaluateServiceBtn.Visible = True
@@ -285,15 +286,16 @@ Public Class ServiceForm
             EvaluateServiceBtn.Visible = False
         End If
 
-
         ' for archive / delete
 
         If currentSearchVal <> constants.getClaimedString Then
             ArchiveServiceBtn.Visible = False
             DeleteServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = False
         Else
             ArchiveServiceBtn.Visible = True
             DeleteServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = True
         End If
     End Sub
 
