@@ -408,7 +408,7 @@ Public Class FormUtils
             If Not String.IsNullOrEmpty(imgPath) AndAlso Not String.IsNullOrEmpty(imgFolderName) Then
 
                 Dim savedPath = SaveImgToLocal(imgPath, imgFolderName, True)
-                payload.Add(imgColName, imgPath)
+                payload.Add(imgColName, savedPath)
 
             End If
         End If
