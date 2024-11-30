@@ -475,6 +475,7 @@ Public Class FormUtils
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
             {"archived_by", getEmployeeName(Current.id)},
+            {"archived_by_id", Current.id},
             {"date_archived", DateTime.Now}
         }
 
