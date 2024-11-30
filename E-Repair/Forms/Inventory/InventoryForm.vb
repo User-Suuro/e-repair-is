@@ -22,7 +22,7 @@ Public Class InventoryForm
         If Not formUtils.dgvValChecker(InventoryDGV) Then Return False
 
         With InventoryDGV.CurrentRow
-            inventoryID = .Cells(invConst.supIDStr).Value
+            inventoryID = .Cells(invConst.invIDStr).Value
             itemQuantity = .Cells(invConst.qtyStr).Value
             is_archived = .Cells(invConst.archivedStr).Value
         End With
@@ -71,6 +71,8 @@ Public Class InventoryForm
     ' VIEW
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewBtn.Click
         If Not InitData() Then Exit Sub
+
+        MsgBox(inventoryID)
 
         formUtils.ShowModalWithHandler(
          Function(id)
@@ -180,6 +182,10 @@ Public Class InventoryForm
     ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+
     End Sub
 
     ' SELECT
