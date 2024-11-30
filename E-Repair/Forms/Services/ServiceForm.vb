@@ -61,6 +61,7 @@ Public Class ServiceForm
         LoadDataToDGV()
         ServiceDGV.ClearSelection()
         loadUserDisplay()
+        loadToolsView()
     End Sub
 
     Private Sub loadUserDisplay()
@@ -271,6 +272,11 @@ Public Class ServiceForm
 
         ' for claimed/finished
 
+        loadToolsView()
+        LoadDataToDGV()
+    End Sub
+
+    Private Sub loadToolsView()
         If currentSearchVal <> constants.getFinishedString Then
             ClaimServiceBtn.Visible = False
             EvaluateServiceBtn.Visible = True
@@ -289,12 +295,12 @@ Public Class ServiceForm
             ArchiveServiceBtn.Visible = True
             DeleteServiceBtn.Visible = True
         End If
-
-        LoadDataToDGV()
     End Sub
+
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+        loadToolsView()
 
         LoadDataToDGV()
 
