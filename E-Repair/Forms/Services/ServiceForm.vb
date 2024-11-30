@@ -254,7 +254,7 @@ Public Class ServiceForm
             "All"
         }
 
-        SearchStatusCmb.DataSource = getStatusEnums
+        SearchStatusCmb.DataSource = reArrangedList
         SearchStatusCmb.SelectedIndex = index01
     End Sub
 
