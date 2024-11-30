@@ -6,7 +6,7 @@
     Public Property selectedColumn As String = Nothing
 
     Private Sub InventoryItemModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If editMode Then ToolbarPanel.Visible = True
+
     End Sub
 
 

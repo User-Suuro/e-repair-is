@@ -50,7 +50,7 @@ Partial Class InventoryForm
         Me.ITEM_DESCRIPTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERIAL_NUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HAZARDOUS_CLASSIFICATION = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QUANTITY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.available_quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TOTAL_VALUE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ITEM_STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PHYSICAL_LOCATION = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -90,7 +90,7 @@ Partial Class InventoryForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.InventoryDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.InventoryDGV.ColumnHeadersHeight = 48
-        Me.InventoryDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.inventory_id, Me.SERVICE_ID, Me.SUPPLIER_ID, Me.ITEM_CATEGORY, Me.ITEM_NAME, Me.ITEM_DESCRIPTION, Me.SERIAL_NUMBER, Me.HAZARDOUS_CLASSIFICATION, Me.QUANTITY, Me.TOTAL_VALUE, Me.ITEM_STATUS, Me.PHYSICAL_LOCATION, Me.RESTOCK_DATE, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
+        Me.InventoryDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.inventory_id, Me.SERVICE_ID, Me.SUPPLIER_ID, Me.ITEM_CATEGORY, Me.ITEM_NAME, Me.ITEM_DESCRIPTION, Me.SERIAL_NUMBER, Me.HAZARDOUS_CLASSIFICATION, Me.available_quantity, Me.TOTAL_VALUE, Me.ITEM_STATUS, Me.PHYSICAL_LOCATION, Me.RESTOCK_DATE, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
@@ -476,16 +476,16 @@ Partial Class InventoryForm
         Me.HAZARDOUS_CLASSIFICATION.ReadOnly = True
         Me.HAZARDOUS_CLASSIFICATION.Visible = False
         '
-        'QUANTITY
+        'available_quantity
         '
-        Me.QUANTITY.DataPropertyName = "quantity"
-        Me.QUANTITY.HeaderText = "Quantity"
-        Me.QUANTITY.Name = "QUANTITY"
-        Me.QUANTITY.ReadOnly = True
+        Me.available_quantity.DataPropertyName = "available_quantity"
+        Me.available_quantity.HeaderText = "Quantity"
+        Me.available_quantity.Name = "available_quantity"
+        Me.available_quantity.ReadOnly = True
         '
         'TOTAL_VALUE
         '
-        Me.TOTAL_VALUE.DataPropertyName = "total_value"
+        Me.TOTAL_VALUE.DataPropertyName = "total_cost"
         Me.TOTAL_VALUE.HeaderText = "Total Value"
         Me.TOTAL_VALUE.Name = "TOTAL_VALUE"
         Me.TOTAL_VALUE.ReadOnly = True
@@ -601,7 +601,7 @@ Partial Class InventoryForm
     Friend WithEvents ITEM_DESCRIPTION As DataGridViewTextBoxColumn
     Friend WithEvents SERIAL_NUMBER As DataGridViewTextBoxColumn
     Friend WithEvents HAZARDOUS_CLASSIFICATION As DataGridViewTextBoxColumn
-    Friend WithEvents QUANTITY As DataGridViewTextBoxColumn
+    Friend WithEvents available_quantity As DataGridViewTextBoxColumn
     Friend WithEvents TOTAL_VALUE As DataGridViewTextBoxColumn
     Friend WithEvents ITEM_STATUS As DataGridViewTextBoxColumn
     Friend WithEvents PHYSICAL_LOCATION As DataGridViewTextBoxColumn

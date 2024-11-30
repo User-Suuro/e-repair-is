@@ -125,7 +125,12 @@ Public Class CustomerForm
                 .custDateAddedStr
             }
 
-            If Not selectMode Then customersDt = dbHelper.GetAllData(.custTableStr)
+            If Not selectMode Then
+                customersDt = dbHelper.GetAllData(.custTableStr)
+            Else
+                customersDt = customersDt 'reinitialize selected dt
+            End If
+
             formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
     End Sub
