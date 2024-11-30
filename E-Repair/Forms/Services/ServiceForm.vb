@@ -62,6 +62,8 @@ Public Class ServiceForm
         ServiceDGV.ClearSelection()
         loadUserDisplay()
         loadToolsView()
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        If selectMode Then SearchStatusCmb.Visible = False
     End Sub
 
     Private Sub loadUserDisplay()

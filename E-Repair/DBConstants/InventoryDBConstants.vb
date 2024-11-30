@@ -6,6 +6,7 @@
     Private ReadOnly _inventoryID As String = "inventory_id"
     Private ReadOnly _supplierID As String = "supplier_id"
     Private ReadOnly _itemCategory As String = "item_category"
+
     Private ReadOnly _itemName As String = "item_name"
     Private ReadOnly _itemDescription As String = "item_description"
     Private ReadOnly _serialNumber As String = "serial_number"

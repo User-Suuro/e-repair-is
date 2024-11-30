@@ -1,6 +1,4 @@
-﻿Imports System.Runtime.Remoting
-
-Public Class InventoryUseModal
+﻿Public Class InventoryUseModal
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
 
@@ -26,15 +24,16 @@ Public Class InventoryUseModal
             Me.Close()
         End If
 
-        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, inventoryID)
+        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, selectedID)
 
         If invDT.Rows.Count = 0 Then Exit Sub
 
         With invDT.Rows(0)
-            ItemIDTxtBox.Text = inventoryID
-            ItemNameTxtBox.Text = .Item(invConst.itemNameStr).Value
-            CostPerItemTxtBox.Text = .Item(invConst.costPerItem).Value
+            ItemIDTxtBox.Text = selectedID
+            ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
+            CostPerItemTxtBox.Text = .Item(invConst.costPerItem)
         End With
+
     End Sub
 
 
@@ -119,5 +118,5 @@ Public Class InventoryUseModal
 
     End Sub
 
-  
+
 End Class
