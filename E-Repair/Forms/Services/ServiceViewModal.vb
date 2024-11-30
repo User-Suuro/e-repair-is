@@ -26,6 +26,9 @@ Public Class ServiceViewModal
     Private total_services As Integer = -1
     Private deviceImgPath As String = ""
 
+    Private customerID As Integer = -1
+    Private technicianID As Integer = -1
+
     Private Sub ServiceViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
@@ -37,8 +40,8 @@ Public Class ServiceViewModal
         If serviceDT.Rows.Count = 0 Then Exit Sub
 
         With serviceDT.Rows(0)
-            Dim customerID = .Item(servConst.custIDStr)
-            Dim technicianID = .Item(servConst.techIDStr)
+            customerID = .Item(servConst.custIDStr)
+            technicianID = .Item(servConst.techIDStr)
 
             InitCustCount(customerID)
             InitTechCount(technicianID)
@@ -134,7 +137,7 @@ Public Class ServiceViewModal
            modal.selectedID = id
            Return modal
        End Function,
-       selectedID,
+       technicianID,
        Function(modal)
            Return Nothing
        End Function
@@ -149,7 +152,7 @@ Public Class ServiceViewModal
            modal.selectedColumn = servConst.svcIDStr
            Return modal
        End Function,
-       selectedID,
+       customerID,
        Function(modal)
            Return Nothing
        End Function
