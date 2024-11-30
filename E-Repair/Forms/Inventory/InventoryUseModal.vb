@@ -8,7 +8,6 @@
 
     Dim constants As New Constants
 
-    Private inventoryID As Integer = -1
     Private serviceID As Integer = -1
 
     Private quantity As Integer = -1
@@ -73,10 +72,12 @@
 
             Dim itemUsedDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, serviceID)
 
-            If itemUsedDT.Rows.Count = 0 Then Exit Sub
+            If itemUsedDT.Rows.Count = 0 Then
+                ItemUsedTxtBox.Text = 0
+                Exit Sub
+            End If
 
             ItemUsedTxtBox.Text = formUtils.CalcIntegerDTCol(itemUsedDT, itemConst.quantityUsedStr)
-
         End With
 
     End Sub
@@ -152,7 +153,7 @@
                { .quantityUsedStr, quantity},
                { .totalCost, totalCost},
                { .reasonUsed, reasonForUsing},
-               { .InventoryId, inventoryID}
+               { .InventoryId, selectedID}
              }
 
             If formUtils.AddRow(.TableName, insertData) Then
