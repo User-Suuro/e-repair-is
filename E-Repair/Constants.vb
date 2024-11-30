@@ -16,7 +16,7 @@
 
     ' Service Status
     Private ReadOnly _finishedString As String = "Finished"
-    Private ReadOnly _claimedString As String = "Finished"
+    Private ReadOnly _claimedString As String = "Claimed"
     Private ReadOnly _canceledString As String = "Canceled"
     Private ReadOnly _onholdString As String = "Onhold"
     Private ReadOnly _pendingString As String = "Pending"
