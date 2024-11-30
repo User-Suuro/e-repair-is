@@ -70,11 +70,12 @@ Public Class CustomerAddEditModal
                 { .custContactStr, contactNumber}, ' optional
                 { .custAddressStr, address}, ' optional
                 { .custEmailStr, email}, ' optional
-                { .custAddedByStr, formUtils.getEmployeeName(Current.id)},
                 { .custFirstStr, firstName},
                 { .custLastStr, lastName},
                 { .custGenderStr, gender},
-                { .custDateAddedStr, DateTime.Now()}
+                { .custDateAddedStr, DateTime.Now()},
+                { .custAddedByStr, formUtils.getEmployeeName(Current.id)},
+                { .addedById, Current.id}
             }
 
 

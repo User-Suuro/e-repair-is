@@ -67,7 +67,8 @@
                 { .itemDescStr, itemDesc},
                 { .qtyStr, quantity},
                 { .totalCostStr, totalValue},
-                { .addedByStr, formUtils.getEmployeeName(Current.id)}
+                { .addedByStr, formUtils.getEmployeeName(Current.id)},
+                { .addedById, Current.id}
             }
 
         End With
