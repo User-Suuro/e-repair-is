@@ -24,7 +24,6 @@ Partial Class ServiceEvaluationModal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceEvaluationModal))
         Me.Groupbox = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TotalCostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -50,14 +49,15 @@ Partial Class ServiceEvaluationModal
         Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Groupbox.SuspendLayout()
-        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel8.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.RepairStatusTableLayout.SuspendLayout()
+        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Groupbox
@@ -79,20 +79,6 @@ Partial Class ServiceEvaluationModal
         Me.Groupbox.Size = New System.Drawing.Size(986, 313)
         Me.Groupbox.TabIndex = 3
         Me.Groupbox.Text = "Technician Service Evaluation"
-        '
-        'DeviceCirclePictureBox
-        '
-        Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(839, 53)
-        Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"
-        Me.DeviceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.DeviceCirclePictureBox.ShadowDecoration.Parent = Me.DeviceCirclePictureBox
-        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(130, 128)
-        Me.DeviceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.DeviceCirclePictureBox.TabIndex = 56
-        Me.DeviceCirclePictureBox.TabStop = False
-        Me.DeviceCirclePictureBox.UseTransparentBackground = True
         '
         'Guna2Panel2
         '
@@ -519,6 +505,20 @@ Partial Class ServiceEvaluationModal
         Me.Guna2Separator1.Size = New System.Drawing.Size(1059, 10)
         Me.Guna2Separator1.TabIndex = 44
         '
+        'DeviceCirclePictureBox
+        '
+        Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
+        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(839, 53)
+        Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"
+        Me.DeviceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.DeviceCirclePictureBox.ShadowDecoration.Parent = Me.DeviceCirclePictureBox
+        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(130, 128)
+        Me.DeviceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.DeviceCirclePictureBox.TabIndex = 56
+        Me.DeviceCirclePictureBox.TabStop = False
+        Me.DeviceCirclePictureBox.UseTransparentBackground = True
+        '
         'ServiceEvaluationModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -531,7 +531,6 @@ Partial Class ServiceEvaluationModal
         Me.Text = "ServiceRepairResult"
         Me.TopMost = True
         Me.Groupbox.ResumeLayout(False)
-        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
@@ -541,6 +540,7 @@ Partial Class ServiceEvaluationModal
         Me.Guna2Panel7.ResumeLayout(False)
         Me.RepairStatusTableLayout.ResumeLayout(False)
         Me.RepairStatusTableLayout.PerformLayout()
+        CType(Me.DeviceCirclePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

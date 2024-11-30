@@ -41,9 +41,8 @@ Partial Class InventoryUseModal
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TotalCostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ItemCostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.QuantityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.AvailQuantityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.SelectItemTxtBox = New Guna.UI2.WinForms.Guna2Button()
@@ -54,6 +53,7 @@ Partial Class InventoryUseModal
         Me.ItemNameTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ItemIDTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.QuantityUsage = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -63,6 +63,7 @@ Partial Class InventoryUseModal
         Me.Guna2Panel4.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
+        CType(Me.QuantityUsage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
@@ -323,9 +324,9 @@ Partial Class InventoryUseModal
         Me.TableLayoutPanel5.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.TotalCostTxtBox, 2, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label1, 2, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.ItemCostTxtBox, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label9, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.QuantityTxtBox, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.AvailQuantityTxtBox, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.QuantityUsage, 1, 1)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -386,33 +387,6 @@ Partial Class InventoryUseModal
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Total Cost"
         '
-        'ItemCostTxtBox
-        '
-        Me.ItemCostTxtBox.BorderRadius = 4
-        Me.ItemCostTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ItemCostTxtBox.DefaultText = ""
-        Me.ItemCostTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ItemCostTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ItemCostTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ItemCostTxtBox.DisabledState.Parent = Me.ItemCostTxtBox
-        Me.ItemCostTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ItemCostTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ItemCostTxtBox.Enabled = False
-        Me.ItemCostTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ItemCostTxtBox.FocusedState.Parent = Me.ItemCostTxtBox
-        Me.ItemCostTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ItemCostTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ItemCostTxtBox.HoverState.Parent = Me.ItemCostTxtBox
-        Me.ItemCostTxtBox.Location = New System.Drawing.Point(224, 24)
-        Me.ItemCostTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.ItemCostTxtBox.Name = "ItemCostTxtBox"
-        Me.ItemCostTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ItemCostTxtBox.PlaceholderText = ""
-        Me.ItemCostTxtBox.SelectedText = ""
-        Me.ItemCostTxtBox.ShadowDecoration.Parent = Me.ItemCostTxtBox
-        Me.ItemCostTxtBox.Size = New System.Drawing.Size(218, 26)
-        Me.ItemCostTxtBox.TabIndex = 45
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -425,31 +399,31 @@ Partial Class InventoryUseModal
         Me.Label9.TabIndex = 44
         Me.Label9.Text = "Quantity Usage"
         '
-        'QuantityTxtBox
+        'AvailQuantityTxtBox
         '
-        Me.QuantityTxtBox.BorderRadius = 4
-        Me.QuantityTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.QuantityTxtBox.DefaultText = ""
-        Me.QuantityTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.QuantityTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTxtBox.FocusedState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTxtBox.HoverState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.QuantityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.QuantityTxtBox.Name = "QuantityTxtBox"
-        Me.QuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTxtBox.PlaceholderText = ""
-        Me.QuantityTxtBox.SelectedText = ""
-        Me.QuantityTxtBox.ShadowDecoration.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Size = New System.Drawing.Size(218, 26)
-        Me.QuantityTxtBox.TabIndex = 21
+        Me.AvailQuantityTxtBox.BorderRadius = 4
+        Me.AvailQuantityTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.AvailQuantityTxtBox.DefaultText = ""
+        Me.AvailQuantityTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.AvailQuantityTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.AvailQuantityTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AvailQuantityTxtBox.DisabledState.Parent = Me.AvailQuantityTxtBox
+        Me.AvailQuantityTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AvailQuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AvailQuantityTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AvailQuantityTxtBox.FocusedState.Parent = Me.AvailQuantityTxtBox
+        Me.AvailQuantityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AvailQuantityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AvailQuantityTxtBox.HoverState.Parent = Me.AvailQuantityTxtBox
+        Me.AvailQuantityTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.AvailQuantityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.AvailQuantityTxtBox.Name = "AvailQuantityTxtBox"
+        Me.AvailQuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.AvailQuantityTxtBox.PlaceholderText = ""
+        Me.AvailQuantityTxtBox.SelectedText = ""
+        Me.AvailQuantityTxtBox.ShadowDecoration.Parent = Me.AvailQuantityTxtBox
+        Me.AvailQuantityTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.AvailQuantityTxtBox.TabIndex = 21
         '
         'Guna2Panel4
         '
@@ -630,6 +604,30 @@ Partial Class InventoryUseModal
         Me.ItemIDTxtBox.Size = New System.Drawing.Size(162, 25)
         Me.ItemIDTxtBox.TabIndex = 18
         '
+        'QuantityUsage
+        '
+        Me.QuantityUsage.BackColor = System.Drawing.Color.Transparent
+        Me.QuantityUsage.BorderRadius = 4
+        Me.QuantityUsage.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.QuantityUsage.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.QuantityUsage.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.QuantityUsage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityUsage.DisabledState.Parent = Me.QuantityUsage
+        Me.QuantityUsage.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.QuantityUsage.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.QuantityUsage.Dock = System.Windows.Forms.DockStyle.Top
+        Me.QuantityUsage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityUsage.FocusedState.Parent = Me.QuantityUsage
+        Me.QuantityUsage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuantityUsage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.QuantityUsage.Location = New System.Drawing.Point(225, 24)
+        Me.QuantityUsage.Name = "QuantityUsage"
+        Me.QuantityUsage.ShadowDecoration.Parent = Me.QuantityUsage
+        Me.QuantityUsage.Size = New System.Drawing.Size(216, 26)
+        Me.QuantityUsage.TabIndex = 49
+        Me.QuantityUsage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.QuantityUsage.UpDownButtonForeColor = System.Drawing.Color.White
+        '
         'InventoryUseModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -655,6 +653,7 @@ Partial Class InventoryUseModal
         Me.TableLayoutPanel4.PerformLayout()
         Me.Guna2Panel5.ResumeLayout(False)
         Me.Guna2Panel5.PerformLayout()
+        CType(Me.QuantityUsage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -678,9 +677,8 @@ Partial Class InventoryUseModal
     Friend WithEvents Label2 As Label
     Friend WithEvents TotalCostTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents ItemCostTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents QuantityTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents AvailQuantityTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents SelectItemTxtBox As Guna.UI2.WinForms.Guna2Button
@@ -691,4 +689,5 @@ Partial Class InventoryUseModal
     Friend WithEvents ItemNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents ItemIDTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents QuantityUsage As Guna.UI2.WinForms.Guna2NumericUpDown
 End Class

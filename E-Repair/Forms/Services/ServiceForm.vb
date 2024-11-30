@@ -210,6 +210,7 @@ Public Class ServiceForm
                 .svcStatusStr,
                 .svcStatusStr,
                 .svcStatusStr,
+                .svcStatusStr,
                 .svcStatusStr
             }
 

@@ -53,6 +53,7 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.ServicesNumberLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -508,4 +509,5 @@ Partial Class AdminDashboardForm
     Friend WithEvents Label3 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents WelcomeMessageLabel As Label
+    Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
 End Class
