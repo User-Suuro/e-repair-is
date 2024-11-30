@@ -10,7 +10,7 @@ Public Class InventoryForm
 
     Private inventoryID As Integer = -1
     Private itemQuantity As Integer = -1
-    Private is_archived = False
+    Private is_archived As Boolean = False
 
     Public Property selectedID As Integer = -1
     Public Property selectMode As Boolean = False
@@ -24,7 +24,7 @@ Public Class InventoryForm
         With InventoryDGV.CurrentRow
             inventoryID = .Cells(invConst.supIDStr).Value
             itemQuantity = .Cells(invConst.qtyStr).Value
-            is_archived = .Cells(invConst.archivedStr)
+            is_archived = .Cells(invConst.archivedStr).Value
         End With
 
         Return True

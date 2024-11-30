@@ -209,12 +209,8 @@
         End Function
         )
 
-        MsgBox(supplierID)
-
         If supplierID = -1 Then Exit Sub
-
         Dim suppDT As DataTable = dbHelper.GetRowByValue(suppConst.supTableStr, suppConst.supIDStr, supplierID)
-
         If suppDT.Rows.Count = 0 Then Exit Sub
 
         SupplierIDTxtBox.Text = supplierID
