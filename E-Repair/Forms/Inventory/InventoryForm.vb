@@ -14,6 +14,7 @@ Public Class InventoryForm
 
     Public Property selectedID As Integer = -1
     Public Property selectMode As Boolean = False
+    Public Property viewMode As Boolean = False
     Public Property invDT As DataTable = Nothing
 
     ' INIT DATA
@@ -33,7 +34,10 @@ Public Class InventoryForm
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         InventoryDGV.ClearSelection()
+
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+
+        If viewMode Then BtnClose.Visible = True
 
         If selectedID = -1 Then
             BtnSelect.Visible = False
