@@ -18,6 +18,8 @@ Public Class InventoryForm
     Public Property selectMode As Boolean = False
     Public Property viewMode As Boolean = False
 
+    Public Property supplierMode As Boolean = False
+
 
     ' INIT DATA
     Private Function InitData() As Boolean
@@ -152,7 +154,11 @@ Public Class InventoryForm
                 .addedByIdName
             }
 
-            invDT = dbHelper.GetAllData(.invTableStr)
+            If supplierMode Then
+                invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
+            Else
+                invDT = dbHelper.GetAllData(.invTableStr)
+            End If
 
             formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With

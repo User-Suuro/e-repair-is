@@ -7,6 +7,8 @@ Public Class SupplierViewModal
     Dim supConstants As New SuppliersDBConstants
     Dim invConst As New InventoryDBConstants
 
+    Private supplierID As Integer
+
     Public Property selectedID As Integer = -1
     Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -36,7 +38,10 @@ Public Class SupplierViewModal
             ContractTypeTxtBox.Text = .Item(supConstants.supContractStr)
             BankDetailsTxtBox.Text = .Item(supConstants.bankDetailsStr)
             PaymentTermsTxtBox.Text = .Item(supConstants.payTermsStr)
-            SupplierIdTextBox.Text = .Item(supConstants.supIDStr)
+
+            supplierID = .Item(supConstants.supIDStr)
+            SupplierIdTextBox.Text = supplierID
+
             NoSuppliedItemTxtBox.Text = formUtils.GetSuppliedItems(selectedID)
             TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
@@ -58,12 +63,16 @@ Public Class SupplierViewModal
         Function(id)
             Dim modal As New InventoryForm
             modal.viewMode = True
+            modal.supplierMode = True
+            modal.selectedID = id
             Return modal
         End Function,
-        -1,
+        supplierID,
         Function(modal)
             Return Nothing
         End Function
         )
     End Sub
+
+
 End Class

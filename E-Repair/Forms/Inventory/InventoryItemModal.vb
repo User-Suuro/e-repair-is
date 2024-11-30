@@ -1,21 +1,29 @@
 ﻿Public Class InventoryItemModal
+    Dim dbHelper As New DbHelper
 
-    Public Property editMode As Boolean = False
+    Dim itemConst As New ItemsDBConstants
+
     Public Property inventoryID As Integer = -1
     Public Property serviceID As Integer = -1
-    Public Property selectedColumn As String = Nothing
+
+    Private itemDT As DataTable = Nothing
 
     Private Sub InventoryItemModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If serviceID <> -1 Then
+            itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, serviceID)
+        End If
+
+        If inventoryID <> -1 Then
+            itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.InventoryId, inventoryID)
+        End If
+
+        ItemsDGV.DataSource = itemDT
     End Sub
 
 
     Private Sub loadToDGV()
-
         ' show service only
-
-
-
 
     End Sub
 
@@ -24,25 +32,7 @@
         Me.Close()
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub EditPanel_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub CostTxtBox_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub AddBtn_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
 
 End Class

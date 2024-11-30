@@ -149,7 +149,6 @@ Public Class ServiceViewModal
        Function(id)
            Dim modal As New InventoryItemModal
            modal.serviceID = id
-           modal.selectedColumn = servConst.svcIDStr
            Return modal
        End Function,
        selectedID,

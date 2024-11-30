@@ -26,9 +26,6 @@ Partial Class InventoryItemModal
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ItemsDGV = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.ITEM_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVENTORY_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,6 +33,9 @@ Partial Class InventoryItemModal
         Me.COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.REASON_USED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Used = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         CType(Me.ItemsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -102,41 +102,6 @@ Partial Class InventoryItemModal
         Me.ItemsDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.ItemsDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.BtnClose)
-        Me.Panel2.Controls.Add(Me.Guna2Separator3)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 464)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1009, 65)
-        Me.Panel2.TabIndex = 66
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 22)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 63
-        Me.BtnClose.Text = "Close"
-        '
-        'Guna2Separator3
-        '
-        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 6)
-        Me.Guna2Separator3.Name = "Guna2Separator3"
-        Me.Guna2Separator3.Size = New System.Drawing.Size(1009, 13)
-        Me.Guna2Separator3.TabIndex = 64
-        '
         'ITEM_ID
         '
         Me.ITEM_ID.DataPropertyName = "item_id"
@@ -188,6 +153,41 @@ Partial Class InventoryItemModal
         Me.Used.HeaderText = "Date Used"
         Me.Used.Name = "Used"
         Me.Used.ReadOnly = True
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Controls.Add(Me.BtnClose)
+        Me.Panel2.Controls.Add(Me.Guna2Separator3)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 464)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1009, 65)
+        Me.Panel2.TabIndex = 66
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(12, 22)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 63
+        Me.BtnClose.Text = "Close"
+        '
+        'Guna2Separator3
+        '
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 6)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(1009, 13)
+        Me.Guna2Separator3.TabIndex = 64
         '
         'InventoryItemModal
         '
