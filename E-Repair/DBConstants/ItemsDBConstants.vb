@@ -1,14 +1,15 @@
 ﻿Public Class ItemsDBConstants
     ' Define constants for column names in the items table
     Private ReadOnly _tableName As String = "used_items"
+
     Private ReadOnly _itemId As String = "item_id"
     Private ReadOnly _inventoryId As String = "inventory_id"
     Private ReadOnly _serviceId As String = "service_id"
-    Private ReadOnly _costperitem As String = "cost"
-    Private ReadOnly _itemstatus As String = "used"
+
+    Private ReadOnly _totalCost As String = "total_cost"
     Private ReadOnly _quantityUsed As String = "quantity_used"
     Private ReadOnly _reasonUsed As String = "reason_used"
-    Private ReadOnly _dateUsed As String = "dateUsed"
+    Private ReadOnly _dateUsed As String = "date_used"
 
     Public ReadOnly Property reasonUsed As String
         Get
@@ -56,16 +57,10 @@
         End Get
     End Property
 
-    Public ReadOnly Property costPerItem As String
+    Public ReadOnly Property totalCost As String
         Get
-            Return _costperitem
+            Return _totalCost
         End Get
     End Property
-    Public ReadOnly Property isUsed As String
-        Get
-            Return _itemstatus
-        End Get
-    End Property
-
 
 End Class

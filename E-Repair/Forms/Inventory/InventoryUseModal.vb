@@ -11,6 +11,13 @@
     Private inventoryID As Integer = -1
     Private serviceID As Integer = -1
 
+    Private quantity As Integer = -1
+    Private totalCost As Decimal
+
+    Private costPerItem As Decimal
+    Private availableQuantity As Integer
+    Private reasonForUsing As String
+
     Public Property selectedID As Integer = -1
 
     Private Sub InventoryUseModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -31,7 +38,11 @@
         With invDT.Rows(0)
             ItemIDTxtBox.Text = selectedID
             ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
-            CostPerItemTxtBox.Text = .Item(invConst.costPerItem)
+            costPerItem = .Item(invConst.costPerItem)
+            availableQuantity = .Item(invConst.availableQtyStr)
+
+            CostPerItemTxtBox.Text = costPerItem
+            AvailQuantityTxtBox.Text = availableQuantity
         End With
 
     End Sub
@@ -70,12 +81,15 @@
 
     End Sub
 
-    Private Sub QuantityTxtBox_TextChanged(sender As Object, e As EventArgs) Handles AvailQuantityTxtBox.TextChanged
-
-    End Sub
 
     Private Sub QuantityUsage_ValueChanged(sender As Object, e As EventArgs) Handles QuantityUsage.ValueChanged
+        quantity = QuantityUsage.Value
+        totalCost = quantity * costPerItem
+        TotalCostTxtBox.Text = totalCost
+    End Sub
 
+    Private Sub ReasonTextBox_TextChanged(sender As Object, e As EventArgs) Handles ReasonTextBox.TextChanged
+        reasonForUsing = ReasonTextBox.Text
     End Sub
 
     Private Sub ItemIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ItemIDTxtBox.TextChanged
@@ -116,7 +130,42 @@
 
     Private Sub BtnUse_Click(sender As Object, e As EventArgs) Handles BtnUse.Click
 
+        If quantity > availableQuantity Then
+            MsgBox("Insufficient Quantity")
+            Exit Sub
+        End If
+
+        Dim quantityResult As Integer = availableQuantity - quantity
+
+        If quantityResult < 0 Then
+            MsgBox("Insufficient Quantity")
+            Exit Sub
+        End If
+
+        Dim totalCostResult As Decimal = quantityResult * totalCost
+
+        ' insert items_used record
+        With itemConst
+
+            Dim insertData As New Dictionary(Of String, Object) From {
+               { .ServiceId, serviceID},
+               { .quantityUsedStr, quantity},
+               { .totalCost, totalCost},
+               { .reasonUsed, reasonForUsing},
+               { .InventoryId, inventoryID}
+             }
+
+            If formUtils.AddRow(.TableName, insertData) Then
+                ' update inv
+                Dim updateData As New Dictionary(Of String, Object) From {
+                   {invConst.availableQtyStr, quantityResult},
+                   {invConst.totalCostStr, totalCostResult}
+                }
+
+                If dbHelper.UpdateRecord(invConst.invTableStr, invConst.invIDStr, inventoryID, updateData) Then
+                    Me.Close()
+                End If
+            End If
+        End With
     End Sub
-
-
 End Class

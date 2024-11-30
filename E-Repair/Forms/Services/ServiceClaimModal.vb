@@ -6,6 +6,7 @@ Public Class ServiceClaimModal
 
     Dim constants As New Constants
     Dim servConst As New ServiceDBConstants
+    Dim itemConst As New ItemsDBConstants
 
     Public Property selectedID As Integer = -1
     Private Property totalPaid As Decimal
@@ -111,7 +112,18 @@ Public Class ServiceClaimModal
     Private Sub SeePartsBtn_Click(sender As Object, e As EventArgs) Handles SeePartsBtn.Click
         ' for view
 
-
+        Dim resultID As Integer = formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New InventoryItemModal
+             modal.inventoryID = id
+             modal.selectedColumn = itemConst.ServiceId
+             Return modal
+         End Function,
+         selectedID,
+         Function(modal)
+             Return Nothing
+         End Function
+         )
 
     End Sub
 
