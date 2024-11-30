@@ -5,7 +5,6 @@
     ' Attribute Names
     Private ReadOnly _inventoryID As String = "inventory_id"
     Private ReadOnly _supplierID As String = "supplier_id"
-    Private ReadOnly _serviceID As String = "service_id"
     Private ReadOnly _itemCategory As String = "item_category"
     Private ReadOnly _itemName As String = "item_name"
     Private ReadOnly _itemDescription As String = "item_description"
@@ -52,12 +51,6 @@
     Public ReadOnly Property supIDStr As String
         Get
             Return _supplierID
-        End Get
-    End Property
-
-    Public ReadOnly Property svcIDStr As String
-        Get
-            Return _serviceID
         End Get
     End Property
 

@@ -24,7 +24,19 @@
 
     Private Sub InvetoryAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbds(-1, -1)
-        If editMode Then loadValues()
+
+        If editMode Then
+            ' adjust view for edit
+            With ItemDetailsTableLayout
+                .ColumnStyles(0).Width = 0.0F
+            End With
+            loadValues()
+        Else
+            ' adjust view for add
+            With ItemDetailsTableLayout
+                .ColumnStyles(3).Width = 0.0F
+            End With
+        End If
     End Sub
 
     ' LOAD CMBDS
@@ -47,17 +59,12 @@
 
     ' ADD DATA
     Private Sub AddData()
-
-        ' adjust view for add
-        With ItemDetailsTableLayout
-            .ColumnStyles(3).Width = 0.0F
-        End With
-
         Dim insertData As New Dictionary(Of String, Object)
         Dim insertItemData As New Dictionary(Of String, Object)
 
-        With invConst
+        MsgBox(supplierID)
 
+        With invConst
             insertData = New Dictionary(Of String, Object) From {
                 { .serialNumStr, serialNumber}, ' optional
                 { .physLocStr, physicalLocation}, ' optional
@@ -83,6 +90,7 @@
             }
         End With
 
+        MsgBox(SupplierIDTxtBox)
         ' insertion time
 
         If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
@@ -138,10 +146,7 @@
     ' EDIT DATA
     Private Sub EditData()
 
-        ' adjust view for edit
-        With ItemDetailsTableLayout
-            .ColumnStyles(0).Width = 0.0F
-        End With
+
 
         CostPerItemTxtBox.Enabled = False
         QuantityTxtBox.Enabled = False
@@ -211,6 +216,7 @@
 
         If supplierID = -1 Then Exit Sub
         Dim suppDT As DataTable = dbHelper.GetRowByValue(suppConst.supTableStr, suppConst.supIDStr, supplierID)
+
         If suppDT.Rows.Count = 0 Then Exit Sub
 
         SupplierIDTxtBox.Text = supplierID
