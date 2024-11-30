@@ -209,7 +209,7 @@ Public Class ServiceAddEditModal
            Function(id)
                Dim modal As New EmployeeForm
                modal.selectMode = True
-               modal.empDT = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
+               modal.techOnly = True
                Return modal
            End Function,
            -1,
@@ -335,6 +335,7 @@ Public Class ServiceAddEditModal
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 
 End Class

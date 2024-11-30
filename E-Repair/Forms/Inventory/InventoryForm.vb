@@ -12,10 +12,12 @@ Public Class InventoryForm
     Private itemQuantity As Integer = -1
     Private is_archived As Boolean = False
 
+    Private invDT As DataTable = Nothing
+
     Public Property selectedID As Integer = -1
     Public Property selectMode As Boolean = False
     Public Property viewMode As Boolean = False
-    Public Property invDT As DataTable = Nothing
+
 
     ' INIT DATA
     Private Function InitData() As Boolean
@@ -150,7 +152,8 @@ Public Class InventoryForm
                 .addedByIdName
             }
 
-            If Not selectMode Then invDT = dbHelper.GetAllData(.invTableStr)
+            invDT = dbHelper.GetAllData(.invTableStr)
+
             formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
     End Sub

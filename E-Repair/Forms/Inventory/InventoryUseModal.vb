@@ -41,8 +41,8 @@
         serviceID = formUtils.ShowModalWithHandler(
        Function(id)
            Dim modal As New ServiceForm
-           modal.selectedID = id
-           modal.serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+           modal.PendingOnly = True
+           modal.selectMode = True
            Return modal
        End Function,
        -1,

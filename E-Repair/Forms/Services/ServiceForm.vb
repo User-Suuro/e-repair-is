@@ -16,10 +16,13 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
+    Private serviceDT As DataTable = Nothing
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
-    Public Property serviceDT As DataTable = Nothing
+    Public Property pendingOnly As Boolean = False
+
+
 
     Private Function InitData() As Boolean
 
@@ -62,6 +65,7 @@ Public Class ServiceForm
         ServiceDGV.ClearSelection()
         loadUserDisplay()
         loadToolsView()
+
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
         If selectMode Then SearchStatusCmb.Visible = False
     End Sub
@@ -217,7 +221,11 @@ Public Class ServiceForm
                 .svcStatusStr
             }
 
-            If Not selectMode Then serviceDT = dbHelper.GetAllData(.svcTableStr)
+            If pendingOnly Then
+                serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+            Else
+                serviceDT = dbHelper.GetAllData(.svcTableStr)
+            End If
 
             ' Additonal payload
             serviceDT.Columns.Add(custCol, GetType(String))

@@ -7,10 +7,11 @@
 
     Private suppID As Integer
     Private archivedStatus As Boolean
+    Private suppDT As DataTable = Nothing
 
     Public Property selectMode As Boolean = False
-    Public Property suppDT As DataTable = Nothing
     Public Property selectedID As Integer = -1
+
 
     ' INIT VALUES
     Private Function InitValues() As Boolean

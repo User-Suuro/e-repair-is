@@ -171,7 +171,6 @@
         Function(id)
             Dim modal As New SuppliersForm
             modal.selectMode = True
-            modal.suppDT = dbHelper.GetAllData(suppConst.supTableStr)
             Return modal
         End Function,
         -1,

@@ -16,7 +16,7 @@ Public Class CustomerForm
 
     Public Property selectMode As Boolean = False
     Public Property selectedCustID As Integer = -1
-    Public Property customersDt As DataTable = Nothing
+    Private customersDt As DataTable = Nothing
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -125,11 +125,8 @@ Public Class CustomerForm
                 .custDateAddedStr
             }
 
-            If Not selectMode Then
-                customersDt = dbHelper.GetAllData(.custTableStr)
-            Else
-                customersDt = customersDt 'reinitialize selected dt
-            End If
+
+            customersDt = dbHelper.GetAllData(.custTableStr)
 
             formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
@@ -164,8 +161,6 @@ Public Class CustomerForm
         If Not InitValues() Or Not selectMode Then Exit Sub
 
         selectedCustID = customerID
-
-        Me.DialogResult = DialogResult.OK
 
         Me.Close()
     End Sub

@@ -14,7 +14,11 @@ Public Class EmployeeForm
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property empDT As DataTable = Nothing
+    Public Property techOnly As Boolean = True
+
+    Private empDT As DataTable = Nothing
+
+
 
     ' RESTRICT ACTIONS
     Private Function isRestricted() As Boolean
@@ -164,7 +168,12 @@ Public Class EmployeeForm
               .empAddDateStr
             }
 
-            If Not selectMode Then empDT = dbHelper.GetAllData(.empTableStr)
+            If Not techOnly Then
+                empDT = dbHelper.GetAllData(.empTableStr)
+            Else
+                empDT = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
+            End If
+
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
