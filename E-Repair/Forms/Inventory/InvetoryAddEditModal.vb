@@ -137,33 +137,6 @@
         End With
     End Sub
 
-    ' MANAGE ITEMS BTN
-    Private Sub ManageItemsBtn_Click(sender As Object, e As EventArgs)
-        ' only happens in edit mode
-        If Not editMode Then Exit Sub
-
-        Dim idResult As Integer = formUtils.ShowModalWithHandler(
-              Function(id)
-                  Dim modal As New InventoryItemModal
-                  modal.inventoryID = id
-                  modal.selectedColumn = invConst.invIDStr
-                  Return modal
-              End Function,
-              selectedID,
-              Function(modal)
-                  Return Nothing
-              End Function
-           )
-
-        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, selectedID)
-        If invDT.Rows.Count = 0 Then Exit Sub
-
-        With invDT.Rows(0)
-            QuantityTxtBox.Text = .Item(invConst.availableQtyStr)
-            TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
-        End With
-    End Sub
-
     ' SELECT SUPPLIER ID
     Private Sub SelectSupplierBtn_Click(sender As Object, e As EventArgs) Handles SelectSupplierBtn.Click
 

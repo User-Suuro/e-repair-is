@@ -75,23 +75,7 @@
 
     End Sub
 
-    Private Sub ViewModifyItemBtn_Click(sender As Object, e As EventArgs)
 
-        formUtils.ShowModalWithHandler(
-              Function(id)
-                  Dim modal As New InventoryItemModal
-                  modal.inventoryID = id
-                  modal.selectedColumn = invConst.invIDStr
-                  Return modal
-              End Function,
-             selectedID,
-              Function(modal)
-                  Return Nothing
-              End Function
-        )
-
-        loadValues()
-    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
