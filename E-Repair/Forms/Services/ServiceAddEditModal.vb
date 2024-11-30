@@ -46,6 +46,7 @@ Public Class ServiceAddEditModal
     ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbDs(-1)
+        If editMode Then LoadData()
     End Sub
 
     ' LOAD DATA
@@ -146,7 +147,6 @@ Public Class ServiceAddEditModal
     ' EDIT
 
     Private Sub EditDataFunction()
-        LoadData()
 
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {

@@ -24,6 +24,7 @@
 
     Private Sub InvetoryAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbds(-1, -1)
+        If editMode Then loadValues()
     End Sub
 
     ' LOAD CMBDS
@@ -144,8 +145,6 @@
 
         CostPerItemTxtBox.Enabled = False
         QuantityTxtBox.Enabled = False
-
-        loadValues()
 
         ' do your things
         With invConst

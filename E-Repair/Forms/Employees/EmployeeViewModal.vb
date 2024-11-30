@@ -63,7 +63,8 @@ Public Class EmployeeViewModal
             DateAddedTextBox.Text = .Item(empConst.empAddDateStr)
 
             LastAccessedTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empLastAccessedStr))
-            AddedByTextBox.Text = formUtils.getEmployeeName(.Item(empConst.addedById))
+            AddedByTextBox.Text = .Item(empConst.empAddedByName)
+
             Dim empJobType = .Item(empConst.empJobPosStr)
 
             ' JOB INFO

@@ -49,10 +49,12 @@ Public Class EmployeeAddEditModal
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1, -1)
+        If editMode Then loadValues()
     End Sub
 
     ' EDIT MODE
     Private Sub loadValues()
+
 
         If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
@@ -135,7 +137,7 @@ Public Class EmployeeAddEditModal
                 { .empEmailStr, email},
                 { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
                 { .empAddedByName, formUtils.getEmployeeName(Current.id)},
-                { .addedById, Current.id},
+                { .addedById, Current.id}
             }
 
             ' UDPDATE FOREIGN VALUES
@@ -176,8 +178,6 @@ Public Class EmployeeAddEditModal
     End Sub
 
     Private Sub EditEmpFunction()
-        loadValues()
-
         With empConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .empSSSStr, sss},' Optional

@@ -30,6 +30,7 @@ Public Class SupplierAddEditModal
     ' ONLOAD
     Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitCmbDs(-1, -1, -1, -1)
+        If editMode Then InitData()
     End Sub
 
     Private Sub InitData()
