@@ -243,13 +243,28 @@ Public Class ServiceForm
     ' INIT CMBDS
     Private Sub initCmbds(index01 As Integer)
         Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr))
+
+        ' rearrange  list
+        Dim reArrangedList As New List(Of String) From {
+            getStatusEnums(1),
+            getStatusEnums(2),
+            getStatusEnums(3),
+            getStatusEnums(4),
+            getStatusEnums(0),
+            "All"
+        }
+
         SearchStatusCmb.DataSource = getStatusEnums
         SearchStatusCmb.SelectedIndex = index01
     End Sub
 
-    ' SEARCH TXT BOX
+    ' SEARCH STATUS BOX
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = SearchStatusCmb.SelectedItem
+
+        If SearchStatusCmb.SelectedItem = "All" Then
+            currentSearchVal = ""
+        End If
 
         If currentSearchVal <> constants.getFinishedString Then
             ClaimServiceBtn.Visible = False
