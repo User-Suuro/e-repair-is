@@ -16,25 +16,17 @@ Public Class InventoryUseModal
     Public Property selectedID As Integer = -1
 
     Private Sub InventoryUseModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        loadData()
     End Sub
 
-    Private Sub SelectItemTxtBox_Click(sender As Object, e As EventArgs) Handles SelectItemTxtBox.Click
-        inventoryID = formUtils.ShowModalWithHandler(
-        Function(id)
-            Dim modal As New InventoryForm
-            modal.invDT = dbHelper.GetAllData(invConst.invTableStr)
-            modal.selectMode = True
-            Return modal
-        End Function,
-        -1,
-        Function(modal)
-            Return modal.selectedID
-        End Function)
+    Private Sub loadData()
 
-        If inventoryID = -1 Then Exit Sub
+        If Not formUtils.checkIfLoad(selectedID) Then
+            Exit Sub
+            Me.Close()
+        End If
 
-        Dim invDT As DataTable = DbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, inventoryID)
+        Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, inventoryID)
 
         If invDT.Rows.Count = 0 Then Exit Sub
 
@@ -44,6 +36,7 @@ Public Class InventoryUseModal
             CostPerItemTxtBox.Text = .Item(invConst.costPerItem).Value
         End With
     End Sub
+
 
     Private Sub SelectServiceTxtBox_Click(sender As Object, e As EventArgs) Handles SelectServiceTxtBox.Click
         serviceID = formUtils.ShowModalWithHandler(
@@ -126,5 +119,5 @@ Public Class InventoryUseModal
 
     End Sub
 
-
+  
 End Class

@@ -50,7 +50,6 @@ Partial Class InventoryUseModal
         Me.QuantityUsage = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.SelectItemTxtBox = New Guna.UI2.WinForms.Guna2Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -538,12 +537,11 @@ Partial Class InventoryUseModal
         '
         'TableLayoutPanel4
         '
-        Me.TableLayoutPanel4.ColumnCount = 4
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.SelectItemTxtBox, 3, 1)
+        Me.TableLayoutPanel4.ColumnCount = 3
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.Label7, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.Guna2Panel5, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.CostPerItemTxtBox, 2, 1)
@@ -560,30 +558,13 @@ Partial Class InventoryUseModal
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel4.TabIndex = 7
         '
-        'SelectItemTxtBox
-        '
-        Me.SelectItemTxtBox.BorderRadius = 4
-        Me.SelectItemTxtBox.CheckedState.Parent = Me.SelectItemTxtBox
-        Me.SelectItemTxtBox.CustomImages.Parent = Me.SelectItemTxtBox
-        Me.SelectItemTxtBox.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SelectItemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SelectItemTxtBox.ForeColor = System.Drawing.Color.White
-        Me.SelectItemTxtBox.HoverState.Parent = Me.SelectItemTxtBox
-        Me.SelectItemTxtBox.Location = New System.Drawing.Point(501, 23)
-        Me.SelectItemTxtBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SelectItemTxtBox.Name = "SelectItemTxtBox"
-        Me.SelectItemTxtBox.ShadowDecoration.Parent = Me.SelectItemTxtBox
-        Me.SelectItemTxtBox.Size = New System.Drawing.Size(163, 28)
-        Me.SelectItemTxtBox.TabIndex = 42
-        Me.SelectItemTxtBox.Text = "Select Inventory"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(335, 0)
+        Me.Label7.Location = New System.Drawing.Point(447, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(90, 21)
         Me.Label7.TabIndex = 40
@@ -593,11 +574,11 @@ Partial Class InventoryUseModal
         '
         Me.Guna2Panel5.Controls.Add(Me.Label8)
         Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel5.Location = New System.Drawing.Point(166, 0)
+        Me.Guna2Panel5.Location = New System.Drawing.Point(222, 0)
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel5.Name = "Guna2Panel5"
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(166, 21)
+        Me.Guna2Panel5.Size = New System.Drawing.Size(222, 21)
         Me.Guna2Panel5.TabIndex = 39
         '
         'Label8
@@ -629,14 +610,14 @@ Partial Class InventoryUseModal
         Me.CostPerItemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CostPerItemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostPerItemTxtBox.HoverState.Parent = Me.CostPerItemTxtBox
-        Me.CostPerItemTxtBox.Location = New System.Drawing.Point(334, 24)
+        Me.CostPerItemTxtBox.Location = New System.Drawing.Point(446, 24)
         Me.CostPerItemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CostPerItemTxtBox.Name = "CostPerItemTxtBox"
         Me.CostPerItemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostPerItemTxtBox.PlaceholderText = ""
         Me.CostPerItemTxtBox.SelectedText = ""
         Me.CostPerItemTxtBox.ShadowDecoration.Parent = Me.CostPerItemTxtBox
-        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(219, 25)
         Me.CostPerItemTxtBox.TabIndex = 20
         '
         'ItemNameTxtBox
@@ -656,14 +637,14 @@ Partial Class InventoryUseModal
         Me.ItemNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ItemNameTxtBox.HoverState.Parent = Me.ItemNameTxtBox
-        Me.ItemNameTxtBox.Location = New System.Drawing.Point(168, 24)
+        Me.ItemNameTxtBox.Location = New System.Drawing.Point(224, 24)
         Me.ItemNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ItemNameTxtBox.Name = "ItemNameTxtBox"
         Me.ItemNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemNameTxtBox.PlaceholderText = ""
         Me.ItemNameTxtBox.SelectedText = ""
         Me.ItemNameTxtBox.ShadowDecoration.Parent = Me.ItemNameTxtBox
-        Me.ItemNameTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.ItemNameTxtBox.Size = New System.Drawing.Size(218, 25)
         Me.ItemNameTxtBox.TabIndex = 19
         '
         'Label10
@@ -701,7 +682,7 @@ Partial Class InventoryUseModal
         Me.ItemIDTxtBox.PlaceholderText = ""
         Me.ItemIDTxtBox.SelectedText = ""
         Me.ItemIDTxtBox.ShadowDecoration.Parent = Me.ItemIDTxtBox
-        Me.ItemIDTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.ItemIDTxtBox.Size = New System.Drawing.Size(218, 25)
         Me.ItemIDTxtBox.TabIndex = 18
         '
         'InventoryUseModal
@@ -758,7 +739,6 @@ Partial Class InventoryUseModal
     Friend WithEvents Label9 As Label
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents SelectItemTxtBox As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label7 As Label
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label8 As Label

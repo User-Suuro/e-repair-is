@@ -47,7 +47,6 @@ Partial Class InvetoryAddEditModal
         Me.SerialNumberTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.SelectSupplierBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -67,6 +66,7 @@ Partial Class InvetoryAddEditModal
         Me.ItemCategoryCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ItemNameTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SelectSupplierBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.ItemDetailsTableLayout.SuspendLayout()
@@ -492,23 +492,6 @@ Partial Class InvetoryAddEditModal
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel4.TabIndex = 7
         '
-        'SelectSupplierBtn
-        '
-        Me.SelectSupplierBtn.BorderRadius = 4
-        Me.SelectSupplierBtn.CheckedState.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.CustomImages.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SelectSupplierBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SelectSupplierBtn.ForeColor = System.Drawing.Color.White
-        Me.SelectSupplierBtn.HoverState.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.Location = New System.Drawing.Point(501, 23)
-        Me.SelectSupplierBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SelectSupplierBtn.Name = "SelectSupplierBtn"
-        Me.SelectSupplierBtn.ShadowDecoration.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.Size = New System.Drawing.Size(163, 28)
-        Me.SelectSupplierBtn.TabIndex = 42
-        Me.SelectSupplierBtn.Text = "Select Supplier"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -835,6 +818,23 @@ Partial Class InvetoryAddEditModal
         Me.ItemNameTxtBox.Size = New System.Drawing.Size(218, 25)
         Me.ItemNameTxtBox.TabIndex = 18
         '
+        'SelectSupplierBtn
+        '
+        Me.SelectSupplierBtn.BorderRadius = 4
+        Me.SelectSupplierBtn.CheckedState.Parent = Me.SelectSupplierBtn
+        Me.SelectSupplierBtn.CustomImages.Parent = Me.SelectSupplierBtn
+        Me.SelectSupplierBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SelectSupplierBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SelectSupplierBtn.ForeColor = System.Drawing.Color.White
+        Me.SelectSupplierBtn.HoverState.Parent = Me.SelectSupplierBtn
+        Me.SelectSupplierBtn.Location = New System.Drawing.Point(501, 23)
+        Me.SelectSupplierBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SelectSupplierBtn.Name = "SelectSupplierBtn"
+        Me.SelectSupplierBtn.ShadowDecoration.Parent = Me.SelectSupplierBtn
+        Me.SelectSupplierBtn.Size = New System.Drawing.Size(163, 28)
+        Me.SelectSupplierBtn.TabIndex = 42
+        Me.SelectSupplierBtn.Text = "Select Supplier"
+        '
         'InvetoryAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -890,7 +890,6 @@ Partial Class InvetoryAddEditModal
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents ItemNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents SelectSupplierBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label2 As Label
     Friend WithEvents ItemDescriptionTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
@@ -918,4 +917,5 @@ Partial Class InvetoryAddEditModal
     Friend WithEvents CostPerItemTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label14 As Label
+    Friend WithEvents SelectSupplierBtn As Guna.UI2.WinForms.Guna2Button
 End Class

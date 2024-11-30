@@ -26,22 +26,6 @@ Partial Class InventoryForm
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.InventoryDGV = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DeleteBtn = New System.Windows.Forms.Button()
-        Me.ArchivedBtn = New System.Windows.Forms.Button()
-        Me.EdtBtn = New System.Windows.Forms.Button()
-        Me.AddBtn = New System.Windows.Forms.Button()
-        Me.ViewBtn = New System.Windows.Forms.Button()
-        Me.UseBtn = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.inventory_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SUPPLIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,6 +44,22 @@ Partial Class InventoryForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.DeleteBtn = New System.Windows.Forms.Button()
+        Me.ArchivedBtn = New System.Windows.Forms.Button()
+        Me.EdtBtn = New System.Windows.Forms.Button()
+        Me.AddBtn = New System.Windows.Forms.Button()
+        Me.ViewBtn = New System.Windows.Forms.Button()
+        Me.UseBtn = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.InventoryDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -130,6 +130,143 @@ Partial Class InventoryForm
         Me.InventoryDGV.ThemeStyle.RowsStyle.Height = 22
         Me.InventoryDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.InventoryDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        '
+        'inventory_id
+        '
+        Me.inventory_id.DataPropertyName = "inventory_id"
+        Me.inventory_id.HeaderText = "Item ID"
+        Me.inventory_id.Name = "inventory_id"
+        Me.inventory_id.ReadOnly = True
+        Me.inventory_id.Visible = False
+        '
+        'SERVICE_ID
+        '
+        Me.SERVICE_ID.DataPropertyName = "service_id"
+        Me.SERVICE_ID.HeaderText = "Service ID"
+        Me.SERVICE_ID.Name = "SERVICE_ID"
+        Me.SERVICE_ID.ReadOnly = True
+        Me.SERVICE_ID.Visible = False
+        '
+        'SUPPLIER_ID
+        '
+        Me.SUPPLIER_ID.DataPropertyName = "supplied_id"
+        Me.SUPPLIER_ID.HeaderText = "Supplier ID"
+        Me.SUPPLIER_ID.Name = "SUPPLIER_ID"
+        Me.SUPPLIER_ID.ReadOnly = True
+        Me.SUPPLIER_ID.Visible = False
+        '
+        'ITEM_CATEGORY
+        '
+        Me.ITEM_CATEGORY.DataPropertyName = "item_category"
+        Me.ITEM_CATEGORY.HeaderText = "Category"
+        Me.ITEM_CATEGORY.Name = "ITEM_CATEGORY"
+        Me.ITEM_CATEGORY.ReadOnly = True
+        '
+        'ITEM_NAME
+        '
+        Me.ITEM_NAME.DataPropertyName = "item_name"
+        Me.ITEM_NAME.HeaderText = "Item Name"
+        Me.ITEM_NAME.Name = "ITEM_NAME"
+        Me.ITEM_NAME.ReadOnly = True
+        '
+        'ITEM_DESCRIPTION
+        '
+        Me.ITEM_DESCRIPTION.DataPropertyName = "item_description"
+        Me.ITEM_DESCRIPTION.HeaderText = "Item Description"
+        Me.ITEM_DESCRIPTION.Name = "ITEM_DESCRIPTION"
+        Me.ITEM_DESCRIPTION.ReadOnly = True
+        Me.ITEM_DESCRIPTION.Visible = False
+        '
+        'SERIAL_NUMBER
+        '
+        Me.SERIAL_NUMBER.DataPropertyName = "serial_number"
+        Me.SERIAL_NUMBER.HeaderText = "Serial Number"
+        Me.SERIAL_NUMBER.Name = "SERIAL_NUMBER"
+        Me.SERIAL_NUMBER.ReadOnly = True
+        Me.SERIAL_NUMBER.Visible = False
+        '
+        'HAZARDOUS_CLASSIFICATION
+        '
+        Me.HAZARDOUS_CLASSIFICATION.DataPropertyName = "hazardous_classification"
+        Me.HAZARDOUS_CLASSIFICATION.HeaderText = "Hazardous Classification"
+        Me.HAZARDOUS_CLASSIFICATION.Name = "HAZARDOUS_CLASSIFICATION"
+        Me.HAZARDOUS_CLASSIFICATION.ReadOnly = True
+        Me.HAZARDOUS_CLASSIFICATION.Visible = False
+        '
+        'available_quantity
+        '
+        Me.available_quantity.DataPropertyName = "available_quantity"
+        Me.available_quantity.HeaderText = "Quantity"
+        Me.available_quantity.Name = "available_quantity"
+        Me.available_quantity.ReadOnly = True
+        '
+        'TOTAL_VALUE
+        '
+        Me.TOTAL_VALUE.DataPropertyName = "total_cost"
+        Me.TOTAL_VALUE.HeaderText = "Total Value"
+        Me.TOTAL_VALUE.Name = "TOTAL_VALUE"
+        Me.TOTAL_VALUE.ReadOnly = True
+        '
+        'ITEM_STATUS
+        '
+        Me.ITEM_STATUS.DataPropertyName = "item_status"
+        Me.ITEM_STATUS.HeaderText = "Item Status"
+        Me.ITEM_STATUS.Name = "ITEM_STATUS"
+        Me.ITEM_STATUS.ReadOnly = True
+        Me.ITEM_STATUS.Visible = False
+        '
+        'PHYSICAL_LOCATION
+        '
+        Me.PHYSICAL_LOCATION.DataPropertyName = "physical_location"
+        Me.PHYSICAL_LOCATION.HeaderText = "Physical Location"
+        Me.PHYSICAL_LOCATION.Name = "PHYSICAL_LOCATION"
+        Me.PHYSICAL_LOCATION.ReadOnly = True
+        '
+        'RESTOCK_DATE
+        '
+        Me.RESTOCK_DATE.DataPropertyName = "restock_date"
+        Me.RESTOCK_DATE.HeaderText = "Restocked Date"
+        Me.RESTOCK_DATE.Name = "RESTOCK_DATE"
+        Me.RESTOCK_DATE.ReadOnly = True
+        Me.RESTOCK_DATE.Visible = False
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
         '
         'TableLayoutPanel2
         '
@@ -413,143 +550,6 @@ Partial Class InventoryForm
         Me.BtnClose.TabIndex = 40
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
-        '
-        'inventory_id
-        '
-        Me.inventory_id.DataPropertyName = "inventory_id"
-        Me.inventory_id.HeaderText = "Item ID"
-        Me.inventory_id.Name = "inventory_id"
-        Me.inventory_id.ReadOnly = True
-        Me.inventory_id.Visible = False
-        '
-        'SERVICE_ID
-        '
-        Me.SERVICE_ID.DataPropertyName = "service_id"
-        Me.SERVICE_ID.HeaderText = "Service ID"
-        Me.SERVICE_ID.Name = "SERVICE_ID"
-        Me.SERVICE_ID.ReadOnly = True
-        Me.SERVICE_ID.Visible = False
-        '
-        'SUPPLIER_ID
-        '
-        Me.SUPPLIER_ID.DataPropertyName = "supplied_id"
-        Me.SUPPLIER_ID.HeaderText = "Supplier ID"
-        Me.SUPPLIER_ID.Name = "SUPPLIER_ID"
-        Me.SUPPLIER_ID.ReadOnly = True
-        Me.SUPPLIER_ID.Visible = False
-        '
-        'ITEM_CATEGORY
-        '
-        Me.ITEM_CATEGORY.DataPropertyName = "item_category"
-        Me.ITEM_CATEGORY.HeaderText = "Category"
-        Me.ITEM_CATEGORY.Name = "ITEM_CATEGORY"
-        Me.ITEM_CATEGORY.ReadOnly = True
-        '
-        'ITEM_NAME
-        '
-        Me.ITEM_NAME.DataPropertyName = "item_name"
-        Me.ITEM_NAME.HeaderText = "Item Name"
-        Me.ITEM_NAME.Name = "ITEM_NAME"
-        Me.ITEM_NAME.ReadOnly = True
-        '
-        'ITEM_DESCRIPTION
-        '
-        Me.ITEM_DESCRIPTION.DataPropertyName = "item_description"
-        Me.ITEM_DESCRIPTION.HeaderText = "Item Description"
-        Me.ITEM_DESCRIPTION.Name = "ITEM_DESCRIPTION"
-        Me.ITEM_DESCRIPTION.ReadOnly = True
-        Me.ITEM_DESCRIPTION.Visible = False
-        '
-        'SERIAL_NUMBER
-        '
-        Me.SERIAL_NUMBER.DataPropertyName = "serial_number"
-        Me.SERIAL_NUMBER.HeaderText = "Serial Number"
-        Me.SERIAL_NUMBER.Name = "SERIAL_NUMBER"
-        Me.SERIAL_NUMBER.ReadOnly = True
-        Me.SERIAL_NUMBER.Visible = False
-        '
-        'HAZARDOUS_CLASSIFICATION
-        '
-        Me.HAZARDOUS_CLASSIFICATION.DataPropertyName = "hazardous_classification"
-        Me.HAZARDOUS_CLASSIFICATION.HeaderText = "Hazardous Classification"
-        Me.HAZARDOUS_CLASSIFICATION.Name = "HAZARDOUS_CLASSIFICATION"
-        Me.HAZARDOUS_CLASSIFICATION.ReadOnly = True
-        Me.HAZARDOUS_CLASSIFICATION.Visible = False
-        '
-        'available_quantity
-        '
-        Me.available_quantity.DataPropertyName = "available_quantity"
-        Me.available_quantity.HeaderText = "Quantity"
-        Me.available_quantity.Name = "available_quantity"
-        Me.available_quantity.ReadOnly = True
-        '
-        'TOTAL_VALUE
-        '
-        Me.TOTAL_VALUE.DataPropertyName = "total_cost"
-        Me.TOTAL_VALUE.HeaderText = "Total Value"
-        Me.TOTAL_VALUE.Name = "TOTAL_VALUE"
-        Me.TOTAL_VALUE.ReadOnly = True
-        '
-        'ITEM_STATUS
-        '
-        Me.ITEM_STATUS.DataPropertyName = "item_status"
-        Me.ITEM_STATUS.HeaderText = "Item Status"
-        Me.ITEM_STATUS.Name = "ITEM_STATUS"
-        Me.ITEM_STATUS.ReadOnly = True
-        Me.ITEM_STATUS.Visible = False
-        '
-        'PHYSICAL_LOCATION
-        '
-        Me.PHYSICAL_LOCATION.DataPropertyName = "physical_location"
-        Me.PHYSICAL_LOCATION.HeaderText = "Physical Location"
-        Me.PHYSICAL_LOCATION.Name = "PHYSICAL_LOCATION"
-        Me.PHYSICAL_LOCATION.ReadOnly = True
-        '
-        'RESTOCK_DATE
-        '
-        Me.RESTOCK_DATE.DataPropertyName = "restock_date"
-        Me.RESTOCK_DATE.HeaderText = "Restocked Date"
-        Me.RESTOCK_DATE.Name = "RESTOCK_DATE"
-        Me.RESTOCK_DATE.ReadOnly = True
-        Me.RESTOCK_DATE.Visible = False
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Added"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
-        '
-        'ADDED_BY
-        '
-        Me.ADDED_BY.DataPropertyName = "added_by"
-        Me.ADDED_BY.HeaderText = "Added By"
-        Me.ADDED_BY.Name = "ADDED_BY"
-        Me.ADDED_BY.ReadOnly = True
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived By"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
         '
         'InventoryForm
         '
