@@ -291,9 +291,27 @@ Public Class ServiceForm
         If currentSearchVal <> constants.getClaimedString Then
             ArchiveServiceBtn.Visible = False
             DeleteServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = False
         Else
             ArchiveServiceBtn.Visible = True
             DeleteServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = False
+        End If
+
+        If currentSearchVal = "All" Then
+            EvaluateServiceBtn.Visible = False
+        Else
+            EvaluateServiceBtn.Visible = True
+        End If
+
+        ' positions
+
+        If Current.position = constants.getCashierString Then
+            EvaluateServiceBtn.Visible = False
+        End If
+
+        If Current.position = constants.getTechnicianString Then
+            ClaimServiceBtn.Visible = False
         End If
 
     End Sub
