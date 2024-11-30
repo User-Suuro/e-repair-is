@@ -18,6 +18,12 @@
     Private ReadOnly _dateArchived As String = "date_archived"
     Private ReadOnly _addedBy As String = "added_by"
     Private ReadOnly _dateAdded As String = "date_added"
+    Private ReadOnly _addedById As String = "added_by_id"
+    Public ReadOnly Property addedById As String
+        Get
+            Return _addedById
+        End Get
+    End Property
 
     ' Getters for each attribute name
     Public ReadOnly Property custTableStr As String

@@ -111,13 +111,14 @@ Public Class ServiceAddEditModal
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
-              { .cashierIDStr, formUtils.getEmployeeName(Current.id)},
+              { .cashierIDStr, Current.id},
               { .devTypeStr, deviceType},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},
               { .osStr, operatingSystem},
               { .storageCapStr, storageCapacity},
-              { .probDescStr, problemDescription}
+              { .probDescStr, problemDescription},
+              { .getAddedBy, formUtils.getEmployeeName(Current.id)}
             }
 
             Dim imgData As New List(Of Object) From {
@@ -127,6 +128,14 @@ Public Class ServiceAddEditModal
             }
 
             If formUtils.AddRow(.svcTableStr, insertData, 0, imgData) Then
+
+                ' update cust transaction date
+                Dim updateTransDate As New Dictionary(Of String, Object) From {
+                    {custConst.custLastTransStr, DateTime.Now()}
+                }
+
+                dbHelper.UpdateRecord(custConst.custTableStr, custConst.custIDStr, customerID, updateTransDate)
+
                 Me.Close()
             End If
 

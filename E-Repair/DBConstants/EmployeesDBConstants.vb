@@ -30,6 +30,12 @@
     Private ReadOnly _addedBy As String = "added_by"
     Private ReadOnly _dateAdded As String = "date_added"
 
+    Private ReadOnly _addedById As String = "added_by_id"
+    Public ReadOnly Property addedById As String
+        Get
+            Return _addedById
+        End Get
+    End Property
     Public ReadOnly Property empTableStr As String
         Get
             Return _employeeTable

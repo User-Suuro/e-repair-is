@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 04:10 AM
+-- Generation Time: Nov 30, 2024 at 05:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `customers` (
   `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` varchar(100) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL,
-  `added_by` int(11) DEFAULT NULL,
+  `added_by` varchar(100) DEFAULT NULL,
+  `added_by_id` int(11) DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -49,10 +50,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `date_added`) VALUES
-(5, 'asd', 'asd', 'asd', 'asd', 'asd', 'Male', 'asd', 0.00, NULL, 1, '40', '2024-11-23 08:15:43', 40, '2024-11-22 22:15:36'),
-(6, 'sdfasdasd', 'asdasd', '', '123', 'asdasd', 'Male', 'asdasd', 0.00, NULL, 0, NULL, NULL, 40, '2024-11-23 12:27:41'),
-(8, 'asdasd', 'asd', 'adsa', '', '', 'Female', 'asd', 0.00, NULL, 0, NULL, NULL, 40, '2024-11-25 06:04:23');
+INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `middle_name`, `contact_number`, `address`, `gender`, `email`, `total_paid`, `last_transaction`, `archived`, `archived_by`, `date_archived`, `added_by`, `added_by_id`, `date_added`) VALUES
+(5, 'asd', 'asd', 'asd', 'asd', 'asd', 'Male', 'asd', 0.00, NULL, 1, '40', '2024-11-23 08:15:43', '40', NULL, '2024-11-22 22:15:36'),
+(6, 'sdfasdasd', 'asdasd', '', '123', 'asdasd', 'Male', 'asdasd', 0.00, NULL, 0, NULL, NULL, '40', NULL, '2024-11-23 12:27:41'),
+(8, 'asdasd', 'asd', 'adsa', '', '', 'Female', 'asd', 0.00, NULL, 0, NULL, NULL, '40', NULL, '2024-11-25 06:04:23');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ CREATE TABLE `employees` (
   `archived_by` varchar(100) DEFAULT NULL,
   `last_accessed` datetime DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL,
-  `added_by` int(11) NOT NULL,
+  `added_by` varchar(100) NOT NULL,
+  `added_by_id` int(11) DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `job_type` enum('Super Admin','Admin','Technician','Cashier','Utility Personnel') NOT NULL,
   `admin_position` enum('Owner','Manager','Team Leader') NOT NULL,
@@ -93,13 +95,14 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `date_added`, `job_type`, `admin_position`, `personnel_destination`) VALUES
-(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-28 09:48:47', NULL, 40, '2024-11-09 14:51:29', 'Super Admin', 'Owner', NULL),
-(50, '12312312', 'middlename', '12312', 'Female', '2024-11-22', 'Divorced', 'asdsad', 'asdadsada', 'Part Time', '2024-11-01', '12312', 'pag-ibig', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asdasd', 'wGS57RbwGWUqNHDFtLIMdA==', 0, '0', '2024-11-20 17:08:08', NULL, 40, '2024-11-14 23:44:04', 'Technician', 'Owner', NULL),
-(62, 'asd', 'middlename', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Part Time', '2024-11-01', 'asd', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', NULL, NULL, 40, '2024-11-23 01:05:46', 'Admin', 'Owner', NULL),
-(63, 'tech', 'middlename', 'asd', 'Female', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-24', 'ad', 'sad', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\qrcode_135065957_df13f3200dda9d8b4a43af28f070c84f.png', 'asddddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', NULL, NULL, 40, '2024-11-24 20:18:19', 'Technician', 'Owner', NULL),
-(65, 'asd', 'asdsa', 'dad', 'Male', '2024-11-01', 'Single', 'asd', 'asdsad', 'Part Time', '2024-11-01', '', '', '', '', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, NULL, '2024-11-26 13:54:09', NULL, 40, '2024-11-26 13:33:34', 'Admin', 'Manager', NULL),
-(66, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\Downloads\\pexels-pixabay-33597.jpg', 'asddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-27 03:43:02', 40, '2024-11-26 14:04:08', 'Admin', 'Owner', NULL);
+INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `sex`, `birthdate`, `civilstatus`, `address`, `contact_number`, `employment_status`, `date_hired`, `sss_no`, `pagibig_no`, `tin_no`, `profile_path`, `email`, `password`, `archived`, `archived_by`, `last_accessed`, `date_archived`, `added_by`, `added_by_id`, `date_added`, `job_type`, `admin_position`, `personnel_destination`) VALUES
+(40, 'Godwin', '', 'Galvez', 'Male', '2003-12-26', 'Single', 'asd', 'asd', 'Part Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-tima-miroshnichenko-6498965.jpg', 'asdd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', '2024-11-30 11:59:20', NULL, '40', NULL, '2024-11-09 14:51:29', 'Super Admin', 'Owner', NULL),
+(50, '12312312', 'middlename', '12312', 'Female', '2024-11-22', 'Divorced', 'asdsad', 'asdadsada', 'Part Time', '2024-11-01', '12312', 'pag-ibig', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-mikhail-nilov-7887259.jpg', 'asdasd', 'wGS57RbwGWUqNHDFtLIMdA==', 1, '40', '2024-11-20 17:08:08', '2024-11-28 12:08:51', '40', NULL, '2024-11-14 23:44:04', 'Technician', 'Owner', NULL),
+(62, 'asd', 'middlename', 'asd', 'Male', '2024-11-01', 'Single', 'as', 'dasd', 'Part Time', '2024-11-01', 'asd', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\pexels-ellis-1389429.jpg', 'asdddd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, '0', NULL, NULL, '40', NULL, '2024-11-23 01:05:46', 'Admin', 'Owner', NULL),
+(63, 'tech', 'middlename', 'asd', 'Female', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-24', 'ad', 'sad', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\qrcode_135065957_df13f3200dda9d8b4a43af28f070c84f.png', 'asddddd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-28 12:09:13', '40', NULL, '2024-11-24 20:18:19', 'Technician', 'Owner', NULL),
+(65, 'asd', 'asdsa', 'dad', 'Male', '2024-11-01', 'Single', 'asd', 'asdsad', 'Part Time', '2024-11-01', '', '', '', '', 'asd', '7wrYoFwRdp8wUN4v6YQWiw==', 0, NULL, '2024-11-28 21:53:03', NULL, '40', NULL, '2024-11-26 13:33:34', 'Admin', 'Manager', NULL),
+(66, 'asd', 'asd', 'asd', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\Downloads\\pexels-pixabay-33597.jpg', 'asddasd', '7wrYoFwRdp8wUN4v6YQWiw==', 1, '40', NULL, '2024-11-27 03:43:02', '40', NULL, '2024-11-26 14:04:08', 'Admin', 'Owner', NULL),
+(67, 'asda', 'middlename', 'ds', 'Male', '2024-11-01', 'Single', 'asd', 'asd', 'Full Time', '2024-11-01', '', '', '', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Employee Profiles\\qrcode_135065957_df13f3200dda9d8b4a43af28f070c84f.png', 'asda', '7wrYoFwRdp8wUN4v6YQWiw==', 0, NULL, NULL, NULL, '40', NULL, '2024-11-28 19:24:39', 'Technician', 'Owner', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,7 @@ INSERT INTO `employees` (`employee_id`, `firstname`, `middlename`, `lastname`, `
 
 CREATE TABLE `inventory` (
   `inventory_id` int(11) NOT NULL,
-  `supplier_id` int(11) NOT NULL,
+  `supplier_id` int(11) DEFAULT NULL,
   `item_category` enum('PCB','Battery','LCD','Motherboard') NOT NULL,
   `item_name` varchar(100) NOT NULL,
   `item_description` varchar(255) NOT NULL,
@@ -120,7 +123,8 @@ CREATE TABLE `inventory` (
   `physical_location` varchar(100) NOT NULL,
   `restock_date` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
-  `added_by` int(11) NOT NULL,
+  `added_by_id` int(11) DEFAULT NULL,
+  `added_by` varchar(100) NOT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` int(11) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
@@ -164,7 +168,7 @@ CREATE TABLE `services` (
   `service_id` int(11) NOT NULL,
   `customer_id` int(11) DEFAULT NULL,
   `technician_id` int(11) DEFAULT NULL,
-  `cashier_id` int(11) DEFAULT NULL COMMENT 'Can act as added by',
+  `cashier_id` int(11) DEFAULT NULL COMMENT 'Can act as added by id',
   `device_type` enum('Mobile Phone','Tablet','PC','Laptop') NOT NULL,
   `device_model` varchar(255) NOT NULL,
   `device_brand` varchar(100) NOT NULL,
@@ -173,7 +177,7 @@ CREATE TABLE `services` (
   `storage_capacity` varchar(100) NOT NULL,
   `problem_description` varchar(255) NOT NULL,
   `repair_notes` varchar(255) DEFAULT NULL,
-  `service_status` enum('Pending','Finished','Onhold','Canceled') NOT NULL DEFAULT 'Pending',
+  `service_status` enum('Claimed','Pending','Finished','Onhold','Canceled') NOT NULL DEFAULT 'Pending',
   `technician_fee` decimal(10,2) NOT NULL DEFAULT 0.00,
   `parts_used` int(11) NOT NULL DEFAULT 0,
   `parts_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
@@ -185,6 +189,7 @@ CREATE TABLE `services` (
   `date_completed` datetime DEFAULT NULL,
   `date_claimed` datetime DEFAULT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` varchar(100) DEFAULT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` int(11) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
@@ -194,10 +199,10 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`service_id`, `customer_id`, `technician_id`, `cashier_id`, `device_type`, `device_model`, `device_brand`, `device_profile_path`, `operating_system`, `storage_capacity`, `problem_description`, `repair_notes`, `service_status`, `technician_fee`, `parts_used`, `parts_cost`, `total_cost`, `total_paid`, `paid`, `customer_change`, `payment_method`, `date_completed`, `date_claimed`, `date_added`, `archived`, `archived_by`, `date_archived`) VALUES
-(8, 6, 62, 40, 'Mobile Phone', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\cash-register-bold.png', '', 'asd', 'asd', '1', 'Pending', 0.00, 0, 0.00, 0.00, 0.00, 0, 0.00, NULL, '2024-11-27 02:56:42', NULL, '2024-11-24 00:32:17', 0, 0, NULL),
-(9, 6, 50, 40, 'PC', 'asd', 'asd', 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Device Pictures\\3-removebg-preview.png', 'asd', 'asd', 'sad', NULL, 'Pending', 0.00, 0, 0.00, 0.00, 0.00, 0, 0.00, NULL, NULL, NULL, '2024-11-24 16:53:15', 0, NULL, NULL),
-(10, 6, 63, 40, 'Mobile Phone', 'dasd', 'asdas', 'C:\\Users\\User\\Downloads\\img_2257.jpg', 'asd', 'ada', 'asd', 'Finished', 'Finished', 100.00, 0, 0.00, 100.00, 100.00, 1, 0.00, 'Cash On Hand', '2024-11-27 03:43:48', '2024-11-27 19:40:31', '2024-11-27 03:10:30', 0, NULL, NULL);
+INSERT INTO `services` (`service_id`, `customer_id`, `technician_id`, `cashier_id`, `device_type`, `device_model`, `device_brand`, `device_profile_path`, `operating_system`, `storage_capacity`, `problem_description`, `repair_notes`, `service_status`, `technician_fee`, `parts_used`, `parts_cost`, `total_cost`, `total_paid`, `paid`, `customer_change`, `payment_method`, `date_completed`, `date_claimed`, `date_added`, `added_by`, `archived`, `archived_by`, `date_archived`) VALUES
+(12, 6, 67, 40, 'Tablet', 'asd', 'asd', 'C:\\Users\\User\\Downloads\\5-removebg-preview.png', 'sda', '123', 'asd', 'Edi wow', 'Finished', 1000.00, 0, 0.00, 1000.00, 900.00, 1, 0.00, 'Cash On Hand', '2024-11-29 01:30:55', '2024-11-29 01:33:21', '2024-11-29 01:29:11', NULL, 0, NULL, NULL),
+(13, 6, 67, 40, 'Mobile Phone', 'sa', 'aasd', 'C:\\Users\\User\\Downloads\\hand-arrow-up-bold.png', 'asd', 'dasd', 'asd', 'asdasdad', 'Finished', 120.00, 0, 0.00, 120.00, 12.00, 1, 0.00, 'GCASH', '2024-11-29 02:11:21', '2024-11-29 02:12:12', '2024-11-29 02:06:36', NULL, 0, NULL, NULL),
+(14, 6, 67, 40, 'Mobile Phone', 'sada', 'asd', 'C:\\Users\\User\\Downloads\\pexels-bradleyhook-123318.jpg', 'sad', 'asd', 'asd', 'N/A', 'Finished', 1200.00, 0, 0.00, 1200.00, 1200.00, 1, 0.00, 'Cash On Hand', '2024-11-29 02:10:33', '2024-11-29 02:26:03', '2024-11-29 02:10:16', NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,7 +226,8 @@ CREATE TABLE `suppliers` (
   `total_paid` decimal(10,2) NOT NULL DEFAULT 0.00,
   `company_picture_path` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
-  `added_by` int(11) NOT NULL,
+  `added_by` varchar(100) NOT NULL,
+  `added_by_id` int(11) DEFAULT NULL,
   `archived` tinyint(1) NOT NULL DEFAULT 0,
   `archived_by` varchar(100) DEFAULT NULL,
   `date_archived` datetime DEFAULT NULL
@@ -231,11 +237,11 @@ CREATE TABLE `suppliers` (
 -- Dumping data for table `suppliers`
 --
 
-INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `contact_person`, `contact_number`, `company_email`, `location`, `supplier_type`, `supplier_contract`, `bank_details`, `payment_terms`, `estimated_delivery_time`, `total_paid`, `company_picture_path`, `date_added`, `added_by`, `archived`, `archived_by`, `date_archived`) VALUES
-(2, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'Manufacturer', '', 'BDO', 'Cash on Delivery', 'asd', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\guitarist-high-resolution-logo-transparent.png', '2024-11-15 14:35:14', 40, 1, '40', '2024-11-26 18:15:54'),
-(3, 'asdasd', 'sadsadas', 'ddddasdad', 'asdda', 'asddasd', 'asddada', '', '', '', 'Cash on Delivery', 'asdadas', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\pexels-mikhail-nilov-7887259.jpg', '2024-11-15 14:44:25', 40, 1, '40', '2024-11-19 17:14:22'),
-(4, 'asd', 'asda', 'asdas', 'sadasd', 'dasd', 'asdsad', 'Manufacturer', '', 'BDO', 'Cash on Delivery', 'asda', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\qrcode_135066278_e010f46e5bf5ff3b112d7ff4f798e390.png', '2024-11-18 21:24:24', 40, 1, '40', '2024-11-23 06:31:38'),
-(5, 'asd', 'asda', 'asda', 'adsad', 'dasd', 'asdsad', 'Manufacturer', 'Express', 'BDO', 'Cash on Delivery', 'asdasd', 0.00, 'C:\\Users\\User\\Downloads\\A.png', '2024-11-26 18:15:32', 40, 0, NULL, NULL);
+INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `contact_person`, `contact_number`, `company_email`, `location`, `supplier_type`, `supplier_contract`, `bank_details`, `payment_terms`, `estimated_delivery_time`, `total_paid`, `company_picture_path`, `date_added`, `added_by`, `added_by_id`, `archived`, `archived_by`, `date_archived`) VALUES
+(2, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'Manufacturer', '', 'BDO', 'Cash on Delivery', 'asd', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\guitarist-high-resolution-logo-transparent.png', '2024-11-15 14:35:14', '40', NULL, 1, '40', '2024-11-26 18:15:54'),
+(3, 'asdasd', 'sadsadas', 'ddddasdad', 'asdda', 'asddasd', 'asddada', '', '', '', 'Cash on Delivery', 'asdadas', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\pexels-mikhail-nilov-7887259.jpg', '2024-11-15 14:44:25', '40', NULL, 1, '40', '2024-11-19 17:14:22'),
+(4, 'asd', 'asda', 'asdas', 'sadasd', 'dasd', 'asdsad', 'Manufacturer', '', 'BDO', 'Cash on Delivery', 'asda', 0.00, 'C:\\Users\\User\\AppData\\Roaming\\E-Repair Images\\Supplier Profiles\\qrcode_135066278_e010f46e5bf5ff3b112d7ff4f798e390.png', '2024-11-18 21:24:24', '40', NULL, 1, '40', '2024-11-23 06:31:38'),
+(5, 'asd', 'asda', 'asda', 'adsad', 'dasd', 'asdsad', 'Manufacturer', 'Express', 'BDO', 'Cash on Delivery', 'asdasd', 0.00, 'C:\\Users\\User\\Downloads\\A.png', '2024-11-26 18:15:32', '40', NULL, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -246,20 +252,22 @@ INSERT INTO `suppliers` (`supplier_id`, `company_name`, `company_description`, `
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`),
-  ADD KEY `cashier_constraint` (`added_by`);
+  ADD KEY `added_by_id` (`added_by_id`);
 
 --
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`employee_id`);
+  ADD PRIMARY KEY (`employee_id`),
+  ADD KEY `added_by_id_const` (`added_by_id`);
 
 --
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
   ADD PRIMARY KEY (`inventory_id`),
-  ADD KEY `supplier_constraint` (`supplier_id`);
+  ADD KEY `supplier_constraint` (`supplier_id`),
+  ADD KEY `added_const` (`added_by_id`);
 
 --
 -- Indexes for table `items`
@@ -288,7 +296,8 @@ ALTER TABLE `services`
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  ADD PRIMARY KEY (`supplier_id`);
+  ADD PRIMARY KEY (`supplier_id`),
+  ADD KEY `addedby_const` (`added_by_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -304,7 +313,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -328,7 +337,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -344,13 +353,20 @@ ALTER TABLE `suppliers`
 -- Constraints for table `customers`
 --
 ALTER TABLE `customers`
-  ADD CONSTRAINT `cashier_constraint` FOREIGN KEY (`added_by`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `added_by_id` FOREIGN KEY (`added_by_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `employees`
+--
+ALTER TABLE `employees`
+  ADD CONSTRAINT `added_by_id_const` FOREIGN KEY (`added_by_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD CONSTRAINT `supplier_constraint` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `added_const` FOREIGN KEY (`added_by_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `supplier_constraint` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `items`
@@ -366,6 +382,12 @@ ALTER TABLE `services`
   ADD CONSTRAINT `cashier_const` FOREIGN KEY (`cashier_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `customer_const` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `technician_const` FOREIGN KEY (`technician_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD CONSTRAINT `addedby_const` FOREIGN KEY (`added_by_id`) REFERENCES `employees` (`employee_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

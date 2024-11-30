@@ -6,7 +6,7 @@
     Private ReadOnly _serviceID As String = "service_id"
     Private ReadOnly _customerID As String = "customer_id"
     Private ReadOnly _technicianID As String = "technician_id"
-    Private ReadOnly _cashierID As String = "cashier_id"
+    Private ReadOnly _cashierID As String = "cashier_id" ' added by id
     Private ReadOnly _deviceType As String = "device_type"
     Private ReadOnly _deviceModel As String = "device_model"
     Private ReadOnly _deviceBrand As String = "device_brand"
@@ -27,11 +27,17 @@
     Private ReadOnly _dateCompleted As String = "date_completed"
     Private ReadOnly _dateClaimed As String = "date_claimed"
     Private ReadOnly _dateAdded As String = "date_added"
+    Private ReadOnly _addedby As String = "added_by"
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
 
 
+    Public ReadOnly Property getAddedBy As String
+        Get
+            Return _addedby
+        End Get
+    End Property
 
     ' Getters for each attribute name
     Public ReadOnly Property svcTableStr As String

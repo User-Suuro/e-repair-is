@@ -167,29 +167,6 @@ Public Class FormUtils
         End Try
     End Sub
 
-
-
-    Public Sub FormatDGVForAddedBy(dgv As DataGridView)
-        Try
-            If Not dgv.Columns.Contains("ADDED_BY_NAME") Then
-                dgv.Columns.Add("ADDED_BY_NAME", "Added By")
-            End If
-
-            If dgv.Columns.Contains("ADDED_BY_NAME") Then
-                For Each row As DataGridViewRow In dgv.Rows
-                    If row.Cells("ADDED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ADDED_BY").Value) Then
-                        Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ADDED_BY").Value)
-                        If getEmpData.Rows.Count > 0 Then row.Cells("ADDED_BY_NAME").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
-                    End If
-                Next
-            End If
-
-        Catch ex As Exception
-            MsgBox("Unable to format DGV for add by: " & ex.Message)
-        End Try
-    End Sub
-
-
     ' Load dgv
     Public Sub LoadToDGV(dgv As DataGridView, dt As DataTable,
                       Optional searchTerm As String = Nothing,

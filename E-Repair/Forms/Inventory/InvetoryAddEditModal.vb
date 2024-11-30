@@ -34,6 +34,16 @@
         End With
     End Sub
 
+    'SAVE
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        formUtils.SaveEvent(editMode, AddressOf AddData, AddressOf EditData)
+    End Sub
+
+    ' CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
     ' ADD DATA
     Private Sub AddData()
 
@@ -287,13 +297,4 @@
         ' for view
     End Sub
 
-    'SAVE
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        formUtils.SaveEvent(editMode, AddressOf AddData, AddressOf EditData)
-    End Sub
-
-    ' CLOSE
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
-    End Sub
 End Class

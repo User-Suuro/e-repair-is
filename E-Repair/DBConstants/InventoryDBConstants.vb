@@ -21,6 +21,13 @@
     Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
 
+    Private ReadOnly _addedById As String = "added_by_id"
+    Public ReadOnly Property addedById As String
+        Get
+            Return _addedById
+        End Get
+    End Property
+
     ' Getters for each attribute name
     Public ReadOnly Property invTableStr As String
         Get
