@@ -181,7 +181,6 @@ Public Class ServiceAddEditModal
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
-                   modal.customersDt = dbHelper.GetAllData(custConst.custTableStr)
                    Return modal
                End Function,
                -1,

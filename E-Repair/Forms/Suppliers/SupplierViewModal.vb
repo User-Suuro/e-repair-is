@@ -57,7 +57,6 @@ Public Class SupplierViewModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New InventoryForm
-            modal.invDT = dbHelper.GetRowByValue(invConst.invTableStr, invConst.supIDStr, selectedID)
             modal.viewMode = True
             Return modal
         End Function,
