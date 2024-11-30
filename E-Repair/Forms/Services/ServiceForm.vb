@@ -293,14 +293,19 @@ Public Class ServiceForm
             DeleteServiceBtn.Visible = False
         Else
             ArchiveServiceBtn.Visible = True
-            DeleteServiceBtn.Visible = True
+            DeleteServiceBtn.Visible = False
         End If
     End Sub
 
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
-        loadToolsView()
+
+        If ShowArchiveCheckBox.Checked Then
+            SearchStatusCmb.SelectedItem = constants.getClaimedString
+        Else
+            SearchStatusCmb.SelectedItem = currentSearchVal
+        End If
 
         LoadDataToDGV()
 
