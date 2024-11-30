@@ -82,19 +82,20 @@
 
         End With
 
-        Dim invDT As DataTable = dbHelper.GetAllData(invConst.invTableStr)
-
-        With itemConst
-            insertItemData = New Dictionary(Of String, Object) From {
-                { .InventoryId, formUtils.GetCurrentID(invDT, invConst.invIDStr)},
-                { .costPerItem, costPerItem}
-            }
-        End With
-
-
         ' insertion time
 
         If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
+
+            Dim invDT As DataTable = dbHelper.GetAllData(invConst.invTableStr)
+
+            With itemConst
+
+                insertItemData = New Dictionary(Of String, Object) From {
+                { .InventoryId, formUtils.GetCurrentID(invDT, invConst.invIDStr)},
+                { .costPerItem, costPerItem}
+            }
+
+            End With
 
             For i As Integer = 1 To quantity
                 dbHelper.InsertRecord(itemConst.TableName, insertItemData)
@@ -113,7 +114,6 @@
             Exit Sub
         End If
 
-        MsgBox(selectedID)
         Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, selectedID)
 
         If invDT.Rows.Count = 0 Then Exit Sub
@@ -121,7 +121,7 @@
         Guna2GroupBox1.Text = "Edit Inventory"
 
         With invDT.Rows(0)
-            Dim supplierID = .Item(invConst.supIDStr)
+            supplierID = .Item(invConst.supIDStr)
             SupplierIDTxtBox.Text = supplierID
 
             ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
