@@ -199,7 +199,6 @@
         supplierID = formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New SuppliersForm
-            modal.selectedID = id
             modal.selectMode = True
             modal.suppDT = dbHelper.GetAllData(suppConst.supTableStr)
             Return modal
@@ -210,12 +209,9 @@
         End Function
         )
 
-        If supplierID - 1 Then Exit Sub
-
+        If supplierID = -1 Then Exit Sub
         Dim suppDT As DataTable = dbHelper.GetRowByValue(suppConst.supTableStr, suppConst.supIDStr, supplierID)
-
         If suppDT.Rows.Count = 0 Then Exit Sub
-
         SupplierIDTxtBox.Text = supplierID
 
         With suppDT.Rows(0)

@@ -283,7 +283,7 @@ Public Class ServiceForm
             EvaluateServiceBtn.Visible = True
         Else
             ClaimServiceBtn.Visible = True
-            EvaluateServiceBtn.Visible = False
+            EvaluateServiceBtn.Visible = True
         End If
 
         ' for archive / delete
@@ -291,12 +291,11 @@ Public Class ServiceForm
         If currentSearchVal <> constants.getClaimedString Then
             ArchiveServiceBtn.Visible = False
             DeleteServiceBtn.Visible = False
-            EvaluateServiceBtn.Visible = False
         Else
             ArchiveServiceBtn.Visible = True
             DeleteServiceBtn.Visible = False
-            EvaluateServiceBtn.Visible = True
         End If
+
     End Sub
 
     Private Sub RefForArch()
