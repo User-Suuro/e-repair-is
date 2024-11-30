@@ -503,8 +503,10 @@ Public Class FormUtils
         If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to archive this row?") Then Exit Sub
 
         Try
-            dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues)
-            MsgBox("Successfull Archived")
+            If dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues) Then
+                MsgBox("Successfull Archived")
+            End If
+
 
         Catch ex As Exception
             MsgBox("Cannot archive the selected row: " & ex.Message)

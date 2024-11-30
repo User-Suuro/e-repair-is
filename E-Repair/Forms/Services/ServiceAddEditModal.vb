@@ -167,7 +167,7 @@ Public Class ServiceAddEditModal
     ' SELECT CUSTOMER
     Private Sub SelectCustomerBtn_Click(sender As Object, e As EventArgs) Handles SelectCustomerBtn.Click
 
-        Dim idResult As Integer = formUtils.ShowModalWithHandler(
+        customerID = formUtils.ShowModalWithHandler(
                Function(id)
                    Dim modal As New CustomerForm
                    modal.selectMode = True
@@ -180,12 +180,12 @@ Public Class ServiceAddEditModal
                End Function
             )
 
-        If idResult = -1 Then Exit Sub
+        If customerID = -1 Then Exit Sub
 
-        InitCustCount(idResult)
+        InitCustCount(customerID)
 
-        CustomerIDTxtBox.Text = idResult
-        CustomerNameTxtBox.Text = formUtils.getCustomerName(idResult)
+        CustomerIDTxtBox.Text = customerID
+        CustomerNameTxtBox.Text = formUtils.getCustomerName(customerID)
 
         TotalCommissionsTxtBox.Text = total_commision
         PendingCommisionsTxtBox.Text = pending_commission
@@ -195,7 +195,7 @@ Public Class ServiceAddEditModal
     ' SELECT TECHNICIAN
     Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
 
-        Dim idResult As Integer = formUtils.ShowModalWithHandler(
+        technicianID = formUtils.ShowModalWithHandler(
            Function(id)
                Dim modal As New EmployeeForm
                modal.selectMode = True
@@ -208,12 +208,12 @@ Public Class ServiceAddEditModal
            End Function
         )
 
-        If idResult = -1 Then Exit Sub
+        If technicianID = -1 Then Exit Sub
 
-        InitTechCount(idResult)
+        InitTechCount(technicianID)
 
-        TechnicianIDTxtBox.Text = idResult
-        TechnicianNameTxtBox.Text = formUtils.getEmployeeName(idResult)
+        TechnicianIDTxtBox.Text = technicianID
+        TechnicianNameTxtBox.Text = formUtils.getEmployeeName(technicianID)
 
         TotalWorkDoneTxtBox.Text = total_services
         CompletedWorkTxtBox.Text = techNumberFinishedServices
