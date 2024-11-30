@@ -37,11 +37,11 @@ Public Class SupplierViewModal
             BankDetailsTxtBox.Text = .Item(supConstants.bankDetailsStr)
             PaymentTermsTxtBox.Text = .Item(supConstants.payTermsStr)
             SupplierIdTextBox.Text = .Item(supConstants.supIDStr)
-            ' NoSuppliedItemTxtBox.Text = .Item("")
+            NoSuppliedItemTxtBox.Text = formUtils.GetSuppliedItems(selectedID)
             TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
             CompanyPathTxtBox.Text = .Item(supConstants.compPicPathStr)
-            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(supConstants.addedByID))
+            AddedByTxtBox.Text = .Item(supConstants.addedByName)
         End With
 
         If File.Exists(CompanyPathTxtBox.Text) Then
