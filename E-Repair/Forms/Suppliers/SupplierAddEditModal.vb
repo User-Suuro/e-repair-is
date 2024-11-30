@@ -85,7 +85,6 @@ Public Class SupplierAddEditModal
 
     ' ADD 
     Private Sub AddSupplierFunction()
-
         With supConst
             Dim insertData As New Dictionary(Of String, Object) From {
                { .estDeliveryStr, estDelivTime}, ' optional
@@ -117,8 +116,6 @@ Public Class SupplierAddEditModal
 
     ' EDIT
     Private Sub EditModeFunction()
-        InitData()
-
         With supConst
             Dim insertUpdate As New Dictionary(Of String, Object) From {
                { .estDeliveryStr, estDelivTime}, ' optional
