@@ -145,7 +145,8 @@ Public Class ServiceViewModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
        Function(id)
            Dim modal As New InventoryItemModal
-           modal.itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
+           modal.serviceID = id
+           modal.selectedColumn = servConst.svcIDStr
            Return modal
        End Function,
        selectedID,

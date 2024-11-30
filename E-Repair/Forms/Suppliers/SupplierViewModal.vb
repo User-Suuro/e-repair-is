@@ -3,7 +3,9 @@
 Public Class SupplierViewModal
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
+
     Dim supConstants As New SuppliersDBConstants
+    Dim invConst As New InventoryDBConstants
 
     Public Property selectedID As Integer = -1
     Private Sub AdminSupplierViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -52,8 +54,16 @@ Public Class SupplierViewModal
     End Sub
 
     Private Sub SeeSuppliedItemsBtn_Click(sender As Object, e As EventArgs) Handles SeeSuppliedItemsBtn.Click
-
+        Dim resultID As Integer = formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New InventoryForm
+            modal.invDT = dbHelper.GetRowByValue(invConst.invTableStr, invConst.supIDStr, selectedID)
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            Return Nothing
+        End Function
+        )
     End Sub
-
-
 End Class

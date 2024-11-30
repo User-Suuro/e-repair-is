@@ -343,9 +343,9 @@ Partial Class InventoryUseModal
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(56, 21)
+        Me.Label2.Size = New System.Drawing.Size(115, 21)
         Me.Label2.TabIndex = 48
-        Me.Label2.Text = "Quantity"
+        Me.Label2.Text = "Available Quantity"
         '
         'TotalCostTxtBox
         '
@@ -421,9 +421,9 @@ Partial Class InventoryUseModal
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label9.Location = New System.Drawing.Point(225, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(65, 21)
+        Me.Label9.Size = New System.Drawing.Size(99, 21)
         Me.Label9.TabIndex = 44
-        Me.Label9.Text = "Item Cost"
+        Me.Label9.Text = "Quantity Usage"
         '
         'QuantityTxtBox
         '

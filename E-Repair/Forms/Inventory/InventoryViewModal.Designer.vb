@@ -595,7 +595,7 @@ Partial Class InventoryViewModal
         Me.ViewModifyItemBtn.ShadowDecoration.Parent = Me.ViewModifyItemBtn
         Me.ViewModifyItemBtn.Size = New System.Drawing.Size(217, 28)
         Me.ViewModifyItemBtn.TabIndex = 47
-        Me.ViewModifyItemBtn.Text = "View or Modify each item"
+        Me.ViewModifyItemBtn.Text = "View Each Item"
         '
         'Guna2Panel6
         '

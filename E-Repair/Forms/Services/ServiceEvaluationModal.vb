@@ -106,7 +106,8 @@ Public Class ServiceEvaluationModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New InventoryItemModal
-             modal.itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
+             modal.inventoryID = id
+             modal.selectedColumn = invConst.invIDStr
              Return modal
          End Function,
          selectedID,
@@ -114,7 +115,6 @@ Public Class ServiceEvaluationModal
              Return Nothing
          End Function
          )
-
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -122,6 +122,7 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .svcStatusStr, repairStatus},
