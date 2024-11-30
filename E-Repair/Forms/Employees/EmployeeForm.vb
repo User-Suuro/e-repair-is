@@ -1,4 +1,6 @@
-﻿Public Class EmployeeForm
+﻿Imports System.ComponentModel
+
+Public Class EmployeeForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
@@ -110,11 +112,8 @@
 
     'ARCHIVE
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
-
         If Not InitData() Then Exit Sub
-
         If Not hasPendingWork() Then Exit Sub
-
         formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
         LoadDataToDGV()
     End Sub
@@ -123,7 +122,7 @@
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
         If Not InitData() Or Not hasPendingWork() Then Exit Sub
         formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
-        LoadDataToDGV()
+        RefreshForArchive()
     End Sub
 
     ' SEARCH
@@ -138,6 +137,9 @@
 
     ' SHOW ARCHIVE
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        RefreshForArchive()
+    End Sub
+    Private Sub RefreshForArchive()
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(EmpDGV, ShowArchiveCheckBox, DeleteEmployeeBtn, ArchiveEmployeeBtn, EditEmployeeBtn, AddEmployeeBtn)
     End Sub

@@ -189,7 +189,7 @@ Public Class ServiceForm
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
         formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
-        LoadDataToDGV()
+        RefForArch()
     End Sub
 
     ' LOAD TO DGV
@@ -299,13 +299,14 @@ Public Class ServiceForm
         End If
     End Sub
 
+    Private Sub RefForArch()
+        LoadDataToDGV()
+        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+    End Sub
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
-
         If ShowArchiveCheckBox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
-
-        LoadDataToDGV()
+        RefForArch()
 
         If ShowArchiveCheckBox.Checked Then
             ClaimServiceBtn.Visible = False

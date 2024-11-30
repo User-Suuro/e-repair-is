@@ -129,7 +129,7 @@ Public Class InventoryForm
     Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         If Not InitData() Then Exit Sub
         formUtils.DeleteRow(is_archived, invConst.invTableStr, invConst.svcIDStr, selectedID)
-        LoadDataToDGV()
+        RefForArch()
     End Sub
 
     ' LOAD DATA
@@ -162,6 +162,10 @@ Public Class InventoryForm
 
     ' SHOW ARCHIVE
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        RefForArch()
+    End Sub
+
+    Private Sub RefForArch()
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(InventoryDGV, ShowArchiveCheckBox, DeleteBtn, ArchivedBtn, EdtBtn, AddBtn)
     End Sub

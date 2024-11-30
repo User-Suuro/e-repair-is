@@ -102,7 +102,7 @@ Public Class CustomerForm
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
         formUtils.DeleteRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
-        LoadDataToDGV()
+        RefArch()
     End Sub
 
     ' FORM ONLOAD
@@ -142,6 +142,9 @@ Public Class CustomerForm
 
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        RefArch()
+    End Sub
+    Private Sub RefArch()
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub

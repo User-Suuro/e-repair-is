@@ -92,7 +92,7 @@
     Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
         If Not InitValues() Then Exit Sub
         formUtils.DeleteRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID)
-        LoadDataToDGV()
+        RefForArch()
     End Sub
 
     ' FORM ONLOAD
@@ -124,9 +124,12 @@
 
     ' SHOW ARCHIVE CHECKBOX
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        RefForArch()
+    End Sub
+
+    Private Sub RefForArch()
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
-
     End Sub
 
     ' SEARCH
