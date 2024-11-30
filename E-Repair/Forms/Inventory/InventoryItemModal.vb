@@ -6,7 +6,7 @@
     Public Property selectedColumn As String = Nothing
 
     Private Sub InventoryItemModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If editMode Then EditPanel.Visible = True
+        If editMode Then ToolbarPanel.Visible = True
     End Sub
 
 
@@ -32,18 +32,17 @@
 
     End Sub
 
-    Private Sub CostTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CostTxtBox.TextChanged
+    Private Sub CostTxtBox_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnApplyCost.Click
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
+    Private Sub AddBtn_Click(sender As Object, e As EventArgs)
 
     End Sub
-
 
 
 End Class

@@ -575,6 +575,7 @@ Partial Class InvetoryAddEditModal
         Me.ItemsSuppliedTxtBox.DisabledState.Parent = Me.ItemsSuppliedTxtBox
         Me.ItemsSuppliedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ItemsSuppliedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ItemsSuppliedTxtBox.Enabled = False
         Me.ItemsSuppliedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ItemsSuppliedTxtBox.FocusedState.Parent = Me.ItemsSuppliedTxtBox
         Me.ItemsSuppliedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -601,6 +602,7 @@ Partial Class InvetoryAddEditModal
         Me.CompanyNameTxtBox.DisabledState.Parent = Me.CompanyNameTxtBox
         Me.CompanyNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CompanyNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyNameTxtBox.Enabled = False
         Me.CompanyNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTxtBox.FocusedState.Parent = Me.CompanyNameTxtBox
         Me.CompanyNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -638,6 +640,7 @@ Partial Class InvetoryAddEditModal
         Me.SupplierIDTxtBox.DisabledState.Parent = Me.SupplierIDTxtBox
         Me.SupplierIDTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SupplierIDTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SupplierIDTxtBox.Enabled = False
         Me.SupplierIDTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupplierIDTxtBox.FocusedState.Parent = Me.SupplierIDTxtBox
         Me.SupplierIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

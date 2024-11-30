@@ -99,7 +99,7 @@
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataToDGV()
         SuppliersDGV.ClearSelection()
-        
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
     End Sub
 
     ' LOAD DATA
@@ -139,7 +139,8 @@
 
     ' SELECT
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-
+        selectedID = suppID
+        Me.Close()
     End Sub
 
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
