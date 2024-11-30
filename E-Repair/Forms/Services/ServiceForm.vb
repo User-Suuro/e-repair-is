@@ -278,24 +278,26 @@ Public Class ServiceForm
 
     Private Sub loadToolsView()
 
-        If currentSearchVal <> constants.getFinishedString Then
-            ClaimServiceBtn.Visible = False
-            EvaluateServiceBtn.Visible = True
-        Else
+        If currentSearchVal = constants.getFinishedString Then
             ClaimServiceBtn.Visible = True
+        Else
+            ClaimServiceBtn.Visible = False
+        End If
+
+        If currentSearchVal = constants.getClaimedString Then
+            EvaluateServiceBtn.Visible = False
+        Else
             EvaluateServiceBtn.Visible = True
         End If
 
         ' for archive / delete
 
-        If currentSearchVal <> constants.getClaimedString Then
-            ArchiveServiceBtn.Visible = False
-            DeleteServiceBtn.Visible = False
-            EvaluateServiceBtn.Visible = False
-        Else
+        If currentSearchVal = constants.getClaimedString Then
             ArchiveServiceBtn.Visible = True
             DeleteServiceBtn.Visible = False
-            EvaluateServiceBtn.Visible = False
+        Else
+            ArchiveServiceBtn.Visible = False
+            DeleteServiceBtn.Visible = False
         End If
 
         If currentSearchVal = "All" Then
