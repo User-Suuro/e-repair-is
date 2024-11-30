@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class InvetoryAddEditModal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class InvetoryAddEditModal
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
@@ -28,7 +28,6 @@ Partial Class InvetoryAddEditModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ItemDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.ManageItemsBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.TotalValueTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostPerItemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -159,12 +158,11 @@ Partial Class InvetoryAddEditModal
         '
         'ItemDetailsTableLayout
         '
-        Me.ItemDetailsTableLayout.ColumnCount = 4
-        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.ItemDetailsTableLayout.Controls.Add(Me.ManageItemsBtn, 3, 1)
+        Me.ItemDetailsTableLayout.ColumnCount = 3
+        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.ItemDetailsTableLayout.Controls.Add(Me.TotalValueTxtBox, 2, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.CostPerItemTxtBox, 0, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.Label11, 2, 0)
@@ -179,24 +177,6 @@ Partial Class InvetoryAddEditModal
         Me.ItemDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.ItemDetailsTableLayout.Size = New System.Drawing.Size(667, 53)
         Me.ItemDetailsTableLayout.TabIndex = 13
-        '
-        'ManageItemsBtn
-        '
-        Me.ManageItemsBtn.BorderRadius = 4
-        Me.ManageItemsBtn.CheckedState.Parent = Me.ManageItemsBtn
-        Me.ManageItemsBtn.CustomImages.Parent = Me.ManageItemsBtn
-        Me.ManageItemsBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ManageItemsBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ManageItemsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ManageItemsBtn.ForeColor = System.Drawing.Color.White
-        Me.ManageItemsBtn.HoverState.Parent = Me.ManageItemsBtn
-        Me.ManageItemsBtn.Location = New System.Drawing.Point(501, 23)
-        Me.ManageItemsBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ManageItemsBtn.Name = "ManageItemsBtn"
-        Me.ManageItemsBtn.ShadowDecoration.Parent = Me.ManageItemsBtn
-        Me.ManageItemsBtn.Size = New System.Drawing.Size(163, 28)
-        Me.ManageItemsBtn.TabIndex = 51
-        Me.ManageItemsBtn.Text = "Manage Items"
         '
         'TotalValueTxtBox
         '
@@ -215,14 +195,14 @@ Partial Class InvetoryAddEditModal
         Me.TotalValueTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalValueTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalValueTxtBox.HoverState.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Location = New System.Drawing.Point(334, 24)
+        Me.TotalValueTxtBox.Location = New System.Drawing.Point(446, 24)
         Me.TotalValueTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalValueTxtBox.Name = "TotalValueTxtBox"
         Me.TotalValueTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalValueTxtBox.PlaceholderText = ""
         Me.TotalValueTxtBox.SelectedText = ""
         Me.TotalValueTxtBox.ShadowDecoration.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Size = New System.Drawing.Size(162, 26)
+        Me.TotalValueTxtBox.Size = New System.Drawing.Size(219, 26)
         Me.TotalValueTxtBox.TabIndex = 49
         '
         'CostPerItemTxtBox
@@ -248,7 +228,7 @@ Partial Class InvetoryAddEditModal
         Me.CostPerItemTxtBox.PlaceholderText = ""
         Me.CostPerItemTxtBox.SelectedText = ""
         Me.CostPerItemTxtBox.ShadowDecoration.Parent = Me.CostPerItemTxtBox
-        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(162, 26)
+        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(218, 26)
         Me.CostPerItemTxtBox.TabIndex = 48
         '
         'Label11
@@ -257,7 +237,7 @@ Partial Class InvetoryAddEditModal
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(335, 0)
+        Me.Label11.Location = New System.Drawing.Point(447, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(75, 21)
         Me.Label11.TabIndex = 46
@@ -279,14 +259,14 @@ Partial Class InvetoryAddEditModal
         Me.QuantityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.QuantityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTxtBox.HoverState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Location = New System.Drawing.Point(168, 24)
+        Me.QuantityTxtBox.Location = New System.Drawing.Point(224, 24)
         Me.QuantityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.QuantityTxtBox.Name = "QuantityTxtBox"
         Me.QuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTxtBox.PlaceholderText = ""
         Me.QuantityTxtBox.SelectedText = ""
         Me.QuantityTxtBox.ShadowDecoration.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Size = New System.Drawing.Size(162, 26)
+        Me.QuantityTxtBox.Size = New System.Drawing.Size(218, 26)
         Me.QuantityTxtBox.TabIndex = 45
         '
         'Label9
@@ -295,7 +275,7 @@ Partial Class InvetoryAddEditModal
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(169, 0)
+        Me.Label9.Location = New System.Drawing.Point(225, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 21)
         Me.Label9.TabIndex = 44
@@ -309,7 +289,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel8.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel8.Name = "Guna2Panel8"
         Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
-        Me.Guna2Panel8.Size = New System.Drawing.Size(166, 21)
+        Me.Guna2Panel8.Size = New System.Drawing.Size(222, 21)
         Me.Guna2Panel8.TabIndex = 43
         '
         'Label14
@@ -938,5 +918,4 @@ Partial Class InvetoryAddEditModal
     Friend WithEvents CostPerItemTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents ManageItemsBtn As Guna.UI2.WinForms.Guna2Button
 End Class

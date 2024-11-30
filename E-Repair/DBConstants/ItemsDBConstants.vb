@@ -1,11 +1,32 @@
 ﻿Public Class ItemsDBConstants
     ' Define constants for column names in the items table
-    Private ReadOnly _tableName As String = "items"
+    Private ReadOnly _tableName As String = "used_items"
     Private ReadOnly _itemId As String = "item_id"
     Private ReadOnly _inventoryId As String = "inventory_id"
     Private ReadOnly _serviceId As String = "service_id"
     Private ReadOnly _costperitem As String = "cost"
     Private ReadOnly _itemstatus As String = "used"
+    Private ReadOnly _quantityUsed As String = "quantity_used"
+    Private ReadOnly _reasonUsed As String = "reason_used"
+    Private ReadOnly _dateUsed As String = "dateUsed"
+
+    Public ReadOnly Property reasonUsed As String
+        Get
+            Return _reasonUsed
+        End Get
+    End Property
+
+    Public ReadOnly Property dateUsedCol As String
+        Get
+            Return _dateUsed
+        End Get
+    End Property
+
+    Public ReadOnly Property quantityUsedStr As String
+        Get
+            Return _quantityUsed
+        End Get
+    End Property
 
     ' Getter for table name
     Public ReadOnly Property TableName As String

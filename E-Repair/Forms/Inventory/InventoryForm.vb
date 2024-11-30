@@ -23,7 +23,7 @@ Public Class InventoryForm
 
         With InventoryDGV.CurrentRow
             inventoryID = .Cells(invConst.invIDStr).Value
-            itemQuantity = .Cells(invConst.qtyStr).Value
+            itemQuantity = .Cells(invConst.availableQtyStr).Value
             is_archived = .Cells(invConst.archivedStr).Value
         End With
 
@@ -72,8 +72,6 @@ Public Class InventoryForm
     Private Sub ViewBtn_Click(sender As Object, e As EventArgs) Handles ViewBtn.Click
         If Not InitData() Then Exit Sub
 
-        MsgBox(inventoryID)
-
         formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New InventoryViewModal
@@ -108,8 +106,6 @@ Public Class InventoryForm
     ' EDIT
     Private Sub EdtBtn_Click(sender As Object, e As EventArgs) Handles EdtBtn.Click
         If Not InitData() Then Exit Sub
-
-        MsgBox(inventoryID)
 
         formUtils.ShowModalWithHandler(
          Function(id)
@@ -147,7 +143,7 @@ Public Class InventoryForm
             Dim searchValues As New List(Of String) From {
                 .itemCatStr,
                 .itemNameStr,
-                .qtyStr,
+                .availableQtyStr,
                 .physLocStr,
                 .totalCostStr,
                 .dateAddedStr,
@@ -184,10 +180,10 @@ Public Class InventoryForm
         Me.Close()
     End Sub
 
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-
-    End Sub
-
     ' SELECT
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+        selectedID = inventoryID
+        Me.Close()
+    End Sub
 
 End Class

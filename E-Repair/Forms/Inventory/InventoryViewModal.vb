@@ -41,8 +41,12 @@
             SerialNumberTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.serialNumStr))
             PhysicalLocationTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.physLocStr))
 
-            QuantityTxtBox.Text = .Item(invConst.qtyStr)
+            QuantityTxtBox.Text = .Item(invConst.availableQtyStr)
             TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
+            CostPerItemTxtBox.Text = .Item(invConst.costPerItem)
+
+            Dim itemDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.InventoryId, selectedID)
+            QuantityUsedTxtBox.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
 
             RestockDateTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.restockDateStr))
             DateAddedTxtBox.Text = .Item(invConst.dateAddedStr)
@@ -71,7 +75,7 @@
 
     End Sub
 
-    Private Sub ViewModifyItemBtn_Click(sender As Object, e As EventArgs) Handles ViewModifyItemBtn.Click
+    Private Sub ViewModifyItemBtn_Click(sender As Object, e As EventArgs)
 
         formUtils.ShowModalWithHandler(
               Function(id)

@@ -107,7 +107,7 @@ Public Class ServiceEvaluationModal
          Function(id)
              Dim modal As New InventoryItemModal
              modal.inventoryID = id
-             modal.selectedColumn = invConst.invIDStr
+             modal.selectedColumn = itemConst.ServiceId
              Return modal
          End Function,
          selectedID,

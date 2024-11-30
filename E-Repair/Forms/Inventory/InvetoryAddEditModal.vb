@@ -24,22 +24,7 @@
 
     Private Sub InvetoryAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCmbds(-1, -1)
-
-        If editMode Then
-            ' adjust view for edit
-            With ItemDetailsTableLayout
-                .ColumnStyles(0).Width = 0.0F
-            End With
-
-            CostPerItemTxtBox.Enabled = False
-            QuantityTxtBox.Enabled = False
-            loadValues()
-        Else
-            ' adjust view for add
-            With ItemDetailsTableLayout
-                .ColumnStyles(3).Width = 0.0F
-            End With
-        End If
+        If editMode Then loadValues()
     End Sub
 
     ' LOAD CMBDS
@@ -74,33 +59,16 @@
                 { .itemCatStr, itemCategory},
                 { .hazClassStr, hazardous},
                 { .itemDescStr, itemDesc},
-                { .qtyStr, quantity},
+                { .availableQtyStr, quantity},
                 { .totalCostStr, totalValue},
+                { .costPerItem, costPerItem},
                 { .addedByIdName, formUtils.getEmployeeName(Current.id)},
                 { .addedByIDStr, Current.id}
             }
 
         End With
 
-        ' insertion time
-
         If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
-
-            Dim invDT As DataTable = dbHelper.GetAllData(invConst.invTableStr)
-
-            With itemConst
-
-                insertItemData = New Dictionary(Of String, Object) From {
-                { .InventoryId, formUtils.GetCurrentID(invDT, invConst.invIDStr)},
-                { .costPerItem, costPerItem}
-            }
-
-            End With
-
-            For i As Integer = 1 To quantity
-                dbHelper.InsertRecord(itemConst.TableName, insertItemData)
-            Next
-
             Me.Close()
         End If
 
@@ -170,7 +138,7 @@
     End Sub
 
     ' MANAGE ITEMS BTN
-    Private Sub ManageItemsBtn_Click(sender As Object, e As EventArgs) Handles ManageItemsBtn.Click
+    Private Sub ManageItemsBtn_Click(sender As Object, e As EventArgs)
         ' only happens in edit mode
         If Not editMode Then Exit Sub
 
@@ -191,7 +159,7 @@
         If invDT.Rows.Count = 0 Then Exit Sub
 
         With invDT.Rows(0)
-            QuantityTxtBox.Text = .Item(invConst.qtyStr)
+            QuantityTxtBox.Text = .Item(invConst.availableQtyStr)
             TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
         End With
     End Sub
@@ -297,5 +265,6 @@
     Private Sub TotalValueTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TotalValueTxtBox.TextChanged
         ' for view
     End Sub
+
 
 End Class

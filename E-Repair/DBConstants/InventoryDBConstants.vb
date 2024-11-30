@@ -10,7 +10,10 @@
     Private ReadOnly _itemDescription As String = "item_description"
     Private ReadOnly _serialNumber As String = "serial_number"
     Private ReadOnly _hazardousClassification As String = "hazardous_classification"
-    Private ReadOnly _quantity As String = "quantity"
+
+    Private ReadOnly _quantity As String = "available_quantity"
+    Private ReadOnly _costPerItem As String = "cost_per_item"
+
     Private ReadOnly _totalCost As String = "total_cost"
     Private ReadOnly _physicalLocation As String = "physical_location"
     Private ReadOnly _restockDate As String = "restock_date"
@@ -22,6 +25,19 @@
 
     Private ReadOnly _addedByName As String = "added_by"
     Private ReadOnly _addedById As String = "added_by_id"
+
+    Public ReadOnly Property costPerItem As String
+        Get
+            Return _costPerItem
+        End Get
+    End Property
+
+    Public ReadOnly Property availableQtyStr As String
+        Get
+            Return _quantity
+        End Get
+    End Property
+
 
     Public ReadOnly Property addedByIdName As String
         Get
@@ -84,11 +100,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property qtyStr As String
-        Get
-            Return _quantity
-        End Get
-    End Property
+
 
     Public ReadOnly Property totalCostStr As String
         Get
