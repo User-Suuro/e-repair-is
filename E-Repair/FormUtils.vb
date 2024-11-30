@@ -215,17 +215,18 @@ Public Class FormUtils
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Public Sub LoadToDGVByTwoValues(dgv As DataGridView, dt As DataTable,
                                  Optional searchTerm As String = Nothing,
                                  Optional secondSearchTerm As String = Nothing,
                                  Optional searchValues1 As List(Of String) = Nothing,
                                  Optional searchValues2 As List(Of String) = Nothing,
                                  Optional searchIndex1 As Integer = -1,
-                                 Optional searchIndex2 As Integer = -1
+                                 Optional searchIndex2 As Integer = -1,
+                                 Optional showChkBox As CheckBox = Nothing
                                 )
 
         Try
-            ' Initialize a list to hold all filters
             Dim filters As New List(Of String)
 
             ' Handle the first search term
@@ -244,19 +245,24 @@ Public Class FormUtils
                 End If
             End If
 
+            ' Handle checkbox for archived
+            If showChkBox IsNot Nothing AndAlso dt.Columns.Contains("archived") Then
+                Dim archivedFilter As String = If(showChkBox.Checked, "archived = True", "archived = False")
+                filters.Add(archivedFilter)
+            End If
+
             ' Handle additional "job_type" filtering
             If dt.Columns.Contains(empCosnt.empJobPosStr) Then
                 Dim jobTypeFilter As String = $"{empCosnt.empJobPosStr} <> '{constants.getSuperAdminString}'"
                 filters.Add(jobTypeFilter)
             End If
 
-            ' Combine all filters using AND
+            ' Combine all filters
             Dim combinedFilter As String = String.Join(" AND ", filters)
 
             ' Apply the combined filter
             dt.DefaultView.RowFilter = combinedFilter
 
-            ' Bind the filtered DataTable to DataGridView
             dgv.AutoGenerateColumns = False
             dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView

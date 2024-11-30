@@ -225,6 +225,7 @@ Public Class ServiceForm
                 row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
             Next
 
+            ' this function is chonky af
             formUtils.LoadToDGVByTwoValues(ServiceDGV,
                                            serviceDT,
                                            searchTerm,
@@ -232,7 +233,8 @@ Public Class ServiceForm
                                            searchCols01,
                                            searchCols02,
                                            SearchComboBox.SelectedIndex,
-                                           SearchStatusCmb.SelectedIndex)
+                                           SearchStatusCmb.SelectedIndex,
+                                           ShowArchiveCheckBox)
         End With
     End Sub
 
@@ -282,6 +284,7 @@ Public Class ServiceForm
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+
         LoadDataToDGV()
 
         If ShowArchiveCheckBox.Checked Then
