@@ -123,7 +123,7 @@ Public Class ServiceViewModal
              modal.selectedID = id
              Return modal
          End Function,
-         selectedID,
+         customerID,
          Function(modal)
              Return Nothing
          End Function
@@ -152,7 +152,7 @@ Public Class ServiceViewModal
            modal.selectedColumn = servConst.svcIDStr
            Return modal
        End Function,
-       customerID,
+       selectedID,
        Function(modal)
            Return Nothing
        End Function
