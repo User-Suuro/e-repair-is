@@ -269,14 +269,25 @@ Public Class ServiceForm
             currentSearchVal = ""
         End If
 
+        ' for claimed/finished
+
         If currentSearchVal <> constants.getFinishedString Then
             ClaimServiceBtn.Visible = False
             EvaluateServiceBtn.Visible = True
-            ArchiveServiceBtn.Visible = False
         Else
             ClaimServiceBtn.Visible = True
             EvaluateServiceBtn.Visible = False
+        End If
+
+
+        ' for archive / delete
+
+        If currentSearchVal <> constants.getClaimedString Then
+            ArchiveServiceBtn.Visible = False
+            DeleteServiceBtn.Visible = False
+        Else
             ArchiveServiceBtn.Visible = True
+            DeleteServiceBtn.Visible = True
         End If
 
         LoadDataToDGV()
