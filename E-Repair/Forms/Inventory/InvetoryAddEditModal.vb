@@ -30,6 +30,9 @@
             With ItemDetailsTableLayout
                 .ColumnStyles(0).Width = 0.0F
             End With
+
+            CostPerItemTxtBox.Enabled = False
+            QuantityTxtBox.Enabled = False
             loadValues()
         Else
             ' adjust view for add
@@ -62,8 +65,6 @@
         Dim insertData As New Dictionary(Of String, Object)
         Dim insertItemData As New Dictionary(Of String, Object)
 
-        MsgBox(supplierID)
-
         With invConst
             insertData = New Dictionary(Of String, Object) From {
                 { .serialNumStr, serialNumber}, ' optional
@@ -90,7 +91,7 @@
             }
         End With
 
-        MsgBox(SupplierIDTxtBox)
+
         ' insertion time
 
         If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
@@ -106,12 +107,15 @@
 
     ' LOAD VALUES FOR EDIT
     Private Sub loadValues()
+
         If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
             Exit Sub
         End If
 
+        MsgBox(selectedID)
         Dim invDT As DataTable = dbHelper.GetRowByValue(invConst.invTableStr, invConst.invIDStr, selectedID)
+
         If invDT.Rows.Count = 0 Then Exit Sub
 
         Guna2GroupBox1.Text = "Edit Inventory"
@@ -145,12 +149,6 @@
 
     ' EDIT DATA
     Private Sub EditData()
-
-
-
-        CostPerItemTxtBox.Enabled = False
-        QuantityTxtBox.Enabled = False
-
         ' do your things
         With invConst
 
