@@ -20,7 +20,7 @@
     End Sub
 
 
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs)
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
 
@@ -36,17 +36,14 @@
 
     End Sub
 
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnApplyCost.Click
 
     End Sub
 
     Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
 
-
-
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
-    End Sub
+
 End Class

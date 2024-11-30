@@ -22,13 +22,13 @@ Partial Class InventoryItemModal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.EditPanel = New System.Windows.Forms.Panel()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnApplyCost = New Guna.UI2.WinForms.Guna2Button()
         Me.CostTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DecreaseBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.AddBtn = New Guna.UI2.WinForms.Guna2Button()
@@ -58,7 +58,7 @@ Partial Class InventoryItemModal
         'EditPanel
         '
         Me.EditPanel.Controls.Add(Me.Guna2TextBox1)
-        Me.EditPanel.Controls.Add(Me.BtnSelect)
+        Me.EditPanel.Controls.Add(Me.BtnApplyCost)
         Me.EditPanel.Controls.Add(Me.CostTxtBox)
         Me.EditPanel.Controls.Add(Me.DecreaseBtn)
         Me.EditPanel.Controls.Add(Me.AddBtn)
@@ -95,22 +95,22 @@ Partial Class InventoryItemModal
         Me.Guna2TextBox1.Size = New System.Drawing.Size(80, 32)
         Me.Guna2TextBox1.TabIndex = 66
         '
-        'BtnSelect
+        'BtnApplyCost
         '
-        Me.BtnSelect.BackColor = System.Drawing.Color.Transparent
-        Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
-        Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(758, 6)
-        Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(59, 32)
-        Me.BtnSelect.TabIndex = 65
-        Me.BtnSelect.Text = "Apply"
+        Me.BtnApplyCost.BackColor = System.Drawing.Color.Transparent
+        Me.BtnApplyCost.BorderRadius = 4
+        Me.BtnApplyCost.CheckedState.Parent = Me.BtnApplyCost
+        Me.BtnApplyCost.CustomImages.Parent = Me.BtnApplyCost
+        Me.BtnApplyCost.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnApplyCost.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnApplyCost.ForeColor = System.Drawing.Color.White
+        Me.BtnApplyCost.HoverState.Parent = Me.BtnApplyCost
+        Me.BtnApplyCost.Location = New System.Drawing.Point(758, 6)
+        Me.BtnApplyCost.Name = "BtnApplyCost"
+        Me.BtnApplyCost.ShadowDecoration.Parent = Me.BtnApplyCost
+        Me.BtnApplyCost.Size = New System.Drawing.Size(59, 32)
+        Me.BtnApplyCost.TabIndex = 65
+        Me.BtnApplyCost.Text = "Apply"
         '
         'CostTxtBox
         '
@@ -177,31 +177,31 @@ Partial Class InventoryItemModal
         '
         Me.ItemsDGV.AllowUserToAddRows = False
         Me.ItemsDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.ItemsDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.ItemsDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.ItemsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.ItemsDGV.BackgroundColor = System.Drawing.Color.White
         Me.ItemsDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ItemsDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.ItemsDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ItemsDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ItemsDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.ItemsDGV.ColumnHeadersHeight = 48
         Me.ItemsDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_ID, Me.SERVICE_ID, Me.INVENTORY_ID, Me.ITEM_NAME, Me.COST, Me.Used})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ItemsDGV.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ItemsDGV.DefaultCellStyle = DataGridViewCellStyle6
         Me.ItemsDGV.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ItemsDGV.EnableHeadersVisualStyles = False
         Me.ItemsDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
@@ -344,7 +344,7 @@ Partial Class InventoryItemModal
     Friend WithEvents COST As DataGridViewTextBoxColumn
     Friend WithEvents Used As DataGridViewTextBoxColumn
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnApplyCost As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents CostTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DecreaseBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddBtn As Guna.UI2.WinForms.Guna2Button

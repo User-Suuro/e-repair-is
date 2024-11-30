@@ -76,9 +76,8 @@
         formUtils.ShowModalWithHandler(
               Function(id)
                   Dim modal As New InventoryItemModal
-                  modal.selectedID = id
+                  modal.inventoryID = id
                   modal.selectedColumn = invConst.invIDStr
-                  modal.
                   Return modal
               End Function,
              selectedID,
