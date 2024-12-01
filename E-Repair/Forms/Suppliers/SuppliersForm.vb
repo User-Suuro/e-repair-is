@@ -107,7 +107,7 @@
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
-        finishedLoad = False
+        If Not finishedLoad Then Exit Sub
 
         With supConst
             Dim searchValues As New List(Of String) From {

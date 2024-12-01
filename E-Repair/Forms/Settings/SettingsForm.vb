@@ -17,6 +17,39 @@ Public Class SettingsForm
 
     Private Sub AdminSettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Dim tableListName As New List(Of String) From {
+            empConst.empTableStr,
+            custConst.custTableStr,
+            supConst.supTableStr,
+            servConst.svcTableStr,
+            invConst.invTableStr
+        }
+
+        TableNameCmb.DataSource = tableListName
+
+    End Sub
+    Private Sub TableNameCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TableNameCmb.SelectedIndexChanged
+
+        With empConst
+            Dim cmbEmpListName As New List(Of String) From {
+            }
+        End With
+
+        With custConst
+
+        End With
+
+        With supConst
+
+        End With
+
+        With invConst
+
+        End With
+
+        With servConst
+
+        End With
     End Sub
 
     Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellContentClick
@@ -26,9 +59,7 @@ Public Class SettingsForm
 
     End Sub
 
-    Private Sub TableNameCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TableNameCmb.SelectedIndexChanged
 
-    End Sub
 
     Private Sub AttributesCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AttributesCmb.SelectedIndexChanged
 
@@ -281,6 +312,7 @@ Public Class SettingsForm
                     Dim location = $"Location{i}"
 
                     Dim supplierType = supplierTypes(rnd.Next(0, supplierTypes.Count))
+
                     Dim supplierContract = supplierContracts(rnd.Next(0, supplierContracts.Count))
                     Dim bankDetail = bankDetails(rnd.Next(0, bankDetails.Count))
                     Dim paymentTerm = paymentTerms(rnd.Next(0, paymentTerms.Count))
@@ -297,10 +329,11 @@ Public Class SettingsForm
                        { .locationStr, location},
                        { .supTypeStr, supplierType},
                        { .supContractStr, supplierContract},
-                       { .bankDetailsStr, bankDetails},
-                       { .payTermsStr, paymentTerms},
+                       { .bankDetailsStr, bankDetail},
+                       { .payTermsStr, paymentTerm},
                        { .addedByName, formUtils.getEmployeeName(Current.id)},
-                       { .addedByID, Current.id}
+                       { .addedByID, Current.id},
+                       { .compPicPathStr, dummyImagePath}
                     }
 
                     dbHelper.InsertRecord(.supTableStr, insertData)
@@ -313,7 +346,7 @@ Public Class SettingsForm
 
         End With
 
-
+        MessageBox.Show($"{numberOfRecords} supplier records generated successfully!")
         Return True ' return true if successful
     End Function
 
