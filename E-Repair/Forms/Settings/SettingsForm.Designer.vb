@@ -294,7 +294,6 @@ Partial Class SettingsForm
         Me.TableNameCmb.FormattingEnabled = True
         Me.TableNameCmb.HoverState.Parent = Me.TableNameCmb
         Me.TableNameCmb.ItemHeight = 22
-        Me.TableNameCmb.Items.AddRange(New Object() {"Employees", "Services", "Inventory", "Customers", "Suppliers"})
         Me.TableNameCmb.ItemsAppearance.Parent = Me.TableNameCmb
         Me.TableNameCmb.Location = New System.Drawing.Point(0, 0)
         Me.TableNameCmb.Margin = New System.Windows.Forms.Padding(12)

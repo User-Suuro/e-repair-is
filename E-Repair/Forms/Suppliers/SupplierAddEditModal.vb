@@ -52,7 +52,7 @@ Public Class SupplierAddEditModal
             CompanyEmailTxtBox.Text = .Item(supConst.compEmailStr)
             ContactNumberTxtBox.Text = .Item(supConst.contactNumStr)
             LocationTxtBox.Text = .Item(supConst.locationStr)
-            EstDelivTimeTxtBox.Text = .Item(supConst.estDeliveryStr)
+            EstDelivTimeTxtBox.Text = dbHelper.StrNullCheck(.Item(supConst.estDeliveryStr))
             CompanyDescTxtBox.Text = .Item(supConst.compDescStr)
             compImgPath = .Item(supConst.compPicPathStr)
 

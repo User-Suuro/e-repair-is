@@ -120,10 +120,12 @@
                  .totalPaidStr,
                  .dateAddedStr
             }
+            Cursor = Cursors.WaitCursor
 
             suppDT = dbHelper.GetAllData(.supTableStr)
-
             formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+
+            Cursor = Cursors.Default
         End With
     End Sub
 

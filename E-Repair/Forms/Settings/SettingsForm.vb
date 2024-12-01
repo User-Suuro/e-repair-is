@@ -1,4 +1,7 @@
-﻿Public Class SettingsForm
+﻿Imports System.Numerics
+Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+
+Public Class SettingsForm
 
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
@@ -6,7 +9,9 @@
 
     Dim custConst As New CustomersDBConstants
     Dim empConst As New EmployeesDBConstants
-
+    Dim supConst As New SuppliersDBConstants
+    Dim servConst As New ServiceDBConstants
+    Dim invConst As New InventoryDBConstants
 
     ' MANAGE ENUMS
 
@@ -259,18 +264,55 @@
     End Function
 
     Public Function LoadDummyDataToSuppliers(numberOfRecords As Integer) As Boolean
+        With supConst
+            Dim supplierTypes As List(Of String) = dbHelper.GetEnums(.supTableStr, .supTypeStr)
+            Dim supplierContracts As List(Of String) = dbHelper.GetEnums(.supTableStr, .supContractStr)
+            Dim bankDetails As List(Of String) = dbHelper.GetEnums(.supTableStr, .bankDetailsStr)
+            Dim paymentTerms As List(Of String) = dbHelper.GetEnums(.supTableStr, .payTermsStr)
 
-        Try
-            For i As Integer = 1 To numberOfRecords
+            Try
+                For i As Integer = 1 To numberOfRecords
+                    ' Generate dummy data
+                    Dim companyName = $"CompanyName{i}"
+                    Dim companyDescription = $"This is a description for CompanyName{i}."
+                    Dim contactPerson = $"ContactPerson{i}"
+                    Dim contactNumber = $"091234567{i Mod 10}"
+                    Dim companyEmail = $"company{i}@example.com"
+                    Dim location = $"Location{i}"
 
+                    Dim supplierType = supplierTypes(rnd.Next(0, supplierTypes.Count))
+                    Dim supplierContract = supplierContracts(rnd.Next(0, supplierContracts.Count))
+                    Dim bankDetail = bankDetails(rnd.Next(0, bankDetails.Count))
+                    Dim paymentTerm = paymentTerms(rnd.Next(0, paymentTerms.Count))
 
+                    Dim estimatedDeliveryTime = If(rnd.Next(0, 2) = 0, $"{rnd.Next(1, 10)} days", Nothing) ' Optional field
 
+                    Dim insertData As New Dictionary(Of String, Object) From {
+                       { .estDeliveryStr, estimatedDeliveryTime}, ' optional
+                       { .compNameStr, companyName},
+                       { .compDescStr, companyDescription},
+                       { .contactPersonStr, contactPerson},
+                       { .contactNumStr, contactNumber},
+                       { .compEmailStr, companyEmail},
+                       { .locationStr, location},
+                       { .supTypeStr, supplierType},
+                       { .supContractStr, supplierContract},
+                       { .bankDetailsStr, bankDetails},
+                       { .payTermsStr, paymentTerms},
+                       { .addedByName, formUtils.getEmployeeName(Current.id)},
+                       { .addedByID, Current.id}
+                    }
 
-            Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        End Try
+                    dbHelper.InsertRecord(.supTableStr, insertData)
+
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+
+        End With
+
 
         Return True ' return true if successful
     End Function
