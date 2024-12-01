@@ -8,6 +8,9 @@ Public Class FormUtils
 
     Dim empCosnt As New EmployeesDBConstants
     Dim invConst As New InventoryDBConstants
+    Dim custConst As New CustomersDBConstants
+    Dim servConst As New ServiceDBConstants
+
 
     Dim rowHeight As Integer = 40
 
@@ -154,13 +157,6 @@ Public Class FormUtils
                     row.DefaultCellStyle.BackColor = Color.White ' Default color
                 End If
 
-                If row.Cells("ARCHIVED_BY").Value IsNot Nothing AndAlso Not IsDBNull(row.Cells("ARCHIVED_BY").Value) Then
-                    Dim getEmpData As DataTable = dbHelper.GetRowByValue("employees", "employee_id", row.Cells("ARCHIVED_BY").Value)
-
-                    If getEmpData.Rows.Count > 0 Then
-                        row.Cells("ARCHIVED_BY").Value = getEmpData.Rows(0)("firstname") & " " & getEmpData.Rows(0)("lastname")
-                    End If
-                End If
             Next
         Catch ex As Exception
             MsgBox("Unable to format DGV for archive: " & ex.Message)
@@ -304,35 +300,57 @@ Public Class FormUtils
     End Sub
 
     Public Function getCustomerName(customerID As Integer) As String
-        Dim getCustDt As DataTable = dbHelper.GetRowByValue("customers", "customer_id", customerID)
+        Dim listCol As New List(Of String) From {
+            custConst.custIDStr,
+            custConst.custFirstStr,
+            custConst.custLastStr,
+        }
+
+        Dim getCustDt As DataTable = dbHelper.GetRowByColValue(listCol, custConst.custTableStr, custConst.custIDStr, customerID)
 
         If getCustDt.Rows.Count = 0 Then Return Nothing
 
         With getCustDt.Rows(0)
-            Return .Item("first_name") & " " & .Item("last_name")
+            Return .Item(custConst.custFirstStr) & " " & .Item(custConst.custLastStr)
         End With
 
         Return Nothing
     End Function
 
     Public Function getEmployeeName(empID As Integer) As String
-        Dim dt As DataTable = dbHelper.GetRowByValue("employees", "employee_id", empID)
+        Dim listCol As New List(Of String) From {
+            empCosnt.empIDStr,
+            empCosnt.empFirstStr,
+            empCosnt.empLastStr
+        }
+
+        Dim dt As DataTable = dbHelper.GetRowByColValue(listCol, empCosnt.empTableStr, empCosnt.empIDStr, empID)
 
         If dt.Rows.Count = 0 Then Return Nothing
 
         With dt.Rows(0)
-            Return .Item("firstname") & " " & .Item("lastname")
+            Return .Item(empCosnt.empFirstStr) & " " & .Item(empCosnt.empLastStr)
         End With
 
         Return Nothing
     End Function
 
     Public Function getTechStatsNumbers(status As String, techID As Integer) As Integer
-        Return dbHelper.GetRowByTwoValues("services", "technician_id", techID, "service_status", status).Rows.Count
+        Dim listCol As New List(Of String) From {
+            servConst.techIDStr,
+            servConst.svcStatusStr
+        }
+
+        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.techIDStr, techID, servConst.svcStatusStr, status).Rows.Count
     End Function
 
     Public Function getCustStatusNumber(status As String, customerID As Integer) As Integer
-        Return dbHelper.GetRowByTwoValues("services", "customer_id", customerID, "service_status", status).Rows.Count
+        Dim listCol As New List(Of String) From {
+            servConst.custIDStr,
+            servConst.svcStatusStr
+        }
+
+        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.custIDStr, customerID, servConst.svcStatusStr, status).Rows.Count
     End Function
 
     ' show modal

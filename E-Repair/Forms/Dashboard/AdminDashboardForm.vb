@@ -44,9 +44,7 @@ Public Class AdminDashboardForm
 
 
 
-    Private Sub CustomersNumberLabel_Click(sender As Object, e As EventArgs) Handles CustomersNumberLabel.Click
 
-    End Sub
 
 
 End Class
