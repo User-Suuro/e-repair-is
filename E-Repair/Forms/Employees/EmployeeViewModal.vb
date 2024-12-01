@@ -51,8 +51,10 @@ Public Class EmployeeViewModal
             ' PROFILE
             ProfilePathTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empProfileStr))
 
-            If File.Exists(.Item(empConst.empProfileStr)) Then
-                ProfileCirclePictureBox.Image = Image.FromFile(.Item(empConst.empProfileStr))
+            If ProfilePathTextBox.Text <> "N/A" Then
+                If File.Exists(.Item(empConst.empProfileStr)) Then
+                    ProfileCirclePictureBox.Image = Image.FromFile(.Item(empConst.empProfileStr))
+                End If
             End If
 
             EmailTextBox.Text = .Item(empConst.empEmailStr)

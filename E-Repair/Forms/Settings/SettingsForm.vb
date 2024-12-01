@@ -51,7 +51,9 @@
 
         If getQtyInModal = -1 Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
         loadDummy.LoadDummyDataToEmployees(getQtyInModal)
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
@@ -59,7 +61,9 @@
 
         If getQtyInModal = -1 Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
         loadDummy.LoadDummyDataToEmployees(getQtyInModal)
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
@@ -67,15 +71,18 @@
 
         If getQtyInModal = -1 Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
         loadDummy.LoadDummyDataToSuppliers(getQtyInModal)
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
         Dim getQtyInModal As Integer = openModal()
 
         If getQtyInModal = -1 Then Exit Sub
-
+        Cursor = Cursors.WaitCursor
         loadDummy.LoadDummyDataToServices(getQtyInModal)
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
@@ -83,7 +90,9 @@
 
         If getQtyInModal = -1 Then Exit Sub
 
+        Cursor = Cursors.WaitCursor
         loadDummy.LoadDummyDataToInventory(getQtyInModal)
+        Cursor = Cursors.Default
     End Sub
 
 

@@ -270,7 +270,7 @@ Partial Class AdminDashboardForm
         Me.ItemsCountLabel.AutoSize = True
         Me.ItemsCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemsCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.ItemsCountLabel.Location = New System.Drawing.Point(159, 22)
+        Me.ItemsCountLabel.Location = New System.Drawing.Point(16, 22)
         Me.ItemsCountLabel.Name = "ItemsCountLabel"
         Me.ItemsCountLabel.Size = New System.Drawing.Size(54, 60)
         Me.ItemsCountLabel.TabIndex = 3
@@ -310,7 +310,7 @@ Partial Class AdminDashboardForm
         Me.SuppliersNumberLabel.AutoSize = True
         Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(159, 22)
+        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(16, 22)
         Me.SuppliersNumberLabel.Name = "SuppliersNumberLabel"
         Me.SuppliersNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.SuppliersNumberLabel.TabIndex = 3
@@ -350,7 +350,7 @@ Partial Class AdminDashboardForm
         Me.EmployeesCountLabel.AutoSize = True
         Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(158, 22)
+        Me.EmployeesCountLabel.Location = New System.Drawing.Point(13, 22)
         Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
         Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
         Me.EmployeesCountLabel.TabIndex = 3
@@ -390,7 +390,7 @@ Partial Class AdminDashboardForm
         Me.CustomersNumberLabel.AutoSize = True
         Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.CustomersNumberLabel.Location = New System.Drawing.Point(158, 22)
+        Me.CustomersNumberLabel.Location = New System.Drawing.Point(18, 22)
         Me.CustomersNumberLabel.Name = "CustomersNumberLabel"
         Me.CustomersNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.CustomersNumberLabel.TabIndex = 3
@@ -431,7 +431,7 @@ Partial Class AdminDashboardForm
         Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
         Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServicesNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.ServicesNumberLabel.Location = New System.Drawing.Point(158, 22)
+        Me.ServicesNumberLabel.Location = New System.Drawing.Point(20, 22)
         Me.ServicesNumberLabel.Name = "ServicesNumberLabel"
         Me.ServicesNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.ServicesNumberLabel.TabIndex = 3

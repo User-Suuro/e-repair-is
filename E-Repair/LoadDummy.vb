@@ -5,61 +5,46 @@
 
     Dim empConst As New EmployeesDBConstants
     Dim custConst As New CustomersDBConstants
+    Dim dbHelper As New DbHelper
 
+    Dim resourcesPath As String = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources")
+    Dim dummyImagePath As String = System.IO.Path.Combine(resourcesPath, "landscape-placeholder-svgrepo-com.png")
 
     Public Function LoadDummyDataToEmployees(numberOfRecords As Integer) As Boolean
+        Dim rnd As New Random()
+
+        Dim jobTypes As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr)
+        Dim adminPositions As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+        Dim civilStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
+        Dim employmentStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
+
         For i As Integer = 1 To numberOfRecords
-            ' Generate randomized or sequential data
-            Dim middleName = $"Middle{i}"
-            Dim sss = $"SSS-{1000000000 + i}"
-            Dim pagibig = $"PAGIBIG-{2000000000 + i}"
-            Dim tin = $"TIN-{3000000000 + i}"
+
             Dim firstName = $"FirstName{i}"
+            Dim middleName = If(rnd.Next(0, 2) = 0, $"MiddleName{i}", Nothing) ' Optional field
             Dim lastName = $"LastName{i}"
-            Dim sex = If(i Mod 2 = 0, "Male", "Female")
-            Dim birthdate = New Date(1990, 1, 1).AddDays(i Mod 365)
-            Dim civilStatus = If(i Mod 2 = 0, "Single", "Married")
+            Dim sex = If(rnd.Next(0, 2) = 0, "Male", "Female")
+            Dim birthdate = New Date(1980, 1, 1).AddDays(rnd.Next(0, 15000)) ' Random birthdate
+            Dim civilStatus = civilStatuses(rnd.Next(0, civilStatuses.Count))
             Dim address = $"Address {i}"
             Dim contactNumber = $"091234567{i Mod 10}"
-            Dim contractStatus = If(i Mod 3 = 0, "Active", "Inactive")
-            Dim dateHired = DateTime.Now.AddDays(-i Mod 365)
-            Dim jobType = If(i Mod 2 = 0, constants.getAdminString, constants.getUtilityPersonnelString)
+            Dim employmentStatus = employmentStatuses(rnd.Next(0, employmentStatuses.Count))
+            Dim dateHired = DateTime.Now.AddDays(-rnd.Next(0, 3650)) ' Hired within the last 10 years
+            Dim sssNo = If(rnd.Next(0, 2) = 0, $"SSS-{1000000000 + i}", Nothing) ' Optional field
+            Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
+            Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
+            Dim profilePath = $"{dummyImagePath}"
             Dim email = $"user{i}@example.com"
-            Dim password = $"password{i}"
-            Dim adminPosition = If(jobType = constants.getAdminString, $"Admin Position {i}", Nothing)
-            Dim personnelDestination = If(jobType = constants.getUtilityPersonnelString, $"Destination {i}", Nothing)
+            Dim password = dbHelper.EncryptPassword($"password{i}", constants.EncryptionKey) ' Assume passwords are pre-encrypted
+            Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
+            Dim addedByID = rnd.Next(1, 100)
+            Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
+            Dim lastAccessed = If(rnd.Next(0, 2) = 0, DateTime.Now.AddDays(-rnd.Next(0, 365)), Nothing)
+            Dim jobType = jobTypes(rnd.Next(0, jobTypes.Count))
+            Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
+            Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
+            Dim unavailable = rnd.Next(0, 2) ' 0 or 1
 
-            ' Create the insert data dictionary
-            Dim insertData As New Dictionary(Of String, Object) From {
-                {empConst.empMidStr, middleName},
-                {empConst.empSSSStr, sss},
-                {empConst.empPagibigStr, pagibig},
-                {empConst.empTINStr, tin},
-                {empConst.empFirstStr, firstName},
-                {empConst.empLastStr, lastName},
-                {empConst.empSexStr, sex},
-                {empConst.empBirthStr, birthdate},
-                {empConst.empCivilStr, civilStatus},
-                {empConst.empAddrStr, address},
-                {empConst.empContactStr, contactNumber},
-                {empConst.empStatusStr, contractStatus},
-                {empConst.empHiredStr, dateHired},
-                {empConst.empJobPosStr, jobType},
-                {empConst.empEmailStr, email},
-                {empConst.empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                {empConst.empAddedByName, formUtils.getEmployeeName(Current.id)},
-                {empConst.addedById, Current.id}
-            }
-
-            ' Add job-specific fields
-            If jobType = constants.getAdminString Then
-                insertData.Add(empConst.empAdminPosStr, adminPosition)
-            ElseIf jobType = constants.getUtilityPersonnelString Then
-                insertData.Add(empConst.empDestStr, personnelDestination)
-            End If
-
-            ' Insert the row into the database
-            dbUtils.InsertRecord(empConst.empTableStr, insertData)
         Next
 
         MessageBox.Show($"{numberOfRecords} employee records generated successfully!")

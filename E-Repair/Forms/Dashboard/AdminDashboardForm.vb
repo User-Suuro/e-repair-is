@@ -17,9 +17,11 @@ Public Class AdminDashboardForm
         CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
         SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
 
+
         ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
 
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
+        Label10.Text = LoggedUser.Current.position
 
         Timer1.Enabled = True
         Timer2.Enabled = True
@@ -48,4 +50,6 @@ Public Class AdminDashboardForm
     Private Sub CustomersNumberLabel_Click(sender As Object, e As EventArgs) Handles CustomersNumberLabel.Click
 
     End Sub
+
+
 End Class
