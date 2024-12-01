@@ -12,6 +12,8 @@
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
 
+    Private finishedLoad As Boolean = False
+
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -98,6 +100,7 @@
 
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        finishedLoad = True
         LoadDataToDGV()
         SuppliersDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
@@ -105,6 +108,7 @@
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        finishedLoad = False
 
         With supConst
             Dim searchValues As New List(Of String) From {

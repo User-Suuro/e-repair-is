@@ -16,7 +16,11 @@ Public Class CustomerForm
 
     Public Property selectMode As Boolean = False
     Public Property selectedCustID As Integer = -1
+
     Private customersDt As DataTable = Nothing
+
+    Private finishedLoad As Boolean = False
+
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -108,12 +112,15 @@ Public Class CustomerForm
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        finishedLoad = True
         LoadDataToDGV()
         CustomerDGV.ClearSelection()
     End Sub
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+        If Not finishedLoad Then Exit Sub
+
         With custConst
             Dim searchValues As New List(Of String) From {
                 .custFirstStr,

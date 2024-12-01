@@ -1,3 +1,3 @@
-﻿Public Class DbConfigModal
+﻿Public Class DBConfigModal
 
 End Class

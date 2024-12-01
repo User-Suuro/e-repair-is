@@ -153,10 +153,10 @@ Public Class EmployeeForm
 
     ' LOAD FORM
     Private Sub AdminEmployeesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        EmpDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
         finishedLoad = True
         LoadDataToDGV()
+        EmpDGV.ClearSelection()
     End Sub
 
     ' LOAD DATA

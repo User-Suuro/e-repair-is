@@ -19,6 +19,7 @@ Public Class InventoryForm
     Public Property viewMode As Boolean = False
 
     Public Property supplierMode As Boolean = False
+    Private finishedLoad As Boolean = False
 
 
     ' INIT DATA
@@ -36,6 +37,7 @@ Public Class InventoryForm
 
     ' FORM ONLOAD
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        finishedLoad = True
         LoadDataToDGV()
         InventoryDGV.ClearSelection()
 
@@ -143,6 +145,8 @@ Public Class InventoryForm
 
     ' LOAD DATA
     Public Sub LoadDataToDGV(Optional searchTerm As String = "")
+        If Not finishedLoad Then Exit Sub
+
         With invConst
             Dim searchValues As New List(Of String) From {
                 .itemCatStr,

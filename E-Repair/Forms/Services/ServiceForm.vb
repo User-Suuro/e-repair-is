@@ -22,7 +22,7 @@ Public Class ServiceForm
     Public Property selectedID As Integer = -1
     Public Property pendingOnly As Boolean = False
 
-
+    Private finishedLoad As Boolean = False
 
     Private Function InitData() As Boolean
 
@@ -61,6 +61,7 @@ Public Class ServiceForm
     ' FORM ONLOAD
     Private Sub ServiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initCmbds(0)
+        finishedLoad = True
         LoadDataToDGV()
         ServiceDGV.ClearSelection()
         loadUserDisplay()
@@ -200,6 +201,9 @@ Public Class ServiceForm
 
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+
+        If Not finishedLoad Then Exit Sub
+
         Dim custCol As String = "customer_name"
         Dim techCol As String = "technician_name"
 

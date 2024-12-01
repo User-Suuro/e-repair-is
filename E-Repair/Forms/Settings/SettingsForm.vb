@@ -7,6 +7,7 @@
     Dim custConst As New CustomersDBConstants
     Dim empConst As New EmployeesDBConstants
 
+    Dim generateDataString = "Generate Dummy Data"
 
     ' MANAGE ENUMS
 
@@ -60,6 +61,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToEmployees(getQtyInModal)
         Cursor = Cursors.Default
+        GenerateDummyDataLabel.Text = generateDataString
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
@@ -68,8 +70,9 @@
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        LoadDummyDataToEmployees(getQtyInModal)
+        LoadDummyDataToCustomers(getQtyInModal)
         Cursor = Cursors.Default
+        GenerateDummyDataLabel.Text = generateDataString
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
@@ -80,6 +83,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToSuppliers(getQtyInModal)
         Cursor = Cursors.Default
+        GenerateDummyDataLabel.Text = generateDataString
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
@@ -89,6 +93,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToServices(getQtyInModal)
         Cursor = Cursors.Default
+        GenerateDummyDataLabel.Text = generateDataString
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
@@ -99,6 +104,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToInventory(getQtyInModal)
         Cursor = Cursors.Default
+        GenerateDummyDataLabel.Text = generateDataString
     End Sub
 
     ' LOAD DUMMY FUNCTIONS
@@ -201,7 +207,7 @@
                 End With
             Next
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Unable to query data" & ex.Message)
             Return False
         End Try
 
@@ -211,14 +217,18 @@
     End Function
 
     Public Function LoadDummyDataToCustomers(numberOfRecords As Integer) As Boolean
-        For i As Integer = 1 To numberOfRecords
+        Try
+            For i As Integer = 1 To numberOfRecords
 
-            GenerateDummyDataLabel.Text = i
+                GenerateDummyDataLabel.Text = i
 
 
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
 
-
-        Next
 
         MessageBox.Show($"{numberOfRecords} customer records generated successfully!")
 
@@ -227,20 +237,34 @@
 
     Public Function LoadDummyDataToSuppliers(numberOfRecords As Integer) As Boolean
 
+        Try
+            For i As Integer = 1 To numberOfRecords
 
-        ' ur code here
+                GenerateDummyDataLabel.Text = i
 
 
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
 
         Return True ' return true if successful
     End Function
 
     Public Function LoadDummyDataToServices(numberOfRecords As Integer) As Boolean
 
+        Try
+            For i As Integer = 1 To numberOfRecords
 
-        ' ur code here
+                GenerateDummyDataLabel.Text = i
 
 
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
 
         Return True ' return true if successful
     End Function
@@ -248,9 +272,17 @@
 
     Public Function LoadDummyDataToInventory(numberOfRecords As Integer) As Boolean
 
-        ' ur code here
+        Try
+            For i As Integer = 1 To numberOfRecords
+
+                GenerateDummyDataLabel.Text = i
 
 
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
 
         Return True ' return true if successful
     End Function
