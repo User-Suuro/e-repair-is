@@ -36,7 +36,7 @@
                     Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
                     Dim profilePath = $"{dummyImagePath}"
                     Dim email = $"user{i}@example.com"
-                    Dim password = $"password{i}", ' Assume passwords are pre-encrypted
+                    Dim pwd = $"password{i}" ' Assume passwords are pre-encrypted
                     Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
                     Dim addedByID = rnd.Next(1, 100)
                     Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
@@ -55,7 +55,7 @@
                       { .empLastStr, lastName},
                       { .empEmailStr, email},
                       { .empJobPosStr, jobType},
-                      { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                      { .empPassStr, dbUtils.EncryptPassword(pwd, constants.EncryptionKey)},
                       { .empSexStr, sex},
                       { .empBirthStr, birthdate},
                       { .empCivilStr, civilStatus},
