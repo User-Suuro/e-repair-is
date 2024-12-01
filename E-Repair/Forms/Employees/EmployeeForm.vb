@@ -159,6 +159,7 @@ Public Class EmployeeForm
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With empConst
             Dim colValues As New List(Of String) From {
+              .empIDStr,
               .empFirstStr,
               .empMidStr,
               .empLastStr,

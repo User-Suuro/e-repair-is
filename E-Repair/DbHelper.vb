@@ -332,7 +332,6 @@ Public Class DbHelper
         Catch ex As Exception
             MsgBox("Error retrieving row: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            ' Ensure the connection is closed after execution
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
 
@@ -341,28 +340,26 @@ Public Class DbHelper
 
     Public Function GetAllByCol(columns As List(Of String), tableName As String) As DataTable
         Dim resultTable As New DataTable()
-
-        ' Build the SELECT query with only the specified columns
         Dim selectedColumns As String = If(columns IsNot Nothing AndAlso columns.Count > 0,
                                        String.Join(", ", columns.Select(Function(c) $"`{c}`")),
                                        "*")
+
         Dim query As String = $"SELECT {selectedColumns} FROM `{tableName}`"
 
         Try
-            ' Open the connection if it is not already open
-            If conn.State <> ConnectionState.Open Then conn.Open()
+            cmd.Parameters.Clear()
 
-            ' Prepare the MySQL command
-            Using cmd As New MySqlCommand(query, conn)
-                ' Execute the query and load the results into the DataTable
-                Using cmdRead As MySqlDataReader = cmd.ExecuteReader()
-                    resultTable.Load(cmdRead)
-                End Using
-            End Using
+            cmd = New MySqlCommand(query, conn)
+
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+                resultTable.Load(cmdRead)
+                cmdRead.Close()
+            End If
         Catch ex As Exception
             MsgBox("Error retrieving rows: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            ' Ensure the connection is closed after execution
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
 
@@ -405,24 +402,22 @@ Public Class DbHelper
         Dim query As String = $"SELECT {selectedColumns} FROM `{tableName}` WHERE `{columnName01}` = @value01 AND `{columnName02}` = @value02"
 
         Try
-            ' Open the connection if it is not already open
-            If conn.State <> ConnectionState.Open Then conn.Open()
+            cmd.Parameters.Clear()
 
             ' Prepare the MySQL command
-            Using cmd As New MySqlCommand(query, conn)
-                ' Add parameterized values to prevent SQL injection
-                cmd.Parameters.AddWithValue("@value01", value01)
-                cmd.Parameters.AddWithValue("@value02", value02)
+            cmd = New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@value01", value01)
+            cmd.Parameters.AddWithValue("@value02", value02)
 
-                ' Execute the query and load the result into the DataTable
-                Using cmdRead As MySqlDataReader = cmd.ExecuteReader()
-                    resultTable.Load(cmdRead)
-                End Using
-            End Using
+            readQuery(query)
+
+            If cmdRead IsNot Nothing Then
+                resultTable.Load(cmdRead)
+                cmdRead.Close()
+            End If
         Catch ex As Exception
             MsgBox("Error retrieving rows: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            ' Ensure the connection is closed
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
 
