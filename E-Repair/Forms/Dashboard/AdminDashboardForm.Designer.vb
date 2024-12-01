@@ -266,7 +266,6 @@ Partial Class AdminDashboardForm
         '
         'ItemsCountLabel
         '
-        Me.ItemsCountLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ItemsCountLabel.AutoSize = True
         Me.ItemsCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemsCountLabel.ForeColor = System.Drawing.Color.Black
@@ -306,7 +305,6 @@ Partial Class AdminDashboardForm
         '
         'SuppliersNumberLabel
         '
-        Me.SuppliersNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SuppliersNumberLabel.AutoSize = True
         Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
@@ -346,7 +344,6 @@ Partial Class AdminDashboardForm
         '
         'EmployeesCountLabel
         '
-        Me.EmployeesCountLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmployeesCountLabel.AutoSize = True
         Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
@@ -386,7 +383,6 @@ Partial Class AdminDashboardForm
         '
         'CustomersNumberLabel
         '
-        Me.CustomersNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CustomersNumberLabel.AutoSize = True
         Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
@@ -426,7 +422,6 @@ Partial Class AdminDashboardForm
         '
         'ServicesNumberLabel
         '
-        Me.ServicesNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServicesNumberLabel.AutoSize = True
         Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
         Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

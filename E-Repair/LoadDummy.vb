@@ -18,84 +18,86 @@
         Dim civilStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
         Dim employmentStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
 
-        For i As Integer = 1 To numberOfRecords
-            With empConst
-                Dim firstName = $"FirstName{i}"
-                Dim middleName = If(rnd.Next(0, 2) = 0, $"MiddleName{i}", Nothing) ' Optional field
-                Dim lastName = $"LastName{i}"
-                Dim sex = If(rnd.Next(0, 2) = 0, "Male", "Female")
-                Dim birthdate = New Date(1980, 1, 1).AddDays(rnd.Next(0, 15000)) ' Random birthdate
-                Dim civilStatus = civilStatuses(rnd.Next(0, civilStatuses.Count))
-                Dim address = $"Address {i}"
-                Dim contactNumber = $"091234567{i Mod 10}"
-                Dim employmentStatus = employmentStatuses(rnd.Next(0, employmentStatuses.Count))
-                Dim dateHired = DateTime.Now.AddDays(-rnd.Next(0, 3650)) ' Hired within the last 10 years
-                Dim sssNo = If(rnd.Next(0, 2) = 0, $"SSS-{1000000000 + i}", Nothing) ' Optional field
-                Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
-                Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
-                Dim profilePath = $"{dummyImagePath}"
-                Dim email = $"user{i}@example.com"
-                Dim password = $"password{i}", ' Assume passwords are pre-encrypted
-                Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
-                Dim addedByID = rnd.Next(1, 100)
-                Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
-                Dim lastAccessed = If(rnd.Next(0, 2) = 0, DateTime.Now.AddDays(-rnd.Next(0, 365)), Nothing)
-                Dim jobType = jobTypes(rnd.Next(0, jobTypes.Count))
-                Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
-                Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
-                Dim unavailable = rnd.Next(0, 2) ' 0 or 1
+        Try
+            For i As Integer = 1 To numberOfRecords
+                With empConst
+                    Dim firstName = $"FirstName{i}"
+                    Dim middleName = If(rnd.Next(0, 2) = 0, $"MiddleName{i}", Nothing) ' Optional field
+                    Dim lastName = $"LastName{i}"
+                    Dim sex = If(rnd.Next(0, 2) = 0, "Male", "Female")
+                    Dim birthdate = New Date(1980, 1, 1).AddDays(rnd.Next(0, 15000)) ' Random birthdate
+                    Dim civilStatus = civilStatuses(rnd.Next(0, civilStatuses.Count))
+                    Dim address = $"Address {i}"
+                    Dim contactNumber = $"091234567{i Mod 10}"
+                    Dim employmentStatus = employmentStatuses(rnd.Next(0, employmentStatuses.Count))
+                    Dim dateHired = DateTime.Now.AddDays(-rnd.Next(0, 3650)) ' Hired within the last 10 years
+                    Dim sssNo = If(rnd.Next(0, 2) = 0, $"SSS-{1000000000 + i}", Nothing) ' Optional field
+                    Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
+                    Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
+                    Dim profilePath = $"{dummyImagePath}"
+                    Dim email = $"user{i}@example.com"
+                    Dim password = $"password{i}", ' Assume passwords are pre-encrypted
+                    Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
+                    Dim addedByID = rnd.Next(1, 100)
+                    Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
+                    Dim lastAccessed = If(rnd.Next(0, 2) = 0, DateTime.Now.AddDays(-rnd.Next(0, 365)), Nothing)
+                    Dim jobType = jobTypes(rnd.Next(0, jobTypes.Count))
+                    Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
+                    Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
+                    Dim unavailable = rnd.Next(0, 2) ' 0 or 1
 
-                Dim insertData As New Dictionary(Of String, Object) From {
-                  { .empSSSStr, sssNo},' Optional
-                  { .empPagibigStr, pagibigNo}, ' Optional
-                  { .empTINStr, tinNo},  ' Optional
-                  { .empMidStr, middleName}, ' Optional
-                  { .empFirstStr, firstName},
-                  { .empLastStr, lastName},
-                  { .empEmailStr, email},
-                  { .empJobPosStr, jobType},
-                  { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                  { .empSexStr, sex},
-                  { .empBirthStr, birthdate},
-                  { .empCivilStr, civilStatus},
-                  { .empAddrStr, address},
-                  { .empContactStr, contactNumber},
-                  { .empStatusStr, employmentStatus},
-                  { .empHiredStr, dateHired}
-                }
-
-                If jobType = constants.getAdminString Then
-                    ' Admin
-
-                    Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                        { .empAdminPosStr, adminPosition}
+                    Dim insertData As New Dictionary(Of String, Object) From {
+                      { .empSSSStr, sssNo},' Optional
+                      { .empPagibigStr, pagibigNo}, ' Optional
+                      { .empTINStr, tinNo},  ' Optional
+                      { .empMidStr, middleName}, ' Optional
+                      { .empFirstStr, firstName},
+                      { .empLastStr, lastName},
+                      { .empEmailStr, email},
+                      { .empJobPosStr, jobType},
+                      { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                      { .empSexStr, sex},
+                      { .empBirthStr, birthdate},
+                      { .empCivilStr, civilStatus},
+                      { .empAddrStr, address},
+                      { .empContactStr, contactNumber},
+                      { .empStatusStr, employmentStatus},
+                      { .empHiredStr, dateHired}
                     }
 
-                    For Each kvp In updateAdminValues
-                        insertData.Add(kvp.Key, kvp.Value)
-                    Next
+                    If jobType = constants.getAdminString Then
+                        ' Admin
 
-                ElseIf jobType = constants.getUtilityPersonnelString Then
+                        Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                            { .empAdminPosStr, adminPosition}
+                        }
 
-                    ' Utility
-                    Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                        { .empDestStr, personnelDestination}
-                    }
+                        For Each kvp In updateAdminValues
+                            insertData.Add(kvp.Key, kvp.Value)
+                        Next
 
-                    For Each kvp In updateUtilityValues
-                        insertData.Add(kvp.Key, kvp.Value)
-                    Next
+                    ElseIf jobType = constants.getUtilityPersonnelString Then
 
-                End If
+                        ' Utility
+                        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                            { .empDestStr, personnelDestination}
+                        }
 
-                dbHelper.InsertRecord(empConst.empTableStr, insertData)
-            End With
-        Next
+                        For Each kvp In updateUtilityValues
+                            insertData.Add(kvp.Key, kvp.Value)
+                        Next
 
+                    End If
 
+                    dbHelper.InsertRecord(empConst.empTableStr, insertData)
+                End With
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
 
         MessageBox.Show($"{numberOfRecords} employee records generated successfully!")
-
         Return True
     End Function
 
