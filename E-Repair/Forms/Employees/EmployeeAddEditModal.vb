@@ -142,7 +142,7 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            If jobType = constants.getAdminString Then
+            If jobType.Equals(constants.getAdminString) Then
                 ' Admin
                 Dim updateAdminValues As New Dictionary(Of String, Object) From {
                     { .empAdminPosStr, adminPosition}
@@ -152,7 +152,7 @@ Public Class EmployeeAddEditModal
                     insertData.Add(kvp.Key, kvp.Value)
                 Next
 
-            ElseIf jobType = constants.getUtilityPersonnelString Then
+            ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
                 ' Utility
 
                 Dim updateUtilityValues As New Dictionary(Of String, Object) From {
@@ -200,7 +200,7 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            If jobType = constants.getAdminString Then
+            If jobType.Equals(constants.getAdminString) Then
                 ' Admin
 
                 Dim updateAdminValues As New Dictionary(Of String, Object) From {
@@ -211,7 +211,7 @@ Public Class EmployeeAddEditModal
                     updateData.Add(kvp.Key, kvp.Value)
                 Next
 
-            ElseIf jobType = constants.getUtilityPersonnelString Then
+            ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
 
                 ' Utility
                 Dim updateUtilityValues As New Dictionary(Of String, Object) From {

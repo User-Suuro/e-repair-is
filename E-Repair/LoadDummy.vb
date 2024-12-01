@@ -46,7 +46,7 @@
                     Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
                     Dim addedByID = rnd.Next(1, 100)
                     Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
-                    Dim lastAccessed = If(rnd.Next(0, 2) = 0, DateTime.Now.AddDays(-rnd.Next(0, 365)), Nothing)
+
                     Dim jobType = filteredJobType(rnd.Next(0, filteredJobType.Count))
                     Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
                     Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
@@ -68,10 +68,11 @@
                       { .empAddrStr, address},
                       { .empContactStr, contactNumber},
                       { .empStatusStr, employmentStatus},
-                      { .empHiredStr, dateHired}
+                      { .empHiredStr, dateHired},
+                      { .empProfileStr, dummyImagePath}
                     }
 
-                    If jobType = constants.getAdminString Then
+                    If jobType.Equals(constants.getAdminString) Then
                         ' Admin
 
                         Dim updateAdminValues As New Dictionary(Of String, Object) From {
@@ -82,7 +83,7 @@
                             insertData.Add(kvp.Key, kvp.Value)
                         Next
 
-                    ElseIf jobType = constants.getUtilityPersonnelString Then
+                    ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
 
                         ' Utility
                         Dim updateUtilityValues As New Dictionary(Of String, Object) From {
