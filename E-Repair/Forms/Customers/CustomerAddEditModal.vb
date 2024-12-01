@@ -167,8 +167,5 @@ Public Class CustomerAddEditModal
         address = AddressTxtBox.Text
     End Sub
 
-    Private Sub CustomerModalGroupBox_Click(sender As Object, e As EventArgs) Handles CustomerModalGroupBox.Click
-
-    End Sub
 End Class
 

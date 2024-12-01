@@ -14,7 +14,6 @@
 
     Private finishedLoad As Boolean = False
 
-
     ' INIT VALUES
     Private Function InitValues() As Boolean
         If Not formUtils.dgvValChecker(SuppliersDGV) Then Return False
@@ -123,6 +122,7 @@
             }
 
             suppDT = dbHelper.GetAllData(.supTableStr)
+
             formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With
     End Sub
