@@ -7,22 +7,22 @@ Public Class SupplierAddEditModal
     Dim dbHelper As New DbHelper
     Dim constants As New Constants
 
-    Dim supConst As New SuppliersDBConstants 
+    Dim supConst As New SuppliersDBConstants
 
     ' SCHEMA
-    Private compName As String = ""
-    Private compContactPerson As String = ""
-    Private compEmail As String = ""
-    Private compContactNumber As String = ""
-    Private compLoc As String = ""
-    Private estDelivTime As String = ""
-    Private compDesc As String = ""
+    Private compName As String
+    Private compContactPerson As String
+    Private compEmail As String
+    Private compContactNumber As String
+    Private compLoc As String
+    Private estDelivTime As String
+    Private compDesc As String
 
-    Private supplierType As String = ""
-    Private contractType As String = ""
-    Private bankDetails As String = ""
-    Private paymentTerms As String = ""
-    Private compImgPath As String = ""
+    Private supplierType As String
+    Private contractType As String
+    Private bankDetails As String
+    Private paymentTerms As String
+    Private compImgPath As String
 
     Public Property selectedID As Integer = -1
     Public Property editMode As Integer = False

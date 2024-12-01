@@ -11,13 +11,13 @@
     Private initialQty As Integer
 
 
-    Private supplierID As Integer = -1
-    Private itemName As String = ""
-    Private itemCategory As String = ""
-    Private hazardous As String = ""
-    Private itemDesc As String = ""
-    Private serialNumber As String = ""
-    Private physicalLocation As String = ""
+    Private supplierID As Integer
+    Private itemName As String
+    Private itemCategory As String
+    Private hazardous As String
+    Private itemDesc As String
+    Private serialNumber As String
+    Private physicalLocation As String
 
     Private totalValue As Decimal = -1
     Private quantity As Integer = -1

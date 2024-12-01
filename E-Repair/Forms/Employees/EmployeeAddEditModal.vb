@@ -12,36 +12,38 @@ Public Class EmployeeAddEditModal
     Dim servConst As New ServiceDBConstants
 
     ' CONSTANTS
-    Private emailFirstValue As String = ""
-    Private initialJobType As String = ""
+    Private emailFirstValue As String
+    Private initialJobType As String
 
     ' STATES
     Private isEmailDuplicate As Boolean = False
     Private hasWorkToDo As Boolean = False
 
     ' SCHEMA
-    Private firstName As String = ""
-    Private middleName As String = ""
-    Private lastName As String = ""
-    Private sex As String = ""
+    Private firstName As String
+    Private middleName As String
+    Private lastName As String
+    Private sex As String
     Private birthdate As Date
-    Private civilStatus As String = ""
-    Private address As String = ""
-    Private contactNumber As String = ""
-    Private contractStatus As String = ""
+    Private civilStatus As String
+    Private address As String
+    Private contactNumber As String
+    Private contractStatus As String
     Private dateHired As Date
-    Private jobType As String = ""
-    Private sss As String = ""
-    Private nbi As String = ""
-    Private tin As String = ""
-    Private pagibig As String = ""
-    Private email As String = ""
-    Private password As String = ""
-    Private confirmPassword As String = ""
-    Private personnelDestination As String = ""
-    Private adminPosition As String = ""
-    Private othersTextBoxContent As String = ""
-    Private Property profileImgPath As String = ""
+    Private jobType As String
+    Private sss As String
+    Private nbi As String
+    Private tin As String
+    Private pagibig As String
+    Private email As String
+    Private password As String
+    Private confirmPassword As String
+    Private personnelDestination As String
+    Private adminPosition As String
+    Private othersTextBoxContent As String
+    Private Property profileImgPath As String
+
+
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property createAccMode As Boolean = False
@@ -142,27 +144,8 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            If jobType.Equals(constants.getAdminString) Then
-                ' Admin
-                Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                    { .empAdminPosStr, adminPosition}
-                }
-
-                For Each kvp In updateAdminValues
-                    insertData.Add(kvp.Key, kvp.Value)
-                Next
-
-            ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
-                ' Utility
-
-                Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                    { .empDestStr, personnelDestination}
-                }
-
-                For Each kvp In updateUtilityValues
-                    insertData.Add(kvp.Key, kvp.Value)
-                Next
-            End If
+            If jobType.Equals(constants.getAdminString) Then insertData.Add(.empAdminPosStr, adminPosition)
+            If jobType.Equals(constants.getUtilityPersonnelString) Then insertData.Add(.empDestStr, personnelDestination)
 
             Dim imgData As New List(Of Object) From {
                 .empProfileStr,
@@ -200,29 +183,8 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            If jobType.Equals(constants.getAdminString) Then
-                ' Admin
-
-                Dim updateAdminValues As New Dictionary(Of String, Object) From {
-                    { .empAdminPosStr, adminPosition}
-                }
-
-                For Each kvp In updateAdminValues
-                    updateData.Add(kvp.Key, kvp.Value)
-                Next
-
-            ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
-
-                ' Utility
-                Dim updateUtilityValues As New Dictionary(Of String, Object) From {
-                    { .empDestStr, personnelDestination}
-                }
-
-                For Each kvp In updateUtilityValues
-                    updateData.Add(kvp.Key, kvp.Value)
-                Next
-
-            End If
+            If jobType.Equals(constants.getAdminString) Then updateData.Add(.empAdminPosStr, adminPosition)
+            If jobType.Equals(constants.getUtilityPersonnelString) Then updateData.Add(.empDestStr, personnelDestination)
 
             Dim imgData As New List(Of Object) From {
                 .empProfileStr,
@@ -365,8 +327,8 @@ Public Class EmployeeAddEditModal
     ' JOB TYPE
     Private Sub JobTypeComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles JobTypeComboBox.SelectedIndexChanged
 
-        personnelDestination = ""
-        adminPosition = ""
+        personnelDestination = Nothing
+        adminPosition = Nothing
         PositionComboBox.SelectedIndex = -1
         JobDescriptionFlowLayout.Visible = False
 

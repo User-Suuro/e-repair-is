@@ -9,13 +9,13 @@ Public Class CustomerAddEditModal
     Dim custConst As New CustomersDBConstants
 
     ' SCHEMA
-    Dim firstName As String = ""
-    Dim middleName As String = ""
-    Dim lastName As String = ""
-    Dim gender As String = ""
-    Dim email As String = ""
-    Dim contactNumber As String = ""
-    Dim address As String = ""
+    Dim firstName As String
+    Dim middleName As String
+    Dim lastName As String
+    Dim gender As String
+    Dim email As String
+    Dim contactNumber As String
+    Dim address As String
 
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1

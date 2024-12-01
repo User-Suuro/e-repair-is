@@ -11,37 +11,37 @@ Public Class ServiceAddEditModal
     Dim empConst As New EmployeesDBConstants
     Dim custConst As New CustomersDBConstants
 
-    Private serviceID As Integer = -1
-    Private customerID As Integer = -1
-    Private technicianID As Integer = -1
+    Private serviceID As Integer
+    Private customerID As Integer
+    Private technicianID As Integer
 
-    Private deviceType As String = ""
-    Private deviceModel As String = ""
-    Private deviceBrand As String = ""
+    Private deviceType As String
+    Private deviceModel As String
+    Private deviceBrand As String
 
-    Private operatingSystem As String = ""
-    Private storageCapacity As String = ""
-    Private problemDescription As String = ""
+    Private operatingSystem As String
+    Private storageCapacity As String
+    Private problemDescription As String
 
-    Private dateAdded As String = ""
+    Private dateAdded As String
 
-    Private pending_commission As Integer = -1
-    Private onhold_commission As Integer = -1
-    Private canceled_commission As Integer = -1
-    Private completed_commission As Integer = -1
+    Private pending_commission As Integer
+    Private onhold_commission As Integer
+    Private canceled_commission As Integer
+    Private completed_commission As Integer
 
-    Private total_commision As Integer = -1
+    Private total_commision As Integer
 
-    Private techNumberFinishedServices As Integer = -1
-    Private techNumberPendingServices As Integer = -1
-    Private techNumberCanceledServices As Integer = -1
-    Private techNumberOnholdServices As Integer = -1
+    Private techNumberFinishedServices As Integer
+    Private techNumberPendingServices As Integer
+    Private techNumberCanceledServices As Integer
+    Private techNumberOnholdServices As Integer
 
-    Private total_services As Integer = -1
+    Private total_services As Integer
 
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
-    Public Property deviceImgPath As String = ""
+    Public Property deviceImgPath As String
 
     ' ONLOAD
     Private Sub ServiceAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
