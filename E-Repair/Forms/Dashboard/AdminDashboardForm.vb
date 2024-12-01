@@ -11,7 +11,7 @@ Public Class AdminDashboardForm
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchByStr, 0).Rows.Count + 1  ' don't count super admin
+        EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchStr, 0).Rows.Count - 1  ' don't count super admin
         ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
 
         CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
@@ -43,9 +43,7 @@ Public Class AdminDashboardForm
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
-    Private Sub EmployeesCountLabel_Click(sender As Object, e As EventArgs) Handles EmployeesCountLabel.Click
 
-    End Sub
 
     Private Sub CustomersNumberLabel_Click(sender As Object, e As EventArgs) Handles CustomersNumberLabel.Click
 

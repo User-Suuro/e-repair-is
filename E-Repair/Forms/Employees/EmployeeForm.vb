@@ -14,7 +14,7 @@ Public Class EmployeeForm
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property techOnly As Boolean = True
+    Public Property techOnly As Boolean = False
 
     Private empDT As DataTable = Nothing
 
