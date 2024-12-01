@@ -139,13 +139,24 @@ Public Class FormUtils
 
             End If
 
+            dgv.DataSource = filterDtArchive(dt, True)
             FormatDGVForArchive(dgv)
-
 
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try
     End Sub
+
+    Private Function filterDtArchive(dt As DataTable, status As Boolean) As DataTable
+        Dim filteredRows As DataRow() = dt.Select($"archived = {status}")
+        Dim filteredDt As DataTable = dt.Clone()
+
+        For Each row As DataRow In filteredRows
+            filteredDt.ImportRow(row)
+        Next
+
+        Return filteredDt
+    End Function
 
     Private Sub FormatDGVForArchive(dgv As DataGridView)
         Try
@@ -203,9 +214,10 @@ Public Class FormUtils
             End If
 
             dt.DefaultView.RowFilter = filter
-
             dgv.AutoGenerateColumns = False
             dgv.RowTemplate.Height = rowHeight
+
+            dgv.DataSource = filterDtArchive(dt, False)
             dgv.DataSource = dt.DefaultView
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -262,7 +274,6 @@ Public Class FormUtils
             dgv.AutoGenerateColumns = False
             dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -304,7 +315,7 @@ Public Class FormUtils
         Dim listCol As New List(Of String) From {
             custConst.custIDStr,
             custConst.custFirstStr,
-            custConst.custLastStr
+            custConst.custLastStr,
         }
 
         Dim getCustDt As DataTable = dbHelper.GetRowByColValue(listCol, custConst.custTableStr, custConst.custIDStr, customerID)
@@ -346,12 +357,14 @@ Public Class FormUtils
     End Function
 
     Public Function getCustStatusNumber(status As String, customerID As Integer) As Integer
+
         Dim listCol As New List(Of String) From {
             servConst.custIDStr,
             servConst.svcStatusStr
         }
 
-        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.custIDStr, customerID, servConst.svcStatusStr, status).Rows.Count
+        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.custIDStr , cu , servConst.svcStatusStr, status).Rows.Count
+
     End Function
 
     ' show modal
