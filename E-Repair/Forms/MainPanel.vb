@@ -54,6 +54,7 @@ Public Class MainPanel
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
                     SidenavEmployeesBtn.Visible = True
+                    SettingsBtn.Visible = True
                 Case .getAdminString
                     SidenavInventoryBtn.Visible = True
                     SidenavSuppliersBtn.Visible = True
@@ -119,6 +120,10 @@ Public Class MainPanel
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New InventoryForm)
         AdminTopNavTitle.Text = constants.InventoryTitle
     End Sub
+    Private Sub SettingsBtn_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
+        formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New SettingsForm)
+        AdminTopNavTitle.Text = constants.SettingsTitle
+    End Sub
 
     Private Sub LogoutBtn_Click(sender As Object, e As EventArgs) Handles LogoutBtn.Click
         Me.Close()
@@ -128,9 +133,5 @@ Public Class MainPanel
         LoggedUser.ClearSession()
         Dim loginForm As New LoginForm()
         loginForm.Show()
-    End Sub
-
-    Private Sub AdminTopNavProfilePictureBox_Click(sender As Object, e As EventArgs) Handles AdminTopNavProfilePictureBox.Click
-
     End Sub
 End Class

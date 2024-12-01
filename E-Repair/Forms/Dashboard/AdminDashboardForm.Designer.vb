@@ -283,9 +283,9 @@ Partial Class AdminDashboardForm
         Me.Label2.ForeColor = System.Drawing.Color.Black
         Me.Label2.Location = New System.Drawing.Point(22, 4)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 20)
+        Me.Label2.Size = New System.Drawing.Size(67, 20)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Items"
+        Me.Label2.Text = "Inventory"
         '
         'SuppliersPanel
         '

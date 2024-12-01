@@ -45,7 +45,7 @@ Public Class SupplierViewModal
             NoSuppliedItemTxtBox.Text = formUtils.GetSuppliedItems(selectedID)
             TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
-            CompanyPathTxtBox.Text = .Item(supConstants.compPicPathStr)
+            CompanyPathTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.compPicPathStr))
             AddedByTxtBox.Text = .Item(supConstants.addedByName)
         End With
 
@@ -73,6 +73,5 @@ Public Class SupplierViewModal
         End Function
         )
     End Sub
-
 
 End Class

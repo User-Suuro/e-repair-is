@@ -6,9 +6,20 @@
     Dim empConst As New EmployeesDBConstants
     Dim custConst As New CustomersDBConstants
 
+    Private Function ShowMsg(quantity As Integer) As Boolean
+
+        If formUtils.ShowMessageBoxResult("Caution", $"Are you sure you want to generate { quantity } dummy data? This action will greatly affect your database.") Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
     Public Function LoadDummyDataToEmployees(numberOfRecords As Integer) As Boolean
 
         ' ur code here
+        If Not ShowMsg(numberOfRecords) Then Return False
+
 
         For i As Integer = 1 To numberOfRecords
             ' Generate randomized or sequential data
@@ -30,7 +41,6 @@
             Dim password = $"password{i}"
             Dim adminPosition = If(jobType = constants.getAdminString, $"Admin Position {i}", Nothing)
             Dim personnelDestination = If(jobType = constants.getUtilityPersonnelString, $"Destination {i}", Nothing)
-
 
             ' Create the insert data dictionary
             Dim insertData As New Dictionary(Of String, Object) From {
@@ -61,13 +71,6 @@
                 insertData.Add(empConst.empDestStr, personnelDestination)
             End If
 
-            ' Prepare image data
-            Dim imgData As New List(Of Object) From {
-                empConst.empProfileStr,
-                profileImgPath,
-                constants.getEmpProfileFolderName
-             }
-
             ' Insert the row into the database
             dbUtils.InsertRecord(empConst.empTableStr, insertData)
         Next
@@ -78,6 +81,8 @@
     End Function
 
     Public Function LoadDummyDataToCustomers(numberOfRecords As Integer) As Boolean
+        If Not ShowMsg(numberOfRecords) Then Return False
+
         For i As Integer = 1 To numberOfRecords
             ' Generate randomized or sequential data
             Dim middleName = If(i Mod 5 = 0, $"Middle{i}", Nothing) ' Optional field
@@ -113,7 +118,8 @@
         Return True ' return true if successful
     End Function
 
-    Public Function LoadDummyDataToSuppliers(quantity As Integer) As Boolean
+    Public Function LoadDummyDataToSuppliers(numberOfRecords As Integer) As Boolean
+        If Not ShowMsg(numberOfRecords) Then Return False
 
         ' ur code here
 
@@ -122,7 +128,8 @@
         Return True ' return true if successful
     End Function
 
-    Public Function LoadDummyDataToServices(quantity As Integer) As Boolean
+    Public Function LoadDummyDataToServices(numberOfRecords As Integer) As Boolean
+        If Not ShowMsg(numberOfRecords) Then Return False
 
         ' ur code here
 
@@ -132,7 +139,8 @@
     End Function
 
 
-    Public Function LoadDummyDataToInventory(quantity As Integer) As Boolean
+    Public Function LoadDummyDataToInventory(numberOfRecords As Integer) As Boolean
+        If Not ShowMsg(numberOfRecords) Then Return False
 
         ' ur code here
 

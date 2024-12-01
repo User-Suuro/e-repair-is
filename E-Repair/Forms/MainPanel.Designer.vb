@@ -23,6 +23,7 @@ Partial Class MainPanel
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
+        Me.SettingsBtn = New System.Windows.Forms.Button()
         Me.SidenavInventoryBtn = New System.Windows.Forms.Button()
         Me.SidenavSuppliersBtn = New System.Windows.Forms.Button()
         Me.SidenavServicesBtn = New System.Windows.Forms.Button()
@@ -48,6 +49,7 @@ Partial Class MainPanel
         'AdminSidenavPanel
         '
         Me.AdminSidenavPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.AdminSidenavPanel.Controls.Add(Me.SettingsBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.SidenavInventoryBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.SidenavSuppliersBtn)
         Me.AdminSidenavPanel.Controls.Add(Me.SidenavServicesBtn)
@@ -62,6 +64,25 @@ Partial Class MainPanel
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
         Me.AdminSidenavPanel.Size = New System.Drawing.Size(82, 681)
         Me.AdminSidenavPanel.TabIndex = 23
+        '
+        'SettingsBtn
+        '
+        Me.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SettingsBtn.FlatAppearance.BorderSize = 0
+        Me.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.SettingsBtn.Image = Global.E_Repair.My.Resources.Resources.gear_bold
+        Me.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.SettingsBtn.Location = New System.Drawing.Point(0, 450)
+        Me.SettingsBtn.Name = "SettingsBtn"
+        Me.SettingsBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.SettingsBtn.Size = New System.Drawing.Size(82, 75)
+        Me.SettingsBtn.TabIndex = 25
+        Me.SettingsBtn.Text = "Settings"
+        Me.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.SettingsBtn.UseVisualStyleBackColor = True
+        Me.SettingsBtn.Visible = False
         '
         'SidenavInventoryBtn
         '
@@ -332,4 +353,5 @@ Partial Class MainPanel
     Friend WithEvents SidenavInventoryBtn As Button
     Friend WithEvents SidenavSuppliersBtn As Button
     Friend WithEvents SidenavServicesBtn As Button
+    Friend WithEvents SettingsBtn As Button
 End Class

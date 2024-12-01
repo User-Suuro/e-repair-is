@@ -843,7 +843,7 @@ Partial Class ServiceViewModal
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 676)
+        Me.BtnClose.Location = New System.Drawing.Point(12, 674)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)

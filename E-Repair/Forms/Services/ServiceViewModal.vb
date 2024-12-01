@@ -65,7 +65,7 @@ Public Class ServiceViewModal
             StorageCapacityTxtBox.Text = .Item(servConst.storageCapStr)
 
             deviceImgPath = .Item(servConst.devProfilePathStr)
-            DeviceImgPathTxtBox.Text = deviceImgPath
+            DeviceImgPathTxtBox.Text = dbHelper.StrNullCheck(deviceImgPath)
 
             DeviceTypeTxtBox.Text = .Item(servConst.devTypeStr)
             OperatingSystemTxtBox.Text = .Item(servConst.osStr)
@@ -156,5 +156,9 @@ Public Class ServiceViewModal
            Return Nothing
        End Function
        )
+    End Sub
+
+    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
+
     End Sub
 End Class
