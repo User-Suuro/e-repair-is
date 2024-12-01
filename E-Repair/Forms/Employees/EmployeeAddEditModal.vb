@@ -54,7 +54,7 @@ Public Class EmployeeAddEditModal
         If Not createSuperAdminAccMode Then
             InitCmbDs(-1, -1, -1, -1, -1)
         Else
-            InitCmbDs(-1, -1, -1, -1, -1, 0)
+            InitCmbDs(-1, -1, -1, 0, -1, 0)
         End If
 
         If editMode Then loadValues()
@@ -124,7 +124,9 @@ Public Class EmployeeAddEditModal
             .LoadEnumsToCmb(SexComboBox, empConst.empTableStr, empConst.empSexStr, index01)
             .LoadEnumsToCmb(CivilStatusComboBox, empConst.empTableStr, empConst.empCivilStr, index02)
             .LoadEnumsToCmb(ContractStatusComboBox, empConst.empTableStr, empConst.empStatusStr, index03)
+
             .LoadEnumsToCmb(JobTypeComboBox, empConst.empTableStr, empConst.empJobPosStr, index04, createAcc) ' SUPER ADMIN MUST NOT BE SEEN
+
             .LoadEnumsToCmb(PositionComboBox, empConst.empTableStr, empConst.empAdminPosStr, index05)
         End With
     End Sub
@@ -149,9 +151,12 @@ Public Class EmployeeAddEditModal
                 { .empJobPosStr, jobType},
                 { .empEmailStr, email},
                 { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
-                { .empAddedByName, formUtils.getEmployeeName(Current.id)},
-                { .addedById, Current.id}
             }
+
+            If Not createSuperAdminAccMode Then
+                insertData.Add(.empAddedByName, formUtils.getEmployeeName(Current.id))
+                insertData.Add(.addedById, Current.id)
+            End If
 
             ' UDPDATE FOREIGN VALUES
 
