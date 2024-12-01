@@ -635,17 +635,19 @@ Public Class FormUtils
         Return True
     End Function
 
-    Public Function GetCurrentID(dt As DataTable, idColumnName As String) As Integer
-        If dt.Rows.Count = 0 Then
-            Return 0
-        Else
-            Return dt.AsEnumerable().Max(Function(row) row.Field(Of Integer)(idColumnName))
-        End If
-    End Function
-
     Public Function GetSuppliedItems(supplierID As Integer) As Integer
         Dim invSuppDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.invIDStr, supplierID)
         Return CalcIntegerDTCol(invSuppDT, invConst.availableQtyStr)
+    End Function
+
+    Public Function GetLatestIDInDT(dataTable As DataTable, idColumnName As String) As Integer
+        If dataTable IsNot Nothing AndAlso dataTable.Rows.Count > 0 Then
+            Return dataTable.AsEnumerable().
+                    Where(Function(row) Not IsDBNull(row(idColumnName))).
+                    Max(Function(row) Convert.ToInt32(row(idColumnName)))
+        Else
+            Return 0 ' Return 0 or any default value if the table is empty
+        End If
     End Function
 
 End Class

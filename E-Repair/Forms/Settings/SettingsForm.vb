@@ -7,7 +7,6 @@
     Dim custConst As New CustomersDBConstants
     Dim empConst As New EmployeesDBConstants
 
-    Dim generateDataString = "Generate Dummy Data"
 
     ' MANAGE ENUMS
 
@@ -61,7 +60,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToEmployees(getQtyInModal)
         Cursor = Cursors.Default
-        GenerateDummyDataLabel.Text = generateDataString
+
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
@@ -72,7 +71,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToCustomers(getQtyInModal)
         Cursor = Cursors.Default
-        GenerateDummyDataLabel.Text = generateDataString
+
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
@@ -83,7 +82,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToSuppliers(getQtyInModal)
         Cursor = Cursors.Default
-        GenerateDummyDataLabel.Text = generateDataString
+
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
@@ -93,7 +92,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToServices(getQtyInModal)
         Cursor = Cursors.Default
-        GenerateDummyDataLabel.Text = generateDataString
+
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
@@ -104,7 +103,7 @@
         Cursor = Cursors.WaitCursor
         LoadDummyDataToInventory(getQtyInModal)
         Cursor = Cursors.Default
-        GenerateDummyDataLabel.Text = generateDataString
+
     End Sub
 
     ' LOAD DUMMY FUNCTIONS
@@ -125,12 +124,11 @@
 
         Dim adminPositions As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
         Dim civilStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
-        Dim employmentStatuses As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
+        Dim employmentStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
+        Dim getLatestID As Integer = dbHelper.GetAllByCol(New List(Of String) From {empConst.empIDStr}, empConst.empTableStr).Rows(0).Item(empConst.empIDStr)
 
         Try
             For i As Integer = 1 To numberOfRecords
-
-                GenerateDummyDataLabel.Text = i
 
                 With empConst
                     Dim firstName = $"FirstName{i}"
@@ -147,8 +145,9 @@
                     Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
                     Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
                     Dim profilePath = $"{dummyImagePath}"
-                    Dim email = $"user{i}@example.com"
 
+
+                    Dim email = $"user{i + getLatestID}@example.com"
                     Dim pwd = $"password{i}" ' Assume passwords are pre-encrypted
 
 
@@ -221,8 +220,6 @@
         Try
             For i As Integer = 1 To numberOfRecords
 
-                GenerateDummyDataLabel.Text = i
-
                 With custConst
                     ' Generate dummy data
                     Dim firstName = $"FirstName{i}"
@@ -271,7 +268,7 @@
         Try
             For i As Integer = 1 To numberOfRecords
 
-                GenerateDummyDataLabel.Text = i
+
 
 
             Next
@@ -288,7 +285,7 @@
         Try
             For i As Integer = 1 To numberOfRecords
 
-                GenerateDummyDataLabel.Text = i
+
 
 
             Next
@@ -306,7 +303,6 @@
         Try
             For i As Integer = 1 To numberOfRecords
 
-                GenerateDummyDataLabel.Text = i
 
 
             Next

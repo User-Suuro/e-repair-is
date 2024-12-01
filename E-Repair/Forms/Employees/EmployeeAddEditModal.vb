@@ -150,7 +150,7 @@ Public Class EmployeeAddEditModal
                 { .empHiredStr, dateHired},
                 { .empJobPosStr, jobType},
                 { .empEmailStr, email},
-                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)}
             }
 
             If Not createSuperAdminAccMode Then

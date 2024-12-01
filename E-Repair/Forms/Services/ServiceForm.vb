@@ -235,10 +235,15 @@ Public Class ServiceForm
             serviceDT.Columns.Add(custCol, GetType(String))
             serviceDT.Columns.Add(techCol, GetType(String))
 
-            For Each row As DataRow In serviceDT.Rows
-                row(custCol) = formUtils.getCustomerName(row(servConst.custIDStr))
-                row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
-            Next
+            Try
+                For Each row As DataRow In serviceDT.Rows
+                    row(custCol) = formUtils.getCustomerName(row(servConst.custIDStr))
+                    row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
 
             ' this function is chonky af
             formUtils.LoadToDGVByTwoValues(ServiceDGV,
