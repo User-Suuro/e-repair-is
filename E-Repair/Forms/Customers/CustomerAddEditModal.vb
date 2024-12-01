@@ -167,5 +167,8 @@ Public Class CustomerAddEditModal
         address = AddressTxtBox.Text
     End Sub
 
+    Private Sub Guna2Separator3_Click(sender As Object, e As EventArgs) Handles Guna2Separator3.Click
+
+    End Sub
 End Class
 

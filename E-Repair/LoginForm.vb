@@ -73,6 +73,12 @@ Public Class LoginForm
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeVLC()
+
+        If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
+            CreateSuperAdminPanel.Visible = True
+
+
+        End If
     End Sub
 
     Private Sub InitializeVLC()
@@ -120,4 +126,18 @@ Public Class LoginForm
         libVLC?.Dispose()
     End Sub
 
+    Private Sub CreateSuperbtn_Click(sender As Object, e As EventArgs) Handles CreateSuperbtn.Click
+        formUtils.ShowModalWithHandler(
+         Function(id)
+             Dim modal As New EmployeeAddEditModal
+             modal.JobTypeComboBox.SelectedItem = constant.getSuperAdminString
+             modal.JobTypeComboBox.Enabled = False
+             Return modal
+         End Function,
+         -1,
+         Function(modal)
+             Return Nothing
+         End Function
+       )
+    End Sub
 End Class

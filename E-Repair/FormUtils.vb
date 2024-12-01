@@ -139,24 +139,13 @@ Public Class FormUtils
 
             End If
 
-            dgv.DataSource = filterDtArchive(dt, True)
+
             FormatDGVForArchive(dgv)
 
         Catch ex As Exception
             MsgBox("Unable to format checkbox for archive: " & ex.Message)
         End Try
     End Sub
-
-    Private Function filterDtArchive(dt As DataTable, status As Boolean) As DataTable
-        Dim filteredRows As DataRow() = dt.Select($"archived = {status}")
-        Dim filteredDt As DataTable = dt.Clone()
-
-        For Each row As DataRow In filteredRows
-            filteredDt.ImportRow(row)
-        Next
-
-        Return filteredDt
-    End Function
 
     Private Sub FormatDGVForArchive(dgv As DataGridView)
         Try
@@ -215,9 +204,11 @@ Public Class FormUtils
 
             dt.DefaultView.RowFilter = filter
             dgv.AutoGenerateColumns = False
-            dgv.RowTemplate.Height = rowHeight
 
-            dgv.DataSource = filterDtArchive(dt, False)
+            dgv.AllowUserToResizeRows = False
+            dgv.AllowUserToResizeColumns = False
+
+            dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView
         Catch ex As Exception
             MsgBox(ex.Message)

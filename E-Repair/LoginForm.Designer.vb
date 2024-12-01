@@ -26,8 +26,8 @@ Partial Class LoginForm
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SetupDBBtn = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.CreateSuperAdminPanel = New System.Windows.Forms.Panel()
+        Me.CreateSuperbtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator2 = New Guna.UI2.WinForms.Guna2Separator()
         Me.GunaLabel5 = New Guna.UI.WinForms.GunaLabel()
         Me.LoginButton = New Guna.UI2.WinForms.Guna2Button()
@@ -41,7 +41,7 @@ Partial Class LoginForm
         Me.ViewControlPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.CreateSuperAdminPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'ViewControlPanel
@@ -75,7 +75,7 @@ Partial Class LoginForm
         'Guna2Panel1
         '
         Me.Guna2Panel1.Controls.Add(Me.SetupDBBtn)
-        Me.Guna2Panel1.Controls.Add(Me.Panel1)
+        Me.Guna2Panel1.Controls.Add(Me.CreateSuperAdminPanel)
         Me.Guna2Panel1.Controls.Add(Me.LoginButton)
         Me.Guna2Panel1.Controls.Add(Me.LoginPasswordTextBox)
         Me.Guna2Panel1.Controls.Add(Me.GunaLabel4)
@@ -109,34 +109,34 @@ Partial Class LoginForm
         Me.SetupDBBtn.Size = New System.Drawing.Size(47, 45)
         Me.SetupDBBtn.TabIndex = 17
         '
-        'Panel1
+        'CreateSuperAdminPanel
         '
-        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Panel1.Controls.Add(Me.Guna2Button1)
-        Me.Panel1.Controls.Add(Me.Guna2Separator2)
-        Me.Panel1.Controls.Add(Me.GunaLabel5)
-        Me.Panel1.Location = New System.Drawing.Point(142, 488)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(355, 91)
-        Me.Panel1.TabIndex = 16
-        Me.Panel1.Visible = False
+        Me.CreateSuperAdminPanel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.CreateSuperAdminPanel.Controls.Add(Me.CreateSuperbtn)
+        Me.CreateSuperAdminPanel.Controls.Add(Me.Guna2Separator2)
+        Me.CreateSuperAdminPanel.Controls.Add(Me.GunaLabel5)
+        Me.CreateSuperAdminPanel.Location = New System.Drawing.Point(142, 488)
+        Me.CreateSuperAdminPanel.Name = "CreateSuperAdminPanel"
+        Me.CreateSuperAdminPanel.Size = New System.Drawing.Size(355, 91)
+        Me.CreateSuperAdminPanel.TabIndex = 16
+        Me.CreateSuperAdminPanel.Visible = False
         '
-        'Guna2Button1
+        'CreateSuperbtn
         '
-        Me.Guna2Button1.BorderColor = System.Drawing.Color.BlanchedAlmond
-        Me.Guna2Button1.BorderRadius = 4
-        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Location = New System.Drawing.Point(25, 39)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Size = New System.Drawing.Size(289, 45)
-        Me.Guna2Button1.TabIndex = 23
-        Me.Guna2Button1.Text = "Create Super Admin Account"
+        Me.CreateSuperbtn.BorderColor = System.Drawing.Color.BlanchedAlmond
+        Me.CreateSuperbtn.BorderRadius = 4
+        Me.CreateSuperbtn.CheckedState.Parent = Me.CreateSuperbtn
+        Me.CreateSuperbtn.CustomImages.Parent = Me.CreateSuperbtn
+        Me.CreateSuperbtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CreateSuperbtn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CreateSuperbtn.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.CreateSuperbtn.HoverState.Parent = Me.CreateSuperbtn
+        Me.CreateSuperbtn.Location = New System.Drawing.Point(25, 39)
+        Me.CreateSuperbtn.Name = "CreateSuperbtn"
+        Me.CreateSuperbtn.ShadowDecoration.Parent = Me.CreateSuperbtn
+        Me.CreateSuperbtn.Size = New System.Drawing.Size(289, 45)
+        Me.CreateSuperbtn.TabIndex = 23
+        Me.CreateSuperbtn.Text = "Create Super Admin Account"
         '
         'Guna2Separator2
         '
@@ -289,8 +289,8 @@ Partial Class LoginForm
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.CreateSuperAdminPanel.ResumeLayout(False)
+        Me.CreateSuperAdminPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -306,8 +306,8 @@ Partial Class LoginForm
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents LoginEmailTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents VideoPanel As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents CreateSuperAdminPanel As Panel
+    Friend WithEvents CreateSuperbtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents GunaLabel5 As Guna.UI.WinForms.GunaLabel
     Friend WithEvents SetupDBBtn As Guna.UI2.WinForms.Guna2Button

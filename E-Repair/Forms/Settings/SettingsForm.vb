@@ -111,20 +111,20 @@
 
     Dim resourcesPath As String = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources")
     Dim dummyImagePath As String = System.IO.Path.Combine(resourcesPath, "landscape-placeholder-svgrepo-com.png")
-
+    Dim rnd As New Random()
 
     Public Function LoadDummyDataToEmployees(numberOfRecords As Integer) As Boolean
-        Dim rnd As New Random()
 
-        Dim jobTypes As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr)
+
+        Dim jobTypes As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr)
         Dim filteredJobType As New List(Of String)()
 
         For i As Integer = 1 To jobTypes.Count - 1 ' Start from index 1
             filteredJobType.Add(jobTypes(i))
         Next
 
-        Dim adminPositions As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
-        Dim civilStatuses As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
+        Dim adminPositions As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+        Dim civilStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
         Dim employmentStatuses As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
 
         Try
@@ -148,10 +148,9 @@
                     Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
                     Dim profilePath = $"{dummyImagePath}"
                     Dim email = $"user{i}@example.com"
+
                     Dim pwd = $"password{i}" ' Assume passwords are pre-encrypted
-                    Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
-                    Dim addedByID = rnd.Next(1, 100)
-                    Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
+
 
                     Dim jobType = filteredJobType(rnd.Next(0, filteredJobType.Count))
                     Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
@@ -176,7 +175,9 @@
                       { .empContactStr, contactNumber},
                       { .empStatusStr, employmentStatus},
                       { .empHiredStr, dateHired},
-                      { .empProfileStr, dummyImagePath}
+                      { .empProfileStr, dummyImagePath},
+                      { .addedById, Current.id},
+                      { .empAddedByName, formUtils.getEmployeeName(Current.id)}
                     }
 
                     If jobType.Equals(constants.getAdminString) Then
@@ -221,6 +222,36 @@
             For i As Integer = 1 To numberOfRecords
 
                 GenerateDummyDataLabel.Text = i
+
+                With custConst
+                    ' Generate dummy data
+                    Dim firstName = $"FirstName{i}"
+                    Dim middleName = If(rnd.Next(0, 2) = 0, $"MiddleName{i}", Nothing) ' Optional field
+                    Dim lastName = $"LastName{i}"
+                    Dim contactNumber = $"091234567{i Mod 10}"
+                    Dim address = $"Address {i}"
+                    Dim gender = If(rnd.Next(0, 2) = 0, "Male", "Female")
+                    Dim email = $"customer{i}@example.com"
+                    Dim totalPaid = Math.Round(rnd.NextDouble() * 10000, 2) ' Random amount
+
+                    Dim insertData As New Dictionary(Of String, Object) From {
+                       { .custMidStr, middleName}, ' optional
+                       { .custContactStr, contactNumber}, ' optional
+                       { .custAddressStr, address}, ' optional
+                       { .custEmailStr, email}, ' optional
+                       { .custFirstStr, firstName},
+                       { .custLastStr, lastName},
+                       { .custGenderStr, gender},
+                       { .custDateAddedStr, DateTime.Now()},
+                       { .getAddedByName, formUtils.getEmployeeName(Current.id)},
+                       { .getAddedByID, Current.id}
+                    }
+
+                    dbHelper.InsertRecord("customer", insertData)
+
+                End With
+
+
 
 
             Next
