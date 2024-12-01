@@ -123,6 +123,10 @@ Public Class CustomerForm
 
         With custConst
             Dim searchValues As New List(Of String) From {
+                .custIDStr,
+                .custArchStr,
+                .custArchDateStr,
+                .custArchByStr,
                 .custFirstStr,
                 .custMidStr,
                 .custLastStr,
@@ -132,9 +136,14 @@ Public Class CustomerForm
                 .custDateAddedStr
             }
 
+            searchValues.Remove(.custIDStr)
+            searchValues.Remove(.custArchByStr)
+            searchValues.Remove(.custArchStr)
+            searchValues.Remove(.custArchDateStr)
+
             Cursor = Cursors.WaitCursor
 
-            customersDt = dbHelper.GetAllData(.custTableStr)
+            customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
             formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default

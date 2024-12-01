@@ -22,10 +22,10 @@ Partial Class CustomerForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -37,6 +37,14 @@ Partial Class CustomerForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CustomerDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
+        Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
+        Me.EditCustomerBtn = New System.Windows.Forms.Button()
+        Me.AddCustomerBtn = New System.Windows.Forms.Button()
+        Me.ViewCustomerBtn = New System.Windows.Forms.Button()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FIRST_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MIDDLE_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,14 +60,6 @@ Partial Class CustomerForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
-        Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
-        Me.EditCustomerBtn = New System.Windows.Forms.Button()
-        Me.AddCustomerBtn = New System.Windows.Forms.Button()
-        Me.ViewCustomerBtn = New System.Windows.Forms.Button()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -230,8 +230,8 @@ Partial Class CustomerForm
         '
         Me.CustomerDGV.AllowUserToAddRows = False
         Me.CustomerDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.CustomerDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.CustomerDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.CustomerDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -240,32 +240,32 @@ Partial Class CustomerForm
         Me.CustomerDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CustomerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.CustomerDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CustomerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CustomerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.CustomerDGV.ColumnHeadersHeight = 48
         Me.CustomerDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CUSTOMER_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.CONTACT_NUMBER, Me.ADDRESS, Me.GENDER, Me.EMAIL, Me.TOTAL_PAID, Me.LAST_TRANSACTION, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED, Me.ADDED_BY, Me.DATE_ADDED})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.CustomerDGV.EnableHeadersVisualStyles = False
         Me.CustomerDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.CustomerDGV.Location = New System.Drawing.Point(11, 61)
         Me.CustomerDGV.Name = "CustomerDGV"
         Me.CustomerDGV.ReadOnly = True
         Me.CustomerDGV.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.CustomerDGV.Size = New System.Drawing.Size(986, 497)
         Me.CustomerDGV.TabIndex = 34
@@ -291,118 +291,6 @@ Partial Class CustomerForm
         Me.CustomerDGV.ThemeStyle.RowsStyle.Height = 22
         Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
-        '
-        'CUSTOMER_ID
-        '
-        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
-        Me.CUSTOMER_ID.HeaderText = "Customer ID"
-        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
-        Me.CUSTOMER_ID.ReadOnly = True
-        Me.CUSTOMER_ID.Visible = False
-        '
-        'FIRST_NAME
-        '
-        Me.FIRST_NAME.DataPropertyName = "first_name"
-        Me.FIRST_NAME.HeaderText = "First Name"
-        Me.FIRST_NAME.Name = "FIRST_NAME"
-        Me.FIRST_NAME.ReadOnly = True
-        '
-        'MIDDLE_NAME
-        '
-        Me.MIDDLE_NAME.DataPropertyName = "middle_name"
-        Me.MIDDLE_NAME.HeaderText = "Middle Name"
-        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
-        Me.MIDDLE_NAME.ReadOnly = True
-        '
-        'LAST_NAME
-        '
-        Me.LAST_NAME.DataPropertyName = "last_name"
-        Me.LAST_NAME.HeaderText = "Last Name"
-        Me.LAST_NAME.Name = "LAST_NAME"
-        Me.LAST_NAME.ReadOnly = True
-        '
-        'CONTACT_NUMBER
-        '
-        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
-        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
-        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
-        Me.CONTACT_NUMBER.ReadOnly = True
-        '
-        'ADDRESS
-        '
-        Me.ADDRESS.DataPropertyName = "address"
-        Me.ADDRESS.HeaderText = "Address"
-        Me.ADDRESS.Name = "ADDRESS"
-        Me.ADDRESS.ReadOnly = True
-        '
-        'GENDER
-        '
-        Me.GENDER.DataPropertyName = "gender"
-        Me.GENDER.HeaderText = "Gender"
-        Me.GENDER.Name = "GENDER"
-        Me.GENDER.ReadOnly = True
-        Me.GENDER.Visible = False
-        '
-        'EMAIL
-        '
-        Me.EMAIL.DataPropertyName = "email"
-        Me.EMAIL.HeaderText = "Email"
-        Me.EMAIL.Name = "EMAIL"
-        Me.EMAIL.ReadOnly = True
-        '
-        'TOTAL_PAID
-        '
-        Me.TOTAL_PAID.DataPropertyName = "total_paid"
-        Me.TOTAL_PAID.HeaderText = "Total Paid"
-        Me.TOTAL_PAID.Name = "TOTAL_PAID"
-        Me.TOTAL_PAID.ReadOnly = True
-        Me.TOTAL_PAID.Visible = False
-        '
-        'LAST_TRANSACTION
-        '
-        Me.LAST_TRANSACTION.DataPropertyName = "last_transaction"
-        Me.LAST_TRANSACTION.HeaderText = "Last Transaction Date"
-        Me.LAST_TRANSACTION.Name = "LAST_TRANSACTION"
-        Me.LAST_TRANSACTION.ReadOnly = True
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived By"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
-        '
-        'ADDED_BY
-        '
-        Me.ADDED_BY.DataPropertyName = "added_by"
-        Me.ADDED_BY.HeaderText = "Added By"
-        Me.ADDED_BY.Name = "ADDED_BY"
-        Me.ADDED_BY.ReadOnly = True
-        Me.ADDED_BY.Visible = False
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Added"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
         '
         'BtnSelect
         '
@@ -530,6 +418,119 @@ Partial Class CustomerForm
         Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ViewCustomerBtn.UseVisualStyleBackColor = True
         '
+        'CUSTOMER_ID
+        '
+        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
+        Me.CUSTOMER_ID.HeaderText = "Customer ID"
+        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
+        Me.CUSTOMER_ID.ReadOnly = True
+        Me.CUSTOMER_ID.Visible = False
+        '
+        'FIRST_NAME
+        '
+        Me.FIRST_NAME.DataPropertyName = "first_name"
+        Me.FIRST_NAME.HeaderText = "First Name"
+        Me.FIRST_NAME.Name = "FIRST_NAME"
+        Me.FIRST_NAME.ReadOnly = True
+        '
+        'MIDDLE_NAME
+        '
+        Me.MIDDLE_NAME.DataPropertyName = "middle_name"
+        Me.MIDDLE_NAME.HeaderText = "Middle Name"
+        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
+        Me.MIDDLE_NAME.ReadOnly = True
+        '
+        'LAST_NAME
+        '
+        Me.LAST_NAME.DataPropertyName = "last_name"
+        Me.LAST_NAME.HeaderText = "Last Name"
+        Me.LAST_NAME.Name = "LAST_NAME"
+        Me.LAST_NAME.ReadOnly = True
+        '
+        'CONTACT_NUMBER
+        '
+        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
+        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
+        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
+        Me.CONTACT_NUMBER.ReadOnly = True
+        '
+        'ADDRESS
+        '
+        Me.ADDRESS.DataPropertyName = "address"
+        Me.ADDRESS.HeaderText = "Address"
+        Me.ADDRESS.Name = "ADDRESS"
+        Me.ADDRESS.ReadOnly = True
+        '
+        'GENDER
+        '
+        Me.GENDER.DataPropertyName = "gender"
+        Me.GENDER.HeaderText = "Gender"
+        Me.GENDER.Name = "GENDER"
+        Me.GENDER.ReadOnly = True
+        Me.GENDER.Visible = False
+        '
+        'EMAIL
+        '
+        Me.EMAIL.DataPropertyName = "email"
+        Me.EMAIL.HeaderText = "Email"
+        Me.EMAIL.Name = "EMAIL"
+        Me.EMAIL.ReadOnly = True
+        '
+        'TOTAL_PAID
+        '
+        Me.TOTAL_PAID.DataPropertyName = "total_paid"
+        Me.TOTAL_PAID.HeaderText = "Total Paid"
+        Me.TOTAL_PAID.Name = "TOTAL_PAID"
+        Me.TOTAL_PAID.ReadOnly = True
+        Me.TOTAL_PAID.Visible = False
+        '
+        'LAST_TRANSACTION
+        '
+        Me.LAST_TRANSACTION.DataPropertyName = "last_transaction"
+        Me.LAST_TRANSACTION.HeaderText = "Last Transaction Date"
+        Me.LAST_TRANSACTION.Name = "LAST_TRANSACTION"
+        Me.LAST_TRANSACTION.ReadOnly = True
+        Me.LAST_TRANSACTION.Visible = False
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        Me.ADDED_BY.Visible = False
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
         'CustomerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -575,6 +576,7 @@ Partial Class CustomerForm
     Friend WithEvents CustomerDGV As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
     Friend WithEvents FIRST_NAME As DataGridViewTextBoxColumn
     Friend WithEvents MIDDLE_NAME As DataGridViewTextBoxColumn
@@ -590,5 +592,4 @@ Partial Class CustomerForm
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ADDED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

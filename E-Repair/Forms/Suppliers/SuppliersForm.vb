@@ -1,4 +1,6 @@
-﻿Public Class SuppliersForm
+﻿Imports Google.Protobuf.Compiler
+
+Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
@@ -99,10 +101,10 @@
 
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
         finishedLoad = True
         LoadDataToDGV()
         SuppliersDGV.ClearSelection()
-        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
     End Sub
 
     ' LOAD DATA
@@ -111,18 +113,27 @@
 
         With supConst
             Dim searchValues As New List(Of String) From {
+                 .supIDStr, ' exclude
+                 .archivedStr, ' exclude
+                 .archByStr, ' exclude
+                 .dateArchivedStr, ' exclude
                  .compNameStr,
                  .contactPersonStr,
-                 .contactNumStr,
                  .compEmailStr,
                  .locationStr,
-                 .estDeliveryStr,
+                 .supContractStr,
                  .totalPaidStr,
                  .dateAddedStr
             }
+
+            searchValues.Remove(.supIDStr)
+            searchValues.Remove(.archByStr)
+            searchValues.Remove(.archivedStr)
+            searchValues.Remove(.dateArchivedStr)
+
             Cursor = Cursors.WaitCursor
 
-            suppDT = dbHelper.GetAllData(.supTableStr)
+            suppDT = dbHelper.GetAllByCol(searchValues, supConst.supTableStr)
             formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default

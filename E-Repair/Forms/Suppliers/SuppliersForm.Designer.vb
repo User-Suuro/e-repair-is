@@ -37,6 +37,13 @@ Partial Class SuppliersForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SuppliersDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.DeleteSupplierBtn = New System.Windows.Forms.Button()
+        Me.ArchiveSupplierBtn = New System.Windows.Forms.Button()
+        Me.EditSupplierBtn = New System.Windows.Forms.Button()
+        Me.AddSupplierBtn = New System.Windows.Forms.Button()
+        Me.ViewSupplierBtn = New System.Windows.Forms.Button()
         Me.SUPPLIER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COMPANY_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COMPANY_DESCRIPTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,13 +64,6 @@ Partial Class SuppliersForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.DeleteSupplierBtn = New System.Windows.Forms.Button()
-        Me.ArchiveSupplierBtn = New System.Windows.Forms.Button()
-        Me.EditSupplierBtn = New System.Windows.Forms.Button()
-        Me.AddSupplierBtn = New System.Windows.Forms.Button()
-        Me.ViewSupplierBtn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -137,7 +137,7 @@ Partial Class SuppliersForm
         Me.SearchComboBox.FormattingEnabled = True
         Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
-        Me.SearchComboBox.Items.AddRange(New Object() {"Company Name", "Contact Person", "Company Number", "Contact Email", "Location", "Estimated Delivery Time", "Total Paid", "Date Added"})
+        Me.SearchComboBox.Items.AddRange(New Object() {"Company Name", "Contact Person", "Email", "Location", "Contract Type", "Total Paid", "Date Added"})
         Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
@@ -296,156 +296,6 @@ Partial Class SuppliersForm
         Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.SuppliersDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'SUPPLIER_ID
-        '
-        Me.SUPPLIER_ID.DataPropertyName = "supplier_id"
-        Me.SUPPLIER_ID.HeaderText = "ID"
-        Me.SUPPLIER_ID.Name = "SUPPLIER_ID"
-        Me.SUPPLIER_ID.ReadOnly = True
-        Me.SUPPLIER_ID.Visible = False
-        '
-        'COMPANY_NAME
-        '
-        Me.COMPANY_NAME.DataPropertyName = "company_name"
-        Me.COMPANY_NAME.HeaderText = "Company Name"
-        Me.COMPANY_NAME.Name = "COMPANY_NAME"
-        Me.COMPANY_NAME.ReadOnly = True
-        '
-        'COMPANY_DESCRIPTION
-        '
-        Me.COMPANY_DESCRIPTION.DataPropertyName = "company_description"
-        Me.COMPANY_DESCRIPTION.HeaderText = "Company Description"
-        Me.COMPANY_DESCRIPTION.Name = "COMPANY_DESCRIPTION"
-        Me.COMPANY_DESCRIPTION.ReadOnly = True
-        Me.COMPANY_DESCRIPTION.Visible = False
-        '
-        'CONTACT_PERSON
-        '
-        Me.CONTACT_PERSON.DataPropertyName = "contact_person"
-        Me.CONTACT_PERSON.HeaderText = "Contact Person"
-        Me.CONTACT_PERSON.Name = "CONTACT_PERSON"
-        Me.CONTACT_PERSON.ReadOnly = True
-        '
-        'CONTACT_NUMBER
-        '
-        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
-        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
-        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
-        Me.CONTACT_NUMBER.ReadOnly = True
-        Me.CONTACT_NUMBER.Visible = False
-        '
-        'COMPANY_EMAIL
-        '
-        Me.COMPANY_EMAIL.DataPropertyName = "company_email"
-        Me.COMPANY_EMAIL.HeaderText = "Email"
-        Me.COMPANY_EMAIL.Name = "COMPANY_EMAIL"
-        Me.COMPANY_EMAIL.ReadOnly = True
-        '
-        'LOCATION
-        '
-        Me.LOCATION.DataPropertyName = "location"
-        Me.LOCATION.HeaderText = "Location"
-        Me.LOCATION.Name = "LOCATION"
-        Me.LOCATION.ReadOnly = True
-        '
-        'SUPPLIER_TYPE
-        '
-        Me.SUPPLIER_TYPE.DataPropertyName = "supplier_type"
-        Me.SUPPLIER_TYPE.HeaderText = "Supplier Type"
-        Me.SUPPLIER_TYPE.Name = "SUPPLIER_TYPE"
-        Me.SUPPLIER_TYPE.ReadOnly = True
-        '
-        'SUPPLIER_CONTRACT
-        '
-        Me.SUPPLIER_CONTRACT.DataPropertyName = "supplier_contract"
-        Me.SUPPLIER_CONTRACT.HeaderText = "Contract"
-        Me.SUPPLIER_CONTRACT.Name = "SUPPLIER_CONTRACT"
-        Me.SUPPLIER_CONTRACT.ReadOnly = True
-        '
-        'BANK_DETAILS
-        '
-        Me.BANK_DETAILS.DataPropertyName = "bank_details"
-        Me.BANK_DETAILS.HeaderText = "Bank"
-        Me.BANK_DETAILS.Name = "BANK_DETAILS"
-        Me.BANK_DETAILS.ReadOnly = True
-        Me.BANK_DETAILS.Visible = False
-        '
-        'PAYMENT_TERMS
-        '
-        Me.PAYMENT_TERMS.DataPropertyName = "payment_terms"
-        Me.PAYMENT_TERMS.HeaderText = "Payment Terms"
-        Me.PAYMENT_TERMS.Name = "PAYMENT_TERMS"
-        Me.PAYMENT_TERMS.ReadOnly = True
-        Me.PAYMENT_TERMS.Visible = False
-        '
-        'ESTIMATED_DELIVERY_TIME
-        '
-        Me.ESTIMATED_DELIVERY_TIME.DataPropertyName = "estimated_delivery_time"
-        Me.ESTIMATED_DELIVERY_TIME.HeaderText = "Delivery Time"
-        Me.ESTIMATED_DELIVERY_TIME.Name = "ESTIMATED_DELIVERY_TIME"
-        Me.ESTIMATED_DELIVERY_TIME.ReadOnly = True
-        Me.ESTIMATED_DELIVERY_TIME.Visible = False
-        '
-        'TOTAL_PAID
-        '
-        Me.TOTAL_PAID.DataPropertyName = "total_paid"
-        Me.TOTAL_PAID.HeaderText = "Total Paid"
-        Me.TOTAL_PAID.Name = "TOTAL_PAID"
-        Me.TOTAL_PAID.ReadOnly = True
-        '
-        'SUPPLIED_ITEMS
-        '
-        Me.SUPPLIED_ITEMS.HeaderText = "Number of Supplied Items"
-        Me.SUPPLIED_ITEMS.Name = "SUPPLIED_ITEMS"
-        Me.SUPPLIED_ITEMS.ReadOnly = True
-        '
-        'PICTURE_PATH
-        '
-        Me.PICTURE_PATH.DataPropertyName = "company_picture_path"
-        Me.PICTURE_PATH.HeaderText = "Picture Path"
-        Me.PICTURE_PATH.Name = "PICTURE_PATH"
-        Me.PICTURE_PATH.ReadOnly = True
-        Me.PICTURE_PATH.Visible = False
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Added"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
-        '
-        'ADDED_BY
-        '
-        Me.ADDED_BY.DataPropertyName = "added_by"
-        Me.ADDED_BY.HeaderText = "Added By"
-        Me.ADDED_BY.Name = "ADDED_BY"
-        Me.ADDED_BY.ReadOnly = True
-        Me.ADDED_BY.Visible = False
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived By"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
-        '
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
@@ -571,6 +421,158 @@ Partial Class SuppliersForm
         Me.ViewSupplierBtn.Text = "Details"
         Me.ViewSupplierBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ViewSupplierBtn.UseVisualStyleBackColor = True
+        '
+        'SUPPLIER_ID
+        '
+        Me.SUPPLIER_ID.DataPropertyName = "supplier_id"
+        Me.SUPPLIER_ID.HeaderText = "ID"
+        Me.SUPPLIER_ID.Name = "SUPPLIER_ID"
+        Me.SUPPLIER_ID.ReadOnly = True
+        Me.SUPPLIER_ID.Visible = False
+        '
+        'COMPANY_NAME
+        '
+        Me.COMPANY_NAME.DataPropertyName = "company_name"
+        Me.COMPANY_NAME.HeaderText = "Company Name"
+        Me.COMPANY_NAME.Name = "COMPANY_NAME"
+        Me.COMPANY_NAME.ReadOnly = True
+        '
+        'COMPANY_DESCRIPTION
+        '
+        Me.COMPANY_DESCRIPTION.DataPropertyName = "company_description"
+        Me.COMPANY_DESCRIPTION.HeaderText = "Company Description"
+        Me.COMPANY_DESCRIPTION.Name = "COMPANY_DESCRIPTION"
+        Me.COMPANY_DESCRIPTION.ReadOnly = True
+        Me.COMPANY_DESCRIPTION.Visible = False
+        '
+        'CONTACT_PERSON
+        '
+        Me.CONTACT_PERSON.DataPropertyName = "contact_person"
+        Me.CONTACT_PERSON.HeaderText = "Contact Person"
+        Me.CONTACT_PERSON.Name = "CONTACT_PERSON"
+        Me.CONTACT_PERSON.ReadOnly = True
+        '
+        'CONTACT_NUMBER
+        '
+        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
+        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
+        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
+        Me.CONTACT_NUMBER.ReadOnly = True
+        Me.CONTACT_NUMBER.Visible = False
+        '
+        'COMPANY_EMAIL
+        '
+        Me.COMPANY_EMAIL.DataPropertyName = "company_email"
+        Me.COMPANY_EMAIL.HeaderText = "Email"
+        Me.COMPANY_EMAIL.Name = "COMPANY_EMAIL"
+        Me.COMPANY_EMAIL.ReadOnly = True
+        '
+        'LOCATION
+        '
+        Me.LOCATION.DataPropertyName = "location"
+        Me.LOCATION.HeaderText = "Location"
+        Me.LOCATION.Name = "LOCATION"
+        Me.LOCATION.ReadOnly = True
+        '
+        'SUPPLIER_TYPE
+        '
+        Me.SUPPLIER_TYPE.DataPropertyName = "supplier_type"
+        Me.SUPPLIER_TYPE.HeaderText = "Supplier Type"
+        Me.SUPPLIER_TYPE.Name = "SUPPLIER_TYPE"
+        Me.SUPPLIER_TYPE.ReadOnly = True
+        Me.SUPPLIER_TYPE.Visible = False
+        '
+        'SUPPLIER_CONTRACT
+        '
+        Me.SUPPLIER_CONTRACT.DataPropertyName = "supplier_contract"
+        Me.SUPPLIER_CONTRACT.HeaderText = "Contract"
+        Me.SUPPLIER_CONTRACT.Name = "SUPPLIER_CONTRACT"
+        Me.SUPPLIER_CONTRACT.ReadOnly = True
+        '
+        'BANK_DETAILS
+        '
+        Me.BANK_DETAILS.DataPropertyName = "bank_details"
+        Me.BANK_DETAILS.HeaderText = "Bank"
+        Me.BANK_DETAILS.Name = "BANK_DETAILS"
+        Me.BANK_DETAILS.ReadOnly = True
+        Me.BANK_DETAILS.Visible = False
+        '
+        'PAYMENT_TERMS
+        '
+        Me.PAYMENT_TERMS.DataPropertyName = "payment_terms"
+        Me.PAYMENT_TERMS.HeaderText = "Payment Terms"
+        Me.PAYMENT_TERMS.Name = "PAYMENT_TERMS"
+        Me.PAYMENT_TERMS.ReadOnly = True
+        Me.PAYMENT_TERMS.Visible = False
+        '
+        'ESTIMATED_DELIVERY_TIME
+        '
+        Me.ESTIMATED_DELIVERY_TIME.DataPropertyName = "estimated_delivery_time"
+        Me.ESTIMATED_DELIVERY_TIME.HeaderText = "Delivery Time"
+        Me.ESTIMATED_DELIVERY_TIME.Name = "ESTIMATED_DELIVERY_TIME"
+        Me.ESTIMATED_DELIVERY_TIME.ReadOnly = True
+        Me.ESTIMATED_DELIVERY_TIME.Visible = False
+        '
+        'TOTAL_PAID
+        '
+        Me.TOTAL_PAID.DataPropertyName = "total_paid"
+        Me.TOTAL_PAID.HeaderText = "Total Paid"
+        Me.TOTAL_PAID.Name = "TOTAL_PAID"
+        Me.TOTAL_PAID.ReadOnly = True
+        '
+        'SUPPLIED_ITEMS
+        '
+        Me.SUPPLIED_ITEMS.HeaderText = "Number of Supplied Items"
+        Me.SUPPLIED_ITEMS.Name = "SUPPLIED_ITEMS"
+        Me.SUPPLIED_ITEMS.ReadOnly = True
+        Me.SUPPLIED_ITEMS.Visible = False
+        '
+        'PICTURE_PATH
+        '
+        Me.PICTURE_PATH.DataPropertyName = "company_picture_path"
+        Me.PICTURE_PATH.HeaderText = "Picture Path"
+        Me.PICTURE_PATH.Name = "PICTURE_PATH"
+        Me.PICTURE_PATH.ReadOnly = True
+        Me.PICTURE_PATH.Visible = False
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        Me.ADDED_BY.Visible = False
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
         '
         'SuppliersForm
         '
