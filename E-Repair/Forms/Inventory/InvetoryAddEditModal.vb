@@ -135,8 +135,9 @@
                 { .itemDescStr, itemDesc},
                 { .availableQtyStr, quantity},
                 { .totalCostStr, totalValue},
-                { .costPerItem, costPerItem},
+                { .costPerItem, costPerItem}
             }
+
             ' update restock date
             If quantity > initialQty Then updateData.Add(.restockDateStr, DateTime.Now())
 
