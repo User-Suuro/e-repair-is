@@ -136,14 +136,16 @@ Public Class CustomerForm
                 .custDateAddedStr
             }
 
+            Cursor = Cursors.WaitCursor
+
+            customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
+
+            ' exclude for searching
             searchValues.Remove(.custIDStr)
             searchValues.Remove(.custArchByStr)
             searchValues.Remove(.custArchStr)
             searchValues.Remove(.custArchDateStr)
 
-            Cursor = Cursors.WaitCursor
-
-            customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
             formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default

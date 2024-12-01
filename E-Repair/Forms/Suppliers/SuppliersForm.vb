@@ -126,14 +126,17 @@ Public Class SuppliersForm
                  .dateAddedStr
             }
 
+
+            Cursor = Cursors.WaitCursor
+
+            suppDT = dbHelper.GetAllByCol(searchValues, supConst.supTableStr)
+
+            ' exclude for searching
             searchValues.Remove(.supIDStr)
             searchValues.Remove(.archByStr)
             searchValues.Remove(.archivedStr)
             searchValues.Remove(.dateArchivedStr)
 
-            Cursor = Cursors.WaitCursor
-
-            suppDT = dbHelper.GetAllByCol(searchValues, supConst.supTableStr)
             formUtils.LoadToDGV(SuppliersDGV, suppDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default
