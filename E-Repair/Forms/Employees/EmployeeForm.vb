@@ -158,23 +158,25 @@ Public Class EmployeeForm
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With empConst
-            Dim searchValues As New List(Of String) From {
+            Dim colValues As New List(Of String) From {
               .empFirstStr,
               .empMidStr,
               .empLastStr,
               .empHiredStr,
               .empEmailStr,
               .empLastAccessedStr,
-              .empAddDateStr
+              .empAddDateStr,
+              .empJobPosStr
             }
 
             If Not techOnly Then
-                empDT = dbHelper.GetAllData(.empTableStr)
+                empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
             Else
-                empDT = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
+                empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
             End If
 
-            formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub

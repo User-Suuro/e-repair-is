@@ -79,12 +79,11 @@ Public Class EmployeeAddEditModal
             ContactNumberTextBox.Text = .Item(empConst.empContactStr)
             DateHiredDateTimePicker.Value = DateTime.Parse(.Item(empConst.empHiredStr))
 
-            SSSTextBox.Text = .Item(empConst.empSSSStr)
-            PagIbigTextBox.Text = .Item(empConst.empPagibigStr)
-            TINTextBox.Text = .Item(empConst.empTINStr)
+            SSSTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empSSSStr))
+            PagIbigTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empPagibigStr))
+            TINTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empTINStr))
 
             profileImgPath = .Item(empConst.empProfileStr)
-
             EmailTextBox.Text = .Item(empConst.empEmailStr)
 
             PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
@@ -145,7 +144,7 @@ Public Class EmployeeAddEditModal
             ' UDPDATE FOREIGN VALUES
 
             If jobType.Equals(constants.getAdminString) Then
-
+                insertData.Add(.empAdminPosStr, adminPosition)
             End If
 
             If jobType.Equals(constants.getUtilityPersonnelString) Then

@@ -41,9 +41,9 @@ Public Class EmployeeViewModal
             ContactNumberTextBox.Text = .Item(empConst.empContactStr)
             DateHiredTextBox.Text = .Item(empConst.empHiredStr)
 
-            SSSTextBox.Text = .Item(empConst.empSSSStr)
-            PagIbigTextBox.Text = .Item(empConst.empPagibigStr)
-            TINTextBox.Text = .Item(empConst.empTINStr)
+            SSSTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empSSSStr))
+            PagIbigTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empPagibigStr))
+            TINTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empTINStr))
 
             JobTypeTextBox.Text = .Item(empConst.empJobPosStr)
             ContractStatusTextBox.Text = .Item(empConst.empStatusStr)
