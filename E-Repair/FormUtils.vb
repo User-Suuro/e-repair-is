@@ -303,7 +303,7 @@ Public Class FormUtils
         Dim listCol As New List(Of String) From {
             custConst.custIDStr,
             custConst.custFirstStr,
-            custConst.custLastStr,
+            custConst.custLastStr
         }
 
         Dim getCustDt As DataTable = dbHelper.GetRowByColValue(listCol, custConst.custTableStr, custConst.custIDStr, customerID)

@@ -18,6 +18,7 @@ Public Class EmployeeForm
 
     Private empDT As DataTable = Nothing
 
+    Private finishedLoad As Boolean = False
 
 
     ' RESTRICT ACTIONS
@@ -131,18 +132,19 @@ Public Class EmployeeForm
 
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        LoadDataToDGV(SearchTextBox.Text)
+        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
     ' SEARCH CMB
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
-        LoadDataToDGV(SearchTextBox.Text)
+        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
     ' SHOW ARCHIVE
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        RefreshForArchive()
+        If finishedLoad Then RefreshForArchive()
     End Sub
+
     Private Sub RefreshForArchive()
         LoadDataToDGV()
         formUtils.FormatChkBoxForArchive(EmpDGV, ShowArchiveCheckBox, DeleteEmployeeBtn, ArchiveEmployeeBtn, EditEmployeeBtn, AddEmployeeBtn)
@@ -153,6 +155,7 @@ Public Class EmployeeForm
         LoadDataToDGV()
         EmpDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        finishedLoad = True
     End Sub
 
     ' LOAD DATA
@@ -179,10 +182,12 @@ Public Class EmployeeForm
                 empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
             End If
 
-            Cursor = Cursors.Default
+            ' exlucde empID to search
+            colValues.Remove(.empIDStr)
 
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
+            Cursor = Cursors.Default
         End With
         ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub

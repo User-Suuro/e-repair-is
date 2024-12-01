@@ -19,6 +19,7 @@
     Private ReadOnly _tinNo As String = "tin_no"
     Private ReadOnly _jobType As String = "job_type"
     Private ReadOnly _adminPosition As String = "admin_position"
+
     Private ReadOnly _personnelDestination As String = "personnel_destination"
     Private ReadOnly _profilePath As String = "profile_path"
     Private ReadOnly _email As String = "email"

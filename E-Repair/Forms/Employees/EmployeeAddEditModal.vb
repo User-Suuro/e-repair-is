@@ -89,15 +89,21 @@ Public Class EmployeeAddEditModal
             PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
             ConfirmPasswordTextBox.Text = PasswordTextBox.Text
 
+            AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empDestStr))
+
+            Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item(empConst.empJobPosStr))
             Dim sexIndex = formUtils.FindComboBoxItemByText(SexComboBox, .Item(empConst.empSexStr))
             Dim civilIndex = formUtils.FindComboBoxItemByText(CivilStatusComboBox, .Item(empConst.empCivilStr))
             Dim contractStatusBoxIndex = formUtils.FindComboBoxItemByText(ContractStatusComboBox, .Item(empConst.empStatusStr))
-            Dim jobTypeIndex = formUtils.FindComboBoxItemByText(JobTypeComboBox, .Item(empConst.empJobPosStr))
-            Dim adminPosIndex = formUtils.FindComboBoxItemByText(PositionComboBox, .Item(empConst.empAdminPosStr))
 
-            AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empDestStr))
+            Dim adminPosIndex = -1
+
+            If .Item(empConst.empJobPosStr) = constants.getAdminString Then
+                adminPosIndex = formUtils.FindComboBoxItemByText(PositionComboBox, .Item(empConst.empAdminPosStr))
+            End If
 
             InitCmbDs(sexIndex, civilIndex, contractStatusBoxIndex, jobTypeIndex, adminPosIndex)
+
         End With
 
         ' PROFILE
