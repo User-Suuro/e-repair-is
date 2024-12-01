@@ -23,16 +23,17 @@ Partial Class DummyModal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.QtyTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.ProceedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.QuantityNumeric = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2GroupBox1.SuspendLayout()
+        CType(Me.QuantityNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
         '
-        Me.Guna2GroupBox1.Controls.Add(Me.QtyTextBox)
+        Me.Guna2GroupBox1.Controls.Add(Me.QuantityNumeric)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.ProceedBtn)
         Me.Guna2GroupBox1.Controls.Add(Me.BtnClose)
@@ -46,31 +47,6 @@ Partial Class DummyModal
         Me.Guna2GroupBox1.Size = New System.Drawing.Size(794, 153)
         Me.Guna2GroupBox1.TabIndex = 5
         Me.Guna2GroupBox1.Text = "Generate Dummy Data"
-        '
-        'QtyTextBox
-        '
-        Me.QtyTextBox.BorderRadius = 4
-        Me.QtyTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.QtyTextBox.DefaultText = ""
-        Me.QtyTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.QtyTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.QtyTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QtyTextBox.DisabledState.Parent = Me.QtyTextBox
-        Me.QtyTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QtyTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QtyTextBox.FocusedState.Parent = Me.QtyTextBox
-        Me.QtyTextBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QtyTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QtyTextBox.HoverState.Parent = Me.QtyTextBox
-        Me.QtyTextBox.Location = New System.Drawing.Point(11, 48)
-        Me.QtyTextBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.QtyTextBox.Name = "QtyTextBox"
-        Me.QtyTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QtyTextBox.PlaceholderText = "Please enter the amount to be Generated"
-        Me.QtyTextBox.SelectedText = ""
-        Me.QtyTextBox.ShadowDecoration.Parent = Me.QtyTextBox
-        Me.QtyTextBox.Size = New System.Drawing.Size(776, 38)
-        Me.QtyTextBox.TabIndex = 38
         '
         'Guna2Separator3
         '
@@ -112,25 +88,49 @@ Partial Class DummyModal
         Me.BtnClose.TabIndex = 35
         Me.BtnClose.Text = "Close"
         '
-        'Form1
+        'QuantityNumeric
+        '
+        Me.QuantityNumeric.BackColor = System.Drawing.Color.Transparent
+        Me.QuantityNumeric.BorderRadius = 4
+        Me.QuantityNumeric.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.QuantityNumeric.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.QuantityNumeric.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityNumeric.FocusedState.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuantityNumeric.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.QuantityNumeric.Location = New System.Drawing.Point(12, 49)
+        Me.QuantityNumeric.Name = "QuantityNumeric"
+        Me.QuantityNumeric.ShadowDecoration.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.Size = New System.Drawing.Size(770, 36)
+        Me.QuantityNumeric.TabIndex = 50
+        Me.QuantityNumeric.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.QuantityNumeric.UpDownButtonForeColor = System.Drawing.Color.White
+        '
+        'DummyModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(794, 153)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form1"
+        Me.Name = "DummyModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
+        CType(Me.QuantityNumeric, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
-    Friend WithEvents QtyTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents ProceedBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents QuantityNumeric As Guna.UI2.WinForms.Guna2NumericUpDown
 End Class

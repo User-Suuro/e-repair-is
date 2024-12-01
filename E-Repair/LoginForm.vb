@@ -72,12 +72,13 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        initSuperPanel()
         InitializeVLC()
+    End Sub
 
+    Private Sub initSuperPanel()
         If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
             CreateSuperAdminPanel.Visible = True
-
-
         End If
     End Sub
 
@@ -139,5 +140,7 @@ Public Class LoginForm
              Return Nothing
          End Function
        )
+
+        initSuperPanel()
     End Sub
 End Class
