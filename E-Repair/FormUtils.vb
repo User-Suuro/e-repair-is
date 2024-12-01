@@ -315,7 +315,7 @@ Public Class FormUtils
         Dim listCol As New List(Of String) From {
             custConst.custIDStr,
             custConst.custFirstStr,
-            custConst.custLastStr,
+            custConst.custLastStr
         }
 
         Dim getCustDt As DataTable = dbHelper.GetRowByColValue(listCol, custConst.custTableStr, custConst.custIDStr, customerID)
@@ -363,7 +363,7 @@ Public Class FormUtils
             servConst.svcStatusStr
         }
 
-        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.custIDStr , cu , servConst.svcStatusStr, status).Rows.Count
+        Return dbHelper.GetRowByColWTwoVal(listCol, servConst.svcTableStr, servConst.custIDStr, customerID, servConst.svcStatusStr, status).Rows.Count
 
     End Function
 
