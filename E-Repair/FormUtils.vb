@@ -262,6 +262,7 @@ Public Class FormUtils
             dgv.AutoGenerateColumns = False
             dgv.RowTemplate.Height = rowHeight
             dgv.DataSource = dt.DefaultView
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

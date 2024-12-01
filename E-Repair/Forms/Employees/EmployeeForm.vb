@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports LibVLCSharp.[Shared]
 
 Public Class EmployeeForm
     Dim dbHelper As New DbHelper
@@ -132,17 +133,17 @@ Public Class EmployeeForm
 
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
+        LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
     ' SEARCH CMB
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
-        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
+        LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
     ' SHOW ARCHIVE
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        If finishedLoad Then RefreshForArchive()
+        RefreshForArchive()
     End Sub
 
     Private Sub RefreshForArchive()
@@ -152,14 +153,17 @@ Public Class EmployeeForm
 
     ' LOAD FORM
     Private Sub AdminEmployeesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDataToDGV()
         EmpDGV.ClearSelection()
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
         finishedLoad = True
+        LoadDataToDGV()
     End Sub
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
+
+        If Not finishedLoad Then Exit Sub
+
         With empConst
 
             Dim colValues As New List(Of String) From {

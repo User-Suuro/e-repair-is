@@ -158,6 +158,7 @@
              }
 
             If formUtils.AddRow(.TableName, insertData) Then
+
                 ' update inv
                 Dim updateData As New Dictionary(Of String, Object) From {
                    {invConst.availableQtyStr, quantityResult},
@@ -165,7 +166,32 @@
                 }
 
                 If dbHelper.UpdateRecord(invConst.invTableStr, invConst.invIDStr, selectedID, updateData) Then
-                    Me.Close()
+
+                    Dim currentQtyListCol As New List(Of String) From {
+                        servConst.partsCostStr,
+                        servConst.PartsUsed,
+                        servConst.TotalCost,
+                        servConst.techFeeStr,
+                        servConst.svcIDStr
+                    }
+
+                    ' get current 
+                    Dim currentQty As DataTable = dbHelper.GetRowByColValue(currentQtyListCol, servConst.svcTableStr, servConst.svcIDStr, serviceID)
+
+                    If currentQty.Rows.Count = 0 Then Exit Sub
+
+                    With currentQty.Rows(0)
+
+                        Dim totalPartsUsed = quantity + .Item(servConst.PartsUsed)
+                        Dim totalPartsCost = (costPerItem * quantity) + .Item(servConst.partsCostStr)
+
+                        ' update serv
+                        Dim updateServ As New Dictionary(Of String, Object) From {
+                            {servConst.PartsUsed, totalPartsUsed},
+                            {servConst.partsCostStr, totalPartsCost},
+                            {servConst.TotalCost, .Item(servConst.techFeeStr) + totalPartsCost}
+                        }
+                    End With
                 End If
             End If
         End With
