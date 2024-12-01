@@ -35,7 +35,7 @@
 
     Private Function openModal() As Integer
         Return formUtils.ShowModalWithHandler(
-        Function(id)
+        Function(qty)
             Dim modal As New DummyModal
             Return modal
         End Function,

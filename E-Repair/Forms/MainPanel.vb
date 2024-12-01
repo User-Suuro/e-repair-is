@@ -49,12 +49,12 @@ Public Class MainPanel
         With constants
             Select Case position
                 Case .getSuperAdminString
+                    SettingsBtn.Visible = True
                     SidenavInventoryBtn.Visible = True
                     SidenavSuppliersBtn.Visible = True
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
                     SidenavEmployeesBtn.Visible = True
-                    SettingsBtn.Visible = True
                 Case .getAdminString
                     SidenavInventoryBtn.Visible = True
                     SidenavSuppliersBtn.Visible = True
