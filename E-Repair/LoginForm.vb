@@ -132,6 +132,7 @@ Public Class LoginForm
              Dim modal As New EmployeeAddEditModal
              modal.JobTypeComboBox.SelectedItem = constant.getSuperAdminString
              modal.JobTypeComboBox.Enabled = False
+             modal.createAccMode = True
              Return modal
          End Function,
          -1,

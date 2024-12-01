@@ -46,11 +46,17 @@ Public Class EmployeeAddEditModal
 
     Public Property editMode As Boolean = False
     Public Property selectedID As Integer = -1
-    Public Property createAccMode As Boolean = False
+    Public Property createSuperAdminAccMode As Boolean = False
 
     ' FORM ONLOAD
     Private Sub AdminEmployeeAddModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        InitCmbDs(-1, -1, -1, -1, -1)
+
+        If Not createSuperAdminAccMode Then
+            InitCmbDs(-1, -1, -1, -1, -1)
+        Else
+            InitCmbDs(-1, -1, -1, -1, -1, 0)
+        End If
+
         If editMode Then loadValues()
     End Sub
 
