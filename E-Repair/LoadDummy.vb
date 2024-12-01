@@ -14,6 +14,12 @@
         Dim rnd As New Random()
 
         Dim jobTypes As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr)
+        Dim filteredJobType As New List(Of String)()
+
+        For i As Integer = 1 To jobTypes.Count - 1 ' Start from index 1
+            filteredJobType.Add(jobTypes(i))
+        Next
+
         Dim adminPositions As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
         Dim civilStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
         Dim employmentStatuses As List(Of String) = dbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
@@ -41,7 +47,7 @@
                     Dim addedByID = rnd.Next(1, 100)
                     Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
                     Dim lastAccessed = If(rnd.Next(0, 2) = 0, DateTime.Now.AddDays(-rnd.Next(0, 365)), Nothing)
-                    Dim jobType = jobTypes(rnd.Next(0, jobTypes.Count))
+                    Dim jobType = filteredJobType(rnd.Next(0, filteredJobType.Count))
                     Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
                     Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
                     Dim unavailable = rnd.Next(0, 2) ' 0 or 1
