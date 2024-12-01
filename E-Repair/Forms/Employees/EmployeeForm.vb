@@ -192,8 +192,8 @@ Public Class EmployeeForm
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default
+
         End With
-        ' formUtils.FormatDGVForAddedBy(EmpDGV)
     End Sub
 
     ' BTN CLOSE

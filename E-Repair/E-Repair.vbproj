@@ -177,10 +177,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbConfigModal.Designer.vb">
-      <DependentUpon>DbConfigModal.vb</DependentUpon>
+    <Compile Include="DBConfigModal.Designer.vb">
+      <DependentUpon>DBConfigModal.vb</DependentUpon>
     </Compile>
-    <Compile Include="DbConfigModal.vb">
+    <Compile Include="DBConfigModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DBConstants\CustomersDBConstants.vb" />
@@ -189,12 +189,6 @@
     <Compile Include="DBConstants\ItemsDBConstants.vb" />
     <Compile Include="DBConstants\ServicesDBConstants.vb" />
     <Compile Include="DBConstants\SuppliersDBConstants.vb" />
-    <Compile Include="DummyModal.Designer.vb">
-      <DependentUpon>DummyModal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DummyModal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Customers\CustomerForm.Designer.vb">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </Compile>
@@ -309,6 +303,12 @@
     <Compile Include="Forms\Services\ServiceViewModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Settings\DummyModal.Designer.vb">
+      <DependentUpon>DummyModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\DummyModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Settings\SettingsForm.Designer.vb">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </Compile>
@@ -349,7 +349,6 @@
     <Compile Include="Constants.vb" />
     <Compile Include="DbHelper.vb" />
     <Compile Include="FormUtils.vb" />
-    <Compile Include="LoadDummy.vb" />
     <Compile Include="LoggedUser.vb" />
     <Compile Include="LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
@@ -375,11 +374,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DbConfigModal.resx">
-      <DependentUpon>DbConfigModal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DummyModal.resx">
-      <DependentUpon>DummyModal.vb</DependentUpon>
+    <EmbeddedResource Include="DBConfigModal.resx">
+      <DependentUpon>DBConfigModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\CustomerAddEditModal.resx">
       <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
@@ -437,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Services\ServiceViewModal.resx">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\DummyModal.resx">
+      <DependentUpon>DummyModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>

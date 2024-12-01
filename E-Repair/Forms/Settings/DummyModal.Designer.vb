@@ -43,8 +43,8 @@ Partial Class DummyModal
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(800, 154)
-        Me.Guna2GroupBox1.TabIndex = 4
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(794, 153)
+        Me.Guna2GroupBox1.TabIndex = 5
         Me.Guna2GroupBox1.Text = "Generate Dummy Data"
         '
         'QtyTextBox
@@ -112,16 +112,16 @@ Partial Class DummyModal
         Me.BtnClose.TabIndex = 35
         Me.BtnClose.Text = "Close"
         '
-        'DummyModal
+        'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 154)
+        Me.ClientSize = New System.Drawing.Size(794, 153)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "DummyModal"
+        Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DummyModal"
+        Me.Text = "Form1"
         Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -129,8 +129,8 @@ Partial Class DummyModal
     End Sub
 
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents QtyTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents ProceedBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents QtyTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

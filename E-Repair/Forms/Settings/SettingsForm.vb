@@ -1,6 +1,12 @@
 ﻿Public Class SettingsForm
-    Dim loadDummy As New LoadDummy
+
     Dim formUtils As New FormUtils
+    Dim dbHelper As New DbHelper
+    Dim constants As New Constants
+
+    Dim custConst As New CustomersDBConstants
+    Dim empConst As New EmployeesDBConstants
+
 
     ' MANAGE ENUMS
 
@@ -52,7 +58,7 @@
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        loadDummy.LoadDummyDataToEmployees(getQtyInModal)
+        LoadDummyDataToEmployees(getQtyInModal)
         Cursor = Cursors.Default
     End Sub
 
@@ -62,7 +68,7 @@
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        loadDummy.LoadDummyDataToEmployees(getQtyInModal)
+        LoadDummyDataToEmployees(getQtyInModal)
         Cursor = Cursors.Default
     End Sub
 
@@ -72,7 +78,7 @@
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        loadDummy.LoadDummyDataToSuppliers(getQtyInModal)
+        LoadDummyDataToSuppliers(getQtyInModal)
         Cursor = Cursors.Default
     End Sub
 
@@ -81,7 +87,7 @@
 
         If getQtyInModal = -1 Then Exit Sub
         Cursor = Cursors.WaitCursor
-        loadDummy.LoadDummyDataToServices(getQtyInModal)
+        LoadDummyDataToServices(getQtyInModal)
         Cursor = Cursors.Default
     End Sub
 
@@ -91,9 +97,162 @@
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        loadDummy.LoadDummyDataToInventory(getQtyInModal)
+        LoadDummyDataToInventory(getQtyInModal)
         Cursor = Cursors.Default
     End Sub
 
+    ' LOAD DUMMY FUNCTIONS
+
+    Dim resourcesPath As String = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources")
+    Dim dummyImagePath As String = System.IO.Path.Combine(resourcesPath, "landscape-placeholder-svgrepo-com.png")
+
+
+    Public Function LoadDummyDataToEmployees(numberOfRecords As Integer) As Boolean
+        Dim rnd As New Random()
+
+        Dim jobTypes As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr)
+        Dim filteredJobType As New List(Of String)()
+
+        For i As Integer = 1 To jobTypes.Count - 1 ' Start from index 1
+            filteredJobType.Add(jobTypes(i))
+        Next
+
+        Dim adminPositions As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+        Dim civilStatuses As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empCivilStr)
+        Dim employmentStatuses As List(Of String) = DbHelper.GetEnums(empConst.empTableStr, empConst.empStatusStr)
+
+        Try
+            For i As Integer = 1 To numberOfRecords
+
+                GenerateDummyDataLabel.Text = i
+
+                With empConst
+                    Dim firstName = $"FirstName{i}"
+                    Dim middleName = If(rnd.Next(0, 2) = 0, $"MiddleName{i}", Nothing) ' Optional field
+                    Dim lastName = $"LastName{i}"
+                    Dim sex = If(rnd.Next(0, 2) = 0, "Male", "Female")
+                    Dim birthdate = New Date(1980, 1, 1).AddDays(rnd.Next(0, 15000)) ' Random birthdate
+                    Dim civilStatus = civilStatuses(rnd.Next(0, civilStatuses.Count))
+                    Dim address = $"Address {i}"
+                    Dim contactNumber = $"091234567{i Mod 10}"
+                    Dim employmentStatus = employmentStatuses(rnd.Next(0, employmentStatuses.Count))
+                    Dim dateHired = DateTime.Now.AddDays(-rnd.Next(0, 3650)) ' Hired within the last 10 years
+                    Dim sssNo = If(rnd.Next(0, 2) = 0, $"SSS-{1000000000 + i}", Nothing) ' Optional field
+                    Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
+                    Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
+                    Dim profilePath = $"{dummyImagePath}"
+                    Dim email = $"user{i}@example.com"
+                    Dim pwd = $"password{i}" ' Assume passwords are pre-encrypted
+                    Dim addedBy = $"{formUtils.getEmployeeName(Current.id)}"
+                    Dim addedByID = rnd.Next(1, 100)
+                    Dim dateAdded = DateTime.Now.AddDays(-rnd.Next(0, 365))
+
+                    Dim jobType = filteredJobType(rnd.Next(0, filteredJobType.Count))
+                    Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
+
+                    Dim personnelDestination = $"destination{i}"
+                    Dim unavailable = rnd.Next(0, 2) ' 0 or 1
+
+                    Dim insertData As New Dictionary(Of String, Object) From {
+                      { .empSSSStr, sssNo},' Optional
+                      { .empPagibigStr, pagibigNo}, ' Optional
+                      { .empTINStr, tinNo},  ' Optional
+                      { .empMidStr, middleName}, ' Optional
+                      { .empFirstStr, firstName},
+                      { .empLastStr, lastName},
+                      { .empEmailStr, email},
+                      { .empJobPosStr, jobType},
+                      { .empPassStr, dbHelper.EncryptPassword(pwd, constants.EncryptionKey)},
+                      { .empSexStr, sex},
+                      { .empBirthStr, birthdate},
+                      { .empCivilStr, civilStatus},
+                      { .empAddrStr, address},
+                      { .empContactStr, contactNumber},
+                      { .empStatusStr, employmentStatus},
+                      { .empHiredStr, dateHired},
+                      { .empProfileStr, dummyImagePath}
+                    }
+
+                    If jobType.Equals(constants.getAdminString) Then
+                        ' Admin
+
+                        Dim updateAdminValues As New Dictionary(Of String, Object) From {
+                            { .empAdminPosStr, adminPosition}
+                        }
+
+                        For Each kvp In updateAdminValues
+                            insertData.Add(kvp.Key, kvp.Value)
+                        Next
+
+                    ElseIf jobType.Equals(constants.getUtilityPersonnelString) Then
+
+                        ' Utility
+                        Dim updateUtilityValues As New Dictionary(Of String, Object) From {
+                            { .empDestStr, personnelDestination}
+                        }
+
+                        For Each kvp In updateUtilityValues
+                            insertData.Add(kvp.Key, kvp.Value)
+                        Next
+
+                    End If
+
+                    dbHelper.InsertRecord(empConst.empTableStr, insertData)
+                End With
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        End Try
+
+        MessageBox.Show($"{numberOfRecords} employee records generated successfully!")
+        Return True
+
+    End Function
+
+    Public Function LoadDummyDataToCustomers(numberOfRecords As Integer) As Boolean
+        For i As Integer = 1 To numberOfRecords
+
+            GenerateDummyDataLabel.Text = i
+
+
+
+
+        Next
+
+        MessageBox.Show($"{numberOfRecords} customer records generated successfully!")
+
+        Return True ' return true if successful
+    End Function
+
+    Public Function LoadDummyDataToSuppliers(numberOfRecords As Integer) As Boolean
+
+
+        ' ur code here
+
+
+
+        Return True ' return true if successful
+    End Function
+
+    Public Function LoadDummyDataToServices(numberOfRecords As Integer) As Boolean
+
+
+        ' ur code here
+
+
+
+        Return True ' return true if successful
+    End Function
+
+
+    Public Function LoadDummyDataToInventory(numberOfRecords As Integer) As Boolean
+
+        ' ur code here
+
+
+
+        Return True ' return true if successful
+    End Function
 
 End Class

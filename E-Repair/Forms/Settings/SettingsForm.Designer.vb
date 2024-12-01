@@ -22,10 +22,10 @@ Partial Class SettingsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.EnumDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ITEM_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -46,7 +46,7 @@ Partial Class SettingsForm
         Me.GenerateSupp = New System.Windows.Forms.Button()
         Me.GenerateCust = New System.Windows.Forms.Button()
         Me.GenerateEmp = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GenerateDummyDataLabel = New System.Windows.Forms.Label()
         CType(Me.EnumDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -58,8 +58,8 @@ Partial Class SettingsForm
         '
         Me.EnumDGV.AllowUserToAddRows = False
         Me.EnumDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.EnumDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.EnumDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.EnumDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -68,34 +68,34 @@ Partial Class SettingsForm
         Me.EnumDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EnumDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.EnumDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.EnumDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EnumDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.EnumDGV.ColumnHeadersHeight = 48
         Me.EnumDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_NAME})
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.EnumDGV.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.EnumDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.EnumDGV.EnableHeadersVisualStyles = False
         Me.EnumDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.EnumDGV.Location = New System.Drawing.Point(24, 58)
+        Me.EnumDGV.Location = New System.Drawing.Point(24, 61)
         Me.EnumDGV.Name = "EnumDGV"
         Me.EnumDGV.ReadOnly = True
         Me.EnumDGV.RowHeadersVisible = False
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        Me.EnumDGV.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.EnumDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.EnumDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.EnumDGV.Size = New System.Drawing.Size(956, 528)
+        Me.EnumDGV.Size = New System.Drawing.Size(956, 491)
         Me.EnumDGV.TabIndex = 42
         Me.EnumDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.EnumDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -310,7 +310,7 @@ Partial Class SettingsForm
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Panel5, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.GenerateDummyDataLabel, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(1012, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -425,19 +425,19 @@ Partial Class SettingsForm
         Me.GenerateEmp.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.GenerateEmp.UseVisualStyleBackColor = True
         '
-        'Label1
+        'GenerateDummyDataLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(4, 8, 4, 4)
-        Me.Label1.Size = New System.Drawing.Size(62, 57)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Generate Dummy Data"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.GenerateDummyDataLabel.AutoSize = True
+        Me.GenerateDummyDataLabel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GenerateDummyDataLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GenerateDummyDataLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.GenerateDummyDataLabel.Location = New System.Drawing.Point(3, 0)
+        Me.GenerateDummyDataLabel.Name = "GenerateDummyDataLabel"
+        Me.GenerateDummyDataLabel.Padding = New System.Windows.Forms.Padding(4, 8, 4, 4)
+        Me.GenerateDummyDataLabel.Size = New System.Drawing.Size(62, 57)
+        Me.GenerateDummyDataLabel.TabIndex = 1
+        Me.GenerateDummyDataLabel.Text = "Generate Dummy Data"
+        Me.GenerateDummyDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SettingsForm
         '
@@ -478,6 +478,6 @@ Partial Class SettingsForm
     Friend WithEvents GenerateSupp As Button
     Friend WithEvents GenerateCust As Button
     Friend WithEvents GenerateEmp As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents GenerateDummyDataLabel As Label
     Friend WithEvents GenerateInv As Button
 End Class
