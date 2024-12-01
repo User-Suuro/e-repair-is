@@ -167,7 +167,10 @@ Public Class EmployeeForm
         With empConst
 
             Dim colValues As New List(Of String) From {
-              .empIDStr,
+              .empIDStr, ' exclude
+              .empArchByStr,  ' exclude
+              .empArchDateStr,  ' exclude
+              .empArchStr,  ' exclude
               .empFirstStr,
               .empMidStr,
               .empLastStr,
@@ -186,13 +189,15 @@ Public Class EmployeeForm
                 empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
             End If
 
-            ' exlucde empID to search
+            ' exlucde to search
             colValues.Remove(.empIDStr)
+            colValues.Remove(.empArchStr)
+            colValues.Remove(.empArchDateStr)
+            colValues.Remove(.empArchByStr)
 
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 
             Cursor = Cursors.Default
-
         End With
     End Sub
 
