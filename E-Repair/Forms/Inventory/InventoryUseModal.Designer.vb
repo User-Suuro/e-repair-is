@@ -127,9 +127,9 @@ Partial Class InventoryUseModal
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label6.Location = New System.Drawing.Point(3, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(106, 21)
+        Me.Label6.Size = New System.Drawing.Size(110, 21)
         Me.Label6.TabIndex = 48
-        Me.Label6.Text = "Reason of using"
+        Me.Label6.Text = "Reason for using"
         '
         'ReasonTextBox
         '

@@ -31,7 +31,6 @@ Partial Class InvetoryAddEditModal
         Me.TotalValueTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostPerItemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.QuantityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Guna2Panel8 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -67,6 +66,7 @@ Partial Class InvetoryAddEditModal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ItemNameTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SelectSupplierBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.QuantityUsage = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.ItemDetailsTableLayout.SuspendLayout()
@@ -82,6 +82,7 @@ Partial Class InvetoryAddEditModal
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.QuantityUsage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
@@ -163,10 +164,10 @@ Partial Class InvetoryAddEditModal
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.ItemDetailsTableLayout.Controls.Add(Me.QuantityUsage, 1, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.TotalValueTxtBox, 2, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.CostPerItemTxtBox, 0, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.Label11, 2, 0)
-        Me.ItemDetailsTableLayout.Controls.Add(Me.QuantityTxtBox, 1, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.Label9, 1, 0)
         Me.ItemDetailsTableLayout.Controls.Add(Me.Guna2Panel8, 0, 0)
         Me.ItemDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
@@ -242,32 +243,6 @@ Partial Class InvetoryAddEditModal
         Me.Label11.Size = New System.Drawing.Size(75, 21)
         Me.Label11.TabIndex = 46
         Me.Label11.Text = "Total Value"
-        '
-        'QuantityTxtBox
-        '
-        Me.QuantityTxtBox.BorderRadius = 4
-        Me.QuantityTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.QuantityTxtBox.DefaultText = ""
-        Me.QuantityTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTxtBox.DisabledState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.QuantityTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTxtBox.FocusedState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTxtBox.HoverState.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Location = New System.Drawing.Point(224, 24)
-        Me.QuantityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.QuantityTxtBox.Name = "QuantityTxtBox"
-        Me.QuantityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTxtBox.PlaceholderText = ""
-        Me.QuantityTxtBox.SelectedText = ""
-        Me.QuantityTxtBox.ShadowDecoration.Parent = Me.QuantityTxtBox
-        Me.QuantityTxtBox.Size = New System.Drawing.Size(218, 26)
-        Me.QuantityTxtBox.TabIndex = 45
         '
         'Label9
         '
@@ -835,6 +810,30 @@ Partial Class InvetoryAddEditModal
         Me.SelectSupplierBtn.TabIndex = 42
         Me.SelectSupplierBtn.Text = "Select Supplier"
         '
+        'QuantityUsage
+        '
+        Me.QuantityUsage.BackColor = System.Drawing.Color.Transparent
+        Me.QuantityUsage.BorderRadius = 4
+        Me.QuantityUsage.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.QuantityUsage.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.QuantityUsage.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.QuantityUsage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityUsage.DisabledState.Parent = Me.QuantityUsage
+        Me.QuantityUsage.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.QuantityUsage.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.QuantityUsage.Dock = System.Windows.Forms.DockStyle.Top
+        Me.QuantityUsage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityUsage.FocusedState.Parent = Me.QuantityUsage
+        Me.QuantityUsage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuantityUsage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.QuantityUsage.Location = New System.Drawing.Point(225, 24)
+        Me.QuantityUsage.Name = "QuantityUsage"
+        Me.QuantityUsage.ShadowDecoration.Parent = Me.QuantityUsage
+        Me.QuantityUsage.Size = New System.Drawing.Size(216, 26)
+        Me.QuantityUsage.TabIndex = 50
+        Me.QuantityUsage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.QuantityUsage.UpDownButtonForeColor = System.Drawing.Color.White
+        '
         'InvetoryAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -869,6 +868,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.QuantityUsage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -903,7 +903,6 @@ Partial Class InvetoryAddEditModal
     Friend WithEvents ItemCategoryCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ItemDetailsTableLayout As TableLayoutPanel
-    Friend WithEvents QuantityTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Guna2Panel8 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel9 As Guna.UI2.WinForms.Guna2Panel
@@ -918,4 +917,5 @@ Partial Class InvetoryAddEditModal
     Friend WithEvents Label11 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents SelectSupplierBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents QuantityUsage As Guna.UI2.WinForms.Guna2NumericUpDown
 End Class

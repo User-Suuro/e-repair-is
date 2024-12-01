@@ -7,6 +7,10 @@
     Dim invConst As New InventoryDBConstants
     Dim itemConst As New ItemsDBConstants
 
+    ' CONSTANTS
+    Private initialQty As Integer
+
+
     Private supplierID As Integer = -1
     Private itemName As String = ""
     Private itemCategory As String = ""
@@ -110,7 +114,8 @@
             PhysicalLocationTxtBox.Text = .Item(invConst.physLocStr)
 
             TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
-            QuantityTxtBox.Text = .Item(quantity)
+            QuantityUsage.Value = .Item(quantity)
+            initialQty = .Item(quantity)
         End With
 
     End Sub
@@ -127,8 +132,14 @@
                 { .itemNameStr, itemName},
                 { .itemCatStr, itemCategory},
                 { .hazClassStr, hazardous},
-                { .itemDescStr, itemDesc}
+                { .itemDescStr, itemDesc},
+                { .availableQtyStr, quantity},
+                { .totalCostStr, totalValue},
+                { .costPerItem, costPerItem},
             }
+            ' update restock date
+            If quantity > initialQty Then updateData.Add(.restockDateStr, DateTime.Now())
+
 
             If formUtils.EditRow(.invTableStr, .invIDStr, selectedID, updateData, 2) Then
                 Me.Close()
@@ -223,12 +234,8 @@
     End Sub
 
     ' QUANTITY
-    Private Sub QuantityTxtBox_KeyPressed(sender As Object, e As KeyPressEventArgs) Handles QuantityTxtBox.KeyPress
-        e.Handled = Not formUtils.ValidateIntegerInput(QuantityTxtBox, e)
-    End Sub
-
-    Private Sub QuantityTxtBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTxtBox.TextChanged
-        Integer.TryParse(QuantityTxtBox.Text, quantity)
+    Private Sub QuantityUsage_ValueChanged(sender As Object, e As EventArgs) Handles QuantityUsage.ValueChanged
+        quantity = QuantityUsage.Value
         totalValue = costPerItem * quantity
         TotalValueTxtBox.Text = totalValue
     End Sub

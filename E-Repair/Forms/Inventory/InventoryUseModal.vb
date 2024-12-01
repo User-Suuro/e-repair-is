@@ -36,6 +36,7 @@
 
         With invDT.Rows(0)
             ItemIDTxtBox.Text = selectedID
+
             ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
             costPerItem = .Item(invConst.costPerItem)
             availableQuantity = .Item(invConst.availableQtyStr)
@@ -163,7 +164,7 @@
                    {invConst.totalCostStr, totalCostResult}
                 }
 
-                If dbHelper.UpdateRecord(invConst.invTableStr, invConst.invIDStr, inventoryID, updateData) Then
+                If dbHelper.UpdateRecord(invConst.invTableStr, invConst.invIDStr, selectedID, updateData) Then
                     Me.Close()
                 End If
             End If
