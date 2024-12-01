@@ -47,28 +47,43 @@
     End Function
 
     Private Sub GenerateEmp_Click(sender As Object, e As EventArgs) Handles GenerateEmp.Click
-        If openModal() = -1 Then Exit Sub
-        loadDummy.LoadDummyDataToEmployees(openModal())
+        Dim getQtyInModal As Integer = openModal()
+
+        If getQtyInModal = -1 Then Exit Sub
+
+        loadDummy.LoadDummyDataToEmployees(getQtyInModal)
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
-        If openModal() = -1 Then Exit Sub
-        loadDummy.LoadDummyDataToEmployees(openModal())
+        Dim getQtyInModal As Integer = openModal()
+
+        If getQtyInModal = -1 Then Exit Sub
+
+        loadDummy.LoadDummyDataToEmployees(getQtyInModal)
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
-        If openModal() = -1 Then Exit Sub
-        loadDummy.LoadDummyDataToSuppliers(openModal())
+        Dim getQtyInModal As Integer = openModal()
+
+        If getQtyInModal = -1 Then Exit Sub
+
+        loadDummy.LoadDummyDataToSuppliers(getQtyInModal)
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
-        If openModal() = -1 Then Exit Sub
-        loadDummy.LoadDummyDataToServices(openModal())
+        Dim getQtyInModal As Integer = openModal()
+
+        If getQtyInModal = -1 Then Exit Sub
+
+        loadDummy.LoadDummyDataToServices(getQtyInModal)
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
-        If openModal() = -1 Then Exit Sub
-        loadDummy.LoadDummyDataToInventory(openModal())
+        Dim getQtyInModal As Integer = openModal()
+
+        If getQtyInModal = -1 Then Exit Sub
+
+        loadDummy.LoadDummyDataToInventory(getQtyInModal)
     End Sub
 
 
