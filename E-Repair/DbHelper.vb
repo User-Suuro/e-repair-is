@@ -317,6 +317,7 @@ Public Class DbHelper
         Dim selectedColumns As String = If(columns IsNot Nothing AndAlso columns.Count > 0,
                                        String.Join(", ", columns.Select(Function(c) $"`{c}`")),
                                        "*")
+
         Dim query As String = $"SELECT {selectedColumns} FROM `{tableName}` WHERE `{columnName}` = @value"
 
         Try

@@ -11,14 +11,11 @@ Public Class AdminDashboardForm
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        EmployeesCountLabel.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empArchStr, 0).Rows.Count - 1  ' don't count super admin
-        ServicesNumberLabel.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
-
-        CustomersNumberLabel.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
-        SuppliersNumberLabel.Text = dbHelper.GetRowByValue(supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
-
-
-        ItemsCountLabel.Text = dbHelper.GetRowByValue(invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
+        EmployeesCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count - 1 ' don't count super admin
+        ServicesNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
+        CustomersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
+        SuppliersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
+        ItemsCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
 
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
         Label10.Text = LoggedUser.Current.position

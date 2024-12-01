@@ -158,6 +158,7 @@ Public Class EmployeeForm
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         With empConst
+
             Dim colValues As New List(Of String) From {
               .empIDStr,
               .empFirstStr,
@@ -170,11 +171,15 @@ Public Class EmployeeForm
               .empJobPosStr
             }
 
+            Cursor = Cursors.WaitCursor
+
             If Not techOnly Then
                 empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
             Else
                 empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
             End If
+
+            Cursor = Cursors.Default
 
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 

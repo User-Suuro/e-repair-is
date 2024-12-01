@@ -621,7 +621,7 @@ Public Class FormUtils
     End Function
 
     Public Function GetSuppliedItems(supplierID As Integer) As Integer
-        Dim invSuppDT As DataTable = dbHelper.GetRowByTwoValues(invConst.invTableStr, invConst.supIDStr, supplierID, invConst.archivedStr, False)
+        Dim invSuppDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.invIDStr, supplierID)
         Return CalcIntegerDTCol(invSuppDT, invConst.availableQtyStr)
     End Function
 
