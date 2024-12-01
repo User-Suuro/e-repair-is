@@ -4,9 +4,11 @@
 
     ' Attribute Names
     Private ReadOnly _customerID As String = "customer_id"
+
     Private ReadOnly _firstName As String = "first_name"
     Private ReadOnly _lastName As String = "last_name"
     Private ReadOnly _middleName As String = "middle_name"
+
     Private ReadOnly _contactNumber As String = "contact_number"
     Private ReadOnly _address As String = "address"
     Private ReadOnly _gender As String = "gender"

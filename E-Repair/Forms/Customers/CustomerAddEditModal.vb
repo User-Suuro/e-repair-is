@@ -41,11 +41,11 @@ Public Class CustomerAddEditModal
 
         With custDt.Rows(0)
             FirstNameTxtBox.Text = .Item(custConst.custFirstStr)
-            MiddleNameTxtBox.Text = .Item(custConst.custMidStr)
+            MiddleNameTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custMidStr))
             LastNameTxtBox.Text = .Item(custConst.custLastStr)
-            EmailTxtBox.Text = .Item(custConst.custEmailStr)
-            ContactTxtBox.Text = .Item(custConst.custEmailStr)
-            AddressTxtBox.Text = .Item(custConst.custAddressStr)
+            EmailTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custEmailStr))
+            ContactTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custEmailStr))
+            AddressTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custAddressStr))
 
             Dim genderIndex = formUtils.FindComboBoxItemByText(GenderComboBox, .Item(custConst.custGenderStr))
 

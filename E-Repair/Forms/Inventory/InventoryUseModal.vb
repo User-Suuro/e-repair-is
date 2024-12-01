@@ -43,6 +43,7 @@
 
             CostPerItemTxtBox.Text = costPerItem
             AvailQuantityTxtBox.Text = availableQuantity
+            QuantityUsage.Maximum = availableQuantity
         End With
 
     End Sub
@@ -82,7 +83,6 @@
         End With
 
     End Sub
-
 
     Private Sub QuantityUsage_ValueChanged(sender As Object, e As EventArgs) Handles QuantityUsage.ValueChanged
         quantity = QuantityUsage.Value

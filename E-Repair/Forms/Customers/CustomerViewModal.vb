@@ -23,14 +23,14 @@
 
         With custDt.Rows(0)
             FirstNameTextBox.Text = .Item(custConst.custFirstStr)
-            MiddleNameTextBox.Text = .Item(custConst.custMidStr)
+            MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(custConst.custMidStr))
             LastNameTextBox.Text = .Item(custConst.custLastStr)
 
             GenderTxtBox.Text = .Item(custConst.custGenderStr)
-            EmailTxtBox.Text = .Item(custConst.custEmailStr)
-            ContactNumberTxtBox.Text = .Item(custConst.custContactStr)
+            EmailTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custEmailStr))
+            ContactNumberTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custContactStr))
 
-            AddressTxtBox.Text = .Item(custConst.custAddressStr)
+            AddressTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custAddressStr))
             TotalPaidTxtBox.Text = .Item(custConst.custTotalPaidStr)
             LastTransactionTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custLastTransStr))
 

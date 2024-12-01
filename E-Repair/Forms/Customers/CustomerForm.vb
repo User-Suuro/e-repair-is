@@ -132,10 +132,12 @@ Public Class CustomerForm
                 .custDateAddedStr
             }
 
+            Cursor = Cursors.WaitCursor
 
             customersDt = dbHelper.GetAllData(.custTableStr)
-
             formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+
+            Cursor = Cursors.Default
         End With
     End Sub
 

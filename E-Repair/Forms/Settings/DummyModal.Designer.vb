@@ -23,10 +23,10 @@ Partial Class DummyModal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.QuantityNumeric = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.ProceedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.QuantityNumeric = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2GroupBox1.SuspendLayout()
         CType(Me.QuantityNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,6 +47,30 @@ Partial Class DummyModal
         Me.Guna2GroupBox1.Size = New System.Drawing.Size(794, 153)
         Me.Guna2GroupBox1.TabIndex = 5
         Me.Guna2GroupBox1.Text = "Generate Dummy Data"
+        '
+        'QuantityNumeric
+        '
+        Me.QuantityNumeric.BackColor = System.Drawing.Color.Transparent
+        Me.QuantityNumeric.BorderRadius = 4
+        Me.QuantityNumeric.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.QuantityNumeric.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.QuantityNumeric.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.QuantityNumeric.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.QuantityNumeric.FocusedState.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.QuantityNumeric.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.QuantityNumeric.Location = New System.Drawing.Point(12, 49)
+        Me.QuantityNumeric.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.QuantityNumeric.Name = "QuantityNumeric"
+        Me.QuantityNumeric.ShadowDecoration.Parent = Me.QuantityNumeric
+        Me.QuantityNumeric.Size = New System.Drawing.Size(770, 36)
+        Me.QuantityNumeric.TabIndex = 50
+        Me.QuantityNumeric.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.QuantityNumeric.UpDownButtonForeColor = System.Drawing.Color.White
         '
         'Guna2Separator3
         '
@@ -87,29 +111,6 @@ Partial Class DummyModal
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 35
         Me.BtnClose.Text = "Close"
-        '
-        'QuantityNumeric
-        '
-        Me.QuantityNumeric.BackColor = System.Drawing.Color.Transparent
-        Me.QuantityNumeric.BorderRadius = 4
-        Me.QuantityNumeric.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.QuantityNumeric.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.QuantityNumeric.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.QuantityNumeric.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityNumeric.DisabledState.Parent = Me.QuantityNumeric
-        Me.QuantityNumeric.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.QuantityNumeric.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
-        Me.QuantityNumeric.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityNumeric.FocusedState.Parent = Me.QuantityNumeric
-        Me.QuantityNumeric.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantityNumeric.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.QuantityNumeric.Location = New System.Drawing.Point(12, 49)
-        Me.QuantityNumeric.Name = "QuantityNumeric"
-        Me.QuantityNumeric.ShadowDecoration.Parent = Me.QuantityNumeric
-        Me.QuantityNumeric.Size = New System.Drawing.Size(770, 36)
-        Me.QuantityNumeric.TabIndex = 50
-        Me.QuantityNumeric.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.QuantityNumeric.UpDownButtonForeColor = System.Drawing.Color.White
         '
         'DummyModal
         '

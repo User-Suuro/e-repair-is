@@ -217,6 +217,9 @@
     End Function
 
     Public Function LoadDummyDataToCustomers(numberOfRecords As Integer) As Boolean
+
+        Dim genderEnum As List(Of String) = dbHelper.GetEnums(custConst.custTableStr, custConst.custGenderStr)
+
         Try
             For i As Integer = 1 To numberOfRecords
 
@@ -227,9 +230,8 @@
                     Dim lastName = $"LastName{i}"
                     Dim contactNumber = $"091234567{i Mod 10}"
                     Dim address = $"Address {i}"
-                    Dim gender = If(rnd.Next(0, 2) = 0, "Male", "Female")
+                    Dim gender = genderEnum(rnd.Next(0, genderEnum.Count))
                     Dim email = $"customer{i}@example.com"
-                    Dim totalPaid = Math.Round(rnd.NextDouble() * 10000, 2) ' Random amount
 
                     Dim insertData As New Dictionary(Of String, Object) From {
                        { .custMidStr, middleName}, ' optional
@@ -239,17 +241,12 @@
                        { .custFirstStr, firstName},
                        { .custLastStr, lastName},
                        { .custGenderStr, gender},
-                       { .custDateAddedStr, DateTime.Now()},
                        { .getAddedByName, formUtils.getEmployeeName(Current.id)},
                        { .getAddedByID, Current.id}
                     }
 
-                    dbHelper.InsertRecord("customer", insertData)
-
+                    dbHelper.InsertRecord(custConst.custTableStr, insertData)
                 End With
-
-
-
 
             Next
         Catch ex As Exception
@@ -257,9 +254,7 @@
             Return False
         End Try
 
-
         MessageBox.Show($"{numberOfRecords} customer records generated successfully!")
-
         Return True ' return true if successful
     End Function
 
