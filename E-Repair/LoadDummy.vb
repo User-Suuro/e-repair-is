@@ -49,7 +49,8 @@
 
                     Dim jobType = filteredJobType(rnd.Next(0, filteredJobType.Count))
                     Dim adminPosition = If(jobType = "Admin" OrElse jobType = "Super Admin", adminPositions(rnd.Next(0, adminPositions.Count)), Nothing)
-                    Dim personnelDestination = If(jobType = "Technician", $"Destination {i}", Nothing)
+
+                    Dim personnelDestination = $"destination{i}"
                     Dim unavailable = rnd.Next(0, 2) ' 0 or 1
 
                     Dim insertData As New Dictionary(Of String, Object) From {

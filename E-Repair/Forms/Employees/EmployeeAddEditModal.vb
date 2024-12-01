@@ -144,8 +144,13 @@ Public Class EmployeeAddEditModal
 
             ' UDPDATE FOREIGN VALUES
 
-            If jobType.Equals(constants.getAdminString) Then insertData.Add(.empAdminPosStr, adminPosition)
-            If jobType.Equals(constants.getUtilityPersonnelString) Then insertData.Add(.empDestStr, personnelDestination)
+            If jobType.Equals(constants.getAdminString) Then
+
+            End If
+
+            If jobType.Equals(constants.getUtilityPersonnelString) Then
+                insertData.Add(.empDestStr, personnelDestination)
+            End If
 
             Dim imgData As New List(Of Object) From {
                 .empProfileStr,
