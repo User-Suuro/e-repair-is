@@ -201,27 +201,21 @@ Public Class ServiceForm
 
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
-
         If Not finishedLoad Then Exit Sub
 
         Dim custCol As String = "customer_name"
         Dim techCol As String = "technician_name"
 
         With servConst
-
             Dim searchCols01 As New List(Of String) From {
                 .devModelStr,
-                .devBrandStr,
                 .dateAddedStr,
-                .devTypeStr, ' exclude from search
-                .svcStatusStr,
-                .techFeeStr,
-                .partsCostStr,
-                .paidStr,
-                .svcIDStr,
+                .svcStatusStr, ' exclude from search
                 .dateArchivedStr,
                 .archByStr,
-                .archivedStr
+                .archivedStr,
+                .svcIDStr,
+                .custIDStr
             }
 
             Dim searchCols02 As New List(Of String) From {
@@ -231,6 +225,8 @@ Public Class ServiceForm
                 .svcStatusStr,
                 .svcStatusStr
             }
+
+            Cursor = Cursors.WaitCursor
 
             If pendingOnly Then
                 serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
@@ -242,12 +238,9 @@ Public Class ServiceForm
             searchCols01.Remove(.archivedStr)
             searchCols01.Remove(.dateArchivedStr)
             searchCols01.Remove(.archByStr)
-            searchCols01.Remove(.svcIDStr)
-            searchCols01.Remove(.paidStr)
-            searchCols01.Remove(.partsCostStr)
-            searchCols01.Remove(.techFeeStr)
             searchCols01.Remove(.svcStatusStr)
-            searchCols01.Remove(.devTypeStr)
+            searchCols01.Remove(.custIDStr)
+            searchCols01.Remove(.svcIDStr)
 
             ' Additonal payload
             searchCols01.Add(custCol)
@@ -265,7 +258,6 @@ Public Class ServiceForm
                 MsgBox(ex.Message)
             End Try
 
-
             ' this function is chonky af
             formUtils.LoadToDGVByTwoValues(ServiceDGV,
                                            serviceDT,
@@ -276,6 +268,9 @@ Public Class ServiceForm
                                            SearchComboBox.SelectedIndex,
                                            SearchStatusCmb.SelectedIndex,
                                            ShowArchiveCheckBox)
+
+
+            Cursor = Cursors.Default
         End With
     End Sub
 

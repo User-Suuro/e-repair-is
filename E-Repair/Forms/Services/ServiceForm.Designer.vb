@@ -40,6 +40,15 @@ Partial Class ServiceForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ServiceDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.DeleteServiceBtn = New System.Windows.Forms.Button()
+        Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
+        Me.EditServiceBtn = New System.Windows.Forms.Button()
+        Me.AddServiceBtn = New System.Windows.Forms.Button()
+        Me.ViewServiceBtn = New System.Windows.Forms.Button()
+        Me.ClaimServiceBtn = New System.Windows.Forms.Button()
+        Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.SERVICE_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TECHNICIAN_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,15 +76,6 @@ Partial Class ServiceForm
         Me.ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ARCHIVED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.DeleteServiceBtn = New System.Windows.Forms.Button()
-        Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
-        Me.EditServiceBtn = New System.Windows.Forms.Button()
-        Me.AddServiceBtn = New System.Windows.Forms.Button()
-        Me.ViewServiceBtn = New System.Windows.Forms.Button()
-        Me.ClaimServiceBtn = New System.Windows.Forms.Button()
-        Me.EvaluateServiceBtn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -131,7 +131,7 @@ Partial Class ServiceForm
         Me.SearchComboBox.FormattingEnabled = True
         Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
-        Me.SearchComboBox.Items.AddRange(New Object() {"Customer Name", "Technician Name", "Model", "Device Brand", "Date Commissioned"})
+        Me.SearchComboBox.Items.AddRange(New Object() {"Customer Name", "Technician Name", "Model", "Date Commissioned"})
         Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
         Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
@@ -353,212 +353,6 @@ Partial Class ServiceForm
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.ServiceDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'SERVICE_ID
-        '
-        Me.SERVICE_ID.DataPropertyName = "service_id"
-        Me.SERVICE_ID.HeaderText = "Service ID"
-        Me.SERVICE_ID.Name = "SERVICE_ID"
-        Me.SERVICE_ID.ReadOnly = True
-        Me.SERVICE_ID.Visible = False
-        '
-        'CUSTOMER_ID
-        '
-        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
-        Me.CUSTOMER_ID.HeaderText = "Customer ID"
-        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
-        Me.CUSTOMER_ID.ReadOnly = True
-        Me.CUSTOMER_ID.Visible = False
-        '
-        'TECHNICIAN_ID
-        '
-        Me.TECHNICIAN_ID.DataPropertyName = "technician_id"
-        Me.TECHNICIAN_ID.HeaderText = "Technician ID"
-        Me.TECHNICIAN_ID.Name = "TECHNICIAN_ID"
-        Me.TECHNICIAN_ID.ReadOnly = True
-        Me.TECHNICIAN_ID.Visible = False
-        '
-        'CASHIER_ID
-        '
-        Me.CASHIER_ID.DataPropertyName = "cashier_id"
-        Me.CASHIER_ID.HeaderText = "Cashier ID"
-        Me.CASHIER_ID.Name = "CASHIER_ID"
-        Me.CASHIER_ID.ReadOnly = True
-        Me.CASHIER_ID.Visible = False
-        '
-        'CUSTOMER_NAME
-        '
-        Me.CUSTOMER_NAME.DataPropertyName = "customer_name"
-        Me.CUSTOMER_NAME.HeaderText = "Customer Name"
-        Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
-        Me.CUSTOMER_NAME.ReadOnly = True
-        '
-        'TECHNICIAN_NAME
-        '
-        Me.TECHNICIAN_NAME.DataPropertyName = "technician_name"
-        Me.TECHNICIAN_NAME.HeaderText = "Technician Name"
-        Me.TECHNICIAN_NAME.Name = "TECHNICIAN_NAME"
-        Me.TECHNICIAN_NAME.ReadOnly = True
-        '
-        'DEVICE_TYPE
-        '
-        Me.DEVICE_TYPE.DataPropertyName = "device_type"
-        Me.DEVICE_TYPE.HeaderText = "Device Type"
-        Me.DEVICE_TYPE.Name = "DEVICE_TYPE"
-        Me.DEVICE_TYPE.ReadOnly = True
-        '
-        'DEVICE_MODEL
-        '
-        Me.DEVICE_MODEL.DataPropertyName = "device_model"
-        Me.DEVICE_MODEL.HeaderText = "Model"
-        Me.DEVICE_MODEL.Name = "DEVICE_MODEL"
-        Me.DEVICE_MODEL.ReadOnly = True
-        '
-        'DEVICE_BRAND
-        '
-        Me.DEVICE_BRAND.DataPropertyName = "device_brand"
-        Me.DEVICE_BRAND.HeaderText = "Device Brand"
-        Me.DEVICE_BRAND.Name = "DEVICE_BRAND"
-        Me.DEVICE_BRAND.ReadOnly = True
-        '
-        'OPERATING_SYSTEM
-        '
-        Me.OPERATING_SYSTEM.DataPropertyName = "operating_system"
-        Me.OPERATING_SYSTEM.HeaderText = "Operating System"
-        Me.OPERATING_SYSTEM.Name = "OPERATING_SYSTEM"
-        Me.OPERATING_SYSTEM.ReadOnly = True
-        Me.OPERATING_SYSTEM.Visible = False
-        '
-        'STORAGE_CAPACITY
-        '
-        Me.STORAGE_CAPACITY.DataPropertyName = "storage_capacity"
-        Me.STORAGE_CAPACITY.HeaderText = "Storage Capacity"
-        Me.STORAGE_CAPACITY.Name = "STORAGE_CAPACITY"
-        Me.STORAGE_CAPACITY.ReadOnly = True
-        Me.STORAGE_CAPACITY.Visible = False
-        '
-        'PROBLEM_DESCRIPTION
-        '
-        Me.PROBLEM_DESCRIPTION.DataPropertyName = "problem_description"
-        Me.PROBLEM_DESCRIPTION.HeaderText = "Problem Description"
-        Me.PROBLEM_DESCRIPTION.Name = "PROBLEM_DESCRIPTION"
-        Me.PROBLEM_DESCRIPTION.ReadOnly = True
-        Me.PROBLEM_DESCRIPTION.Visible = False
-        '
-        'REPAIR_NOTES
-        '
-        Me.REPAIR_NOTES.DataPropertyName = "repair_notes"
-        Me.REPAIR_NOTES.HeaderText = "Repair Notes"
-        Me.REPAIR_NOTES.Name = "REPAIR_NOTES"
-        Me.REPAIR_NOTES.ReadOnly = True
-        Me.REPAIR_NOTES.Visible = False
-        '
-        'SERVICE_STATUS
-        '
-        Me.SERVICE_STATUS.DataPropertyName = "service_status"
-        Me.SERVICE_STATUS.HeaderText = "Status"
-        Me.SERVICE_STATUS.Name = "SERVICE_STATUS"
-        Me.SERVICE_STATUS.ReadOnly = True
-        '
-        'TECHNICIAN_FEE
-        '
-        Me.TECHNICIAN_FEE.DataPropertyName = "technician_fee"
-        Me.TECHNICIAN_FEE.HeaderText = "Technician Fee"
-        Me.TECHNICIAN_FEE.Name = "TECHNICIAN_FEE"
-        Me.TECHNICIAN_FEE.ReadOnly = True
-        '
-        'PARTS_COST
-        '
-        Me.PARTS_COST.DataPropertyName = "parts_cost"
-        Me.PARTS_COST.HeaderText = "Parts Cost"
-        Me.PARTS_COST.Name = "PARTS_COST"
-        Me.PARTS_COST.ReadOnly = True
-        '
-        'TOTAL_PAID
-        '
-        Me.TOTAL_PAID.DataPropertyName = "total_paid"
-        Me.TOTAL_PAID.HeaderText = "Total Paid"
-        Me.TOTAL_PAID.Name = "TOTAL_PAID"
-        Me.TOTAL_PAID.ReadOnly = True
-        Me.TOTAL_PAID.Visible = False
-        '
-        'PAID
-        '
-        Me.PAID.DataPropertyName = "paid"
-        Me.PAID.HeaderText = "Payment Status"
-        Me.PAID.Name = "PAID"
-        Me.PAID.ReadOnly = True
-        '
-        'DEVICE_PROFILE_PATH
-        '
-        Me.DEVICE_PROFILE_PATH.DataPropertyName = "device_profile_path"
-        Me.DEVICE_PROFILE_PATH.HeaderText = "Profile Path"
-        Me.DEVICE_PROFILE_PATH.Name = "DEVICE_PROFILE_PATH"
-        Me.DEVICE_PROFILE_PATH.ReadOnly = True
-        Me.DEVICE_PROFILE_PATH.Visible = False
-        '
-        'CUSTOMER_CHANGE
-        '
-        Me.CUSTOMER_CHANGE.DataPropertyName = "customer_change"
-        Me.CUSTOMER_CHANGE.HeaderText = "Change"
-        Me.CUSTOMER_CHANGE.Name = "CUSTOMER_CHANGE"
-        Me.CUSTOMER_CHANGE.ReadOnly = True
-        Me.CUSTOMER_CHANGE.Visible = False
-        '
-        'PAYMENT_METHOD
-        '
-        Me.PAYMENT_METHOD.DataPropertyName = "payment_method"
-        Me.PAYMENT_METHOD.HeaderText = "Payment Method"
-        Me.PAYMENT_METHOD.Name = "PAYMENT_METHOD"
-        Me.PAYMENT_METHOD.ReadOnly = True
-        Me.PAYMENT_METHOD.Visible = False
-        '
-        'DATE_COMPLETED
-        '
-        Me.DATE_COMPLETED.DataPropertyName = "date_completed"
-        Me.DATE_COMPLETED.HeaderText = "Date Completed"
-        Me.DATE_COMPLETED.Name = "DATE_COMPLETED"
-        Me.DATE_COMPLETED.ReadOnly = True
-        Me.DATE_COMPLETED.Visible = False
-        '
-        'DATE_CLAIMED
-        '
-        Me.DATE_CLAIMED.DataPropertyName = "date_claimed"
-        Me.DATE_CLAIMED.HeaderText = "Date Claimed"
-        Me.DATE_CLAIMED.Name = "DATE_CLAIMED"
-        Me.DATE_CLAIMED.ReadOnly = True
-        Me.DATE_CLAIMED.Visible = False
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Commissioned"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived by"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
-        '
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
@@ -724,6 +518,216 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn.UseVisualStyleBackColor = True
         Me.EvaluateServiceBtn.Visible = False
         '
+        'SERVICE_ID
+        '
+        Me.SERVICE_ID.DataPropertyName = "service_id"
+        Me.SERVICE_ID.HeaderText = "Service ID"
+        Me.SERVICE_ID.Name = "SERVICE_ID"
+        Me.SERVICE_ID.ReadOnly = True
+        Me.SERVICE_ID.Visible = False
+        '
+        'CUSTOMER_ID
+        '
+        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
+        Me.CUSTOMER_ID.HeaderText = "Customer ID"
+        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
+        Me.CUSTOMER_ID.ReadOnly = True
+        Me.CUSTOMER_ID.Visible = False
+        '
+        'TECHNICIAN_ID
+        '
+        Me.TECHNICIAN_ID.DataPropertyName = "technician_id"
+        Me.TECHNICIAN_ID.HeaderText = "Technician ID"
+        Me.TECHNICIAN_ID.Name = "TECHNICIAN_ID"
+        Me.TECHNICIAN_ID.ReadOnly = True
+        Me.TECHNICIAN_ID.Visible = False
+        '
+        'CASHIER_ID
+        '
+        Me.CASHIER_ID.DataPropertyName = "cashier_id"
+        Me.CASHIER_ID.HeaderText = "Cashier ID"
+        Me.CASHIER_ID.Name = "CASHIER_ID"
+        Me.CASHIER_ID.ReadOnly = True
+        Me.CASHIER_ID.Visible = False
+        '
+        'CUSTOMER_NAME
+        '
+        Me.CUSTOMER_NAME.DataPropertyName = "customer_name"
+        Me.CUSTOMER_NAME.HeaderText = "Customer Name"
+        Me.CUSTOMER_NAME.Name = "CUSTOMER_NAME"
+        Me.CUSTOMER_NAME.ReadOnly = True
+        '
+        'TECHNICIAN_NAME
+        '
+        Me.TECHNICIAN_NAME.DataPropertyName = "technician_name"
+        Me.TECHNICIAN_NAME.HeaderText = "Technician Name"
+        Me.TECHNICIAN_NAME.Name = "TECHNICIAN_NAME"
+        Me.TECHNICIAN_NAME.ReadOnly = True
+        '
+        'DEVICE_TYPE
+        '
+        Me.DEVICE_TYPE.DataPropertyName = "device_type"
+        Me.DEVICE_TYPE.HeaderText = "Device Type"
+        Me.DEVICE_TYPE.Name = "DEVICE_TYPE"
+        Me.DEVICE_TYPE.ReadOnly = True
+        Me.DEVICE_TYPE.Visible = False
+        '
+        'DEVICE_MODEL
+        '
+        Me.DEVICE_MODEL.DataPropertyName = "device_model"
+        Me.DEVICE_MODEL.HeaderText = "Model"
+        Me.DEVICE_MODEL.Name = "DEVICE_MODEL"
+        Me.DEVICE_MODEL.ReadOnly = True
+        '
+        'DEVICE_BRAND
+        '
+        Me.DEVICE_BRAND.DataPropertyName = "device_brand"
+        Me.DEVICE_BRAND.HeaderText = "Device Brand"
+        Me.DEVICE_BRAND.Name = "DEVICE_BRAND"
+        Me.DEVICE_BRAND.ReadOnly = True
+        Me.DEVICE_BRAND.Visible = False
+        '
+        'OPERATING_SYSTEM
+        '
+        Me.OPERATING_SYSTEM.DataPropertyName = "operating_system"
+        Me.OPERATING_SYSTEM.HeaderText = "Operating System"
+        Me.OPERATING_SYSTEM.Name = "OPERATING_SYSTEM"
+        Me.OPERATING_SYSTEM.ReadOnly = True
+        Me.OPERATING_SYSTEM.Visible = False
+        '
+        'STORAGE_CAPACITY
+        '
+        Me.STORAGE_CAPACITY.DataPropertyName = "storage_capacity"
+        Me.STORAGE_CAPACITY.HeaderText = "Storage Capacity"
+        Me.STORAGE_CAPACITY.Name = "STORAGE_CAPACITY"
+        Me.STORAGE_CAPACITY.ReadOnly = True
+        Me.STORAGE_CAPACITY.Visible = False
+        '
+        'PROBLEM_DESCRIPTION
+        '
+        Me.PROBLEM_DESCRIPTION.DataPropertyName = "problem_description"
+        Me.PROBLEM_DESCRIPTION.HeaderText = "Problem Description"
+        Me.PROBLEM_DESCRIPTION.Name = "PROBLEM_DESCRIPTION"
+        Me.PROBLEM_DESCRIPTION.ReadOnly = True
+        Me.PROBLEM_DESCRIPTION.Visible = False
+        '
+        'REPAIR_NOTES
+        '
+        Me.REPAIR_NOTES.DataPropertyName = "repair_notes"
+        Me.REPAIR_NOTES.HeaderText = "Repair Notes"
+        Me.REPAIR_NOTES.Name = "REPAIR_NOTES"
+        Me.REPAIR_NOTES.ReadOnly = True
+        Me.REPAIR_NOTES.Visible = False
+        '
+        'SERVICE_STATUS
+        '
+        Me.SERVICE_STATUS.DataPropertyName = "service_status"
+        Me.SERVICE_STATUS.HeaderText = "Status"
+        Me.SERVICE_STATUS.Name = "SERVICE_STATUS"
+        Me.SERVICE_STATUS.ReadOnly = True
+        '
+        'TECHNICIAN_FEE
+        '
+        Me.TECHNICIAN_FEE.DataPropertyName = "technician_fee"
+        Me.TECHNICIAN_FEE.HeaderText = "Technician Fee"
+        Me.TECHNICIAN_FEE.Name = "TECHNICIAN_FEE"
+        Me.TECHNICIAN_FEE.ReadOnly = True
+        Me.TECHNICIAN_FEE.Visible = False
+        '
+        'PARTS_COST
+        '
+        Me.PARTS_COST.DataPropertyName = "parts_cost"
+        Me.PARTS_COST.HeaderText = "Parts Cost"
+        Me.PARTS_COST.Name = "PARTS_COST"
+        Me.PARTS_COST.ReadOnly = True
+        Me.PARTS_COST.Visible = False
+        '
+        'TOTAL_PAID
+        '
+        Me.TOTAL_PAID.DataPropertyName = "total_paid"
+        Me.TOTAL_PAID.HeaderText = "Total Paid"
+        Me.TOTAL_PAID.Name = "TOTAL_PAID"
+        Me.TOTAL_PAID.ReadOnly = True
+        Me.TOTAL_PAID.Visible = False
+        '
+        'PAID
+        '
+        Me.PAID.DataPropertyName = "paid"
+        Me.PAID.HeaderText = "Payment Status"
+        Me.PAID.Name = "PAID"
+        Me.PAID.ReadOnly = True
+        '
+        'DEVICE_PROFILE_PATH
+        '
+        Me.DEVICE_PROFILE_PATH.DataPropertyName = "device_profile_path"
+        Me.DEVICE_PROFILE_PATH.HeaderText = "Profile Path"
+        Me.DEVICE_PROFILE_PATH.Name = "DEVICE_PROFILE_PATH"
+        Me.DEVICE_PROFILE_PATH.ReadOnly = True
+        Me.DEVICE_PROFILE_PATH.Visible = False
+        '
+        'CUSTOMER_CHANGE
+        '
+        Me.CUSTOMER_CHANGE.DataPropertyName = "customer_change"
+        Me.CUSTOMER_CHANGE.HeaderText = "Change"
+        Me.CUSTOMER_CHANGE.Name = "CUSTOMER_CHANGE"
+        Me.CUSTOMER_CHANGE.ReadOnly = True
+        Me.CUSTOMER_CHANGE.Visible = False
+        '
+        'PAYMENT_METHOD
+        '
+        Me.PAYMENT_METHOD.DataPropertyName = "payment_method"
+        Me.PAYMENT_METHOD.HeaderText = "Payment Method"
+        Me.PAYMENT_METHOD.Name = "PAYMENT_METHOD"
+        Me.PAYMENT_METHOD.ReadOnly = True
+        Me.PAYMENT_METHOD.Visible = False
+        '
+        'DATE_COMPLETED
+        '
+        Me.DATE_COMPLETED.DataPropertyName = "date_completed"
+        Me.DATE_COMPLETED.HeaderText = "Date Completed"
+        Me.DATE_COMPLETED.Name = "DATE_COMPLETED"
+        Me.DATE_COMPLETED.ReadOnly = True
+        Me.DATE_COMPLETED.Visible = False
+        '
+        'DATE_CLAIMED
+        '
+        Me.DATE_CLAIMED.DataPropertyName = "date_claimed"
+        Me.DATE_CLAIMED.HeaderText = "Date Claimed"
+        Me.DATE_CLAIMED.Name = "DATE_CLAIMED"
+        Me.DATE_CLAIMED.ReadOnly = True
+        Me.DATE_CLAIMED.Visible = False
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Commissioned"
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived by"
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
+        '
         'ServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -772,6 +776,10 @@ Partial Class ServiceForm
     Friend WithEvents ClaimServiceBtn As Button
     Friend WithEvents BtnSelect As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SearchStatusCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents SERVICE_ID As DataGridViewTextBoxColumn
     Friend WithEvents CUSTOMER_ID As DataGridViewTextBoxColumn
     Friend WithEvents TECHNICIAN_ID As DataGridViewTextBoxColumn
@@ -799,8 +807,4 @@ Partial Class ServiceForm
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents SearchStatusCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
 End Class
