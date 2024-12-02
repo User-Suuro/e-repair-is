@@ -7,9 +7,9 @@
 
     Private targetQuantity As Integer = -1
 
-    Public Property selectedTechID As Integer = Nothing
-    Public Property selectedCustID As Integer = Nothing
-    Public Property selectedSuppID As Integer = Nothing
+    Public Property selectedTechID As Integer = -1
+    Public Property selectedCustID As Integer = -1
+    Public Property selectedSuppID As Integer = -1
 
     Private Sub QuantityNumeric_ValueChanged(sender As Object, e As EventArgs) Handles QuantityNumeric.ValueChanged
         targetQuantity = QuantityNumeric.Value

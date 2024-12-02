@@ -51,11 +51,8 @@
 
     ' ADD DATA
     Private Sub AddData()
-        Dim insertData As New Dictionary(Of String, Object)
-        Dim insertItemData As New Dictionary(Of String, Object)
-
         With invConst
-            insertData = New Dictionary(Of String, Object) From {
+            Dim insertData As New Dictionary(Of String, Object) From {
                 { .serialNumStr, serialNumber}, ' optional
                 { .physLocStr, physicalLocation}, ' optional
                 { .supIDStr, supplierID},
@@ -70,12 +67,10 @@
                 { .addedByIDStr, Current.id}
             }
 
+            If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
+                Me.Close()
+            End If
         End With
-
-        If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
-            Me.Close()
-        End If
-
     End Sub
 
     ' LOAD VALUES FOR EDIT

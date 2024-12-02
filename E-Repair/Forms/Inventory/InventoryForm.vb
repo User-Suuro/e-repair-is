@@ -143,6 +143,15 @@ Public Class InventoryForm
         RefForArch()
     End Sub
 
+    'Category
+    'Item Name
+    'Cost per item
+    'Quantity
+    'Physical Location
+    'Total Value
+    'Date Added
+    'Added By
+
     ' LOAD DATA
     Public Sub LoadDataToDGV(Optional searchTerm As String = "")
         If Not finishedLoad Then Exit Sub
@@ -151,18 +160,30 @@ Public Class InventoryForm
             Dim searchValues As New List(Of String) From {
                 .itemCatStr,
                 .itemNameStr,
+                .costPerItem,
                 .availableQtyStr,
                 .physLocStr,
                 .totalCostStr,
                 .dateAddedStr,
-                .addedByIdName
+                .addedByIdName,
+                .totalCostStr,' exclude
+                .invIDStr,
+                .archivedStr,
+                .archByStr,
+                .dateArchivedStr,
             }
 
             If supplierMode Then
                 invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
             Else
-                invDT = dbHelper.GetAllData(.invTableStr)
+                invDT = dbHelper.GetAllByCol(searchValues, .invTableStr)
             End If
+
+            searchValues.Remove(.totalCostStr)
+            searchValues.Remove(.invIDStr)
+            searchValues.Remove(.archivedStr)
+            searchValues.Remove(.archByStr)
+            searchValues.Remove(.dateArchivedStr)
 
             formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
         End With

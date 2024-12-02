@@ -136,6 +136,16 @@ Public Class SettingsForm
 
         If getQtyInModal = -1 Then Exit Sub
 
+        If getCustID = -1 Or getCustID = Nothing Then
+            MsgBox("Please select a customer")
+            Exit Sub
+        End If
+
+        If getTechID = -1 Or getTechID = Nothing Then
+            MsgBox("Please select a technician")
+            Exit Sub
+        End If
+
         Cursor = Cursors.WaitCursor
         LoadDummyDataToServices(getQtyInModal, getCustID, getTechID)
         Cursor = Cursors.Default
@@ -423,17 +433,51 @@ Public Class SettingsForm
 
 
     Public Function LoadDummyDataToInventory(numberOfRecords As Integer, suppID As Integer) As Boolean
+        With invConst
 
-        Try
-            For i As Integer = 1 To numberOfRecords
+            Dim itemCategories = dbHelper.GetEnums(.invTableStr, .itemCatStr)
+            Dim hazardClassifications = dbHelper.GetEnums(.invTableStr, .hazClassStr)
 
+            Try
+                For i As Integer = 1 To numberOfRecords
+                    Dim itemCategory = itemCategories(rnd.Next(0, itemCategories.Count))
 
+                    Dim itemName = $"{itemCategory}-Item-{rnd.Next(1000, 9999)}"
+                    Dim itemDescription = $"This is a description for {itemName}."
 
-            Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        End Try
+                    Dim serialNumber = $"{itemCategory}-SN-{rnd.Next(1000000, 9999999)}"
+                    Dim hazardousClassification = hazardClassifications(rnd.Next(0, hazardClassifications.Count))
+
+                    Dim availableQuantity = rnd.Next(1, 100)
+                    Dim costPerItem = Math.Round(rnd.NextDouble() * 1000 + 100, 2)
+                    Dim totalCost = Math.Round(availableQuantity * costPerItem, 2)
+
+                    Dim physicalLocation = $"Shelf-{rnd.Next(1, 20)}"
+
+                    With invConst
+                        Dim insertData As New Dictionary(Of String, Object) From {
+                            { .serialNumStr, serialNumber}, ' optional
+                            { .physLocStr, physicalLocation}, ' optional
+                            { .supIDStr, suppID},
+                            { .itemNameStr, itemName},
+                            { .itemCatStr, itemCategory},
+                            { .hazClassStr, hazardClassifications},
+                            { .itemDescStr, itemDescription},
+                            { .availableQtyStr, availableQuantity},
+                            { .totalCostStr, totalCost},
+                            { .costPerItem, costPerItem},
+                            { .addedByIdName, formUtils.getEmployeeName(Current.id)},
+                            { .addedByIDStr, Current.id}
+                        }
+
+                        dbHelper.InsertRecord(.invTableStr, insertData)
+                    End With
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+        End With
 
         MessageBox.Show($"{numberOfRecords} inventory records generated successfully!")
         Return True ' return true if successful

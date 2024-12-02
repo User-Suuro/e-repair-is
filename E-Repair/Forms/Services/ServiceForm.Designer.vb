@@ -656,6 +656,7 @@ Partial Class ServiceForm
         Me.PAID.HeaderText = "Payment Status"
         Me.PAID.Name = "PAID"
         Me.PAID.ReadOnly = True
+        Me.PAID.Visible = False
         '
         'DEVICE_PROFILE_PATH
         '
