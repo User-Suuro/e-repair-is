@@ -103,7 +103,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
-        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.getCustomerTitle)
         Dim getQtyInModal As Integer = getReturnedValue.Item1
 
         If getQtyInModal = -1 Then Exit Sub
@@ -115,7 +115,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
-        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.SuppliersTitle)
         Dim getQtyInModal As Integer = getReturnedValue.Item1
 
         If getQtyInModal = -1 Then Exit Sub
@@ -127,7 +127,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
-        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.ServicesTitle)
 
         Dim getQtyInModal As Integer = getReturnedValue.Item1
         Dim getCustID As Integer = getReturnedValue.Item2
@@ -141,7 +141,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
-        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.InventoryTitle)
 
         Dim getQtyInModal As Integer = getReturnedValue.Item1
         Dim selcetedSuppID As Integer = getReturnedValue.Item3

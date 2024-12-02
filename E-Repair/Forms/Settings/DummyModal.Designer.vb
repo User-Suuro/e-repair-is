@@ -114,6 +114,7 @@ Partial Class DummyModal
         Me.SelectSupplierBtn.BorderRadius = 4
         Me.SelectSupplierBtn.CheckedState.Parent = Me.SelectSupplierBtn
         Me.SelectSupplierBtn.CustomImages.Parent = Me.SelectSupplierBtn
+        Me.SelectSupplierBtn.Dock = System.Windows.Forms.DockStyle.Top
         Me.SelectSupplierBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.SelectSupplierBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectSupplierBtn.ForeColor = System.Drawing.Color.White
@@ -158,6 +159,7 @@ Partial Class DummyModal
         Me.SelectTechnicianBtn.BorderRadius = 4
         Me.SelectTechnicianBtn.CheckedState.Parent = Me.SelectTechnicianBtn
         Me.SelectTechnicianBtn.CustomImages.Parent = Me.SelectTechnicianBtn
+        Me.SelectTechnicianBtn.Dock = System.Windows.Forms.DockStyle.Top
         Me.SelectTechnicianBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.SelectTechnicianBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectTechnicianBtn.ForeColor = System.Drawing.Color.White
@@ -202,6 +204,7 @@ Partial Class DummyModal
         Me.SelectCustomerBtn.BorderRadius = 4
         Me.SelectCustomerBtn.CheckedState.Parent = Me.SelectCustomerBtn
         Me.SelectCustomerBtn.CustomImages.Parent = Me.SelectCustomerBtn
+        Me.SelectCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
         Me.SelectCustomerBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.SelectCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectCustomerBtn.ForeColor = System.Drawing.Color.White
@@ -225,6 +228,7 @@ Partial Class DummyModal
         Me.QuantityNumeric.DisabledState.Parent = Me.QuantityNumeric
         Me.QuantityNumeric.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.QuantityNumeric.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.QuantityNumeric.Dock = System.Windows.Forms.DockStyle.Top
         Me.QuantityNumeric.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityNumeric.FocusedState.Parent = Me.QuantityNumeric
         Me.QuantityNumeric.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
