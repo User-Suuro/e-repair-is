@@ -92,6 +92,7 @@ Partial Class CustomerAddEditModal
         Me.CustomerModalGroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.CustomerModalGroupBox.Location = New System.Drawing.Point(0, 0)
         Me.CustomerModalGroupBox.Name = "CustomerModalGroupBox"
+        Me.CustomerModalGroupBox.ShadowDecoration.Parent = Me.CustomerModalGroupBox
         Me.CustomerModalGroupBox.Size = New System.Drawing.Size(864, 393)
         Me.CustomerModalGroupBox.TabIndex = 2
         Me.CustomerModalGroupBox.Text = "Add Customer"
@@ -103,6 +104,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel3.Location = New System.Drawing.Point(19, 259)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel3.TabIndex = 27
         '
@@ -130,6 +132,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel6.Name = "Guna2Panel6"
+        Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(813, 17)
         Me.Guna2Panel6.TabIndex = 41
         '
@@ -165,17 +168,21 @@ Partial Class CustomerAddEditModal
         Me.AddressTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.AddressTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.AddressTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddressTxtBox.DisabledState.Parent = Me.AddressTxtBox
         Me.AddressTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AddressTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.AddressTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddressTxtBox.FocusedState.Parent = Me.AddressTxtBox
         Me.AddressTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddressTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddressTxtBox.HoverState.Parent = Me.AddressTxtBox
         Me.AddressTxtBox.Location = New System.Drawing.Point(2, 20)
         Me.AddressTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.AddressTxtBox.Name = "AddressTxtBox"
         Me.AddressTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTxtBox.PlaceholderText = ""
         Me.AddressTxtBox.SelectedText = ""
+        Me.AddressTxtBox.ShadowDecoration.Parent = Me.AddressTxtBox
         Me.AddressTxtBox.Size = New System.Drawing.Size(809, 26)
         Me.AddressTxtBox.TabIndex = 19
         '
@@ -186,6 +193,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel4.Location = New System.Drawing.Point(19, 192)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel4.TabIndex = 26
         '
@@ -215,6 +223,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel7.Location = New System.Drawing.Point(406, 0)
         Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel7.Name = "Guna2Panel7"
+        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
         Me.Guna2Panel7.Size = New System.Drawing.Size(407, 17)
         Me.Guna2Panel7.TabIndex = 41
         '
@@ -250,6 +259,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel5.Name = "Guna2Panel5"
+        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(406, 17)
         Me.Guna2Panel5.TabIndex = 40
         '
@@ -285,17 +295,21 @@ Partial Class CustomerAddEditModal
         Me.ContactTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.ContactTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.ContactTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ContactTxtBox.DisabledState.Parent = Me.ContactTxtBox
         Me.ContactTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ContactTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.ContactTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ContactTxtBox.FocusedState.Parent = Me.ContactTxtBox
         Me.ContactTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ContactTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ContactTxtBox.HoverState.Parent = Me.ContactTxtBox
         Me.ContactTxtBox.Location = New System.Drawing.Point(408, 20)
         Me.ContactTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ContactTxtBox.Name = "ContactTxtBox"
         Me.ContactTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ContactTxtBox.PlaceholderText = ""
         Me.ContactTxtBox.SelectedText = ""
+        Me.ContactTxtBox.ShadowDecoration.Parent = Me.ContactTxtBox
         Me.ContactTxtBox.Size = New System.Drawing.Size(403, 26)
         Me.ContactTxtBox.TabIndex = 22
         '
@@ -307,17 +321,21 @@ Partial Class CustomerAddEditModal
         Me.EmailTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.EmailTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.EmailTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EmailTxtBox.DisabledState.Parent = Me.EmailTxtBox
         Me.EmailTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.EmailTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.EmailTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EmailTxtBox.FocusedState.Parent = Me.EmailTxtBox
         Me.EmailTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmailTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EmailTxtBox.HoverState.Parent = Me.EmailTxtBox
         Me.EmailTxtBox.Location = New System.Drawing.Point(2, 20)
         Me.EmailTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.EmailTxtBox.Name = "EmailTxtBox"
         Me.EmailTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.EmailTxtBox.PlaceholderText = ""
         Me.EmailTxtBox.SelectedText = ""
+        Me.EmailTxtBox.ShadowDecoration.Parent = Me.EmailTxtBox
         Me.EmailTxtBox.Size = New System.Drawing.Size(402, 26)
         Me.EmailTxtBox.TabIndex = 20
         '
@@ -332,11 +350,15 @@ Partial Class CustomerAddEditModal
         'BtnSave
         '
         Me.BtnSave.BorderRadius = 4
+        Me.BtnSave.CheckedState.Parent = Me.BtnSave
+        Me.BtnSave.CustomImages.Parent = Me.BtnSave
         Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
+        Me.BtnSave.HoverState.Parent = Me.BtnSave
         Me.BtnSave.Location = New System.Drawing.Point(733, 348)
         Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
         Me.BtnSave.Size = New System.Drawing.Size(107, 32)
         Me.BtnSave.TabIndex = 22
         Me.BtnSave.Text = "Save"
@@ -348,6 +370,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel2.Location = New System.Drawing.Point(19, 125)
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel2.TabIndex = 19
         '
@@ -377,17 +400,21 @@ Partial Class CustomerAddEditModal
         Me.GenderOthersTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.GenderOthersTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.GenderOthersTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.GenderOthersTxtBox.DisabledState.Parent = Me.GenderOthersTxtBox
         Me.GenderOthersTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.GenderOthersTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.GenderOthersTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GenderOthersTxtBox.FocusedState.Parent = Me.GenderOthersTxtBox
         Me.GenderOthersTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GenderOthersTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GenderOthersTxtBox.HoverState.Parent = Me.GenderOthersTxtBox
         Me.GenderOthersTxtBox.Location = New System.Drawing.Point(815, 24)
         Me.GenderOthersTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GenderOthersTxtBox.Name = "GenderOthersTxtBox"
         Me.GenderOthersTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.GenderOthersTxtBox.PlaceholderText = ""
         Me.GenderOthersTxtBox.SelectedText = ""
+        Me.GenderOthersTxtBox.ShadowDecoration.Parent = Me.GenderOthersTxtBox
         Me.GenderOthersTxtBox.Size = New System.Drawing.Size(1, 26)
         Me.GenderOthersTxtBox.TabIndex = 21
         '
@@ -421,13 +448,17 @@ Partial Class CustomerAddEditModal
         Me.GenderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.GenderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.GenderComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.GenderComboBox.FocusedState.Parent = Me.GenderComboBox
         Me.GenderComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.GenderComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.GenderComboBox.FormattingEnabled = True
+        Me.GenderComboBox.HoverState.Parent = Me.GenderComboBox
         Me.GenderComboBox.ItemHeight = 20
+        Me.GenderComboBox.ItemsAppearance.Parent = Me.GenderComboBox
         Me.GenderComboBox.Location = New System.Drawing.Point(2, 24)
         Me.GenderComboBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GenderComboBox.Name = "GenderComboBox"
+        Me.GenderComboBox.ShadowDecoration.Parent = Me.GenderComboBox
         Me.GenderComboBox.Size = New System.Drawing.Size(809, 26)
         Me.GenderComboBox.TabIndex = 16
         '
@@ -438,6 +469,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel1.Location = New System.Drawing.Point(19, 58)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel1.TabIndex = 18
         '
@@ -471,6 +503,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel11.Location = New System.Drawing.Point(270, 0)
         Me.Guna2Panel11.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel11.Name = "Guna2Panel11"
+        Me.Guna2Panel11.ShadowDecoration.Parent = Me.Guna2Panel11
         Me.Guna2Panel11.Size = New System.Drawing.Size(271, 21)
         Me.Guna2Panel11.TabIndex = 39
         '
@@ -506,17 +539,21 @@ Partial Class CustomerAddEditModal
         Me.LastNameTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.LastNameTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.LastNameTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.LastNameTxtBox.DisabledState.Parent = Me.LastNameTxtBox
         Me.LastNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.LastNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.LastNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LastNameTxtBox.FocusedState.Parent = Me.LastNameTxtBox
         Me.LastNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LastNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LastNameTxtBox.HoverState.Parent = Me.LastNameTxtBox
         Me.LastNameTxtBox.Location = New System.Drawing.Point(543, 24)
         Me.LastNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.LastNameTxtBox.Name = "LastNameTxtBox"
         Me.LastNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastNameTxtBox.PlaceholderText = ""
         Me.LastNameTxtBox.SelectedText = ""
+        Me.LastNameTxtBox.ShadowDecoration.Parent = Me.LastNameTxtBox
         Me.LastNameTxtBox.Size = New System.Drawing.Size(268, 25)
         Me.LastNameTxtBox.TabIndex = 20
         '
@@ -528,17 +565,21 @@ Partial Class CustomerAddEditModal
         Me.MiddleNameTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.MiddleNameTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.MiddleNameTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.MiddleNameTxtBox.DisabledState.Parent = Me.MiddleNameTxtBox
         Me.MiddleNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.MiddleNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.MiddleNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MiddleNameTxtBox.FocusedState.Parent = Me.MiddleNameTxtBox
         Me.MiddleNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MiddleNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MiddleNameTxtBox.HoverState.Parent = Me.MiddleNameTxtBox
         Me.MiddleNameTxtBox.Location = New System.Drawing.Point(272, 24)
         Me.MiddleNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.MiddleNameTxtBox.Name = "MiddleNameTxtBox"
         Me.MiddleNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.MiddleNameTxtBox.PlaceholderText = ""
         Me.MiddleNameTxtBox.SelectedText = ""
+        Me.MiddleNameTxtBox.ShadowDecoration.Parent = Me.MiddleNameTxtBox
         Me.MiddleNameTxtBox.Size = New System.Drawing.Size(267, 25)
         Me.MiddleNameTxtBox.TabIndex = 19
         '
@@ -572,17 +613,21 @@ Partial Class CustomerAddEditModal
         Me.FirstNameTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.FirstNameTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.FirstNameTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.FirstNameTxtBox.DisabledState.Parent = Me.FirstNameTxtBox
         Me.FirstNameTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.FirstNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.FirstNameTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FirstNameTxtBox.FocusedState.Parent = Me.FirstNameTxtBox
         Me.FirstNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FirstNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FirstNameTxtBox.HoverState.Parent = Me.FirstNameTxtBox
         Me.FirstNameTxtBox.Location = New System.Drawing.Point(2, 24)
         Me.FirstNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.FirstNameTxtBox.Name = "FirstNameTxtBox"
         Me.FirstNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstNameTxtBox.PlaceholderText = ""
         Me.FirstNameTxtBox.SelectedText = ""
+        Me.FirstNameTxtBox.ShadowDecoration.Parent = Me.FirstNameTxtBox
         Me.FirstNameTxtBox.Size = New System.Drawing.Size(266, 25)
         Me.FirstNameTxtBox.TabIndex = 18
         '
@@ -604,27 +649,35 @@ Partial Class CustomerAddEditModal
         Me.Guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.Guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.Guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox2.DisabledState.Parent = Me.Guna2TextBox2
         Me.Guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.Guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.FocusedState.Parent = Me.Guna2TextBox2
         Me.Guna2TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.HoverState.Parent = Me.Guna2TextBox2
         Me.Guna2TextBox2.Location = New System.Drawing.Point(3088, 326)
         Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(64, 45, 64, 45)
         Me.Guna2TextBox2.Name = "Guna2TextBox2"
         Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox2.PlaceholderText = ""
         Me.Guna2TextBox2.SelectedText = ""
+        Me.Guna2TextBox2.ShadowDecoration.Parent = Me.Guna2TextBox2
         Me.Guna2TextBox2.Size = New System.Drawing.Size(1273, 123)
         Me.Guna2TextBox2.TabIndex = 6
         '
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
         Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
         Me.BtnClose.Location = New System.Drawing.Point(19, 349)
         Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 0
         Me.BtnClose.Text = "Close"

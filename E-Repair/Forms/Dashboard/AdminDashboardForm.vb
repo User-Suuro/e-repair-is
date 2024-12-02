@@ -1,4 +1,6 @@
 ﻿
+Imports System.Windows.Forms.DataVisualization.Charting
+
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
@@ -8,6 +10,8 @@ Public Class AdminDashboardForm
     Dim servConst As New ServiceDBConstants
     Dim invConst As New InventoryDBConstants
     Dim supConst As New SuppliersDBConstants
+
+    Dim constants As New Constants
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -24,6 +28,16 @@ Public Class AdminDashboardForm
         Timer2.Enabled = True
         Timer3.Enabled = True
         Timer4.Enabled = True
+
+
+        PositionsChart.Series.Clear()
+        Dim series As New Series("Positions")
+        series.ChartType = SeriesChartType.Bar
+
+        series.Points.AddXY("Admins", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getAdminString).Rows.Count)
+        series.Points.AddXY("Cashier", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getCashierString).Rows.Count)
+        series.Points.AddXY("Technician", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString).Rows.Count)
+        series.Points.AddXY("Utility", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getUtilityPersonnelString).Rows.Count)
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -41,10 +55,6 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
-
-
-
-
 
 
 End Class
