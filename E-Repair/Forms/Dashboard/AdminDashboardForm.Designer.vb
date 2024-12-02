@@ -69,7 +69,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.GenderPieGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
@@ -84,7 +84,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GenderPieGraph, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -477,7 +477,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart2, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.GenderPieGraph, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -523,23 +523,23 @@ Partial Class AdminDashboardForm
         Me.Chart3.TabIndex = 2
         Me.Chart3.Text = "Chart3"
         '
-        'Chart2
+        'GenderPieGraph
         '
         ChartArea3.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea3)
-        Me.Chart2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GenderPieGraph.ChartAreas.Add(ChartArea3)
+        Me.GenderPieGraph.Dock = System.Windows.Forms.DockStyle.Fill
         Legend3.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend3)
-        Me.Chart2.Location = New System.Drawing.Point(559, 3)
-        Me.Chart2.Name = "Chart2"
-        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.GenderPieGraph.Legends.Add(Legend3)
+        Me.GenderPieGraph.Location = New System.Drawing.Point(559, 3)
+        Me.GenderPieGraph.Name = "GenderPieGraph"
+        Me.GenderPieGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Series1"
-        Me.Chart2.Series.Add(Series3)
-        Me.Chart2.Size = New System.Drawing.Size(551, 202)
-        Me.Chart2.TabIndex = 1
-        Me.Chart2.Text = "Chart2"
+        Me.GenderPieGraph.Series.Add(Series3)
+        Me.GenderPieGraph.Size = New System.Drawing.Size(551, 202)
+        Me.GenderPieGraph.TabIndex = 1
+        Me.GenderPieGraph.Text = "Chart2"
         '
         'PositionsChart
         '
@@ -590,7 +590,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GenderPieGraph, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -629,6 +629,6 @@ Partial Class AdminDashboardForm
     Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
     Friend WithEvents Chart4 As DataVisualization.Charting.Chart
     Friend WithEvents Chart3 As DataVisualization.Charting.Chart
-    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents GenderPieGraph As DataVisualization.Charting.Chart
     Friend WithEvents GunaCirclePictureBox1 As Guna.UI.WinForms.GunaCirclePictureBox
 End Class

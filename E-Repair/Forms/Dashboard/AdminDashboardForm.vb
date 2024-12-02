@@ -1,4 +1,5 @@
 ﻿
+Imports System.IO
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class AdminDashboardForm
@@ -13,31 +14,62 @@ Public Class AdminDashboardForm
 
     Dim constants As New Constants
 
-    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub LoadPic()
+        Dim empDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empIDStr, empConst.empProfileStr}, empConst.empTableStr, empConst.empIDStr, Current.id)
 
+        If empDT.Rows.Count = 0 Then Exit Sub
+        Try
+            With empDT.Rows(0)
+
+                If File.Exists(.Item(empConst.empProfileStr)) Then
+                    GunaCirclePictureBox1.Image = Image.FromFile(.Item(empConst.empProfileStr))
+                End If
+
+            End With
+        Catch ex As Exception
+            MsgBox("Unable to load profile picture")
+        End Try
+    End Sub
+
+    Private Sub loadStatus()
         EmployeesCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count - 1 ' don't count super admin
         ServicesNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
         CustomersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
         SuppliersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
         ItemsCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
+    End Sub
 
+    Private Sub loadWelcome()
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
         Label10.Text = LoggedUser.Current.position
+    End Sub
 
+    Private Sub loadTimer()
         Timer1.Enabled = True
         Timer2.Enabled = True
         Timer3.Enabled = True
         Timer4.Enabled = True
+    End Sub
 
-
+    Private Sub loadPositionChart()
         PositionsChart.Series.Clear()
-        Dim series As New Series("Positions")
-        series.ChartType = SeriesChartType.Bar
+        Dim posSeries As New Series("Positions")
+        posSeries.ChartType = SeriesChartType.Bar
 
-        series.Points.AddXY("Admins", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getAdminString).Rows.Count)
-        series.Points.AddXY("Cashier", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getCashierString).Rows.Count)
-        series.Points.AddXY("Technician", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString).Rows.Count)
-        series.Points.AddXY("Utility", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getUtilityPersonnelString).Rows.Count)
+        posSeries.Points.AddXY("Admins", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getAdminString).Rows.Count)
+        posSeries.Points.AddXY("Cashier", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getCashierString).Rows.Count)
+        posSeries.Points.AddXY("Technician", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString).Rows.Count)
+        posSeries.Points.AddXY("Utility", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getUtilityPersonnelString).Rows.Count)
+
+        PositionsChart.Series.Add(posSeries)
+        PositionsChart.Titles.Add("Positions Counts")
+    End Sub
+
+    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadPic()
+        loadStatus()
+        loadWelcome()
+        loadPositionChart()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
