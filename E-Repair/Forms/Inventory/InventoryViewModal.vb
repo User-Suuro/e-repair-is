@@ -4,9 +4,13 @@
 
     Dim invConst As New InventoryDBConstants
     Dim supConst As New SuppliersDBConstants
+
     Dim itemConst As New ItemsDBConstants
 
+    Private supplierID As Integer = -1
+
     Public Property selectedID As Integer = -1
+
     Private Sub InventoryViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadValues()
     End Sub
@@ -22,7 +26,8 @@
         If invDT.Rows.Count = 0 Then Exit Sub
 
         With invDT.Rows(0)
-            Dim supplierID As Integer = .Item(invConst.supIDStr)
+            supplierID = .Item(invConst.supIDStr)
+
             SupplierIDTxtBox.Text = supplierID
             Dim supDT As DataTable = dbHelper.GetRowByValue(supConst.supTableStr, supConst.supIDStr, supplierID)
 
@@ -68,6 +73,21 @@
               Function(id)
                   Dim modal As New SupplierViewModal
                   modal.selectedID = id
+                  Return modal
+              End Function,
+             supplierID,
+              Function(modal)
+                  Return Nothing
+              End Function
+           )
+
+    End Sub
+    Private Sub SeeUsedBtn_Click(sender As Object, e As EventArgs) Handles SeeUsedBtn.Click
+
+        formUtils.ShowModalWithHandler(
+              Function(id)
+                  Dim modal As New InventoryItemModal
+                  modal.inventoryID = id
                   Return modal
               End Function,
              selectedID,
