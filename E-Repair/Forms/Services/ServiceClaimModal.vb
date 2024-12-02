@@ -170,6 +170,8 @@ Public Class ServiceClaimModal
                 Dim workbook = excelApp.Workbooks.Add
                 Dim worksheet = workbook.Sheets(1)
 
+                worksheet.Cells("A1:B1").Merge = True
+
                 worksheet.Cells(1, 1).Value = "Receipt"
                 worksheet.Cells(1, 1).Font.Bold = True
                 worksheet.Cells(1, 1).Font.Size = 16
@@ -204,12 +206,14 @@ Public Class ServiceClaimModal
                 worksheet.Cells(14, 1).Value = "Change Given:"
                 worksheet.Cells(14, 2).Value = .Item(servConst.custChangeStr)
 
+
                 worksheet.Cells(15, 1).Value = "Payment Method:"
                 worksheet.Cells(15, 2).Value = .Item(servConst.payMethodStr)
 
+                worksheet.Cells("A17:B3").Merge = True
                 worksheet.Cells(17, 1).Value = "Parts Details"
                 worksheet.Cells(17, 1).Font.Bold = True
-                worksheet.Cells(17, 1).Font.Size = 16
+                worksheet.Cells(17, 1).Font.Size = 14
 
                 ' Add a header row for item details
                 Dim currentRow As Integer = 18 ' Start row for item details
@@ -233,7 +237,7 @@ Public Class ServiceClaimModal
                 End If
 
                 ' Format the worksheet for better readability
-                worksheet.Columns("A:D").AutoFit()
+                worksheet.Columns().AutoFit()
 
                 ' Save the workbook (you can use your file save logic here)
                 Dim savePath As String = exportUtils.GetSaveFilePath($"Receipt for Service { selectedID }.xlsx", "Excel Files|*.xlsx")

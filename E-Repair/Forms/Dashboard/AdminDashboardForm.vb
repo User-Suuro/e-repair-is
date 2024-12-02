@@ -14,29 +14,50 @@ Public Class AdminDashboardForm
 
     Dim constants As New Constants
 
+    Dim empDT As DataTable
+    Dim servDT As DataTable
+    Dim custDT As DataTable
+    Dim suppDT As DataTable
+    Dim invDT As DataTable
+
+    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Cursor = Cursors.WaitCursor
+        empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr, empConst.empProfileStr}, empConst.empTableStr, empConst.empArchStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
+        suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
+        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        Cursor = Cursors.Default
+
+        LoadPic()
+        loadStatus()
+        loadWelcome()
+        loadPositionChart()
+        loadTimer()
+    End Sub
+
     Private Sub LoadPic()
-        Dim empDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empIDStr, empConst.empProfileStr}, empConst.empTableStr, empConst.empIDStr, Current.id)
+        Dim picRows() As DataRow = empDT.Select($"{empConst.empIDStr} = {Current.id}")
 
-        If empDT.Rows.Count = 0 Then Exit Sub
-        Try
-            With empDT.Rows(0)
+        If picRows.Length > 0 Then
+            Dim row As DataRow = picRows(0)
+            Dim profilePicturePath As String = row(empConst.empProfileStr).ToString()
 
-                If File.Exists(.Item(empConst.empProfileStr)) Then
-                    GunaCirclePictureBox1.Image = Image.FromFile(.Item(empConst.empProfileStr))
-                End If
-
-            End With
-        Catch ex As Exception
-            MsgBox("Unable to load profile picture")
-        End Try
+            If File.Exists(profilePicturePath) Then
+                GunaCirclePictureBox1.Image = Image.FromFile(profilePicturePath)
+            Else
+                MsgBox("Profile picture file does not exist.")
+            End If
+        End If
     End Sub
 
     Private Sub loadStatus()
-        EmployeesCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count - 1 ' don't count super admin
-        ServicesNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0).Rows.Count
-        CustomersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0).Rows.Count
-        SuppliersNumberLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0).Rows.Count
-        ItemsCountLabel.Text = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0).Rows.Count
+        EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
+        ServicesNumberLabel.Text = servDT.Rows.Count
+        CustomersNumberLabel.Text = custDT.Rows.Count
+        SuppliersNumberLabel.Text = suppDT.Rows.Count
+        ItemsCountLabel.Text = invDT.Rows.Count
     End Sub
 
     Private Sub loadWelcome()
@@ -44,32 +65,26 @@ Public Class AdminDashboardForm
         Label10.Text = LoggedUser.Current.position
     End Sub
 
-    Private Sub loadTimer()
-        Timer1.Enabled = True
-        Timer2.Enabled = True
-        Timer3.Enabled = True
-        Timer4.Enabled = True
-    End Sub
 
     Private Sub loadPositionChart()
         PositionsChart.Series.Clear()
         Dim posSeries As New Series("Positions")
         posSeries.ChartType = SeriesChartType.Bar
 
-        posSeries.Points.AddXY("Admins", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getAdminString).Rows.Count)
-        posSeries.Points.AddXY("Cashier", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getCashierString).Rows.Count)
-        posSeries.Points.AddXY("Technician", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString).Rows.Count)
-        posSeries.Points.AddXY("Utility", dbHelper.GetRowByColValue(New List(Of String) From {empConst.empJobPosStr}, empConst.empTableStr, empConst.empJobPosStr, constants.getUtilityPersonnelString).Rows.Count)
+        posSeries.Points.AddXY("Admins", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
+        posSeries.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
+        posSeries.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
+        posSeries.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
 
         PositionsChart.Series.Add(posSeries)
         PositionsChart.Titles.Add("Positions Counts")
     End Sub
 
-    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadPic()
-        loadStatus()
-        loadWelcome()
-        loadPositionChart()
+    Private Sub loadTimer()
+        Timer1.Enabled = True
+        Timer2.Enabled = True
+        Timer3.Enabled = True
+        Timer4.Enabled = True
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
