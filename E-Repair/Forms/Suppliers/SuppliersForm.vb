@@ -122,7 +122,6 @@ Public Class SuppliersForm
                  .compEmailStr,
                  .locationStr,
                  .supContractStr,
-                 .totalPaidStr,
                  .dateAddedStr
             }
 

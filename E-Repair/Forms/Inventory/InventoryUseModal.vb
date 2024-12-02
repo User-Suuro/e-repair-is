@@ -167,6 +167,8 @@
 
                 If dbHelper.UpdateRecord(invConst.invTableStr, invConst.invIDStr, selectedID, updateData) Then
 
+                    ' update serv
+
                     Dim currentQtyListCol As New List(Of String) From {
                         servConst.partsCostStr,
                         servConst.PartsUsed,
@@ -191,6 +193,10 @@
                             {servConst.partsCostStr, totalPartsCost},
                             {servConst.TotalCost, .Item(servConst.techFeeStr) + totalPartsCost}
                         }
+
+                        If dbHelper.UpdateRecord(servConst.svcTableStr, servConst.svcIDStr, serviceID, updateServ) Then
+                            Me.Close()
+                        End If
                     End With
                 End If
             End If
