@@ -223,6 +223,8 @@ Public Class EmployeeForm
 
     Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export table?") Then Exit Sub
+
         With empConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
               { .empIDStr, "Employee ID"},
@@ -239,7 +241,6 @@ Public Class EmployeeForm
               { .empSSSStr, "SSS No."},
               { .empPagibigStr, "Pag-ibig No."},
               { .empTINStr, "Tin No."},
-              { .empProfileStr, "Profile Path"},
               { .empEmailStr, "Email"},
               { .empArchStr, "Archived"},
               { .empArchByStr, "Archived by"},
@@ -260,9 +261,7 @@ Public Class EmployeeForm
                 Exit Sub
             End If
 
-
             exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping)
-
         End With
     End Sub
 

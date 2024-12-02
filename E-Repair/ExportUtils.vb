@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+Imports Microsoft.ReportingServices.Rendering.ExcelRenderer
 
 Public Class ExportUtils
     Public Sub ExportDataTableToExcel(dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String))
@@ -11,8 +12,6 @@ Public Class ExportUtils
 
             ' Initialize Excel application
             excelApp = CreateObject("Excel.Application")
-
-            excelApp.Visible = True
             excelApp.Interactive = False
 
             workBook = excelApp.Workbooks.Add
@@ -49,7 +48,6 @@ Public Class ExportUtils
             workSheet.Rows.AutoFit()
             workSheet.Columns.AutoFit()
             workSheet.Rows(1 & ":" & (dataTable.Rows.Count + 1)).EntireRow.AutoFit()
-
             ' Save to file
             Using saveFileDialog As New SaveFileDialog()
                 saveFileDialog.Filter = "Excel Files|*.xlsx"
@@ -59,14 +57,14 @@ Public Class ExportUtils
                 If saveFileDialog.ShowDialog() = DialogResult.OK Then
                     Dim savePath As String = saveFileDialog.FileName
                     workBook.SaveAs(savePath)
-                    ShowTopMostMessageBox("Data exported successfully to " & savePath, "Success", MessageBoxIcon.Information)
+                    MsgBox("Data exported successfully to " & savePath, "Success", MessageBoxIcon.Information)
                 Else
-                    ShowTopMostMessageBox("Export cancelled.", "Cancelled", MessageBoxIcon.Information)
+                    MsgBox("Export cancelled.", "Cancelled", MessageBoxIcon.Information)
                 End If
             End Using
 
         Catch ex As Exception
-            ShowTopMostMessageBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
+            MsgBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
         Finally
             ' Re-enable user interaction
             If excelApp IsNot Nothing Then excelApp.Interactive = True
@@ -92,7 +90,21 @@ Public Class ExportUtils
     End Sub
 
 
-    Private Sub ShowTopMostMessageBox(message As String, title As String, icon As MessageBoxIcon)
-        MessageBox.Show(message, title, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly)
-    End Sub
+
+    ' Function to open SaveFileDialog
+    Public Function GetSaveFilePath(defaultFileName As String, filter As String) As String
+        Using saveFileDialog As New SaveFileDialog()
+            saveFileDialog.Filter = filter
+            saveFileDialog.Title = "Save File"
+            saveFileDialog.FileName = defaultFileName
+
+            If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                Return saveFileDialog.FileName
+            Else
+                Return String.Empty ' Return empty string if canceled
+            End If
+        End Using
+    End Function
+
+
 End Class

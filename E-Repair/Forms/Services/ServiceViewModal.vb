@@ -77,6 +77,7 @@ Public Class ServiceViewModal
 
             RepairNotesTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.repairNotesStr))
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
+
             PartsCostTxtBoxx.Text = .Item(servConst.partsCostStr)
             TotalCostTxtBox.Text = .Item(servConst.techFeeStr) + .Item(servConst.partsCostStr)
 
@@ -158,7 +159,5 @@ Public Class ServiceViewModal
        )
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 End Class

@@ -46,10 +46,6 @@ Partial Class InventoryItemModal
         Me.ItemsDGV.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.ItemsDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.ItemsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.ItemsDGV.BackgroundColor = System.Drawing.Color.White
-        Me.ItemsDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ItemsDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.ItemsDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -60,6 +56,7 @@ Partial Class InventoryItemModal
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ItemsDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ItemsDGV.ColumnHeadersHeight = 48
+        Me.ItemsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.ItemsDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_ID, Me.SERVICE_ID, Me.INVENTORY_ID, Me.ITEM_NAME, Me.COST, Me.REASON_USED, Me.Used})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
@@ -70,13 +67,11 @@ Partial Class InventoryItemModal
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ItemsDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.ItemsDGV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ItemsDGV.EnableHeadersVisualStyles = False
         Me.ItemsDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.ItemsDGV.Location = New System.Drawing.Point(0, 0)
         Me.ItemsDGV.Name = "ItemsDGV"
         Me.ItemsDGV.ReadOnly = True
         Me.ItemsDGV.RowHeadersVisible = False
-        Me.ItemsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ItemsDGV.Size = New System.Drawing.Size(1009, 529)
         Me.ItemsDGV.TabIndex = 65
         Me.ItemsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
@@ -168,15 +163,11 @@ Partial Class InventoryItemModal
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
         Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
         Me.BtnClose.Location = New System.Drawing.Point(12, 22)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 63
         Me.BtnClose.Text = "Close"

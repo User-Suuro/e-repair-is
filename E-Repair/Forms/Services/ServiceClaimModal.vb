@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Runtime.InteropServices
 
 Public Class ServiceClaimModal
     Dim dbHelper As New DbHelper
@@ -7,6 +8,8 @@ Public Class ServiceClaimModal
     Dim constants As New Constants
     Dim servConst As New ServiceDBConstants
     Dim itemConst As New ItemsDBConstants
+
+    Dim exportUtils As New ExportUtils
 
     Public Property selectedID As Integer = -1
     Private Property totalPaid As Decimal
@@ -146,16 +149,94 @@ Public Class ServiceClaimModal
 
             If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
                 Me.Close()
-                ' to do generate receipt
+
+                ' Generate the Excel receipt
+                GenerateExcelReceipt(updateData)
+
+
             End If
 
         End With
 
     End Sub
+    Private Sub GenerateExcelReceipt(updateData As Dictionary(Of String, Object))
+        Try
+            ' Create a new Excel application
+            Dim excelApp = CreateObject("Excel.Application")
+            Dim workbook = excelApp.Workbooks.Add
+            Dim worksheet = workbook.Sheets(1)
+
+            worksheet.Cells(1, 1).Value = "Receipt"
+            worksheet.Cells(1, 1).Font.Bold = True
+            worksheet.Cells(1, 1).Font.Size = 16
+
+            worksheet.Cells(2, 1).Value = "Service ID:"
+            worksheet.Cells(2, 2).Value = selectedID
+
+            worksheet.Cells(3, 1).Value = "Date Claimed:"
+            worksheet.Cells(3, 2).Value = updateData(servConst.dateClaimedStr).ToString()
+
+            worksheet.Cells(4, 1).Value = "Payment Method:"
+            worksheet.Cells(4, 2).Value = updateData(servConst.payMethodStr).ToString()
+
+            worksheet.Cells(5, 1).Value = "Parts Cost:"
+            worksheet.Cells(5, 2).Value = updateData(servConst.partsCostStr)
+
+            worksheet.Cells(6, 1).Value = "Parts Used:"
+            worksheet.Cells(6, 2).Value = updateData(servConst.PartsUsed).ToString()
+
+            worksheet.Cells(7, 1).Value = "Total Paid:"
+            worksheet.Cells(7, 2).Value = updateData(servConst.totalPaidStr)
+
+            worksheet.Cells(8, 1).Value = "Change Given:"
+            worksheet.Cells(8, 2).Value = updateData(servConst.custChangeStr)
+
+            ' Add a header row for item details
+            Dim currentRow As Integer = 10 ' Start row for item details
+            worksheet.Cells(currentRow, 1).Value = "Item Name"
+            worksheet.Cells(currentRow, 2).Value = "Quantity"
+            worksheet.Cells(currentRow, 3).Value = "Unit Price"
+            worksheet.Cells(currentRow, 4).Value = "Total Price"
+            worksheet.Rows(currentRow).Font.Bold = True
+
+            ' Loop through the items in the DataTable (itemUsedDt)
+            Dim itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.ServiceId, selectedID)
+
+            If itemDT.Rows.Count > 0 Then
+                For Each row As DataRow In itemDT.Rows
+                    currentRow += 1
+                    worksheet.Cells(currentRow, 1).Value = row(itemConst.quantityUsedStr) ' Replace with your column name for "Quantity"
+                    worksheet.Cells(currentRow, 2).Value = row(itemConst.totalCost) ' Replace with your column name for "Unit Price"
+                    worksheet.Cells(currentRow, 3).Value = row(itemConst.reasonUsed)
+                Next
+            End If
+
+            ' Format the worksheet for better readability
+            worksheet.Columns("A:D").AutoFit()
+
+            ' Save the workbook (you can use your file save logic here)
+            Dim savePath As String = exportUtils.GetSaveFilePath($"Receipt for Service: { selectedID }.xlsx", "Excel Files|*.xlsx")
+
+            If Not String.IsNullOrEmpty(savePath) Then
+                workbook.SaveAs(savePath)
+                MsgBox($"Successfully Saved in {savePath}")
+            End If
+
+            workbook.Close()
+            excelApp.Quit()
+
+            ' Release Excel objects
+            Marshal.ReleaseComObject(worksheet)
+            Marshal.ReleaseComObject(workbook)
+            Marshal.ReleaseComObject(excelApp)
+
+        Catch ex As Exception
+            MsgBox("An error occurred while generating the receipt: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class
