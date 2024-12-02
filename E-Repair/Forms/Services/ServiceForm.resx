@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ExportToExcelBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAUtJREFUSEvF
+        lTtOw0AURb0ERIOoQRSsYuaNRKRUNBR0SHRsAtbABtJTsAWL+KMUlGwi2A5KQQ2+8TzNxJ7Y44+UK13Z
+        fr8z9thycFRlkbr6XtJDFtHLIRexetTl/VXE9JXH9NfphN50i7+ySAgzRIaHPRBiA3TIKTwmb8hPKE7y
+        RD41Vre3YhkWEd3plp28IflS3Zqh7W6D6FBTpkiGOK+7SOjZ3ngb4vVIMYQBOtRQsVLXLshkAKgO+f2c
+        nU8KgADhgRg+OQAaDdjEco5Y00IgPxqAIzfZRl2V5+uBgPUH3VQQ2/S+TugCeR44GNCl0QB8WPurr7xJ
+        6R55HmhyPQHl+YKbbPM/wJUr/YqcU409WKkzxOreFZfioYjhbvFz0im3UGgDumQA1WvbKayAm/p4m4pL
+        PaJd23R2am+Wpxe63V/82vlYtxxLQfAPtG7jZ4ntyAYAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="SERVICE_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

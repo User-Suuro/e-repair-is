@@ -26,6 +26,7 @@ Partial Class EmployeeForm
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EmployeeForm))
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -95,7 +96,6 @@ Partial Class EmployeeForm
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.ExportToExcelBtn, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -108,6 +108,7 @@ Partial Class EmployeeForm
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.ExportToExcelBtn)
         Me.Panel3.Controls.Add(Me.DeleteEmployeeBtn)
         Me.Panel3.Controls.Add(Me.ArchiveEmployeeBtn)
         Me.Panel3.Controls.Add(Me.EditEmployeeBtn)
@@ -285,7 +286,7 @@ Partial Class EmployeeForm
         Me.SearchComboBox.ItemHeight = 22
         Me.SearchComboBox.Items.AddRange(New Object() {"First Name", "Middle Name", "Last Name", "Date Hired", "Email", "Last Accessed", "Date Added"})
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
-        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12, 12, 12, 12)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
         Me.SearchComboBox.StartIndex = 0
@@ -650,13 +651,13 @@ Partial Class EmployeeForm
         Me.ExportToExcelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExportToExcelBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExportToExcelBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ExportToExcelBtn.Image = Global.E_Repair.My.Resources.Resources.files_bold
+        Me.ExportToExcelBtn.Image = CType(resources.GetObject("ExportToExcelBtn.Image"), System.Drawing.Image)
         Me.ExportToExcelBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ExportToExcelBtn.Location = New System.Drawing.Point(3, 3)
+        Me.ExportToExcelBtn.Location = New System.Drawing.Point(0, 375)
         Me.ExportToExcelBtn.Name = "ExportToExcelBtn"
         Me.ExportToExcelBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ExportToExcelBtn.Size = New System.Drawing.Size(59, 75)
-        Me.ExportToExcelBtn.TabIndex = 30
+        Me.ExportToExcelBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ExportToExcelBtn.TabIndex = 32
         Me.ExportToExcelBtn.Text = "Report"
         Me.ExportToExcelBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ExportToExcelBtn.UseVisualStyleBackColor = True

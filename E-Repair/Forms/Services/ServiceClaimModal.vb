@@ -151,9 +151,7 @@ Public Class ServiceClaimModal
                 Me.Close()
 
                 ' Generate the Excel receipt
-                GenerateExcelReceipt(updateData)
-
-
+                GenerateExcelReceipt()
             End If
 
         End With
