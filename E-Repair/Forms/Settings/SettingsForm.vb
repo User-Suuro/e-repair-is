@@ -415,6 +415,7 @@ Public Class SettingsForm
             End Try
         End With
 
+        MessageBox.Show($"{numberOfRecords} service records generated successfully!")
         Return True ' return true if successful
     End Function
 
@@ -432,6 +433,7 @@ Public Class SettingsForm
             Return False
         End Try
 
+        MessageBox.Show($"{numberOfRecords} inventory records generated successfully!")
         Return True ' return true if successful
     End Function
 

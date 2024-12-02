@@ -210,11 +210,18 @@ Public Class ServiceForm
         With servConst
 
             Dim searchCols01 As New List(Of String) From {
-                custCol,
-                techCol,
                 .devModelStr,
                 .devBrandStr,
-                .dateAddedStr
+                .dateAddedStr,
+                .devTypeStr, ' exclude from search
+                .svcStatusStr,
+                .techFeeStr,
+                .partsCostStr,
+                .paidStr,
+                .svcIDStr,
+                .dateArchivedStr,
+                .archByStr,
+                .archivedStr
             }
 
             Dim searchCols02 As New List(Of String) From {
@@ -228,10 +235,24 @@ Public Class ServiceForm
             If pendingOnly Then
                 serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
             Else
-                serviceDT = dbHelper.GetAllData(.svcTableStr)
+                serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
             End If
 
+            ' exlucde from search
+            searchCols01.Remove(.archivedStr)
+            searchCols01.Remove(.dateArchivedStr)
+            searchCols01.Remove(.archByStr)
+            searchCols01.Remove(.svcIDStr)
+            searchCols01.Remove(.paidStr)
+            searchCols01.Remove(.partsCostStr)
+            searchCols01.Remove(.techFeeStr)
+            searchCols01.Remove(.svcStatusStr)
+            searchCols01.Remove(.devTypeStr)
+
             ' Additonal payload
+            searchCols01.Add(custCol)
+            searchCols01.Add(techCol)
+
             serviceDT.Columns.Add(custCol, GetType(String))
             serviceDT.Columns.Add(techCol, GetType(String))
 
@@ -260,7 +281,8 @@ Public Class ServiceForm
 
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        LoadDataToDGV(SearchTextBox.Text)
+        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
+
     End Sub
 
     ' INIT CMBDS
@@ -292,7 +314,7 @@ Public Class ServiceForm
         ' for claimed/finished
 
         loadToolsView()
-        LoadDataToDGV()
+        If finishedLoad Then LoadDataToDGV()
     End Sub
 
     Private Sub loadToolsView()
@@ -337,7 +359,7 @@ Public Class ServiceForm
 
     Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
         If ShowArchiveCheckBox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
-        RefForArch()
+        If finishedLoad Then RefForArch()
 
         If ShowArchiveCheckBox.Checked Then
             ClaimServiceBtn.Visible = False
@@ -347,7 +369,7 @@ Public Class ServiceForm
     End Sub
 
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
-        LoadDataToDGV(SearchTextBox.Text)
+        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
