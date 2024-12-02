@@ -80,6 +80,7 @@ Public Class SettingsForm
         Function(qty)
             Dim modal As New DummyModal
             modal.dataToBeGen = dataBeGen
+            modal.Guna2GroupBox1.Text = $"Generate {dataBeGen} Dummy Data"
             Return modal
         End Function,
         -1,
@@ -134,6 +135,7 @@ Public Class SettingsForm
         Dim getTechID As Integer = getReturnedValue.Item4
 
         If getQtyInModal = -1 Then Exit Sub
+
         Cursor = Cursors.WaitCursor
         LoadDummyDataToServices(getQtyInModal, getCustID, getTechID)
         Cursor = Cursors.Default
@@ -363,18 +365,55 @@ Public Class SettingsForm
     End Function
 
     Public Function LoadDummyDataToServices(numberOfRecords As Integer, custID As Integer, techID As Integer) As Boolean
+        With servConst
+            Dim paymentMethods As List(Of String) = dbHelper.GetEnums(.svcTableStr, .payMethodStr)
+            Dim deviceTypes As List(Of String) = dbHelper.GetEnums(.svcTableStr, .devTypeStr)
 
-        Try
-            For i As Integer = 1 To numberOfRecords
+            Try
+                For i As Integer = 1 To numberOfRecords
 
+                    Dim deviceModel = $"Model-{rnd.Next(1000, 9999)}"
 
+                    Dim deviceBrand = $"Brand-{rnd.Next(1, 100)}"
+                    Dim operatingSystem = $"OS-{rnd.Next(1, 15)}"
 
+                    Dim storageCapacity = $"{rnd.Next(16, 512)}GB"
+                    Dim problemDescription = $"Problem-{rnd.Next(1, 100)}"
 
-            Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        End Try
+                    Dim paymentMethod = paymentMethods(rnd.Next(0, paymentMethods.Count))
+                    Dim deviceType = deviceTypes(rnd.Next(0, deviceTypes.Count))
+
+                    Dim insertData As New Dictionary(Of String, Object) From {
+                        { .custIDStr, custID},
+                        { .techIDStr, techID},
+                        { .cashierIDStr, Current.id},
+                        { .devTypeStr, deviceType},
+                        { .devModelStr, deviceModel},
+                        { .devBrandStr, deviceBrand},
+                        { .osStr, operatingSystem},
+                        { .storageCapStr, storageCapacity},
+                        { .probDescStr, problemDescription},
+                        { .getAddedByName, formUtils.getEmployeeName(Current.id)},
+                        { .dateAddedStr, DateTime.Now()},
+                        { .devProfilePathStr, dummyImagePath}
+                    }
+
+                    dbHelper.InsertRecord(.svcTableStr, insertData)
+
+                Next
+
+                ' update cust transaction date
+                Dim updateTransDate As New Dictionary(Of String, Object) From {
+                    {custConst.custLastTransStr, DateTime.Now()}
+                }
+
+                dbHelper.UpdateRecord(custConst.custTableStr, custConst.custIDStr, custID, updateTransDate)
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+        End With
 
         Return True ' return true if successful
     End Function
