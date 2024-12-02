@@ -1652,7 +1652,6 @@ Partial Class ServiceViewModal
         '
         Me.ServiceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ServiceCirclePictureBox.Image = CType(resources.GetObject("ServiceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ServiceCirclePictureBox.ImageRotate = 0!
         Me.ServiceCirclePictureBox.Location = New System.Drawing.Point(839, 230)
         Me.ServiceCirclePictureBox.Name = "ServiceCirclePictureBox"
         Me.ServiceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle

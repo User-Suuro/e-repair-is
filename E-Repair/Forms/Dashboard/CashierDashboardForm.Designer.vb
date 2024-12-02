@@ -317,7 +317,6 @@ Partial Class CashierDashboardForm
         '
         Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.White
         Me.Guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2CirclePictureBox1.ImageRotate = 0!
         Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(8, 0)
         Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
         Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle

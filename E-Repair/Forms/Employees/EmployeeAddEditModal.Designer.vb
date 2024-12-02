@@ -447,7 +447,7 @@ Partial Class EmployeeAddEditModal
         Me.BirthdateDateTimePicker.Checked = True
         Me.BirthdateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Top
         Me.BirthdateDateTimePicker.FillColor = System.Drawing.Color.White
-        Me.BirthdateDateTimePicker.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BirthdateDateTimePicker.Font = New System.Drawing.Font("Arial", 8.25!)
         Me.BirthdateDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.BirthdateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.BirthdateDateTimePicker.Location = New System.Drawing.Point(225, 24)
@@ -1302,7 +1302,6 @@ Partial Class EmployeeAddEditModal
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ProfileCirclePictureBox.Image = CType(resources.GetObject("ProfileCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ProfileCirclePictureBox.ImageRotate = 0!
         Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(700, 78)
         Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
         Me.ProfileCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle

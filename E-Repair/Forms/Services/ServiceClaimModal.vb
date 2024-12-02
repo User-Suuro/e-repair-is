@@ -177,30 +177,42 @@ Public Class ServiceClaimModal
                 worksheet.Cells(2, 1).Value = "Service ID:"
                 worksheet.Cells(2, 2).Value = selectedID
 
-                worksheet.Cells(3, 1).Value = "Date Claimed:"
-                worksheet.Cells(3, 2).Value = .Item(servConst.dateClaimedStr).ToString()
+                worksheet.Cells(4, 1).Value = "Technician ID:"
+                worksheet.Cells(4, 2).Value = .Item(servConst.techIDStr)
 
-                worksheet.Cells(4, 1).Value = "Payment Method:"
-                worksheet.Cells(4, 2).Value = .Item(servConst.payMethodStr).ToString()
+                worksheet.Cells(5, 1).Value = "Technician Name:"
+                worksheet.Cells(5, 2).Value = .Item(servConst.techNameStr)
 
-                worksheet.Cells(5, 1).Value = "Parts Cost:"
-                worksheet.Cells(5, 2).Value = .Item(servConst.partsCostStr)
+                worksheet.Cells(6, 1).Value = "Date Claimed:"
+                worksheet.Cells(6, 2).Value = .Item(servConst.dateClaimedStr)
 
-                worksheet.Cells(6, 1).Value = "Parts Used:"
-                worksheet.Cells(6, 2).Value = .Item(servConst.PartsUsed).ToString()
+                worksheet.Cells(8, 1).Value = "Parts Used:"
+                worksheet.Cells(8, 2).Value = .Item(servConst.PartsUsed)
 
-                worksheet.Cells(7, 1).Value = "Total Paid:"
-                worksheet.Cells(7, 2).Value = .Item(servConst.totalPaidStr)
+                worksheet.Cells(9, 1).Value = "Parts Cost:"
+                worksheet.Cells(9, 2).Value = .Item(servConst.partsCostStr)
 
-                worksheet.Cells(8, 1).Value = "Change Given:"
-                worksheet.Cells(8, 2).Value = .Item(servConst.custChangeStr)
+                worksheet.Cells(10, 1).Value = "Technician Fee:"
+                worksheet.Cells(10, 2).Value = .Item(servConst.totalPaidStr)
 
-                worksheet.Cells(9, 1).Value = "Parts Details"
-                worksheet.Cells(9, 1).Font.Bold = True
-                worksheet.Cells(9, 1).Font.Size = 16
+                worksheet.Cells(11, 1).Value = "Total Cost:"
+                worksheet.Cells(11, 2).Value = .Item(servConst.TotalCost)
+
+                worksheet.Cells(13, 1).Value = "Total Paid:"
+                worksheet.Cells(13, 2).Value = .Item(servConst.totalPaidStr)
+
+                worksheet.Cells(14, 1).Value = "Change Given:"
+                worksheet.Cells(14, 2).Value = .Item(servConst.custChangeStr)
+
+                worksheet.Cells(15, 1).Value = "Payment Method:"
+                worksheet.Cells(15, 2).Value = .Item(servConst.payMethodStr)
+
+                worksheet.Cells(17, 1).Value = "Parts Details"
+                worksheet.Cells(17, 1).Font.Bold = True
+                worksheet.Cells(17, 1).Font.Size = 16
 
                 ' Add a header row for item details
-                Dim currentRow As Integer = 11 ' Start row for item details
+                Dim currentRow As Integer = 18 ' Start row for item details
 
                 worksheet.Cells(currentRow, 1).Value = "Quantity"
                 worksheet.Cells(currentRow, 2).Value = "Total Cost"
