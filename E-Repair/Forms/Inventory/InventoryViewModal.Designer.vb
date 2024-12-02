@@ -45,7 +45,7 @@ Partial Class InventoryViewModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.SeeUsedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.CostPerItemTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.QuantityUsedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -493,7 +493,7 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Guna2Button1, 4, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.SeeUsedBtn, 4, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.CostPerItemTxtBox, 3, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label21, 3, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.QuantityUsedTxtBox, 2, 1)
@@ -511,22 +511,22 @@ Partial Class InventoryViewModal
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(667, 53)
         Me.TableLayoutPanel5.TabIndex = 13
         '
-        'Guna2Button1
+        'SeeUsedBtn
         '
-        Me.Guna2Button1.BorderRadius = 4
-        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Location = New System.Drawing.Point(535, 23)
-        Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Size = New System.Drawing.Size(129, 28)
-        Me.Guna2Button1.TabIndex = 56
-        Me.Guna2Button1.Text = "See Used"
+        Me.SeeUsedBtn.BorderRadius = 4
+        Me.SeeUsedBtn.CheckedState.Parent = Me.SeeUsedBtn
+        Me.SeeUsedBtn.CustomImages.Parent = Me.SeeUsedBtn
+        Me.SeeUsedBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SeeUsedBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeeUsedBtn.ForeColor = System.Drawing.Color.White
+        Me.SeeUsedBtn.HoverState.Parent = Me.SeeUsedBtn
+        Me.SeeUsedBtn.Location = New System.Drawing.Point(535, 23)
+        Me.SeeUsedBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SeeUsedBtn.Name = "SeeUsedBtn"
+        Me.SeeUsedBtn.ShadowDecoration.Parent = Me.SeeUsedBtn
+        Me.SeeUsedBtn.Size = New System.Drawing.Size(129, 28)
+        Me.SeeUsedBtn.TabIndex = 56
+        Me.SeeUsedBtn.Text = "See Used"
         '
         'CostPerItemTxtBox
         '
@@ -1339,6 +1339,6 @@ Partial Class InventoryViewModal
     Friend WithEvents Label21 As Label
     Friend WithEvents QuantityUsedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents SeeUsedBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents CostPerItemTxtBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

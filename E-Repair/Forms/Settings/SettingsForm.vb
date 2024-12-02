@@ -75,21 +75,24 @@ Public Class SettingsForm
 
     ' LOAD DUMMY
 
-    Private Function openModal() As Integer
+    Private Function openModal(dataBeGen As String) As Tuple(Of Integer, Integer, Integer, Integer)
         Return formUtils.ShowModalWithHandler(
         Function(qty)
             Dim modal As New DummyModal
+            modal.dataToBeGen = dataBeGen
             Return modal
         End Function,
         -1,
         Function(modal)
-            Return modal.quantityReturned
+            ' Return multiple values in a tuple
+            Return Tuple.Create(modal.quantityReturned, modal.selectedCustID, modal.selectedSuppID, modal.selectedTechID)
         End Function
         )
     End Function
 
     Private Sub GenerateEmp_Click(sender As Object, e As EventArgs) Handles GenerateEmp.Click
-        Dim getQtyInModal As Integer = openModal()
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getQtyInModal As Integer = getReturnedValue.Item1
 
         If getQtyInModal = -1 Then Exit Sub
 
@@ -100,7 +103,8 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
-        Dim getQtyInModal As Integer = openModal()
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getQtyInModal As Integer = getReturnedValue.Item1
 
         If getQtyInModal = -1 Then Exit Sub
 
@@ -111,7 +115,8 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
-        Dim getQtyInModal As Integer = openModal()
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+        Dim getQtyInModal As Integer = getReturnedValue.Item1
 
         If getQtyInModal = -1 Then Exit Sub
 
@@ -122,22 +127,29 @@ Public Class SettingsForm
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
-        Dim getQtyInModal As Integer = openModal()
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+
+        Dim getQtyInModal As Integer = getReturnedValue.Item1
+        Dim getCustID As Integer = getReturnedValue.Item2
+        Dim getTechID As Integer = getReturnedValue.Item4
 
         If getQtyInModal = -1 Then Exit Sub
         Cursor = Cursors.WaitCursor
-        LoadDummyDataToServices(getQtyInModal)
+        LoadDummyDataToServices(getQtyInModal, getCustID, getTechID)
         Cursor = Cursors.Default
 
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
-        Dim getQtyInModal As Integer = openModal()
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.EmployeesTitle)
+
+        Dim getQtyInModal As Integer = getReturnedValue.Item1
+        Dim selcetedSuppID As Integer = getReturnedValue.Item3
 
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
-        LoadDummyDataToInventory(getQtyInModal)
+        LoadDummyDataToInventory(getQtyInModal, selcetedSuppID)
         Cursor = Cursors.Default
 
     End Sub
@@ -350,7 +362,7 @@ Public Class SettingsForm
         Return True ' return true if successful
     End Function
 
-    Public Function LoadDummyDataToServices(numberOfRecords As Integer) As Boolean
+    Public Function LoadDummyDataToServices(numberOfRecords As Integer, custID As Integer, techID As Integer) As Boolean
 
         Try
             For i As Integer = 1 To numberOfRecords
@@ -368,7 +380,7 @@ Public Class SettingsForm
     End Function
 
 
-    Public Function LoadDummyDataToInventory(numberOfRecords As Integer) As Boolean
+    Public Function LoadDummyDataToInventory(numberOfRecords As Integer, suppID As Integer) As Boolean
 
         Try
             For i As Integer = 1 To numberOfRecords
