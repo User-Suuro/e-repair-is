@@ -260,12 +260,6 @@
     <Compile Include="Forms\Employees\EmployeeForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\EmployeeReportModal.Designer.vb">
-      <DependentUpon>EmployeeReportModal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Employees\EmployeeReportModal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Inventory\InventoryForm.Designer.vb">
       <DependentUpon>InventoryForm.vb</DependentUpon>
     </Compile>
@@ -426,9 +420,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\EmployeeReportModal.resx">
-      <DependentUpon>EmployeeReportModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\InventoryForm.resx">
       <DependentUpon>InventoryForm.vb</DependentUpon>
