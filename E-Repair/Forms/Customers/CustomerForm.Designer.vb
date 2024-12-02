@@ -35,16 +35,13 @@ Partial Class CustomerForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.CustomerDGV = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.DeleteCustomerBtn = New System.Windows.Forms.Button()
         Me.ArchiveCustomerBtn = New System.Windows.Forms.Button()
         Me.EditCustomerBtn = New System.Windows.Forms.Button()
         Me.AddCustomerBtn = New System.Windows.Forms.Button()
         Me.ViewCustomerBtn = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CustomerDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.CUSTOMER_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FIRST_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MIDDLE_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,6 +57,9 @@ Partial Class CustomerForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ADDED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AdminSidenavPanel.SuspendLayout()
@@ -77,12 +77,13 @@ Partial Class CustomerForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ShowArchiveCheckBox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 27)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(15, 33)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(986, 28)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1315, 34)
         Me.TableLayoutPanel1.TabIndex = 36
         '
         'ShowArchiveCheckBox
@@ -93,9 +94,10 @@ Partial Class CustomerForm
         Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
         Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(891, 3)
+        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(1201, 4)
+        Me.ShowArchiveCheckBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
-        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
+        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(110, 26)
         Me.ShowArchiveCheckBox.TabIndex = 30
         Me.ShowArchiveCheckBox.Text = "Show Archive"
         Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
@@ -114,7 +116,7 @@ Partial Class CustomerForm
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(493, 28)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(657, 34)
         Me.Guna2Panel1.TabIndex = 31
         '
         'SearchComboBox
@@ -135,20 +137,21 @@ Partial Class CustomerForm
         Me.SearchComboBox.ItemHeight = 22
         Me.SearchComboBox.Items.AddRange(New Object() {"First Name", "Middle Name", "Last Name", "Contact Number", "Address", "Email", "Date Added"})
         Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
-        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
+        Me.SearchComboBox.Location = New System.Drawing.Point(348, 0)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(16, 15, 16, 15)
         Me.SearchComboBox.Name = "SearchComboBox"
         Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
+        Me.SearchComboBox.Size = New System.Drawing.Size(235, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(245, 0)
+        Me.Panel2.Location = New System.Drawing.Point(327, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(16, 28)
+        Me.Panel2.Size = New System.Drawing.Size(21, 34)
         Me.Panel2.TabIndex = 32
         '
         'SearchTextBox
@@ -167,13 +170,13 @@ Partial Class CustomerForm
         Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SearchTextBox.HoverState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Location = New System.Drawing.Point(0, 0)
-        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 24, 5)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(5, 6, 32, 6)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextBox.PlaceholderText = "Search..."
         Me.SearchTextBox.SelectedText = ""
         Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
-        Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
+        Me.SearchTextBox.Size = New System.Drawing.Size(327, 34)
         Me.SearchTextBox.TabIndex = 31
         '
         'AdminSidenavPanel
@@ -182,9 +185,10 @@ Partial Class CustomerForm
         Me.AdminSidenavPanel.Controls.Add(Me.TableLayoutPanel2)
         Me.AdminSidenavPanel.Controls.Add(Me.Panel1)
         Me.AdminSidenavPanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1015, 0)
+        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1353, 0)
+        Me.AdminSidenavPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
-        Me.AdminSidenavPanel.Size = New System.Drawing.Size(65, 611)
+        Me.AdminSidenavPanel.Size = New System.Drawing.Size(87, 752)
         Me.AdminSidenavPanel.TabIndex = 35
         '
         'TableLayoutPanel2
@@ -193,14 +197,15 @@ Partial Class CustomerForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 611)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(87, 752)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'Panel3
@@ -211,19 +216,117 @@ Partial Class CustomerForm
         Me.Panel3.Controls.Add(Me.AddCustomerBtn)
         Me.Panel3.Controls.Add(Me.ViewCustomerBtn)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 91)
+        Me.Panel3.Location = New System.Drawing.Point(0, 112)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(65, 427)
+        Me.Panel3.Size = New System.Drawing.Size(87, 526)
         Me.Panel3.TabIndex = 0
+        '
+        'DeleteCustomerBtn
+        '
+        Me.DeleteCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DeleteCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.DeleteCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.DeleteCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
+        Me.DeleteCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.DeleteCustomerBtn.Location = New System.Drawing.Point(0, 368)
+        Me.DeleteCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.DeleteCustomerBtn.Name = "DeleteCustomerBtn"
+        Me.DeleteCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.DeleteCustomerBtn.Size = New System.Drawing.Size(87, 92)
+        Me.DeleteCustomerBtn.TabIndex = 29
+        Me.DeleteCustomerBtn.Text = "Delete"
+        Me.DeleteCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.DeleteCustomerBtn.UseVisualStyleBackColor = True
+        Me.DeleteCustomerBtn.Visible = False
+        '
+        'ArchiveCustomerBtn
+        '
+        Me.ArchiveCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ArchiveCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.ArchiveCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ArchiveCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchiveCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ArchiveCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
+        Me.ArchiveCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ArchiveCustomerBtn.Location = New System.Drawing.Point(0, 276)
+        Me.ArchiveCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.ArchiveCustomerBtn.Name = "ArchiveCustomerBtn"
+        Me.ArchiveCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.ArchiveCustomerBtn.Size = New System.Drawing.Size(87, 92)
+        Me.ArchiveCustomerBtn.TabIndex = 28
+        Me.ArchiveCustomerBtn.TabStop = False
+        Me.ArchiveCustomerBtn.Text = "Archive"
+        Me.ArchiveCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ArchiveCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'EditCustomerBtn
+        '
+        Me.EditCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EditCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.EditCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.EditCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
+        Me.EditCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.EditCustomerBtn.Location = New System.Drawing.Point(0, 184)
+        Me.EditCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.EditCustomerBtn.Name = "EditCustomerBtn"
+        Me.EditCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.EditCustomerBtn.Size = New System.Drawing.Size(87, 92)
+        Me.EditCustomerBtn.TabIndex = 27
+        Me.EditCustomerBtn.Text = "Edit"
+        Me.EditCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.EditCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'AddCustomerBtn
+        '
+        Me.AddCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AddCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.AddCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AddCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AddCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
+        Me.AddCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AddCustomerBtn.Location = New System.Drawing.Point(0, 92)
+        Me.AddCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.AddCustomerBtn.Name = "AddCustomerBtn"
+        Me.AddCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.AddCustomerBtn.Size = New System.Drawing.Size(87, 92)
+        Me.AddCustomerBtn.TabIndex = 26
+        Me.AddCustomerBtn.Text = "Add"
+        Me.AddCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AddCustomerBtn.UseVisualStyleBackColor = True
+        '
+        'ViewCustomerBtn
+        '
+        Me.ViewCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ViewCustomerBtn.FlatAppearance.BorderSize = 0
+        Me.ViewCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ViewCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ViewCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
+        Me.ViewCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ViewCustomerBtn.Location = New System.Drawing.Point(0, 0)
+        Me.ViewCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.ViewCustomerBtn.Name = "ViewCustomerBtn"
+        Me.ViewCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.ViewCustomerBtn.Size = New System.Drawing.Size(87, 92)
+        Me.ViewCustomerBtn.TabIndex = 19
+        Me.ViewCustomerBtn.Text = "Details"
+        Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ViewCustomerBtn.UseVisualStyleBackColor = True
         '
         'Panel1
         '
         Me.Panel1.AutoSize = True
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(65, 0)
+        Me.Panel1.Size = New System.Drawing.Size(87, 0)
         Me.Panel1.TabIndex = 0
         '
         'CustomerDGV
@@ -260,14 +363,16 @@ Partial Class CustomerForm
         Me.CustomerDGV.DefaultCellStyle = DataGridViewCellStyle3
         Me.CustomerDGV.EnableHeadersVisualStyles = False
         Me.CustomerDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.CustomerDGV.Location = New System.Drawing.Point(11, 61)
+        Me.CustomerDGV.Location = New System.Drawing.Point(15, 75)
+        Me.CustomerDGV.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerDGV.Name = "CustomerDGV"
         Me.CustomerDGV.ReadOnly = True
         Me.CustomerDGV.RowHeadersVisible = False
+        Me.CustomerDGV.RowHeadersWidth = 51
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.CustomerDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.CustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CustomerDGV.Size = New System.Drawing.Size(986, 497)
+        Me.CustomerDGV.Size = New System.Drawing.Size(1315, 612)
         Me.CustomerDGV.TabIndex = 34
         Me.CustomerDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.CustomerDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -292,6 +397,134 @@ Partial Class CustomerForm
         Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.CustomerDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
+        'CUSTOMER_ID
+        '
+        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
+        Me.CUSTOMER_ID.HeaderText = "Customer ID"
+        Me.CUSTOMER_ID.MinimumWidth = 6
+        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
+        Me.CUSTOMER_ID.ReadOnly = True
+        Me.CUSTOMER_ID.Visible = False
+        '
+        'FIRST_NAME
+        '
+        Me.FIRST_NAME.DataPropertyName = "first_name"
+        Me.FIRST_NAME.HeaderText = "First Name"
+        Me.FIRST_NAME.MinimumWidth = 6
+        Me.FIRST_NAME.Name = "FIRST_NAME"
+        Me.FIRST_NAME.ReadOnly = True
+        '
+        'MIDDLE_NAME
+        '
+        Me.MIDDLE_NAME.DataPropertyName = "middle_name"
+        Me.MIDDLE_NAME.HeaderText = "Middle Name"
+        Me.MIDDLE_NAME.MinimumWidth = 6
+        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
+        Me.MIDDLE_NAME.ReadOnly = True
+        '
+        'LAST_NAME
+        '
+        Me.LAST_NAME.DataPropertyName = "last_name"
+        Me.LAST_NAME.HeaderText = "Last Name"
+        Me.LAST_NAME.MinimumWidth = 6
+        Me.LAST_NAME.Name = "LAST_NAME"
+        Me.LAST_NAME.ReadOnly = True
+        '
+        'CONTACT_NUMBER
+        '
+        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
+        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
+        Me.CONTACT_NUMBER.MinimumWidth = 6
+        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
+        Me.CONTACT_NUMBER.ReadOnly = True
+        '
+        'ADDRESS
+        '
+        Me.ADDRESS.DataPropertyName = "address"
+        Me.ADDRESS.HeaderText = "Address"
+        Me.ADDRESS.MinimumWidth = 6
+        Me.ADDRESS.Name = "ADDRESS"
+        Me.ADDRESS.ReadOnly = True
+        '
+        'GENDER
+        '
+        Me.GENDER.DataPropertyName = "gender"
+        Me.GENDER.HeaderText = "Gender"
+        Me.GENDER.MinimumWidth = 6
+        Me.GENDER.Name = "GENDER"
+        Me.GENDER.ReadOnly = True
+        Me.GENDER.Visible = False
+        '
+        'EMAIL
+        '
+        Me.EMAIL.DataPropertyName = "email"
+        Me.EMAIL.HeaderText = "Email"
+        Me.EMAIL.MinimumWidth = 6
+        Me.EMAIL.Name = "EMAIL"
+        Me.EMAIL.ReadOnly = True
+        '
+        'TOTAL_PAID
+        '
+        Me.TOTAL_PAID.DataPropertyName = "total_paid"
+        Me.TOTAL_PAID.HeaderText = "Total Paid"
+        Me.TOTAL_PAID.MinimumWidth = 6
+        Me.TOTAL_PAID.Name = "TOTAL_PAID"
+        Me.TOTAL_PAID.ReadOnly = True
+        Me.TOTAL_PAID.Visible = False
+        '
+        'LAST_TRANSACTION
+        '
+        Me.LAST_TRANSACTION.DataPropertyName = "last_transaction"
+        Me.LAST_TRANSACTION.HeaderText = "Last Transaction Date"
+        Me.LAST_TRANSACTION.MinimumWidth = 6
+        Me.LAST_TRANSACTION.Name = "LAST_TRANSACTION"
+        Me.LAST_TRANSACTION.ReadOnly = True
+        Me.LAST_TRANSACTION.Visible = False
+        '
+        'ARCHIVED
+        '
+        Me.ARCHIVED.DataPropertyName = "archived"
+        Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.MinimumWidth = 6
+        Me.ARCHIVED.Name = "ARCHIVED"
+        Me.ARCHIVED.ReadOnly = True
+        Me.ARCHIVED.Visible = False
+        '
+        'ARCHIVED_BY
+        '
+        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
+        Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.MinimumWidth = 6
+        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
+        Me.ARCHIVED_BY.ReadOnly = True
+        Me.ARCHIVED_BY.Visible = False
+        '
+        'DATE_ARCHIVED
+        '
+        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
+        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.MinimumWidth = 6
+        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
+        Me.DATE_ARCHIVED.ReadOnly = True
+        Me.DATE_ARCHIVED.Visible = False
+        '
+        'ADDED_BY
+        '
+        Me.ADDED_BY.DataPropertyName = "added_by"
+        Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.MinimumWidth = 6
+        Me.ADDED_BY.Name = "ADDED_BY"
+        Me.ADDED_BY.ReadOnly = True
+        Me.ADDED_BY.Visible = False
+        '
+        'DATE_ADDED
+        '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
+        Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.MinimumWidth = 6
+        Me.DATE_ADDED.Name = "DATE_ADDED"
+        Me.DATE_ADDED.ReadOnly = True
+        '
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
@@ -301,10 +534,11 @@ Partial Class CustomerForm
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
         Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(890, 567)
+        Me.BtnSelect.Location = New System.Drawing.Point(1187, 698)
+        Me.BtnSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnSelect.Name = "BtnSelect"
         Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.Size = New System.Drawing.Size(143, 39)
         Me.BtnSelect.TabIndex = 38
         Me.BtnSelect.Text = "Select"
         Me.BtnSelect.Visible = False
@@ -318,230 +552,27 @@ Partial Class CustomerForm
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 571)
+        Me.BtnClose.Location = New System.Drawing.Point(16, 703)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.Size = New System.Drawing.Size(143, 39)
         Me.BtnClose.TabIndex = 37
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
         '
-        'DeleteCustomerBtn
-        '
-        Me.DeleteCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DeleteCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.DeleteCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.DeleteCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeleteCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.DeleteCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
-        Me.DeleteCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteCustomerBtn.Location = New System.Drawing.Point(0, 300)
-        Me.DeleteCustomerBtn.Name = "DeleteCustomerBtn"
-        Me.DeleteCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.DeleteCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.DeleteCustomerBtn.TabIndex = 29
-        Me.DeleteCustomerBtn.Text = "Delete"
-        Me.DeleteCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.DeleteCustomerBtn.UseVisualStyleBackColor = True
-        Me.DeleteCustomerBtn.Visible = False
-        '
-        'ArchiveCustomerBtn
-        '
-        Me.ArchiveCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ArchiveCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.ArchiveCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ArchiveCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ArchiveCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ArchiveCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
-        Me.ArchiveCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ArchiveCustomerBtn.Location = New System.Drawing.Point(0, 225)
-        Me.ArchiveCustomerBtn.Name = "ArchiveCustomerBtn"
-        Me.ArchiveCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ArchiveCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ArchiveCustomerBtn.TabIndex = 28
-        Me.ArchiveCustomerBtn.TabStop = False
-        Me.ArchiveCustomerBtn.Text = "Archive"
-        Me.ArchiveCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ArchiveCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'EditCustomerBtn
-        '
-        Me.EditCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EditCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.EditCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EditCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
-        Me.EditCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EditCustomerBtn.Location = New System.Drawing.Point(0, 150)
-        Me.EditCustomerBtn.Name = "EditCustomerBtn"
-        Me.EditCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.EditCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.EditCustomerBtn.TabIndex = 27
-        Me.EditCustomerBtn.Text = "Edit"
-        Me.EditCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.EditCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'AddCustomerBtn
-        '
-        Me.AddCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AddCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.AddCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AddCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AddCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
-        Me.AddCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AddCustomerBtn.Location = New System.Drawing.Point(0, 75)
-        Me.AddCustomerBtn.Name = "AddCustomerBtn"
-        Me.AddCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AddCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.AddCustomerBtn.TabIndex = 26
-        Me.AddCustomerBtn.Text = "Add"
-        Me.AddCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.AddCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'ViewCustomerBtn
-        '
-        Me.ViewCustomerBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ViewCustomerBtn.FlatAppearance.BorderSize = 0
-        Me.ViewCustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ViewCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewCustomerBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ViewCustomerBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
-        Me.ViewCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ViewCustomerBtn.Location = New System.Drawing.Point(0, 0)
-        Me.ViewCustomerBtn.Name = "ViewCustomerBtn"
-        Me.ViewCustomerBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ViewCustomerBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ViewCustomerBtn.TabIndex = 19
-        Me.ViewCustomerBtn.Text = "Details"
-        Me.ViewCustomerBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ViewCustomerBtn.UseVisualStyleBackColor = True
-        '
-        'CUSTOMER_ID
-        '
-        Me.CUSTOMER_ID.DataPropertyName = "customer_id"
-        Me.CUSTOMER_ID.HeaderText = "Customer ID"
-        Me.CUSTOMER_ID.Name = "CUSTOMER_ID"
-        Me.CUSTOMER_ID.ReadOnly = True
-        Me.CUSTOMER_ID.Visible = False
-        '
-        'FIRST_NAME
-        '
-        Me.FIRST_NAME.DataPropertyName = "first_name"
-        Me.FIRST_NAME.HeaderText = "First Name"
-        Me.FIRST_NAME.Name = "FIRST_NAME"
-        Me.FIRST_NAME.ReadOnly = True
-        '
-        'MIDDLE_NAME
-        '
-        Me.MIDDLE_NAME.DataPropertyName = "middle_name"
-        Me.MIDDLE_NAME.HeaderText = "Middle Name"
-        Me.MIDDLE_NAME.Name = "MIDDLE_NAME"
-        Me.MIDDLE_NAME.ReadOnly = True
-        '
-        'LAST_NAME
-        '
-        Me.LAST_NAME.DataPropertyName = "last_name"
-        Me.LAST_NAME.HeaderText = "Last Name"
-        Me.LAST_NAME.Name = "LAST_NAME"
-        Me.LAST_NAME.ReadOnly = True
-        '
-        'CONTACT_NUMBER
-        '
-        Me.CONTACT_NUMBER.DataPropertyName = "contact_number"
-        Me.CONTACT_NUMBER.HeaderText = "Contact Number"
-        Me.CONTACT_NUMBER.Name = "CONTACT_NUMBER"
-        Me.CONTACT_NUMBER.ReadOnly = True
-        '
-        'ADDRESS
-        '
-        Me.ADDRESS.DataPropertyName = "address"
-        Me.ADDRESS.HeaderText = "Address"
-        Me.ADDRESS.Name = "ADDRESS"
-        Me.ADDRESS.ReadOnly = True
-        '
-        'GENDER
-        '
-        Me.GENDER.DataPropertyName = "gender"
-        Me.GENDER.HeaderText = "Gender"
-        Me.GENDER.Name = "GENDER"
-        Me.GENDER.ReadOnly = True
-        Me.GENDER.Visible = False
-        '
-        'EMAIL
-        '
-        Me.EMAIL.DataPropertyName = "email"
-        Me.EMAIL.HeaderText = "Email"
-        Me.EMAIL.Name = "EMAIL"
-        Me.EMAIL.ReadOnly = True
-        '
-        'TOTAL_PAID
-        '
-        Me.TOTAL_PAID.DataPropertyName = "total_paid"
-        Me.TOTAL_PAID.HeaderText = "Total Paid"
-        Me.TOTAL_PAID.Name = "TOTAL_PAID"
-        Me.TOTAL_PAID.ReadOnly = True
-        Me.TOTAL_PAID.Visible = False
-        '
-        'LAST_TRANSACTION
-        '
-        Me.LAST_TRANSACTION.DataPropertyName = "last_transaction"
-        Me.LAST_TRANSACTION.HeaderText = "Last Transaction Date"
-        Me.LAST_TRANSACTION.Name = "LAST_TRANSACTION"
-        Me.LAST_TRANSACTION.ReadOnly = True
-        Me.LAST_TRANSACTION.Visible = False
-        '
-        'ARCHIVED
-        '
-        Me.ARCHIVED.DataPropertyName = "archived"
-        Me.ARCHIVED.HeaderText = "Archived"
-        Me.ARCHIVED.Name = "ARCHIVED"
-        Me.ARCHIVED.ReadOnly = True
-        Me.ARCHIVED.Visible = False
-        '
-        'ARCHIVED_BY
-        '
-        Me.ARCHIVED_BY.DataPropertyName = "archived_by"
-        Me.ARCHIVED_BY.HeaderText = "Archived By"
-        Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
-        Me.ARCHIVED_BY.ReadOnly = True
-        Me.ARCHIVED_BY.Visible = False
-        '
-        'DATE_ARCHIVED
-        '
-        Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
-        Me.DATE_ARCHIVED.HeaderText = "Date Archived"
-        Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
-        Me.DATE_ARCHIVED.ReadOnly = True
-        Me.DATE_ARCHIVED.Visible = False
-        '
-        'ADDED_BY
-        '
-        Me.ADDED_BY.DataPropertyName = "added_by"
-        Me.ADDED_BY.HeaderText = "Added By"
-        Me.ADDED_BY.Name = "ADDED_BY"
-        Me.ADDED_BY.ReadOnly = True
-        Me.ADDED_BY.Visible = False
-        '
-        'DATE_ADDED
-        '
-        Me.DATE_ADDED.DataPropertyName = "date_added"
-        Me.DATE_ADDED.HeaderText = "Date Added"
-        Me.DATE_ADDED.Name = "DATE_ADDED"
-        Me.DATE_ADDED.ReadOnly = True
-        '
         'CustomerForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1080, 611)
+        Me.ClientSize = New System.Drawing.Size(1440, 752)
         Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.AdminSidenavPanel)
         Me.Controls.Add(Me.CustomerDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "CustomerForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminCustomerForm"

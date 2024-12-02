@@ -453,5 +453,7 @@ Public Class EmployeeAddEditModal
         End If
     End Sub
 
+    Private Sub EmployeeModalGroupBox_Click(sender As Object, e As EventArgs) Handles EmployeeModalGroupBox.Click
 
+    End Sub
 End Class

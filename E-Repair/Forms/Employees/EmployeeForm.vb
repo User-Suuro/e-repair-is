@@ -131,6 +131,21 @@ Public Class EmployeeForm
         RefreshForArchive()
     End Sub
 
+    'REPORT
+    Private Sub EmployeeReportBtn_Click(sender As Object, e As EventArgs) Handles EmployeeReportBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New EmployeeReportModal()
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            LoadDataToDGV()
+            Return Nothing
+        End Function
+        )
+    End Sub
+
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
         LoadDataToDGV(SearchTextBox.Text)
