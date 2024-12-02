@@ -7,6 +7,10 @@
     Private ReadOnly _customerID As String = "customer_id"
     Private ReadOnly _technicianID As String = "technician_id"
     Private ReadOnly _cashierID As String = "cashier_id" ' added by id
+
+    Private ReadOnly _custName As String = "cust_name"
+    Private ReadOnly _techName As String = "tech_name"
+
     Private ReadOnly _deviceType As String = "device_type"
     Private ReadOnly _deviceModel As String = "device_model"
     Private ReadOnly _deviceBrand As String = "device_brand"
@@ -33,6 +37,17 @@
 
     Private ReadOnly _dateAdded As String = "date_added"
     Private ReadOnly _addedbyName As String = "added_by"
+
+    Public ReadOnly Property custNameStr As String
+        Get
+            Return _custName
+        End Get
+    End Property
+    Public ReadOnly Property techNameStr As String
+        Get
+            Return _techName
+        End Get
+    End Property
 
     Public ReadOnly Property getAddedByName As String
         Get

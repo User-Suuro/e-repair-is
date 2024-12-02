@@ -203,11 +203,10 @@ Public Class ServiceForm
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         If Not finishedLoad Then Exit Sub
 
-        Dim custCol As String = "customer_name"
-        Dim techCol As String = "technician_name"
-
         With servConst
             Dim searchCols01 As New List(Of String) From {
+                .custNameStr,
+                .techNameStr,
                 .devModelStr,
                 .dateAddedStr,
                 .svcStatusStr, ' exclude from search
@@ -241,22 +240,6 @@ Public Class ServiceForm
             searchCols01.Remove(.svcStatusStr)
             searchCols01.Remove(.custIDStr)
             searchCols01.Remove(.svcIDStr)
-
-            ' Additonal payload
-            searchCols01.Add(custCol)
-            searchCols01.Add(techCol)
-
-            serviceDT.Columns.Add(custCol, GetType(String))
-            serviceDT.Columns.Add(techCol, GetType(String))
-
-            Try
-                For Each row As DataRow In serviceDT.Rows
-                    row(custCol) = formUtils.getCustomerName(row(servConst.custIDStr))
-                    row(techCol) = formUtils.getEmployeeName(row(servConst.techIDStr))
-                Next
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
 
             ' this function is chonky af
             formUtils.LoadToDGVByTwoValues(ServiceDGV,

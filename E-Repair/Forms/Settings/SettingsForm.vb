@@ -386,6 +386,8 @@ Public Class SettingsForm
                     Dim insertData As New Dictionary(Of String, Object) From {
                         { .custIDStr, custID},
                         { .techIDStr, techID},
+                        { .custNameStr, formUtils.getCustomerName(custID)},
+                        { .techNameStr, formUtils.getEmployeeName(techID)},
                         { .cashierIDStr, Current.id},
                         { .devTypeStr, deviceType},
                         { .devModelStr, deviceModel},

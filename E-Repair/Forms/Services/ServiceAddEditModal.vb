@@ -113,6 +113,8 @@ Public Class ServiceAddEditModal
               { .custIDStr, customerID},
               { .techIDStr, technicianID},
               { .cashierIDStr, Current.id},
+              { .custNameStr, formUtils.getCustomerName(customerID)},
+              { .techNameStr, formUtils.getEmployeeName(technicianID)},
               { .devTypeStr, deviceType},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},
@@ -152,6 +154,8 @@ Public Class ServiceAddEditModal
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .custIDStr, customerID},
                 { .techIDStr, technicianID},
+                { .custNameStr, formUtils.getCustomerName(customerID)},
+                { .techNameStr, formUtils.getEmployeeName(technicianID)},
                 { .devTypeStr, deviceType},
                 { .devModelStr, deviceModel},
                 { .devBrandStr, deviceBrand},
