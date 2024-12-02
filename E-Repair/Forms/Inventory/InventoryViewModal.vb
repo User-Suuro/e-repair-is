@@ -35,15 +35,18 @@
             ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
             ItemCategoryTextBox.Text = .Item(invConst.itemCatStr)
             ItemsSuppliedTxtBox.Text = formUtils.GetSuppliedItems(supplierID)
+            HazardousClassificationTxtBox.Text = .Item(invConst.hazClassStr)
 
             ItemDescriptionTxtBox.Text = .Item(invConst.itemDescStr)
 
             SerialNumberTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.serialNumStr))
             PhysicalLocationTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.physLocStr))
 
+
             QuantityTxtBox.Text = .Item(invConst.availableQtyStr)
             TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
             CostPerItemTxtBox.Text = .Item(invConst.costPerItem)
+
 
             Dim itemDT As DataTable = dbHelper.GetRowByValue(itemConst.TableName, itemConst.InventoryId, selectedID)
             QuantityUsedTxtBox.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
@@ -75,12 +78,9 @@
 
     End Sub
 
-    Private Sub SeeUsedBtn_Click(sender As Object, e As EventArgs) Handles SeeUsedBtn.Click
-
-    End Sub
-
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class
