@@ -23,6 +23,18 @@ Partial Class AdminDashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -32,7 +44,6 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.WelcomeMessageLabel = New System.Windows.Forms.Label()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
@@ -54,16 +65,27 @@ Partial Class AdminDashboardForm
         Me.ServicesNumberLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.GunaCirclePictureBox1 = New Guna.UI.WinForms.GunaCirclePictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusTableLayout.SuspendLayout()
         Me.ItemsPanel.SuspendLayout()
         Me.SuppliersPanel.SuspendLayout()
         Me.EmployeesPanel.SuspendLayout()
         Me.CustomersPanel.SuspendLayout()
         Me.ServicesPanel.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -99,7 +121,6 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel4.Location = New System.Drawing.Point(715, 0)
         Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(48, 0, 0, 0)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(398, 92)
         Me.Guna2Panel4.TabIndex = 6
         '
@@ -161,15 +182,14 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Black
         Me.Guna2Panel3.BorderRadius = 4
+        Me.Guna2Panel3.Controls.Add(Me.GunaCirclePictureBox1)
         Me.Guna2Panel3.Controls.Add(Me.Label10)
         Me.Guna2Panel3.Controls.Add(Me.WelcomeMessageLabel)
-        Me.Guna2Panel3.Controls.Add(Me.Guna2CirclePictureBox1)
         Me.Guna2Panel3.FillColor = System.Drawing.Color.White
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(8, 0, 8, 0)
-        Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(667, 92)
         Me.Guna2Panel3.TabIndex = 5
         '
@@ -198,18 +218,6 @@ Partial Class AdminDashboardForm
         Me.WelcomeMessageLabel.Size = New System.Drawing.Size(166, 26)
         Me.WelcomeMessageLabel.TabIndex = 15
         Me.WelcomeMessageLabel.Text = "Welcome, User"
-        '
-        'Guna2CirclePictureBox1
-        '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.White
-        Me.Guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(8, 0)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Parent = Me.Guna2CirclePictureBox1
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(116, 92)
-        Me.Guna2CirclePictureBox1.TabIndex = 1
-        Me.Guna2CirclePictureBox1.TabStop = False
         '
         'Timer1
         '
@@ -260,7 +268,6 @@ Partial Class AdminDashboardForm
         Me.ItemsPanel.Location = New System.Drawing.Point(900, 0)
         Me.ItemsPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.ItemsPanel.Name = "ItemsPanel"
-        Me.ItemsPanel.ShadowDecoration.Parent = Me.ItemsPanel
         Me.ItemsPanel.Size = New System.Drawing.Size(213, 85)
         Me.ItemsPanel.TabIndex = 8
         '
@@ -299,7 +306,6 @@ Partial Class AdminDashboardForm
         Me.SuppliersPanel.Location = New System.Drawing.Point(675, 0)
         Me.SuppliersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.SuppliersPanel.Name = "SuppliersPanel"
-        Me.SuppliersPanel.ShadowDecoration.Parent = Me.SuppliersPanel
         Me.SuppliersPanel.Size = New System.Drawing.Size(213, 85)
         Me.SuppliersPanel.TabIndex = 7
         '
@@ -338,7 +344,6 @@ Partial Class AdminDashboardForm
         Me.EmployeesPanel.Location = New System.Drawing.Point(0, 0)
         Me.EmployeesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.EmployeesPanel.Name = "EmployeesPanel"
-        Me.EmployeesPanel.ShadowDecoration.Parent = Me.EmployeesPanel
         Me.EmployeesPanel.Size = New System.Drawing.Size(213, 85)
         Me.EmployeesPanel.TabIndex = 6
         '
@@ -377,7 +382,6 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.Location = New System.Drawing.Point(450, 0)
         Me.CustomersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.CustomersPanel.Name = "CustomersPanel"
-        Me.CustomersPanel.ShadowDecoration.Parent = Me.CustomersPanel
         Me.CustomersPanel.Size = New System.Drawing.Size(213, 85)
         Me.CustomersPanel.TabIndex = 5
         '
@@ -416,7 +420,6 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.Location = New System.Drawing.Point(225, 0)
         Me.ServicesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.ServicesPanel.Name = "ServicesPanel"
-        Me.ServicesPanel.ShadowDecoration.Parent = Me.ServicesPanel
         Me.ServicesPanel.Size = New System.Drawing.Size(213, 85)
         Me.ServicesPanel.TabIndex = 3
         '
@@ -444,11 +447,117 @@ Partial Class AdminDashboardForm
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Services"
         '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart2, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart1, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 417)
+        Me.TableLayoutPanel2.TabIndex = 7
+        '
+        'Chart1
+        '
+        ChartArea9.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea9)
+        Me.Chart1.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend9.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend9)
+        Me.Chart1.Location = New System.Drawing.Point(3, 3)
+        Me.Chart1.Name = "Chart1"
+        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "Series1"
+        Me.Chart1.Series.Add(Series9)
+        Me.Chart1.Size = New System.Drawing.Size(550, 202)
+        Me.Chart1.TabIndex = 0
+        Me.Chart1.Text = "Chart1"
+        '
+        'Chart2
+        '
+        ChartArea10.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea10)
+        Me.Chart2.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend10.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend10)
+        Me.Chart2.Location = New System.Drawing.Point(559, 3)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "Series1"
+        Me.Chart2.Series.Add(Series10)
+        Me.Chart2.Size = New System.Drawing.Size(551, 202)
+        Me.Chart2.TabIndex = 1
+        Me.Chart2.Text = "Chart2"
+        '
+        'Chart3
+        '
+        ChartArea11.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea11)
+        Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend11.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend11)
+        Me.Chart3.Location = New System.Drawing.Point(3, 211)
+        Me.Chart3.Name = "Chart3"
+        Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Series1"
+        Me.Chart3.Series.Add(Series11)
+        Me.Chart3.Size = New System.Drawing.Size(550, 203)
+        Me.Chart3.TabIndex = 2
+        Me.Chart3.Text = "Chart3"
+        '
+        'Chart4
+        '
+        ChartArea12.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea12)
+        Me.Chart4.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend12.Name = "Legend1"
+        Me.Chart4.Legends.Add(Legend12)
+        Me.Chart4.Location = New System.Drawing.Point(559, 211)
+        Me.Chart4.Name = "Chart4"
+        Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Me.Chart4.Series.Add(Series12)
+        Me.Chart4.Size = New System.Drawing.Size(551, 203)
+        Me.Chart4.TabIndex = 3
+        Me.Chart4.Text = "Chart4"
+        '
+        'GunaCirclePictureBox1
+        '
+        Me.GunaCirclePictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GunaCirclePictureBox1.BaseColor = System.Drawing.Color.White
+        Me.GunaCirclePictureBox1.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
+        Me.GunaCirclePictureBox1.Location = New System.Drawing.Point(23, 8)
+        Me.GunaCirclePictureBox1.Name = "GunaCirclePictureBox1"
+        Me.GunaCirclePictureBox1.Size = New System.Drawing.Size(82, 78)
+        Me.GunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.GunaCirclePictureBox1.TabIndex = 18
+        Me.GunaCirclePictureBox1.TabStop = False
+        Me.GunaCirclePictureBox1.UseTransfarantBackground = True
+        '
         'AdminDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -459,7 +568,6 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel4.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusTableLayout.ResumeLayout(False)
         Me.ItemsPanel.ResumeLayout(False)
         Me.ItemsPanel.PerformLayout()
@@ -471,12 +579,17 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.PerformLayout()
         Me.ServicesPanel.ResumeLayout(False)
         Me.ServicesPanel.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
@@ -505,4 +618,10 @@ Partial Class AdminDashboardForm
     Friend WithEvents Label10 As Label
     Friend WithEvents WelcomeMessageLabel As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart4 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents GunaCirclePictureBox1 As Guna.UI.WinForms.GunaCirclePictureBox
 End Class
