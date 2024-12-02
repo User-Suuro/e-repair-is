@@ -570,6 +570,10 @@ Public Class FormUtils
     Public Function CalcIntegerDTCol(dt As DataTable, columnName As String) As Integer
         Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Integer)(columnName))
     End Function
+    Public Function GetSuppliedItems(supplierID As Integer) As Integer
+        Dim invSuppDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {invConst.supIDStr, invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.supIDStr, supplierID)
+        Return CalcIntegerDTCol(invSuppDT, invConst.availableQtyStr)
+    End Function
 
     Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
         ' Filter the rows based on the provided filter expression
@@ -635,10 +639,7 @@ Public Class FormUtils
         Return True
     End Function
 
-    Public Function GetSuppliedItems(supplierID As Integer) As Integer
-        Dim invSuppDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.invIDStr, supplierID)
-        Return CalcIntegerDTCol(invSuppDT, invConst.availableQtyStr)
-    End Function
+
 
     Public Function GetLatestIDInDT(dataTable As DataTable, idColumnName As String) As Integer
         If dataTable IsNot Nothing AndAlso dataTable.Rows.Count > 0 Then

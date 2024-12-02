@@ -170,7 +170,7 @@ Public Class InventoryForm
                 .invIDStr,
                 .archivedStr,
                 .archByStr,
-                .dateArchivedStr,
+                .dateArchivedStr
             }
 
             If supplierMode Then

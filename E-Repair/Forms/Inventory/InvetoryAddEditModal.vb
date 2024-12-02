@@ -68,6 +68,9 @@
             }
 
             If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
+                ' update supplier
+
+
                 Me.Close()
             End If
         End With

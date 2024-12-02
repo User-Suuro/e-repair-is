@@ -42,7 +42,9 @@ Public Class SupplierViewModal
             supplierID = .Item(supConstants.supIDStr)
             SupplierIdTextBox.Text = supplierID
 
+
             NoSuppliedItemTxtBox.Text = formUtils.GetSuppliedItems(selectedID)
+
             TotalPaidTxtBox.Text = .Item(supConstants.totalPaidStr)
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
             CompanyPathTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.compPicPathStr))

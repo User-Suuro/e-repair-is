@@ -435,8 +435,8 @@ Public Class SettingsForm
     Public Function LoadDummyDataToInventory(numberOfRecords As Integer, suppID As Integer) As Boolean
         With invConst
 
-            Dim itemCategories = dbHelper.GetEnums(.invTableStr, .itemCatStr)
-            Dim hazardClassifications = dbHelper.GetEnums(.invTableStr, .hazClassStr)
+            Dim itemCategories As List(Of String) = dbHelper.GetEnums(.invTableStr, .itemCatStr)
+            Dim hazardClassifications As List(Of String) = dbHelper.GetEnums(.invTableStr, .hazClassStr)
 
             Try
                 For i As Integer = 1 To numberOfRecords
@@ -461,7 +461,7 @@ Public Class SettingsForm
                             { .supIDStr, suppID},
                             { .itemNameStr, itemName},
                             { .itemCatStr, itemCategory},
-                            { .hazClassStr, hazardClassifications},
+                            { .hazClassStr, hazardousClassification},
                             { .itemDescStr, itemDescription},
                             { .availableQtyStr, availableQuantity},
                             { .totalCostStr, totalCost},
