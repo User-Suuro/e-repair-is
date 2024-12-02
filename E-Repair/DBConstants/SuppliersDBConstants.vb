@@ -15,7 +15,8 @@
     Private ReadOnly _bankDetails As String = "bank_details"
     Private ReadOnly _paymentTerms As String = "payment_terms"
     Private ReadOnly _estimatedDeliveryTime As String = "estimated_delivery_time"
-    Private ReadOnly _totalPaid As String = "total_paid"
+
+
     Private ReadOnly _companyPicturePath As String = "company_picture_path"
     Private ReadOnly _dateAdded As String = "date_added"
 
@@ -115,12 +116,6 @@
     Public ReadOnly Property estDeliveryStr As String
         Get
             Return _estimatedDeliveryTime
-        End Get
-    End Property
-
-    Public ReadOnly Property totalPaidStr As String
-        Get
-            Return _totalPaid
         End Get
     End Property
 

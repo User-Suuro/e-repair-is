@@ -112,6 +112,7 @@
             PhysicalLocationTxtBox.Text = .Item(invConst.physLocStr)
 
             TotalValueTxtBox.Text = .Item(invConst.totalCostStr)
+            CostPerItemTxtBox.Text = .Item(invConst.costPerItem)
 
             QuantityUsage.Value = .Item(invConst.availableQtyStr)
             initialQty = .Item(invConst.availableQtyStr)
