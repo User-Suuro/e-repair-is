@@ -106,7 +106,7 @@ Public Class ServiceEvaluationModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New InventoryItemModal
-             modal.inventoryID = id
+             modal.serviceID = id
              Return modal
          End Function,
          selectedID,
