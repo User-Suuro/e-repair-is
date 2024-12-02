@@ -7,6 +7,8 @@ Public Class ExportUtils
         Dim workSheet As Object = Nothing
 
         Try
+            Cursor.Current = Cursors.WaitCursor
+
             excelApp = CreateObject("Excel.Application")
             excelApp.Visible = True
             workBook = excelApp.Workbooks.Add
@@ -24,10 +26,9 @@ Public Class ExportUtils
                 For j As Integer = 0 To dataTable.Columns.Count - 1
 
                     Dim originalColumnName As String = dataTable.Columns(j).ColumnName
-
-                    ' Add the data to the cell
                     workSheet.Cells(i + 2, j + 1).Value = dataTable.Rows(i)(j)
 
+                    ' format date time
                     If dataTable.Columns(j).DataType Is GetType(DateTime) Then
                         workSheet.Cells(i + 2, j + 1).NumberFormat = "dd/mm/yyyy"
                     End If
@@ -61,6 +62,8 @@ Public Class ExportUtils
 
             End Using
 
+            Cursor.Current = Cursors.Default
+
         Catch ex As Exception
             ShowTopMostMessageBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
         Finally
@@ -77,7 +80,11 @@ Public Class ExportUtils
             excelApp = Nothing
             GC.Collect()
             GC.WaitForPendingFinalizers()
+
+            Cursor.Current = Cursors.Default
+
         End Try
+        Cursor.Current = Cursors.Default
     End Sub
 
 

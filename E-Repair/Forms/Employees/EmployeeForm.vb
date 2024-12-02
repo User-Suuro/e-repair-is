@@ -274,7 +274,9 @@ Public Class EmployeeForm
                 Exit Sub
             End If
 
+
             exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping)
+            Cursor = Cursors.Default
         End With
     End Sub
 
