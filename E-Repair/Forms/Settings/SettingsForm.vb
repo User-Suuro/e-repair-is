@@ -158,6 +158,11 @@ Public Class SettingsForm
         Dim getQtyInModal As Integer = getReturnedValue.Item1
         Dim selcetedSuppID As Integer = getReturnedValue.Item3
 
+        If selcetedSuppID = -1 Then
+            MsgBox("Please select a supplier")
+            Exit Sub
+        End If
+
         If getQtyInModal = -1 Then Exit Sub
 
         Cursor = Cursors.WaitCursor
