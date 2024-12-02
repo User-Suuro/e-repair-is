@@ -645,8 +645,6 @@ Public Class FormUtils
         Return True
     End Function
 
-
-
     Public Function GetLatestIDInDT(dataTable As DataTable, idColumnName As String) As Integer
         If dataTable IsNot Nothing AndAlso dataTable.Rows.Count > 0 Then
             Return dataTable.AsEnumerable().
@@ -657,4 +655,12 @@ Public Class FormUtils
         End If
     End Function
 
+    Function GetDictKey(columnHeaderMapping As Dictionary(Of String, String)) As List(Of String)
+        Dim resultList As New List(Of String)
+        For Each kvp In columnHeaderMapping
+            resultList.Add($"{kvp.Key}")
+        Next
+
+        Return resultList
+    End Function
 End Class

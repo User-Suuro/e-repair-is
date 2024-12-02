@@ -1,13 +1,12 @@
-﻿Imports System.ComponentModel
-Imports LibVLCSharp.[Shared]
-Imports System.Runtime.InteropServices
-
+﻿
 Public Class EmployeeForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
     Dim constants As New Constants
     Dim formModal As Form
+
     Dim empConst As New EmployeesDBConstants
+    Dim exportUtils As New ExportUtils
 
     ' SCHEMA
     Private employeeID As Integer = -1
@@ -233,30 +232,50 @@ Public Class EmployeeForm
     End Sub
 
     ' Load Data into the DataGridView from DataTable
-    Private Sub LoadDataToDGV()
-        Try
-            Dim query As String = "employees" ' Use your actual SQL query
-            empDT = dbHelper.GetAllData(query)
-            EmpDGV.DataSource = empDT
-        Catch ex As Exception
-            ShowTopMostMessageBox("Error loading data: " & ex.Message, "Error", MessageBoxIcon.Error)
-        End Try
-    End Sub
+
 
     ' Button Click event to export DataGridView data to Excel
     Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
-        If EmpDGV.Rows.Count > 0 Then
-            Try
-                ExportDataTableToExcel(empDT)
-            Catch ex As Exception
-                ShowTopMostMessageBox("Error exporting data: " & ex.Message, "Export Error", MessageBoxIcon.Error)
-            End Try
-        Else
-            ShowTopMostMessageBox("No data to export.", "Warning", MessageBoxIcon.Warning)
-        End If
+
+        With empConst
+            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .empIDStr, "Employee ID"},
+              { .empFirstStr, "First Name"},
+              { .empMidStr, "Middle Name"},
+              { .empLastStr, "Last Name"},
+              { .empSexStr, "Sex"},
+              { .empBirthStr, "Birthdate"},
+              { .empCivilStr, "Civil Status"},
+              { .empAddrStr, "Address"},
+              { .empContactStr, "Contact Number"},
+              { .empStatusStr, "Employment Status"},
+              { .empHiredStr, "Date Hired"},
+              { .empSSSStr, "SSS No."},
+              { .empPagibigStr, "Pag-ibig No."},
+              { .empTINStr, "Tin No."},
+              { .empProfileStr, "Profile Path"},
+              { .empEmailStr, "Email"},
+              { .empArchStr, "Archived"},
+              { .empArchByStr, "Archived by"},
+              { .empArchDateStr, "Date Archived"},
+              { .empAddedByName, "Added By"},
+              { .empAddDateStr, "Date Added"},
+              { .empLastAccessedStr, "Last Accessed"},
+              { .empJobPosStr, "Job Type"},
+              { .empAdminPosStr, "Admin Position"},
+              { .empDestStr, "Personnel Destination"}
+            }
+
+            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
+            Dim empDT As DataTable = dbHelper.GetAllByCol(keys, .empTableStr)
+
+            If empDT.Rows.Count = 0 Then
+                MsgBox("There is nothing to export")
+                Exit Sub
+            End If
+
+            exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping)
+        End With
     End Sub
-
-    ' Function to export DataTable to Excel with custom file path
-
 
 End Class
