@@ -219,22 +219,8 @@ Public Class EmployeeForm
         Me.Close()
     End Sub
 
-    'REPORT
-
-    Private Sub EmployeeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Controls.Add(EmpDGV)
-
-        ' Bind the Export button event handler
-        AddHandler ExportToExcelBtn.Click, AddressOf ExportToExcelBtn_Click
-
-        ' Load data into the DataGridView
-        LoadDataToDGV()
-    End Sub
-
-    ' Load Data into the DataGridView from DataTable
-
-
     ' Button Click event to export DataGridView data to Excel
+
     Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
         With empConst
@@ -273,7 +259,6 @@ Public Class EmployeeForm
                 MsgBox("There is nothing to export")
                 Exit Sub
             End If
-
 
             exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping)
             Cursor = Cursors.Default
