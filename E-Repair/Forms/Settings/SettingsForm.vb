@@ -123,20 +123,26 @@ Public Class SettingsForm
         End If
 
         AttributesCmb.DataSource = attrDataSource
+        loadEnumsToDGV()
     End Sub
 
     Private Sub AttributesCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AttributesCmb.SelectedIndexChanged
+        loadEnumsToDGV()
+    End Sub
 
+    Private Sub loadEnumsToDGV()
         Dim selectedTable As String = TableNameCmb.SelectedItem.ToString()
         Dim selectedAttr As String = AttributesCmb.SelectedItem.ToString()
 
         Dim foundTable As String = Nothing
 
         For Each kvp In tableListName
+
             If kvp.Value = selectedTable Then
-                selectedTable = kvp.Key
+                foundTable = kvp.Key
                 Exit For
             End If
+
         Next
 
         Dim foundAtrr As String = Nothing
