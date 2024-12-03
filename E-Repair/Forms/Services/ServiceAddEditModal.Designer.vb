@@ -1198,7 +1198,7 @@ Partial Class ServiceAddEditModal
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ServiceAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AdminAddEditServiceModal"
+        Me.Text = "r"
         Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2GroupBox1.PerformLayout()

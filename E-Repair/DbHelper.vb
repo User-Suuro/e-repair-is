@@ -505,6 +505,7 @@ Public Class DbHelper
 
             If cmdRead IsNot Nothing AndAlso cmdRead.Read() Then
                 Dim columnType As String = cmdRead("Type").ToString()
+
                 'remove quotes
                 Dim match As Match = Regex.Match(columnType, "^enum\('(.*)'\)$")
 

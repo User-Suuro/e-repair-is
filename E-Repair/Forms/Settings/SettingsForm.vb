@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+Imports ZstdSharp.Unsafe
 
 Public Class SettingsForm
 
@@ -13,65 +14,194 @@ Public Class SettingsForm
     Dim servConst As New ServiceDBConstants
     Dim invConst As New InventoryDBConstants
 
+    Dim tableListName As New Dictionary(Of String, String)
+
+    Dim cmbEmpListName As New Dictionary(Of String, String)
+    Dim cmbCustListName As New Dictionary(Of String, String)
+    Dim cmbServListName As New Dictionary(Of String, String)
+    Dim cmbInvListName As New Dictionary(Of String, String)
+    Dim cmbSuppListName As New Dictionary(Of String, String)
+
+    Dim combinedDictionary As New Dictionary(Of String, String)
+
     ' MANAGE ENUMS
 
     Private Sub AdminSettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim tableListName As New List(Of String) From {
-            empConst.empTableStr,
-            custConst.custTableStr,
-            supConst.supTableStr,
-            servConst.svcTableStr,
-            invConst.invTableStr
+        tableListName = New Dictionary(Of String, String) From {
+            {empConst.empTableStr, constants.EmployeesTitle},
+            {custConst.custTableStr, constants.getCustomerTitle},
+            {supConst.supTableStr, constants.SuppliersTitle},
+            {servConst.svcTableStr, constants.ServicesTitle},
+            {invConst.invTableStr, constants.InventoryTitle}
         }
 
-        TableNameCmb.DataSource = tableListName
-
-    End Sub
-    Private Sub TableNameCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TableNameCmb.SelectedIndexChanged
-
         With empConst
-            Dim cmbEmpListName As New List(Of String) From {
+            cmbEmpListName = New Dictionary(Of String, String) From {
+                { .empSexStr, "Sex"},
+                { .empCivilStr, "Civil Status"},
+                { .empContactStr, "Contract Status"},
+                { .empAdminPosStr, "Admin Positions"}
             }
         End With
 
         With custConst
-
+            cmbCustListName = New Dictionary(Of String, String) From {
+                { .custGenderStr, "Gender"}
+            }
         End With
 
         With supConst
-
+            cmbSuppListName = New Dictionary(Of String, String) From {
+                { .supTypeStr, "Supplier Type"},
+                { .supContractStr, "Contract Type"},
+                { .bankDetailsStr, "Bank Details"},
+                { .payTermsStr, "Payment Terms"},
+              }
         End With
 
         With invConst
-
+            cmbInvListName = New Dictionary(Of String, String) From {
+                { .itemCatStr, "Item Category"},
+                { .hazClassStr, "Hazardous Classification"}
+            }
         End With
 
         With servConst
-
+            cmbServListName = New Dictionary(Of String, String) From {
+                { .devTypeStr, "Device Type"}
+            }
         End With
+
+        ' combine all attributes
+        For Each kvp In cmbEmpListName
+            combinedDictionary(kvp.Key) = kvp.Value
+        Next
+
+        For Each kvp In cmbCustListName
+            combinedDictionary(kvp.Key) = kvp.Value
+        Next
+
+        For Each kvp In cmbSuppListName
+            combinedDictionary(kvp.Key) = kvp.Value
+        Next
+
+        For Each kvp In cmbInvListName
+            combinedDictionary(kvp.Key) = kvp.Value
+        Next
+
+        For Each kvp In cmbServListName
+            combinedDictionary(kvp.Key) = kvp.Value
+        Next
+
+        ' default values
+        TableNameCmb.DataSource = formUtils.GetDictValues(tableListName)
+        TableNameCmb.SelectedIndex = 0
+
+        AttributesCmb.DataSource = formUtils.GetDictValues(cmbEmpListName)
+        AttributesCmb.SelectedIndex = 0
     End Sub
+    Private Sub TableNameCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TableNameCmb.SelectedIndexChanged
 
-    Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellContentClick
+        Dim attrDataSource As List(Of String) = Nothing
 
+        If TableNameCmb.SelectedItem = constants.EmployeesTitle Then
+            attrDataSource = formUtils.GetDictValues(cmbEmpListName)
+
+        ElseIf TableNameCmb.SelectedItem = constants.getCustomerTitle Then
+            attrDataSource = formUtils.GetDictValues(cmbCustListName)
+
+        ElseIf TableNameCmb.SelectedItem = constants.SuppliersTitle Then
+            attrDataSource = formUtils.GetDictValues(cmbSuppListName)
+
+        ElseIf TableNameCmb.SelectedItem = constants.InventoryTitle Then
+            attrDataSource = formUtils.GetDictValues(cmbInvListName)
+
+        ElseIf TableNameCmb.SelectedItem = constants.ServicesTitle Then
+            attrDataSource = formUtils.GetDictValues(cmbServListName)
+
+        End If
+
+        AttributesCmb.DataSource = attrDataSource
     End Sub
-    Private Sub CompletedWorkTxtBox_TextChanged(sender As Object, e As EventArgs) Handles CompletedWorkTxtBox.TextChanged
-
-    End Sub
-
-
 
     Private Sub AttributesCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AttributesCmb.SelectedIndexChanged
 
+        Dim selectedTable As String = TableNameCmb.SelectedItem.ToString()
+        Dim selectedAttr As String = AttributesCmb.SelectedItem.ToString()
+
+        Dim foundTable As String = Nothing
+
+        For Each kvp In tableListName
+            If kvp.Value = selectedTable Then
+                selectedTable = kvp.Key
+                Exit For
+            End If
+        Next
+
+        Dim foundAtrr As String = Nothing
+
+        For Each kvp In combinedDictionary
+            If kvp.Value = selectedAttr Then
+                foundAtrr = kvp.Key
+                Exit For
+            End If
+        Next
+
+        ' Check if a matching key was found
+        If Not String.IsNullOrEmpty(foundAtrr) Then
+
+            Dim listEnums As List(Of String) = dbHelper.GetEnums(foundTable, selectedAttr)
+
+            If listEnums.Count = 0 Then Exit Sub
+
+            ' convert to dt
+            Dim dt As New DataTable()
+
+            dt.Columns.Add("item_name")
+
+            For Each item As String In listEnums
+                dt.Rows.Add(item)
+            Next
+
+            EnumDGV.DataSource = dt
+            EnumDGV.RowTemplate.Height = formUtils.rowHeight
+        End If
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
 
+        If Not formUtils.dgvValChecker(EnumDGV) Then
+            MsgBox("Please select an item")
+            Exit Sub
+        End If
+
+        DeleteEnums()
+
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        If formUtils.dgvValChecker(EnumDGV) Then
+            ' edit mode
+            EditEnums()
+        Else
+            ' add
+            AddEnums()
+        End If
+    End Sub
+
+    Private Sub AddEnums()
 
     End Sub
+
+    Private Sub EditEnums()
+
+    End Sub
+
+    Private Sub DeleteEnums()
+
+    End Sub
+
 
     ' LOAD DUMMY
 

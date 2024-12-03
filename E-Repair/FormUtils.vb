@@ -11,8 +11,7 @@ Public Class FormUtils
     Dim custConst As New CustomersDBConstants
     Dim servConst As New ServiceDBConstants
 
-
-    Dim rowHeight As Integer = 40
+    Public Property rowHeight As Integer = 40
 
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
         ' Remove existing controls in the target panel if any
@@ -663,6 +662,16 @@ Public Class FormUtils
         Dim resultList As New List(Of String)
         For Each kvp In columnHeaderMapping
             resultList.Add($"{kvp.Key}")
+        Next
+
+        Return resultList
+    End Function
+
+    Function GetDictValues(columnHeaderMapping As Dictionary(Of String, String)) As List(Of String)
+        Dim resultList As New List(Of String)
+
+        For Each kvp In columnHeaderMapping
+            resultList.Add($"{kvp.Value}")
         Next
 
         Return resultList
