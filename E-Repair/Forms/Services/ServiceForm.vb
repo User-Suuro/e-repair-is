@@ -1,12 +1,12 @@
 ﻿
-
 Public Class ServiceForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
-    Dim constants As New Constants
+    Dim exportUtils As New ExportUtils
 
     Dim servConst As New ServiceDBConstants
+    Dim constants As New Constants
 
     Private serviceID As Integer = -1
     Private is_archived As Boolean = False
@@ -378,5 +378,39 @@ Public Class ServiceForm
     ' REPORTS
     Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
+
+        With servConst
+            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .svcIDStr, "Service ID"},
+              { .custIDStr, "Customer ID"},
+              { .techIDStr, "Technician ID"},
+              { .techNameStr, "Technician Name"},
+              { .custNameStr, "Customer Name"},
+              { .devTypeStr, "Device Type"},
+              { .devBrandStr, "Device Brand"},
+              { .devModelStr, "Deviec Model"},
+              { .svcStatusStr, "Service Status"},
+              { .PartsUsed, "Part Used"},
+              { .partsCostStr, "Parts Cost"},
+              { .TotalCost, "Total Cost"},
+              { .dateAddedStr, "Date Added"},
+              { .dateArchivedStr, "Date Archived"}
+            }
+
+            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
+            Dim dt = dbHelper.GetAllByCol(keys, servConst.svcTableStr)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("There is nothing to export")
+                Exit Sub
+            End If
+
+            Dim title = "All Service Reports"
+
+            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
+                dbHelper.Logs(title, Current.id)
+            End If
+        End With
     End Sub
 End Class

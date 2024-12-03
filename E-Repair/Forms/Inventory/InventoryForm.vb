@@ -260,8 +260,10 @@ Public Class InventoryForm
                 Exit Sub
             End If
 
-            If exportUtils.ExportDataTableToExcel(dt, "All Inventory Reports", columnHeaderMapping) Then
-                dbHelper.Logs("All Employees Report", Current.id)
+            Dim title = "All Inventory Reports"
+
+            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
+                dbHelper.Logs(title, Current.id)
             End If
         End With
     End Sub
