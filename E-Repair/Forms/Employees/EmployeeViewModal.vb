@@ -34,8 +34,9 @@ Public Class EmployeeViewModal
             MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empMidStr))
             LastNameTextBox.Text = .Item(empConst.empLastStr)
             BirthDateTextBox.Text = .Item(empConst.empBirthStr)
-            SexTextBox.Text = .Item(empConst.empSexStr)
-            CivilStatusTextBox.Text = .Item(empConst.empCivilStr)
+
+            SexTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empSexStr))
+            CivilStatusTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empCivilStr))
 
             AddressTextBox.Text = .Item(empConst.empAddrStr)
             ContactNumberTextBox.Text = .Item(empConst.empContactStr)
@@ -46,7 +47,7 @@ Public Class EmployeeViewModal
             TINTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empTINStr))
 
             JobTypeTextBox.Text = .Item(empConst.empJobPosStr)
-            ContractStatusTextBox.Text = .Item(empConst.empStatusStr)
+            ContractStatusTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empStatusStr))
 
             ' PROFILE
             ProfilePathTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empProfileStr))
@@ -72,7 +73,7 @@ Public Class EmployeeViewModal
             ' JOB INFO
             Select Case empJobType
                 Case constants.getAdminString
-                    PositionTextBox.Text = .Item(empConst.empAdminPosStr)
+                    PositionTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empAdminPosStr))
                     EmployeeAddedTextBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.addedById, selectedID).Rows.Count
 
                 Case constants.getTechnicianString
@@ -122,7 +123,5 @@ Public Class EmployeeViewModal
         Me.Close()
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 End Class

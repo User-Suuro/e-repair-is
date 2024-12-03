@@ -26,7 +26,7 @@
             MiddleNameTextBox.Text = dbHelper.StrNullCheck(.Item(custConst.custMidStr))
             LastNameTextBox.Text = .Item(custConst.custLastStr)
 
-            GenderTxtBox.Text = .Item(custConst.custGenderStr)
+            GenderTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custGenderStr))
             EmailTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custEmailStr))
             ContactNumberTxtBox.Text = dbHelper.StrNullCheck(.Item(custConst.custContactStr))
 

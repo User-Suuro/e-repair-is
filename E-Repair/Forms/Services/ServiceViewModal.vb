@@ -67,7 +67,8 @@ Public Class ServiceViewModal
             deviceImgPath = .Item(servConst.devProfilePathStr)
             DeviceImgPathTxtBox.Text = dbHelper.StrNullCheck(deviceImgPath)
 
-            DeviceTypeTxtBox.Text = .Item(servConst.devTypeStr)
+            DeviceTypeTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.devTypeStr))
+
             OperatingSystemTxtBox.Text = .Item(servConst.osStr)
             ProblemDescTxtBox.Text = .Item(servConst.probDescStr)
 
@@ -83,6 +84,7 @@ Public Class ServiceViewModal
 
             PaymentStatusTxtBox.Text = .Item(servConst.paidStr)
             PaymentMethodTxtBox.Text = dbHelper.StrNullCheck(.Item(servConst.payMethodStr))
+
             TotalPaidTxtBox.Text = .Item(servConst.totalPaidStr)
             CustomerChangeTxtBox.Text = .Item(servConst.custChangeStr)
 

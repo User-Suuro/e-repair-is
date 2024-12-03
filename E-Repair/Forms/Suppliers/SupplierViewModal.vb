@@ -34,10 +34,11 @@ Public Class SupplierViewModal
             LocationTxtBox.Text = .Item(supConstants.locationStr)
             EstDelivTimeTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.estDeliveryStr))
             CompanyDescTxtBox.Text = .Item(supConstants.compDescStr)
-            SupplierTypeTxtBox.Text = .Item(supConstants.supTypeStr)
-            ContractTypeTxtBox.Text = .Item(supConstants.supContractStr)
-            BankDetailsTxtBox.Text = .Item(supConstants.bankDetailsStr)
-            PaymentTermsTxtBox.Text = .Item(supConstants.payTermsStr)
+
+            SupplierTypeTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.supTypeStr))
+            ContractTypeTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.supContractStr))
+            BankDetailsTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.bankDetailsStr))
+            PaymentTermsTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.payTermsStr))
 
             supplierID = .Item(supConstants.supIDStr)
             SupplierIdTextBox.Text = supplierID
@@ -74,6 +75,7 @@ Public Class SupplierViewModal
         End Function
         )
     End Sub
+
 
 
 End Class

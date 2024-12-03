@@ -38,9 +38,11 @@
             End With
 
             ItemNameTxtBox.Text = .Item(invConst.itemNameStr)
-            ItemCategoryTextBox.Text = .Item(invConst.itemCatStr)
+            ItemCategoryTextBox.Text = dbHelper.StrNullCheck(.Item(invConst.itemCatStr))
+
             ItemsSuppliedTxtBox.Text = formUtils.GetSuppliedItems(supplierID)
-            HazardousClassificationTxtBox.Text = .Item(invConst.hazClassStr)
+
+            HazardousClassificationTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.hazClassStr))
 
             ItemDescriptionTxtBox.Text = .Item(invConst.itemDescStr)
 
@@ -101,6 +103,5 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
-
 
 End Class
