@@ -248,6 +248,10 @@
         EnumDGV.ClearSelection()
         foundTable = Nothing
         foundAtrr = Nothing
+        EnumTxtBox.Text = Nothing
+        ClearSelectBtn.Visible = False
+        BtnAdd.Text = "Add"
+        BtnDelete.Visible = False
     End Sub
 
     ' LOAD DUMMY
