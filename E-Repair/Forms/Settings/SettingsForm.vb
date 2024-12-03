@@ -56,7 +56,7 @@ Public Class SettingsForm
                 { .supTypeStr, "Supplier Type"},
                 { .supContractStr, "Contract Type"},
                 { .bankDetailsStr, "Bank Details"},
-                { .payTermsStr, "Payment Terms"},
+                { .payTermsStr, "Payment Terms"}
               }
         End With
 
