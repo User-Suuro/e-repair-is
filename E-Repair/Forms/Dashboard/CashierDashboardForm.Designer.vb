@@ -55,7 +55,6 @@ Partial Class CashierDashboardForm
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label10 = New System.Windows.Forms.Label()
         Me.WelcomeMessageLabel = New System.Windows.Forms.Label()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -73,7 +72,6 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel6.SuspendLayout()
         Me.Guna2Panel7.SuspendLayout()
         Me.StatusTableLayout.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -109,6 +107,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel1.Location = New System.Drawing.Point(290, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(278, 99)
         Me.Guna2Panel1.TabIndex = 3
         '
@@ -161,6 +160,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel5.Location = New System.Drawing.Point(580, 0)
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel5.Name = "Guna2Panel5"
+        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(278, 99)
         Me.Guna2Panel5.TabIndex = 5
         '
@@ -200,6 +200,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
+        Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(278, 99)
         Me.Guna2Panel6.TabIndex = 6
         '
@@ -239,6 +240,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel7.Location = New System.Drawing.Point(870, 0)
         Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel7.Name = "Guna2Panel7"
+        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
         Me.Guna2Panel7.Size = New System.Drawing.Size(279, 99)
         Me.Guna2Panel7.TabIndex = 7
         '
@@ -289,12 +291,11 @@ Partial Class CashierDashboardForm
         '
         'Label10
         '
-        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.White
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(166, 50)
+        Me.Label10.Location = New System.Drawing.Point(20, 50)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(68, 19)
         Me.Label10.TabIndex = 17
@@ -302,27 +303,15 @@ Partial Class CashierDashboardForm
         '
         'WelcomeMessageLabel
         '
-        Me.WelcomeMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.WelcomeMessageLabel.AutoSize = True
         Me.WelcomeMessageLabel.BackColor = System.Drawing.Color.White
         Me.WelcomeMessageLabel.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.WelcomeMessageLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(164, 17)
+        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(18, 17)
         Me.WelcomeMessageLabel.Name = "WelcomeMessageLabel"
         Me.WelcomeMessageLabel.Size = New System.Drawing.Size(166, 26)
         Me.WelcomeMessageLabel.TabIndex = 15
         Me.WelcomeMessageLabel.Text = "Welcome, User"
-        '
-        'Guna2CirclePictureBox1
-        '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.White
-        Me.Guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(8, 0)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(116, 92)
-        Me.Guna2CirclePictureBox1.TabIndex = 1
-        Me.Guna2CirclePictureBox1.TabStop = False
         '
         'Guna2Panel3
         '
@@ -333,12 +322,12 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel3.BorderRadius = 4
         Me.Guna2Panel3.Controls.Add(Me.Label10)
         Me.Guna2Panel3.Controls.Add(Me.WelcomeMessageLabel)
-        Me.Guna2Panel3.Controls.Add(Me.Guna2CirclePictureBox1)
         Me.Guna2Panel3.FillColor = System.Drawing.Color.White
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(8, 0, 8, 0)
+        Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(689, 92)
         Me.Guna2Panel3.TabIndex = 5
         '
@@ -408,6 +397,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel4.Location = New System.Drawing.Point(737, 0)
         Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(48, 0, 0, 0)
         Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(412, 92)
         Me.Guna2Panel4.TabIndex = 6
         '
@@ -541,7 +531,6 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel7.ResumeLayout(False)
         Me.Guna2Panel7.PerformLayout()
         Me.StatusTableLayout.ResumeLayout(False)
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.Guna2Panel4.ResumeLayout(False)
@@ -575,7 +564,6 @@ Partial Class CashierDashboardForm
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label10 As Label
     Friend WithEvents WelcomeMessageLabel As Label
-    Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label

@@ -13,32 +13,21 @@ Public Class MainPanel
     Private username As String = Nothing
 
     Private Sub AdminMainPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        position = Current.position
+        username = Current.name
 
-        Dim dt As DataTable = dbHelper.GetRowByValue(empConst.empTableStr, empConst.empIDStr, Current.id)
-
-        If dt.Rows.Count = 0 Then
-            MsgBox("No user detected")
-            Me.Close()
-            Exit Sub
+        If File.Exists(Current.profilePath) Then
+            AdminTopNavProfilePictureBox.Image = Image.FromFile(Current.profilePath)
+        Else
+            MsgBox("Unable to find profile")
         End If
 
-        With dt.Rows(0)
-            position = .Item(empConst.empJobPosStr)
-            username = formUtils.getEmployeeName(.Item(empConst.empIDStr))
-
-            Dim imgPath As String = .Item(empConst.empProfileStr)
-
-            If File.Exists(imgPath) Then
-                AdminTopNavProfilePictureBox.Image = Image.FromFile(imgPath)
-            End If
-
-            dashboardHandler()
-            sideNavHandler()
-            topNavHandler()
-            dashboardHandler()
-        End With
-
+        dashboardHandler()
+        sideNavHandler()
+        topNavHandler()
+        dashboardHandler()
     End Sub
+
     Private Sub topNavHandler()
         AdminTopNavTitle.Text = constants.DashboardTitle
         AdminTopNavUsernameLabel.Text = username

@@ -42,7 +42,6 @@ Partial Class AdminDashboardForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.GunaCirclePictureBox1 = New Guna.UI.WinForms.GunaCirclePictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.WelcomeMessageLabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -74,7 +73,6 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
-        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusTableLayout.SuspendLayout()
         Me.ItemsPanel.SuspendLayout()
         Me.SuppliersPanel.SuspendLayout()
@@ -183,7 +181,6 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Black
         Me.Guna2Panel3.BorderRadius = 4
-        Me.Guna2Panel3.Controls.Add(Me.GunaCirclePictureBox1)
         Me.Guna2Panel3.Controls.Add(Me.Label10)
         Me.Guna2Panel3.Controls.Add(Me.WelcomeMessageLabel)
         Me.Guna2Panel3.FillColor = System.Drawing.Color.White
@@ -195,27 +192,13 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.Size = New System.Drawing.Size(667, 92)
         Me.Guna2Panel3.TabIndex = 5
         '
-        'GunaCirclePictureBox1
-        '
-        Me.GunaCirclePictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GunaCirclePictureBox1.BaseColor = System.Drawing.Color.White
-        Me.GunaCirclePictureBox1.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
-        Me.GunaCirclePictureBox1.Location = New System.Drawing.Point(23, 8)
-        Me.GunaCirclePictureBox1.Name = "GunaCirclePictureBox1"
-        Me.GunaCirclePictureBox1.Size = New System.Drawing.Size(82, 78)
-        Me.GunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.GunaCirclePictureBox1.TabIndex = 18
-        Me.GunaCirclePictureBox1.TabStop = False
-        Me.GunaCirclePictureBox1.UseTransfarantBackground = True
-        '
         'Label10
         '
-        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.White
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(155, 50)
+        Me.Label10.Location = New System.Drawing.Point(20, 50)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 19)
         Me.Label10.TabIndex = 17
@@ -223,12 +206,11 @@ Partial Class AdminDashboardForm
         '
         'WelcomeMessageLabel
         '
-        Me.WelcomeMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.WelcomeMessageLabel.AutoSize = True
         Me.WelcomeMessageLabel.BackColor = System.Drawing.Color.White
         Me.WelcomeMessageLabel.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.WelcomeMessageLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(153, 17)
+        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(18, 17)
         Me.WelcomeMessageLabel.Name = "WelcomeMessageLabel"
         Me.WelcomeMessageLabel.Size = New System.Drawing.Size(166, 26)
         Me.WelcomeMessageLabel.TabIndex = 15
@@ -575,7 +557,6 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel4.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
-        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusTableLayout.ResumeLayout(False)
         Me.ItemsPanel.ResumeLayout(False)
         Me.ItemsPanel.PerformLayout()
@@ -630,5 +611,4 @@ Partial Class AdminDashboardForm
     Friend WithEvents Chart4 As DataVisualization.Charting.Chart
     Friend WithEvents Chart3 As DataVisualization.Charting.Chart
     Friend WithEvents GenderPieGraph As DataVisualization.Charting.Chart
-    Friend WithEvents GunaCirclePictureBox1 As Guna.UI.WinForms.GunaCirclePictureBox
 End Class

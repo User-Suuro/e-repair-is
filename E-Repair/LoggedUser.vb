@@ -9,6 +9,7 @@
         Public Property position As String
         Public Property email As String
         Public Property password As String
+        Public Property profilePath As String
     End Class
 
     Public Current As LoggedConstructor = Nothing
@@ -34,7 +35,8 @@
             .name = formUtils.getEmployeeName(empID),
             .position = empDtRow(empCust.empJobPosStr),
             .email = empDtRow(empCust.empEmailStr),
-            .password = empDtRow(empCust.empPassStr)
+            .password = empDtRow(empCust.empPassStr),
+            .profilePath = empDtRow(empCust.empProfileStr)
         }
 
     End Sub
