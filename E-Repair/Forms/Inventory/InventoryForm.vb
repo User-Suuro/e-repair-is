@@ -252,7 +252,7 @@ Public Class InventoryForm
                 Exit Sub
             End If
 
-            If exportUtils.ExportDataTableToExcel(dt, columnHeaderMapping) Then
+            If exportUtils.ExportDataTableToExcel(dt, "All Inventory Reports", columnHeaderMapping) Then
                 dbHelper.Logs("All Employees Report", Current.id)
             End If
         End With

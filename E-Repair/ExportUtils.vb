@@ -1,8 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
-Imports Microsoft.ReportingServices.Rendering.ExcelRenderer
 
 Public Class ExportUtils
-    Public Function ExportDataTableToExcel(dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String)) As Boolean
+
+    ' BY COLUMN 
+
+    Public Function ExportDataTableToExcel(dataTable As DataTable, title As String, columnHeaderMapping As Dictionary(Of String, String)) As Boolean
         Dim excelApp As Object = Nothing
         Dim workBook As Object = Nothing
         Dim workSheet As Object = Nothing
@@ -49,20 +51,13 @@ Public Class ExportUtils
             workSheet.Columns.AutoFit()
             workSheet.Rows(1 & ":" & (dataTable.Rows.Count + 1)).EntireRow.AutoFit()
             ' Save to file
-            Using saveFileDialog As New SaveFileDialog()
-                saveFileDialog.Filter = "Excel Files|*.xlsx"
-                saveFileDialog.Title = "Save Excel File"
-                saveFileDialog.FileName = "EmployeeData.xlsx"
 
-                If saveFileDialog.ShowDialog() = DialogResult.OK Then
-                    Dim savePath As String = saveFileDialog.FileName
-                    workBook.SaveAs(savePath)
-                    MsgBox("Data exported successfully to " & savePath, "Success", MessageBoxIcon.Information)
-                Else
-                    MsgBox("Export cancelled.", "Cancelled", MessageBoxIcon.Information)
-                    Return False
-                End If
-            End Using
+            Dim savePath As String = GetSaveFilePath($"{title}.xlsx", "Excel Files|*.xlsx")
+
+            If Not String.IsNullOrEmpty(savePath) Then
+                workBook.SaveAs(savePath)
+                MsgBox($"Successfully saved in {savePath}")
+            End If
 
         Catch ex As Exception
             MsgBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
@@ -92,8 +87,6 @@ Public Class ExportUtils
         Return True
     End Function
 
-
-
     ' Function to open SaveFileDialog
     Public Function GetSaveFilePath(defaultFileName As String, filter As String) As String
         Using saveFileDialog As New SaveFileDialog()
@@ -108,5 +101,66 @@ Public Class ExportUtils
             End If
         End Using
     End Function
+
+    ' BY ROW MODE ( e.g receipt )
+
+    Public Function ExportDataTableToExcel(dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String), title As String) As Boolean
+        If dataTable.Rows.Count = 0 Then Return False ' No data to export.
+
+        Try
+
+            Dim excelApp = CreateObject("Excel.Application")
+            Dim workbook = excelApp.Workbooks.Add
+            Dim worksheet = workbook.Sheets(1)
+
+            PopulateHeader(worksheet, title)
+            PopulateDetails(worksheet, dataTable, columnHeaderMapping)
+
+            worksheet.Columns().AutoFit()
+
+            Dim savePath As String = GetSaveFilePath($"{title}.xlsx", "Excel Files|*.xlsx")
+            If Not String.IsNullOrEmpty(savePath) Then
+                workbook.SaveAs(savePath)
+                MsgBox($"Successfully saved in {savePath}")
+            End If
+
+            workbook.Close()
+            excelApp.Quit()
+            Return True
+        Catch ex As Exception
+            MsgBox($"Error exporting report: {ex.Message}")
+            Return False
+        End Try
+    End Function
+
+    Private Sub PopulateHeader(worksheet As Object, title As String)
+        worksheet.Cells("A1:B1").Merge = True
+        worksheet.Cells(1, 1).Value = title
+        worksheet.Cells(1, 1).Font.Bold = True
+        worksheet.Cells(1, 1).Font.Size = 16
+    End Sub
+
+    Private Sub PopulateDetails(worksheet As Object, dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String))
+        Dim currentRow As Integer = 2
+
+        ' Add Headers
+        Dim columnIndex As Integer = 1
+        For Each columnName As String In columnHeaderMapping.Keys
+            worksheet.Cells(currentRow, columnIndex).Value = columnHeaderMapping(columnName)
+            worksheet.Cells(currentRow, columnIndex).Font.Bold = True
+            columnIndex += 1
+        Next
+
+        ' Populate Data
+        currentRow += 1
+        For Each dataRow As DataRow In dataTable.Rows
+            columnIndex = 1
+            For Each columnName As String In columnHeaderMapping.Keys
+                worksheet.Cells(currentRow, columnIndex).Value = dataRow(columnName)
+                columnIndex += 1
+            Next
+            currentRow += 1
+        Next
+    End Sub
 
 End Class

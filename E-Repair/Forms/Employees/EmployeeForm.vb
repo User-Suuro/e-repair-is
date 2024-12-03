@@ -260,8 +260,10 @@ Public Class EmployeeForm
                 Exit Sub
             End If
 
-            If exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping) Then
-                dbHelper.Logs("All Employees Report", Current.id)
+            Dim title = "All Employees Reports"
+
+            If exportUtils.ExportDataTableToExcel(empDT, title, columnHeaderMapping) Then
+                dbHelper.Logs(title, Current.id)
             End If
         End With
     End Sub
