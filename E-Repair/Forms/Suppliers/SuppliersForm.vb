@@ -4,6 +4,7 @@ Public Class SuppliersForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
+    Dim exportUtils As New ExportUtils
 
     Dim supConst As New SuppliersDBConstants
 
@@ -153,8 +154,11 @@ Public Class SuppliersForm
     End Sub
 
     ' SEARCH
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        LoadDataToDGV(SearchTextBox.Text)
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles SearchTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoadDataToDGV(SearchTextBox.Text)
+            e.SuppressKeyPress = True ' Prevents the beep sound when pressing Enter
+        End If
     End Sub
 
     ' SELECT
@@ -164,11 +168,50 @@ Public Class SuppliersForm
         Me.Close()
     End Sub
 
+    ' SEARCH
     Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
         LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
+    ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
+    ' EXPORT
+    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
+        With supConst
+            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .supIDStr, "Supplier ID"},
+              { .compNameStr, "Company Name"},
+              { .contactNumStr, "Contact Number"},
+              { .contactPersonStr, "Contact Person"},
+              { .compEmailStr, "Hazardous Classification"},
+              { .locationStr, "Company Location"},
+              { .supTypeStr, "Supplier Type"},
+              { .supContractStr, "Contract Type"},
+              { .bankDetailsStr, "Bank Details"},
+              { .payTermsStr, "Payment Terms"},
+              { .estDeliveryStr, "Estimated Delivery Time"},
+              { .dateAddedStr, "Date Added"},
+              { .addedByName, "Added By"},
+              { .dateArchivedStr, "Date Archived"}
+            }
+
+            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
+            Dim dt = dbHelper.GetAllByCol(keys, supConst.supTableStr)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("There is nothing to export")
+                Exit Sub
+            End If
+
+            Dim title = "All Supplier Reports"
+
+            If ExportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
+                dbHelper.Logs(title, Current.id)
+            End If
+        End With
+    End Sub
+
 End Class

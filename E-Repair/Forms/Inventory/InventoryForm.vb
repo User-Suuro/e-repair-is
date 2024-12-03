@@ -199,8 +199,11 @@ Public Class InventoryForm
     End Sub
 
     ' SEARCH TEXT
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        LoadDataToDGV(SearchTextBox.Text)
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles SearchTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoadDataToDGV(SearchTextBox.Text)
+            e.SuppressKeyPress = True ' Prevents the beep sound when pressing Enter
+        End If
     End Sub
 
     ' SEARCH CMB
@@ -266,5 +269,6 @@ Public Class InventoryForm
                 dbHelper.Logs(title, Current.id)
             End If
         End With
+
     End Sub
 End Class

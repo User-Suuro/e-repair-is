@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Sockets
+Imports System.Runtime.CompilerServices
 
 Public Class CustomerForm
 
@@ -6,8 +7,11 @@ Public Class CustomerForm
     Dim formModal As New Form
     Dim formUtils As New FormUtils
 
+    Dim exportUtils As New ExportUtils
+
     Dim custConst As New CustomersDBConstants
     Dim servConst As New ServiceDBConstants
+
     Dim constants As New Constants
 
     ' SCHEMA
@@ -170,8 +174,11 @@ Public Class CustomerForm
     End Sub
 
     ' SEARCH
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        LoadDataToDGV(SearchTextBox.Text)
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles SearchTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoadDataToDGV(SearchTextBox.Text)
+            e.SuppressKeyPress = True ' Prevents the beep sound when pressing Enter
+        End If
     End Sub
 
     ' SEARCH CMB
@@ -202,4 +209,40 @@ Public Class CustomerForm
         Me.Close()
     End Sub
 
+    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
+
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
+
+        With custConst
+            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .custIDStr, "Customer ID"},
+              { .custFirstStr, "Supplier ID"},
+              { .custMidStr, "Item Category"},
+              { .custLastStr, "Item Name"},
+              { .custContactStr, "Item Description"},
+              { .custAddressStr, "Serial Number"},
+              { .custGenderStr, "Hazardous Classification"},
+              { .custEmailStr, "Available Quantity"},
+              { .custTotalPaidStr, "Cost Per Item"},
+              { .custLastStr, "Total Cost"},
+              { .getAddedByName, "Physical Location"},
+              { .custDateAddedStr, "Restock Date"},
+              { .custArchDateStr, "Added by"}
+            }
+
+            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
+            Dim dt = dbHelper.GetAllByCol(keys, custConst.custTableStr)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("There is nothing to export")
+                Exit Sub
+            End If
+
+            Dim title = "All Inventory Reports"
+
+            If ExportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
+                dbHelper.Logs(title, Current.id)
+            End If
+        End With
+    End Sub
 End Class

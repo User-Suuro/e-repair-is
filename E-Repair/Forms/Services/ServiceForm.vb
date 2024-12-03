@@ -269,9 +269,11 @@ Public Class ServiceForm
     End Sub
 
     ' SEARCH
-    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
-
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles SearchTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoadDataToDGV(SearchTextBox.Text)
+            e.SuppressKeyPress = True ' Prevents the beep sound when pressing Enter
+        End If
     End Sub
 
     ' INIT CMBDS
