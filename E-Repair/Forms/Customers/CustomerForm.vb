@@ -216,14 +216,14 @@ Public Class CustomerForm
         With custConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
               { .custIDStr, "Customer ID"},
-              { .custFirstStr, "Supplier ID"},
-              { .custMidStr, "Item Category"},
-              { .custLastStr, "Item Name"},
-              { .custContactStr, "Item Description"},
-              { .custAddressStr, "Serial Number"},
-              { .custGenderStr, "Hazardous Classification"},
-              { .custEmailStr, "Available Quantity"},
-              { .custTotalPaidStr, "Total Cost"},
+              { .custFirstStr, "First Name"},
+              { .custMidStr, "Middle Name"},
+              { .custLastStr, "Last Name"},
+              { .custContactStr, "Contact Number"},
+              { .custAddressStr, "Address"},
+              { .custGenderStr, "Gender"},
+              { .custEmailStr, "Email"},
+              { .custTotalPaidStr, ""},
               { .getAddedByName, "Physical Location"},
               { .custDateAddedStr, "Restock Date"},
               { .custArchDateStr, "Added by"}

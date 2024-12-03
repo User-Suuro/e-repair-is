@@ -238,10 +238,8 @@ Public Class ServiceClaimModal
                     Next
                 End If
 
-                ' Format the worksheet for better readability
                 worksheet.Columns().AutoFit()
 
-                ' Save the workbook (you can use your file save logic here)
                 Dim savePath As String = exportUtils.GetSaveFilePath($"Receipt for Service { selectedID }.xlsx", "Excel Files|*.xlsx")
 
                 If Not String.IsNullOrEmpty(savePath) Then

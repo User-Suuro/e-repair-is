@@ -75,6 +75,11 @@ Public Class AdminDashboardForm
         PositionsChart.Titles.Add("Positions Counts")
     End Sub
 
+
+    Private Sub loadAvailInvChart()
+
+    End Sub
+
     Private Sub loadTimer()
         Timer1.Enabled = True
         Timer2.Enabled = True
@@ -97,5 +102,6 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
+
 
 End Class

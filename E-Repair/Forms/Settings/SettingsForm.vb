@@ -222,23 +222,27 @@
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        If Not loadSelectedEnum() AndAlso selectedEnumVal IsNot Nothing Then
+        loadSelectedEnum()
+
+        If selectedEnumVal IsNot Nothing Then
             ' edit
+            If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this value?") Then Exit Sub
             Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
             listEnums(index) = EnumTxtBox.Text
         Else
             'add
+            If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this value?") Then Exit Sub
             listEnums.Add(EnumTxtBox.Text)
             EnumTxtBox.Text = Nothing
         End If
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this value?") Then Exit Sub
 
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
         loadEnumsToDGV()
     End Sub
 
     Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellClick
+        loadSelectedEnum()
+
         If selectedEnumVal IsNot Nothing Then
             BtnDelete.Visible = True
             ClearSelectBtn.Visible = True
@@ -249,6 +253,7 @@
             BtnDelete.Visible = False
             BtnAdd.Text = "Add"
         End If
+
     End Sub
 
     Private Sub ClearSelectBtn_Click(sender As Object, e As EventArgs) Handles ClearSelectBtn.Click
