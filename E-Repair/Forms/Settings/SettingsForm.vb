@@ -231,15 +231,22 @@
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
     End Sub
 
-    Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellContentClick
+    Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellClick
         If loadSelectedEnum() Then
+            BtnDelete.Visible = True
             BtnAdd.Text = "Edit"
             EnumTxtBox.Text = selectedEnumVal
         Else
+            BtnDelete.Visible = False
             BtnAdd.Text = "Add"
         End If
     End Sub
 
+    Private Sub ClearSelectBtn_Click(sender As Object, e As EventArgs) Handles ClearSelectBtn.Click
+        EnumDGV.ClearSelection()
+        foundTable = Nothing
+        foundAtrr = Nothing
+    End Sub
 
     ' LOAD DUMMY
 

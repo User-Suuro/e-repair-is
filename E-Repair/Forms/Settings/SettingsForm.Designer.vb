@@ -47,6 +47,7 @@ Partial Class SettingsForm
         Me.GenerateCust = New System.Windows.Forms.Button()
         Me.GenerateEmp = New System.Windows.Forms.Button()
         Me.GenerateDummyDataLabel = New System.Windows.Forms.Label()
+        Me.ClearSelectBtn = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.EnumDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -144,6 +145,7 @@ Partial Class SettingsForm
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.ClearSelectBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnDelete)
         Me.Guna2Panel1.Controls.Add(Me.Panel4)
         Me.Guna2Panel1.Controls.Add(Me.EnumTxtBox)
@@ -177,6 +179,7 @@ Partial Class SettingsForm
         Me.BtnDelete.Size = New System.Drawing.Size(71, 28)
         Me.BtnDelete.TabIndex = 72
         Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.Visible = False
         '
         'Panel4
         '
@@ -437,6 +440,24 @@ Partial Class SettingsForm
         Me.GenerateDummyDataLabel.Text = "Generate Dummy Data"
         Me.GenerateDummyDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'ClearSelectBtn
+        '
+        Me.ClearSelectBtn.BorderRadius = 4
+        Me.ClearSelectBtn.CheckedState.Parent = Me.ClearSelectBtn
+        Me.ClearSelectBtn.CustomImages.Parent = Me.ClearSelectBtn
+        Me.ClearSelectBtn.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ClearSelectBtn.FillColor = System.Drawing.Color.Black
+        Me.ClearSelectBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClearSelectBtn.ForeColor = System.Drawing.Color.White
+        Me.ClearSelectBtn.HoverState.Parent = Me.ClearSelectBtn
+        Me.ClearSelectBtn.Location = New System.Drawing.Point(431, 0)
+        Me.ClearSelectBtn.Name = "ClearSelectBtn"
+        Me.ClearSelectBtn.ShadowDecoration.Parent = Me.ClearSelectBtn
+        Me.ClearSelectBtn.Size = New System.Drawing.Size(103, 28)
+        Me.ClearSelectBtn.TabIndex = 74
+        Me.ClearSelectBtn.Text = "Clear Selection"
+        Me.ClearSelectBtn.Visible = False
+        '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -478,4 +499,5 @@ Partial Class SettingsForm
     Friend WithEvents GenerateDummyDataLabel As Label
     Friend WithEvents GenerateInv As Button
     Friend WithEvents ITEM_NAME As DataGridViewTextBoxColumn
+    Friend WithEvents ClearSelectBtn As Guna.UI2.WinForms.Guna2Button
 End Class
