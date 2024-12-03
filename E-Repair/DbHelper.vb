@@ -529,25 +529,19 @@ Public Class DbHelper
     End Function
 
     ' Update
-    Public Sub AlterEnums(tableName As String, columnName As String, enumType As Type)
+    Public Sub AlterEnums(tableName As String, columnName As String, enumValues As List(Of String))
         Try
-            ' Check if the provided type is an Enum
-            If Not enumType.IsEnum Then
-                Throw New ArgumentException("The provided type must be an Enum.")
+            If enumValues Is Nothing OrElse enumValues.Count = 0 Then
+                Throw New ArgumentException("The provided list must contain values.")
             End If
 
-            ' Iterate over the Enum values and construct ALTER statements
-            For Each value In [Enum].GetValues(enumType)
-                Dim enumValue As String = value.ToString()
-                Dim query As String = $"ALTER TABLE `{tableName}` MODIFY COLUMN `{columnName}` ENUM({GetEnumsForAlter(enumType)})"
+            Dim enumValuesString As String = String.Join(",", enumValues.Select(Function(v) $"'{v}'"))
+            Dim query As String = $"ALTER TABLE `{tableName}` MODIFY COLUMN `{columnName}` ENUM({enumValuesString})"
 
-                ' Use readQuery to execute the alteration
-                cmd.Parameters.Clear()
-                cmd = New MySqlCommand(query, conn)
-                readQuery(query)
-            Next
+            cmd.Parameters.Clear()
+            cmd = New MySqlCommand(query, conn)
+            readQuery(query)
 
-            MsgBox("Enum values added successfully to the database!", MsgBoxStyle.Information)
         Catch ex As Exception
             MsgBox("Error altering enum values: " & ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -555,10 +549,7 @@ Public Class DbHelper
         End Try
     End Sub
 
-    Private Function GetEnumsForAlter(enumType As Type) As String
-        Dim values As String = String.Join(",", [Enum].GetValues(enumType).Cast(Of Object).Select(Function(e) $"'{e.ToString()}'"))
-        Return values
-    End Function
+
 
     Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String,
                               columnName As String,

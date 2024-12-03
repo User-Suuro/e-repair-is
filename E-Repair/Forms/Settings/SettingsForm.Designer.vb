@@ -27,11 +27,12 @@ Partial Class SettingsForm
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.EnumDGV = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.ITEM_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.BtnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.CompletedWorkTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.EnumTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnAdd = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -46,7 +47,6 @@ Partial Class SettingsForm
         Me.GenerateCust = New System.Windows.Forms.Button()
         Me.GenerateEmp = New System.Windows.Forms.Button()
         Me.GenerateDummyDataLabel = New System.Windows.Forms.Label()
-        Me.ITEM_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.EnumDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -120,6 +120,13 @@ Partial Class SettingsForm
         Me.EnumDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.EnumDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
+        'ITEM_NAME
+        '
+        Me.ITEM_NAME.DataPropertyName = "item_name"
+        Me.ITEM_NAME.HeaderText = "Item Name"
+        Me.ITEM_NAME.Name = "ITEM_NAME"
+        Me.ITEM_NAME.ReadOnly = True
+        '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -139,7 +146,7 @@ Partial Class SettingsForm
         '
         Me.Guna2Panel1.Controls.Add(Me.BtnDelete)
         Me.Guna2Panel1.Controls.Add(Me.Panel4)
-        Me.Guna2Panel1.Controls.Add(Me.CompletedWorkTxtBox)
+        Me.Guna2Panel1.Controls.Add(Me.EnumTxtBox)
         Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.BtnAdd)
         Me.Guna2Panel1.Controls.Add(Me.Panel2)
@@ -179,32 +186,32 @@ Partial Class SettingsForm
         Me.Panel4.Size = New System.Drawing.Size(17, 28)
         Me.Panel4.TabIndex = 71
         '
-        'CompletedWorkTxtBox
+        'EnumTxtBox
         '
-        Me.CompletedWorkTxtBox.BorderRadius = 4
-        Me.CompletedWorkTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CompletedWorkTxtBox.DefaultText = ""
-        Me.CompletedWorkTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CompletedWorkTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CompletedWorkTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompletedWorkTxtBox.DisabledState.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompletedWorkTxtBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.CompletedWorkTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompletedWorkTxtBox.FocusedState.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompletedWorkTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompletedWorkTxtBox.HoverState.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Location = New System.Drawing.Point(675, 0)
-        Me.CompletedWorkTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.CompletedWorkTxtBox.Name = "CompletedWorkTxtBox"
-        Me.CompletedWorkTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompletedWorkTxtBox.PlaceholderText = ""
-        Me.CompletedWorkTxtBox.ReadOnly = True
-        Me.CompletedWorkTxtBox.SelectedText = ""
-        Me.CompletedWorkTxtBox.ShadowDecoration.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Size = New System.Drawing.Size(187, 28)
-        Me.CompletedWorkTxtBox.TabIndex = 70
+        Me.EnumTxtBox.BorderRadius = 4
+        Me.EnumTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.EnumTxtBox.DefaultText = ""
+        Me.EnumTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.EnumTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.EnumTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EnumTxtBox.DisabledState.Parent = Me.EnumTxtBox
+        Me.EnumTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EnumTxtBox.Dock = System.Windows.Forms.DockStyle.Right
+        Me.EnumTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EnumTxtBox.FocusedState.Parent = Me.EnumTxtBox
+        Me.EnumTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnumTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.EnumTxtBox.HoverState.Parent = Me.EnumTxtBox
+        Me.EnumTxtBox.Location = New System.Drawing.Point(675, 0)
+        Me.EnumTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.EnumTxtBox.Name = "EnumTxtBox"
+        Me.EnumTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.EnumTxtBox.PlaceholderText = ""
+        Me.EnumTxtBox.ReadOnly = True
+        Me.EnumTxtBox.SelectedText = ""
+        Me.EnumTxtBox.ShadowDecoration.Parent = Me.EnumTxtBox
+        Me.EnumTxtBox.Size = New System.Drawing.Size(187, 28)
+        Me.EnumTxtBox.TabIndex = 70
         '
         'Panel3
         '
@@ -430,13 +437,6 @@ Partial Class SettingsForm
         Me.GenerateDummyDataLabel.Text = "Generate Dummy Data"
         Me.GenerateDummyDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ITEM_NAME
-        '
-        Me.ITEM_NAME.DataPropertyName = "item_name"
-        Me.ITEM_NAME.HeaderText = "Item Name"
-        Me.ITEM_NAME.Name = "ITEM_NAME"
-        Me.ITEM_NAME.ReadOnly = True
-        '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -465,7 +465,7 @@ Partial Class SettingsForm
     Friend WithEvents AttributesCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents BtnAdd As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents CompletedWorkTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents EnumTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents BtnDelete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel2 As Panel

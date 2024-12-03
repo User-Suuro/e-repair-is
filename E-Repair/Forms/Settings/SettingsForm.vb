@@ -1,9 +1,4 @@
-﻿Imports System.Numerics
-Imports System.Runtime.Remoting.Metadata.W3cXsd2001
-Imports Mysqlx.XDevAPI.Common
-Imports ZstdSharp.Unsafe
-
-Public Class SettingsForm
+﻿Public Class SettingsForm
 
     Dim formUtils As New FormUtils
     Dim dbHelper As New DbHelper
@@ -25,9 +20,18 @@ Public Class SettingsForm
 
     Dim combinedDictionary As New Dictionary(Of String, String)
 
+    Dim foundTable As String = Nothing
+    Dim foundAtrr As String = Nothing
+
+    Dim selectedEnumVal
+
+    Dim listEnums As List(Of String)
+
     ' MANAGE ENUMS
 
     Private Sub AdminSettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' GET TABLE NAMES
 
         tableListName = New Dictionary(Of String, String) From {
             {empConst.empTableStr, constants.EmployeesTitle},
@@ -37,11 +41,13 @@ Public Class SettingsForm
             {invConst.invTableStr, constants.InventoryTitle}
         }
 
+        ' GET COMBO BOX NAMES
+
         With empConst
             cmbEmpListName = New Dictionary(Of String, String) From {
                 { .empSexStr, "Sex"},
                 { .empCivilStr, "Civil Status"},
-                { .empContactStr, "Contract Status"},
+                { .empStatusStr, "Contract Status"},
                 { .empAdminPosStr, "Admin Positions"}
             }
         End With
@@ -74,7 +80,7 @@ Public Class SettingsForm
             }
         End With
 
-        ' combine dictionaries
+        ' COMBINE DICTIONARIES
 
         For Each kvp In cmbEmpListName
             Try
@@ -116,13 +122,15 @@ Public Class SettingsForm
             End Try
         Next
 
-        ' default values
+        ' INITIALIZE DEFAULT VALUES
+
         TableNameCmb.DataSource = formUtils.GetDictValues(tableListName)
         TableNameCmb.SelectedIndex = 0
 
         AttributesCmb.DataSource = formUtils.GetDictValues(cmbEmpListName)
         AttributesCmb.SelectedIndex = 0
     End Sub
+
     Private Sub TableNameCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TableNameCmb.SelectedIndexChanged
 
         Dim attrDataSource As List(Of String) = Nothing
@@ -157,8 +165,6 @@ Public Class SettingsForm
         Dim selectedTable As String = TableNameCmb.SelectedItem
         Dim selectedAttr As String = AttributesCmb.SelectedItem
 
-        Dim foundTable As String = Nothing
-
         For Each kvp In tableListName
 
             If kvp.Value = selectedTable Then
@@ -167,8 +173,6 @@ Public Class SettingsForm
             End If
 
         Next
-
-        Dim foundAtrr As String = Nothing
 
         For Each kvp In combinedDictionary
 
@@ -180,7 +184,7 @@ Public Class SettingsForm
         Next
 
         If Not String.IsNullOrEmpty(foundTable) AndAlso Not String.IsNullOrEmpty(foundAtrr) Then
-            Dim listEnums As List(Of String) = dbHelper.GetEnums(foundTable, foundAtrr)
+            listEnums = dbHelper.GetEnums(foundTable, foundAtrr)
 
             Dim dt As New DataTable()
 
@@ -195,37 +199,45 @@ Public Class SettingsForm
         End If
     End Sub
 
+    Private Function loadSelectedEnum() As Boolean
+        If Not formUtils.dgvValChecker(EnumDGV) Then Return False
+
+        With EnumDGV.CurrentRow
+            selectedEnumVal = .Cells("item_name").Value
+        End With
+
+        Return True
+    End Function
+
+    ' delete enum
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
-
-        If Not formUtils.dgvValChecker(EnumDGV) Then
-            MsgBox("Please select an item")
-            Exit Sub
-        End If
-
-        DeleteEnums()
-
+        If Not loadSelectedEnum() Then Exit Sub
+        listEnums.Remove(EnumTxtBox.Text)
+        EnumTxtBox.Text = Nothing
+        dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        If formUtils.dgvValChecker(EnumDGV) Then
-            ' edit mode
-            EditEnums()
+        If loadSelectedEnum() Then
+            ' edit
+            Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
+            listEnums(index) = EnumTxtBox.Text
         Else
-            ' add
-            AddEnums()
+            'add
+            listEnums.Add(EnumTxtBox.Text)
+            EnumTxtBox.Text = Nothing
         End If
+
+        dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
     End Sub
 
-    Private Sub AddEnums()
-
-    End Sub
-
-    Private Sub EditEnums()
-
-    End Sub
-
-    Private Sub DeleteEnums()
-
+    Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellContentClick
+        If loadSelectedEnum() Then
+            BtnAdd.Text = "Edit"
+            EnumTxtBox.Text = selectedEnumVal
+        Else
+            BtnAdd.Text = "Add"
+        End If
     End Sub
 
 
@@ -643,5 +655,6 @@ Public Class SettingsForm
         MessageBox.Show($"{numberOfRecords} inventory records generated successfully!")
         Return True ' return true if successful
     End Function
+
 
 End Class
