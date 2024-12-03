@@ -223,8 +223,7 @@ Public Class CustomerForm
               { .custAddressStr, "Serial Number"},
               { .custGenderStr, "Hazardous Classification"},
               { .custEmailStr, "Available Quantity"},
-              { .custTotalPaidStr, "Cost Per Item"},
-              { .custLastStr, "Total Cost"},
+              { .custTotalPaidStr, "Total Cost"},
               { .getAddedByName, "Physical Location"},
               { .custDateAddedStr, "Restock Date"},
               { .custArchDateStr, "Added by"}

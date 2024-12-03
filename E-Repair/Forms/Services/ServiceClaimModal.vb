@@ -40,9 +40,12 @@ Public Class ServiceClaimModal
             RepairStatusTxtBox.Text = .Item(servConst.svcStatusStr)
             DateCompletedTxtBox.Text = .Item(servConst.dateCompletedStr)
             RepairNotesTxtBox.Text = .Item(servConst.repairNotesStr)
+
             PartsUsedTxtBox.Text = .Item(servConst.PartsUsed)
+
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
             totalCost = .Item(servConst.TotalCost)
+            PartsCostTxtBox.Text = .Item(servConst.partsCostStr)
             TotalCostTxtBox.Text = totalCost
 
             archivedStatus = .Item(servConst.archivedStr)
@@ -118,7 +121,7 @@ Public Class ServiceClaimModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New InventoryItemModal
-             modal.inventoryID = id
+             modal.serviceID = id
              Return modal
          End Function,
          selectedID,
@@ -170,8 +173,6 @@ Public Class ServiceClaimModal
                 Dim workbook = excelApp.Workbooks.Add
                 Dim worksheet = workbook.Sheets(1)
 
-                worksheet.Cells("A1:B1").Merge = True
-
                 worksheet.Cells(1, 1).Value = "Receipt"
                 worksheet.Cells(1, 1).Font.Bold = True
                 worksheet.Cells(1, 1).Font.Size = 16
@@ -179,14 +180,20 @@ Public Class ServiceClaimModal
                 worksheet.Cells(2, 1).Value = "Service ID:"
                 worksheet.Cells(2, 2).Value = selectedID
 
-                worksheet.Cells(4, 1).Value = "Technician ID:"
-                worksheet.Cells(4, 2).Value = .Item(servConst.techIDStr)
+                worksheet.Cells(3, 1).Value = "Date Commissioned:"
+                worksheet.Cells(3, 2).Value = .Item(servConst.dateAddedStr)
 
-                worksheet.Cells(5, 1).Value = "Technician Name:"
-                worksheet.Cells(5, 2).Value = .Item(servConst.techNameStr)
+                worksheet.Cells(4, 1).Value = "Date Claimed:"
+                worksheet.Cells(4, 2).Value = .Item(servConst.dateClaimedStr)
 
-                worksheet.Cells(6, 1).Value = "Date Claimed:"
-                worksheet.Cells(6, 2).Value = .Item(servConst.dateClaimedStr)
+                worksheet.Cells(6, 1).Value = "Technician ID:"
+                worksheet.Cells(6, 2).Value = .Item(servConst.techIDStr)
+
+                worksheet.Cells(6, 1).Value = "Technician Name:"
+                worksheet.Cells(6, 2).Value = .Item(servConst.techNameStr)
+
+                worksheet.Cells(7, 1).Value = "Technician Fee:"
+                worksheet.Cells(7, 2).Value = .Item(servConst.totalPaidStr)
 
                 worksheet.Cells(8, 1).Value = "Parts Used:"
                 worksheet.Cells(8, 2).Value = .Item(servConst.PartsUsed)
@@ -194,23 +201,18 @@ Public Class ServiceClaimModal
                 worksheet.Cells(9, 1).Value = "Parts Cost:"
                 worksheet.Cells(9, 2).Value = .Item(servConst.partsCostStr)
 
-                worksheet.Cells(10, 1).Value = "Technician Fee:"
-                worksheet.Cells(10, 2).Value = .Item(servConst.totalPaidStr)
-
                 worksheet.Cells(11, 1).Value = "Total Cost:"
                 worksheet.Cells(11, 2).Value = .Item(servConst.TotalCost)
 
-                worksheet.Cells(13, 1).Value = "Total Paid:"
-                worksheet.Cells(13, 2).Value = .Item(servConst.totalPaidStr)
+                worksheet.Cells(12, 1).Value = "Total Paid:"
+                worksheet.Cells(12, 2).Value = .Item(servConst.totalPaidStr)
 
-                worksheet.Cells(14, 1).Value = "Change Given:"
-                worksheet.Cells(14, 2).Value = .Item(servConst.custChangeStr)
-
+                worksheet.Cells(13, 1).Value = "Change Given:"
+                worksheet.Cells(13, 2).Value = .Item(servConst.custChangeStr)
 
                 worksheet.Cells(15, 1).Value = "Payment Method:"
                 worksheet.Cells(15, 2).Value = .Item(servConst.payMethodStr)
 
-                worksheet.Cells("A17:B3").Merge = True
                 worksheet.Cells(17, 1).Value = "Parts Details"
                 worksheet.Cells(17, 1).Font.Bold = True
                 worksheet.Cells(17, 1).Font.Size = 14
