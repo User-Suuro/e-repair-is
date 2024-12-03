@@ -49,6 +49,14 @@ Public Class InventoryForm
         If selectedID = -1 Then
             BtnSelect.Visible = False
         End If
+
+        ' Adjust view for positions
+        If Current.position = constants.getTechnicianString Then
+            AddBtn.Visible = False
+            ArchivedBtn.Visible = False
+            EdtBtn.Visible = False
+        End If
+
     End Sub
 
     ' USE

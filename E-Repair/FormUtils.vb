@@ -118,7 +118,11 @@ Public Class FormUtils
 
         Try
             If chkbox.Checked Then
-                delBtn.Visible = True
+
+                If Current.position = constants.getAdminString Or Current.position = constants.getSuperAdminString Then
+                    delBtn.Visible = True
+                End If
+
                 archBtn.Visible = False
 
                 editBtn.Visible = False

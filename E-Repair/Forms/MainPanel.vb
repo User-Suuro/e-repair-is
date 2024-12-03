@@ -44,16 +44,20 @@ Public Class MainPanel
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
                     SidenavEmployeesBtn.Visible = True
+
                 Case .getAdminString
                     SidenavInventoryBtn.Visible = True
                     SidenavSuppliersBtn.Visible = True
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
                     SidenavEmployeesBtn.Visible = True
+
                 Case .getCashierString
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
+
                 Case .getTechnicianString
+                    SidenavCustomersBtn.Visible = True
                     SidenavInventoryBtn.Visible = True
                     SidenavServicesBtn.Visible = True
             End Select

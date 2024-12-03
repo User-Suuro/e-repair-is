@@ -71,18 +71,29 @@ Public Class ServiceForm
         If selectMode Then SearchStatusCmb.Visible = False
     End Sub
 
+    ' adjust view for posiitons
     Private Sub loadUserDisplay()
         Select Case Current.position
             Case constants.getSuperAdminString
+
                 ClaimServiceBtn.Visible = True
                 EvaluateServiceBtn.Visible = True
+
             Case constants.getCashierString
+
                 ClaimServiceBtn.Visible = True
-                ArchiveServiceBtn.Visible = False
-                DeleteServiceBtn.Visible = False
-            Case constants.getTechnicianString
-                AddServiceBtn.Visible = False
+
                 EvaluateServiceBtn.Visible = False
+
+            Case constants.getTechnicianString
+
+                EvaluateServiceBtn.Visible = True
+
+                AddServiceBtn.Visible = False
+                EditServiceBtn.Visible = False
+                ArchiveServiceBtn.Visible = False
+                ClaimServiceBtn.Visible = False
+
         End Select
     End Sub
 
@@ -281,7 +292,7 @@ Public Class ServiceForm
         SearchStatusCmb.SelectedIndex = index01
     End Sub
 
-    ' SEARCH STATUS BOX
+    ' SEARCH STATUS CMB
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = SearchStatusCmb.SelectedItem
 
@@ -295,6 +306,41 @@ Public Class ServiceForm
         If finishedLoad Then LoadDataToDGV()
     End Sub
 
+    Private Sub RefForArch()
+        LoadDataToDGV()
+        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+    End Sub
+
+    ' SHOW ARCH
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+        If ShowArchiveCheckBox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
+        If finishedLoad Then RefForArch()
+
+        If ShowArchiveCheckBox.Checked Then
+            ClaimServiceBtn.Visible = False
+        Else
+            ClaimServiceBtn.Visible = True
+        End If
+    End Sub
+
+    ' SEARCH CMB
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
+        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
+    End Sub
+
+    ' SELECT
+    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
+        If Not InitData() Then Exit Sub
+        selectedID = serviceID
+        Me.Close()
+    End Sub
+
+    ' CLOSE
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+        Me.Close()
+    End Sub
+
+    ' LOAD USER VIEW
     Private Sub loadToolsView()
 
         If currentSearchVal = constants.getFinishedString Then
@@ -327,36 +373,10 @@ Public Class ServiceForm
         If Current.position = constants.getTechnicianString Then
             ClaimServiceBtn.Visible = False
         End If
-
     End Sub
 
-    Private Sub RefForArch()
-        LoadDataToDGV()
-        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
-    End Sub
+    ' REPORTS
+    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        If ShowArchiveCheckBox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
-        If finishedLoad Then RefForArch()
-
-        If ShowArchiveCheckBox.Checked Then
-            ClaimServiceBtn.Visible = False
-        Else
-            ClaimServiceBtn.Visible = True
-        End If
-    End Sub
-
-    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchComboBox.SelectedIndexChanged
-        If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
-    End Sub
-
-    Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
-        If Not InitData() Then Exit Sub
-        selectedID = serviceID
-        Me.Close()
-    End Sub
-
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
     End Sub
 End Class

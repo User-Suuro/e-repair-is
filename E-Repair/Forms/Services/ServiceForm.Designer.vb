@@ -22,11 +22,11 @@ Partial Class ServiceForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceForm))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ServiceForm))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -39,6 +39,7 @@ Partial Class ServiceForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ExportToExcelBtn = New System.Windows.Forms.Button()
         Me.DeleteServiceBtn = New System.Windows.Forms.Button()
         Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
         Me.EditServiceBtn = New System.Windows.Forms.Button()
@@ -77,7 +78,6 @@ Partial Class ServiceForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.ExportToExcelBtn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -113,6 +113,7 @@ Partial Class ServiceForm
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(493, 28)
         Me.Guna2Panel1.TabIndex = 31
         '
@@ -126,14 +127,18 @@ Partial Class ServiceForm
         Me.SearchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SearchComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.SearchComboBox.FocusedState.Parent = Me.SearchComboBox
         Me.SearchComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SearchComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SearchComboBox.FormattingEnabled = True
+        Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
         Me.SearchComboBox.Items.AddRange(New Object() {"Customer Name", "Technician Name", "Model", "Date Commissioned"})
+        Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
         Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
-        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12, 12, 12, 12)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
+        Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
         Me.SearchComboBox.Size = New System.Drawing.Size(207, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
@@ -154,17 +159,21 @@ Partial Class ServiceForm
         Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.DisabledState.Parent = Me.SearchTextBox
         Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SearchTextBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.FocusedState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.HoverState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Location = New System.Drawing.Point(0, 0)
         Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 24, 5)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextBox.PlaceholderText = "Search..."
         Me.SearchTextBox.SelectedText = ""
+        Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
         Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
         Me.SearchTextBox.TabIndex = 31
         '
@@ -177,6 +186,7 @@ Partial Class ServiceForm
         Me.Guna2Panel2.Location = New System.Drawing.Point(525, 0)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(461, 28)
         Me.Guna2Panel2.TabIndex = 32
         '
@@ -190,13 +200,17 @@ Partial Class ServiceForm
         Me.SearchStatusCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SearchStatusCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SearchStatusCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.SearchStatusCmb.FocusedState.Parent = Me.SearchStatusCmb
         Me.SearchStatusCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SearchStatusCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SearchStatusCmb.FormattingEnabled = True
+        Me.SearchStatusCmb.HoverState.Parent = Me.SearchStatusCmb
         Me.SearchStatusCmb.ItemHeight = 22
+        Me.SearchStatusCmb.ItemsAppearance.Parent = Me.SearchStatusCmb
         Me.SearchStatusCmb.Location = New System.Drawing.Point(146, 0)
-        Me.SearchStatusCmb.Margin = New System.Windows.Forms.Padding(12, 12, 12, 12)
+        Me.SearchStatusCmb.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchStatusCmb.Name = "SearchStatusCmb"
+        Me.SearchStatusCmb.ShadowDecoration.Parent = Me.SearchStatusCmb
         Me.SearchStatusCmb.Size = New System.Drawing.Size(207, 28)
         Me.SearchStatusCmb.TabIndex = 35
         '
@@ -247,7 +261,7 @@ Partial Class ServiceForm
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 611.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 611)
         Me.TableLayoutPanel2.TabIndex = 1
         '
@@ -267,6 +281,24 @@ Partial Class ServiceForm
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(65, 611)
         Me.Panel3.TabIndex = 0
+        '
+        'ExportToExcelBtn
+        '
+        Me.ExportToExcelBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ExportToExcelBtn.FlatAppearance.BorderSize = 0
+        Me.ExportToExcelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExportToExcelBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportToExcelBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ExportToExcelBtn.Image = CType(resources.GetObject("ExportToExcelBtn.Image"), System.Drawing.Image)
+        Me.ExportToExcelBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ExportToExcelBtn.Location = New System.Drawing.Point(0, 525)
+        Me.ExportToExcelBtn.Name = "ExportToExcelBtn"
+        Me.ExportToExcelBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ExportToExcelBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ExportToExcelBtn.TabIndex = 42
+        Me.ExportToExcelBtn.Text = "Report"
+        Me.ExportToExcelBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ExportToExcelBtn.UseVisualStyleBackColor = True
         '
         'DeleteServiceBtn
         '
@@ -417,6 +449,10 @@ Partial Class ServiceForm
         Me.ServiceDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.ServiceDGV.BackgroundColor = System.Drawing.Color.White
+        Me.ServiceDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ServiceDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.ServiceDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -427,7 +463,6 @@ Partial Class ServiceForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ServiceDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceDGV.ColumnHeadersHeight = 48
-        Me.ServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.ServiceDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SERVICE_ID, Me.CUSTOMER_ID, Me.TECHNICIAN_ID, Me.CASHIER_ID, Me.CUSTOMER_NAME, Me.TECHNICIAN_NAME, Me.DEVICE_TYPE, Me.DEVICE_MODEL, Me.DEVICE_BRAND, Me.OPERATING_SYSTEM, Me.STORAGE_CAPACITY, Me.PROBLEM_DESCRIPTION, Me.REPAIR_NOTES, Me.SERVICE_STATUS, Me.TECHNICIAN_FEE, Me.PARTS_COST, Me.TOTAL_PAID, Me.PAID, Me.DEVICE_PROFILE_PATH, Me.CUSTOMER_CHANGE, Me.PAYMENT_METHOD, Me.DATE_COMPLETED, Me.DATE_CLAIMED, Me.DATE_ADDED, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
@@ -437,6 +472,7 @@ Partial Class ServiceForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ServiceDGV.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ServiceDGV.EnableHeadersVisualStyles = False
         Me.ServiceDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.ServiceDGV.Location = New System.Drawing.Point(15, 59)
         Me.ServiceDGV.Name = "ServiceDGV"
@@ -445,6 +481,7 @@ Partial Class ServiceForm
         Me.ServiceDGV.RowHeadersWidth = 51
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.ServiceDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.ServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.ServiceDGV.Size = New System.Drawing.Size(986, 498)
         Me.ServiceDGV.TabIndex = 40
         Me.ServiceDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
@@ -711,11 +748,15 @@ Partial Class ServiceForm
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
         Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
         Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
         Me.BtnSelect.Name = "BtnSelect"
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
         Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
         Me.BtnSelect.TabIndex = 43
         Me.BtnSelect.Text = "Select"
@@ -724,33 +765,19 @@ Partial Class ServiceForm
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
         Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
         Me.BtnClose.Location = New System.Drawing.Point(15, 567)
         Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 42
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
-        '
-        'ExportToExcelBtn
-        '
-        Me.ExportToExcelBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ExportToExcelBtn.FlatAppearance.BorderSize = 0
-        Me.ExportToExcelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ExportToExcelBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExportToExcelBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ExportToExcelBtn.Image = CType(resources.GetObject("ExportToExcelBtn.Image"), System.Drawing.Image)
-        Me.ExportToExcelBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ExportToExcelBtn.Location = New System.Drawing.Point(0, 525)
-        Me.ExportToExcelBtn.Name = "ExportToExcelBtn"
-        Me.ExportToExcelBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ExportToExcelBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ExportToExcelBtn.TabIndex = 42
-        Me.ExportToExcelBtn.Text = "Report"
-        Me.ExportToExcelBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ExportToExcelBtn.UseVisualStyleBackColor = True
         '
         'ServiceForm
         '

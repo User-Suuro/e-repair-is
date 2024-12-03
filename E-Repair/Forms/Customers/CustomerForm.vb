@@ -22,6 +22,29 @@ Public Class CustomerForm
     Private finishedLoad As Boolean = False
 
 
+    ' disable cud
+    Private Sub disableCud()
+
+        AddCustomerBtn.Visible = False
+        EditCustomerBtn.Visible = False
+        ArchiveCustomerBtn.Visible = False
+        DeleteCustomerBtn.Visible = False
+
+    End Sub
+
+    ' FORM ONLOAD
+    Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        finishedLoad = True
+        LoadDataToDGV()
+        CustomerDGV.ClearSelection()
+
+        ' adjust views for positions
+        If Current.position = constants.getTechnicianString Then disableCud()
+    End Sub
+
+
+
     ' INIT VALUES
     Private Function InitValues() As Boolean
         If Not formUtils.dgvValChecker(CustomerDGV) Then Return False
@@ -109,13 +132,7 @@ Public Class CustomerForm
         RefArch()
     End Sub
 
-    ' FORM ONLOAD
-    Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
-        finishedLoad = True
-        LoadDataToDGV()
-        CustomerDGV.ClearSelection()
-    End Sub
+
 
     ' LOAD DATA
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
@@ -184,6 +201,5 @@ Public Class CustomerForm
 
         Me.Close()
     End Sub
-
 
 End Class
