@@ -2,7 +2,7 @@
 Imports Microsoft.ReportingServices.Rendering.ExcelRenderer
 
 Public Class ExportUtils
-    Public Sub ExportDataTableToExcel(dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String))
+    Public Function ExportDataTableToExcel(dataTable As DataTable, columnHeaderMapping As Dictionary(Of String, String)) As Boolean
         Dim excelApp As Object = Nothing
         Dim workBook As Object = Nothing
         Dim workSheet As Object = Nothing
@@ -60,11 +60,13 @@ Public Class ExportUtils
                     MsgBox("Data exported successfully to " & savePath, "Success", MessageBoxIcon.Information)
                 Else
                     MsgBox("Export cancelled.", "Cancelled", MessageBoxIcon.Information)
+                    Return False
                 End If
             End Using
 
         Catch ex As Exception
             MsgBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
+            Return False
         Finally
             ' Re-enable user interaction
             If excelApp IsNot Nothing Then excelApp.Interactive = True
@@ -87,7 +89,8 @@ Public Class ExportUtils
         End Try
 
         Cursor.Current = Cursors.Default
-    End Sub
+        Return True
+    End Function
 
 
 
@@ -105,6 +108,5 @@ Public Class ExportUtils
             End If
         End Using
     End Function
-
 
 End Class

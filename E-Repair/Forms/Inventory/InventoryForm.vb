@@ -4,9 +4,10 @@ Public Class InventoryForm
     Dim dbHelper As New DbHelper
     Dim formModal As New Form
     Dim formUtils As New FormUtils
-    Dim constants As New Constants
+    Dim exportUtils As New ExportUtils
 
     Dim invConst As New InventoryDBConstants
+    Dim constants As New Constants
 
     Private inventoryID As Integer = -1
     Private itemQuantity As Integer = -1
@@ -220,6 +221,40 @@ Public Class InventoryForm
         Me.Close()
     End Sub
 
+    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
 
+        With invConst
+            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .invIDStr, "Inventory ID"},
+              { .supIDStr, "Supplier ID"},
+              { .itemCatStr, "Item Category"},
+              { .itemNameStr, "Item Name"},
+              { .itemDescStr, "Item Description"},
+              { .serialNumStr, "Serial Number"},
+              { .hazClassStr, "Hazardous Classification"},
+              { .availableQtyStr, "Available Quantity"},
+              { .costPerItem, "Cost Per Item"},
+              { .totalCostStr, "Total Cost"},
+              { .physLocStr, "Physical Location"},
+              { .restockDateStr, "Restock Date"},
+              { .addedByIdName, "Added by"},
+              { .archivedStr, "Archived Status"},
+              { .dateArchivedStr, "Date Archived"}
+            }
+
+            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
+            Dim dt = dbHelper.GetAllByCol(keys, invConst.invTableStr)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("There is nothing to export")
+                Exit Sub
+            End If
+
+            If exportUtils.ExportDataTableToExcel(dt, columnHeaderMapping) Then
+                dbHelper.Logs("All Employees Report", Current.id)
+            End If
+        End With
+    End Sub
 End Class

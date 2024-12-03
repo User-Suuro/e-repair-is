@@ -220,10 +220,9 @@ Public Class EmployeeForm
     End Sub
 
     ' Button Click event to export DataGridView data to Excel
-
     Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
 
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export table?") Then Exit Sub
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to this export table?") Then Exit Sub
 
         With empConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
@@ -261,9 +260,10 @@ Public Class EmployeeForm
                 Exit Sub
             End If
 
-            exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping)
+            If exportUtils.ExportDataTableToExcel(empDT, columnHeaderMapping) Then
+                dbHelper.Logs("All Employees Report", Current.id)
+            End If
         End With
     End Sub
-
 
 End Class

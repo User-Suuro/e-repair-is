@@ -79,7 +79,7 @@ Partial Class TechnicianDashboardForm
         Me.StatusTableLayout.Name = "StatusTableLayout"
         Me.StatusTableLayout.RowCount = 1
         Me.StatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 111)
+        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 91)
         Me.StatusTableLayout.TabIndex = 10
         '
         'Guna2Panel7
@@ -97,7 +97,7 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel7.Name = "Guna2Panel7"
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(279, 99)
+        Me.Guna2Panel7.Size = New System.Drawing.Size(279, 79)
         Me.Guna2Panel7.TabIndex = 7
         '
         'Label1
@@ -113,11 +113,10 @@ Partial Class TechnicianDashboardForm
         '
         'SuppliersNumberLabel
         '
-        Me.SuppliersNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SuppliersNumberLabel.AutoSize = True
         Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(225, 22)
+        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(22, 19)
         Me.SuppliersNumberLabel.Name = "SuppliersNumberLabel"
         Me.SuppliersNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.SuppliersNumberLabel.TabIndex = 3
@@ -147,16 +146,15 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(278, 99)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(278, 79)
         Me.Guna2Panel6.TabIndex = 6
         '
         'EmployeesCountLabel
         '
-        Me.EmployeesCountLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmployeesCountLabel.AutoSize = True
         Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(223, 22)
+        Me.EmployeesCountLabel.Location = New System.Drawing.Point(14, 19)
         Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
         Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
         Me.EmployeesCountLabel.TabIndex = 3
@@ -187,16 +185,15 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel5.Name = "Guna2Panel5"
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(278, 99)
+        Me.Guna2Panel5.Size = New System.Drawing.Size(278, 79)
         Me.Guna2Panel5.TabIndex = 5
         '
         'CustomersNumberLabel
         '
-        Me.CustomersNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CustomersNumberLabel.AutoSize = True
         Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.CustomersNumberLabel.Location = New System.Drawing.Point(223, 22)
+        Me.CustomersNumberLabel.Location = New System.Drawing.Point(18, 19)
         Me.CustomersNumberLabel.Name = "CustomersNumberLabel"
         Me.CustomersNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.CustomersNumberLabel.TabIndex = 3
@@ -227,17 +224,16 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 99)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 79)
         Me.Guna2Panel1.TabIndex = 3
         '
         'ServicesNumberLabel
         '
-        Me.ServicesNumberLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServicesNumberLabel.AutoSize = True
         Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
         Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServicesNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.ServicesNumberLabel.Location = New System.Drawing.Point(224, 22)
+        Me.ServicesNumberLabel.Location = New System.Drawing.Point(20, 19)
         Me.ServicesNumberLabel.Name = "ServicesNumberLabel"
         Me.ServicesNumberLabel.Size = New System.Drawing.Size(54, 60)
         Me.ServicesNumberLabel.TabIndex = 3
