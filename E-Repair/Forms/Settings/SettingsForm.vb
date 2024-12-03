@@ -215,10 +215,11 @@
         listEnums.Remove(EnumTxtBox.Text)
         EnumTxtBox.Text = Nothing
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
+        loadEnumsToDGV()
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        If loadSelectedEnum() Then
+        If Not loadSelectedEnum() Then
             ' edit
             Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
             listEnums(index) = EnumTxtBox.Text
@@ -229,6 +230,7 @@
         End If
 
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
+        loadEnumsToDGV()
     End Sub
 
     Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellClick
@@ -246,9 +248,8 @@
 
     Private Sub ClearSelectBtn_Click(sender As Object, e As EventArgs) Handles ClearSelectBtn.Click
         EnumDGV.ClearSelection()
-        foundTable = Nothing
-        foundAtrr = Nothing
         EnumTxtBox.Text = Nothing
+        selectedEnumVal = Nothing
         ClearSelectBtn.Visible = False
         BtnAdd.Text = "Add"
         BtnDelete.Visible = False
