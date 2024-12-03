@@ -73,25 +73,46 @@ Public Class SettingsForm
             }
         End With
 
-        ' combine all attributes
+        ' combine dictionaries
+
         For Each kvp In cmbEmpListName
-            combinedDictionary(kvp.Key) = kvp.Value
+            Try
+                combinedDictionary.Add(kvp.Key, kvp.Value)
+            Catch ex As ArgumentException
+                ' Handle the duplicate key (e.g., ignore or log the conflict)
+            End Try
         Next
 
         For Each kvp In cmbCustListName
-            combinedDictionary(kvp.Key) = kvp.Value
+            Try
+                combinedDictionary.Add(kvp.Key, kvp.Value)
+            Catch ex As ArgumentException
+                ' Handle the duplicate key
+            End Try
         Next
 
         For Each kvp In cmbSuppListName
-            combinedDictionary(kvp.Key) = kvp.Value
+            Try
+                combinedDictionary.Add(kvp.Key, kvp.Value)
+            Catch ex As ArgumentException
+                ' Handle the duplicate key
+            End Try
         Next
 
         For Each kvp In cmbInvListName
-            combinedDictionary(kvp.Key) = kvp.Value
+            Try
+                combinedDictionary.Add(kvp.Key, kvp.Value)
+            Catch ex As ArgumentException
+                ' Handle the duplicate key
+            End Try
         Next
 
         For Each kvp In cmbServListName
-            combinedDictionary(kvp.Key) = kvp.Value
+            Try
+                combinedDictionary.Add(kvp.Key, kvp.Value)
+            Catch ex As ArgumentException
+                ' Handle the duplicate key
+            End Try
         Next
 
         ' default values
@@ -148,18 +169,18 @@ Public Class SettingsForm
         Dim foundAtrr As String = Nothing
 
         For Each kvp In combinedDictionary
+
             If kvp.Value = selectedAttr Then
                 foundAtrr = kvp.Key
                 Exit For
             End If
+
         Next
 
         ' Check if a matching key was found
         If Not String.IsNullOrEmpty(foundAtrr) Then
 
             Dim listEnums As List(Of String) = dbHelper.GetEnums(foundTable, selectedAttr)
-
-            If listEnums.Count = 0 Then Exit Sub
 
             ' convert to dt
             Dim dt As New DataTable()
@@ -169,6 +190,8 @@ Public Class SettingsForm
             For Each item As String In listEnums
                 dt.Rows.Add(item)
             Next
+
+            MsgBox("it works")
 
             EnumDGV.DataSource = dt
             EnumDGV.RowTemplate.Height = formUtils.rowHeight
