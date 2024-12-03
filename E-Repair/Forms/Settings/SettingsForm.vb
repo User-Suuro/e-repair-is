@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports System.Runtime.Remoting.Metadata.W3cXsd2001
+Imports Mysqlx.XDevAPI.Common
 Imports ZstdSharp.Unsafe
 
 Public Class SettingsForm
@@ -152,8 +153,9 @@ Public Class SettingsForm
     End Sub
 
     Private Sub loadEnumsToDGV()
-        Dim selectedTable As String = TableNameCmb.SelectedItem.ToString()
-        Dim selectedAttr As String = AttributesCmb.SelectedItem.ToString()
+
+        Dim selectedTable As String = TableNameCmb.SelectedItem
+        Dim selectedAttr As String = AttributesCmb.SelectedItem
 
         Dim foundTable As String = Nothing
 
@@ -177,12 +179,9 @@ Public Class SettingsForm
 
         Next
 
-        ' Check if a matching key was found
-        If Not String.IsNullOrEmpty(foundAtrr) Then
+        If Not String.IsNullOrEmpty(foundTable) AndAlso Not String.IsNullOrEmpty(foundAtrr) Then
+            Dim listEnums As List(Of String) = dbHelper.GetEnums(foundTable, foundAtrr)
 
-            Dim listEnums As List(Of String) = dbHelper.GetEnums(foundTable, selectedAttr)
-
-            ' convert to dt
             Dim dt As New DataTable()
 
             dt.Columns.Add("item_name")
@@ -190,8 +189,6 @@ Public Class SettingsForm
             For Each item As String In listEnums
                 dt.Rows.Add(item)
             Next
-
-            MsgBox("it works")
 
             EnumDGV.DataSource = dt
             EnumDGV.RowTemplate.Height = formUtils.rowHeight
