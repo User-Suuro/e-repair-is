@@ -234,9 +234,11 @@
     Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellClick
         If loadSelectedEnum() Then
             BtnDelete.Visible = True
+            ClearSelectBtn.Visible = True
             BtnAdd.Text = "Edit"
             EnumTxtBox.Text = selectedEnumVal
         Else
+            ClearSelectBtn.Visible = False
             BtnDelete.Visible = False
             BtnAdd.Text = "Add"
         End If
