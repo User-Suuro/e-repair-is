@@ -26,7 +26,7 @@ Public Class ServiceForm
 
     ' VIEW MODE
     Public Property viewMode As Boolean = False
-    Public Property serviceDT As DataTable = Nothing
+    Public Property serviceDT As DataTable
 
     Private Function InitData() As Boolean
 

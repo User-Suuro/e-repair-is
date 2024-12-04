@@ -38,11 +38,11 @@ Partial Class EmployeeForm
         Me.ViewEmployeeBtn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ShowArchiveCheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ShowArchiveCheckbox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.BtnSelect = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.EmpDGV = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -87,10 +87,9 @@ Partial Class EmployeeForm
         Me.AdminSidenavPanel.Controls.Add(Me.TableLayoutPanel2)
         Me.AdminSidenavPanel.Controls.Add(Me.Panel1)
         Me.AdminSidenavPanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1353, 0)
-        Me.AdminSidenavPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.AdminSidenavPanel.Location = New System.Drawing.Point(1015, 0)
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
-        Me.AdminSidenavPanel.Size = New System.Drawing.Size(87, 752)
+        Me.AdminSidenavPanel.Size = New System.Drawing.Size(65, 611)
         Me.AdminSidenavPanel.TabIndex = 32
         '
         'TableLayoutPanel2
@@ -99,13 +98,12 @@ Partial Class EmployeeForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.19048!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(87, 752)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 611)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'Panel3
@@ -117,10 +115,10 @@ Partial Class EmployeeForm
         Me.Panel3.Controls.Add(Me.AddEmployeeBtn)
         Me.Panel3.Controls.Add(Me.ViewEmployeeBtn)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 107)
+        Me.Panel3.Location = New System.Drawing.Point(0, 87)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(87, 572)
+        Me.Panel3.Size = New System.Drawing.Size(65, 465)
         Me.Panel3.TabIndex = 0
         '
         'EmployeeExportBtn
@@ -132,11 +130,10 @@ Partial Class EmployeeForm
         Me.EmployeeExportBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.EmployeeExportBtn.Image = CType(resources.GetObject("EmployeeExportBtn.Image"), System.Drawing.Image)
         Me.EmployeeExportBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EmployeeExportBtn.Location = New System.Drawing.Point(0, 460)
-        Me.EmployeeExportBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.EmployeeExportBtn.Location = New System.Drawing.Point(0, 375)
         Me.EmployeeExportBtn.Name = "EmployeeExportBtn"
-        Me.EmployeeExportBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.EmployeeExportBtn.Size = New System.Drawing.Size(87, 92)
+        Me.EmployeeExportBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.EmployeeExportBtn.Size = New System.Drawing.Size(65, 75)
         Me.EmployeeExportBtn.TabIndex = 32
         Me.EmployeeExportBtn.Text = "Report"
         Me.EmployeeExportBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -151,11 +148,10 @@ Partial Class EmployeeForm
         Me.DeleteEmployeeBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.DeleteEmployeeBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
         Me.DeleteEmployeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteEmployeeBtn.Location = New System.Drawing.Point(0, 368)
-        Me.DeleteEmployeeBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.DeleteEmployeeBtn.Location = New System.Drawing.Point(0, 300)
         Me.DeleteEmployeeBtn.Name = "DeleteEmployeeBtn"
-        Me.DeleteEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.DeleteEmployeeBtn.Size = New System.Drawing.Size(87, 92)
+        Me.DeleteEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.DeleteEmployeeBtn.Size = New System.Drawing.Size(65, 75)
         Me.DeleteEmployeeBtn.TabIndex = 30
         Me.DeleteEmployeeBtn.Text = "Delete"
         Me.DeleteEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -171,11 +167,10 @@ Partial Class EmployeeForm
         Me.ArchiveEmployeeBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ArchiveEmployeeBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
         Me.ArchiveEmployeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ArchiveEmployeeBtn.Location = New System.Drawing.Point(0, 276)
-        Me.ArchiveEmployeeBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.ArchiveEmployeeBtn.Location = New System.Drawing.Point(0, 225)
         Me.ArchiveEmployeeBtn.Name = "ArchiveEmployeeBtn"
-        Me.ArchiveEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.ArchiveEmployeeBtn.Size = New System.Drawing.Size(87, 92)
+        Me.ArchiveEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ArchiveEmployeeBtn.Size = New System.Drawing.Size(65, 75)
         Me.ArchiveEmployeeBtn.TabIndex = 28
         Me.ArchiveEmployeeBtn.TabStop = False
         Me.ArchiveEmployeeBtn.Text = "Archive"
@@ -191,11 +186,10 @@ Partial Class EmployeeForm
         Me.EditEmployeeBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.EditEmployeeBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
         Me.EditEmployeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EditEmployeeBtn.Location = New System.Drawing.Point(0, 184)
-        Me.EditEmployeeBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.EditEmployeeBtn.Location = New System.Drawing.Point(0, 150)
         Me.EditEmployeeBtn.Name = "EditEmployeeBtn"
-        Me.EditEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.EditEmployeeBtn.Size = New System.Drawing.Size(87, 92)
+        Me.EditEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.EditEmployeeBtn.Size = New System.Drawing.Size(65, 75)
         Me.EditEmployeeBtn.TabIndex = 27
         Me.EditEmployeeBtn.Text = "Edit"
         Me.EditEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -210,11 +204,10 @@ Partial Class EmployeeForm
         Me.AddEmployeeBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.AddEmployeeBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
         Me.AddEmployeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AddEmployeeBtn.Location = New System.Drawing.Point(0, 92)
-        Me.AddEmployeeBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.AddEmployeeBtn.Location = New System.Drawing.Point(0, 75)
         Me.AddEmployeeBtn.Name = "AddEmployeeBtn"
-        Me.AddEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.AddEmployeeBtn.Size = New System.Drawing.Size(87, 92)
+        Me.AddEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AddEmployeeBtn.Size = New System.Drawing.Size(65, 75)
         Me.AddEmployeeBtn.TabIndex = 26
         Me.AddEmployeeBtn.Text = "Add"
         Me.AddEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -230,10 +223,9 @@ Partial Class EmployeeForm
         Me.ViewEmployeeBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
         Me.ViewEmployeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.ViewEmployeeBtn.Location = New System.Drawing.Point(0, 0)
-        Me.ViewEmployeeBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ViewEmployeeBtn.Name = "ViewEmployeeBtn"
-        Me.ViewEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
-        Me.ViewEmployeeBtn.Size = New System.Drawing.Size(87, 92)
+        Me.ViewEmployeeBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.ViewEmployeeBtn.Size = New System.Drawing.Size(65, 75)
         Me.ViewEmployeeBtn.TabIndex = 19
         Me.ViewEmployeeBtn.Text = "Details"
         Me.ViewEmployeeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -244,9 +236,8 @@ Partial Class EmployeeForm
         Me.Panel1.AutoSize = True
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(87, 0)
+        Me.Panel1.Size = New System.Drawing.Size(65, 0)
         Me.Panel1.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -256,36 +247,15 @@ Partial Class EmployeeForm
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.ShowArchiveCheckBox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(28, 33)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanel1.Controls.Add(Me.ShowArchiveCheckbox, 1, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(21, 27)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1291, 34)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(968, 28)
         Me.TableLayoutPanel1.TabIndex = 33
-        '
-        'ShowArchiveCheckBox
-        '
-        Me.ShowArchiveCheckBox.AutoSize = True
-        Me.ShowArchiveCheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.CheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(1177, 4)
-        Me.ShowArchiveCheckBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
-        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(110, 26)
-        Me.ShowArchiveCheckBox.TabIndex = 30
-        Me.ShowArchiveCheckBox.Text = "Show Archive"
-        Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UncheckedState.BorderRadius = 2
-        Me.ShowArchiveCheckBox.UncheckedState.BorderThickness = 0
-        Me.ShowArchiveCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.ShowArchiveCheckBox.UseVisualStyleBackColor = True
         '
         'Guna2Panel1
         '
@@ -296,7 +266,8 @@ Partial Class EmployeeForm
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(645, 34)
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
+        Me.Guna2Panel1.Size = New System.Drawing.Size(484, 28)
         Me.Guna2Panel1.TabIndex = 31
         '
         'SearchComboBox
@@ -309,25 +280,28 @@ Partial Class EmployeeForm
         Me.SearchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SearchComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.SearchComboBox.FocusedState.Parent = Me.SearchComboBox
         Me.SearchComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SearchComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SearchComboBox.FormattingEnabled = True
+        Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
         Me.SearchComboBox.Items.AddRange(New Object() {"First Name", "Middle Name", "Last Name", "Date Hired", "Email", "Last Accessed", "Date Added"})
-        Me.SearchComboBox.Location = New System.Drawing.Point(348, 0)
-        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(16, 15, 16, 15)
+        Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
+        Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
         Me.SearchComboBox.Name = "SearchComboBox"
-        Me.SearchComboBox.Size = New System.Drawing.Size(235, 28)
+        Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
+        Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(327, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel2.Location = New System.Drawing.Point(245, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(21, 34)
+        Me.Panel2.Size = New System.Drawing.Size(16, 28)
         Me.Panel2.TabIndex = 32
         '
         'SearchTextBox
@@ -338,30 +312,57 @@ Partial Class EmployeeForm
         Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.DisabledState.Parent = Me.SearchTextBox
         Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SearchTextBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.FocusedState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.HoverState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Location = New System.Drawing.Point(0, 0)
-        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(5, 6, 32, 6)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 24, 5)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextBox.PlaceholderText = "Search..."
         Me.SearchTextBox.SelectedText = ""
-        Me.SearchTextBox.Size = New System.Drawing.Size(327, 34)
+        Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
+        Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
         Me.SearchTextBox.TabIndex = 31
+        '
+        'ShowArchiveCheckbox
+        '
+        Me.ShowArchiveCheckbox.AutoSize = True
+        Me.ShowArchiveCheckbox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckbox.CheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckbox.CheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckbox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ShowArchiveCheckbox.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ShowArchiveCheckbox.Location = New System.Drawing.Point(873, 3)
+        Me.ShowArchiveCheckbox.Name = "ShowArchiveCheckbox"
+        Me.ShowArchiveCheckbox.Size = New System.Drawing.Size(92, 22)
+        Me.ShowArchiveCheckbox.TabIndex = 32
+        Me.ShowArchiveCheckbox.Text = "Show Archive"
+        Me.ShowArchiveCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ShowArchiveCheckbox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckbox.UncheckedState.BorderRadius = 2
+        Me.ShowArchiveCheckbox.UncheckedState.BorderThickness = 0
+        Me.ShowArchiveCheckbox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.ShowArchiveCheckbox.UseVisualStyleBackColor = True
         '
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
+        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
+        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
         Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.Location = New System.Drawing.Point(1176, 698)
-        Me.BtnSelect.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
+        Me.BtnSelect.Location = New System.Drawing.Point(882, 567)
         Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.Size = New System.Drawing.Size(143, 39)
+        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
+        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
         Me.BtnSelect.TabIndex = 40
         Me.BtnSelect.Text = "Select"
         Me.BtnSelect.Visible = False
@@ -369,13 +370,16 @@ Partial Class EmployeeForm
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
         Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.Location = New System.Drawing.Point(28, 698)
-        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4)
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(21, 567)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(143, 39)
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 39
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
@@ -389,6 +393,10 @@ Partial Class EmployeeForm
         Me.EmpDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EmpDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.EmpDGV.BackgroundColor = System.Drawing.Color.White
+        Me.EmpDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.EmpDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.EmpDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -399,7 +407,6 @@ Partial Class EmployeeForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.EmpDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.EmpDGV.ColumnHeadersHeight = 48
-        Me.EmpDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.EmpDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EMPLOYEE_ID, Me.FIRST_NAME, Me.MIDDLE_NAME, Me.LAST_NAME, Me.SEX, Me.BIRTHDATE, Me.CIVIL_STATUS, Me.ADDRESS, Me.CONTACT, Me.EMPLOYMENT_STATUS, Me.DATE_HIRED, Me.SSS_NUMBER, Me.PAGIBIG_NUMBER, Me.TIN_NUMBER, Me.JOB_TYPE, Me.ADMIN_POSITION, Me.PERSONNEL_DESTINATION, Me.IMG_PATH, Me.EMAIL, Me.PASSWORD, Me.ADDED_BY, Me.ADDED_BY_NAME, Me.ARCHIVED, Me.ARCHIVED_BY, Me.LAST_ACCESSED, Me.DATE_ADDED, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
@@ -409,16 +416,17 @@ Partial Class EmployeeForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.EmpDGV.DefaultCellStyle = DataGridViewCellStyle3
+        Me.EmpDGV.EnableHeadersVisualStyles = False
         Me.EmpDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.EmpDGV.Location = New System.Drawing.Point(28, 86)
-        Me.EmpDGV.Margin = New System.Windows.Forms.Padding(4)
+        Me.EmpDGV.Location = New System.Drawing.Point(21, 70)
         Me.EmpDGV.Name = "EmpDGV"
         Me.EmpDGV.ReadOnly = True
         Me.EmpDGV.RowHeadersVisible = False
         Me.EmpDGV.RowHeadersWidth = 51
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.EmpDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.EmpDGV.Size = New System.Drawing.Size(1291, 590)
+        Me.EmpDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.EmpDGV.Size = New System.Drawing.Size(968, 479)
         Me.EmpDGV.TabIndex = 30
         Me.EmpDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.EmpDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -679,18 +687,17 @@ Partial Class EmployeeForm
         '
         'EmployeeForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1440, 752)
+        Me.ClientSize = New System.Drawing.Size(1080, 611)
         Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.AdminSidenavPanel)
         Me.Controls.Add(Me.EmpDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.MaximumSize = New System.Drawing.Size(2560, 1292)
+        Me.MaximumSize = New System.Drawing.Size(1920, 1050)
         Me.Name = "EmployeeForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.TopMost = True
@@ -715,7 +722,6 @@ Partial Class EmployeeForm
     Friend WithEvents ViewEmployeeBtn As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents ShowArchiveCheckBox As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents SearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents SearchComboBox As Guna.UI2.WinForms.Guna2ComboBox
@@ -751,4 +757,5 @@ Partial Class EmployeeForm
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents EmployeeExportBtn As Button
+    Friend WithEvents ShowArchiveCheckbox As Guna.UI2.WinForms.Guna2CheckBox
 End Class

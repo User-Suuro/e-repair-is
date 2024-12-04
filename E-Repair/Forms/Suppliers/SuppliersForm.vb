@@ -19,7 +19,7 @@ Public Class SuppliersForm
 
     ' VIEW MODE
     Public Property viewMode As Boolean = False
-    Public Property suppDT As DataTable = Nothing
+    Public Property suppDT As DataTable
 
     ' INIT VALUES
     Private Function InitValues() As Boolean

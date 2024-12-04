@@ -25,7 +25,7 @@ Public Class CustomerForm
 
     ' VIEW MODE
     Public Property viewMode As Boolean = False
-    Public Property customersDt As DataTable = Nothing
+    Public Property customersDt As DataTable
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

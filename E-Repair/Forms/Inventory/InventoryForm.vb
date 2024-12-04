@@ -22,7 +22,7 @@ Public Class InventoryForm
 
     ' VIEW MODE
     Public Property viewMode As Boolean = False
-    Public Property invDT As DataTable = Nothing
+    Public Property invDT As DataTable
 
     ' INIT DATA
     Private Function InitData() As Boolean

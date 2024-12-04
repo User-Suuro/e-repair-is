@@ -28,28 +28,20 @@ Partial Class EmployeeViewModal
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AdminTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.InvBtn = New Guna.UI2.WinForms.Guna2Button()
-        Me.InventoryAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.SuppBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.SuppAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label36 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.EmpBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.EmpAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.AdminPosTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CashierTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.ServBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.ServiceAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.Custbtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.CustAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TechTable = New System.Windows.Forms.TableLayoutPanel()
         Me.ClaimedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FinishedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.TechBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.OnholdTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -127,6 +119,8 @@ Partial Class EmployeeViewModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FirstNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.InventoryAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -225,26 +219,21 @@ Partial Class EmployeeViewModal
         Me.FlowLayoutPanel2.Controls.Add(Me.UtilityTable)
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(956, 61)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(956, 65)
         Me.FlowLayoutPanel2.TabIndex = 37
         '
         'AdminTable
         '
-        Me.AdminTable.ColumnCount = 7
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.AdminTable.Controls.Add(Me.InvBtn, 6, 1)
-        Me.AdminTable.Controls.Add(Me.InventoryAddedTxtBox, 5, 1)
-        Me.AdminTable.Controls.Add(Me.SuppBtn, 4, 1)
-        Me.AdminTable.Controls.Add(Me.SuppAddedTxtBox, 3, 1)
-        Me.AdminTable.Controls.Add(Me.Label36, 5, 0)
-        Me.AdminTable.Controls.Add(Me.Label34, 3, 0)
-        Me.AdminTable.Controls.Add(Me.EmpBtn, 2, 1)
+        Me.AdminTable.ColumnCount = 4
+        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.AdminTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.AdminTable.Controls.Add(Me.InventoryAddedTxtBox, 3, 1)
+        Me.AdminTable.Controls.Add(Me.SuppAddedTxtBox, 2, 1)
+        Me.AdminTable.Controls.Add(Me.Label36, 3, 0)
+        Me.AdminTable.Controls.Add(Me.Label34, 2, 0)
         Me.AdminTable.Controls.Add(Me.EmpAddedTxtBox, 1, 1)
         Me.AdminTable.Controls.Add(Me.Label29, 1, 0)
         Me.AdminTable.Controls.Add(Me.Label15, 0, 0)
@@ -257,68 +246,6 @@ Partial Class EmployeeViewModal
         Me.AdminTable.Size = New System.Drawing.Size(952, 56)
         Me.AdminTable.TabIndex = 39
         '
-        'InvBtn
-        '
-        Me.InvBtn.BorderRadius = 4
-        Me.InvBtn.CheckedState.Parent = Me.InvBtn
-        Me.InvBtn.CustomImages.Parent = Me.InvBtn
-        Me.InvBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.InvBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.InvBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InvBtn.ForeColor = System.Drawing.Color.White
-        Me.InvBtn.HoverState.Parent = Me.InvBtn
-        Me.InvBtn.Location = New System.Drawing.Point(813, 24)
-        Me.InvBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.InvBtn.Name = "InvBtn"
-        Me.InvBtn.ShadowDecoration.Parent = Me.InvBtn
-        Me.InvBtn.Size = New System.Drawing.Size(136, 28)
-        Me.InvBtn.TabIndex = 64
-        Me.InvBtn.Text = "See All"
-        '
-        'InventoryAddedTxtBox
-        '
-        Me.InventoryAddedTxtBox.BorderRadius = 4
-        Me.InventoryAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.InventoryAddedTxtBox.DefaultText = ""
-        Me.InventoryAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.InventoryAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.InventoryAddedTxtBox.FocusedState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InventoryAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.InventoryAddedTxtBox.HoverState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Location = New System.Drawing.Point(677, 25)
-        Me.InventoryAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.InventoryAddedTxtBox.Name = "InventoryAddedTxtBox"
-        Me.InventoryAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.InventoryAddedTxtBox.PlaceholderText = ""
-        Me.InventoryAddedTxtBox.ReadOnly = True
-        Me.InventoryAddedTxtBox.SelectedText = ""
-        Me.InventoryAddedTxtBox.ShadowDecoration.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Size = New System.Drawing.Size(131, 25)
-        Me.InventoryAddedTxtBox.TabIndex = 63
-        '
-        'SuppBtn
-        '
-        Me.SuppBtn.BorderRadius = 4
-        Me.SuppBtn.CheckedState.Parent = Me.SuppBtn
-        Me.SuppBtn.CustomImages.Parent = Me.SuppBtn
-        Me.SuppBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SuppBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SuppBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuppBtn.ForeColor = System.Drawing.Color.White
-        Me.SuppBtn.HoverState.Parent = Me.SuppBtn
-        Me.SuppBtn.Location = New System.Drawing.Point(543, 24)
-        Me.SuppBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SuppBtn.Name = "SuppBtn"
-        Me.SuppBtn.ShadowDecoration.Parent = Me.SuppBtn
-        Me.SuppBtn.Size = New System.Drawing.Size(129, 28)
-        Me.SuppBtn.TabIndex = 62
-        Me.SuppBtn.Text = "See All"
-        '
         'SuppAddedTxtBox
         '
         Me.SuppAddedTxtBox.BorderRadius = 4
@@ -329,12 +256,13 @@ Partial Class EmployeeViewModal
         Me.SuppAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SuppAddedTxtBox.DisabledState.Parent = Me.SuppAddedTxtBox
         Me.SuppAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SuppAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.SuppAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SuppAddedTxtBox.FocusedState.Parent = Me.SuppAddedTxtBox
         Me.SuppAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuppAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SuppAddedTxtBox.HoverState.Parent = Me.SuppAddedTxtBox
-        Me.SuppAddedTxtBox.Location = New System.Drawing.Point(407, 25)
+        Me.SuppAddedTxtBox.Location = New System.Drawing.Point(478, 25)
         Me.SuppAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.SuppAddedTxtBox.Name = "SuppAddedTxtBox"
         Me.SuppAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -342,48 +270,19 @@ Partial Class EmployeeViewModal
         Me.SuppAddedTxtBox.ReadOnly = True
         Me.SuppAddedTxtBox.SelectedText = ""
         Me.SuppAddedTxtBox.ShadowDecoration.Parent = Me.SuppAddedTxtBox
-        Me.SuppAddedTxtBox.Size = New System.Drawing.Size(131, 25)
+        Me.SuppAddedTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.SuppAddedTxtBox.TabIndex = 61
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label36.Location = New System.Drawing.Point(678, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(108, 20)
-        Me.Label36.TabIndex = 59
-        Me.Label36.Text = "Inventory Added"
         '
         'Label34
         '
         Me.Label34.AutoSize = True
         Me.Label34.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label34.Location = New System.Drawing.Point(408, 0)
+        Me.Label34.Location = New System.Drawing.Point(479, 0)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(111, 20)
         Me.Label34.TabIndex = 57
         Me.Label34.Text = "Suppliers Added"
-        '
-        'EmpBtn
-        '
-        Me.EmpBtn.BorderRadius = 4
-        Me.EmpBtn.CheckedState.Parent = Me.EmpBtn
-        Me.EmpBtn.CustomImages.Parent = Me.EmpBtn
-        Me.EmpBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.EmpBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.EmpBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmpBtn.ForeColor = System.Drawing.Color.White
-        Me.EmpBtn.HoverState.Parent = Me.EmpBtn
-        Me.EmpBtn.Location = New System.Drawing.Point(273, 24)
-        Me.EmpBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.EmpBtn.Name = "EmpBtn"
-        Me.EmpBtn.ShadowDecoration.Parent = Me.EmpBtn
-        Me.EmpBtn.Size = New System.Drawing.Size(129, 28)
-        Me.EmpBtn.TabIndex = 55
-        Me.EmpBtn.Text = "See All"
         '
         'EmpAddedTxtBox
         '
@@ -395,12 +294,13 @@ Partial Class EmployeeViewModal
         Me.EmpAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.EmpAddedTxtBox.DisabledState.Parent = Me.EmpAddedTxtBox
         Me.EmpAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.EmpAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.EmpAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.EmpAddedTxtBox.FocusedState.Parent = Me.EmpAddedTxtBox
         Me.EmpAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmpAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.EmpAddedTxtBox.HoverState.Parent = Me.EmpAddedTxtBox
-        Me.EmpAddedTxtBox.Location = New System.Drawing.Point(137, 25)
+        Me.EmpAddedTxtBox.Location = New System.Drawing.Point(240, 25)
         Me.EmpAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.EmpAddedTxtBox.Name = "EmpAddedTxtBox"
         Me.EmpAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -408,7 +308,7 @@ Partial Class EmployeeViewModal
         Me.EmpAddedTxtBox.ReadOnly = True
         Me.EmpAddedTxtBox.SelectedText = ""
         Me.EmpAddedTxtBox.ShadowDecoration.Parent = Me.EmpAddedTxtBox
-        Me.EmpAddedTxtBox.Size = New System.Drawing.Size(131, 25)
+        Me.EmpAddedTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.EmpAddedTxtBox.TabIndex = 29
         '
         'Label29
@@ -416,7 +316,7 @@ Partial Class EmployeeViewModal
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(138, 0)
+        Me.Label29.Location = New System.Drawing.Point(241, 0)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(123, 20)
         Me.Label29.TabIndex = 27
@@ -443,6 +343,7 @@ Partial Class EmployeeViewModal
         Me.AdminPosTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AdminPosTxtBox.DisabledState.Parent = Me.AdminPosTxtBox
         Me.AdminPosTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AdminPosTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.AdminPosTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AdminPosTxtBox.FocusedState.Parent = Me.AdminPosTxtBox
         Me.AdminPosTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -456,20 +357,18 @@ Partial Class EmployeeViewModal
         Me.AdminPosTxtBox.ReadOnly = True
         Me.AdminPosTxtBox.SelectedText = ""
         Me.AdminPosTxtBox.ShadowDecoration.Parent = Me.AdminPosTxtBox
-        Me.AdminPosTxtBox.Size = New System.Drawing.Size(131, 25)
+        Me.AdminPosTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.AdminPosTxtBox.TabIndex = 19
         '
         'CashierTable
         '
-        Me.CashierTable.ColumnCount = 4
-        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.CashierTable.Controls.Add(Me.ServBtn, 3, 1)
-        Me.CashierTable.Controls.Add(Me.ServiceAddedTxtBox, 2, 1)
-        Me.CashierTable.Controls.Add(Me.Label33, 2, 0)
-        Me.CashierTable.Controls.Add(Me.Custbtn, 1, 1)
+        Me.CashierTable.ColumnCount = 2
+        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.CashierTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.CashierTable.Controls.Add(Me.ServiceAddedTxtBox, 1, 1)
+        Me.CashierTable.Controls.Add(Me.Label33, 1, 0)
         Me.CashierTable.Controls.Add(Me.Label18, 0, 0)
         Me.CashierTable.Controls.Add(Me.CustAddedTxtBox, 0, 1)
         Me.CashierTable.Location = New System.Drawing.Point(3, 65)
@@ -479,24 +378,6 @@ Partial Class EmployeeViewModal
         Me.CashierTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.CashierTable.Size = New System.Drawing.Size(952, 56)
         Me.CashierTable.TabIndex = 40
-        '
-        'ServBtn
-        '
-        Me.ServBtn.BorderRadius = 4
-        Me.ServBtn.CheckedState.Parent = Me.ServBtn
-        Me.ServBtn.CustomImages.Parent = Me.ServBtn
-        Me.ServBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ServBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ServBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServBtn.ForeColor = System.Drawing.Color.White
-        Me.ServBtn.HoverState.Parent = Me.ServBtn
-        Me.ServBtn.Location = New System.Drawing.Point(717, 24)
-        Me.ServBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ServBtn.Name = "ServBtn"
-        Me.ServBtn.ShadowDecoration.Parent = Me.ServBtn
-        Me.ServBtn.Size = New System.Drawing.Size(232, 28)
-        Me.ServBtn.TabIndex = 62
-        Me.ServBtn.Text = "See All"
         '
         'ServiceAddedTxtBox
         '
@@ -508,6 +389,7 @@ Partial Class EmployeeViewModal
         Me.ServiceAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ServiceAddedTxtBox.DisabledState.Parent = Me.ServiceAddedTxtBox
         Me.ServiceAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ServiceAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.ServiceAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ServiceAddedTxtBox.FocusedState.Parent = Me.ServiceAddedTxtBox
         Me.ServiceAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -521,7 +403,7 @@ Partial Class EmployeeViewModal
         Me.ServiceAddedTxtBox.ReadOnly = True
         Me.ServiceAddedTxtBox.SelectedText = ""
         Me.ServiceAddedTxtBox.ShadowDecoration.Parent = Me.ServiceAddedTxtBox
-        Me.ServiceAddedTxtBox.Size = New System.Drawing.Size(234, 25)
+        Me.ServiceAddedTxtBox.Size = New System.Drawing.Size(472, 25)
         Me.ServiceAddedTxtBox.TabIndex = 61
         '
         'Label33
@@ -534,24 +416,6 @@ Partial Class EmployeeViewModal
         Me.Label33.Size = New System.Drawing.Size(100, 20)
         Me.Label33.TabIndex = 58
         Me.Label33.Text = "Service Added"
-        '
-        'Custbtn
-        '
-        Me.Custbtn.BorderRadius = 4
-        Me.Custbtn.CheckedState.Parent = Me.Custbtn
-        Me.Custbtn.CustomImages.Parent = Me.Custbtn
-        Me.Custbtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Custbtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Custbtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Custbtn.ForeColor = System.Drawing.Color.White
-        Me.Custbtn.HoverState.Parent = Me.Custbtn
-        Me.Custbtn.Location = New System.Drawing.Point(241, 24)
-        Me.Custbtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Custbtn.Name = "Custbtn"
-        Me.Custbtn.ShadowDecoration.Parent = Me.Custbtn
-        Me.Custbtn.Size = New System.Drawing.Size(232, 28)
-        Me.Custbtn.TabIndex = 56
-        Me.Custbtn.Text = "See All"
         '
         'Label18
         '
@@ -574,6 +438,7 @@ Partial Class EmployeeViewModal
         Me.CustAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CustAddedTxtBox.DisabledState.Parent = Me.CustAddedTxtBox
         Me.CustAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CustAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.CustAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustAddedTxtBox.FocusedState.Parent = Me.CustAddedTxtBox
         Me.CustAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -587,20 +452,19 @@ Partial Class EmployeeViewModal
         Me.CustAddedTxtBox.ReadOnly = True
         Me.CustAddedTxtBox.SelectedText = ""
         Me.CustAddedTxtBox.ShadowDecoration.Parent = Me.CustAddedTxtBox
-        Me.CustAddedTxtBox.Size = New System.Drawing.Size(234, 25)
+        Me.CustAddedTxtBox.Size = New System.Drawing.Size(472, 25)
         Me.CustAddedTxtBox.TabIndex = 19
         '
         'TechTable
         '
-        Me.TechTable.ColumnCount = 5
-        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TechTable.ColumnCount = 4
+        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TechTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TechTable.Controls.Add(Me.ClaimedTxtBox, 3, 1)
         Me.TechTable.Controls.Add(Me.FinishedTxtBox, 2, 1)
-        Me.TechTable.Controls.Add(Me.TechBtn, 4, 1)
         Me.TechTable.Controls.Add(Me.Label37, 3, 0)
         Me.TechTable.Controls.Add(Me.Label35, 2, 0)
         Me.TechTable.Controls.Add(Me.OnholdTxtBox, 1, 1)
@@ -625,12 +489,13 @@ Partial Class EmployeeViewModal
         Me.ClaimedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ClaimedTxtBox.DisabledState.Parent = Me.ClaimedTxtBox
         Me.ClaimedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ClaimedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.ClaimedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClaimedTxtBox.FocusedState.Parent = Me.ClaimedTxtBox
         Me.ClaimedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ClaimedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClaimedTxtBox.HoverState.Parent = Me.ClaimedTxtBox
-        Me.ClaimedTxtBox.Location = New System.Drawing.Point(572, 25)
+        Me.ClaimedTxtBox.Location = New System.Drawing.Point(716, 25)
         Me.ClaimedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ClaimedTxtBox.Name = "ClaimedTxtBox"
         Me.ClaimedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -638,7 +503,7 @@ Partial Class EmployeeViewModal
         Me.ClaimedTxtBox.ReadOnly = True
         Me.ClaimedTxtBox.SelectedText = ""
         Me.ClaimedTxtBox.ShadowDecoration.Parent = Me.ClaimedTxtBox
-        Me.ClaimedTxtBox.Size = New System.Drawing.Size(186, 25)
+        Me.ClaimedTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.ClaimedTxtBox.TabIndex = 71
         '
         'FinishedTxtBox
@@ -651,12 +516,13 @@ Partial Class EmployeeViewModal
         Me.FinishedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.FinishedTxtBox.DisabledState.Parent = Me.FinishedTxtBox
         Me.FinishedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.FinishedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.FinishedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FinishedTxtBox.FocusedState.Parent = Me.FinishedTxtBox
         Me.FinishedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FinishedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FinishedTxtBox.HoverState.Parent = Me.FinishedTxtBox
-        Me.FinishedTxtBox.Location = New System.Drawing.Point(382, 25)
+        Me.FinishedTxtBox.Location = New System.Drawing.Point(478, 25)
         Me.FinishedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.FinishedTxtBox.Name = "FinishedTxtBox"
         Me.FinishedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -664,33 +530,15 @@ Partial Class EmployeeViewModal
         Me.FinishedTxtBox.ReadOnly = True
         Me.FinishedTxtBox.SelectedText = ""
         Me.FinishedTxtBox.ShadowDecoration.Parent = Me.FinishedTxtBox
-        Me.FinishedTxtBox.Size = New System.Drawing.Size(186, 25)
+        Me.FinishedTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.FinishedTxtBox.TabIndex = 70
-        '
-        'TechBtn
-        '
-        Me.TechBtn.BorderRadius = 4
-        Me.TechBtn.CheckedState.Parent = Me.TechBtn
-        Me.TechBtn.CustomImages.Parent = Me.TechBtn
-        Me.TechBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TechBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TechBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TechBtn.ForeColor = System.Drawing.Color.White
-        Me.TechBtn.HoverState.Parent = Me.TechBtn
-        Me.TechBtn.Location = New System.Drawing.Point(763, 24)
-        Me.TechBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TechBtn.Name = "TechBtn"
-        Me.TechBtn.ShadowDecoration.Parent = Me.TechBtn
-        Me.TechBtn.Size = New System.Drawing.Size(186, 28)
-        Me.TechBtn.TabIndex = 69
-        Me.TechBtn.Text = "See All"
         '
         'Label37
         '
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label37.Location = New System.Drawing.Point(573, 0)
+        Me.Label37.Location = New System.Drawing.Point(717, 0)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(58, 20)
         Me.Label37.TabIndex = 65
@@ -701,7 +549,7 @@ Partial Class EmployeeViewModal
         Me.Label35.AutoSize = True
         Me.Label35.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label35.Location = New System.Drawing.Point(383, 0)
+        Me.Label35.Location = New System.Drawing.Point(479, 0)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(60, 20)
         Me.Label35.TabIndex = 64
@@ -717,12 +565,13 @@ Partial Class EmployeeViewModal
         Me.OnholdTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.OnholdTxtBox.DisabledState.Parent = Me.OnholdTxtBox
         Me.OnholdTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.OnholdTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.OnholdTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.OnholdTxtBox.FocusedState.Parent = Me.OnholdTxtBox
         Me.OnholdTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OnholdTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.OnholdTxtBox.HoverState.Parent = Me.OnholdTxtBox
-        Me.OnholdTxtBox.Location = New System.Drawing.Point(192, 25)
+        Me.OnholdTxtBox.Location = New System.Drawing.Point(240, 25)
         Me.OnholdTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.OnholdTxtBox.Name = "OnholdTxtBox"
         Me.OnholdTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -730,7 +579,7 @@ Partial Class EmployeeViewModal
         Me.OnholdTxtBox.ReadOnly = True
         Me.OnholdTxtBox.SelectedText = ""
         Me.OnholdTxtBox.ShadowDecoration.Parent = Me.OnholdTxtBox
-        Me.OnholdTxtBox.Size = New System.Drawing.Size(186, 25)
+        Me.OnholdTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.OnholdTxtBox.TabIndex = 29
         '
         'Label30
@@ -738,7 +587,7 @@ Partial Class EmployeeViewModal
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label30.Location = New System.Drawing.Point(193, 0)
+        Me.Label30.Location = New System.Drawing.Point(241, 0)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(52, 20)
         Me.Label30.TabIndex = 27
@@ -765,6 +614,7 @@ Partial Class EmployeeViewModal
         Me.PendingTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PendingTxtBox.DisabledState.Parent = Me.PendingTxtBox
         Me.PendingTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PendingTxtBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.PendingTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingTxtBox.FocusedState.Parent = Me.PendingTxtBox
         Me.PendingTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -778,7 +628,7 @@ Partial Class EmployeeViewModal
         Me.PendingTxtBox.ReadOnly = True
         Me.PendingTxtBox.SelectedText = ""
         Me.PendingTxtBox.ShadowDecoration.Parent = Me.PendingTxtBox
-        Me.PendingTxtBox.Size = New System.Drawing.Size(186, 25)
+        Me.PendingTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.PendingTxtBox.TabIndex = 19
         '
         'UtilityTable
@@ -839,7 +689,7 @@ Partial Class EmployeeViewModal
         Me.Guna2Panel4.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel4.BorderRadius = 4
         Me.Guna2Panel4.Controls.Add(Me.TableLayoutPanel4)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(3, 70)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(3, 74)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
@@ -1062,7 +912,7 @@ Partial Class EmployeeViewModal
         Me.Guna2Panel6.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel6.BorderRadius = 4
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel6)
-        Me.Guna2Panel6.Location = New System.Drawing.Point(3, 137)
+        Me.Guna2Panel6.Location = New System.Drawing.Point(3, 141)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
@@ -1222,7 +1072,7 @@ Partial Class EmployeeViewModal
         Me.Guna2Panel7.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel7.BorderRadius = 4
         Me.Guna2Panel7.Controls.Add(Me.TableLayoutPanel8)
-        Me.Guna2Panel7.Location = New System.Drawing.Point(3, 204)
+        Me.Guna2Panel7.Location = New System.Drawing.Point(3, 208)
         Me.Guna2Panel7.Name = "Guna2Panel7"
         Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
@@ -1369,7 +1219,7 @@ Partial Class EmployeeViewModal
         Me.Guna2Panel13.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel13.BorderRadius = 4
         Me.Guna2Panel13.Controls.Add(Me.TableLayoutPanel9)
-        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 271)
+        Me.Guna2Panel13.Location = New System.Drawing.Point(3, 275)
         Me.Guna2Panel13.Name = "Guna2Panel13"
         Me.Guna2Panel13.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel13.ShadowDecoration.Parent = Me.Guna2Panel13
@@ -2032,6 +1882,44 @@ Partial Class EmployeeViewModal
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
         '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label36.Location = New System.Drawing.Point(717, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(108, 20)
+        Me.Label36.TabIndex = 59
+        Me.Label36.Text = "Inventory Added"
+        '
+        'InventoryAddedTxtBox
+        '
+        Me.InventoryAddedTxtBox.BorderRadius = 4
+        Me.InventoryAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.InventoryAddedTxtBox.DefaultText = ""
+        Me.InventoryAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.InventoryAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.InventoryAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryAddedTxtBox.FocusedState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InventoryAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryAddedTxtBox.HoverState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Location = New System.Drawing.Point(716, 25)
+        Me.InventoryAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.InventoryAddedTxtBox.Name = "InventoryAddedTxtBox"
+        Me.InventoryAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.InventoryAddedTxtBox.PlaceholderText = ""
+        Me.InventoryAddedTxtBox.ReadOnly = True
+        Me.InventoryAddedTxtBox.SelectedText = ""
+        Me.InventoryAddedTxtBox.ShadowDecoration.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Size = New System.Drawing.Size(234, 25)
+        Me.InventoryAddedTxtBox.TabIndex = 63
+        '
         'EmployeeViewModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2176,22 +2064,16 @@ Partial Class EmployeeViewModal
     Friend WithEvents UtilityTable As TableLayoutPanel
     Friend WithEvents Label28 As Label
     Friend WithEvents PersonnelTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents EmpBtn As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents ServBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ServiceAddedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label33 As Label
-    Friend WithEvents Custbtn As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents InvBtn As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents InventoryAddedTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents SuppBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents SuppAddedTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label36 As Label
     Friend WithEvents Label34 As Label
     Friend WithEvents ClaimedTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FinishedTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents TechBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label37 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents OnholdTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label30 As Label
+    Friend WithEvents InventoryAddedTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label36 As Label
 End Class

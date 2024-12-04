@@ -23,8 +23,6 @@ Partial Class DBConfigModal
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.SupplierModalGroupBox = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.ConnStatusLabel = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.SaveBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.CloseBtn = New Guna.UI2.WinForms.Guna2Button()
@@ -45,7 +43,6 @@ Partial Class DBConfigModal
         'SupplierModalGroupBox
         '
         Me.SupplierModalGroupBox.Controls.Add(Me.ConnStatusLabel)
-        Me.SupplierModalGroupBox.Controls.Add(Me.Label1)
         Me.SupplierModalGroupBox.Controls.Add(Me.Guna2Separator1)
         Me.SupplierModalGroupBox.Controls.Add(Me.SaveBtn)
         Me.SupplierModalGroupBox.Controls.Add(Me.CloseBtn)
@@ -80,18 +77,6 @@ Partial Class DBConfigModal
         Me.ConnStatusLabel.Size = New System.Drawing.Size(35, 15)
         Me.ConnStatusLabel.TabIndex = 47
         Me.ConnStatusLabel.Text = "Status"
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(395, 49)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(94, 15)
-        Me.Label1.TabIndex = 46
-        Me.Label1.Text = "Connection Status:"
         '
         'Guna2Separator1
         '

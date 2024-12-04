@@ -12,16 +12,16 @@ Public Class EmployeeForm
     Private employeeID As Integer = -1
     Private empArchived As Boolean = False
     Private empPosition As String = ""
+    Private finishedLoad As Boolean = False
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
     Public Property techOnly As Boolean = False
 
-    Private finishedLoad As Boolean = False
+    Private empDT As DataTable
 
     ' VIEW MODE
-    Public Property viewMode As Boolean = False
-    Public Property empDT As DataTable = Nothing
+
 
     ' RESTRICT ACTIONS
     Private Function isRestricted() As Boolean
@@ -160,7 +160,7 @@ Public Class EmployeeForm
     End Sub
 
     ' SHOW ARCHIVE
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckbox.CheckedChanged
         RefreshForArchive()
     End Sub
 
@@ -201,14 +201,10 @@ Public Class EmployeeForm
 
             Cursor = Cursors.WaitCursor
 
-            If Not viewMode Then
-
-                If Not techOnly Then
-                    empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
-                Else
-                    empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
-                End If
-
+            If Not techOnly Then
+                empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
+            Else
+                empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
             End If
 
             ' exlucde to search
@@ -238,5 +234,6 @@ Public Class EmployeeForm
 
         Me.Close()
     End Sub
+
 
 End Class

@@ -71,7 +71,6 @@ Public Class DBConfigModal
         End If
     End Sub
 
-
     'SAVE
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
 
@@ -106,22 +105,4 @@ Public Class DBConfigModal
         Me.Close()
     End Sub
 
-
-    End Sub
-
-    Private Sub uidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles uidTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub dbPassTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbPassTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub dbNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbNameTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
-
-    End Sub
 End Class
