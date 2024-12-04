@@ -30,6 +30,7 @@ Partial Class EmployeeExportModal
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,6 +39,7 @@ Partial Class EmployeeExportModal
         'Guna2GroupBox1
         '
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.Button3)
         Me.Guna2GroupBox1.Controls.Add(Me.TableLayoutPanel1)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
@@ -51,7 +53,7 @@ Partial Class EmployeeExportModal
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(560, 257)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(560, 223)
         Me.Guna2GroupBox1.TabIndex = 4
         Me.Guna2GroupBox1.Text = "Employee Report"
         '
@@ -61,7 +63,7 @@ Partial Class EmployeeExportModal
         Me.Button3.FillColor = System.Drawing.Color.DarkRed
         Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(26, 205)
+        Me.Button3.Location = New System.Drawing.Point(19, 169)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(143, 39)
@@ -71,27 +73,27 @@ Partial Class EmployeeExportModal
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.39085!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 426.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ExportAllBtn, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportPrintBtn, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(22, 97)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(15, 60)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(696, 56)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(533, 56)
         Me.TableLayoutPanel1.TabIndex = 36
         '
         'ExportAllBtn
         '
         Me.ExportAllBtn.BorderRadius = 4
         Me.ExportAllBtn.FillColor = System.Drawing.Color.DarkGreen
-        Me.ExportAllBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportAllBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold)
         Me.ExportAllBtn.ForeColor = System.Drawing.Color.White
-        Me.ExportAllBtn.Location = New System.Drawing.Point(274, 4)
+        Me.ExportAllBtn.Location = New System.Drawing.Point(270, 4)
         Me.ExportAllBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportAllBtn.Name = "ExportAllBtn"
-        Me.ExportAllBtn.Size = New System.Drawing.Size(243, 48)
+        Me.ExportAllBtn.Size = New System.Drawing.Size(256, 48)
         Me.ExportAllBtn.TabIndex = 40
         Me.ExportAllBtn.Text = "Export All"
         '
@@ -99,12 +101,12 @@ Partial Class EmployeeExportModal
         '
         Me.ExportPrintBtn.BorderRadius = 4
         Me.ExportPrintBtn.FillColor = System.Drawing.Color.DarkGreen
-        Me.ExportPrintBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportPrintBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold)
         Me.ExportPrintBtn.ForeColor = System.Drawing.Color.White
         Me.ExportPrintBtn.Location = New System.Drawing.Point(4, 4)
         Me.ExportPrintBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportPrintBtn.Name = "ExportPrintBtn"
-        Me.ExportPrintBtn.Size = New System.Drawing.Size(259, 48)
+        Me.ExportPrintBtn.Size = New System.Drawing.Size(258, 48)
         Me.ExportPrintBtn.TabIndex = 39
         Me.ExportPrintBtn.Text = "Export Printable"
         '
@@ -135,6 +137,7 @@ Partial Class EmployeeExportModal
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ProfileCirclePictureBox.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
+        Me.ProfileCirclePictureBox.ImageRotate = 0!
         Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(904, 66)
         Me.ProfileCirclePictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"
@@ -144,11 +147,20 @@ Partial Class EmployeeExportModal
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
         '
+        'Guna2Separator3
+        '
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 145)
+        Me.Guna2Separator3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(560, 16)
+        Me.Guna2Separator3.TabIndex = 40
+        '
         'EmployeeExportModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 257)
+        Me.ClientSize = New System.Drawing.Size(560, 223)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "EmployeeExportModal"
@@ -170,4 +182,5 @@ Partial Class EmployeeExportModal
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ProfileCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
 End Class
