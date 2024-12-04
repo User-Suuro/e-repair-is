@@ -135,7 +135,6 @@ Partial Class SuppliersExportModal
         '
         Me.ProfileCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ProfileCirclePictureBox.Image = Global.E_Repair.My.Resources.Resources.landscape_placeholder_svgrepo_com
-        Me.ProfileCirclePictureBox.ImageRotate = 0!
         Me.ProfileCirclePictureBox.Location = New System.Drawing.Point(904, 66)
         Me.ProfileCirclePictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProfileCirclePictureBox.Name = "ProfileCirclePictureBox"

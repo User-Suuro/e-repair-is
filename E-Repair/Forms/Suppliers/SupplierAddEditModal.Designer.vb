@@ -476,7 +476,6 @@ Partial Class SupplierAddEditModal
         '
         Me.SupplierCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.SupplierCirclePictureBox.Image = CType(resources.GetObject("SupplierCirclePictureBox.Image"), System.Drawing.Image)
-        Me.SupplierCirclePictureBox.ImageRotate = 0!
         Me.SupplierCirclePictureBox.Location = New System.Drawing.Point(907, 84)
         Me.SupplierCirclePictureBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SupplierCirclePictureBox.Name = "SupplierCirclePictureBox"

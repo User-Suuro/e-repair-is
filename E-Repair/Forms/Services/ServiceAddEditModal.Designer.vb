@@ -1113,7 +1113,6 @@ Partial Class ServiceAddEditModal
         '
         Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.DeviceCirclePictureBox.ImageRotate = 0!
         Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(1116, 265)
         Me.DeviceCirclePictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"

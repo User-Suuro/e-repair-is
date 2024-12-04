@@ -1702,7 +1702,6 @@ Partial Class ServiceViewModal
         '
         Me.ServiceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.ServiceCirclePictureBox.Image = CType(resources.GetObject("ServiceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.ServiceCirclePictureBox.ImageRotate = 0!
         Me.ServiceCirclePictureBox.Location = New System.Drawing.Point(1119, 283)
         Me.ServiceCirclePictureBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ServiceCirclePictureBox.Name = "ServiceCirclePictureBox"
