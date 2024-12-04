@@ -1,6 +1,7 @@
 ﻿
 Imports System.IO
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports Microsoft.Reporting
 
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
@@ -25,15 +26,18 @@ Public Class AdminDashboardForm
     Private finishedLoad
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' data
         finishedLoad = True
         loadData()
 
+        ' text
         loadStatus()
         loadWelcome()
 
         ' charts
         loadPositionChart()
-        loadAvailInvChart()
+        loadInvUsedChart()
 
         ' timer
         loadTimer()
@@ -42,16 +46,18 @@ Public Class AdminDashboardForm
 
 
     Private Sub loadData()
+
         If Not finishedLoad Then Exit Sub
 
-
         Cursor = Cursors.WaitCursor
+
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr}, empConst.empTableStr, empConst.empArchStr, 0)
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.archivedStr, 0)
         itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
+
         Cursor = Cursors.Default
 
     End Sub
@@ -95,13 +101,29 @@ Public Class AdminDashboardForm
         series.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
 
         InventoryGraph.Series.Add(series)
-        PositionsChart.Titles.Add("Inventory Availability")
+        InventoryGraph.Titles.Add("Inventory Availability")
+    End Sub
+
+    Private Sub loadSalesChart()
+
+        Dim series As New Series("Sales")
+        series.ChartType = SeriesChartType.Line
+
+        For Each row As DataRow In servDT.Rows
+            Dim dateValue As Date = Convert.ToDateTime(row(servConst.dateClaimedStr))
+            Dim salesAmount As Decimal = Convert.ToDecimal(row(servConst.totalPaidStr))
+            series.Points.AddXY(dateValue, salesAmount)
+        Next
+
+        SalesChart.Series.Add(series)
+
+        SalesChart.ChartAreas(0).AxisX.LabelStyle.Format = "yyyy-MM-dd" ' Format date on X-axis
+        SalesChart.ChartAreas(0).AxisX.Interval = 1
+        SalesChart.ChartAreas(0).AxisX.IntervalType = DateTimeIntervalType.Days
+
     End Sub
 
 
-    Private Sub loadAvailInvChart()
-
-    End Sub
 
     Private Sub loadTimer()
         Timer1.Enabled = True

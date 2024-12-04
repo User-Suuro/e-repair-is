@@ -223,10 +223,10 @@ Public Class CustomerForm
               { .custAddressStr, "Address"},
               { .custGenderStr, "Gender"},
               { .custEmailStr, "Email"},
-              { .custTotalPaidStr, ""},
-              { .getAddedByName, "Physical Location"},
-              { .custDateAddedStr, "Restock Date"},
-              { .custArchDateStr, "Added by"}
+              { .custTotalPaidStr, "Total Paid"},
+              { .getAddedByName, "Added by"},
+              { .custDateAddedStr, "Date Added"},
+              { .custArchDateStr, "Date Archived"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)

@@ -67,7 +67,7 @@ Partial Class AdminDashboardForm
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -81,7 +81,7 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -458,7 +458,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.SalesChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
@@ -487,23 +487,23 @@ Partial Class AdminDashboardForm
         Me.Chart4.TabIndex = 3
         Me.Chart4.Text = "Chart4"
         '
-        'Chart3
+        'SalesChart
         '
         ChartArea2.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea2)
-        Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SalesChart.ChartAreas.Add(ChartArea2)
+        Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend2.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend2)
-        Me.Chart3.Location = New System.Drawing.Point(3, 211)
-        Me.Chart3.Name = "Chart3"
-        Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.SalesChart.Legends.Add(Legend2)
+        Me.SalesChart.Location = New System.Drawing.Point(3, 211)
+        Me.SalesChart.Name = "SalesChart"
+        Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
-        Me.Chart3.Series.Add(Series2)
-        Me.Chart3.Size = New System.Drawing.Size(550, 203)
-        Me.Chart3.TabIndex = 2
-        Me.Chart3.Text = "Chart3"
+        Me.SalesChart.Series.Add(Series2)
+        Me.SalesChart.Size = New System.Drawing.Size(550, 203)
+        Me.SalesChart.TabIndex = 2
+        Me.SalesChart.Text = "SalesChart"
         '
         'InventoryGraph
         '
@@ -570,7 +570,7 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -609,6 +609,6 @@ Partial Class AdminDashboardForm
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
     Friend WithEvents Chart4 As DataVisualization.Charting.Chart
-    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents SalesChart As DataVisualization.Charting.Chart
     Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
 End Class
