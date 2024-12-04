@@ -54,6 +54,7 @@ Public Class AdminDashboardForm
 
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr}, empConst.empTableStr, empConst.empArchStr, 0)
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
+
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.archivedStr, 0)
@@ -106,24 +107,42 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub loadSalesChart()
+        SalesChart.Series.Clear()
 
         Dim series As New Series("Sales")
         series.ChartType = SeriesChartType.Line
 
-        For Each row As DataRow In servDT.Rows
-            Dim dateValue As Date = If(IsDBNull(row(servConst.dateClaimedStr)), Date.MinValue, Convert.ToDateTime(row(servConst.dateClaimedStr)))
-            Dim salesAmount As Decimal = If(IsDBNull(row(servConst.TotalCost)), 0, Convert.ToDecimal(row(servConst.TotalCost)))
-            series.Points.AddXY(dateValue, salesAmount)
+
+        Dim groupedData = From row In servDT.AsEnumerable()
+                          Group row By DateValue = Convert.ToDateTime(row(servConst.dateClaimedStr)) Into Group
+                          Select New With {
+                      .Date = DateValue,
+                      .TotalSales = Group.Sum(Function(r) If(IsDBNull(r(servConst.TotalCost)), 0D, Convert.ToDecimal(r(servConst.TotalCost))))
+                  }
+
+        For Each group In groupedData
+            series.Points.AddXY(group.Date, group.TotalSales)
         Next
 
         SalesChart.Series.Add(series)
+        SalesChart.Titles.Add("Sales Overtime")
 
-        SalesChart.ChartAreas(0).AxisX.LabelStyle.Format = "yyyy-MM-dd" ' Format date on X-axis
-        SalesChart.ChartAreas(0).AxisX.Interval = 1
-        SalesChart.ChartAreas(0).AxisX.IntervalType = DateTimeIntervalType.Days
+        With SalesChart.ChartAreas(0)
+            .AxisX.LabelStyle.Format = "yyyy-MM-dd"
+            .AxisX.Interval = 1
+            .AxisX.IntervalType = DateTimeIntervalType.Days
+            .AxisX.LabelStyle.Angle = -45 ' Optional: Rotate labels
+        End With
+
 
     End Sub
 
+    Private Function NullCheck(Of T)(value As Object, defaultValue As T) As T
+        If IsDBNull(value) Then
+            Return defaultValue
+        End If
+        Return CType(value, T)
+    End Function
 
 
     Private Sub loadTimer()
