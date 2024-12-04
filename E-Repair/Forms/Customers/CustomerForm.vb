@@ -129,6 +129,20 @@ Public Class CustomerForm
         LoadDataToDGV()
     End Sub
 
+    Private Sub CustomerExportBtn_Click(sender As Object, e As EventArgs) Handles CustomerExportBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New CustomerExportModal()
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            LoadDataToDGV()
+            Return Nothing
+        End Function
+        )
+    End Sub
+
     ' DELETE
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
@@ -209,39 +223,4 @@ Public Class CustomerForm
         Me.Close()
     End Sub
 
-    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
-
-        With custConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .custIDStr, "Customer ID"},
-              { .custFirstStr, "First Name"},
-              { .custMidStr, "Middle Name"},
-              { .custLastStr, "Last Name"},
-              { .custContactStr, "Contact Number"},
-              { .custAddressStr, "Address"},
-              { .custGenderStr, "Gender"},
-              { .custEmailStr, "Email"},
-              { .custTotalPaidStr, ""},
-              { .getAddedByName, "Physical Location"},
-              { .custDateAddedStr, "Restock Date"},
-              { .custArchDateStr, "Added by"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, custConst.custTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title = "All Inventory Reports"
-
-            If ExportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
-    End Sub
 End Class

@@ -100,6 +100,20 @@ Public Class SuppliersForm
         RefForArch()
     End Sub
 
+    Private Sub SupplierExportBtn_Click(sender As Object, e As EventArgs) Handles SupplierExportBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New SuppliersExportModal()
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            LoadDataToDGV()
+            Return Nothing
+        End Function
+        )
+    End Sub
+
     ' FORM ONLOAD
     Private Sub AdminSuppliersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
@@ -176,42 +190,6 @@ Public Class SuppliersForm
     ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
-    End Sub
-
-    ' EXPORT
-    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
-        With supConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .supIDStr, "Supplier ID"},
-              { .compNameStr, "Company Name"},
-              { .contactNumStr, "Contact Number"},
-              { .contactPersonStr, "Contact Person"},
-              { .compEmailStr, "Hazardous Classification"},
-              { .locationStr, "Company Location"},
-              { .supTypeStr, "Supplier Type"},
-              { .supContractStr, "Contract Type"},
-              { .bankDetailsStr, "Bank Details"},
-              { .payTermsStr, "Payment Terms"},
-              { .estDeliveryStr, "Estimated Delivery Time"},
-              { .dateAddedStr, "Date Added"},
-              { .addedByName, "Added By"},
-              { .dateArchivedStr, "Date Archived"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, supConst.supTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title = "All Supplier Reports"
-
-            If ExportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
     End Sub
 
 End Class

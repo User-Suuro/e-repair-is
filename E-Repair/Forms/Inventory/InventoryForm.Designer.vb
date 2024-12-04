@@ -48,7 +48,7 @@ Partial Class InventoryForm
         Me.DATE_ARCHIVED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.ExportToExcelBtn = New System.Windows.Forms.Button()
+        Me.InventoryExportBtn = New System.Windows.Forms.Button()
         Me.DeleteBtn = New System.Windows.Forms.Button()
         Me.ArchivedBtn = New System.Windows.Forms.Button()
         Me.EdtBtn = New System.Windows.Forms.Button()
@@ -79,10 +79,6 @@ Partial Class InventoryForm
         Me.InventoryDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.InventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.InventoryDGV.BackgroundColor = System.Drawing.Color.White
-        Me.InventoryDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.InventoryDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.InventoryDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -93,6 +89,7 @@ Partial Class InventoryForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.InventoryDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.InventoryDGV.ColumnHeadersHeight = 48
+        Me.InventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.InventoryDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.inventory_id, Me.SERVICE_ID, Me.SUPPLIER_ID, Me.ITEM_CATEGORY, Me.ITEM_NAME, Me.ITEM_DESCRIPTION, Me.SERIAL_NUMBER, Me.HAZARDOUS_CLASSIFICATION, Me.COST_PER_ITEM, Me.available_quantity, Me.TOTAL_VALUE, Me.ITEM_STATUS, Me.PHYSICAL_LOCATION, Me.RESTOCK_DATE, Me.DATE_ADDED, Me.ADDED_BY, Me.ARCHIVED, Me.ARCHIVED_BY, Me.DATE_ARCHIVED})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
@@ -102,14 +99,14 @@ Partial Class InventoryForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.InventoryDGV.DefaultCellStyle = DataGridViewCellStyle3
-        Me.InventoryDGV.EnableHeadersVisualStyles = False
         Me.InventoryDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.InventoryDGV.Location = New System.Drawing.Point(27, 52)
+        Me.InventoryDGV.Location = New System.Drawing.Point(36, 64)
+        Me.InventoryDGV.Margin = New System.Windows.Forms.Padding(4)
         Me.InventoryDGV.Name = "InventoryDGV"
         Me.InventoryDGV.ReadOnly = True
         Me.InventoryDGV.RowHeadersVisible = False
-        Me.InventoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.InventoryDGV.Size = New System.Drawing.Size(960, 494)
+        Me.InventoryDGV.RowHeadersWidth = 51
+        Me.InventoryDGV.Size = New System.Drawing.Size(1280, 608)
         Me.InventoryDGV.TabIndex = 37
         Me.InventoryDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.InventoryDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -138,6 +135,7 @@ Partial Class InventoryForm
         '
         Me.inventory_id.DataPropertyName = "inventory_id"
         Me.inventory_id.HeaderText = "Item ID"
+        Me.inventory_id.MinimumWidth = 6
         Me.inventory_id.Name = "inventory_id"
         Me.inventory_id.ReadOnly = True
         Me.inventory_id.Visible = False
@@ -146,6 +144,7 @@ Partial Class InventoryForm
         '
         Me.SERVICE_ID.DataPropertyName = "service_id"
         Me.SERVICE_ID.HeaderText = "Service ID"
+        Me.SERVICE_ID.MinimumWidth = 6
         Me.SERVICE_ID.Name = "SERVICE_ID"
         Me.SERVICE_ID.ReadOnly = True
         Me.SERVICE_ID.Visible = False
@@ -154,6 +153,7 @@ Partial Class InventoryForm
         '
         Me.SUPPLIER_ID.DataPropertyName = "supplied_id"
         Me.SUPPLIER_ID.HeaderText = "Supplier ID"
+        Me.SUPPLIER_ID.MinimumWidth = 6
         Me.SUPPLIER_ID.Name = "SUPPLIER_ID"
         Me.SUPPLIER_ID.ReadOnly = True
         Me.SUPPLIER_ID.Visible = False
@@ -162,6 +162,7 @@ Partial Class InventoryForm
         '
         Me.ITEM_CATEGORY.DataPropertyName = "item_category"
         Me.ITEM_CATEGORY.HeaderText = "Category"
+        Me.ITEM_CATEGORY.MinimumWidth = 6
         Me.ITEM_CATEGORY.Name = "ITEM_CATEGORY"
         Me.ITEM_CATEGORY.ReadOnly = True
         '
@@ -169,6 +170,7 @@ Partial Class InventoryForm
         '
         Me.ITEM_NAME.DataPropertyName = "item_name"
         Me.ITEM_NAME.HeaderText = "Item Name"
+        Me.ITEM_NAME.MinimumWidth = 6
         Me.ITEM_NAME.Name = "ITEM_NAME"
         Me.ITEM_NAME.ReadOnly = True
         '
@@ -176,6 +178,7 @@ Partial Class InventoryForm
         '
         Me.ITEM_DESCRIPTION.DataPropertyName = "item_description"
         Me.ITEM_DESCRIPTION.HeaderText = "Item Description"
+        Me.ITEM_DESCRIPTION.MinimumWidth = 6
         Me.ITEM_DESCRIPTION.Name = "ITEM_DESCRIPTION"
         Me.ITEM_DESCRIPTION.ReadOnly = True
         Me.ITEM_DESCRIPTION.Visible = False
@@ -184,6 +187,7 @@ Partial Class InventoryForm
         '
         Me.SERIAL_NUMBER.DataPropertyName = "serial_number"
         Me.SERIAL_NUMBER.HeaderText = "Serial Number"
+        Me.SERIAL_NUMBER.MinimumWidth = 6
         Me.SERIAL_NUMBER.Name = "SERIAL_NUMBER"
         Me.SERIAL_NUMBER.ReadOnly = True
         Me.SERIAL_NUMBER.Visible = False
@@ -192,6 +196,7 @@ Partial Class InventoryForm
         '
         Me.HAZARDOUS_CLASSIFICATION.DataPropertyName = "hazardous_classification"
         Me.HAZARDOUS_CLASSIFICATION.HeaderText = "Hazardous Classification"
+        Me.HAZARDOUS_CLASSIFICATION.MinimumWidth = 6
         Me.HAZARDOUS_CLASSIFICATION.Name = "HAZARDOUS_CLASSIFICATION"
         Me.HAZARDOUS_CLASSIFICATION.ReadOnly = True
         Me.HAZARDOUS_CLASSIFICATION.Visible = False
@@ -200,6 +205,7 @@ Partial Class InventoryForm
         '
         Me.COST_PER_ITEM.DataPropertyName = "cost_per_item"
         Me.COST_PER_ITEM.HeaderText = "Cost Per Item"
+        Me.COST_PER_ITEM.MinimumWidth = 6
         Me.COST_PER_ITEM.Name = "COST_PER_ITEM"
         Me.COST_PER_ITEM.ReadOnly = True
         '
@@ -207,6 +213,7 @@ Partial Class InventoryForm
         '
         Me.available_quantity.DataPropertyName = "available_quantity"
         Me.available_quantity.HeaderText = "Quantity"
+        Me.available_quantity.MinimumWidth = 6
         Me.available_quantity.Name = "available_quantity"
         Me.available_quantity.ReadOnly = True
         '
@@ -214,6 +221,7 @@ Partial Class InventoryForm
         '
         Me.TOTAL_VALUE.DataPropertyName = "total_cost"
         Me.TOTAL_VALUE.HeaderText = "Total Value"
+        Me.TOTAL_VALUE.MinimumWidth = 6
         Me.TOTAL_VALUE.Name = "TOTAL_VALUE"
         Me.TOTAL_VALUE.ReadOnly = True
         '
@@ -221,6 +229,7 @@ Partial Class InventoryForm
         '
         Me.ITEM_STATUS.DataPropertyName = "item_status"
         Me.ITEM_STATUS.HeaderText = "Item Status"
+        Me.ITEM_STATUS.MinimumWidth = 6
         Me.ITEM_STATUS.Name = "ITEM_STATUS"
         Me.ITEM_STATUS.ReadOnly = True
         Me.ITEM_STATUS.Visible = False
@@ -229,6 +238,7 @@ Partial Class InventoryForm
         '
         Me.PHYSICAL_LOCATION.DataPropertyName = "physical_location"
         Me.PHYSICAL_LOCATION.HeaderText = "Physical Location"
+        Me.PHYSICAL_LOCATION.MinimumWidth = 6
         Me.PHYSICAL_LOCATION.Name = "PHYSICAL_LOCATION"
         Me.PHYSICAL_LOCATION.ReadOnly = True
         '
@@ -236,6 +246,7 @@ Partial Class InventoryForm
         '
         Me.RESTOCK_DATE.DataPropertyName = "restock_date"
         Me.RESTOCK_DATE.HeaderText = "Restocked Date"
+        Me.RESTOCK_DATE.MinimumWidth = 6
         Me.RESTOCK_DATE.Name = "RESTOCK_DATE"
         Me.RESTOCK_DATE.ReadOnly = True
         Me.RESTOCK_DATE.Visible = False
@@ -244,6 +255,7 @@ Partial Class InventoryForm
         '
         Me.DATE_ADDED.DataPropertyName = "date_added"
         Me.DATE_ADDED.HeaderText = "Date Added"
+        Me.DATE_ADDED.MinimumWidth = 6
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
@@ -251,6 +263,7 @@ Partial Class InventoryForm
         '
         Me.ADDED_BY.DataPropertyName = "added_by"
         Me.ADDED_BY.HeaderText = "Added By"
+        Me.ADDED_BY.MinimumWidth = 6
         Me.ADDED_BY.Name = "ADDED_BY"
         Me.ADDED_BY.ReadOnly = True
         '
@@ -258,6 +271,7 @@ Partial Class InventoryForm
         '
         Me.ARCHIVED.DataPropertyName = "archived"
         Me.ARCHIVED.HeaderText = "Archived"
+        Me.ARCHIVED.MinimumWidth = 6
         Me.ARCHIVED.Name = "ARCHIVED"
         Me.ARCHIVED.ReadOnly = True
         Me.ARCHIVED.Visible = False
@@ -266,6 +280,7 @@ Partial Class InventoryForm
         '
         Me.ARCHIVED_BY.DataPropertyName = "archived_by"
         Me.ARCHIVED_BY.HeaderText = "Archived By"
+        Me.ARCHIVED_BY.MinimumWidth = 6
         Me.ARCHIVED_BY.Name = "ARCHIVED_BY"
         Me.ARCHIVED_BY.ReadOnly = True
         Me.ARCHIVED_BY.Visible = False
@@ -274,6 +289,7 @@ Partial Class InventoryForm
         '
         Me.DATE_ARCHIVED.DataPropertyName = "date_archived"
         Me.DATE_ARCHIVED.HeaderText = "Date Archived"
+        Me.DATE_ARCHIVED.MinimumWidth = 6
         Me.DATE_ARCHIVED.Name = "DATE_ARCHIVED"
         Me.DATE_ARCHIVED.ReadOnly = True
         Me.DATE_ARCHIVED.Visible = False
@@ -285,18 +301,19 @@ Partial Class InventoryForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(1015, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(1353, 0)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555555!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.05238!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.546645!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 611)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(87, 752)
         Me.TableLayoutPanel2.TabIndex = 38
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.ExportToExcelBtn)
+        Me.Panel3.Controls.Add(Me.InventoryExportBtn)
         Me.Panel3.Controls.Add(Me.DeleteBtn)
         Me.Panel3.Controls.Add(Me.ArchivedBtn)
         Me.Panel3.Controls.Add(Me.EdtBtn)
@@ -304,29 +321,30 @@ Partial Class InventoryForm
         Me.Panel3.Controls.Add(Me.ViewBtn)
         Me.Panel3.Controls.Add(Me.UseBtn)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 33)
+        Me.Panel3.Location = New System.Drawing.Point(0, 41)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(65, 537)
+        Me.Panel3.Size = New System.Drawing.Size(87, 661)
         Me.Panel3.TabIndex = 0
         '
-        'ExportToExcelBtn
+        'InventoryExportBtn
         '
-        Me.ExportToExcelBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ExportToExcelBtn.FlatAppearance.BorderSize = 0
-        Me.ExportToExcelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ExportToExcelBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExportToExcelBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ExportToExcelBtn.Image = CType(resources.GetObject("ExportToExcelBtn.Image"), System.Drawing.Image)
-        Me.ExportToExcelBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ExportToExcelBtn.Location = New System.Drawing.Point(0, 450)
-        Me.ExportToExcelBtn.Name = "ExportToExcelBtn"
-        Me.ExportToExcelBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ExportToExcelBtn.Size = New System.Drawing.Size(65, 75)
-        Me.ExportToExcelBtn.TabIndex = 41
-        Me.ExportToExcelBtn.Text = "Report"
-        Me.ExportToExcelBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ExportToExcelBtn.UseVisualStyleBackColor = True
+        Me.InventoryExportBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.InventoryExportBtn.FlatAppearance.BorderSize = 0
+        Me.InventoryExportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InventoryExportBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InventoryExportBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.InventoryExportBtn.Image = CType(resources.GetObject("InventoryExportBtn.Image"), System.Drawing.Image)
+        Me.InventoryExportBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.InventoryExportBtn.Location = New System.Drawing.Point(0, 552)
+        Me.InventoryExportBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.InventoryExportBtn.Name = "InventoryExportBtn"
+        Me.InventoryExportBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.InventoryExportBtn.Size = New System.Drawing.Size(87, 92)
+        Me.InventoryExportBtn.TabIndex = 41
+        Me.InventoryExportBtn.Text = "Report"
+        Me.InventoryExportBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.InventoryExportBtn.UseVisualStyleBackColor = True
         '
         'DeleteBtn
         '
@@ -337,10 +355,11 @@ Partial Class InventoryForm
         Me.DeleteBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.DeleteBtn.Image = Global.E_Repair.My.Resources.Resources.trash_bold
         Me.DeleteBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.DeleteBtn.Location = New System.Drawing.Point(0, 375)
+        Me.DeleteBtn.Location = New System.Drawing.Point(0, 460)
+        Me.DeleteBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.DeleteBtn.Name = "DeleteBtn"
-        Me.DeleteBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.DeleteBtn.Size = New System.Drawing.Size(65, 75)
+        Me.DeleteBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.DeleteBtn.Size = New System.Drawing.Size(87, 92)
         Me.DeleteBtn.TabIndex = 40
         Me.DeleteBtn.Text = "Delete"
         Me.DeleteBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -356,10 +375,11 @@ Partial Class InventoryForm
         Me.ArchivedBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ArchivedBtn.Image = Global.E_Repair.My.Resources.Resources.archive_bold
         Me.ArchivedBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ArchivedBtn.Location = New System.Drawing.Point(0, 300)
+        Me.ArchivedBtn.Location = New System.Drawing.Point(0, 368)
+        Me.ArchivedBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ArchivedBtn.Name = "ArchivedBtn"
-        Me.ArchivedBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ArchivedBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ArchivedBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.ArchivedBtn.Size = New System.Drawing.Size(87, 92)
         Me.ArchivedBtn.TabIndex = 39
         Me.ArchivedBtn.TabStop = False
         Me.ArchivedBtn.Text = "Archive"
@@ -375,10 +395,11 @@ Partial Class InventoryForm
         Me.EdtBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.EdtBtn.Image = Global.E_Repair.My.Resources.Resources.pencil_bold
         Me.EdtBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.EdtBtn.Location = New System.Drawing.Point(0, 225)
+        Me.EdtBtn.Location = New System.Drawing.Point(0, 276)
+        Me.EdtBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.EdtBtn.Name = "EdtBtn"
-        Me.EdtBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.EdtBtn.Size = New System.Drawing.Size(65, 75)
+        Me.EdtBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.EdtBtn.Size = New System.Drawing.Size(87, 92)
         Me.EdtBtn.TabIndex = 38
         Me.EdtBtn.Text = "Edit"
         Me.EdtBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -393,10 +414,11 @@ Partial Class InventoryForm
         Me.AddBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.AddBtn.Image = Global.E_Repair.My.Resources.Resources.plus_bold
         Me.AddBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.AddBtn.Location = New System.Drawing.Point(0, 150)
+        Me.AddBtn.Location = New System.Drawing.Point(0, 184)
+        Me.AddBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.AddBtn.Name = "AddBtn"
-        Me.AddBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.AddBtn.Size = New System.Drawing.Size(65, 75)
+        Me.AddBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.AddBtn.Size = New System.Drawing.Size(87, 92)
         Me.AddBtn.TabIndex = 37
         Me.AddBtn.Text = "Add"
         Me.AddBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -411,10 +433,11 @@ Partial Class InventoryForm
         Me.ViewBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ViewBtn.Image = Global.E_Repair.My.Resources.Resources.eye_bold
         Me.ViewBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ViewBtn.Location = New System.Drawing.Point(0, 75)
+        Me.ViewBtn.Location = New System.Drawing.Point(0, 92)
+        Me.ViewBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ViewBtn.Name = "ViewBtn"
-        Me.ViewBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.ViewBtn.Size = New System.Drawing.Size(65, 75)
+        Me.ViewBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.ViewBtn.Size = New System.Drawing.Size(87, 92)
         Me.ViewBtn.TabIndex = 36
         Me.ViewBtn.Text = "Details"
         Me.ViewBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -430,9 +453,10 @@ Partial Class InventoryForm
         Me.UseBtn.Image = Global.E_Repair.My.Resources.Resources.hand_arrow_up_bold
         Me.UseBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.UseBtn.Location = New System.Drawing.Point(0, 0)
+        Me.UseBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.UseBtn.Name = "UseBtn"
-        Me.UseBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
-        Me.UseBtn.Size = New System.Drawing.Size(65, 75)
+        Me.UseBtn.Padding = New System.Windows.Forms.Padding(0, 15, 0, 15)
+        Me.UseBtn.Size = New System.Drawing.Size(87, 92)
         Me.UseBtn.TabIndex = 35
         Me.UseBtn.Text = "Use"
         Me.UseBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -447,12 +471,13 @@ Partial Class InventoryForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ShowArchiveCheckBox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(27, 21)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(36, 26)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(960, 28)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1280, 34)
         Me.TableLayoutPanel1.TabIndex = 39
         '
         'ShowArchiveCheckBox
@@ -463,9 +488,10 @@ Partial Class InventoryForm
         Me.ShowArchiveCheckBox.CheckedState.BorderThickness = 0
         Me.ShowArchiveCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ShowArchiveCheckBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(865, 3)
+        Me.ShowArchiveCheckBox.Location = New System.Drawing.Point(1166, 4)
+        Me.ShowArchiveCheckBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ShowArchiveCheckBox.Name = "ShowArchiveCheckBox"
-        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(92, 22)
+        Me.ShowArchiveCheckBox.Size = New System.Drawing.Size(110, 26)
         Me.ShowArchiveCheckBox.TabIndex = 30
         Me.ShowArchiveCheckBox.Text = "Show Archive"
         Me.ShowArchiveCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
@@ -483,8 +509,7 @@ Partial Class InventoryForm
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(480, 28)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(640, 34)
         Me.Guna2Panel1.TabIndex = 31
         '
         'SearchComboBox
@@ -497,28 +522,25 @@ Partial Class InventoryForm
         Me.SearchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SearchComboBox.FocusedColor = System.Drawing.Color.Empty
-        Me.SearchComboBox.FocusedState.Parent = Me.SearchComboBox
         Me.SearchComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SearchComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SearchComboBox.FormattingEnabled = True
-        Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
         Me.SearchComboBox.ItemHeight = 22
         Me.SearchComboBox.Items.AddRange(New Object() {"Category", "Item Name", "Cost per item", "Quantity", "Physical Location", "Total Value", "Date Added", "Added By"})
-        Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
-        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
+        Me.SearchComboBox.Location = New System.Drawing.Point(348, 0)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(16, 15, 16, 15)
         Me.SearchComboBox.Name = "SearchComboBox"
-        Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
-        Me.SearchComboBox.Size = New System.Drawing.Size(177, 28)
+        Me.SearchComboBox.Size = New System.Drawing.Size(235, 28)
         Me.SearchComboBox.StartIndex = 0
         Me.SearchComboBox.TabIndex = 34
         '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(245, 0)
+        Me.Panel2.Location = New System.Drawing.Point(327, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(16, 28)
+        Me.Panel2.Size = New System.Drawing.Size(21, 34)
         Me.Panel2.TabIndex = 32
         '
         'SearchTextBox
@@ -529,37 +551,30 @@ Partial Class InventoryForm
         Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SearchTextBox.DisabledState.Parent = Me.SearchTextBox
         Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SearchTextBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SearchTextBox.FocusedState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SearchTextBox.HoverState.Parent = Me.SearchTextBox
         Me.SearchTextBox.Location = New System.Drawing.Point(0, 0)
-        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 24, 5)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(5, 6, 32, 6)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextBox.PlaceholderText = "Search..."
         Me.SearchTextBox.SelectedText = ""
-        Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
-        Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
+        Me.SearchTextBox.Size = New System.Drawing.Size(327, 34)
         Me.SearchTextBox.TabIndex = 31
         '
         'BtnSelect
         '
         Me.BtnSelect.BorderRadius = 4
-        Me.BtnSelect.CheckedState.Parent = Me.BtnSelect
-        Me.BtnSelect.CustomImages.Parent = Me.BtnSelect
         Me.BtnSelect.FillColor = System.Drawing.Color.DarkGreen
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
-        Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(880, 566)
+        Me.BtnSelect.Location = New System.Drawing.Point(1173, 697)
+        Me.BtnSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnSelect.Name = "BtnSelect"
-        Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
-        Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSelect.Size = New System.Drawing.Size(143, 39)
         Me.BtnSelect.TabIndex = 41
         Me.BtnSelect.Text = "Select"
         Me.BtnSelect.Visible = False
@@ -567,31 +582,29 @@ Partial Class InventoryForm
         'BtnClose
         '
         Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
         Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(27, 566)
+        Me.BtnClose.Location = New System.Drawing.Point(36, 697)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.Size = New System.Drawing.Size(143, 39)
         Me.BtnClose.TabIndex = 40
         Me.BtnClose.Text = "Close"
         Me.BtnClose.Visible = False
         '
         'InventoryForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1080, 611)
+        Me.ClientSize = New System.Drawing.Size(1440, 752)
         Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.InventoryDGV)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "InventoryForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminInventoryForm"
@@ -642,5 +655,5 @@ Partial Class InventoryForm
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
-    Friend WithEvents ExportToExcelBtn As Button
+    Friend WithEvents InventoryExportBtn As Button
 End Class
