@@ -49,6 +49,7 @@ Public Class ServiceClaimModal
 
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
             totalCost = .Item(servConst.TotalCost)
+
             PartsCostTxtBox.Text = .Item(servConst.partsCostStr)
             TotalCostTxtBox.Text = totalCost
 
@@ -169,7 +170,7 @@ Public Class ServiceClaimModal
                     End With
 
                     Dim updateCustData As New Dictionary(Of String, Object) From {
-                         { .custTotalPaidStr, totalPaid + getPreviousTotalPaid}
+                         { .custTotalPaidStr, totalCost + getPreviousTotalPaid}
                     }
 
                     If dbHelper.UpdateRecord(custConst.custTableStr, custConst.custIDStr, customerID, updateCustData) Then
