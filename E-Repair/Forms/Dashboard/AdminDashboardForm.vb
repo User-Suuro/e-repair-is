@@ -11,14 +11,16 @@ Public Class AdminDashboardForm
     Dim servConst As New ServiceDBConstants
     Dim invConst As New InventoryDBConstants
     Dim supConst As New SuppliersDBConstants
+    Dim itemConst As New ItemsDBConstants
 
     Dim constants As New Constants
 
-    Dim empDT As DataTable
-    Dim servDT As DataTable
-    Dim custDT As DataTable
-    Dim suppDT As DataTable
-    Dim invDT As DataTable
+    Dim empDT As New DataTable
+    Dim servDT As New DataTable
+    Dim custDT As New DataTable
+    Dim suppDT As New DataTable
+    Dim invDT As New DataTable
+    Dim itemDT As New DataTable
 
     Private finishedLoad
 
@@ -28,8 +30,14 @@ Public Class AdminDashboardForm
 
         loadStatus()
         loadWelcome()
+
+        ' charts
         loadPositionChart()
+        loadAvailInvChart()
+
+        ' timer
         loadTimer()
+
     End Sub
 
 
@@ -42,7 +50,8 @@ Public Class AdminDashboardForm
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
-        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
         Cursor = Cursors.Default
 
     End Sub
@@ -63,16 +72,30 @@ Public Class AdminDashboardForm
 
     Private Sub loadPositionChart()
         PositionsChart.Series.Clear()
-        Dim posSeries As New Series("Positions")
-        posSeries.ChartType = SeriesChartType.Bar
+        Dim series As New Series("Positions")
+        series.ChartType = SeriesChartType.Bar
 
-        posSeries.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
-        posSeries.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
-        posSeries.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
-        posSeries.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
+        series.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
+        series.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
+        series.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
+        series.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
 
-        PositionsChart.Series.Add(posSeries)
+        PositionsChart.Series.Add(series)
         PositionsChart.Titles.Add("Positions Counts")
+    End Sub
+
+
+    Private Sub loadInvUsedChart()
+        InventoryGraph.Series.Clear()
+
+        Dim series As New Series("Quantity")
+        series.ChartType = SeriesChartType.Bar
+
+        series.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
+        series.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+
+        InventoryGraph.Series.Add(series)
+        PositionsChart.Titles.Add("Inventory Availability")
     End Sub
 
 
