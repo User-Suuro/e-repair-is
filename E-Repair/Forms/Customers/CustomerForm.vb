@@ -129,6 +129,7 @@ Public Class CustomerForm
         LoadDataToDGV()
     End Sub
 
+    'Export button
     Private Sub CustomerExportBtn_Click(sender As Object, e As EventArgs) Handles CustomerExportBtn.Click
         formUtils.ShowModalWithHandler(
         Function(id)

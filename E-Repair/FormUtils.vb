@@ -567,11 +567,22 @@ Public Class FormUtils
     End Function
 
     Public Function calcDecimalDTCol(dt As DataTable, columnName As String) As Decimal
-        Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)(columnName))
+
+        Try
+            Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)(columnName))
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Function
 
     Public Function CalcIntegerDTCol(dt As DataTable, columnName As String) As Integer
-        Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Integer)(columnName))
+        Try
+            Return dt.AsEnumerable().Sum(Function(row) row.Field(Of Integer)(columnName))
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Function
 
     Public Function GetSuppliedItems(supplierID As Integer) As Integer

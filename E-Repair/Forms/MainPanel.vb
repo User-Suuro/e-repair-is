@@ -108,17 +108,18 @@ Public Class MainPanel
         AdminTopNavTitle.Text = constants.SuppliersTitle
     End Sub
 
-
     Private Sub AdminSidenavInventoryBtn_Click(sender As Object, e As EventArgs) Handles SidenavInventoryBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New InventoryForm)
         AdminTopNavTitle.Text = constants.InventoryTitle
     End Sub
+
     Private Sub SettingsBtn_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
         formUtils.LoadFormIntoPanel(Me.AdminContentPanel, New SettingsForm)
         AdminTopNavTitle.Text = constants.SettingsTitle
     End Sub
 
     Private Sub LogoutBtn_Click(sender As Object, e As EventArgs) Handles LogoutBtn.Click
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to logout?") Then Exit Sub
         Me.Close()
     End Sub
 

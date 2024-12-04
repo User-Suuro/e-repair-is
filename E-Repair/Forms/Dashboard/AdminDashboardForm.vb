@@ -1,6 +1,7 @@
 ﻿
 Imports System.IO
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports Microsoft.Reporting
 
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
@@ -11,38 +12,54 @@ Public Class AdminDashboardForm
     Dim servConst As New ServiceDBConstants
     Dim invConst As New InventoryDBConstants
     Dim supConst As New SuppliersDBConstants
+    Dim itemConst As New ItemsDBConstants
 
     Dim constants As New Constants
 
-    Dim empDT As DataTable
-    Dim servDT As DataTable
-    Dim custDT As DataTable
-    Dim suppDT As DataTable
-    Dim invDT As DataTable
+    Dim empDT As New DataTable
+    Dim servDT As New DataTable
+    Dim custDT As New DataTable
+    Dim suppDT As New DataTable
+    Dim invDT As New DataTable
+    Dim itemDT As New DataTable
 
     Private finishedLoad
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ' data
         finishedLoad = True
         loadData()
 
+        ' text
         loadStatus()
         loadWelcome()
+
+        ' charts
         loadPositionChart()
+        loadInvUsedChart()
+        loadSalesChart()
+
+        ' timer
         loadTimer()
+
     End Sub
 
 
     Private Sub loadData()
+
         If Not finishedLoad Then Exit Sub
 
-
         Cursor = Cursors.WaitCursor
+
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr}, empConst.empTableStr, empConst.empArchStr, 0)
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
+
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
-        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
+
         Cursor = Cursors.Default
 
     End Sub
@@ -63,22 +80,98 @@ Public Class AdminDashboardForm
 
     Private Sub loadPositionChart()
         PositionsChart.Series.Clear()
-        Dim posSeries As New Series("Positions")
-        posSeries.ChartType = SeriesChartType.Bar
+        Dim series As New Series("Positions")
+        series.ChartType = SeriesChartType.Bar
 
-        posSeries.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
-        posSeries.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
-        posSeries.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
-        posSeries.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
+        series.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
+        series.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
+        series.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
+        series.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
 
-        PositionsChart.Series.Add(posSeries)
+        PositionsChart.Series.Add(series)
         PositionsChart.Titles.Add("Positions Counts")
     End Sub
 
 
-    Private Sub loadAvailInvChart()
+    Private Sub loadInvUsedChart()
+        InventoryGraph.Series.Clear()
+
+        Dim qtySeries As New Series("Quantity")
+
+        qtySeries.ChartType = SeriesChartType.Column
+
+        qtySeries.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
+        qtySeries.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+
+        InventoryGraph.Series.Add(qtySeries)
+        InventoryGraph.Titles.Add("Inventory Availability")
+    End Sub
+
+    Private Sub loadSalesChart()
+        SalesChart.Series.Clear()
+
+        'Dim aggregatedData = From row In servDT.AsEnumerable()
+        '                     Where Not IsDBNull(row(servConst.dateClaimedStr)) ' Exclude NULL values
+        '                     Group row By DateValue = Convert.ToDateTime(row(servConst.dateClaimedStr)) Into Group
+        '                     Select New With {
+        '                         .Date = DateValue,
+        '                         .TotalSales = Group.Sum(Function(r) If(IsDBNull(r(servConst.TotalCost)), 0D, Convert.ToDecimal(r(servConst.TotalCost))))
+        '                     }
+
+        'Dim series As New Series("Sales")
+        'series.ChartType = SeriesChartType.Line
+
+        'For Each group In aggregatedData
+        '    series.Points.AddXY(group.Date, group.TotalSales)
+        'Next
+
+        'SalesChart.Series.Add(series)
+        'SalesChart.Titles.Add("Sales Overtime")
+
+        'With SalesChart.ChartAreas(0).AxisX
+        '    .LabelStyle.Format = "yyyy-MM-dd"
+        '    .Interval = 1
+        '    .IntervalType = DateTimeIntervalType.Days
+        '    .LabelStyle.Angle = -45 ' Optional: Rotate labels
+        '    .IsLabelAutoFit = True
+        'End With
+
+        Dim series As New Series("Value")
+        series.ChartType = SeriesChartType.Column
+
+        series.Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
+        series.Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
+
+        SalesChart.Series.Add(series)
+        SalesChart.Titles.Add("Profit - Inventory Expenses")
 
     End Sub
+
+    Private Sub loadServiceStatsChart()
+
+        ServiceStatusChart.Series.Clear()
+
+        Dim series As New Series("Value")
+        series.ChartType = SeriesChartType.Column
+
+        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
+        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
+        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
+        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr } = '{constants.getOnholdString}'").Length)
+        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr } = '{constants.getCanceledString}'").Length)
+
+        SalesChart.Series.Add(series)
+        SalesChart.Titles.Add("Service Status")
+
+    End Sub
+
+    Private Function NullCheck(Of T)(value As Object, defaultValue As T) As T
+        If IsDBNull(value) Then
+            Return defaultValue
+        End If
+        Return CType(value, T)
+    End Function
+
 
     Private Sub loadTimer()
         Timer1.Enabled = True

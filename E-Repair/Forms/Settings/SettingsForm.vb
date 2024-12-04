@@ -695,6 +695,4 @@
         MessageBox.Show($"{numberOfRecords} inventory records generated successfully!")
         Return True ' return true if successful
     End Function
-
-
 End Class

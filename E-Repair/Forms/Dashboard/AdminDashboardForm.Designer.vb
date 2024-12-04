@@ -66,9 +66,9 @@ Partial Class AdminDashboardForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.GenderPieGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ServiceStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
@@ -80,9 +80,9 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.SuspendLayout()
         Me.ServicesPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GenderPieGraph, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServiceStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -457,9 +457,9 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.GenderPieGraph, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ServiceStatusChart, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.SalesChart, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -469,59 +469,59 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 417)
         Me.TableLayoutPanel2.TabIndex = 7
         '
-        'Chart4
+        'ServiceStatusChart
         '
         ChartArea1.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea1)
-        Me.Chart4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ServiceStatusChart.ChartAreas.Add(ChartArea1)
+        Me.ServiceStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend1.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend1)
-        Me.Chart4.Location = New System.Drawing.Point(559, 211)
-        Me.Chart4.Name = "Chart4"
-        Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.ServiceStatusChart.Legends.Add(Legend1)
+        Me.ServiceStatusChart.Location = New System.Drawing.Point(559, 211)
+        Me.ServiceStatusChart.Name = "ServiceStatusChart"
+        Me.ServiceStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
-        Me.Chart4.Series.Add(Series1)
-        Me.Chart4.Size = New System.Drawing.Size(551, 203)
-        Me.Chart4.TabIndex = 3
-        Me.Chart4.Text = "Chart4"
+        Me.ServiceStatusChart.Series.Add(Series1)
+        Me.ServiceStatusChart.Size = New System.Drawing.Size(551, 203)
+        Me.ServiceStatusChart.TabIndex = 3
+        Me.ServiceStatusChart.Text = "Chart4"
         '
-        'Chart3
+        'SalesChart
         '
         ChartArea2.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea2)
-        Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SalesChart.ChartAreas.Add(ChartArea2)
+        Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend2.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend2)
-        Me.Chart3.Location = New System.Drawing.Point(3, 211)
-        Me.Chart3.Name = "Chart3"
-        Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.SalesChart.Legends.Add(Legend2)
+        Me.SalesChart.Location = New System.Drawing.Point(3, 211)
+        Me.SalesChart.Name = "SalesChart"
+        Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
-        Me.Chart3.Series.Add(Series2)
-        Me.Chart3.Size = New System.Drawing.Size(550, 203)
-        Me.Chart3.TabIndex = 2
-        Me.Chart3.Text = "Chart3"
+        Me.SalesChart.Series.Add(Series2)
+        Me.SalesChart.Size = New System.Drawing.Size(550, 203)
+        Me.SalesChart.TabIndex = 2
+        Me.SalesChart.Text = "SalesChart"
         '
-        'GenderPieGraph
+        'InventoryGraph
         '
         ChartArea3.Name = "ChartArea1"
-        Me.GenderPieGraph.ChartAreas.Add(ChartArea3)
-        Me.GenderPieGraph.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.InventoryGraph.ChartAreas.Add(ChartArea3)
+        Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
         Legend3.Name = "Legend1"
-        Me.GenderPieGraph.Legends.Add(Legend3)
-        Me.GenderPieGraph.Location = New System.Drawing.Point(559, 3)
-        Me.GenderPieGraph.Name = "GenderPieGraph"
-        Me.GenderPieGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.InventoryGraph.Legends.Add(Legend3)
+        Me.InventoryGraph.Location = New System.Drawing.Point(559, 3)
+        Me.InventoryGraph.Name = "InventoryGraph"
+        Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Series1"
-        Me.GenderPieGraph.Series.Add(Series3)
-        Me.GenderPieGraph.Size = New System.Drawing.Size(551, 202)
-        Me.GenderPieGraph.TabIndex = 1
-        Me.GenderPieGraph.Text = "Chart2"
+        Me.InventoryGraph.Series.Add(Series3)
+        Me.InventoryGraph.Size = New System.Drawing.Size(551, 202)
+        Me.InventoryGraph.TabIndex = 1
+        Me.InventoryGraph.Text = "Chart2"
         '
         'PositionsChart
         '
@@ -569,9 +569,9 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.ResumeLayout(False)
         Me.ServicesPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GenderPieGraph, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServiceStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -608,7 +608,7 @@ Partial Class AdminDashboardForm
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
-    Friend WithEvents Chart4 As DataVisualization.Charting.Chart
-    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
-    Friend WithEvents GenderPieGraph As DataVisualization.Charting.Chart
+    Friend WithEvents ServiceStatusChart As DataVisualization.Charting.Chart
+    Friend WithEvents SalesChart As DataVisualization.Charting.Chart
+    Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
 End Class

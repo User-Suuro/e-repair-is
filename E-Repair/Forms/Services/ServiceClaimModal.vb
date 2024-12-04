@@ -6,8 +6,10 @@ Public Class ServiceClaimModal
     Dim formUtils As New FormUtils
 
     Dim constants As New Constants
+
     Dim servConst As New ServiceDBConstants
     Dim itemConst As New ItemsDBConstants
+    Dim custConst As New CustomersDBConstants
 
     Dim exportUtils As New ExportUtils
 
@@ -17,6 +19,7 @@ Public Class ServiceClaimModal
     Private Property paymentMethod As String
     Private Property totalCost As Decimal
     Private Property archivedStatus As Boolean = False
+    Private Property customerID
 
     ' REQUIRED
     Private Sub ServiceClaimModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -37,6 +40,7 @@ Public Class ServiceClaimModal
         If serviceDT.Rows.Count = 0 Then Exit Sub
 
         With serviceDT.Rows(0)
+            customerID = .Item(servConst.custIDStr)
             RepairStatusTxtBox.Text = .Item(servConst.svcStatusStr)
             DateCompletedTxtBox.Text = .Item(servConst.dateCompletedStr)
             RepairNotesTxtBox.Text = .Item(servConst.repairNotesStr)
@@ -45,6 +49,7 @@ Public Class ServiceClaimModal
 
             TechnicianFeeTxtBox.Text = .Item(servConst.techFeeStr)
             totalCost = .Item(servConst.TotalCost)
+
             PartsCostTxtBox.Text = .Item(servConst.partsCostStr)
             TotalCostTxtBox.Text = totalCost
 
@@ -151,10 +156,29 @@ Public Class ServiceClaimModal
             }
 
             If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
-                Me.Close()
 
-                ' Generate the Excel receipt
-                GenerateExcelReceipt()
+                ' update customer
+                With custConst
+                    Dim custDT As DataTable = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custIDStr, custConst.custTotalPaidStr}, custConst.custTableStr, custConst.custIDStr, customerID)
+
+                    If custDT.Rows.Count = 0 Then Exit Sub
+
+                    Dim getPreviousTotalPaid As Decimal
+
+                    With custDT.Rows(0)
+                        getPreviousTotalPaid = .Item(custConst.custTotalPaidStr)
+                    End With
+
+                    Dim updateCustData As New Dictionary(Of String, Object) From {
+                         { .custTotalPaidStr, totalCost + getPreviousTotalPaid}
+                    }
+
+                    If dbHelper.UpdateRecord(custConst.custTableStr, custConst.custIDStr, customerID, updateCustData) Then
+                        ' Generate the Excel receipt
+                        GenerateExcelReceipt()
+                        Me.Close()
+                    End If
+                End With
             End If
 
         End With
