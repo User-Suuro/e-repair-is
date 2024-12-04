@@ -147,6 +147,24 @@ Public Class AdminDashboardForm
 
     End Sub
 
+    Private Sub loadServiceStatsChart()
+
+        ServiceStatusChart.Series.Clear()
+
+        Dim series As New Series("Value")
+        series.ChartType = SeriesChartType.Column
+
+        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
+        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
+        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
+        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr } = '{constants.getOnholdString}'").Length)
+        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr } = '{constants.getCanceledString}'").Length)
+
+        SalesChart.Series.Add(series)
+        SalesChart.Titles.Add("Service Status")
+
+    End Sub
+
     Private Function NullCheck(Of T)(value As Object, defaultValue As T) As T
         If IsDBNull(value) Then
             Return defaultValue
@@ -177,5 +195,6 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
+
 
 End Class
