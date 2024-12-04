@@ -13,15 +13,16 @@ Public Class InventoryForm
     Private itemQuantity As Integer = -1
     Private is_archived As Boolean = False
 
-    Private invDT As DataTable = Nothing
 
     Public Property selectedID As Integer = -1
     Public Property selectMode As Boolean = False
-    Public Property viewMode As Boolean = False
 
     Public Property supplierMode As Boolean = False
     Private finishedLoad As Boolean = False
 
+    ' VIEW MODE
+    Public Property viewMode As Boolean = False
+    Public Property invDT As DataTable = Nothing
 
     ' INIT DATA
     Private Function InitData() As Boolean
@@ -195,10 +196,14 @@ Public Class InventoryForm
                 .dateArchivedStr
             }
 
-            If supplierMode Then
-                invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
-            Else
-                invDT = dbHelper.GetAllByCol(searchValues, .invTableStr)
+            If Not viewMode Then
+
+                If supplierMode Then
+                    invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
+                Else
+                    invDT = dbHelper.GetAllByCol(searchValues, .invTableStr)
+                End If
+
             End If
 
             searchValues.Remove(.totalCostStr)

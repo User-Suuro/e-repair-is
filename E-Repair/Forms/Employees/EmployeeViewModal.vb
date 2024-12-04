@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports Org.BouncyCastle.Asn1.X509
 
 Public Class EmployeeViewModal
     Dim formUtils As New FormUtils
@@ -8,6 +9,9 @@ Public Class EmployeeViewModal
     Dim empConst As New EmployeesDBConstants
     Dim custConst As New CustomersDBConstants
     Dim servConst As New ServiceDBConstants
+    Dim invConst As New InventoryDBConstants
+    Dim supConst As New SuppliersDBConstants
+    Dim itemConst As New ItemsDBConstants
 
     Public Property selectedID As Integer = -1
 
@@ -73,52 +77,185 @@ Public Class EmployeeViewModal
             ' JOB INFO
             Select Case empJobType
                 Case constants.getAdminString
-                    PositionTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empAdminPosStr))
-                    EmployeeAddedTextBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.addedById, selectedID).Rows.Count
+                    AdminPosTxtBox.Text = dbHelper.StrNullCheck(.Item(empConst.empAdminPosStr))
+                    EmpAddedTxtBox.Text = dbHelper.GetRowByValue(empConst.empTableStr, empConst.addedById, selectedID).Rows.Count
 
                 Case constants.getTechnicianString
-                    DevicesRepairedTextBox.Text = getTechStatsNumbers(constants.getFinishedString)
-                    NumberJobsAssignedTextBox.Text = getTechStatsNumbers(constants.getPendingString) + getTechStatsNumbers(constants.getFinishedString) + getTechStatsNumbers(constants.getOnholdString) + getTechStatsNumbers(constants.getCanceledString)
+                    FinishedTxtBox.Text = getTechStatsNumbers(constants.getFinishedString)
+                    ClaimedTxtBox.Text = getTechStatsNumbers(constants.getClaimedString)
+                    OnholdTxtBox.Text = getTechStatsNumbers(constants.getOnholdString)
+                    PendingTxtBox.Text = getTechStatsNumbers(constants.getPendingString)
 
                 Case constants.getCashierString
-                    CustomersHandledTextBox.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.getAddedByID, selectedID).Rows.Count
-                    ServiceHandledTxtBox.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID).Rows.Count
+                    CustAddedTxtBox.Text = dbHelper.GetRowByValue(custConst.custTableStr, custConst.getAddedByID, selectedID).Rows.Count
+                    ServiceAddedTxtBox.Text = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID).Rows.Count
 
                 Case constants.getUtilityPersonnelString
-                    AssignedLocationTextBox.Text = .Item(empConst.empDestStr)
+                    PersonnelTxtBox.Text = .Item(empConst.empDestStr)
             End Select
 
         End With
     End Sub
 
+
+
+    ' SET JOB DESC VIEW
+    Private Sub ManageJobDescriptionView()
+        AdminTable.Visible = False
+        TechTable.Visible = False
+        CashierTable.Visible = False
+        UtilityTable.Visible = False
+
+        If JobTypeTextBox.Text = constants.getAdminString Then
+            AdminTable.Visible = True
+
+        ElseIf JobTypeTextBox.Text = constants.getTechnicianString Then
+            TechTable.Visible = True
+
+        ElseIf JobTypeTextBox.Text = constants.getCashierString Then
+            CashierTable.Visible = True
+
+        ElseIf JobTypeTextBox.Text = constants.getUtilityPersonnelString Then
+            UtilityTable.Visible = True
+        End If
+    End Sub
+
+    ' ADMIN
+    Private Sub EmpBtn_Click(sender As Object, e As EventArgs) Handles EmpBtn.Click
+
+        Dim dt = dbHelper.GetRowByValue(empConst.empTableStr, empConst.addedById, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+            Function(id)
+                Dim modal As New EmployeeForm
+                modal.viewMode = True
+                modal.empDT = dt
+                modal.BtnClose.Visible = True
+                Return modal
+            End Function,
+           Nothing,
+           Function(modal)
+               Return Nothing
+           End Function
+       )
+
+    End Sub
+
+    Private Sub SuppBtn_Click(sender As Object, e As EventArgs) Handles SuppBtn.Click
+
+        Dim dt = dbHelper.GetRowByValue(supConst.supTableStr, supConst.addedByID, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New SuppliersForm
+               modal.viewMode = True
+               modal.suppDT = dt
+               modal.BtnClose.Visible = True
+               Return modal
+           End Function,
+          Nothing,
+          Function(modal)
+              Return Nothing
+          End Function
+      )
+    End Sub
+
+
+    Private Sub InvBtn_Click(sender As Object, e As EventArgs) Handles InvBtn.Click
+
+        Dim dt = dbHelper.GetRowByValue(invConst.invTableStr, invConst.addedByIDStr, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New InventoryForm
+               modal.viewMode = True
+               modal.invDT = dt
+               modal.BtnClose.Visible = True
+               Return modal
+           End Function,
+          Nothing,
+          Function(modal)
+              Return Nothing
+          End Function
+      )
+    End Sub
+
+    ' CASHIER
+    Private Sub Custbtn_Click(sender As Object, e As EventArgs) Handles Custbtn.Click
+
+        Dim dt = dbHelper.GetRowByValue(custConst.custTableStr, custConst.getAddedByID, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New CustomerForm
+               modal.viewMode = True
+               modal.customersDt = dt
+               modal.BtnClose.Visible = True
+               Return modal
+           End Function,
+          Nothing,
+          Function(modal)
+              Return Nothing
+          End Function
+         )
+
+    End Sub
+
+    Private Sub ServBtn_Click(sender As Object, e As EventArgs) Handles ServBtn.Click
+        Dim dt = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.cashierIDStr, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New ServiceForm
+               modal.viewMode = True
+               modal.serviceDT = dt
+               modal.BtnClose.Visible = True
+               Return modal
+           End Function,
+          Nothing,
+          Function(modal)
+              Return Nothing
+          End Function
+         )
+    End Sub
+
+    ' TECH
+    Private Sub TechBtn_Click(sender As Object, e As EventArgs) Handles TechBtn.Click
+        Dim dt = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.techIDStr, selectedID)
+
+        If dt.Rows.Count = 0 Then dt = Nothing
+
+        formUtils.ShowModalWithHandler(
+           Function(id)
+               Dim modal As New ServiceForm
+               modal.viewMode = True
+               modal.serviceDT = dt
+               modal.BtnClose.Visible = True
+               Return modal
+           End Function,
+          Nothing,
+          Function(modal)
+              Return Nothing
+          End Function
+         )
+    End Sub
+
+    ' FIND TECH STATS NUMS
     Public Function getTechStatsNumbers(status As String) As Integer
         Return formUtils.getTechStatsNumbers(status, selectedID)
     End Function
 
-    Private Sub ManageJobDescriptionView()
-        AdminDescriptionPanel.Visible = False
-        TechnicianDescriptionPanel.Visible = False
-        CashierDescriptionPanel.Visible = False
-        PersonnelDescriptionPanel.Visible = False
-
-        If JobTypeTextBox.Text = constants.getAdminString Then
-            JobDescriptionFlowLayout.Visible = True
-            AdminDescriptionPanel.Visible = True
-
-        ElseIf JobTypeTextBox.Text = constants.getTechnicianString Then
-            JobDescriptionFlowLayout.Visible = True
-            TechnicianDescriptionPanel.Visible = True
-
-        ElseIf JobTypeTextBox.Text = constants.getCashierString Then
-            JobDescriptionFlowLayout.Visible = True
-            CashierDescriptionPanel.Visible = True
-
-        ElseIf JobTypeTextBox.Text = constants.getUtilityPersonnelString Then
-            JobDescriptionFlowLayout.Visible = True
-            PersonnelDescriptionPanel.Visible = True
-        End If
-    End Sub
-
+    ' CLOSE
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub

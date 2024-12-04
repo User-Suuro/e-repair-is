@@ -57,7 +57,6 @@ Public Class MainPanel
                     SidenavCustomersBtn.Visible = True
 
                 Case .getTechnicianString
-                    SidenavCustomersBtn.Visible = True
                     SidenavInventoryBtn.Visible = True
                     SidenavServicesBtn.Visible = True
             End Select

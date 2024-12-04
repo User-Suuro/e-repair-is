@@ -17,10 +17,11 @@ Public Class EmployeeForm
     Public Property selectMode As Boolean = False
     Public Property techOnly As Boolean = False
 
-    Private empDT As DataTable = Nothing
-
     Private finishedLoad As Boolean = False
 
+    ' VIEW MODE
+    Public Property viewMode As Boolean = False
+    Public Property empDT As DataTable = Nothing
 
     ' RESTRICT ACTIONS
     Private Function isRestricted() As Boolean
@@ -200,10 +201,14 @@ Public Class EmployeeForm
 
             Cursor = Cursors.WaitCursor
 
-            If Not techOnly Then
-                empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
-            Else
-                empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
+            If Not viewMode Then
+
+                If Not techOnly Then
+                    empDT = dbHelper.GetAllByCol(colValues, empConst.empTableStr)
+                Else
+                    empDT = dbHelper.GetRowByColValue(colValues, empConst.empTableStr, empConst.empJobPosStr, constants.getTechnicianString)
+                End If
+
             End If
 
             ' exlucde to search

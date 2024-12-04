@@ -16,13 +16,17 @@ Public Class ServiceForm
     ' CONSTANTS
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
-    Private serviceDT As DataTable = Nothing
+
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property pendingOnly As Boolean = False
 
     Private finishedLoad As Boolean = False
+
+    ' VIEW MODE
+    Public Property viewMode As Boolean = False
+    Public Property serviceDT As DataTable = Nothing
 
     Private Function InitData() As Boolean
 
@@ -253,33 +257,26 @@ Public Class ServiceForm
 
             Cursor = Cursors.WaitCursor
 
-            If pendingOnly Then
+            If Not viewMode Then
+                If pendingOnly Then
 
-                ' get technician pending only view
-                If Current.position = constants.getTechnicianString Then
-                    serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
-                ElseIf Current.position = constants.getCashierString Then
+                    ' get technician pending only view
+                    If Current.position = constants.getTechnicianString Then
+                        serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
+                    Else
+                        serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+                    End If
 
-                    ' get cashier pending only view
-                    serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.cashierIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
                 Else
-                    serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+
+                    ' get all technician view
+                    If Current.position = constants.getTechnicianString Then
+                        serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
+                    Else
+                        serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
+                    End If
+
                 End If
-
-            Else
-
-                ' get all technician view
-                If Current.position = constants.getTechnicianString Then
-                    serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
-
-                ElseIf Current.position = constants.getCashierString Then
-
-                    ' get all cashier view
-                    serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.custIDStr, Current.id)
-                Else
-                    serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
-                End If
-
             End If
 
             ' exlucde from search
@@ -412,7 +409,9 @@ Public Class ServiceForm
 
         If Current.position = constants.getTechnicianString Then
             ClaimServiceBtn.Visible = False
+            ArchiveServiceBtn.Visible = False
         End If
+
     End Sub
 
 End Class

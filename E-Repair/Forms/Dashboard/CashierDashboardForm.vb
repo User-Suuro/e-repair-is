@@ -1,4 +1,6 @@
-﻿Public Class CashierDashboardForm
+﻿Imports System.Windows.Forms.DataVisualization.Charting
+
+Public Class CashierDashboardForm
 
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
@@ -20,8 +22,8 @@
 
         Cursor = Cursors.WaitCursor
 
-        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.cashierIDStr, Current.id)
-        custDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID}, custConst.custTableStr, custConst.custArchStr, 0, custConst.getAddedByID, Current.id)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID}, custConst.custTableStr, custConst.custArchStr, 0)
 
         Cursor = Cursors.Default
 
@@ -35,9 +37,6 @@
     Private Sub loadStatus()
         ServCountLabel.Text = servDT.Rows.Count
         CustCountLabel.Text = custDT.Rows.Count
-
-        PendingCountLabel.Text = servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length
-        ClaimedCountLabel.Text = servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length
     End Sub
 
     Private Sub loadTimer()
@@ -46,7 +45,6 @@
         Timer3.Enabled = True
         Timer4.Enabled = True
     End Sub
-
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Label9.Text = Date.Now.ToString("yyyy")
@@ -64,4 +62,19 @@
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
+    Private Sub ServStatusChart_Click(sender As Object, e As EventArgs) Handles ServStatusChart.Click
+        ServStatusChart.Series.Clear()
+
+        Dim series As New Series("Value")
+        series.ChartType = SeriesChartType.Column
+
+        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
+        Series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
+        Series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
+        Series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr } = '{constants.getOnholdString}'").Length)
+        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr } = '{constants.getCanceledString}'").Length)
+
+        ServStatusChart.Series.Add(series)
+        ServStatusChart.Titles.Add("Service Status")
+    End Sub
 End Class

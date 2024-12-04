@@ -27,7 +27,10 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
+
+        Cursor = Cursors.WaitCursor
         dbHelper.UpdateConnectionString()
+        Cursor = Cursors.Default
 
         ' CHECK IF CONNECTED TO DB
         If Not dbHelper.isConnectedToLocalServer() Then
@@ -71,13 +74,13 @@ Public Class LoginForm
 
         dbHelper.UpdateRecord(empConst.empTableStr, empConst.empIDStr, Current.id, updatedValues)
 
+        releaseMemory()
+
         Dim MainPanel As New MainPanel
 
         MainPanel.Show()
 
         Me.Hide()
-
-        releaseMemory()
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -137,6 +140,18 @@ Public Class LoginForm
     End Sub
 
     Private Sub CreateSuperbtn_Click(sender As Object, e As EventArgs) Handles CreateSuperbtn.Click
+
+        Cursor = Cursors.WaitCursor
+        dbHelper.UpdateConnectionString()
+        Cursor = Cursors.Default
+
+        ' CHECK IF CONNECTED TO DB
+        If Not dbHelper.isConnectedToLocalServer() Then
+            formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
+            Exit Sub
+        End If
+
+
         formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New EmployeeAddEditModal

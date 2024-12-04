@@ -21,20 +21,11 @@ Public Class CustomerForm
     Public Property selectMode As Boolean = False
     Public Property selectedCustID As Integer = -1
 
-    Private customersDt As DataTable = Nothing
-
     Private finishedLoad As Boolean = False
 
-
-    ' disable cud
-    Private Sub disableCud()
-
-        AddCustomerBtn.Visible = False
-        EditCustomerBtn.Visible = False
-        ArchiveCustomerBtn.Visible = False
-        DeleteCustomerBtn.Visible = False
-
-    End Sub
+    ' VIEW MODE
+    Public Property viewMode As Boolean = False
+    Public Property customersDt As DataTable = Nothing
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -42,9 +33,6 @@ Public Class CustomerForm
         finishedLoad = True
         LoadDataToDGV()
         CustomerDGV.ClearSelection()
-
-        ' adjust views for positions
-        If Current.position = constants.getTechnicianString Then disableCud()
     End Sub
 
 
@@ -174,7 +162,7 @@ Public Class CustomerForm
 
             Cursor = Cursors.WaitCursor
 
-            customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
+            If Not viewMode Then customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
 
             ' exclude for searching
             searchValues.Remove(.custIDStr)

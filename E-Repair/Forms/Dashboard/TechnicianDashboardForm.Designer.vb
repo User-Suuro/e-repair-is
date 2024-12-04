@@ -23,20 +23,16 @@ Partial Class TechnicianDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.SuppliersNumberLabel = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.EmployeesCountLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.CustomersNumberLabel = New System.Windows.Forms.Label()
-        Me.StatusCustomersLabel = New System.Windows.Forms.Label()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.ServicesNumberLabel = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -50,14 +46,17 @@ Partial Class TechnicianDashboardForm
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.StatusTableLayout.SuspendLayout()
-        Me.Guna2Panel7.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
-        Me.Guna2Panel5.SuspendLayout()
-        Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusTableLayout
@@ -65,72 +64,18 @@ Partial Class TechnicianDashboardForm
         Me.StatusTableLayout.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StatusTableLayout.BackColor = System.Drawing.Color.Transparent
-        Me.StatusTableLayout.ColumnCount = 4
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel7, 3, 0)
+        Me.StatusTableLayout.ColumnCount = 1
+        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.StatusTableLayout.Controls.Add(Me.Guna2Panel6, 0, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel5, 2, 0)
-        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.StatusTableLayout.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.StatusTableLayout.Location = New System.Drawing.Point(9, 126)
+        Me.StatusTableLayout.Location = New System.Drawing.Point(9, 115)
         Me.StatusTableLayout.Name = "StatusTableLayout"
         Me.StatusTableLayout.RowCount = 1
         Me.StatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 91)
         Me.StatusTableLayout.TabIndex = 10
-        '
-        'Guna2Panel7
-        '
-        Me.Guna2Panel7.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel7.BorderRadius = 4
-        Me.Guna2Panel7.Controls.Add(Me.Label1)
-        Me.Guna2Panel7.Controls.Add(Me.SuppliersNumberLabel)
-        Me.Guna2Panel7.Controls.Add(Me.Label11)
-        Me.Guna2Panel7.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel7.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel7.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel7.Location = New System.Drawing.Point(870, 0)
-        Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(279, 79)
-        Me.Guna2Panel7.TabIndex = 7
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(28, 4)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 20)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Finished Repairs"
-        '
-        'SuppliersNumberLabel
-        '
-        Me.SuppliersNumberLabel.AutoSize = True
-        Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(22, 19)
-        Me.SuppliersNumberLabel.Name = "SuppliersNumberLabel"
-        Me.SuppliersNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.SuppliersNumberLabel.TabIndex = 3
-        Me.SuppliersNumberLabel.Text = "0"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(22, 4)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(0, 20)
-        Me.Label11.TabIndex = 2
         '
         'Guna2Panel6
         '
@@ -146,7 +91,7 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(278, 79)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(1149, 79)
         Me.Guna2Panel6.TabIndex = 6
         '
         'EmployeesCountLabel
@@ -154,7 +99,7 @@ Partial Class TechnicianDashboardForm
         Me.EmployeesCountLabel.AutoSize = True
         Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(14, 19)
+        Me.EmployeesCountLabel.Location = New System.Drawing.Point(14, 24)
         Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
         Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
         Me.EmployeesCountLabel.TabIndex = 3
@@ -167,89 +112,9 @@ Partial Class TechnicianDashboardForm
         Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(19, 4)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(146, 20)
+        Me.Label13.Size = New System.Drawing.Size(91, 20)
         Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Total Handled Repairs"
-        '
-        'Guna2Panel5
-        '
-        Me.Guna2Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel5.BorderRadius = 4
-        Me.Guna2Panel5.Controls.Add(Me.CustomersNumberLabel)
-        Me.Guna2Panel5.Controls.Add(Me.StatusCustomersLabel)
-        Me.Guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel5.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel5.Location = New System.Drawing.Point(580, 0)
-        Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(278, 79)
-        Me.Guna2Panel5.TabIndex = 5
-        '
-        'CustomersNumberLabel
-        '
-        Me.CustomersNumberLabel.AutoSize = True
-        Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.CustomersNumberLabel.Location = New System.Drawing.Point(18, 19)
-        Me.CustomersNumberLabel.Name = "CustomersNumberLabel"
-        Me.CustomersNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.CustomersNumberLabel.TabIndex = 3
-        Me.CustomersNumberLabel.Text = "0"
-        '
-        'StatusCustomersLabel
-        '
-        Me.StatusCustomersLabel.AutoSize = True
-        Me.StatusCustomersLabel.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StatusCustomersLabel.ForeColor = System.Drawing.Color.Black
-        Me.StatusCustomersLabel.Location = New System.Drawing.Point(24, 4)
-        Me.StatusCustomersLabel.Name = "StatusCustomersLabel"
-        Me.StatusCustomersLabel.Size = New System.Drawing.Size(106, 20)
-        Me.StatusCustomersLabel.TabIndex = 2
-        Me.StatusCustomersLabel.Text = "Onhold Repairs"
-        '
-        'Guna2Panel1
-        '
-        Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Panel1.BorderRadius = 4
-        Me.Guna2Panel1.Controls.Add(Me.ServicesNumberLabel)
-        Me.Guna2Panel1.Controls.Add(Me.Label3)
-        Me.Guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Guna2Panel1.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Guna2Panel1.Location = New System.Drawing.Point(290, 0)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(278, 79)
-        Me.Guna2Panel1.TabIndex = 3
-        '
-        'ServicesNumberLabel
-        '
-        Me.ServicesNumberLabel.AutoSize = True
-        Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServicesNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.ServicesNumberLabel.Location = New System.Drawing.Point(20, 19)
-        Me.ServicesNumberLabel.Name = "ServicesNumberLabel"
-        Me.ServicesNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.ServicesNumberLabel.TabIndex = 3
-        Me.ServicesNumberLabel.Text = "0"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(26, 4)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(112, 20)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Pending Repairs"
+        Me.Label13.Text = "Total Repairs"
         '
         'TableLayoutPanel1
         '
@@ -266,7 +131,7 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1149, 114)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1149, 93)
         Me.TableLayoutPanel1.TabIndex = 9
         '
         'Guna2Panel4
@@ -393,48 +258,90 @@ Partial Class TechnicianDashboardForm
         'Timer4
         '
         '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Chart2, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ServStatusChart, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(9, 221)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1149, 401)
+        Me.TableLayoutPanel2.TabIndex = 11
+        '
+        'ServStatusChart
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.ServStatusChart.ChartAreas.Add(ChartArea2)
+        Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend2.Name = "Legend1"
+        Me.ServStatusChart.Legends.Add(Legend2)
+        Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
+        Me.ServStatusChart.Name = "ServStatusChart"
+        Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.ServStatusChart.Series.Add(Series2)
+        Me.ServStatusChart.Size = New System.Drawing.Size(568, 395)
+        Me.ServStatusChart.TabIndex = 0
+        Me.ServStatusChart.Text = "Chart1"
+        '
+        'Chart2
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea1)
+        Me.Chart2.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend1.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend1)
+        Me.Chart2.Location = New System.Drawing.Point(577, 3)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart2.Series.Add(Series1)
+        Me.Chart2.Size = New System.Drawing.Size(569, 395)
+        Me.Chart2.TabIndex = 1
+        Me.Chart2.Text = "Chart2"
+        '
         'TechnicianDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "TechnicianDashboardForm"
         Me.Text = "Form2"
         Me.StatusTableLayout.ResumeLayout(False)
-        Me.Guna2Panel7.ResumeLayout(False)
-        Me.Guna2Panel7.PerformLayout()
         Me.Guna2Panel6.ResumeLayout(False)
         Me.Guna2Panel6.PerformLayout()
-        Me.Guna2Panel5.ResumeLayout(False)
-        Me.Guna2Panel5.PerformLayout()
-        Me.Guna2Panel1.ResumeLayout(False)
-        Me.Guna2Panel1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents StatusTableLayout As TableLayoutPanel
-    Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents SuppliersNumberLabel As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents EmployeesCountLabel As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents CustomersNumberLabel As Label
-    Friend WithEvents StatusCustomersLabel As Label
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents ServicesNumberLabel As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label9 As Label
@@ -448,4 +355,7 @@ Partial Class TechnicianDashboardForm
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
     Friend WithEvents Timer4 As Timer
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
 End Class
