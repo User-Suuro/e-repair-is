@@ -59,6 +59,10 @@ Public Class DBConfigModal
     Private Sub updateStatusConn()
         If Not dbHelper.isConnectedToLocalServer() Then
             ConnStatusLabel.Text = "Not Connected"
+            ConnStatusLabel.ForeColor = Color.Red
+        Else
+            ConnStatusLabel.Text = "Connected"
+            ConnStatusLabel.ForeColor = Color.Green
         End If
     End Sub
 
@@ -89,4 +93,7 @@ Public Class DBConfigModal
     Private Sub dbNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbNameTxtBox.TextChanged
 
     End Sub
+
+
+
 End Class
