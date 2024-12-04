@@ -31,6 +31,7 @@ Partial Class ServicesExportModal
         Me.ExportSummBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -38,6 +39,7 @@ Partial Class ServicesExportModal
         'Guna2GroupBox1
         '
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.button3)
         Me.Guna2GroupBox1.Controls.Add(Me.TableLayoutPanel1)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
@@ -50,7 +52,7 @@ Partial Class ServicesExportModal
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(606, 323)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(498, 260)
         Me.Guna2GroupBox1.TabIndex = 4
         Me.Guna2GroupBox1.Text = "Services Report"
         '
@@ -60,7 +62,7 @@ Partial Class ServicesExportModal
         Me.button3.FillColor = System.Drawing.Color.DarkRed
         Me.button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.button3.ForeColor = System.Drawing.Color.White
-        Me.button3.Location = New System.Drawing.Point(53, 271)
+        Me.button3.Location = New System.Drawing.Point(13, 208)
         Me.button3.Margin = New System.Windows.Forms.Padding(4)
         Me.button3.Name = "button3"
         Me.button3.Size = New System.Drawing.Size(143, 39)
@@ -70,18 +72,18 @@ Partial Class ServicesExportModal
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.7167!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ExportPendBtn, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportClmdBtn, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportAllBtn, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportSummBtn, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(53, 96)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(13, 59)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(491, 129)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(485, 129)
         Me.TableLayoutPanel1.TabIndex = 36
         '
         'ExportPendBtn
@@ -90,7 +92,7 @@ Partial Class ServicesExportModal
         Me.ExportPendBtn.FillColor = System.Drawing.Color.DarkGreen
         Me.ExportPendBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExportPendBtn.ForeColor = System.Drawing.Color.White
-        Me.ExportPendBtn.Location = New System.Drawing.Point(260, 67)
+        Me.ExportPendBtn.Location = New System.Drawing.Point(246, 67)
         Me.ExportPendBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportPendBtn.Name = "ExportPendBtn"
         Me.ExportPendBtn.Size = New System.Drawing.Size(227, 48)
@@ -106,7 +108,7 @@ Partial Class ServicesExportModal
         Me.ExportClmdBtn.Location = New System.Drawing.Point(4, 67)
         Me.ExportClmdBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportClmdBtn.Name = "ExportClmdBtn"
-        Me.ExportClmdBtn.Size = New System.Drawing.Size(248, 48)
+        Me.ExportClmdBtn.Size = New System.Drawing.Size(234, 48)
         Me.ExportClmdBtn.TabIndex = 42
         Me.ExportClmdBtn.Text = "Export Claimed"
         '
@@ -116,7 +118,7 @@ Partial Class ServicesExportModal
         Me.ExportAllBtn.FillColor = System.Drawing.Color.DarkGreen
         Me.ExportAllBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExportAllBtn.ForeColor = System.Drawing.Color.White
-        Me.ExportAllBtn.Location = New System.Drawing.Point(260, 4)
+        Me.ExportAllBtn.Location = New System.Drawing.Point(246, 4)
         Me.ExportAllBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportAllBtn.Name = "ExportAllBtn"
         Me.ExportAllBtn.Size = New System.Drawing.Size(227, 48)
@@ -132,7 +134,7 @@ Partial Class ServicesExportModal
         Me.ExportSummBtn.Location = New System.Drawing.Point(4, 4)
         Me.ExportSummBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.ExportSummBtn.Name = "ExportSummBtn"
-        Me.ExportSummBtn.Size = New System.Drawing.Size(248, 48)
+        Me.ExportSummBtn.Size = New System.Drawing.Size(234, 48)
         Me.ExportSummBtn.TabIndex = 40
         Me.ExportSummBtn.Text = "Export Summary"
         '
@@ -159,11 +161,20 @@ Partial Class ServicesExportModal
         Me.BtnClose.TabIndex = 34
         Me.BtnClose.Text = "Close"
         '
+        'Guna2Separator3
+        '
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 182)
+        Me.Guna2Separator3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(498, 16)
+        Me.Guna2Separator3.TabIndex = 42
+        '
         'ServicesExportModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 323)
+        Me.ClientSize = New System.Drawing.Size(498, 260)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ServicesExportModal"
@@ -185,4 +196,5 @@ Partial Class ServicesExportModal
     Friend WithEvents ExportClmdBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ExportAllBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ExportSummBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
 End Class
