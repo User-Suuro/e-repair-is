@@ -12,11 +12,13 @@ Public Class DBConfigModal
     Dim config As String
 
     Private Sub DBConfigModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        updateStatusConn()
         getDbConfigData()
+        updateStatusConn()
     End Sub
 
     Private Sub getDbConfigData()
+        Cursor = Cursors.WaitCursor()
+
         ' get values from dbconfig.txt
         Dim currentDir As String = System.IO.Directory.GetCurrentDirectory()
 
@@ -54,6 +56,9 @@ Public Class DBConfigModal
             dbNameTxtBox.Text = database
 
         End If
+
+        dbHelper.UpdateConnectionString()
+        Cursor = Cursors.Default()
     End Sub
 
     Private Sub updateStatusConn()
@@ -77,23 +82,6 @@ Public Class DBConfigModal
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
         Me.Close()
     End Sub
-
-    Private Sub ServerTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ServerTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub uidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles uidTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub dbPassTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbPassTxtBox.TextChanged
-
-    End Sub
-
-    Private Sub dbNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbNameTxtBox.TextChanged
-
-    End Sub
-
 
 
 End Class
