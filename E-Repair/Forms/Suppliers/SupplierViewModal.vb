@@ -64,9 +64,10 @@ Public Class SupplierViewModal
         Dim resultID As Integer = formUtils.ShowModalWithHandler(
         Function(id)
             Dim modal As New InventoryForm
-            modal.viewMode = True
             modal.supplierMode = True
             modal.selectedID = id
+            modal.BtnSelect.Visible = False
+            modal.BtnClose.Visible = True
             Return modal
         End Function,
         supplierID,

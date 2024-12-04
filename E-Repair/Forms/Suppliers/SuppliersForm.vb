@@ -8,18 +8,17 @@ Public Class SuppliersForm
 
     Dim supConst As New SuppliersDBConstants
 
+    ' STATES
     Private suppID As Integer
     Private archivedStatus As Boolean
-
+    Private suppDT As DataTable
+    Private finishedLoad As Boolean = False
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
 
-    Private finishedLoad As Boolean = False
 
-    ' VIEW MODE
-    Public Property viewMode As Boolean = False
-    Public Property suppDT As DataTable
+
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -147,7 +146,7 @@ Public Class SuppliersForm
 
             Cursor = Cursors.WaitCursor
 
-            If Not viewMode Then suppDT = dbHelper.GetAllByCol(searchValues, supConst.supTableStr)
+            suppDT = dbHelper.GetAllByCol(searchValues, supConst.supTableStr)
 
             ' exclude for searching
             searchValues.Remove(.supIDStr)

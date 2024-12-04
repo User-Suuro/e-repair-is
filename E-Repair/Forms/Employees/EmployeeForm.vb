@@ -8,17 +8,17 @@ Public Class EmployeeForm
     Dim empConst As New EmployeesDBConstants
     Dim exportUtils As New ExportUtils
 
-    ' SCHEMA
+    ' STATES
     Private employeeID As Integer = -1
     Private empArchived As Boolean = False
     Private empPosition As String = ""
     Private finishedLoad As Boolean = False
+    Private empDT As DataTable
 
     Public Property selectedEmpID As Integer = -1
     Public Property selectMode As Boolean = False
     Public Property techOnly As Boolean = False
 
-    Private empDT As DataTable
 
     ' VIEW MODE
 

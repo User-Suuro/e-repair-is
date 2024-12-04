@@ -9,20 +9,16 @@ Public Class InventoryForm
     Dim invConst As New InventoryDBConstants
     Dim constants As New Constants
 
+    ' STATES
     Private inventoryID As Integer = -1
     Private itemQuantity As Integer = -1
     Private is_archived As Boolean = False
-
+    Private invDT As DataTable
+    Private finishedLoad As Boolean = False
 
     Public Property selectedID As Integer = -1
     Public Property selectMode As Boolean = False
-
     Public Property supplierMode As Boolean = False
-    Private finishedLoad As Boolean = False
-
-    ' VIEW MODE
-    Public Property viewMode As Boolean = False
-    Public Property invDT As DataTable
 
     ' INIT DATA
     Private Function InitData() As Boolean
@@ -45,10 +41,9 @@ Public Class InventoryForm
 
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
 
-        If viewMode Then BtnClose.Visible = True
-
         If selectedID = -1 Then
             BtnSelect.Visible = False
+            BtnClose.Visible = True
         End If
 
         ' Adjust view for positions
@@ -196,15 +191,15 @@ Public Class InventoryForm
                 .dateArchivedStr
             }
 
-            If Not viewMode Then
 
-                If supplierMode Then
-                    invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
-                Else
-                    invDT = dbHelper.GetAllByCol(searchValues, .invTableStr)
-                End If
 
+            If supplierMode Then
+                invDT = dbHelper.GetRowByValue(.invTableStr, .supIDStr, selectedID)
+            Else
+                invDT = dbHelper.GetAllByCol(searchValues, .invTableStr)
             End If
+
+
 
             searchValues.Remove(.totalCostStr)
             searchValues.Remove(.invIDStr)
@@ -230,7 +225,7 @@ Public Class InventoryForm
     End Sub
 
     ' SHOW ARCHIVE
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckbox.CheckedChanged
         RefForArch()
     End Sub
 
@@ -249,4 +244,6 @@ Public Class InventoryForm
         selectedID = inventoryID
         Me.Close()
     End Sub
+
+
 End Class

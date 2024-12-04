@@ -14,18 +14,18 @@ Public Class CustomerForm
 
     Dim constants As New Constants
 
-    ' SCHEMA
+    ' STATES
     Private customerID As String = ""
     Private archivedStatus As Boolean = False
+    Private custDT As DataTable
 
     Public Property selectMode As Boolean = False
     Public Property selectedCustID As Integer = -1
 
     Private finishedLoad As Boolean = False
 
-    ' VIEW MODE
-    Public Property viewMode As Boolean = False
-    Public Property customersDt As DataTable
+
+
 
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -162,7 +162,7 @@ Public Class CustomerForm
 
             Cursor = Cursors.WaitCursor
 
-            If Not viewMode Then customersDt = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
+            custDT = dbHelper.GetAllByCol(searchValues, custConst.custTableStr)
 
             ' exclude for searching
             searchValues.Remove(.custIDStr)
@@ -170,7 +170,7 @@ Public Class CustomerForm
             searchValues.Remove(.custArchStr)
             searchValues.Remove(.custArchDateStr)
 
-            formUtils.LoadToDGV(CustomerDGV, customersDt, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
+            formUtils.LoadToDGV(CustomerDGV, custDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckbox)
 
             Cursor = Cursors.Default
         End With
@@ -190,12 +190,12 @@ Public Class CustomerForm
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckbox.CheckedChanged
         RefArch()
     End Sub
     Private Sub RefArch()
         LoadDataToDGV()
-        formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckBox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
+        formUtils.FormatChkBoxForArchive(CustomerDGV, ShowArchiveCheckbox, DeleteCustomerBtn, ArchiveCustomerBtn, EditCustomerBtn, AddCustomerBtn)
     End Sub
 
     ' BTN CLOSE
@@ -211,5 +211,6 @@ Public Class CustomerForm
 
         Me.Close()
     End Sub
+
 
 End Class

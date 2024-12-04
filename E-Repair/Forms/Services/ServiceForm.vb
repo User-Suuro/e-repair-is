@@ -17,16 +17,15 @@ Public Class ServiceForm
     Private currentSearchVal As String = ""
     Private currentSearchCol As String = ""
 
+    ' STATES
+    Private finishedLoad As Boolean = False
+    Private serviceDT As DataTable
 
     Public Property selectMode As Boolean = False
     Public Property selectedID As Integer = -1
     Public Property pendingOnly As Boolean = False
 
-    Private finishedLoad As Boolean = False
 
-    ' VIEW MODE
-    Public Property viewMode As Boolean = False
-    Public Property serviceDT As DataTable
 
     Private Function InitData() As Boolean
 
@@ -257,27 +256,27 @@ Public Class ServiceForm
 
             Cursor = Cursors.WaitCursor
 
-            If Not viewMode Then
-                If pendingOnly Then
 
-                    ' get technician pending only view
-                    If Current.position = constants.getTechnicianString Then
-                        serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
-                    Else
-                        serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
-                    End If
+            If pendingOnly Then
 
+                ' get technician pending only view
+                If Current.position = constants.getTechnicianString Then
+                    serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
                 Else
-
-                    ' get all technician view
-                    If Current.position = constants.getTechnicianString Then
-                        serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
-                    Else
-                        serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
-                    End If
-
+                    serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
                 End If
+
+            Else
+
+                ' get all technician view
+                If Current.position = constants.getTechnicianString Then
+                    serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
+                Else
+                    serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
+                End If
+
             End If
+
 
             ' exlucde from search
             searchCols01.Remove(.archivedStr)
@@ -345,15 +344,15 @@ Public Class ServiceForm
 
     Private Sub RefForArch()
         LoadDataToDGV()
-        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckBox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
+        formUtils.FormatChkBoxForArchive(ServiceDGV, ShowArchiveCheckbox, DeleteServiceBtn, ArchiveServiceBtn, EditServiceBtn, AddServiceBtn)
     End Sub
 
     ' SHOW ARCH
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
-        If ShowArchiveCheckBox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckbox.CheckedChanged
+        If ShowArchiveCheckbox.Checked Then SearchStatusCmb.SelectedItem = constants.getClaimedString
         If finishedLoad Then RefForArch()
 
-        If ShowArchiveCheckBox.Checked Then
+        If ShowArchiveCheckbox.Checked Then
             ClaimServiceBtn.Visible = False
         Else
             ClaimServiceBtn.Visible = True
