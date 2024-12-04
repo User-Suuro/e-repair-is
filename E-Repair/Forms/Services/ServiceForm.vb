@@ -239,9 +239,24 @@ Public Class ServiceForm
             Cursor = Cursors.WaitCursor
 
             If pendingOnly Then
-                serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+
+                ' get technician pending only view
+                If Current.position = constants.getTechnicianString Then
+                    serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
+                Else
+                    ' get pending view
+                    serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+                End If
+
             Else
-                serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
+
+                ' get all technician view
+                If Current.position = constants.getTechnicianString Then
+                    serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
+                Else
+                    serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
+                End If
+
             End If
 
             ' exlucde from search

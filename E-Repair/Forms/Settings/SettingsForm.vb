@@ -23,7 +23,7 @@
     Dim foundTable As String = Nothing
     Dim foundAtrr As String = Nothing
 
-    Dim selectedEnumVal
+    Dim selectedEnumVal As String = Nothing
 
     Dim listEnums As List(Of String)
 
@@ -204,6 +204,7 @@
 
         With EnumDGV.CurrentRow
             selectedEnumVal = .Cells("item_name").Value
+            EnumTxtBox.Text = selectedEnumVal
         End With
 
         Return True
@@ -213,19 +214,23 @@
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         If Not loadSelectedEnum() Then Exit Sub
 
+        If Not checkIfHasActive() Then Exit Sub
+
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this value?") Then Exit Sub
 
         listEnums.Remove(EnumTxtBox.Text)
+
         EnumTxtBox.Text = Nothing
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
         loadEnumsToDGV()
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        loadSelectedEnum()
 
-        If selectedEnumVal IsNot Nothing Then
+        If Not String.IsNullOrEmpty(selectedEnumVal) AndAlso Not loadSelectedEnum() Then
             ' edit
+            If Not checkIfHasActive() Then Exit Sub
+
             If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this value?") Then Exit Sub
             Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
             listEnums(index) = EnumTxtBox.Text
@@ -233,12 +238,23 @@
             'add
             If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this value?") Then Exit Sub
             listEnums.Add(EnumTxtBox.Text)
-            EnumTxtBox.Text = Nothing
         End If
 
+        EnumTxtBox.Text = Nothing
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
         loadEnumsToDGV()
     End Sub
+
+    Private Function checkIfHasActive() As Boolean
+
+        If dbHelper.GetRowByValue(foundTable, foundAtrr, selectedEnumVal).Rows.Count > 0 Then
+            MsgBox("You cannot delete/edit this value because it has active usage")
+            Return False
+        End If
+
+        Return True
+
+    End Function
 
     Private Sub EnumDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles EnumDGV.CellClick
         loadSelectedEnum()
