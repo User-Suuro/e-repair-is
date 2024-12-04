@@ -71,7 +71,30 @@ Public Class DBConfigModal
         End If
     End Sub
 
+
+    'SAVE
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
+
+        server = ServerTxtBox.Text
+        uid = uidTxtBox.Text
+        password = dbPassTxtBox.Text
+        database = dbNameTxtBox.Text
+
+
+        Dim newConfig As String = $"server={server}{Environment.NewLine}uid={uid}{Environment.NewLine}password={password}{Environment.NewLine}database={database}"
+
+
+        If System.IO.File.Exists(config) Then
+            Using writer As New System.IO.StreamWriter(config, False)
+                writer.Write(newConfig)
+            End Using
+        Else
+            MessageBox.Show("Config file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
+
+        dbHelper.UpdateConnectionString()
+        updateStatusConn()
 
 
         getDbConfigData()
@@ -83,5 +106,23 @@ Public Class DBConfigModal
         Me.Close()
     End Sub
 
+    Private Sub ServerTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ServerTxtBox.TextChanged
 
+    End Sub
+
+    Private Sub uidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles uidTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub dbPassTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbPassTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub dbNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbNameTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
+
+    End Sub
 End Class
