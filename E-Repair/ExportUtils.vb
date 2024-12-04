@@ -60,7 +60,7 @@ Public Class ExportUtils
             End If
 
         Catch ex As Exception
-            MsgBox("Error during export: " & ex.Message, "Export Error", MessageBoxIcon.Error)
+            MsgBox(ex.Message & " - Export Error")
             Return False
         Finally
             ' Re-enable user interaction
