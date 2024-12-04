@@ -29,7 +29,7 @@ Partial Class DBConfigModal
         Me.dbNameTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.dbPassTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.uidTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.ConnStatusLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ServerTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
@@ -48,7 +48,7 @@ Partial Class DBConfigModal
         Me.SupplierModalGroupBox.Controls.Add(Me.dbNameTxtBox)
         Me.SupplierModalGroupBox.Controls.Add(Me.dbPassTxtBox)
         Me.SupplierModalGroupBox.Controls.Add(Me.uidTxtBox)
-        Me.SupplierModalGroupBox.Controls.Add(Me.Guna2HtmlLabel2)
+        Me.SupplierModalGroupBox.Controls.Add(Me.ConnStatusLabel)
         Me.SupplierModalGroupBox.Controls.Add(Me.Guna2HtmlLabel1)
         Me.SupplierModalGroupBox.Controls.Add(Me.ServerTxtBox)
         Me.SupplierModalGroupBox.Controls.Add(Me.Guna2Separator3)
@@ -186,21 +186,21 @@ Partial Class DBConfigModal
         Me.uidTxtBox.Size = New System.Drawing.Size(572, 34)
         Me.uidTxtBox.TabIndex = 40
         '
-        'Guna2HtmlLabel2
+        'ConnStatusLabel
         '
-        Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(520, 55)
-        Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
-        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(33, 15)
-        Me.Guna2HtmlLabel2.TabIndex = 39
-        Me.Guna2HtmlLabel2.Text = "Status"
+        Me.ConnStatusLabel.BackColor = System.Drawing.Color.Transparent
+        Me.ConnStatusLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ConnStatusLabel.Location = New System.Drawing.Point(549, 55)
+        Me.ConnStatusLabel.Name = "ConnStatusLabel"
+        Me.ConnStatusLabel.Size = New System.Drawing.Size(33, 15)
+        Me.ConnStatusLabel.TabIndex = 39
+        Me.ConnStatusLabel.Text = "Status"
         '
         'Guna2HtmlLabel1
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(421, 55)
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(450, 55)
         Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(93, 15)
         Me.Guna2HtmlLabel1.TabIndex = 38
@@ -330,7 +330,7 @@ Partial Class DBConfigModal
     Friend WithEvents GunaLabel1 As Guna.UI.WinForms.GunaLabel
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ServerTxtBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents ConnStatusLabel As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents dbNameTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dbPassTxtBox As Guna.UI2.WinForms.Guna2TextBox

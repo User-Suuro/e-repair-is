@@ -14,7 +14,16 @@ Public Class LoginForm
     Private videoView As VideoView
     Private currentMedia As Media
     Private Sub SetupDBBtn_Click(sender As Object, e As EventArgs) Handles SetupDBBtn.Click
-
+        formUtils.ShowModalWithHandler(
+       Function(id)
+           Dim modal As New DBConfigModal
+           Return modal
+       End Function,
+       -1,
+       Function(modal)
+           Return Nothing
+       End Function
+         )
     End Sub
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
