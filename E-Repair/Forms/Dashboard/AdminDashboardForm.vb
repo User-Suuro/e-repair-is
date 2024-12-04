@@ -38,6 +38,7 @@ Public Class AdminDashboardForm
         ' charts
         loadPositionChart()
         loadInvUsedChart()
+        loadSalesChart()
 
         ' timer
         loadTimer()
@@ -110,8 +111,8 @@ Public Class AdminDashboardForm
         series.ChartType = SeriesChartType.Line
 
         For Each row As DataRow In servDT.Rows
-            Dim dateValue As Date = Convert.ToDateTime(row(servConst.dateClaimedStr))
-            Dim salesAmount As Decimal = Convert.ToDecimal(row(servConst.totalPaidStr))
+            Dim dateValue As Date = If(IsDBNull(row(servConst.dateClaimedStr)), Date.MinValue, Convert.ToDateTime(row(servConst.dateClaimedStr)))
+            Dim salesAmount As Decimal = If(IsDBNull(row(servConst.TotalCost)), 0, Convert.ToDecimal(row(servConst.TotalCost)))
             series.Points.AddXY(dateValue, salesAmount)
         Next
 
