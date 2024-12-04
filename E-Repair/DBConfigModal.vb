@@ -106,7 +106,6 @@ Public Class DBConfigModal
         Me.Close()
     End Sub
 
-    Private Sub ServerTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ServerTxtBox.TextChanged
 
     End Sub
 
