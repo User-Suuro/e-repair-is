@@ -57,7 +57,7 @@ Public Class AdminDashboardForm
 
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
-        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
         itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
 
         Cursor = Cursors.Default
@@ -96,44 +96,54 @@ Public Class AdminDashboardForm
     Private Sub loadInvUsedChart()
         InventoryGraph.Series.Clear()
 
-        Dim series As New Series("Quantity")
-        series.ChartType = SeriesChartType.Bar
+        Dim qtySeries As New Series("Quantity")
 
-        series.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
-        series.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+        qtySeries.ChartType = SeriesChartType.Column
 
-        InventoryGraph.Series.Add(series)
+        qtySeries.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
+        qtySeries.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+
+        InventoryGraph.Series.Add(qtySeries)
         InventoryGraph.Titles.Add("Inventory Availability")
     End Sub
 
     Private Sub loadSalesChart()
         SalesChart.Series.Clear()
 
-        Dim series As New Series("Sales")
-        series.ChartType = SeriesChartType.Line
+        'Dim aggregatedData = From row In servDT.AsEnumerable()
+        '                     Where Not IsDBNull(row(servConst.dateClaimedStr)) ' Exclude NULL values
+        '                     Group row By DateValue = Convert.ToDateTime(row(servConst.dateClaimedStr)) Into Group
+        '                     Select New With {
+        '                         .Date = DateValue,
+        '                         .TotalSales = Group.Sum(Function(r) If(IsDBNull(r(servConst.TotalCost)), 0D, Convert.ToDecimal(r(servConst.TotalCost))))
+        '                     }
 
+        'Dim series As New Series("Sales")
+        'series.ChartType = SeriesChartType.Line
 
-        Dim groupedData = From row In servDT.AsEnumerable()
-                          Group row By DateValue = Convert.ToDateTime(row(servConst.dateClaimedStr)) Into Group
-                          Select New With {
-                      .Date = DateValue,
-                      .TotalSales = Group.Sum(Function(r) If(IsDBNull(r(servConst.TotalCost)), 0D, Convert.ToDecimal(r(servConst.TotalCost))))
-                  }
+        'For Each group In aggregatedData
+        '    series.Points.AddXY(group.Date, group.TotalSales)
+        'Next
 
-        For Each group In groupedData
-            series.Points.AddXY(group.Date, group.TotalSales)
-        Next
+        'SalesChart.Series.Add(series)
+        'SalesChart.Titles.Add("Sales Overtime")
+
+        'With SalesChart.ChartAreas(0).AxisX
+        '    .LabelStyle.Format = "yyyy-MM-dd"
+        '    .Interval = 1
+        '    .IntervalType = DateTimeIntervalType.Days
+        '    .LabelStyle.Angle = -45 ' Optional: Rotate labels
+        '    .IsLabelAutoFit = True
+        'End With
+
+        Dim series As New Series("Value")
+        series.ChartType = SeriesChartType.Column
+
+        series.Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
+        series.Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
 
         SalesChart.Series.Add(series)
-        SalesChart.Titles.Add("Sales Overtime")
-
-        With SalesChart.ChartAreas(0)
-            .AxisX.LabelStyle.Format = "yyyy-MM-dd"
-            .AxisX.Interval = 1
-            .AxisX.IntervalType = DateTimeIntervalType.Days
-            .AxisX.LabelStyle.Angle = -45 ' Optional: Rotate labels
-        End With
-
+        SalesChart.Titles.Add("Profit - Inventory Expenses")
 
     End Sub
 
@@ -167,6 +177,5 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
-
 
 End Class

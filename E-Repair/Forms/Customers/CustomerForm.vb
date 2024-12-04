@@ -224,6 +224,7 @@ Public Class CustomerForm
               { .custGenderStr, "Gender"},
               { .custEmailStr, "Email"},
               { .custTotalPaidStr, "Total Paid"},
+              { .custLastTransStr, "Last Transaction"},
               { .getAddedByName, "Added by"},
               { .custDateAddedStr, "Date Added"},
               { .custArchDateStr, "Date Archived"}
@@ -237,7 +238,7 @@ Public Class CustomerForm
                 Exit Sub
             End If
 
-            Dim title = "All Inventory Reports"
+            Dim title = "All Customers Reports"
 
             If ExportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
                 dbHelper.Logs(title, Current.id)
