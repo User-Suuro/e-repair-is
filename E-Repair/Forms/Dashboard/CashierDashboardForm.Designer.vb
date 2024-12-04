@@ -23,28 +23,28 @@ Partial Class CashierDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.ServicesNumberLabel = New System.Windows.Forms.Label()
-        Me.CustomersNumberLabel = New System.Windows.Forms.Label()
+        Me.CustCountLabel = New System.Windows.Forms.Label()
+        Me.PendingCountLabel = New System.Windows.Forms.Label()
         Me.StatusCustomersLabel = New System.Windows.Forms.Label()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.EmployeesCountLabel = New System.Windows.Forms.Label()
+        Me.ServCountLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SuppliersNumberLabel = New System.Windows.Forms.Label()
+        Me.ClaimedCountLabel = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -90,15 +90,15 @@ Partial Class CashierDashboardForm
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(26, 4)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(151, 20)
+        Me.Label3.Size = New System.Drawing.Size(131, 20)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Pending Commissions"
+        Me.Label3.Text = "Customers Handled"
         '
         'Guna2Panel1
         '
         Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel1.BorderRadius = 4
-        Me.Guna2Panel1.Controls.Add(Me.ServicesNumberLabel)
+        Me.Guna2Panel1.Controls.Add(Me.CustCountLabel)
         Me.Guna2Panel1.Controls.Add(Me.Label3)
         Me.Guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel1.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -111,28 +111,28 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel1.Size = New System.Drawing.Size(278, 82)
         Me.Guna2Panel1.TabIndex = 3
         '
-        'ServicesNumberLabel
+        'CustCountLabel
         '
-        Me.ServicesNumberLabel.AutoSize = True
-        Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServicesNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.ServicesNumberLabel.Location = New System.Drawing.Point(20, 22)
-        Me.ServicesNumberLabel.Name = "ServicesNumberLabel"
-        Me.ServicesNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.ServicesNumberLabel.TabIndex = 3
-        Me.ServicesNumberLabel.Text = "0"
+        Me.CustCountLabel.AutoSize = True
+        Me.CustCountLabel.BackColor = System.Drawing.Color.Transparent
+        Me.CustCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CustCountLabel.ForeColor = System.Drawing.Color.Black
+        Me.CustCountLabel.Location = New System.Drawing.Point(20, 22)
+        Me.CustCountLabel.Name = "CustCountLabel"
+        Me.CustCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.CustCountLabel.TabIndex = 3
+        Me.CustCountLabel.Text = "0"
         '
-        'CustomersNumberLabel
+        'PendingCountLabel
         '
-        Me.CustomersNumberLabel.AutoSize = True
-        Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.CustomersNumberLabel.Location = New System.Drawing.Point(18, 22)
-        Me.CustomersNumberLabel.Name = "CustomersNumberLabel"
-        Me.CustomersNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.CustomersNumberLabel.TabIndex = 3
-        Me.CustomersNumberLabel.Text = "0"
+        Me.PendingCountLabel.AutoSize = True
+        Me.PendingCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PendingCountLabel.ForeColor = System.Drawing.Color.Black
+        Me.PendingCountLabel.Location = New System.Drawing.Point(18, 22)
+        Me.PendingCountLabel.Name = "PendingCountLabel"
+        Me.PendingCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.PendingCountLabel.TabIndex = 3
+        Me.PendingCountLabel.Text = "0"
         '
         'StatusCustomersLabel
         '
@@ -141,15 +141,15 @@ Partial Class CashierDashboardForm
         Me.StatusCustomersLabel.ForeColor = System.Drawing.Color.Black
         Me.StatusCustomersLabel.Location = New System.Drawing.Point(24, 4)
         Me.StatusCustomersLabel.Name = "StatusCustomersLabel"
-        Me.StatusCustomersLabel.Size = New System.Drawing.Size(145, 20)
+        Me.StatusCustomersLabel.Size = New System.Drawing.Size(144, 20)
         Me.StatusCustomersLabel.TabIndex = 2
-        Me.StatusCustomersLabel.Text = "Onhold Commissions"
+        Me.StatusCustomersLabel.Text = "Pending Commisions"
         '
         'Guna2Panel5
         '
         Me.Guna2Panel5.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel5.BorderRadius = 4
-        Me.Guna2Panel5.Controls.Add(Me.CustomersNumberLabel)
+        Me.Guna2Panel5.Controls.Add(Me.PendingCountLabel)
         Me.Guna2Panel5.Controls.Add(Me.StatusCustomersLabel)
         Me.Guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -162,16 +162,16 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel5.Size = New System.Drawing.Size(278, 82)
         Me.Guna2Panel5.TabIndex = 5
         '
-        'EmployeesCountLabel
+        'ServCountLabel
         '
-        Me.EmployeesCountLabel.AutoSize = True
-        Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(14, 22)
-        Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
-        Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
-        Me.EmployeesCountLabel.TabIndex = 3
-        Me.EmployeesCountLabel.Text = "0"
+        Me.ServCountLabel.AutoSize = True
+        Me.ServCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServCountLabel.ForeColor = System.Drawing.Color.Black
+        Me.ServCountLabel.Location = New System.Drawing.Point(14, 22)
+        Me.ServCountLabel.Name = "ServCountLabel"
+        Me.ServCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ServCountLabel.TabIndex = 3
+        Me.ServCountLabel.Text = "0"
         '
         'Label13
         '
@@ -180,15 +180,15 @@ Partial Class CashierDashboardForm
         Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(19, 4)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(131, 20)
+        Me.Label13.Size = New System.Drawing.Size(117, 20)
         Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Handled Customers"
+        Me.Label13.Text = "Services Handled"
         '
         'Guna2Panel6
         '
         Me.Guna2Panel6.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel6.BorderRadius = 4
-        Me.Guna2Panel6.Controls.Add(Me.EmployeesCountLabel)
+        Me.Guna2Panel6.Controls.Add(Me.ServCountLabel)
         Me.Guna2Panel6.Controls.Add(Me.Label13)
         Me.Guna2Panel6.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel6.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -201,16 +201,16 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel6.Size = New System.Drawing.Size(278, 82)
         Me.Guna2Panel6.TabIndex = 6
         '
-        'SuppliersNumberLabel
+        'ClaimedCountLabel
         '
-        Me.SuppliersNumberLabel.AutoSize = True
-        Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(28, 22)
-        Me.SuppliersNumberLabel.Name = "SuppliersNumberLabel"
-        Me.SuppliersNumberLabel.Size = New System.Drawing.Size(54, 60)
-        Me.SuppliersNumberLabel.TabIndex = 3
-        Me.SuppliersNumberLabel.Text = "0"
+        Me.ClaimedCountLabel.AutoSize = True
+        Me.ClaimedCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClaimedCountLabel.ForeColor = System.Drawing.Color.Black
+        Me.ClaimedCountLabel.Location = New System.Drawing.Point(28, 22)
+        Me.ClaimedCountLabel.Name = "ClaimedCountLabel"
+        Me.ClaimedCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ClaimedCountLabel.TabIndex = 3
+        Me.ClaimedCountLabel.Text = "0"
         '
         'Label11
         '
@@ -227,7 +227,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel7.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel7.BorderRadius = 4
         Me.Guna2Panel7.Controls.Add(Me.Label1)
-        Me.Guna2Panel7.Controls.Add(Me.SuppliersNumberLabel)
+        Me.Guna2Panel7.Controls.Add(Me.ClaimedCountLabel)
         Me.Guna2Panel7.Controls.Add(Me.Label11)
         Me.Guna2Panel7.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel7.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -247,9 +247,9 @@ Partial Class CashierDashboardForm
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(28, 4)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(153, 20)
+        Me.Label1.Size = New System.Drawing.Size(143, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Finished Commissions"
+        Me.Label1.Text = "Claimed Commisions"
         '
         'StatusTableLayout
         '
@@ -427,7 +427,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Chart2, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Chart1, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(18, 231)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(18, 217)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -437,72 +437,72 @@ Partial Class CashierDashboardForm
         '
         'Chart4
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea1)
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea5)
         Me.Chart4.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend1)
+        Legend5.Name = "Legend1"
+        Me.Chart4.Legends.Add(Legend5)
         Me.Chart4.Location = New System.Drawing.Point(577, 211)
         Me.Chart4.Name = "Chart4"
         Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart4.Series.Add(Series1)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.Chart4.Series.Add(Series5)
         Me.Chart4.Size = New System.Drawing.Size(569, 203)
         Me.Chart4.TabIndex = 3
         Me.Chart4.Text = "Chart4"
         '
         'Chart3
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea2)
+        ChartArea6.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea6)
         Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend2)
+        Legend6.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend6)
         Me.Chart3.Location = New System.Drawing.Point(3, 211)
         Me.Chart3.Name = "Chart3"
         Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart3.Series.Add(Series2)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.Chart3.Series.Add(Series6)
         Me.Chart3.Size = New System.Drawing.Size(568, 203)
         Me.Chart3.TabIndex = 2
         Me.Chart3.Text = "Chart3"
         '
         'Chart2
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea3)
+        ChartArea7.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea7)
         Me.Chart2.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend3.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend3)
+        Legend7.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend7)
         Me.Chart2.Location = New System.Drawing.Point(577, 3)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart2.Series.Add(Series3)
+        Series7.ChartArea = "ChartArea1"
+        Series7.Legend = "Legend1"
+        Series7.Name = "Series1"
+        Me.Chart2.Series.Add(Series7)
         Me.Chart2.Size = New System.Drawing.Size(569, 202)
         Me.Chart2.TabIndex = 1
         Me.Chart2.Text = "Chart2"
         '
         'Chart1
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
+        ChartArea8.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea8)
         Me.Chart1.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend4.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend4)
+        Legend8.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend8)
         Me.Chart1.Location = New System.Drawing.Point(3, 3)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart1.Series.Add(Series4)
+        Series8.ChartArea = "ChartArea1"
+        Series8.Legend = "Legend1"
+        Series8.Name = "Series1"
+        Me.Chart1.Series.Add(Series8)
         Me.Chart1.Size = New System.Drawing.Size(568, 202)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
@@ -543,14 +543,14 @@ Partial Class CashierDashboardForm
 
     Friend WithEvents Label3 As Label
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents ServicesNumberLabel As Label
-    Friend WithEvents CustomersNumberLabel As Label
+    Friend WithEvents CustCountLabel As Label
+    Friend WithEvents PendingCountLabel As Label
     Friend WithEvents StatusCustomersLabel As Label
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents EmployeesCountLabel As Label
+    Friend WithEvents ServCountLabel As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents SuppliersNumberLabel As Label
+    Friend WithEvents ClaimedCountLabel As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents StatusTableLayout As TableLayoutPanel

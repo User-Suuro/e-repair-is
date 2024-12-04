@@ -2,6 +2,8 @@
 
 Public Class DBConfigModal
 
+    Dim dbHelper As New DbHelper
+
     Dim server As String = ""
     Dim uid As String = ""
     Dim password As String = ""
@@ -10,7 +12,11 @@ Public Class DBConfigModal
     Dim config As String
 
     Private Sub DBConfigModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        updateStatusConn()
+        getDbConfigData()
+    End Sub
 
+    Private Sub getDbConfigData()
         ' get values from dbconfig.txt
         Dim currentDir As String = System.IO.Directory.GetCurrentDirectory()
 
@@ -32,7 +38,7 @@ Public Class DBConfigModal
 
             For Each line As String In lines
                 If line.StartsWith("server=") Then
-                    Server = line.Substring("server=".Length)
+                    server = line.Substring("server=".Length)
                 ElseIf line.StartsWith("uid=") Then
                     uid = line.Substring("uid=".Length)
                 ElseIf line.StartsWith("password=") Then
@@ -42,23 +48,45 @@ Public Class DBConfigModal
                 End If
             Next
 
-        End If
+            ServerTxtBox.Text = server
+            uidTxtBox.Text = uid
+            dbPassTxtBox.Text = password
+            dbNameTxtBox.Text = database
 
+        End If
     End Sub
 
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
-
+    Private Sub updateStatusConn()
+        If Not dbHelper.isConnectedToLocalServer() Then
+            ConnStatusLabel.Text = "Not Connected"
+        End If
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
 
 
-
-
+        getDbConfigData()
+        updateStatusConn()
         Me.Close()
     End Sub
 
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
         Me.Close()
+    End Sub
+
+    Private Sub ServerTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ServerTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub uidTxtBox_TextChanged(sender As Object, e As EventArgs) Handles uidTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub dbPassTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbPassTxtBox.TextChanged
+
+    End Sub
+
+    Private Sub dbNameTxtBox_TextChanged(sender As Object, e As EventArgs) Handles dbNameTxtBox.TextChanged
+
     End Sub
 End Class
