@@ -43,6 +43,7 @@ Public Class InventoryForm
 
         If selectedID = -1 Then
             BtnSelect.Visible = False
+        Else
             BtnClose.Visible = True
         End If
 

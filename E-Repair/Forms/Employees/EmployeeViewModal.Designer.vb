@@ -28,7 +28,9 @@ Partial Class EmployeeViewModal
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AdminTable = New System.Windows.Forms.TableLayoutPanel()
+        Me.InventoryAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuppAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.EmpAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -119,8 +121,6 @@ Partial Class EmployeeViewModal
         Me.Label3 = New System.Windows.Forms.Label()
         Me.FirstNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.InventoryAddedTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -246,6 +246,33 @@ Partial Class EmployeeViewModal
         Me.AdminTable.Size = New System.Drawing.Size(952, 56)
         Me.AdminTable.TabIndex = 39
         '
+        'InventoryAddedTxtBox
+        '
+        Me.InventoryAddedTxtBox.BorderRadius = 4
+        Me.InventoryAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.InventoryAddedTxtBox.DefaultText = ""
+        Me.InventoryAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.InventoryAddedTxtBox.DisabledState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.InventoryAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.InventoryAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryAddedTxtBox.FocusedState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InventoryAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryAddedTxtBox.HoverState.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Location = New System.Drawing.Point(716, 25)
+        Me.InventoryAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.InventoryAddedTxtBox.Name = "InventoryAddedTxtBox"
+        Me.InventoryAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.InventoryAddedTxtBox.PlaceholderText = ""
+        Me.InventoryAddedTxtBox.ReadOnly = True
+        Me.InventoryAddedTxtBox.SelectedText = ""
+        Me.InventoryAddedTxtBox.ShadowDecoration.Parent = Me.InventoryAddedTxtBox
+        Me.InventoryAddedTxtBox.Size = New System.Drawing.Size(234, 25)
+        Me.InventoryAddedTxtBox.TabIndex = 63
+        '
         'SuppAddedTxtBox
         '
         Me.SuppAddedTxtBox.BorderRadius = 4
@@ -272,6 +299,17 @@ Partial Class EmployeeViewModal
         Me.SuppAddedTxtBox.ShadowDecoration.Parent = Me.SuppAddedTxtBox
         Me.SuppAddedTxtBox.Size = New System.Drawing.Size(234, 25)
         Me.SuppAddedTxtBox.TabIndex = 61
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label36.Location = New System.Drawing.Point(717, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(108, 20)
+        Me.Label36.TabIndex = 59
+        Me.Label36.Text = "Inventory Added"
         '
         'Label34
         '
@@ -1881,44 +1919,6 @@ Partial Class EmployeeViewModal
         Me.ProfileCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label36.Location = New System.Drawing.Point(717, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(108, 20)
-        Me.Label36.TabIndex = 59
-        Me.Label36.Text = "Inventory Added"
-        '
-        'InventoryAddedTxtBox
-        '
-        Me.InventoryAddedTxtBox.BorderRadius = 4
-        Me.InventoryAddedTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.InventoryAddedTxtBox.DefaultText = ""
-        Me.InventoryAddedTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.InventoryAddedTxtBox.DisabledState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.InventoryAddedTxtBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.InventoryAddedTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.InventoryAddedTxtBox.FocusedState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InventoryAddedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.InventoryAddedTxtBox.HoverState.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Location = New System.Drawing.Point(716, 25)
-        Me.InventoryAddedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.InventoryAddedTxtBox.Name = "InventoryAddedTxtBox"
-        Me.InventoryAddedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.InventoryAddedTxtBox.PlaceholderText = ""
-        Me.InventoryAddedTxtBox.ReadOnly = True
-        Me.InventoryAddedTxtBox.SelectedText = ""
-        Me.InventoryAddedTxtBox.ShadowDecoration.Parent = Me.InventoryAddedTxtBox
-        Me.InventoryAddedTxtBox.Size = New System.Drawing.Size(234, 25)
-        Me.InventoryAddedTxtBox.TabIndex = 63
         '
         'EmployeeViewModal
         '

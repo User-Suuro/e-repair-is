@@ -18,8 +18,8 @@ Public Class EmployeeViewModal
     Private jobType As String
 
     Private Sub AdminViewEmployeeModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ManageJobDescriptionView()
         loadValues()
+        ManageJobDescriptionView()
     End Sub
 
     Private Sub loadValues()

@@ -161,13 +161,13 @@ Public Class SuppliersForm
     End Sub
 
     ' SHOW ARCHIVE CHECKBOX
-    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckBox.CheckedChanged
+    Private Sub ShowArchiveCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ShowArchiveCheckbox.CheckedChanged
         RefForArch()
     End Sub
 
     Private Sub RefForArch()
         LoadDataToDGV()
-        formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckBox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
+        formUtils.FormatChkBoxForArchive(SuppliersDGV, ShowArchiveCheckbox, DeleteSupplierBtn, ArchiveSupplierBtn, EditSupplierBtn, AddSupplierBtn)
     End Sub
 
     ' SEARCH
@@ -194,5 +194,6 @@ Public Class SuppliersForm
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
 
 End Class
