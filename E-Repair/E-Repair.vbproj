@@ -206,6 +206,12 @@
     <Compile Include="DBConstants\ServicesDBConstants.vb" />
     <Compile Include="DBConstants\SuppliersDBConstants.vb" />
     <Compile Include="ExportUtils.vb" />
+    <Compile Include="Forms\Customers\CustomerExportModal.Designer.vb">
+      <DependentUpon>CustomerExportModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\CustomerExportModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Customers\CustomerForm.Designer.vb">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </Compile>
@@ -254,10 +260,22 @@
     <Compile Include="Forms\Employees\EmployeeAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Employees\EmployeeExportModal.Designer.vb">
+      <DependentUpon>EmployeeExportModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeExportModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Employees\EmployeeForm.Designer.vb">
       <DependentUpon>EmployeeForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees\EmployeeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventory\InventoryExportModal.Designer.vb">
+      <DependentUpon>InventoryExportModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventory\InventoryExportModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Inventory\InventoryForm.Designer.vb">
@@ -314,6 +332,12 @@
     <Compile Include="Forms\Services\ServiceEvaluationModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Services\ServicesExportModal.Designer.vb">
+      <DependentUpon>ServicesExportModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Services\ServicesExportModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Services\ServiceViewModal.Designer.vb">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </Compile>
@@ -336,6 +360,12 @@
       <DependentUpon>SupplierAddEditModal.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Suppliers\SupplierAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Suppliers\SuppliersExportModal.Designer.vb">
+      <DependentUpon>SuppliersExportModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Suppliers\SuppliersExportModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Suppliers\SuppliersForm.Designer.vb">
@@ -397,6 +427,9 @@
     <EmbeddedResource Include="Forms\Customers\CustomerAddEditModal.resx">
       <DependentUpon>CustomerAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\CustomerExportModal.resx">
+      <DependentUpon>CustomerExportModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\CustomerForm.resx">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -418,8 +451,14 @@
     <EmbeddedResource Include="Forms\Employees\EmployeeAddEditModal.resx">
       <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\EmployeeExportModal.resx">
+      <DependentUpon>EmployeeExportModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory\InventoryExportModal.resx">
+      <DependentUpon>InventoryExportModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\InventoryForm.resx">
       <DependentUpon>InventoryForm.vb</DependentUpon>
@@ -448,6 +487,9 @@
     <EmbeddedResource Include="Forms\Services\ServiceEvaluationModal.resx">
       <DependentUpon>ServiceEvaluationModal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Services\ServicesExportModal.resx">
+      <DependentUpon>ServicesExportModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Services\ServiceViewModal.resx">
       <DependentUpon>ServiceViewModal.vb</DependentUpon>
     </EmbeddedResource>
@@ -459,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Suppliers\SupplierAddEditModal.resx">
       <DependentUpon>SupplierAddEditModal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Suppliers\SuppliersExportModal.resx">
+      <DependentUpon>SuppliersExportModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Suppliers\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.vb</DependentUpon>

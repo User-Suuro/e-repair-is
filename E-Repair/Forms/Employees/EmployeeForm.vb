@@ -131,6 +131,20 @@ Public Class EmployeeForm
         RefreshForArchive()
     End Sub
 
+    Private Sub EmployeeExportBtn_Click(sender As Object, e As EventArgs) Handles EmployeeExportBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New EmployeeExportModal()
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            LoadDataToDGV()
+            Return Nothing
+        End Function
+        )
+    End Sub
+
     ' SEARCH
     Private Sub SearchTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles SearchTextBox.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -218,53 +232,6 @@ Public Class EmployeeForm
         Me.DialogResult = DialogResult.OK
 
         Me.Close()
-    End Sub
-
-    ' Button Click event to export DataGridView data to Excel
-    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to this export table?") Then Exit Sub
-
-        With empConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .empIDStr, "Employee ID"},
-              { .empFirstStr, "First Name"},
-              { .empMidStr, "Middle Name"},
-              { .empLastStr, "Last Name"},
-              { .empSexStr, "Sex"},
-              { .empBirthStr, "Birthdate"},
-              { .empCivilStr, "Civil Status"},
-              { .empAddrStr, "Address"},
-              { .empContactStr, "Contact Number"},
-              { .empStatusStr, "Employment Status"},
-              { .empHiredStr, "Date Hired"},
-              { .empSSSStr, "SSS No."},
-              { .empPagibigStr, "Pag-ibig No."},
-              { .empTINStr, "Tin No."},
-              { .empEmailStr, "Email"},
-              { .empArchDateStr, "Date Archived"},
-              { .empAddedByName, "Added By"},
-              { .empAddDateStr, "Date Added"},
-              { .empLastAccessedStr, "Last Accessed"},
-              { .empJobPosStr, "Job Type"},
-              { .empAdminPosStr, "Admin Position"},
-              { .empDestStr, "Personnel Destination"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim empDT As DataTable = dbHelper.GetAllByCol(keys, .empTableStr)
-
-            If empDT.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title = "All Employees Reports"
-
-            If exportUtils.ExportDataTableToExcel(empDT, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
     End Sub
 
 End Class

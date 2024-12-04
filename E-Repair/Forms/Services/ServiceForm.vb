@@ -210,6 +210,21 @@ Public Class ServiceForm
         RefForArch()
     End Sub
 
+    'Export button
+    Private Sub serviceExportBtn_Click(sender As Object, e As EventArgs) Handles ServiceExportBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New ServicesExportModal()
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            LoadDataToDGV()
+            Return Nothing
+        End Function
+        )
+    End Sub
+
     ' LOAD TO DGV
     Private Sub LoadDataToDGV(Optional searchTerm As String = "")
         If Not finishedLoad Then Exit Sub
@@ -392,43 +407,4 @@ Public Class ServiceForm
         End If
     End Sub
 
-    ' REPORTS
-    Private Sub ExportToExcelBtn_Click(sender As Object, e As EventArgs) Handles ExportToExcelBtn.Click
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
-
-        With servConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .svcIDStr, "Service ID"},
-              { .custIDStr, "Customer ID"},
-              { .techIDStr, "Technician ID"},
-              { .techNameStr, "Technician Name"},
-              { .custNameStr, "Customer Name"},
-              { .devTypeStr, "Device Type"},
-              { .devBrandStr, "Device Brand"},
-              { .devModelStr, "Device Model"},
-              { .svcStatusStr, "Service Status"},
-              { .techFeeStr, "Technician Fee"},
-              { .PartsUsed, "Part Used"},
-              { .partsCostStr, "Parts Cost"},
-              { .TotalCost, "Total Cost"},
-              { .dateAddedStr, "Date Added"},
-              { .dateArchivedStr, "Date Archived"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, servConst.svcTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title = "All Service Reports"
-
-            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
-    End Sub
 End Class
