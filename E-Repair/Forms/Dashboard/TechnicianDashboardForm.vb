@@ -20,7 +20,7 @@ Public Class TechnicianDashboardForm
     End Sub
     Private Sub loadData()
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
+        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
     End Sub
 
@@ -35,7 +35,7 @@ Public Class TechnicianDashboardForm
         Dim series As New Series()
 
         series.IsVisibleInLegend = False
-        series.ChartType = SeriesChartType.Bar
+        series.ChartType = SeriesChartType.Column
 
         For Each type In serveType
             Dim totalCount As Integer = servDT.Select($"{servConst.svcStatusStr} = '{type}'").Length
@@ -47,6 +47,44 @@ Public Class TechnicianDashboardForm
             .Series.Add(series)
             .Titles.Add("Services Status Summary")
         End With
+    End Sub
+
+    Private Sub loadDeviceTypeChart()
+        ' load enums
+        Dim deviceTypes = dbHelper.GetEnums(servConst.svcTableStr, servConst.devTypeStr)
+
+        Dim series As New Series()
+
+        series.IsVisibleInLegend = False
+        series.ChartType = SeriesChartType.Bar
+
+        For Each devType In deviceTypes
+            Dim totalCount As Integer = servDT.Select($"{servConst.devTypeStr} = '{devType}'").Length
+            series.Points.AddXY(devType, totalCount)
+        Next
+
+        With DeviceTypeChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Device Types Summary Count")
+        End With
+
+    End Sub
+    Private Sub loadInvUsedChart()
+        Dim qtySeries As New Series("Quantity")
+
+        With qtySeries
+            .ChartType = SeriesChartType.Column
+            .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
+            .Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+        End With
+
+        With InvetoryAvailChart
+            .Series.Clear()
+            .Series.Add(qtySeries)
+            .Titles.Add("Inventory Availability")
+        End With
+
     End Sub
 
     Private Sub loadTimer()
