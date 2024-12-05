@@ -85,17 +85,17 @@ Public Class CashierDashboardForm
         GenderChart.Series.Clear()
         ' load enums
         Dim genders = dbHelper.GetEnums(custConst.custTableStr, custConst.custGenderStr)
+        Dim series As New Series("Amount")
+        series.ChartType = SeriesChartType.Bar
 
         For Each gender In genders
-            Dim series As New Series(gender)
-            series.ChartType = SeriesChartType.Pie
-
             Dim totalCount As Integer = custDT.Select($"{custConst.custGenderStr} = '{gender}'").Length
             series.Points.AddXY(gender, totalCount)
-
-            GenderChart.Series.Add(series)
         Next
 
+        GenderChart.Series.Add(series)
         GenderChart.Titles.Add("Customer Gender Demographics")
     End Sub
+
+
 End Class

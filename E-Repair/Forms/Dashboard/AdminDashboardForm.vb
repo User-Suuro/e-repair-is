@@ -39,6 +39,7 @@ Public Class AdminDashboardForm
         loadPositionChart()
         loadInvUsedChart()
         loadSalesChart()
+        loadSupplierStatusChart()
 
         ' timer
         loadTimer()
@@ -56,7 +57,8 @@ Public Class AdminDashboardForm
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
 
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
-        suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr}, supConst.supTableStr, supConst.archivedStr, 0)
+        suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr, supConst.supTypeStr}, supConst.supTableStr, supConst.archivedStr, 0)
+
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
         itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
 
@@ -149,7 +151,7 @@ Public Class AdminDashboardForm
 
     Private Sub loadServiceStatsChart()
 
-        ServiceStatusChart.Series.Clear()
+        SupplierStatusChart.Series.Clear()
 
         Dim series As New Series("Value")
         series.ChartType = SeriesChartType.Column
@@ -165,12 +167,21 @@ Public Class AdminDashboardForm
 
     End Sub
 
-    Private Function NullCheck(Of T)(value As Object, defaultValue As T) As T
-        If IsDBNull(value) Then
-            Return defaultValue
-        End If
-        Return CType(value, T)
-    End Function
+    Private Sub loadSupplierStatusChart()
+        SupplierStatusChart.Series.Clear()
+        ' load enums
+        Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
+        Dim series As New Series("Amount")
+        series.ChartType = SeriesChartType.Bar
+
+        For Each type In supType
+            Dim totalCount As Integer = custDT.Select($"{supConst.supTypeStr} = '{type}'").Length
+            series.Points.AddXY(type, totalCount)
+        Next
+
+        SupplierStatusChart.Series.Add(series)
+        SupplierStatusChart.Titles.Add("Supplier Type Count Summary")
+    End Sub
 
 
     Private Sub loadTimer()

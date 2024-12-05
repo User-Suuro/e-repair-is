@@ -66,7 +66,7 @@ Partial Class AdminDashboardForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ServiceStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -80,7 +80,7 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.SuspendLayout()
         Me.ServicesPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.ServiceStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -457,7 +457,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.ServiceStatusChart, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.SupplierStatusChart, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.SalesChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
@@ -469,23 +469,23 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 417)
         Me.TableLayoutPanel2.TabIndex = 7
         '
-        'ServiceStatusChart
+        'SupplierStatusChart
         '
         ChartArea1.Name = "ChartArea1"
-        Me.ServiceStatusChart.ChartAreas.Add(ChartArea1)
-        Me.ServiceStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SupplierStatusChart.ChartAreas.Add(ChartArea1)
+        Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend1.Name = "Legend1"
-        Me.ServiceStatusChart.Legends.Add(Legend1)
-        Me.ServiceStatusChart.Location = New System.Drawing.Point(559, 211)
-        Me.ServiceStatusChart.Name = "ServiceStatusChart"
-        Me.ServiceStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.SupplierStatusChart.Legends.Add(Legend1)
+        Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 211)
+        Me.SupplierStatusChart.Name = "SupplierStatusChart"
+        Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
-        Me.ServiceStatusChart.Series.Add(Series1)
-        Me.ServiceStatusChart.Size = New System.Drawing.Size(551, 203)
-        Me.ServiceStatusChart.TabIndex = 3
-        Me.ServiceStatusChart.Text = "Chart4"
+        Me.SupplierStatusChart.Series.Add(Series1)
+        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 203)
+        Me.SupplierStatusChart.TabIndex = 3
+        Me.SupplierStatusChart.Text = "Chart4"
         '
         'SalesChart
         '
@@ -569,7 +569,7 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.ResumeLayout(False)
         Me.ServicesPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.ServiceStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
@@ -608,7 +608,7 @@ Partial Class AdminDashboardForm
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
-    Friend WithEvents ServiceStatusChart As DataVisualization.Charting.Chart
+    Friend WithEvents SupplierStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents SalesChart As DataVisualization.Charting.Chart
     Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
 End Class
