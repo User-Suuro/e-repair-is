@@ -36,6 +36,8 @@ Partial Class UtilityDashboardForm
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.PersonnelTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -183,11 +185,51 @@ Partial Class UtilityDashboardForm
         'Timer4
         '
         '
+        'PersonnelTxtBox
+        '
+        Me.PersonnelTxtBox.BackColor = System.Drawing.Color.White
+        Me.PersonnelTxtBox.BorderRadius = 4
+        Me.PersonnelTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.PersonnelTxtBox.DefaultText = ""
+        Me.PersonnelTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.PersonnelTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.PersonnelTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PersonnelTxtBox.DisabledState.Parent = Me.PersonnelTxtBox
+        Me.PersonnelTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PersonnelTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PersonnelTxtBox.FocusedState.Parent = Me.PersonnelTxtBox
+        Me.PersonnelTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PersonnelTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PersonnelTxtBox.HoverState.Parent = Me.PersonnelTxtBox
+        Me.PersonnelTxtBox.Location = New System.Drawing.Point(9, 160)
+        Me.PersonnelTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.PersonnelTxtBox.Name = "PersonnelTxtBox"
+        Me.PersonnelTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PersonnelTxtBox.PlaceholderText = "Destination"
+        Me.PersonnelTxtBox.SelectedText = ""
+        Me.PersonnelTxtBox.ShadowDecoration.Parent = Me.PersonnelTxtBox
+        Me.PersonnelTxtBox.Size = New System.Drawing.Size(1149, 45)
+        Me.PersonnelTxtBox.TabIndex = 38
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(12, 138)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(178, 19)
+        Me.Label1.TabIndex = 18
+        Me.Label1.Text = "Personnel Destination"
+        '
         'UtilityDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.PersonnelTxtBox)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UtilityDashboardForm"
@@ -198,6 +240,7 @@ Partial Class UtilityDashboardForm
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -214,4 +257,6 @@ Partial Class UtilityDashboardForm
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
     Friend WithEvents Timer4 As Timer
+    Friend WithEvents PersonnelTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label1 As Label
 End Class

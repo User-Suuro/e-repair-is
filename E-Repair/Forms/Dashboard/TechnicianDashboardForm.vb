@@ -58,7 +58,7 @@ Public Class TechnicianDashboardForm
         Dim series As New Series()
 
         series.IsVisibleInLegend = False
-        series.ChartType = SeriesChartType.Bar
+        series.ChartType = SeriesChartType.Column
 
         For Each devType In deviceTypes
             Dim totalCount As Integer = servDT.Select($"{servConst.devTypeStr} = '{devType}'").Length
