@@ -1,4 +1,6 @@
-﻿Public Class TechnicianDashboardForm
+﻿Imports System.Windows.Forms.DataVisualization.Charting
+
+Public Class TechnicianDashboardForm
 
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
@@ -24,6 +26,26 @@
     Private Sub loadStatus()
         ServCountLabel.Text = servDT.Rows.Count
         ItemsUsedLabelCount.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
+    End Sub
+
+    Private Sub loadServStatsChart()
+        ' load enums
+        Dim serveType = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        Dim series As New Series()
+
+        series.IsVisibleInLegend = False
+        series.ChartType = SeriesChartType.Bar
+
+        For Each type In serveType
+            Dim totalCount As Integer = servDT.Select($"{servConst.svcStatusStr} = '{type}'").Length
+            series.Points.AddXY(type, totalCount)
+        Next
+
+        With ServStatusChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Services Status Summary")
+        End With
     End Sub
 
     Private Sub loadTimer()

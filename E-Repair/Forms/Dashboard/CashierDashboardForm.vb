@@ -62,7 +62,7 @@ Public Class CashierDashboardForm
         With ServStatusChart
             .Series.Clear()
             .Series.Add(series)
-            .Titles.Add("Service Status")
+            .Titles.Add("Service Status Summary")
         End With
 
     End Sub
