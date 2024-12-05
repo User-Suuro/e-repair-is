@@ -81,38 +81,46 @@ Public Class AdminDashboardForm
 
 
     Private Sub loadPositionChart()
-        PositionsChart.Series.Clear()
 
         Dim series As New Series()
-        series.IsVisibleInLegend = False
 
-        series.ChartType = SeriesChartType.Bar
+        With series
+            .IsVisibleInLegend = False
+            .ChartType = SeriesChartType.Bar
+            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
+            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
+            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
+            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
+        End With
 
-        series.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
-        series.Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
-        series.Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
-        series.Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
+        With PositionsChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Positions Counts")
+        End With
 
-        PositionsChart.Series.Add(series)
-        PositionsChart.Titles.Add("Positions Counts")
     End Sub
 
 
     Private Sub loadInvUsedChart()
-        InventoryGraph.Series.Clear()
-
         Dim qtySeries As New Series("Quantity")
-        qtySeries.ChartType = SeriesChartType.Column
 
-        qtySeries.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
-        qtySeries.Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+        With qtySeries
+            .ChartType = SeriesChartType.Column
+            .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
+            .Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+        End With
 
-        InventoryGraph.Series.Add(qtySeries)
-        InventoryGraph.Titles.Add("Inventory Availability")
+        With InventoryGraph
+            .Series.Clear()
+            .Series.Add(qtySeries)
+            .Titles.Add("Inventory Availability")
+        End With
+
     End Sub
 
     Private Sub loadSalesChart()
-        SalesChart.Series.Clear()
+
 
         'Dim aggregatedData = From row In servDT.AsEnumerable()
         '                     Where Not IsDBNull(row(servConst.dateClaimedStr)) ' Exclude NULL values
@@ -141,14 +149,19 @@ Public Class AdminDashboardForm
         'End With
 
         Dim series As New Series("Value")
-        series.IsVisibleInLegend = False
-        series.ChartType = SeriesChartType.Column
 
-        series.Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
-        series.Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
+        With series
+            .IsVisibleInLegend = False
+            .ChartType = SeriesChartType.Column
+            .Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
+            .Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
+        End With
 
-        SalesChart.Series.Add(series)
-        SalesChart.Titles.Add("Profit - Inventory Expenses")
+        With SalesChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Profit - Inventory Expenses")
+        End With
 
     End Sub
 
@@ -171,7 +184,7 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub loadSupplierStatusChart()
-        SupplierStatusChart.Series.Clear()
+
         ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
         Dim series As New Series("Amount")
@@ -184,8 +197,12 @@ Public Class AdminDashboardForm
             series.Points.AddXY(type, totalCount)
         Next
 
-        SupplierStatusChart.Series.Add(series)
-        SupplierStatusChart.Titles.Add("Supplier Type Count Summary")
+        With SupplierStatusChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Supplier Type Count Summary")
+        End With
+
     End Sub
 
 
@@ -211,6 +228,5 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
-
 
 End Class

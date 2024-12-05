@@ -22,7 +22,7 @@ Public Class CashierDashboardForm
 
         Cursor = Cursors.WaitCursor
 
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.archivedStr, 0)
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr}, custConst.custTableStr, custConst.custArchStr, 0)
 
         Cursor = Cursors.Default
@@ -66,7 +66,6 @@ Public Class CashierDashboardForm
     End Sub
 
     Private Sub loadServiceChart()
-        ServStatusChart.Series.Clear()
 
         Dim series As New Series()
         series.IsVisibleInLegend = False
@@ -78,15 +77,19 @@ Public Class CashierDashboardForm
         series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr} = '{constants.getOnholdString}'").Length)
         series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr} = '{constants.getCanceledString}'").Length)
 
-        ServStatusChart.Series.Add(series)
-        ServStatusChart.Titles.Add("Service Status")
+        With ServStatusChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Service Status")
+        End With
+
     End Sub
 
     Private Sub loadGenderChart()
-        GenderChart.Series.Clear()
+
         ' load enums
         Dim genders = dbHelper.GetEnums(custConst.custTableStr, custConst.custGenderStr)
-        Dim series As New Series("Amount")
+        Dim series As New Series()
 
         series.ChartType = SeriesChartType.Bar
         series.IsVisibleInLegend = False
@@ -96,9 +99,34 @@ Public Class CashierDashboardForm
             series.Points.AddXY(gender, totalCount)
         Next
 
-        GenderChart.Series.Add(series)
-        GenderChart.Titles.Add("Customer Gender Demographics")
+        With GenderChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Customer Gender Demographics")
+        End With
+
     End Sub
 
+    Private Sub loadDeviceTypeChart()
+        ' load enums
+        Dim deviceTypes = dbHelper.GetEnums(servConst.svcTableStr, servConst.devTypeStr)
+
+        Dim series As New Series()
+
+        series.IsVisibleInLegend = False
+        series.ChartType = SeriesChartType.Bar
+
+        For Each devType In deviceTypes
+            Dim totalCount As Integer = servDT.Select($"{servConst.devTypeStr } = '{devType}'").Length
+            series.Points.AddXY(devType, totalCount)
+        Next
+
+        With DevTypeChart
+            .Series.Clear()
+            .Series.Add(series)
+            .Titles.Add("Device Types Summary Count")
+        End With
+
+    End Sub
 
 End Class

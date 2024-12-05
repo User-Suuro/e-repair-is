@@ -22,10 +22,10 @@ Partial Class SettingsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.EnumDGV = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ITEM_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -42,13 +42,13 @@ Partial Class SettingsForm
         Me.TableNameCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.GenerateDummyDataLabel = New System.Windows.Forms.Label()
+        Me.OpenLogsBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.GenerateInv = New System.Windows.Forms.Button()
         Me.GenerateServ = New System.Windows.Forms.Button()
         Me.GenerateSupp = New System.Windows.Forms.Button()
         Me.GenerateCust = New System.Windows.Forms.Button()
         Me.GenerateEmp = New System.Windows.Forms.Button()
-        Me.GenerateDummyDataLabel = New System.Windows.Forms.Label()
-        Me.OpenLogsBtn = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.EnumDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -60,8 +60,8 @@ Partial Class SettingsForm
         '
         Me.EnumDGV.AllowUserToAddRows = False
         Me.EnumDGV.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.EnumDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.EnumDGV.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
         Me.EnumDGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -70,32 +70,32 @@ Partial Class SettingsForm
         Me.EnumDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EnumDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.EnumDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.EnumDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EnumDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.EnumDGV.ColumnHeadersHeight = 48
         Me.EnumDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ITEM_NAME})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.EnumDGV.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 10.5!)
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.EnumDGV.DefaultCellStyle = DataGridViewCellStyle11
         Me.EnumDGV.EnableHeadersVisualStyles = False
         Me.EnumDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.EnumDGV.Location = New System.Drawing.Point(24, 61)
         Me.EnumDGV.Name = "EnumDGV"
         Me.EnumDGV.ReadOnly = True
         Me.EnumDGV.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        Me.EnumDGV.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        Me.EnumDGV.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.EnumDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.EnumDGV.Size = New System.Drawing.Size(966, 500)
         Me.EnumDGV.TabIndex = 42
@@ -354,6 +354,37 @@ Partial Class SettingsForm
         Me.Panel5.Size = New System.Drawing.Size(68, 488)
         Me.Panel5.TabIndex = 0
         '
+        'GenerateDummyDataLabel
+        '
+        Me.GenerateDummyDataLabel.AutoSize = True
+        Me.GenerateDummyDataLabel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GenerateDummyDataLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GenerateDummyDataLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.GenerateDummyDataLabel.Location = New System.Drawing.Point(3, 0)
+        Me.GenerateDummyDataLabel.Name = "GenerateDummyDataLabel"
+        Me.GenerateDummyDataLabel.Padding = New System.Windows.Forms.Padding(4, 8, 4, 4)
+        Me.GenerateDummyDataLabel.Size = New System.Drawing.Size(62, 57)
+        Me.GenerateDummyDataLabel.TabIndex = 1
+        Me.GenerateDummyDataLabel.Text = "Generate Dummy Data"
+        Me.GenerateDummyDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'OpenLogsBtn
+        '
+        Me.OpenLogsBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenLogsBtn.BorderRadius = 4
+        Me.OpenLogsBtn.CheckedState.Parent = Me.OpenLogsBtn
+        Me.OpenLogsBtn.CustomImages.Parent = Me.OpenLogsBtn
+        Me.OpenLogsBtn.FillColor = System.Drawing.Color.DarkGreen
+        Me.OpenLogsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenLogsBtn.ForeColor = System.Drawing.Color.White
+        Me.OpenLogsBtn.HoverState.Parent = Me.OpenLogsBtn
+        Me.OpenLogsBtn.Location = New System.Drawing.Point(883, 567)
+        Me.OpenLogsBtn.Name = "OpenLogsBtn"
+        Me.OpenLogsBtn.ShadowDecoration.Parent = Me.OpenLogsBtn
+        Me.OpenLogsBtn.Size = New System.Drawing.Size(107, 32)
+        Me.OpenLogsBtn.TabIndex = 44
+        Me.OpenLogsBtn.Text = "Open Logs"
+        '
         'GenerateInv
         '
         Me.GenerateInv.Dock = System.Windows.Forms.DockStyle.Top
@@ -443,36 +474,6 @@ Partial Class SettingsForm
         Me.GenerateEmp.Text = "Employees"
         Me.GenerateEmp.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.GenerateEmp.UseVisualStyleBackColor = True
-        '
-        'GenerateDummyDataLabel
-        '
-        Me.GenerateDummyDataLabel.AutoSize = True
-        Me.GenerateDummyDataLabel.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GenerateDummyDataLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GenerateDummyDataLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.GenerateDummyDataLabel.Location = New System.Drawing.Point(3, 0)
-        Me.GenerateDummyDataLabel.Name = "GenerateDummyDataLabel"
-        Me.GenerateDummyDataLabel.Padding = New System.Windows.Forms.Padding(4, 8, 4, 4)
-        Me.GenerateDummyDataLabel.Size = New System.Drawing.Size(62, 57)
-        Me.GenerateDummyDataLabel.TabIndex = 1
-        Me.GenerateDummyDataLabel.Text = "Generate Dummy Data"
-        Me.GenerateDummyDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'OpenLogsBtn
-        '
-        Me.OpenLogsBtn.BorderRadius = 4
-        Me.OpenLogsBtn.CheckedState.Parent = Me.OpenLogsBtn
-        Me.OpenLogsBtn.CustomImages.Parent = Me.OpenLogsBtn
-        Me.OpenLogsBtn.FillColor = System.Drawing.Color.DarkGreen
-        Me.OpenLogsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenLogsBtn.ForeColor = System.Drawing.Color.White
-        Me.OpenLogsBtn.HoverState.Parent = Me.OpenLogsBtn
-        Me.OpenLogsBtn.Location = New System.Drawing.Point(883, 567)
-        Me.OpenLogsBtn.Name = "OpenLogsBtn"
-        Me.OpenLogsBtn.ShadowDecoration.Parent = Me.OpenLogsBtn
-        Me.OpenLogsBtn.Size = New System.Drawing.Size(107, 32)
-        Me.OpenLogsBtn.TabIndex = 44
-        Me.OpenLogsBtn.Text = "Open Logs"
         '
         'SettingsForm
         '

@@ -57,7 +57,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.DevTypeChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GenderChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1.SuspendLayout()
@@ -68,7 +68,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DevTypeChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -324,7 +324,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart3, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.DevTypeChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.GenderChart, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ServStatusChart, 0, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(18, 217)
@@ -353,23 +353,23 @@ Partial Class CashierDashboardForm
         Me.Chart4.TabIndex = 3
         Me.Chart4.Text = "Chart4"
         '
-        'Chart3
+        'DevTypeChart
         '
         ChartArea2.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea2)
-        Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DevTypeChart.ChartAreas.Add(ChartArea2)
+        Me.DevTypeChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend2.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend2)
-        Me.Chart3.Location = New System.Drawing.Point(3, 211)
-        Me.Chart3.Name = "Chart3"
-        Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.DevTypeChart.Legends.Add(Legend2)
+        Me.DevTypeChart.Location = New System.Drawing.Point(3, 211)
+        Me.DevTypeChart.Name = "DevTypeChart"
+        Me.DevTypeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
-        Me.Chart3.Series.Add(Series2)
-        Me.Chart3.Size = New System.Drawing.Size(568, 203)
-        Me.Chart3.TabIndex = 2
-        Me.Chart3.Text = "Chart3"
+        Me.DevTypeChart.Series.Add(Series2)
+        Me.DevTypeChart.Size = New System.Drawing.Size(568, 203)
+        Me.DevTypeChart.TabIndex = 2
+        Me.DevTypeChart.Text = "Chart3"
         '
         'GenderChart
         '
@@ -430,7 +430,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DevTypeChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -459,7 +459,7 @@ Partial Class CashierDashboardForm
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Chart4 As DataVisualization.Charting.Chart
-    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents DevTypeChart As DataVisualization.Charting.Chart
     Friend WithEvents GenderChart As DataVisualization.Charting.Chart
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
 End Class

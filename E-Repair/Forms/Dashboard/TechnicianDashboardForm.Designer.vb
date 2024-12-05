@@ -31,7 +31,7 @@ Partial Class TechnicianDashboardForm
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.EmployeesCountLabel = New System.Windows.Forms.Label()
+        Me.ServCountLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
@@ -81,7 +81,7 @@ Partial Class TechnicianDashboardForm
         '
         Me.Guna2Panel6.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel6.BorderRadius = 4
-        Me.Guna2Panel6.Controls.Add(Me.EmployeesCountLabel)
+        Me.Guna2Panel6.Controls.Add(Me.ServCountLabel)
         Me.Guna2Panel6.Controls.Add(Me.Label13)
         Me.Guna2Panel6.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel6.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -94,16 +94,16 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel6.Size = New System.Drawing.Size(1149, 88)
         Me.Guna2Panel6.TabIndex = 6
         '
-        'EmployeesCountLabel
+        'ServCountLabel
         '
-        Me.EmployeesCountLabel.AutoSize = True
-        Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(14, 24)
-        Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
-        Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
-        Me.EmployeesCountLabel.TabIndex = 3
-        Me.EmployeesCountLabel.Text = "0"
+        Me.ServCountLabel.AutoSize = True
+        Me.ServCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServCountLabel.ForeColor = System.Drawing.Color.Black
+        Me.ServCountLabel.Location = New System.Drawing.Point(14, 24)
+        Me.ServCountLabel.Name = "ServCountLabel"
+        Me.ServCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ServCountLabel.TabIndex = 3
+        Me.ServCountLabel.Text = "0"
         '
         'Label13
         '
@@ -112,9 +112,9 @@ Partial Class TechnicianDashboardForm
         Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(19, 4)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(91, 20)
+        Me.Label13.Size = New System.Drawing.Size(62, 20)
         Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Total Repairs"
+        Me.Label13.Text = "Services"
         '
         'TableLayoutPanel1
         '
@@ -340,7 +340,7 @@ Partial Class TechnicianDashboardForm
 
     Friend WithEvents StatusTableLayout As TableLayoutPanel
     Friend WithEvents Guna2Panel6 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents EmployeesCountLabel As Label
+    Friend WithEvents ServCountLabel As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
