@@ -33,7 +33,14 @@ Partial Class LogsForm
         Me.USER_ACCOUNTS_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TRANSACTIONS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DATE_ADDED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SearchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         CType(Me.LogsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'BtnClose
@@ -89,17 +96,16 @@ Partial Class LogsForm
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.LogsDGV.DefaultCellStyle = DataGridViewCellStyle3
-        Me.LogsDGV.Dock = System.Windows.Forms.DockStyle.Top
         Me.LogsDGV.EnableHeadersVisualStyles = False
         Me.LogsDGV.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.LogsDGV.Location = New System.Drawing.Point(0, 0)
+        Me.LogsDGV.Location = New System.Drawing.Point(12, 61)
         Me.LogsDGV.Name = "LogsDGV"
         Me.LogsDGV.ReadOnly = True
         Me.LogsDGV.RowHeadersVisible = False
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.LogsDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.LogsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LogsDGV.Size = New System.Drawing.Size(984, 439)
+        Me.LogsDGV.Size = New System.Drawing.Size(960, 368)
         Me.LogsDGV.TabIndex = 53
         Me.LogsDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.LogsDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -152,11 +158,101 @@ Partial Class LogsForm
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 25)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(960, 28)
+        Me.TableLayoutPanel1.TabIndex = 54
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.SearchComboBox)
+        Me.Guna2Panel1.Controls.Add(Me.Panel2)
+        Me.Guna2Panel1.Controls.Add(Me.SearchTextBox)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
+        Me.Guna2Panel1.Size = New System.Drawing.Size(480, 28)
+        Me.Guna2Panel1.TabIndex = 31
+        '
+        'SearchComboBox
+        '
+        Me.SearchComboBox.Animated = True
+        Me.SearchComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.SearchComboBox.BorderRadius = 4
+        Me.SearchComboBox.DisplayMember = "(none)"
+        Me.SearchComboBox.Dock = System.Windows.Forms.DockStyle.Left
+        Me.SearchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SearchComboBox.FocusedColor = System.Drawing.Color.Empty
+        Me.SearchComboBox.FocusedState.Parent = Me.SearchComboBox
+        Me.SearchComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.SearchComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.SearchComboBox.FormattingEnabled = True
+        Me.SearchComboBox.HoverState.Parent = Me.SearchComboBox
+        Me.SearchComboBox.ItemHeight = 22
+        Me.SearchComboBox.Items.AddRange(New Object() {"Log ID", "User Accounts ID", "Transaction", "Date Added"})
+        Me.SearchComboBox.ItemsAppearance.Parent = Me.SearchComboBox
+        Me.SearchComboBox.Location = New System.Drawing.Point(261, 0)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(12)
+        Me.SearchComboBox.Name = "SearchComboBox"
+        Me.SearchComboBox.ShadowDecoration.Parent = Me.SearchComboBox
+        Me.SearchComboBox.Size = New System.Drawing.Size(207, 28)
+        Me.SearchComboBox.StartIndex = 0
+        Me.SearchComboBox.TabIndex = 34
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(245, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(16, 28)
+        Me.Panel2.TabIndex = 32
+        '
+        'SearchTextBox
+        '
+        Me.SearchTextBox.BorderRadius = 4
+        Me.SearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SearchTextBox.DefaultText = ""
+        Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.DisabledState.Parent = Me.SearchTextBox
+        Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.Dock = System.Windows.Forms.DockStyle.Left
+        Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.FocusedState.Parent = Me.SearchTextBox
+        Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.HoverState.Parent = Me.SearchTextBox
+        Me.SearchTextBox.Location = New System.Drawing.Point(0, 0)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 24, 5)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SearchTextBox.PlaceholderText = "Search..."
+        Me.SearchTextBox.SelectedText = ""
+        Me.SearchTextBox.ShadowDecoration.Parent = Me.SearchTextBox
+        Me.SearchTextBox.Size = New System.Drawing.Size(245, 28)
+        Me.SearchTextBox.TabIndex = 31
+        '
         'LogsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 502)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.LogsDGV)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.Guna2Separator1)
@@ -166,6 +262,8 @@ Partial Class LogsForm
         Me.Text = "LogsForm"
         Me.TopMost = True
         CType(Me.LogsDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -177,4 +275,9 @@ Partial Class LogsForm
     Friend WithEvents USER_ACCOUNTS_ID As DataGridViewTextBoxColumn
     Friend WithEvents TRANSACTIONS As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ADDED As DataGridViewTextBoxColumn
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SearchComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents SearchTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

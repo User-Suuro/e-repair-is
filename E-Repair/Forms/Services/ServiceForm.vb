@@ -25,8 +25,6 @@ Public Class ServiceForm
     Public Property selectedID As Integer = -1
     Public Property pendingOnly As Boolean = False
 
-
-
     Private Function InitData() As Boolean
 
         If Not formUtils.dgvValChecker(ServiceDGV) Then Return False

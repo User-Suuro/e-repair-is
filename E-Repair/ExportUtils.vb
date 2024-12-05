@@ -1,9 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 
 Public Class ExportUtils
-
-    ' BY COLUMN 
-
     Public Function ExportDataTableToExcel(dataTable As DataTable, title As String, columnHeaderMapping As Dictionary(Of String, String)) As Boolean
         Dim excelApp As Object = Nothing
         Dim workBook As Object = Nothing
@@ -28,7 +25,6 @@ Public Class ExportUtils
             Dim headerRange As Object = workSheet.Range(workSheet.Cells(1, 1), workSheet.Cells(1, dataTable.Columns.Count))
             headerRange.Value = headers
 
-            ' Prepare data array
             Dim dataArray(dataTable.Rows.Count - 1, dataTable.Columns.Count - 1) As Object
             For i As Integer = 0 To dataTable.Rows.Count - 1
                 For j As Integer = 0 To dataTable.Columns.Count - 1
@@ -50,7 +46,6 @@ Public Class ExportUtils
             workSheet.Rows.AutoFit()
             workSheet.Columns.AutoFit()
             workSheet.Rows(1 & ":" & (dataTable.Rows.Count + 1)).EntireRow.AutoFit()
-            ' Save to file
 
             Dim savePath As String = GetSaveFilePath($"{title}.xlsx", "Excel Files|*.xlsx")
 
@@ -63,10 +58,8 @@ Public Class ExportUtils
             MsgBox(ex.Message & " - Export Error")
             Return False
         Finally
-            ' Re-enable user interaction
             If excelApp IsNot Nothing Then excelApp.Interactive = True
 
-            ' Clean up
             If workBook IsNot Nothing Then workBook.Close(False)
             If excelApp IsNot Nothing Then excelApp.Quit()
 

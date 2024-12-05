@@ -13,6 +13,7 @@ Public Class DbHelper
     Dim constants As New Constants
 
     ' Open connection to db
+
     Public Sub openConn(ByVal db_name As String)
         Try
             If conn.State = ConnectionState.Open Then conn.Close()
@@ -50,9 +51,8 @@ Public Class DbHelper
         End Try
     End Sub
 
-
-
     ' Function to Load Data to DGV
+
     Function LoadToDGV(ByVal query As String, ByVal dgv As DataGridView) As Integer
         Try
             readQuery(query)
@@ -68,6 +68,7 @@ Public Class DbHelper
     End Function
 
     ' Function to Load and Display data to dgv
+
     Function LoadToDGVForDisplay(ByVal query As String, ByVal dgv As DataGridView) As Integer
         Try
             readQuery(query)
@@ -316,7 +317,6 @@ Public Class DbHelper
     Public Function GetRowByColWTwoVal(columns As List(Of String), tableName As String, columnName01 As String, value01 As Object, columnName02 As String, value02 As Object) As DataTable
         Dim resultTable As New DataTable()
 
-        ' Build the SELECT query with specified columns
         Dim selectedColumns As String = If(columns IsNot Nothing AndAlso columns.Count > 0,
                                        String.Join(", ", columns.Select(Function(c) $"`{c}`")),
                                        "*")
@@ -324,8 +324,6 @@ Public Class DbHelper
 
         Try
             cmd.Parameters.Clear()
-
-            ' Prepare the MySQL command
             cmd = New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@value01", value01)
             cmd.Parameters.AddWithValue("@value02", value02)
