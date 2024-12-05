@@ -206,6 +206,7 @@
     <Compile Include="DBConstants\LogsDBConstants.vb" />
     <Compile Include="DBConstants\ServicesDBConstants.vb" />
     <Compile Include="DBConstants\SuppliersDBConstants.vb" />
+    <Compile Include="DbProperties.vb" />
     <Compile Include="ExportUtils.vb" />
     <Compile Include="Forms\Customers\CustomerExportModal.Designer.vb">
       <DependentUpon>CustomerExportModal.vb</DependentUpon>

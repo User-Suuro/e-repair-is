@@ -31,10 +31,10 @@ Public Class DBConfigModal
         Dim text As String = Nothing
 
         If System.IO.File.Exists(config) Then
+
             Using reader As System.IO.StreamReader = New System.IO.StreamReader(config)
                 text = reader.ReadToEnd
             End Using
-
 
             Dim lines() As String = text.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
 
@@ -62,9 +62,9 @@ Public Class DBConfigModal
 
     Private Sub updateStatusConn()
         Cursor = Cursors.WaitCursor()
-        dbHelper.UpdateConnectionString()
+        UpdateConnectionString()
 
-        If Not dbHelper.isConnectedToLocalServer() Then
+        If Not isConnectedToLocalServer() Then
             ConnStatusLabel.Text = "Not Connected"
             ConnStatusLabel.ForeColor = Color.Red
             MsgBox("Disconnected to Database")
@@ -97,14 +97,12 @@ Public Class DBConfigModal
             MessageBox.Show("Config file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-        getDbConfigData()
         updateStatusConn()
-
+        getDbConfigData()
     End Sub
 
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
         Me.Close()
     End Sub
-
 
 End Class

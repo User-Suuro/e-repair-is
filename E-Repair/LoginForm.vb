@@ -13,6 +13,9 @@ Public Class LoginForm
     Private mediaPlayer As MediaPlayer
     Private videoView As VideoView
     Private currentMedia As Media
+
+    Private isConnected As Boolean
+
     Private Sub SetupDBBtn_Click(sender As Object, e As EventArgs) Handles SetupDBBtn.Click
         formUtils.ShowModalWithHandler(
        Function(id)
@@ -29,12 +32,11 @@ Public Class LoginForm
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
 
         Cursor = Cursors.WaitCursor
-        dbHelper.UpdateConnectionString()
+        UpdateConnectionString()
         Cursor = Cursors.Default
 
-        ' CHECK IF CONNECTED TO DB
-        If Not dbHelper.isConnectedToLocalServer() Then
-            formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
+        If Not isConnected Then
+            MsgBox("Not Connected")
             Exit Sub
         End If
 
@@ -84,13 +86,17 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        initSuperPanel()
         InitializeVLC()
+        UpdateConnectionString()
+        isConnected = isConnectedToLocalServer()
+        initSuperPanel()
     End Sub
 
     Private Sub initSuperPanel()
-        If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
-            CreateSuperAdminPanel.Visible = True
+        If isConnected Then
+            If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
+                CreateSuperAdminPanel.Visible = True
+            End If
         End If
     End Sub
 
@@ -140,13 +146,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub CreateSuperbtn_Click(sender As Object, e As EventArgs) Handles CreateSuperbtn.Click
-
-        Cursor = Cursors.WaitCursor
-        dbHelper.UpdateConnectionString()
-        Cursor = Cursors.Default
-
         ' CHECK IF CONNECTED TO DB
-        If Not dbHelper.isConnectedToLocalServer() Then
+        If Not isConnected Then
             formUtils.ShowMessageBoxResult("ERROR", "DB NOT FOUND!")
             Exit Sub
         End If
