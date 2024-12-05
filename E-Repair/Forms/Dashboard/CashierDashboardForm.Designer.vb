@@ -56,7 +56,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.PaymentMethodChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.DevTypeChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GenderChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -67,7 +67,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel4.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaymentMethodChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DevTypeChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -323,7 +323,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Chart4, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.PaymentMethodChart, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.DevTypeChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.GenderChart, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ServStatusChart, 0, 0)
@@ -335,23 +335,23 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1149, 417)
         Me.TableLayoutPanel2.TabIndex = 9
         '
-        'Chart4
+        'PaymentMethodChart
         '
         ChartArea1.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea1)
-        Me.Chart4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PaymentMethodChart.ChartAreas.Add(ChartArea1)
+        Me.PaymentMethodChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend1.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend1)
-        Me.Chart4.Location = New System.Drawing.Point(577, 211)
-        Me.Chart4.Name = "Chart4"
-        Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Me.PaymentMethodChart.Legends.Add(Legend1)
+        Me.PaymentMethodChart.Location = New System.Drawing.Point(577, 211)
+        Me.PaymentMethodChart.Name = "PaymentMethodChart"
+        Me.PaymentMethodChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
-        Me.Chart4.Series.Add(Series1)
-        Me.Chart4.Size = New System.Drawing.Size(569, 203)
-        Me.Chart4.TabIndex = 3
-        Me.Chart4.Text = "Chart4"
+        Me.PaymentMethodChart.Series.Add(Series1)
+        Me.PaymentMethodChart.Size = New System.Drawing.Size(569, 203)
+        Me.PaymentMethodChart.TabIndex = 3
+        Me.PaymentMethodChart.Text = "Chart4"
         '
         'DevTypeChart
         '
@@ -429,7 +429,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel4.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaymentMethodChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DevTypeChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
@@ -458,7 +458,7 @@ Partial Class CashierDashboardForm
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Chart4 As DataVisualization.Charting.Chart
+    Friend WithEvents PaymentMethodChart As DataVisualization.Charting.Chart
     Friend WithEvents DevTypeChart As DataVisualization.Charting.Chart
     Friend WithEvents GenderChart As DataVisualization.Charting.Chart
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart

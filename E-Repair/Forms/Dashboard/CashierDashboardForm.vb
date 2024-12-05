@@ -35,6 +35,9 @@ Public Class CashierDashboardForm
 
         loadServiceChart()
         loadGenderChart()
+        loadDeviceTypeChart()
+        loadPaymentMethodChart()
+
     End Sub
 
     Private Sub loadStatus()
@@ -127,6 +130,28 @@ Public Class CashierDashboardForm
             .Titles.Add("Device Types Summary Count")
         End With
 
+    End Sub
+
+    Private Sub loadPaymentMethodChart()
+        Dim payMethods = dbHelper.GetEnums(servConst.svcTableStr, servConst.payMethodStr)
+
+        Dim series As New Series()
+
+        With series
+            .IsVisibleInLegend = False
+            .ChartType = SeriesChartType.Bar
+        End With
+
+        For Each method In payMethods
+            Dim totalCount As Integer = servDT.Select($"{servConst.payMethodStr} = '{payMethods}'").Length
+            series.Points.AddXY(method, totalCount)
+        Next
+
+        With PaymentMethodChart
+            .Series.Clear()
+            .Series.Add(Series)
+            .Titles.Add("Payment Methods Summary")
+        End With
     End Sub
 
 End Class
