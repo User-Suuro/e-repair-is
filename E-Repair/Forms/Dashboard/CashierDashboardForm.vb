@@ -23,7 +23,7 @@ Public Class CashierDashboardForm
         Cursor = Cursors.WaitCursor
 
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr}, servConst.svcTableStr, servConst.archivedStr, 0)
-        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID}, custConst.custTableStr, custConst.custArchStr, 0)
+        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr}, custConst.custTableStr, custConst.custArchStr, 0)
 
         Cursor = Cursors.Default
 
@@ -34,6 +34,7 @@ Public Class CashierDashboardForm
         loadStatus()
 
         loadServiceChart()
+        loadGenderChart()
     End Sub
 
     Private Sub loadStatus()
@@ -70,11 +71,11 @@ Public Class CashierDashboardForm
         Dim series As New Series("Value")
         series.ChartType = SeriesChartType.Column
 
-        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
-        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
-        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
-        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr } = '{constants.getOnholdString}'").Length)
-        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr } = '{constants.getCanceledString}'").Length)
+        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr} = '{constants.getPendingString}'").Length)
+        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr} = '{constants.getFinishedString}'").Length)
+        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr} = '{constants.getClaimedString}'").Length)
+        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr} = '{constants.getOnholdString}'").Length)
+        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr} = '{constants.getCanceledString}'").Length)
 
         ServStatusChart.Series.Add(series)
         ServStatusChart.Titles.Add("Service Status")
@@ -89,7 +90,7 @@ Public Class CashierDashboardForm
             Dim series As New Series(gender)
             series.ChartType = SeriesChartType.Pie
 
-            Dim totalCount = formUtils.CalcIntegerDTCol(custDT, gender)
+            Dim totalCount As Integer = custDT.Select($"{custConst.custGenderStr} = '{gender}'").Length
             series.Points.AddXY(gender, totalCount)
 
             GenderChart.Series.Add(series)
