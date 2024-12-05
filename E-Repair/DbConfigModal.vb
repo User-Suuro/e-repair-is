@@ -57,18 +57,24 @@ Public Class DBConfigModal
 
         End If
 
-        dbHelper.UpdateConnectionString()
         Cursor = Cursors.Default()
     End Sub
 
     Private Sub updateStatusConn()
+        Cursor = Cursors.WaitCursor()
+        dbHelper.UpdateConnectionString()
+
         If Not dbHelper.isConnectedToLocalServer() Then
             ConnStatusLabel.Text = "Not Connected"
             ConnStatusLabel.ForeColor = Color.Red
+            MsgBox("Disconnected to Database")
         Else
             ConnStatusLabel.Text = "Connected"
             ConnStatusLabel.ForeColor = Color.Green
+            MsgBox("Connected to Database")
         End If
+
+        Cursor = Cursors.Default()
     End Sub
 
     'SAVE
@@ -91,18 +97,14 @@ Public Class DBConfigModal
             MessageBox.Show("Config file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-
-        dbHelper.UpdateConnectionString()
-        updateStatusConn()
-
-
         getDbConfigData()
         updateStatusConn()
-        Me.Close()
+
     End Sub
 
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
         Me.Close()
     End Sub
+
 
 End Class

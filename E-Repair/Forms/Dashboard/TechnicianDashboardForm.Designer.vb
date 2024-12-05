@@ -23,12 +23,12 @@ Partial Class TechnicianDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ServCountLabel = New System.Windows.Forms.Label()
@@ -49,6 +49,9 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.ItemsUsedLabelCount = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.StatusTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -57,6 +60,7 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusTableLayout
@@ -64,10 +68,10 @@ Partial Class TechnicianDashboardForm
         Me.StatusTableLayout.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StatusTableLayout.BackColor = System.Drawing.Color.Transparent
-        Me.StatusTableLayout.ColumnCount = 1
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.StatusTableLayout.ColumnCount = 2
+        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.StatusTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.StatusTableLayout.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.StatusTableLayout.Controls.Add(Me.Guna2Panel6, 0, 0)
         Me.StatusTableLayout.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.StatusTableLayout.Location = New System.Drawing.Point(9, 115)
@@ -91,7 +95,7 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(1149, 88)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(568, 88)
         Me.Guna2Panel6.TabIndex = 6
         '
         'ServCountLabel
@@ -278,39 +282,78 @@ Partial Class TechnicianDashboardForm
         '
         'Chart2
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea1)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea3)
         Me.Chart2.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend1)
+        Legend3.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend3)
         Me.Chart2.Location = New System.Drawing.Point(577, 3)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart2.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.Chart2.Series.Add(Series3)
         Me.Chart2.Size = New System.Drawing.Size(569, 395)
         Me.Chart2.TabIndex = 1
         Me.Chart2.Text = "Chart2"
         '
         'ServStatusChart
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.ServStatusChart.ChartAreas.Add(ChartArea2)
+        ChartArea4.Name = "ChartArea1"
+        Me.ServStatusChart.ChartAreas.Add(ChartArea4)
         Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.Name = "Legend1"
-        Me.ServStatusChart.Legends.Add(Legend2)
+        Legend4.Name = "Legend1"
+        Me.ServStatusChart.Legends.Add(Legend4)
         Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
         Me.ServStatusChart.Name = "ServStatusChart"
         Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.ServStatusChart.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.ServStatusChart.Series.Add(Series4)
         Me.ServStatusChart.Size = New System.Drawing.Size(568, 395)
         Me.ServStatusChart.TabIndex = 0
         Me.ServStatusChart.Text = "Chart1"
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel1.BorderRadius = 4
+        Me.Guna2Panel1.Controls.Add(Me.ItemsUsedLabelCount)
+        Me.Guna2Panel1.Controls.Add(Me.Label2)
+        Me.Guna2Panel1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.Guna2Panel1.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.Guna2Panel1.Location = New System.Drawing.Point(580, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
+        Me.Guna2Panel1.Size = New System.Drawing.Size(569, 88)
+        Me.Guna2Panel1.TabIndex = 7
+        '
+        'ItemsUsedLabelCount
+        '
+        Me.ItemsUsedLabelCount.AutoSize = True
+        Me.ItemsUsedLabelCount.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ItemsUsedLabelCount.ForeColor = System.Drawing.Color.Black
+        Me.ItemsUsedLabelCount.Location = New System.Drawing.Point(14, 24)
+        Me.ItemsUsedLabelCount.Name = "ItemsUsedLabelCount"
+        Me.ItemsUsedLabelCount.Size = New System.Drawing.Size(54, 60)
+        Me.ItemsUsedLabelCount.TabIndex = 3
+        Me.ItemsUsedLabelCount.Text = "0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(19, 4)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(78, 20)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Items Used"
         '
         'TechnicianDashboardForm
         '
@@ -334,6 +377,8 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -358,4 +403,7 @@ Partial Class TechnicianDashboardForm
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents ItemsUsedLabelCount As Label
+    Friend WithEvents Label2 As Label
 End Class

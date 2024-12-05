@@ -99,7 +99,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(569, 82)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(569, 85)
         Me.Guna2Panel1.TabIndex = 3
         '
         'CustCountLabel
@@ -150,7 +150,7 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(568, 82)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(568, 85)
         Me.Guna2Panel6.TabIndex = 6
         '
         'StatusTableLayout
@@ -170,7 +170,7 @@ Partial Class CashierDashboardForm
         Me.StatusTableLayout.Name = "StatusTableLayout"
         Me.StatusTableLayout.RowCount = 1
         Me.StatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 94)
+        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 97)
         Me.StatusTableLayout.TabIndex = 8
         '
         'Timer4
