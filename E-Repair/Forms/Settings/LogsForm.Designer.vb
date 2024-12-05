@@ -133,18 +133,21 @@ Partial Class LogsForm
         '
         'USER_ACCOUNTS_ID
         '
+        Me.USER_ACCOUNTS_ID.DataPropertyName = "user_accounts_id"
         Me.USER_ACCOUNTS_ID.HeaderText = "User Accounts ID"
         Me.USER_ACCOUNTS_ID.Name = "USER_ACCOUNTS_ID"
         Me.USER_ACCOUNTS_ID.ReadOnly = True
         '
         'TRANSACTIONS
         '
+        Me.TRANSACTIONS.DataPropertyName = "transactions"
         Me.TRANSACTIONS.HeaderText = "Transaction"
         Me.TRANSACTIONS.Name = "TRANSACTIONS"
         Me.TRANSACTIONS.ReadOnly = True
         '
         'DATE_ADDED
         '
+        Me.DATE_ADDED.DataPropertyName = "date_added"
         Me.DATE_ADDED.HeaderText = "Date Added"
         Me.DATE_ADDED.Name = "DATE_ADDED"
         Me.DATE_ADDED.ReadOnly = True
