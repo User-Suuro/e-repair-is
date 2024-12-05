@@ -191,7 +191,8 @@
                         Dim updateServ As New Dictionary(Of String, Object) From {
                             {servConst.PartsUsed, totalPartsUsed},
                             {servConst.partsCostStr, totalPartsCost},
-                            {servConst.TotalCost, .Item(servConst.techFeeStr) + totalPartsCost}
+                            {servConst.TotalCost, .Item(servConst.techFeeStr) + totalPartsCost},
+                            {servConst.svcIDStr, serviceID}
                         }
 
                         If dbHelper.UpdateRecord(servConst.svcTableStr, servConst.svcIDStr, serviceID, updateServ) Then
