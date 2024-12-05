@@ -81,9 +81,9 @@ Partial Class CashierDashboardForm
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(26, 4)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(131, 20)
+        Me.Label3.Size = New System.Drawing.Size(76, 20)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Customers Handled"
+        Me.Label3.Text = "Customers"
         '
         'Guna2Panel1
         '
@@ -132,9 +132,9 @@ Partial Class CashierDashboardForm
         Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(19, 4)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(117, 20)
+        Me.Label13.Size = New System.Drawing.Size(55, 20)
         Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Services Handled"
+        Me.Label13.Text = "Service"
         '
         'Guna2Panel6
         '

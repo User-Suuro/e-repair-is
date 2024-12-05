@@ -68,7 +68,8 @@ Public Class CashierDashboardForm
     Private Sub loadServiceChart()
         ServStatusChart.Series.Clear()
 
-        Dim series As New Series("Value")
+        Dim series As New Series()
+        series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Column
 
         series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr} = '{constants.getPendingString}'").Length)
@@ -86,7 +87,9 @@ Public Class CashierDashboardForm
         ' load enums
         Dim genders = dbHelper.GetEnums(custConst.custTableStr, custConst.custGenderStr)
         Dim series As New Series("Amount")
+
         series.ChartType = SeriesChartType.Bar
+        series.IsVisibleInLegend = False
 
         For Each gender In genders
             Dim totalCount As Integer = custDT.Select($"{custConst.custGenderStr} = '{gender}'").Length

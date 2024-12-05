@@ -23,12 +23,12 @@ Partial Class TechnicianDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.EmployeesCountLabel = New System.Windows.Forms.Label()
@@ -47,16 +47,16 @@ Partial Class TechnicianDashboardForm
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.StatusTableLayout.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusTableLayout
@@ -74,7 +74,7 @@ Partial Class TechnicianDashboardForm
         Me.StatusTableLayout.Name = "StatusTableLayout"
         Me.StatusTableLayout.RowCount = 1
         Me.StatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 91)
+        Me.StatusTableLayout.Size = New System.Drawing.Size(1161, 100)
         Me.StatusTableLayout.TabIndex = 10
         '
         'Guna2Panel6
@@ -91,7 +91,7 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.Guna2Panel6.Name = "Guna2Panel6"
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(1149, 79)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(1149, 88)
         Me.Guna2Panel6.TabIndex = 6
         '
         'EmployeesCountLabel
@@ -276,24 +276,6 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1149, 401)
         Me.TableLayoutPanel2.TabIndex = 11
         '
-        'ServStatusChart
-        '
-        ChartArea2.Name = "ChartArea1"
-        Me.ServStatusChart.ChartAreas.Add(ChartArea2)
-        Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.Name = "Legend1"
-        Me.ServStatusChart.Legends.Add(Legend2)
-        Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
-        Me.ServStatusChart.Name = "ServStatusChart"
-        Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.ServStatusChart.Series.Add(Series2)
-        Me.ServStatusChart.Size = New System.Drawing.Size(568, 395)
-        Me.ServStatusChart.TabIndex = 0
-        Me.ServStatusChart.Text = "Chart1"
-        '
         'Chart2
         '
         ChartArea1.Name = "ChartArea1"
@@ -311,6 +293,24 @@ Partial Class TechnicianDashboardForm
         Me.Chart2.Size = New System.Drawing.Size(569, 395)
         Me.Chart2.TabIndex = 1
         Me.Chart2.Text = "Chart2"
+        '
+        'ServStatusChart
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.ServStatusChart.ChartAreas.Add(ChartArea2)
+        Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend2.Name = "Legend1"
+        Me.ServStatusChart.Legends.Add(Legend2)
+        Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
+        Me.ServStatusChart.Name = "ServStatusChart"
+        Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.ServStatusChart.Series.Add(Series2)
+        Me.ServStatusChart.Size = New System.Drawing.Size(568, 395)
+        Me.ServStatusChart.TabIndex = 0
+        Me.ServStatusChart.Text = "Chart1"
         '
         'TechnicianDashboardForm
         '
@@ -332,8 +332,8 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

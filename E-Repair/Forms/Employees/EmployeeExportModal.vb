@@ -76,7 +76,7 @@
                 Exit Sub
             End If
 
-            Dim title As String = $"Employees Reports_{DateTime.Now:yyyy-MM-dd}"
+            Dim title As String = $"Employees Printable Reports_{DateTime.Now:yyyy-MM-dd}"
 
 
             If exportUtils.ExportDataTableToExcel(empDT, title, columnHeaderMapping) Then

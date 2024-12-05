@@ -67,7 +67,7 @@
                 Exit Sub
             End If
 
-            Dim title As String = $"Customer Reports_{DateTime.Now:yyyy-MM-dd}"
+            Dim title As String = $"Customer Printable Reports_{DateTime.Now:yyyy-MM-dd}"
 
             If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
                 dbHelper.Logs(title, Current.id)

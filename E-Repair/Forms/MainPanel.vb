@@ -48,8 +48,10 @@ Public Class MainPanel
                 Case .getAdminString
                     SidenavInventoryBtn.Visible = True
                     SidenavSuppliersBtn.Visible = True
+
                     SidenavServicesBtn.Visible = True
                     SidenavCustomersBtn.Visible = True
+
                     SidenavEmployeesBtn.Visible = True
 
                 Case .getCashierString

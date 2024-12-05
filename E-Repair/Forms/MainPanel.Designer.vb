@@ -250,9 +250,9 @@ Partial Class MainPanel
         Me.AdminProfilePanel.Controls.Add(Me.TopNavPositionLabel)
         Me.AdminProfilePanel.Controls.Add(Me.AdminTopNavUsernameLabel)
         Me.AdminProfilePanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.AdminProfilePanel.Location = New System.Drawing.Point(914, 0)
+        Me.AdminProfilePanel.Location = New System.Drawing.Point(850, 0)
         Me.AdminProfilePanel.Name = "AdminProfilePanel"
-        Me.AdminProfilePanel.Size = New System.Drawing.Size(268, 70)
+        Me.AdminProfilePanel.Size = New System.Drawing.Size(332, 70)
         Me.AdminProfilePanel.TabIndex = 0
         '
         'AdminTopNavProfilePictureBox

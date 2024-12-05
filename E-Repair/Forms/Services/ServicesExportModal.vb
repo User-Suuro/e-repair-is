@@ -55,7 +55,7 @@
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
               { .devTypeStr, "Device Type"},
               { .devBrandStr, "Device Brand"},
-              { .devModelStr, "Deviec Model"}
+              { .devModelStr, "Device Model"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
@@ -66,7 +66,7 @@
                 Exit Sub
             End If
 
-            Dim title As String = $"Service Summary Reports_{DateTime.Now:yyyy-MM-dd}"
+            Dim title As String = $"Service Summary Claimed Reports_{DateTime.Now:yyyy-MM-dd}"
 
             If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
                 dbHelper.Logs(title, Current.id)

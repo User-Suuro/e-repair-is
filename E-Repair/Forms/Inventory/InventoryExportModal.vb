@@ -72,7 +72,7 @@ Public Class InventoryExportModal
                 Exit Sub
             End If
 
-            Dim title As String = $"Inventory Reports_{DateTime.Now:yyyy-MM-dd}"
+            Dim title As String = $"Inventory Printable Reports_{DateTime.Now:yyyy-MM-dd}"
 
             If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
                 dbHelper.Logs(title, Current.id)

@@ -82,7 +82,10 @@ Public Class AdminDashboardForm
 
     Private Sub loadPositionChart()
         PositionsChart.Series.Clear()
-        Dim series As New Series("Positions")
+
+        Dim series As New Series()
+        series.IsVisibleInLegend = False
+
         series.ChartType = SeriesChartType.Bar
 
         series.Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
@@ -99,7 +102,6 @@ Public Class AdminDashboardForm
         InventoryGraph.Series.Clear()
 
         Dim qtySeries As New Series("Quantity")
-
         qtySeries.ChartType = SeriesChartType.Column
 
         qtySeries.Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
@@ -139,6 +141,7 @@ Public Class AdminDashboardForm
         'End With
 
         Dim series As New Series("Value")
+        series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Column
 
         series.Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
@@ -172,10 +175,12 @@ Public Class AdminDashboardForm
         ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
         Dim series As New Series("Amount")
+
+        series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Bar
 
         For Each type In supType
-            Dim totalCount As Integer = custDT.Select($"{supConst.supTypeStr} = '{type}'").Length
+            Dim totalCount As Integer = suppDT.Select($"{supConst.supTypeStr} = '{type}'").Length
             series.Points.AddXY(type, totalCount)
         Next
 
