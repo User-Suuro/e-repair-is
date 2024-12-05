@@ -281,8 +281,22 @@
         BtnDelete.Visible = False
     End Sub
 
-    ' LOAD DUMMY
+    ' OPEN LOGS
+    Private Sub OpenLogsBtn_Click(sender As Object, e As EventArgs) Handles OpenLogsBtn.Click
+        formUtils.ShowModalWithHandler(
+        Function(qty)
+            Dim modal As New LogsForm
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            ' Return multiple values in a tuple
+            Return Nothing
+        End Function
+        )
+    End Sub
 
+    ' LOAD DUMMY
     Private Function openModal(dataBeGen As String) As Tuple(Of Integer, Integer, Integer, Integer)
         Return formUtils.ShowModalWithHandler(
         Function(qty)
@@ -695,4 +709,6 @@
         MessageBox.Show($"{numberOfRecords} inventory records generated successfully!")
         Return True ' return true if successful
     End Function
+
+
 End Class
