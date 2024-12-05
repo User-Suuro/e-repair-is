@@ -169,6 +169,7 @@ Partial Class DBConfigModal
         Me.dbPassTxtBox.ShadowDecoration.Parent = Me.dbPassTxtBox
         Me.dbPassTxtBox.Size = New System.Drawing.Size(572, 34)
         Me.dbPassTxtBox.TabIndex = 41
+        Me.dbPassTxtBox.UseSystemPasswordChar = True
         '
         'uidTxtBox
         '

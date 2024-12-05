@@ -4,10 +4,10 @@ Module DbProperties
     Public conn, myadocon As New MySqlConnection
 
     ' -- Adjust your DB Details Here -- '
-    Private Property db_server As String = ""
-    Private Property db_uid As String = ""
-    Private Property db_pwd As String = ""
-    Private Property db_name As String = ""
+    Private Property db_server As String
+    Private Property db_uid As String
+    Private Property db_pwd As String
+    Private Property db_name As String
 
     Public Property strConnection As String = String.Format("server={0};uid={1};password={2};database={3};allowuservariables='True'", db_server, db_uid, db_pwd, db_name)
 
@@ -45,21 +45,6 @@ Module DbProperties
         End Try
     End Sub
 
-    ' Open connection to db
-    Public Sub openConn(ByVal db_name As String)
-        Try
-            If conn.State = ConnectionState.Open Then conn.Close()
-
-            With conn
-                If .State = ConnectionState.Open Then .Close()
-                .ConnectionString = strConnection
-                .Open()
-            End With
-        Catch EX As Exception
-            MsgBox(EX.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
     ' Function to check if user is connected to local db
     Public Function isConnectedToLocalServer() As Boolean
         Dim result As Boolean = False
@@ -88,6 +73,10 @@ Module DbProperties
 
     Public Function getCurrentDbName() As String
         Return db_name
+    End Function
+
+    Public Function getStrCon() As String
+        Return strConnection
     End Function
 End Module
 

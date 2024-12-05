@@ -60,18 +60,22 @@ Public Class DBConfigModal
         Cursor = Cursors.Default()
     End Sub
 
-    Private Sub updateStatusConn()
+    Private Sub updateStatusConn(Optional enableMsg As Boolean = False)
         Cursor = Cursors.WaitCursor()
         UpdateConnectionString()
 
         If Not isConnectedToLocalServer() Then
             ConnStatusLabel.Text = "Not Connected"
             ConnStatusLabel.ForeColor = Color.Red
-            MsgBox("Disconnected to Database")
+            If enableMsg Then
+                MsgBox("Disconnected to database")
+            End If
         Else
             ConnStatusLabel.Text = "Connected"
             ConnStatusLabel.ForeColor = Color.Green
-            MsgBox("Connected to Database")
+            If enableMsg Then
+                MsgBox("Connected to database")
+            End If
         End If
 
         Cursor = Cursors.Default()
@@ -85,9 +89,7 @@ Public Class DBConfigModal
         password = dbPassTxtBox.Text
         database = dbNameTxtBox.Text
 
-
         Dim newConfig As String = $"server={server}{Environment.NewLine}uid={uid}{Environment.NewLine}password={password}{Environment.NewLine}database={database}"
-
 
         If System.IO.File.Exists(config) Then
             Using writer As New System.IO.StreamWriter(config, False)
@@ -97,12 +99,13 @@ Public Class DBConfigModal
             MessageBox.Show("Config file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-        updateStatusConn()
+        updateStatusConn(True)
         getDbConfigData()
     End Sub
 
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
         Me.Close()
     End Sub
+
 
 End Class

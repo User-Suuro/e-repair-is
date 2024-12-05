@@ -9,13 +9,30 @@ Public Class DbHelper
     Public conn As New MySqlConnection
     Public cmd As New MySqlCommand
     Public cmdRead As MySqlDataReader
+
     Dim constants As New Constants
 
+    ' Open connection to db
+    Public Sub openConn(ByVal db_name As String)
+        Try
+            If conn.State = ConnectionState.Open Then conn.Close()
+
+            With conn
+                If .State = ConnectionState.Open Then .Close()
+                .ConnectionString = getStrCon()
+                .Open()
+            End With
+        Catch EX As Exception
+            MsgBox("Error opening connection: " & EX.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
 
     ' Read query to db
     Public Sub readQuery(ByVal sql As String, Optional ByVal isSelectQuery As Boolean = True)
         Try
+
             openConn(getCurrentDbName)
+
             With cmd
                 .Connection = conn
                 .CommandText = sql
@@ -27,7 +44,7 @@ Public Class DbHelper
             End With
 
         Catch EX As Exception
-            MsgBox(EX.Message, MsgBoxStyle.Critical)
+            MsgBox("Unable to read query: " & EX.Message, MsgBoxStyle.Critical)
         Finally
             cmd.Parameters.Clear()
         End Try
