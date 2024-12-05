@@ -154,7 +154,8 @@
                { .quantityUsedStr, quantity},
                { .totalCost, totalCost},
                { .reasonUsed, reasonForUsing},
-               { .InventoryId, selectedID}
+               { .InventoryId, selectedID},
+               { .addedByID, Current.id}
              }
 
             If formUtils.AddRow(.TableName, insertData) Then

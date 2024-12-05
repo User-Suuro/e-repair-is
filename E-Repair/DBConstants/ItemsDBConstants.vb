@@ -11,6 +11,14 @@
     Private ReadOnly _reasonUsed As String = "reason_used"
     Private ReadOnly _dateUsed As String = "date_used"
 
+    Private ReadOnly _addedByID As String = "added_by_id"
+
+    Public ReadOnly Property addedByID As String
+        Get
+            Return _addedByID
+        End Get
+    End Property
+
     Public ReadOnly Property reasonUsed As String
         Get
             Return _reasonUsed

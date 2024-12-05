@@ -18,29 +18,12 @@
     Private Sub loadData()
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
         servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
-
-        ' load item DT used by technician in services
-
-        Dim localItemsDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
-
-        For Each servRow As DataRow In servDT.Rows
-            Dim serviceID = Convert.ToInt32(servRow(servConst.techIDStr))
-
-            Dim matchingRows = localItemsDT.AsEnumerable().Where(Function(row) _
-            Not IsDBNull(row(itemConst.ServiceId)) AndAlso Convert.ToInt32(row(itemConst.ServiceId)) = serviceID)
-
-            For Each matchingRow As DataRow In matchingRows
-                Dim newRow As DataRow = itemDT.NewRow()
-                newRow.ItemArray = matchingRow.ItemArray.Clone()
-                itemDT.Rows.Add(newRow)
-            Next
-        Next
-
+        itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
     End Sub
 
     Private Sub loadStatus()
         ServCountLabel.Text = servDT.Rows.Count
-        ItemsUsedLabelCount.Text = itemDT.Rows.Count
+        ItemsUsedLabelCount.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
     End Sub
 
     Private Sub loadTimer()
