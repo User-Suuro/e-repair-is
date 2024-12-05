@@ -122,7 +122,7 @@ Public Class CashierDashboardForm
         End With
 
         For Each method In payMethods
-            Dim totalCount As Integer = servDT.Select($"{servConst.payMethodStr} = '{payMethods}'").Length
+            Dim totalCount As Integer = servDT.Select($"{servConst.payMethodStr} = '{method}'").Length
             series.Points.AddXY(method, totalCount)
         Next
 
