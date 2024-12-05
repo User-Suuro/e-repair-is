@@ -128,10 +128,11 @@ Public Class DbHelper
 
     Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
-            readQuery(String.Format("INSERT INTO `logs`(`user_accounts_id`, `event`, `transactions`) VALUES ({0}, '{1}', '{2}')",
+            readQuery(String.Format("INSERT INTO `logs`(`user_accounts_id`, `event`, `transactions`, `date_added`) VALUES ({0}, '{1}', '{2}')",
                                     id,
                                     events,
-                                    transaction))
+                                    transaction,
+                                    DateTime.Now))
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
