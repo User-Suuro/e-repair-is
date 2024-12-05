@@ -74,6 +74,7 @@ Public Class TechnicianDashboardForm
         Dim qtySeries As New Series("Quantity")
 
         With qtySeries
+            .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Column
             .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
             .Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
