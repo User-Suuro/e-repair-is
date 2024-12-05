@@ -16,10 +16,11 @@ Public Class TechnicianDashboardForm
     Private Sub TechnicianDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadData()
         loadStatus()
+        loadServStatsChart()
     End Sub
     Private Sub loadData()
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
+        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
     End Sub
 
