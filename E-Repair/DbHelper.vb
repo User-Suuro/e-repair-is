@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Public Class DbHelper
@@ -7,6 +8,22 @@ Public Class DbHelper
     Public cmdRead As MySqlDataReader
 
     ' Originally from modDB, readQuery must be the same variables as cmd and cmdRead that also uses these variables
+
+    ' Open connection to db
+
+    Public Sub openConn(ByVal db_name As String)
+        Try
+            If conn.State = ConnectionState.Open Then conn.Close()
+
+            With conn
+                If .State = ConnectionState.Open Then .Close()
+                .ConnectionString = getStrCon()
+                .Open()
+            End With
+        Catch ex As Exception
+            MsgBox("Error opening connection: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
 
     ' Read query to db
 
@@ -169,7 +186,8 @@ Public Class DbHelper
         End Try
     End Function
 
-    ' Get row base from value (tableName, targetColumn, targetValue)
+    ' Getters
+
     Public Function GetRowByValue(tableName As String, columnName As String, value As Object) As DataTable
         Dim resultTable As New DataTable()
         Dim query As String = $"SELECT * FROM `{tableName}` WHERE {columnName} = @value"
@@ -193,8 +211,6 @@ Public Class DbHelper
 
         Return resultTable
     End Function
-
-    ' WITH COLUMNS
 
     Public Function GetAllByCol(columns As List(Of String), tableName As String) As DataTable
         Dim resultTable As New DataTable()
@@ -313,10 +329,6 @@ Public Class DbHelper
         Return resultTable
     End Function
 
-
-
-    ' Get All Rows From Table (tableName)
-
     Public Function GetAllData(tableName As String) As DataTable
         Dim resultTable As New DataTable()
         Dim query As String = $"SELECT * FROM `{tableName}`"
@@ -369,7 +381,6 @@ Public Class DbHelper
         End Try
     End Function
 
-
     ' Enums
 
     ' Get
@@ -410,6 +421,7 @@ Public Class DbHelper
     End Function
 
     ' Update
+
     Public Sub AlterEnums(tableName As String, columnName As String, enumValues As List(Of String))
         Try
             If enumValues Is Nothing OrElse enumValues.Count = 0 Then
@@ -430,7 +442,7 @@ Public Class DbHelper
         End Try
     End Sub
 
-
+    ' load to cmb
 
     Public Sub LoadEnumsToCmb(cmb As ComboBox, tableName As String,
                               columnName As String,
@@ -450,14 +462,11 @@ Public Class DbHelper
 
             cmb.DataSource = enumValues
 
-            ' Set the selected index
             If selectedIndex = -1 Then
-                ' Default: No item selected
                 cmb.SelectedIndex = -1
             ElseIf selectedIndex >= 0 AndAlso selectedIndex < enumValues.Count Then
                 cmb.SelectedIndex = selectedIndex
             Else
-                ' Invalid index
                 Throw New ArgumentOutOfRangeException(
                 "selectedIndex",
                 $"Selected index {selectedIndex} is out of range for the ComboBox items."

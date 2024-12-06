@@ -79,22 +79,6 @@ Module modDB
         Return result
     End Function
 
-    ' Open connection to db
-
-    Public Sub openConn(ByVal db_name As String)
-        Try
-            If conn.State = ConnectionState.Open Then conn.Close()
-
-            With conn
-                If .State = ConnectionState.Open Then .Close()
-                .ConnectionString = strConnection
-                .Open()
-            End With
-        Catch ex As Exception
-            MsgBox("Error opening connection: " & ex.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
     ' Function to EncryptPassword
 
     Public Function EncryptPassword(clearText As String, key As String) As String
@@ -139,6 +123,10 @@ Module modDB
 
     Public Function getDbName() As String
         Return db_name
+    End Function
+
+    Public Function getStrCon() As String
+        Return strConnection
     End Function
 
 End Module
