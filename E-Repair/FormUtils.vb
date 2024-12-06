@@ -687,4 +687,16 @@ Public Class FormUtils
 
         Return resultList
     End Function
+
+    Public Function FormatSingleDateColumn(dt As DataTable, columnName As String, format As String) As DataTable
+        Dim updatedDT As DataTable = dt.Copy() ' Create a copy to preserve the original
+        For Each row As DataRow In updatedDT.Rows
+            If Not IsDBNull(row(columnName)) Then
+                Dim originalDate As DateTime = Convert.ToDateTime(row(columnName))
+                row(columnName) = originalDate.ToString(format)
+            End If
+        Next
+        Return updatedDT
+    End Function
+
 End Class

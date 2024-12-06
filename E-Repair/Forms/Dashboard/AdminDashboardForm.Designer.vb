@@ -69,7 +69,9 @@ Partial Class AdminDashboardForm
         Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.PositionsFilter = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -83,6 +85,7 @@ Partial Class AdminDashboardForm
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -96,12 +99,12 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel4, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel3, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(34, 22)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(51, 34)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1113, 100)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1670, 154)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'Guna2Panel4
@@ -116,11 +119,11 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel4.Controls.Add(Me.Label7)
         Me.Guna2Panel4.Controls.Add(Me.Label6)
         Me.Guna2Panel4.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel4.Location = New System.Drawing.Point(715, 0)
-        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(48, 0, 0, 0)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(1074, 0)
+        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(72, 0, 0, 0)
         Me.Guna2Panel4.Name = "Guna2Panel4"
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
-        Me.Guna2Panel4.Size = New System.Drawing.Size(398, 92)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(596, 142)
         Me.Guna2Panel4.TabIndex = 6
         '
         'Label9
@@ -130,9 +133,10 @@ Partial Class AdminDashboardForm
         Me.Label9.BackColor = System.Drawing.Color.White
         Me.Label9.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(236, 24)
+        Me.Label9.Location = New System.Drawing.Point(354, 37)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(45, 19)
+        Me.Label9.Size = New System.Drawing.Size(65, 29)
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "2024"
         '
@@ -142,9 +146,10 @@ Partial Class AdminDashboardForm
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(21, 24)
+        Me.Label8.Location = New System.Drawing.Point(32, 37)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(57, 19)
+        Me.Label8.Size = New System.Drawing.Size(85, 29)
         Me.Label8.TabIndex = 13
         Me.Label8.Text = "Friday"
         '
@@ -155,9 +160,10 @@ Partial Class AdminDashboardForm
         Me.Label7.BackColor = System.Drawing.Color.White
         Me.Label7.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(20, 43)
+        Me.Label7.Location = New System.Drawing.Point(30, 66)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(103, 26)
+        Me.Label7.Size = New System.Drawing.Size(152, 37)
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "11:59:00 "
         '
@@ -168,9 +174,10 @@ Partial Class AdminDashboardForm
         Me.Label6.BackColor = System.Drawing.Color.White
         Me.Label6.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(235, 43)
+        Me.Label6.Location = New System.Drawing.Point(352, 66)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(153, 26)
+        Me.Label6.Size = New System.Drawing.Size(227, 37)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "September 28"
         '
@@ -187,9 +194,9 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(8, 0, 8, 0)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(12, 0, 12, 0)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
-        Me.Guna2Panel3.Size = New System.Drawing.Size(667, 92)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(1002, 142)
         Me.Guna2Panel3.TabIndex = 5
         '
         'Label10
@@ -198,9 +205,10 @@ Partial Class AdminDashboardForm
         Me.Label10.BackColor = System.Drawing.Color.White
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(20, 50)
+        Me.Label10.Location = New System.Drawing.Point(30, 77)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(58, 19)
+        Me.Label10.Size = New System.Drawing.Size(88, 29)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Admin"
         '
@@ -210,9 +218,10 @@ Partial Class AdminDashboardForm
         Me.WelcomeMessageLabel.BackColor = System.Drawing.Color.White
         Me.WelcomeMessageLabel.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.WelcomeMessageLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(18, 17)
+        Me.WelcomeMessageLabel.Location = New System.Drawing.Point(27, 26)
+        Me.WelcomeMessageLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.WelcomeMessageLabel.Name = "WelcomeMessageLabel"
-        Me.WelcomeMessageLabel.Size = New System.Drawing.Size(166, 26)
+        Me.WelcomeMessageLabel.Size = New System.Drawing.Size(247, 37)
         Me.WelcomeMessageLabel.TabIndex = 15
         Me.WelcomeMessageLabel.Text = "Welcome, User"
         '
@@ -245,11 +254,12 @@ Partial Class AdminDashboardForm
         Me.StatusTableLayout.Controls.Add(Me.CustomersPanel, 2, 0)
         Me.StatusTableLayout.Controls.Add(Me.ServicesPanel, 1, 0)
         Me.StatusTableLayout.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.StatusTableLayout.Location = New System.Drawing.Point(34, 137)
+        Me.StatusTableLayout.Location = New System.Drawing.Point(51, 211)
+        Me.StatusTableLayout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.StatusTableLayout.Name = "StatusTableLayout"
         Me.StatusTableLayout.RowCount = 1
         Me.StatusTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.StatusTableLayout.Size = New System.Drawing.Size(1125, 97)
+        Me.StatusTableLayout.Size = New System.Drawing.Size(1688, 149)
         Me.StatusTableLayout.TabIndex = 6
         '
         'ItemsPanel
@@ -262,11 +272,11 @@ Partial Class AdminDashboardForm
         Me.ItemsPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
         Me.ItemsPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ItemsPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ItemsPanel.Location = New System.Drawing.Point(900, 0)
-        Me.ItemsPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.ItemsPanel.Location = New System.Drawing.Point(1348, 0)
+        Me.ItemsPanel.Margin = New System.Windows.Forms.Padding(0, 0, 18, 18)
         Me.ItemsPanel.Name = "ItemsPanel"
         Me.ItemsPanel.ShadowDecoration.Parent = Me.ItemsPanel
-        Me.ItemsPanel.Size = New System.Drawing.Size(213, 85)
+        Me.ItemsPanel.Size = New System.Drawing.Size(322, 131)
         Me.ItemsPanel.TabIndex = 8
         '
         'ItemsCountLabel
@@ -274,9 +284,10 @@ Partial Class AdminDashboardForm
         Me.ItemsCountLabel.AutoSize = True
         Me.ItemsCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemsCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.ItemsCountLabel.Location = New System.Drawing.Point(16, 22)
+        Me.ItemsCountLabel.Location = New System.Drawing.Point(24, 34)
+        Me.ItemsCountLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ItemsCountLabel.Name = "ItemsCountLabel"
-        Me.ItemsCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ItemsCountLabel.Size = New System.Drawing.Size(81, 90)
         Me.ItemsCountLabel.TabIndex = 3
         Me.ItemsCountLabel.Text = "0"
         '
@@ -285,9 +296,10 @@ Partial Class AdminDashboardForm
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(22, 4)
+        Me.Label2.Location = New System.Drawing.Point(33, 6)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 20)
+        Me.Label2.Size = New System.Drawing.Size(102, 29)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Inventory"
         '
@@ -301,11 +313,11 @@ Partial Class AdminDashboardForm
         Me.SuppliersPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
         Me.SuppliersPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuppliersPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SuppliersPanel.Location = New System.Drawing.Point(675, 0)
-        Me.SuppliersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.SuppliersPanel.Location = New System.Drawing.Point(1011, 0)
+        Me.SuppliersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 18, 18)
         Me.SuppliersPanel.Name = "SuppliersPanel"
         Me.SuppliersPanel.ShadowDecoration.Parent = Me.SuppliersPanel
-        Me.SuppliersPanel.Size = New System.Drawing.Size(213, 85)
+        Me.SuppliersPanel.Size = New System.Drawing.Size(319, 131)
         Me.SuppliersPanel.TabIndex = 7
         '
         'SuppliersNumberLabel
@@ -313,9 +325,10 @@ Partial Class AdminDashboardForm
         Me.SuppliersNumberLabel.AutoSize = True
         Me.SuppliersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuppliersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(16, 22)
+        Me.SuppliersNumberLabel.Location = New System.Drawing.Point(24, 34)
+        Me.SuppliersNumberLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SuppliersNumberLabel.Name = "SuppliersNumberLabel"
-        Me.SuppliersNumberLabel.Size = New System.Drawing.Size(54, 60)
+        Me.SuppliersNumberLabel.Size = New System.Drawing.Size(81, 90)
         Me.SuppliersNumberLabel.TabIndex = 3
         Me.SuppliersNumberLabel.Text = "0"
         '
@@ -324,9 +337,10 @@ Partial Class AdminDashboardForm
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(22, 4)
+        Me.Label11.Location = New System.Drawing.Point(33, 6)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(69, 20)
+        Me.Label11.Size = New System.Drawing.Size(102, 29)
         Me.Label11.TabIndex = 2
         Me.Label11.Text = "Suppliers"
         '
@@ -341,10 +355,10 @@ Partial Class AdminDashboardForm
         Me.EmployeesPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmployeesPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.EmployeesPanel.Location = New System.Drawing.Point(0, 0)
-        Me.EmployeesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.EmployeesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 18, 18)
         Me.EmployeesPanel.Name = "EmployeesPanel"
         Me.EmployeesPanel.ShadowDecoration.Parent = Me.EmployeesPanel
-        Me.EmployeesPanel.Size = New System.Drawing.Size(213, 85)
+        Me.EmployeesPanel.Size = New System.Drawing.Size(319, 131)
         Me.EmployeesPanel.TabIndex = 6
         '
         'EmployeesCountLabel
@@ -352,9 +366,10 @@ Partial Class AdminDashboardForm
         Me.EmployeesCountLabel.AutoSize = True
         Me.EmployeesCountLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeesCountLabel.ForeColor = System.Drawing.Color.Black
-        Me.EmployeesCountLabel.Location = New System.Drawing.Point(13, 22)
+        Me.EmployeesCountLabel.Location = New System.Drawing.Point(20, 34)
+        Me.EmployeesCountLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmployeesCountLabel.Name = "EmployeesCountLabel"
-        Me.EmployeesCountLabel.Size = New System.Drawing.Size(54, 60)
+        Me.EmployeesCountLabel.Size = New System.Drawing.Size(81, 90)
         Me.EmployeesCountLabel.TabIndex = 3
         Me.EmployeesCountLabel.Text = "0"
         '
@@ -363,9 +378,10 @@ Partial Class AdminDashboardForm
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(19, 4)
+        Me.Label13.Location = New System.Drawing.Point(28, 6)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(78, 20)
+        Me.Label13.Size = New System.Drawing.Size(117, 29)
         Me.Label13.TabIndex = 2
         Me.Label13.Text = "Employees"
         '
@@ -379,11 +395,11 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
         Me.CustomersPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CustomersPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.CustomersPanel.Location = New System.Drawing.Point(450, 0)
-        Me.CustomersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.CustomersPanel.Location = New System.Drawing.Point(674, 0)
+        Me.CustomersPanel.Margin = New System.Windows.Forms.Padding(0, 0, 18, 18)
         Me.CustomersPanel.Name = "CustomersPanel"
         Me.CustomersPanel.ShadowDecoration.Parent = Me.CustomersPanel
-        Me.CustomersPanel.Size = New System.Drawing.Size(213, 85)
+        Me.CustomersPanel.Size = New System.Drawing.Size(319, 131)
         Me.CustomersPanel.TabIndex = 5
         '
         'CustomersNumberLabel
@@ -391,9 +407,10 @@ Partial Class AdminDashboardForm
         Me.CustomersNumberLabel.AutoSize = True
         Me.CustomersNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomersNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.CustomersNumberLabel.Location = New System.Drawing.Point(18, 22)
+        Me.CustomersNumberLabel.Location = New System.Drawing.Point(27, 34)
+        Me.CustomersNumberLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.CustomersNumberLabel.Name = "CustomersNumberLabel"
-        Me.CustomersNumberLabel.Size = New System.Drawing.Size(54, 60)
+        Me.CustomersNumberLabel.Size = New System.Drawing.Size(81, 90)
         Me.CustomersNumberLabel.TabIndex = 3
         Me.CustomersNumberLabel.Text = "0"
         '
@@ -402,9 +419,10 @@ Partial Class AdminDashboardForm
         Me.StatusCustomersLabel.AutoSize = True
         Me.StatusCustomersLabel.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatusCustomersLabel.ForeColor = System.Drawing.Color.Black
-        Me.StatusCustomersLabel.Location = New System.Drawing.Point(24, 4)
+        Me.StatusCustomersLabel.Location = New System.Drawing.Point(36, 6)
+        Me.StatusCustomersLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.StatusCustomersLabel.Name = "StatusCustomersLabel"
-        Me.StatusCustomersLabel.Size = New System.Drawing.Size(76, 20)
+        Me.StatusCustomersLabel.Size = New System.Drawing.Size(117, 29)
         Me.StatusCustomersLabel.TabIndex = 2
         Me.StatusCustomersLabel.Text = "Customers"
         '
@@ -418,11 +436,11 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
         Me.ServicesPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ServicesPanel.FillColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ServicesPanel.Location = New System.Drawing.Point(225, 0)
-        Me.ServicesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
+        Me.ServicesPanel.Location = New System.Drawing.Point(337, 0)
+        Me.ServicesPanel.Margin = New System.Windows.Forms.Padding(0, 0, 18, 18)
         Me.ServicesPanel.Name = "ServicesPanel"
         Me.ServicesPanel.ShadowDecoration.Parent = Me.ServicesPanel
-        Me.ServicesPanel.Size = New System.Drawing.Size(213, 85)
+        Me.ServicesPanel.Size = New System.Drawing.Size(319, 131)
         Me.ServicesPanel.TabIndex = 3
         '
         'ServicesNumberLabel
@@ -431,9 +449,10 @@ Partial Class AdminDashboardForm
         Me.ServicesNumberLabel.BackColor = System.Drawing.Color.Transparent
         Me.ServicesNumberLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServicesNumberLabel.ForeColor = System.Drawing.Color.Black
-        Me.ServicesNumberLabel.Location = New System.Drawing.Point(20, 22)
+        Me.ServicesNumberLabel.Location = New System.Drawing.Point(30, 34)
+        Me.ServicesNumberLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ServicesNumberLabel.Name = "ServicesNumberLabel"
-        Me.ServicesNumberLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ServicesNumberLabel.Size = New System.Drawing.Size(81, 90)
         Me.ServicesNumberLabel.TabIndex = 3
         Me.ServicesNumberLabel.Text = "0"
         '
@@ -443,9 +462,10 @@ Partial Class AdminDashboardForm
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(26, 4)
+        Me.Label3.Location = New System.Drawing.Point(39, 6)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 20)
+        Me.Label3.Size = New System.Drawing.Size(94, 29)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Services"
         '
@@ -460,13 +480,14 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.Controls.Add(Me.SupplierStatusChart, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.SalesChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(51, 369)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 417)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1670, 642)
         Me.TableLayoutPanel2.TabIndex = 7
         '
         'SupplierStatusChart
@@ -476,14 +497,15 @@ Partial Class AdminDashboardForm
         Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend1.Name = "Legend1"
         Me.SupplierStatusChart.Legends.Add(Legend1)
-        Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 211)
+        Me.SupplierStatusChart.Location = New System.Drawing.Point(839, 326)
+        Me.SupplierStatusChart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SupplierStatusChart.Name = "SupplierStatusChart"
         Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.SupplierStatusChart.Series.Add(Series1)
-        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 203)
+        Me.SupplierStatusChart.Size = New System.Drawing.Size(827, 311)
         Me.SupplierStatusChart.TabIndex = 3
         Me.SupplierStatusChart.Text = "Chart4"
         '
@@ -494,14 +516,15 @@ Partial Class AdminDashboardForm
         Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
         Legend2.Name = "Legend1"
         Me.SalesChart.Legends.Add(Legend2)
-        Me.SalesChart.Location = New System.Drawing.Point(3, 211)
+        Me.SalesChart.Location = New System.Drawing.Point(4, 326)
+        Me.SalesChart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SalesChart.Name = "SalesChart"
         Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.SalesChart.Series.Add(Series2)
-        Me.SalesChart.Size = New System.Drawing.Size(550, 203)
+        Me.SalesChart.Size = New System.Drawing.Size(827, 311)
         Me.SalesChart.TabIndex = 2
         Me.SalesChart.Text = "SalesChart"
         '
@@ -512,44 +535,80 @@ Partial Class AdminDashboardForm
         Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
         Legend3.Name = "Legend1"
         Me.InventoryGraph.Legends.Add(Legend3)
-        Me.InventoryGraph.Location = New System.Drawing.Point(559, 3)
+        Me.InventoryGraph.Location = New System.Drawing.Point(839, 5)
+        Me.InventoryGraph.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.InventoryGraph.Name = "InventoryGraph"
         Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Series1"
         Me.InventoryGraph.Series.Add(Series3)
-        Me.InventoryGraph.Size = New System.Drawing.Size(551, 202)
+        Me.InventoryGraph.Size = New System.Drawing.Size(827, 311)
         Me.InventoryGraph.TabIndex = 1
         Me.InventoryGraph.Text = "Chart2"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.PositionsFilter)
+        Me.Panel1.Controls.Add(Me.PositionsChart)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(829, 315)
+        Me.Panel1.TabIndex = 4
         '
         'PositionsChart
         '
         ChartArea4.Name = "ChartArea1"
         Me.PositionsChart.ChartAreas.Add(ChartArea4)
-        Me.PositionsChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PositionsChart.Dock = System.Windows.Forms.DockStyle.Bottom
         Legend4.Name = "Legend1"
         Me.PositionsChart.Legends.Add(Legend4)
-        Me.PositionsChart.Location = New System.Drawing.Point(3, 3)
+        Me.PositionsChart.Location = New System.Drawing.Point(0, 87)
+        Me.PositionsChart.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PositionsChart.Name = "PositionsChart"
         Me.PositionsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
         Series4.ChartArea = "ChartArea1"
         Series4.Legend = "Legend1"
         Series4.Name = "Series1"
         Me.PositionsChart.Series.Add(Series4)
-        Me.PositionsChart.Size = New System.Drawing.Size(550, 202)
-        Me.PositionsChart.TabIndex = 0
+        Me.PositionsChart.Size = New System.Drawing.Size(829, 228)
+        Me.PositionsChart.TabIndex = 2
         Me.PositionsChart.Text = "Chart1"
+        '
+        'PositionsFilter
+        '
+        Me.PositionsFilter.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.PositionsFilter.BorderRadius = 4
+        Me.PositionsFilter.BorderThickness = 1
+        Me.PositionsFilter.Checked = True
+        Me.PositionsFilter.CheckedState.Parent = Me.PositionsFilter
+        Me.PositionsFilter.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PositionsFilter.FillColor = System.Drawing.Color.White
+        Me.PositionsFilter.Font = New System.Drawing.Font("Arial", 8.25!)
+        Me.PositionsFilter.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.PositionsFilter.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.PositionsFilter.HoverState.Parent = Me.PositionsFilter
+        Me.PositionsFilter.Location = New System.Drawing.Point(0, 0)
+        Me.PositionsFilter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PositionsFilter.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.PositionsFilter.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.PositionsFilter.Name = "PositionsFilter"
+        Me.PositionsFilter.ShadowDecoration.Parent = Me.PositionsFilter
+        Me.PositionsFilter.Size = New System.Drawing.Size(829, 38)
+        Me.PositionsFilter.TabIndex = 18
+        Me.PositionsFilter.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
         'AdminDashboardForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.ClientSize = New System.Drawing.Size(1786, 1048)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "AdminDashboardForm"
         Me.Text = "AdminDashboardForm"
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -572,6 +631,7 @@ Partial Class AdminDashboardForm
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -607,8 +667,10 @@ Partial Class AdminDashboardForm
     Friend WithEvents WelcomeMessageLabel As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
     Friend WithEvents SupplierStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents SalesChart As DataVisualization.Charting.Chart
     Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
+    Friend WithEvents PositionsFilter As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class

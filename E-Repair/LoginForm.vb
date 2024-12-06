@@ -30,10 +30,11 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
-
         Cursor = Cursors.WaitCursor
         UpdateConnectionString()
         Cursor = Cursors.Default
+
+        isConnected = isConnectedToLocalServer()
 
         If Not isConnected Then
             MsgBox("Not Connected")

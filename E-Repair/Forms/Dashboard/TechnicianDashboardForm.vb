@@ -19,6 +19,7 @@ Public Class TechnicianDashboardForm
         loadServStatsChart()
         loadInvUsedChart()
         loadDeviceTypeChart()
+        loadTimer()
     End Sub
     Private Sub loadData()
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)

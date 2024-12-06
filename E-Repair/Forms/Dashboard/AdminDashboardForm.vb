@@ -53,7 +53,7 @@ Public Class AdminDashboardForm
 
         Cursor = Cursors.WaitCursor
 
-        empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr}, empConst.empTableStr, empConst.empArchStr, 0)
+        empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr, empConst.empAddDateStr}, empConst.empTableStr, empConst.empArchStr, 0)
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
 
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
@@ -84,10 +84,12 @@ Public Class AdminDashboardForm
 
         Dim series As New Series()
 
+        empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, "MM/dd/yyyy")
+
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Bar
-            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}'").Length)
+            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {empConst.empAddDateStr} = '{PositionsFilter.Value().ToString("MM/dd/yyyy")}'").Length)
             .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
             .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
             .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
@@ -96,7 +98,6 @@ Public Class AdminDashboardForm
         With PositionsChart
             .Series.Clear()
             .Series.Add(series)
-            .Titles.Add("Positions Counts")
         End With
 
     End Sub
@@ -115,7 +116,10 @@ Public Class AdminDashboardForm
         With InventoryGraph
             .Series.Clear()
             .Series.Add(qtySeries)
-            .Titles.Add("Inventory Availability")
+            If finishedLoad Then
+                .Titles.Add("Inventory Availability")
+            End If
+
         End With
 
     End Sub
@@ -173,6 +177,8 @@ Public Class AdminDashboardForm
         Dim series As New Series("Value")
         series.ChartType = SeriesChartType.Column
 
+        Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
+
         series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
         series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
         series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
@@ -181,6 +187,9 @@ Public Class AdminDashboardForm
 
         SalesChart.Series.Add(series)
         SalesChart.Titles.Add("Service Status")
+
+    End Sub
+    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -230,5 +239,11 @@ Public Class AdminDashboardForm
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
+    Private Sub PositionsChart_Click(sender As Object, e As EventArgs) Handles PositionsChart.Click
 
+    End Sub
+
+    Private Sub PositionsFilter_ValueChanged(sender As Object, e As EventArgs) Handles PositionsFilter.ValueChanged
+        If finishedLoad Then loadPositionChart()
+    End Sub
 End Class

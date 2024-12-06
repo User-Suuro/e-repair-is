@@ -100,18 +100,20 @@ Partial Class InvetoryAddEditModal
         Me.Guna2GroupBox1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(704, 458)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(1056, 705)
         Me.Guna2GroupBox1.TabIndex = 1
         Me.Guna2GroupBox1.Text = "Add Inventory"
         '
         'Guna2Separator3
         '
         Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 398)
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 612)
+        Me.Guna2Separator3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Separator3.Name = "Guna2Separator3"
-        Me.Guna2Separator3.Size = New System.Drawing.Size(704, 13)
+        Me.Guna2Separator3.Size = New System.Drawing.Size(1056, 20)
         Me.Guna2Separator3.TabIndex = 37
         '
         'BtnSave
@@ -123,10 +125,11 @@ Partial Class InvetoryAddEditModal
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(580, 417)
+        Me.BtnSave.Location = New System.Drawing.Point(870, 642)
+        Me.BtnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSave.Size = New System.Drawing.Size(160, 49)
         Me.BtnSave.TabIndex = 36
         Me.BtnSave.Text = "Save"
         '
@@ -139,10 +142,11 @@ Partial Class InvetoryAddEditModal
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(12, 417)
+        Me.BtnClose.Location = New System.Drawing.Point(18, 642)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.Size = New System.Drawing.Size(160, 49)
         Me.BtnClose.TabIndex = 35
         Me.BtnClose.Text = "Cancel"
         '
@@ -150,11 +154,12 @@ Partial Class InvetoryAddEditModal
         '
         Me.Guna2Panel7.BorderRadius = 4
         Me.Guna2Panel7.Controls.Add(Me.ItemDetailsTableLayout)
-        Me.Guna2Panel7.Location = New System.Drawing.Point(12, 321)
+        Me.Guna2Panel7.Location = New System.Drawing.Point(18, 494)
+        Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
-        Me.Guna2Panel7.Size = New System.Drawing.Size(675, 61)
+        Me.Guna2Panel7.Size = New System.Drawing.Size(1012, 94)
         Me.Guna2Panel7.TabIndex = 34
         '
         'ItemDetailsTableLayout
@@ -163,7 +168,7 @@ Partial Class InvetoryAddEditModal
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.ItemDetailsTableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.ItemDetailsTableLayout.Controls.Add(Me.QuantityUsage, 1, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.TotalValueTxtBox, 2, 1)
         Me.ItemDetailsTableLayout.Controls.Add(Me.CostPerItemTxtBox, 0, 1)
@@ -171,12 +176,13 @@ Partial Class InvetoryAddEditModal
         Me.ItemDetailsTableLayout.Controls.Add(Me.Label9, 1, 0)
         Me.ItemDetailsTableLayout.Controls.Add(Me.Guna2Panel8, 0, 0)
         Me.ItemDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ItemDetailsTableLayout.Location = New System.Drawing.Point(4, 4)
+        Me.ItemDetailsTableLayout.Location = New System.Drawing.Point(6, 6)
+        Me.ItemDetailsTableLayout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ItemDetailsTableLayout.Name = "ItemDetailsTableLayout"
         Me.ItemDetailsTableLayout.RowCount = 2
         Me.ItemDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.ItemDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.ItemDetailsTableLayout.Size = New System.Drawing.Size(667, 53)
+        Me.ItemDetailsTableLayout.Size = New System.Drawing.Size(1000, 82)
         Me.ItemDetailsTableLayout.TabIndex = 13
         '
         'QuantityUsage
@@ -195,10 +201,11 @@ Partial Class InvetoryAddEditModal
         Me.QuantityUsage.FocusedState.Parent = Me.QuantityUsage
         Me.QuantityUsage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.QuantityUsage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.QuantityUsage.Location = New System.Drawing.Point(225, 24)
+        Me.QuantityUsage.Location = New System.Drawing.Point(337, 37)
+        Me.QuantityUsage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.QuantityUsage.Name = "QuantityUsage"
         Me.QuantityUsage.ShadowDecoration.Parent = Me.QuantityUsage
-        Me.QuantityUsage.Size = New System.Drawing.Size(216, 26)
+        Me.QuantityUsage.Size = New System.Drawing.Size(325, 40)
         Me.QuantityUsage.TabIndex = 50
         Me.QuantityUsage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.QuantityUsage.UpDownButtonForeColor = System.Drawing.Color.White
@@ -220,14 +227,14 @@ Partial Class InvetoryAddEditModal
         Me.TotalValueTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalValueTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalValueTxtBox.HoverState.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Location = New System.Drawing.Point(446, 24)
-        Me.TotalValueTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.TotalValueTxtBox.Location = New System.Drawing.Point(669, 37)
+        Me.TotalValueTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.TotalValueTxtBox.Name = "TotalValueTxtBox"
         Me.TotalValueTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalValueTxtBox.PlaceholderText = ""
         Me.TotalValueTxtBox.SelectedText = ""
         Me.TotalValueTxtBox.ShadowDecoration.Parent = Me.TotalValueTxtBox
-        Me.TotalValueTxtBox.Size = New System.Drawing.Size(219, 26)
+        Me.TotalValueTxtBox.Size = New System.Drawing.Size(328, 40)
         Me.TotalValueTxtBox.TabIndex = 49
         '
         'CostPerItemTxtBox
@@ -246,14 +253,14 @@ Partial Class InvetoryAddEditModal
         Me.CostPerItemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CostPerItemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostPerItemTxtBox.HoverState.Parent = Me.CostPerItemTxtBox
-        Me.CostPerItemTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.CostPerItemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CostPerItemTxtBox.Location = New System.Drawing.Point(3, 37)
+        Me.CostPerItemTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CostPerItemTxtBox.Name = "CostPerItemTxtBox"
         Me.CostPerItemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostPerItemTxtBox.PlaceholderText = ""
         Me.CostPerItemTxtBox.SelectedText = ""
         Me.CostPerItemTxtBox.ShadowDecoration.Parent = Me.CostPerItemTxtBox
-        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(218, 26)
+        Me.CostPerItemTxtBox.Size = New System.Drawing.Size(327, 40)
         Me.CostPerItemTxtBox.TabIndex = 48
         '
         'Label11
@@ -262,9 +269,10 @@ Partial Class InvetoryAddEditModal
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(447, 0)
+        Me.Label11.Location = New System.Drawing.Point(670, 0)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(75, 21)
+        Me.Label11.Size = New System.Drawing.Size(111, 32)
         Me.Label11.TabIndex = 46
         Me.Label11.Text = "Total Value"
         '
@@ -274,9 +282,10 @@ Partial Class InvetoryAddEditModal
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(225, 0)
+        Me.Label9.Location = New System.Drawing.Point(337, 0)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 21)
+        Me.Label9.Size = New System.Drawing.Size(84, 32)
         Me.Label9.TabIndex = 44
         Me.Label9.Text = "Quantity"
         '
@@ -288,7 +297,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel8.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel8.Name = "Guna2Panel8"
         Me.Guna2Panel8.ShadowDecoration.Parent = Me.Guna2Panel8
-        Me.Guna2Panel8.Size = New System.Drawing.Size(222, 21)
+        Me.Guna2Panel8.Size = New System.Drawing.Size(333, 32)
         Me.Guna2Panel8.TabIndex = 43
         '
         'Label14
@@ -298,8 +307,9 @@ Partial Class InvetoryAddEditModal
         Me.Label14.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(0, 0)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(90, 20)
+        Me.Label14.Size = New System.Drawing.Size(130, 29)
         Me.Label14.TabIndex = 45
         Me.Label14.Text = "Cost Per Item"
         '
@@ -307,11 +317,12 @@ Partial Class InvetoryAddEditModal
         '
         Me.Guna2Panel6.BorderRadius = 4
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel3)
-        Me.Guna2Panel6.Location = New System.Drawing.Point(12, 254)
+        Me.Guna2Panel6.Location = New System.Drawing.Point(18, 391)
+        Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(675, 61)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(1012, 94)
         Me.Guna2Panel6.TabIndex = 33
         '
         'TableLayoutPanel3
@@ -324,12 +335,13 @@ Partial Class InvetoryAddEditModal
         Me.TableLayoutPanel3.Controls.Add(Me.Guna2Panel3, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.SerialNumberTxtBox, 0, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(6, 6)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(667, 53)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1000, 82)
         Me.TableLayoutPanel3.TabIndex = 13
         '
         'PhysicalLocationTxtBox
@@ -348,14 +360,14 @@ Partial Class InvetoryAddEditModal
         Me.PhysicalLocationTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PhysicalLocationTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PhysicalLocationTxtBox.HoverState.Parent = Me.PhysicalLocationTxtBox
-        Me.PhysicalLocationTxtBox.Location = New System.Drawing.Point(335, 24)
-        Me.PhysicalLocationTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.PhysicalLocationTxtBox.Location = New System.Drawing.Point(503, 37)
+        Me.PhysicalLocationTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.PhysicalLocationTxtBox.Name = "PhysicalLocationTxtBox"
         Me.PhysicalLocationTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PhysicalLocationTxtBox.PlaceholderText = ""
         Me.PhysicalLocationTxtBox.SelectedText = ""
         Me.PhysicalLocationTxtBox.ShadowDecoration.Parent = Me.PhysicalLocationTxtBox
-        Me.PhysicalLocationTxtBox.Size = New System.Drawing.Size(330, 26)
+        Me.PhysicalLocationTxtBox.Size = New System.Drawing.Size(494, 40)
         Me.PhysicalLocationTxtBox.TabIndex = 45
         '
         'Guna2Panel9
@@ -363,11 +375,11 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel9.Controls.Add(Me.Label12)
         Me.Guna2Panel9.Controls.Add(Me.Label13)
         Me.Guna2Panel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel9.Location = New System.Drawing.Point(333, 0)
+        Me.Guna2Panel9.Location = New System.Drawing.Point(500, 0)
         Me.Guna2Panel9.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel9.Name = "Guna2Panel9"
         Me.Guna2Panel9.ShadowDecoration.Parent = Me.Guna2Panel9
-        Me.Guna2Panel9.Size = New System.Drawing.Size(334, 21)
+        Me.Guna2Panel9.Size = New System.Drawing.Size(500, 32)
         Me.Guna2Panel9.TabIndex = 44
         '
         'Label12
@@ -376,9 +388,10 @@ Partial Class InvetoryAddEditModal
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label12.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label12.Location = New System.Drawing.Point(285, 0)
+        Me.Label12.Location = New System.Drawing.Point(428, 0)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(49, 15)
+        Me.Label12.Size = New System.Drawing.Size(72, 22)
         Me.Label12.TabIndex = 17
         Me.Label12.Text = "*optional"
         '
@@ -389,8 +402,9 @@ Partial Class InvetoryAddEditModal
         Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label13.Location = New System.Drawing.Point(0, 0)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(113, 20)
+        Me.Label13.Size = New System.Drawing.Size(164, 29)
         Me.Label13.TabIndex = 16
         Me.Label13.Text = "Physical Location"
         '
@@ -403,7 +417,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
-        Me.Guna2Panel3.Size = New System.Drawing.Size(333, 21)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(500, 32)
         Me.Guna2Panel3.TabIndex = 43
         '
         'Label5
@@ -412,9 +426,10 @@ Partial Class InvetoryAddEditModal
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label5.Location = New System.Drawing.Point(284, 0)
+        Me.Label5.Location = New System.Drawing.Point(428, 0)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 15)
+        Me.Label5.Size = New System.Drawing.Size(72, 22)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "*optional"
         '
@@ -425,8 +440,9 @@ Partial Class InvetoryAddEditModal
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 20)
+        Me.Label3.Size = New System.Drawing.Size(138, 29)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Serial Number"
         '
@@ -446,25 +462,26 @@ Partial Class InvetoryAddEditModal
         Me.SerialNumberTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SerialNumberTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SerialNumberTxtBox.HoverState.Parent = Me.SerialNumberTxtBox
-        Me.SerialNumberTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.SerialNumberTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.SerialNumberTxtBox.Location = New System.Drawing.Point(3, 37)
+        Me.SerialNumberTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.SerialNumberTxtBox.Name = "SerialNumberTxtBox"
         Me.SerialNumberTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SerialNumberTxtBox.PlaceholderText = ""
         Me.SerialNumberTxtBox.SelectedText = ""
         Me.SerialNumberTxtBox.ShadowDecoration.Parent = Me.SerialNumberTxtBox
-        Me.SerialNumberTxtBox.Size = New System.Drawing.Size(329, 26)
+        Me.SerialNumberTxtBox.Size = New System.Drawing.Size(494, 40)
         Me.SerialNumberTxtBox.TabIndex = 21
         '
         'Guna2Panel4
         '
         Me.Guna2Panel4.BorderRadius = 4
         Me.Guna2Panel4.Controls.Add(Me.TableLayoutPanel4)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(12, 53)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(18, 82)
+        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
-        Me.Guna2Panel4.Size = New System.Drawing.Size(675, 61)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(1012, 94)
         Me.Guna2Panel4.TabIndex = 32
         '
         'TableLayoutPanel4
@@ -483,12 +500,13 @@ Partial Class InvetoryAddEditModal
         Me.TableLayoutPanel4.Controls.Add(Me.SupplierIDTxtBox, 0, 1)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(6, 6)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(667, 53)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1000, 82)
         Me.TableLayoutPanel4.TabIndex = 7
         '
         'SelectSupplierBtn
@@ -500,11 +518,11 @@ Partial Class InvetoryAddEditModal
         Me.SelectSupplierBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectSupplierBtn.ForeColor = System.Drawing.Color.White
         Me.SelectSupplierBtn.HoverState.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.Location = New System.Drawing.Point(501, 23)
-        Me.SelectSupplierBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.SelectSupplierBtn.Location = New System.Drawing.Point(754, 35)
+        Me.SelectSupplierBtn.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.SelectSupplierBtn.Name = "SelectSupplierBtn"
         Me.SelectSupplierBtn.ShadowDecoration.Parent = Me.SelectSupplierBtn
-        Me.SelectSupplierBtn.Size = New System.Drawing.Size(163, 28)
+        Me.SelectSupplierBtn.Size = New System.Drawing.Size(242, 43)
         Me.SelectSupplierBtn.TabIndex = 42
         Me.SelectSupplierBtn.Text = "Select Supplier"
         '
@@ -514,9 +532,10 @@ Partial Class InvetoryAddEditModal
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(335, 0)
+        Me.Label7.Location = New System.Drawing.Point(504, 0)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(99, 21)
+        Me.Label7.Size = New System.Drawing.Size(140, 32)
         Me.Label7.TabIndex = 40
         Me.Label7.Text = "Items Supplied"
         '
@@ -524,11 +543,11 @@ Partial Class InvetoryAddEditModal
         '
         Me.Guna2Panel5.Controls.Add(Me.Label8)
         Me.Guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel5.Location = New System.Drawing.Point(166, 0)
+        Me.Guna2Panel5.Location = New System.Drawing.Point(250, 0)
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel5.Name = "Guna2Panel5"
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(166, 21)
+        Me.Guna2Panel5.Size = New System.Drawing.Size(250, 32)
         Me.Guna2Panel5.TabIndex = 39
         '
         'Label8
@@ -538,8 +557,9 @@ Partial Class InvetoryAddEditModal
         Me.Label8.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(105, 20)
+        Me.Label8.Size = New System.Drawing.Size(153, 29)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Company Name"
         '
@@ -560,14 +580,14 @@ Partial Class InvetoryAddEditModal
         Me.ItemsSuppliedTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemsSuppliedTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ItemsSuppliedTxtBox.HoverState.Parent = Me.ItemsSuppliedTxtBox
-        Me.ItemsSuppliedTxtBox.Location = New System.Drawing.Point(334, 24)
-        Me.ItemsSuppliedTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ItemsSuppliedTxtBox.Location = New System.Drawing.Point(503, 37)
+        Me.ItemsSuppliedTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ItemsSuppliedTxtBox.Name = "ItemsSuppliedTxtBox"
         Me.ItemsSuppliedTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemsSuppliedTxtBox.PlaceholderText = ""
         Me.ItemsSuppliedTxtBox.SelectedText = ""
         Me.ItemsSuppliedTxtBox.ShadowDecoration.Parent = Me.ItemsSuppliedTxtBox
-        Me.ItemsSuppliedTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.ItemsSuppliedTxtBox.Size = New System.Drawing.Size(244, 38)
         Me.ItemsSuppliedTxtBox.TabIndex = 20
         '
         'CompanyNameTxtBox
@@ -587,14 +607,14 @@ Partial Class InvetoryAddEditModal
         Me.CompanyNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CompanyNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTxtBox.HoverState.Parent = Me.CompanyNameTxtBox
-        Me.CompanyNameTxtBox.Location = New System.Drawing.Point(168, 24)
-        Me.CompanyNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CompanyNameTxtBox.Location = New System.Drawing.Point(253, 37)
+        Me.CompanyNameTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CompanyNameTxtBox.Name = "CompanyNameTxtBox"
         Me.CompanyNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTxtBox.PlaceholderText = ""
         Me.CompanyNameTxtBox.SelectedText = ""
         Me.CompanyNameTxtBox.ShadowDecoration.Parent = Me.CompanyNameTxtBox
-        Me.CompanyNameTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.CompanyNameTxtBox.Size = New System.Drawing.Size(244, 38)
         Me.CompanyNameTxtBox.TabIndex = 19
         '
         'Label10
@@ -602,9 +622,10 @@ Partial Class InvetoryAddEditModal
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(3, 0)
+        Me.Label10.Location = New System.Drawing.Point(4, 0)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 20)
+        Me.Label10.Size = New System.Drawing.Size(108, 29)
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Supplier ID"
         '
@@ -625,42 +646,44 @@ Partial Class InvetoryAddEditModal
         Me.SupplierIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupplierIDTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupplierIDTxtBox.HoverState.Parent = Me.SupplierIDTxtBox
-        Me.SupplierIDTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.SupplierIDTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.SupplierIDTxtBox.Location = New System.Drawing.Point(3, 37)
+        Me.SupplierIDTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.SupplierIDTxtBox.Name = "SupplierIDTxtBox"
         Me.SupplierIDTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SupplierIDTxtBox.PlaceholderText = ""
         Me.SupplierIDTxtBox.SelectedText = ""
         Me.SupplierIDTxtBox.ShadowDecoration.Parent = Me.SupplierIDTxtBox
-        Me.SupplierIDTxtBox.Size = New System.Drawing.Size(162, 25)
+        Me.SupplierIDTxtBox.Size = New System.Drawing.Size(244, 38)
         Me.SupplierIDTxtBox.TabIndex = 18
         '
         'Guna2Panel2
         '
         Me.Guna2Panel2.BorderRadius = 4
         Me.Guna2Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(12, 187)
+        Me.Guna2Panel2.Location = New System.Drawing.Point(18, 288)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(675, 61)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(1012, 94)
         Me.Guna2Panel2.TabIndex = 32
         '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.ItemDescriptionTxtBox, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(6, 6)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(667, 53)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1000, 82)
         Me.TableLayoutPanel2.TabIndex = 13
         '
         'ItemDescriptionTxtBox
@@ -679,14 +702,14 @@ Partial Class InvetoryAddEditModal
         Me.ItemDescriptionTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemDescriptionTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ItemDescriptionTxtBox.HoverState.Parent = Me.ItemDescriptionTxtBox
-        Me.ItemDescriptionTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.ItemDescriptionTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ItemDescriptionTxtBox.Location = New System.Drawing.Point(3, 37)
+        Me.ItemDescriptionTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ItemDescriptionTxtBox.Name = "ItemDescriptionTxtBox"
         Me.ItemDescriptionTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemDescriptionTxtBox.PlaceholderText = ""
         Me.ItemDescriptionTxtBox.SelectedText = ""
         Me.ItemDescriptionTxtBox.ShadowDecoration.Parent = Me.ItemDescriptionTxtBox
-        Me.ItemDescriptionTxtBox.Size = New System.Drawing.Size(663, 26)
+        Me.ItemDescriptionTxtBox.Size = New System.Drawing.Size(994, 40)
         Me.ItemDescriptionTxtBox.TabIndex = 21
         '
         'Label4
@@ -694,9 +717,10 @@ Partial Class InvetoryAddEditModal
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Location = New System.Drawing.Point(4, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(105, 20)
+        Me.Label4.Size = New System.Drawing.Size(152, 29)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Item Description"
         '
@@ -704,11 +728,12 @@ Partial Class InvetoryAddEditModal
         '
         Me.Guna2Panel1.BorderRadius = 4
         Me.Guna2Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(12, 120)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(18, 185)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(675, 61)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1012, 94)
         Me.Guna2Panel1.TabIndex = 31
         '
         'TableLayoutPanel1
@@ -725,12 +750,13 @@ Partial Class InvetoryAddEditModal
         Me.TableLayoutPanel1.Controls.Add(Me.ItemNameTxtBox, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(6, 6)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(667, 53)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1000, 82)
         Me.TableLayoutPanel1.TabIndex = 7
         '
         'HazardousCmb
@@ -748,10 +774,11 @@ Partial Class InvetoryAddEditModal
         Me.HazardousCmb.HoverState.Parent = Me.HazardousCmb
         Me.HazardousCmb.ItemHeight = 20
         Me.HazardousCmb.ItemsAppearance.Parent = Me.HazardousCmb
-        Me.HazardousCmb.Location = New System.Drawing.Point(447, 24)
+        Me.HazardousCmb.Location = New System.Drawing.Point(670, 37)
+        Me.HazardousCmb.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.HazardousCmb.Name = "HazardousCmb"
         Me.HazardousCmb.ShadowDecoration.Parent = Me.HazardousCmb
-        Me.HazardousCmb.Size = New System.Drawing.Size(217, 26)
+        Me.HazardousCmb.Size = New System.Drawing.Size(326, 26)
         Me.HazardousCmb.TabIndex = 43
         '
         'Label6
@@ -759,9 +786,10 @@ Partial Class InvetoryAddEditModal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(447, 0)
+        Me.Label6.Location = New System.Drawing.Point(670, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(154, 20)
+        Me.Label6.Size = New System.Drawing.Size(229, 29)
         Me.Label6.TabIndex = 42
         Me.Label6.Text = "Hazardous Classification"
         '
@@ -770,9 +798,10 @@ Partial Class InvetoryAddEditModal
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(225, 0)
+        Me.Label2.Location = New System.Drawing.Point(337, 0)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 20)
+        Me.Label2.Size = New System.Drawing.Size(133, 29)
         Me.Label2.TabIndex = 41
         Me.Label2.Text = "Item Category"
         '
@@ -791,10 +820,11 @@ Partial Class InvetoryAddEditModal
         Me.ItemCategoryCmb.HoverState.Parent = Me.ItemCategoryCmb
         Me.ItemCategoryCmb.ItemHeight = 20
         Me.ItemCategoryCmb.ItemsAppearance.Parent = Me.ItemCategoryCmb
-        Me.ItemCategoryCmb.Location = New System.Drawing.Point(225, 24)
+        Me.ItemCategoryCmb.Location = New System.Drawing.Point(337, 37)
+        Me.ItemCategoryCmb.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ItemCategoryCmb.Name = "ItemCategoryCmb"
         Me.ItemCategoryCmb.ShadowDecoration.Parent = Me.ItemCategoryCmb
-        Me.ItemCategoryCmb.Size = New System.Drawing.Size(216, 26)
+        Me.ItemCategoryCmb.Size = New System.Drawing.Size(325, 26)
         Me.ItemCategoryCmb.TabIndex = 40
         '
         'Label1
@@ -802,9 +832,10 @@ Partial Class InvetoryAddEditModal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Location = New System.Drawing.Point(4, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(73, 20)
+        Me.Label1.Size = New System.Drawing.Size(106, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Item Name"
         '
@@ -824,23 +855,24 @@ Partial Class InvetoryAddEditModal
         Me.ItemNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ItemNameTxtBox.HoverState.Parent = Me.ItemNameTxtBox
-        Me.ItemNameTxtBox.Location = New System.Drawing.Point(2, 24)
-        Me.ItemNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.ItemNameTxtBox.Location = New System.Drawing.Point(3, 37)
+        Me.ItemNameTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ItemNameTxtBox.Name = "ItemNameTxtBox"
         Me.ItemNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ItemNameTxtBox.PlaceholderText = ""
         Me.ItemNameTxtBox.SelectedText = ""
         Me.ItemNameTxtBox.ShadowDecoration.Parent = Me.ItemNameTxtBox
-        Me.ItemNameTxtBox.Size = New System.Drawing.Size(218, 25)
+        Me.ItemNameTxtBox.Size = New System.Drawing.Size(327, 38)
         Me.ItemNameTxtBox.TabIndex = 18
         '
         'InvetoryAddEditModal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 458)
+        Me.ClientSize = New System.Drawing.Size(1056, 705)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "InvetoryAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InvetoryAddEditModal"
