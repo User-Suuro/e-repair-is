@@ -94,11 +94,13 @@ Public Class LoginForm
     End Sub
 
     Private Sub initSuperPanel()
+
         If isConnected Then
             If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
                 CreateSuperAdminPanel.Visible = True
             End If
         End If
+
     End Sub
 
     Private Sub InitializeVLC()

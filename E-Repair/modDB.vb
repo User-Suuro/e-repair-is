@@ -95,65 +95,6 @@ Module modDB
         End Try
     End Sub
 
-    ' Read query to db
-
-    Public Sub readQuery(ByVal sql As String, Optional ByVal isSelectQuery As Boolean = True)
-        Try
-
-            openConn(db_name)
-
-            With cmd
-                .Connection = conn
-                .CommandText = sql
-                If isSelectQuery Then
-                    cmdRead = .ExecuteReader()  ' SELECT
-                Else
-                    .ExecuteNonQuery() ' UPDATE, INSERT, DELETE
-                End If
-            End With
-
-        Catch ex As Exception
-            MsgBox("Unable to read query: " & ex.Message, MsgBoxStyle.Critical)
-        Finally
-            cmd.Parameters.Clear()
-        End Try
-    End Sub
-
-    ' Function to Load Data to DGV
-
-    Function LoadToDGV(ByVal query As String, ByVal dgv As DataGridView) As Integer
-        Try
-            readQuery(query)
-            Dim dt As DataTable = New DataTable
-            dt.Load(cmdRead)
-            dgv.DataSource = dt
-            dgv.Refresh()
-            Return dgv.Rows.Count
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical)
-        End Try
-        Return 0
-    End Function
-
-    ' Function to Load and Display data to dgv
-
-    Function LoadToDGVForDisplay(ByVal query As String, ByVal dgv As DataGridView) As Integer
-        Try
-            readQuery(query)
-            Dim dt As DataTable = New DataTable
-            dt.Load(cmdRead)
-            dgv.DataSource = dt
-            dgv.Refresh()
-            If dgv.ColumnCount > 1 Then
-                dgv.Columns(0).Visible = False
-            End If
-            Return dgv.Rows.Count
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical)
-        End Try
-        Return 0
-    End Function
-
     ' Function to EncryptPassword
 
     Public Function EncryptPassword(clearText As String, key As String) As String
@@ -194,6 +135,10 @@ Module modDB
             End Using
         End Using
         Return cipherText
+    End Function
+
+    Public Function getDbName() As String
+        Return db_name
     End Function
 
 End Module

@@ -6,7 +6,66 @@ Public Class DbHelper
     Public cmd As New MySqlCommand
     Public cmdRead As MySqlDataReader
 
-    ' Logs Function (originally from modDB)
+    ' Originally from modDB, readQuery must be the same variables as cmd and cmdRead that also uses these variables
+
+    ' Read query to db
+
+    Public Sub readQuery(ByVal sql As String, Optional ByVal isSelectQuery As Boolean = True)
+        Try
+
+            openConn(getDbName)
+
+            With cmd
+                .Connection = conn
+                .CommandText = sql
+                If isSelectQuery Then
+                    cmdRead = .ExecuteReader()  ' SELECT / READ
+                Else
+                    .ExecuteNonQuery() ' UPDATE, INSERT, DELETE
+                End If
+            End With
+
+        Catch ex As Exception
+            MsgBox("Unable to read query: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            cmd.Parameters.Clear()
+        End Try
+    End Sub
+
+    ' Function to Load Data to DGV
+
+    Function LoadToDGV(ByVal query As String, ByVal dgv As DataGridView) As Integer
+        Try
+            readQuery(query)
+            Dim dt As DataTable = New DataTable
+            dt.Load(cmdRead)
+            dgv.DataSource = dt
+            dgv.Refresh()
+            Return dgv.Rows.Count
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        Return 0
+    End Function
+
+    ' Function to Load and Display data to dgv
+
+    Function LoadToDGVForDisplay(ByVal query As String, ByVal dgv As DataGridView) As Integer
+        Try
+            readQuery(query)
+            Dim dt As DataTable = New DataTable
+            dt.Load(cmdRead)
+            dgv.DataSource = dt
+            dgv.Refresh()
+            If dgv.ColumnCount > 1 Then
+                dgv.Columns(0).Visible = False
+            End If
+            Return dgv.Rows.Count
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        Return 0
+    End Function
 
     Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
