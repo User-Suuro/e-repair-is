@@ -23,9 +23,8 @@ Public Class AdminDashboardForm
     Dim invDT As New DataTable
     Dim itemDT As New DataTable
 
-
-
-    Private finishedLoad
+    Private finishedLoad As Boolean
+    Private dateFormat As String = constants.getDateFormat
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -56,13 +55,22 @@ Public Class AdminDashboardForm
         Cursor = Cursors.WaitCursor
 
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr, empConst.empAddDateStr}, empConst.empTableStr, empConst.empArchStr, 0)
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost}, servConst.svcTableStr, servConst.archivedStr, 0)
+        empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, constants.getDateFormat)
 
-        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr}, custConst.custTableStr, custConst.custArchStr, 0)
-        suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr, supConst.supTypeStr}, supConst.supTableStr, supConst.archivedStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.dateAddedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
 
-        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr}, itemConst.TableName)
+        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.custDateAddedStr}, custConst.custTableStr, custConst.custArchStr, 0)
+        custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
+
+        suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr, supConst.supTypeStr, supConst.dateAddedStr}, supConst.supTableStr, supConst.archivedStr, 0)
+        suppDT = formUtils.FormatSingleDateColumn(suppDT, supConst.dateAddedStr, constants.getDateFormat)
+
+        invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr, invConst.dateAddedStr}, invConst.invTableStr, invConst.archivedStr, 0)
+        invDT = formUtils.FormatSingleDateColumn(invDT, invConst.dateAddedStr, constants.getDateFormat)
+
+        itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr, itemConst.dateUsedCol}, itemConst.TableName)
+        itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
 
         Cursor = Cursors.Default
 
@@ -85,22 +93,14 @@ Public Class AdminDashboardForm
     Private Sub loadPositionChart()
         Dim series As New Series()
 
-        empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, "MM/dd/yyyy")
-
-        With empDT.Rows(0)
-            PositionsFilter.Value = .Item(empConst.empAddDateStr)
-        End With
-
-        Dim filterVal = $"{empConst.empAddDateStr} = '{PositionsFilter.Value().ToString("MM/dd/yyyy")}'"
-
-        With series
-            .IsVisibleInLegend = False
-            .ChartType = SeriesChartType.Bar
-            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {filterVal}").Length)
-            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' AND {filterVal}").Length)
-            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' AND {filterVal}").Length)
-            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' AND {filterVal}").Length)
-        End With
+        'With series
+        '    .IsVisibleInLegend = False
+        '    .ChartType = SeriesChartType.Bar
+        '    .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {filterVal}").Length)
+        '    .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' AND {filterVal}").Length)
+        '    .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' AND {filterVal}").Length)
+        '    .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' AND {filterVal}").Length)
+        'End With
 
         With PositionsChart
             .Series.Clear()
@@ -251,11 +251,11 @@ Public Class AdminDashboardForm
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
-    Private Sub PositionsChart_Click(sender As Object, e As EventArgs) Handles PositionsChart.Click
+    Private Sub PositionsChart_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub PositionsFilter_ValueChanged(sender As Object, e As EventArgs) Handles PositionsFilter.ValueChanged
+    Private Sub PositionsFilter_ValueChanged(sender As Object, e As EventArgs)
         If finishedLoad Then loadPositionChart()
     End Sub
 End Class

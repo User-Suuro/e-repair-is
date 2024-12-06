@@ -453,7 +453,7 @@
                       { .empLastStr, lastName},
                       { .empEmailStr, email},
                       { .empJobPosStr, jobType},
-                      { .empPassStr, dbHelper.EncryptPassword(pwd, constants.EncryptionKey)},
+                      { .empPassStr, EncryptPassword(pwd, constants.EncryptionKey)},
                       { .empSexStr, sex},
                       { .empBirthStr, birthdate},
                       { .empCivilStr, civilStatus},

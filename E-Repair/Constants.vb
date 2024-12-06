@@ -28,6 +28,16 @@
     Private ReadOnly _employeesProfileFolderName = "Employee Profiles"
     Private ReadOnly _suppliersProfileFolderName = "Supplier Profiles"
     Private ReadOnly _devicePicturesFolderName = "Device Pictures"
+
+    ' Date format
+    Private ReadOnly _dateFormat = "MM/dd/yyyy"
+
+    Public ReadOnly Property getDateFormat As String
+        Get
+            Return _dateFormat
+        End Get
+    End Property
+
     Public ReadOnly Property getClaimedString As String
         Get
             Return _claimedString

@@ -92,7 +92,7 @@ Public Class EmployeeAddEditModal
             profileImgPath = .Item(empConst.empProfileStr)
             EmailTextBox.Text = .Item(empConst.empEmailStr)
 
-            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
+            PasswordTextBox.Text = DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
             ConfirmPasswordTextBox.Text = PasswordTextBox.Text
 
             AssignedLocationTextBox.Text = dbHelper.StrNullCheck(.Item(empConst.empDestStr))
@@ -150,7 +150,7 @@ Public Class EmployeeAddEditModal
                 { .empHiredStr, dateHired},
                 { .empJobPosStr, jobType},
                 { .empEmailStr, email},
-                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)}
+                { .empPassStr, EncryptPassword(password, constants.EncryptionKey)}
             }
 
             If Not createSuperAdminAccMode Then
@@ -192,7 +192,7 @@ Public Class EmployeeAddEditModal
                 { .empLastStr, lastName},
                 { .empEmailStr, email},
                 { .empJobPosStr, jobType},
-                { .empPassStr, dbUtils.EncryptPassword(password, constants.EncryptionKey)},
+                { .empPassStr, EncryptPassword(password, constants.EncryptionKey)},
                 { .empSexStr, sex},
                 { .empBirthStr, birthdate},
                 { .empCivilStr, civilStatus},

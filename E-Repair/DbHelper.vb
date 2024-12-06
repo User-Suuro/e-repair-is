@@ -1,130 +1,12 @@
-﻿Imports System.IO
-Imports System.Security.Cryptography
-Imports System.Text
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Public Class DbHelper
-
     Public conn As New MySqlConnection
     Public cmd As New MySqlCommand
     Public cmdRead As MySqlDataReader
 
-    Dim constants As New Constants
-
-    ' Open connection to db
-
-    Public Sub openConn(ByVal db_name As String)
-        Try
-            If conn.State = ConnectionState.Open Then conn.Close()
-
-            With conn
-                If .State = ConnectionState.Open Then .Close()
-                .ConnectionString = getStrCon()
-                .Open()
-            End With
-        Catch EX As Exception
-            MsgBox("Error opening connection: " & EX.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
-
-    ' Read query to db
-    Public Sub readQuery(ByVal sql As String, Optional ByVal isSelectQuery As Boolean = True)
-        Try
-
-            openConn(getCurrentDbName)
-
-            With cmd
-                .Connection = conn
-                .CommandText = sql
-                If isSelectQuery Then
-                    cmdRead = .ExecuteReader()  ' SELECT
-                Else
-                    .ExecuteNonQuery() ' UPDATE, INSERT, DELETE
-                End If
-            End With
-
-        Catch EX As Exception
-            MsgBox("Unable to read query: " & EX.Message, MsgBoxStyle.Critical)
-        Finally
-            cmd.Parameters.Clear()
-        End Try
-    End Sub
-
-    ' Function to Load Data to DGV
-
-    Function LoadToDGV(ByVal query As String, ByVal dgv As DataGridView) As Integer
-        Try
-            readQuery(query)
-            Dim dt As DataTable = New DataTable
-            dt.Load(cmdRead)
-            dgv.DataSource = dt
-            dgv.Refresh()
-            Return dgv.Rows.Count
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical)
-        End Try
-        Return 0
-    End Function
-
-    ' Function to Load and Display data to dgv
-
-    Function LoadToDGVForDisplay(ByVal query As String, ByVal dgv As DataGridView) As Integer
-        Try
-            readQuery(query)
-            Dim dt As DataTable = New DataTable
-            dt.Load(cmdRead)
-            dgv.DataSource = dt
-            dgv.Refresh()
-            If dgv.ColumnCount > 1 Then
-                dgv.Columns(0).Visible = False
-            End If
-            Return dgv.Rows.Count
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical)
-        End Try
-        Return 0
-    End Function
-
-    ' Function to EncryptPassword
-    Public Function EncryptPassword(clearText As String, key As String) As String
-        Dim clearBytes As Byte() = Encoding.Unicode.GetBytes(clearText)
-        Using encryptor As Aes = Aes.Create()
-            Dim pdb As New Rfc2898DeriveBytes(constants.EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
-             &H65, &H64, &H76, &H65, &H64, &H65,
-             &H76})
-            encryptor.Key = pdb.GetBytes(32)
-            encryptor.IV = pdb.GetBytes(16)
-            Using ms As New MemoryStream()
-                Using cs As New CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write)
-                    cs.Write(clearBytes, 0, clearBytes.Length)
-                    cs.Close()
-                End Using
-                clearText = Convert.ToBase64String(ms.ToArray())
-            End Using
-        End Using
-        Return clearText
-    End Function
-
-    ' Function to DecryptPassword
-    Public Function DecryptPassword(cipherText As String, key As String) As String
-        Dim cipherBytes As Byte() = Convert.FromBase64String(cipherText)
-        Using encryptor As Aes = Aes.Create()
-            Dim pdb As New Rfc2898DeriveBytes(constants.EncryptionKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
-             &H65, &H64, &H76, &H65, &H64, &H65,
-             &H76})
-            encryptor.Key = pdb.GetBytes(32)
-            encryptor.IV = pdb.GetBytes(16)
-            Using ms As New MemoryStream()
-                Using cs As New CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write)
-                    cs.Write(cipherBytes, 0, cipherBytes.Length)
-                    cs.Close()
-                End Using
-                cipherText = Encoding.Unicode.GetString(ms.ToArray())
-            End Using
-        End Using
-        Return cipherText
-    End Function
+    ' Logs Function (originally from modDB)
 
     Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
@@ -274,6 +156,7 @@ Public Class DbHelper
                 resultTable.Load(cmdRead)
                 cmdRead.Close()
             End If
+
         Catch ex As Exception
             MsgBox("Error retrieving rows: " & ex.Message, MsgBoxStyle.Critical)
         Finally

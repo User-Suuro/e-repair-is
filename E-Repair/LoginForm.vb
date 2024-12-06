@@ -62,7 +62,7 @@ Public Class LoginForm
             Exit Sub
         End If
 
-        If Not (empDataRows(empConst.empEmailStr) = LoginEmailTextBox.Text AndAlso dbHelper.DecryptPassword(empDataRows(empConst.empPassStr), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
+        If Not (empDataRows(empConst.empEmailStr) = LoginEmailTextBox.Text AndAlso DecryptPassword(empDataRows(empConst.empPassStr), constant.EncryptionKey) = LoginPasswordTextBox.Text) Then
             MsgBox("Incorrect Email or Passsowrd")
             Exit Sub
         End If

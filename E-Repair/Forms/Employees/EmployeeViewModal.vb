@@ -67,7 +67,7 @@ Public Class EmployeeViewModal
             End If
 
             EmailTextBox.Text = .Item(empConst.empEmailStr)
-            PasswordTextBox.Text = dbHelper.DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
+            PasswordTextBox.Text = DecryptPassword(.Item(empConst.empPassStr), constants.EncryptionKey)
 
             ' ARCHIVE INFO
             ArchiveStatusTextBox.Text = .Item(empConst.empArchStr)
