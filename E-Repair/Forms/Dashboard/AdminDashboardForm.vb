@@ -23,6 +23,8 @@ Public Class AdminDashboardForm
     Dim invDT As New DataTable
     Dim itemDT As New DataTable
 
+
+
     Private finishedLoad
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -81,24 +83,34 @@ Public Class AdminDashboardForm
 
 
     Private Sub loadPositionChart()
-
         Dim series As New Series()
 
         empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, "MM/dd/yyyy")
 
+        With empDT.Rows(0)
+            PositionsFilter.Value = .Item(empConst.empAddDateStr)
+        End With
+
+        Dim filterVal = $"{empConst.empAddDateStr} = '{PositionsFilter.Value().ToString("MM/dd/yyyy")}'"
+
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Bar
-            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {empConst.empAddDateStr} = '{PositionsFilter.Value().ToString("MM/dd/yyyy")}'").Length)
-            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }'").Length)
-            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString }'").Length)
-            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString }'").Length)
+            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {filterVal}").Length)
+            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' AND {filterVal}").Length)
+            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' AND {filterVal}").Length)
+            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' AND {filterVal}").Length)
         End With
 
         With PositionsChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
         End With
+
 
     End Sub
 

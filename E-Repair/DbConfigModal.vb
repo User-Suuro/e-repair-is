@@ -13,7 +13,6 @@ Public Class DBConfigModal
 
     Private Sub DBConfigModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         getDbConfigData()
-        updateStatusConn()
     End Sub
 
     Private Sub getDbConfigData()
