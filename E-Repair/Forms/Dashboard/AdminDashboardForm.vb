@@ -1,5 +1,6 @@
 ﻿
 Imports System.IO
+Imports System.Web.UI.WebControls
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports Microsoft.Reporting
 
@@ -28,7 +29,10 @@ Public Class AdminDashboardForm
 
     Private strStartDate As String
     Private strStopDate As String
-    Private daysList As List(Of Integer)
+
+    Private daysListStart As List(Of Integer)
+    Private daysListStop As List(Of Integer)
+
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -93,25 +97,12 @@ Public Class AdminDashboardForm
 
     Private Sub loadDays()
         If Not finishedLoad Then Exit Sub
-        daysList = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        DayStartCmb.DataSource = daysList
-        DayStopCmb.DataSource = daysList
-    End Sub
 
-    Private Sub loadStatus()
-        EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
-        ServicesNumberLabel.Text = servDT.Rows.Count
-        CustomersNumberLabel.Text = custDT.Rows.Count
-        SuppliersNumberLabel.Text = suppDT.Rows.Count
-        ItemsCountLabel.Text = invDT.Rows.Count
-    End Sub
+        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
 
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-
+        DayStartCmb.DataSource = daysListStart
+        DayStopCmb.DataSource = daysListStop
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
@@ -121,6 +112,25 @@ Public Class AdminDashboardForm
     Private Sub YearCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
         loadDays()
     End Sub
+
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        DayStopCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
+    End Sub
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+
+    End Sub
+
+
+    Private Sub loadStatus()
+        EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
+        ServicesNumberLabel.Text = servDT.Rows.Count
+        CustomersNumberLabel.Text = custDT.Rows.Count
+        SuppliersNumberLabel.Text = suppDT.Rows.Count
+        ItemsCountLabel.Text = invDT.Rows.Count
+    End Sub
+
+
 
 
 
