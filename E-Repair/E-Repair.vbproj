@@ -404,7 +404,6 @@
     <Compile Include="Constants.vb" />
     <Compile Include="DbHelper.vb" />
     <Compile Include="FormUtils.vb" />
-    <Compile Include="LoggedUser.vb" />
     <Compile Include="LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>

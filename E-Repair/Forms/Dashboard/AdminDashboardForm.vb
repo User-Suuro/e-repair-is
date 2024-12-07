@@ -25,6 +25,7 @@ Public Class AdminDashboardForm
 
     Private finishedLoad As Boolean
     Private dateFormat As String = constants.getDateFormat
+    Private strDate As String
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -72,6 +73,15 @@ Public Class AdminDashboardForm
         itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr, itemConst.dateUsedCol}, itemConst.TableName)
         itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
 
+        MonthCmb.DataSource = constants.getMonthList
+        YearCmb.DataSource = constants.getYearList
+
+        MonthCmb.SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
+        YearCmb.SelectedIndex = 0
+
+        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        MsgBox(strDate)
+
         Cursor = Cursors.Default
 
     End Sub
@@ -85,22 +95,22 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub loadWelcome()
-        WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(LoggedUser.Current.id)
-        Label10.Text = LoggedUser.Current.position
+        WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
+        Label10.Text = Current.position
     End Sub
 
 
     Private Sub loadPositionChart()
         Dim series As New Series()
 
-        'With series
-        '    .IsVisibleInLegend = False
-        '    .ChartType = SeriesChartType.Bar
-        '    .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' AND {filterVal}").Length)
-        '    .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' AND {filterVal}").Length)
-        '    .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' AND {filterVal}").Length)
-        '    .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' AND {filterVal}").Length)
-        'End With
+        With series
+            .IsVisibleInLegend = False
+            .ChartType = SeriesChartType.Bar
+            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' ").Length)
+            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' ").Length)
+            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' ").Length)
+            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' ").Length)
+        End With
 
         With PositionsChart
             .Series.Clear()
@@ -201,9 +211,6 @@ Public Class AdminDashboardForm
         SalesChart.Titles.Add("Service Status")
 
     End Sub
-    Private Sub SearchComboBox_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub loadSupplierStatusChart()
 
@@ -226,7 +233,6 @@ Public Class AdminDashboardForm
         End With
 
     End Sub
-
 
     Private Sub loadTimer()
         Timer1.Enabled = True
@@ -257,5 +263,15 @@ Public Class AdminDashboardForm
 
     Private Sub PositionsFilter_ValueChanged(sender As Object, e As EventArgs)
         If finishedLoad Then loadPositionChart()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        MsgBox(strDate)
+    End Sub
+
+    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        MsgBox(strDate)
     End Sub
 End Class

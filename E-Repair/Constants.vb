@@ -30,7 +30,22 @@
     Private ReadOnly _devicePicturesFolderName = "Device Pictures"
 
     ' Date format
-    Private ReadOnly _dateFormat = "MM/dd/yyyy"
+    Private ReadOnly _dateFormat As String = "MM/dd/yyyy"
+    Private ReadOnly _monthsList As New List(Of String) From {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+    Private ReadOnly _yearsList As New List(Of Integer)(Enumerable.Range(DateTime.Now.Year - 5 + 1, 5).Reverse())
+
+    Public ReadOnly Property getYearList As List(Of Integer)
+        Get
+            Return _yearsList
+        End Get
+    End Property
+
+    Public ReadOnly Property getMonthList As List(Of String)
+        Get
+            Return _monthsList
+        End Get
+    End Property
+
 
     Public ReadOnly Property getDateFormat As String
         Get

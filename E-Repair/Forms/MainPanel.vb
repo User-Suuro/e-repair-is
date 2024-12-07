@@ -125,7 +125,7 @@ Public Class MainPanel
     End Sub
 
     Private Sub AdminMainPanel_Close(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-        LoggedUser.ClearSession()
+        ClearSession()
         Dim loginForm As New LoginForm()
         loginForm.Show()
     End Sub

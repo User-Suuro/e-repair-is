@@ -23,18 +23,18 @@ Partial Class AdminDashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea17 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend17 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea18 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend18 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend19 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend20 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -66,26 +66,16 @@ Partial Class AdminDashboardForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.ContractStatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2ComboBox3 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2ComboBox2 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2ComboBox5 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2ComboBox4 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2ComboBox7 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2ComboBox6 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.YearCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.MonthCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -96,18 +86,12 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.SuspendLayout()
         Me.ServicesPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
-        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
-        Me.TableLayoutPanel6.SuspendLayout()
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -154,7 +138,7 @@ Partial Class AdminDashboardForm
         Me.Label9.BackColor = System.Drawing.Color.White
         Me.Label9.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(237, 24)
+        Me.Label9.Location = New System.Drawing.Point(229, 24)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(45, 19)
         Me.Label9.TabIndex = 14
@@ -192,7 +176,7 @@ Partial Class AdminDashboardForm
         Me.Label6.BackColor = System.Drawing.Color.White
         Me.Label6.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(236, 43)
+        Me.Label6.Location = New System.Drawing.Point(228, 43)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(153, 26)
         Me.Label6.TabIndex = 11
@@ -481,368 +465,192 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel2, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel4, 1, 1)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 240)
+        Me.TableLayoutPanel2.Controls.Add(Me.SalesChart, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.SupplierStatusChart, 1, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 271)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 417)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 388)
         Me.TableLayoutPanel2.TabIndex = 7
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.PositionsChart)
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel3)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(2, 2)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(552, 204)
-        Me.Panel1.TabIndex = 4
-        '
-        'PositionsChart
-        '
-        ChartArea1.Name = "ChartArea1"
-        Me.PositionsChart.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.PositionsChart.Legends.Add(Legend1)
-        Me.PositionsChart.Location = New System.Drawing.Point(0, 31)
-        Me.PositionsChart.Name = "PositionsChart"
-        Me.PositionsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.PositionsChart.Series.Add(Series1)
-        Me.PositionsChart.Size = New System.Drawing.Size(552, 173)
-        Me.PositionsChart.TabIndex = 7
-        Me.PositionsChart.Text = "Chart1"
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Guna2ComboBox1, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ContractStatusComboBox, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(555, 31)
-        Me.TableLayoutPanel3.TabIndex = 6
-        '
-        'Guna2ComboBox1
-        '
-        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox1.BorderRadius = 4
-        Me.Guna2ComboBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox1.FocusedState.Parent = Me.Guna2ComboBox1
-        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox1.FormattingEnabled = True
-        Me.Guna2ComboBox1.HoverState.Parent = Me.Guna2ComboBox1
-        Me.Guna2ComboBox1.ItemHeight = 20
-        Me.Guna2ComboBox1.ItemsAppearance.Parent = Me.Guna2ComboBox1
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(280, 3)
-        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Me.Guna2ComboBox1.ShadowDecoration.Parent = Me.Guna2ComboBox1
-        Me.Guna2ComboBox1.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox1.TabIndex = 27
-        '
-        'ContractStatusComboBox
-        '
-        Me.ContractStatusComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.ContractStatusComboBox.BorderRadius = 4
-        Me.ContractStatusComboBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ContractStatusComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.ContractStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ContractStatusComboBox.FocusedColor = System.Drawing.Color.Empty
-        Me.ContractStatusComboBox.FocusedState.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ContractStatusComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ContractStatusComboBox.FormattingEnabled = True
-        Me.ContractStatusComboBox.HoverState.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.ItemHeight = 20
-        Me.ContractStatusComboBox.ItemsAppearance.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Location = New System.Drawing.Point(3, 3)
-        Me.ContractStatusComboBox.Name = "ContractStatusComboBox"
-        Me.ContractStatusComboBox.ShadowDecoration.Parent = Me.ContractStatusComboBox
-        Me.ContractStatusComboBox.Size = New System.Drawing.Size(271, 26)
-        Me.ContractStatusComboBox.TabIndex = 26
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.TableLayoutPanel4)
-        Me.Panel2.Controls.Add(Me.InventoryGraph)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 208)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(556, 209)
-        Me.Panel2.TabIndex = 8
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 2
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.Guna2ComboBox3, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Guna2ComboBox2, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 1
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(556, 31)
-        Me.TableLayoutPanel4.TabIndex = 7
-        '
-        'Guna2ComboBox3
-        '
-        Me.Guna2ComboBox3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox3.BorderRadius = 4
-        Me.Guna2ComboBox3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox3.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox3.FocusedState.Parent = Me.Guna2ComboBox3
-        Me.Guna2ComboBox3.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox3.FormattingEnabled = True
-        Me.Guna2ComboBox3.HoverState.Parent = Me.Guna2ComboBox3
-        Me.Guna2ComboBox3.ItemHeight = 20
-        Me.Guna2ComboBox3.ItemsAppearance.Parent = Me.Guna2ComboBox3
-        Me.Guna2ComboBox3.Location = New System.Drawing.Point(281, 3)
-        Me.Guna2ComboBox3.Name = "Guna2ComboBox3"
-        Me.Guna2ComboBox3.ShadowDecoration.Parent = Me.Guna2ComboBox3
-        Me.Guna2ComboBox3.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox3.TabIndex = 27
-        '
-        'Guna2ComboBox2
-        '
-        Me.Guna2ComboBox2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox2.BorderRadius = 4
-        Me.Guna2ComboBox2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox2.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox2.FocusedState.Parent = Me.Guna2ComboBox2
-        Me.Guna2ComboBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox2.FormattingEnabled = True
-        Me.Guna2ComboBox2.HoverState.Parent = Me.Guna2ComboBox2
-        Me.Guna2ComboBox2.ItemHeight = 20
-        Me.Guna2ComboBox2.ItemsAppearance.Parent = Me.Guna2ComboBox2
-        Me.Guna2ComboBox2.Location = New System.Drawing.Point(3, 3)
-        Me.Guna2ComboBox2.Name = "Guna2ComboBox2"
-        Me.Guna2ComboBox2.ShadowDecoration.Parent = Me.Guna2ComboBox2
-        Me.Guna2ComboBox2.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox2.TabIndex = 26
-        '
-        'InventoryGraph
-        '
-        ChartArea2.Name = "ChartArea1"
-        Me.InventoryGraph.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.InventoryGraph.Legends.Add(Legend2)
-        Me.InventoryGraph.Location = New System.Drawing.Point(0, 34)
-        Me.InventoryGraph.Name = "InventoryGraph"
-        Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.InventoryGraph.Series.Add(Series2)
-        Me.InventoryGraph.Size = New System.Drawing.Size(556, 172)
-        Me.InventoryGraph.TabIndex = 5
-        Me.InventoryGraph.Text = "Chart2"
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.TableLayoutPanel5)
-        Me.Panel3.Controls.Add(Me.SalesChart)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(556, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(557, 208)
-        Me.Panel3.TabIndex = 9
-        '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.ColumnCount = 2
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Guna2ComboBox5, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Guna2ComboBox4, 0, 0)
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(1, 2)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(556, 31)
-        Me.TableLayoutPanel5.TabIndex = 9
-        '
-        'Guna2ComboBox5
-        '
-        Me.Guna2ComboBox5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox5.BorderRadius = 4
-        Me.Guna2ComboBox5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox5.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox5.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox5.FocusedState.Parent = Me.Guna2ComboBox5
-        Me.Guna2ComboBox5.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox5.FormattingEnabled = True
-        Me.Guna2ComboBox5.HoverState.Parent = Me.Guna2ComboBox5
-        Me.Guna2ComboBox5.ItemHeight = 20
-        Me.Guna2ComboBox5.ItemsAppearance.Parent = Me.Guna2ComboBox5
-        Me.Guna2ComboBox5.Location = New System.Drawing.Point(281, 3)
-        Me.Guna2ComboBox5.Name = "Guna2ComboBox5"
-        Me.Guna2ComboBox5.ShadowDecoration.Parent = Me.Guna2ComboBox5
-        Me.Guna2ComboBox5.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox5.TabIndex = 27
-        '
-        'Guna2ComboBox4
-        '
-        Me.Guna2ComboBox4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox4.BorderRadius = 4
-        Me.Guna2ComboBox4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox4.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox4.FocusedState.Parent = Me.Guna2ComboBox4
-        Me.Guna2ComboBox4.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox4.FormattingEnabled = True
-        Me.Guna2ComboBox4.HoverState.Parent = Me.Guna2ComboBox4
-        Me.Guna2ComboBox4.ItemHeight = 20
-        Me.Guna2ComboBox4.ItemsAppearance.Parent = Me.Guna2ComboBox4
-        Me.Guna2ComboBox4.Location = New System.Drawing.Point(3, 3)
-        Me.Guna2ComboBox4.Name = "Guna2ComboBox4"
-        Me.Guna2ComboBox4.ShadowDecoration.Parent = Me.Guna2ComboBox4
-        Me.Guna2ComboBox4.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox4.TabIndex = 26
-        '
-        'SalesChart
-        '
-        ChartArea3.Name = "ChartArea1"
-        Me.SalesChart.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.SalesChart.Legends.Add(Legend3)
-        Me.SalesChart.Location = New System.Drawing.Point(0, 33)
-        Me.SalesChart.Name = "SalesChart"
-        Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.SalesChart.Series.Add(Series3)
-        Me.SalesChart.Size = New System.Drawing.Size(557, 173)
-        Me.SalesChart.TabIndex = 8
-        Me.SalesChart.Text = "SalesChart"
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.TableLayoutPanel6)
-        Me.Panel4.Controls.Add(Me.SupplierStatusChart)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(556, 208)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(557, 209)
-        Me.Panel4.TabIndex = 10
-        '
-        'TableLayoutPanel6
-        '
-        Me.TableLayoutPanel6.ColumnCount = 2
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2ComboBox7, 1, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Guna2ComboBox6, 0, 0)
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(0, 1)
-        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 1
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(557, 31)
-        Me.TableLayoutPanel6.TabIndex = 8
-        '
-        'Guna2ComboBox7
-        '
-        Me.Guna2ComboBox7.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox7.BorderRadius = 4
-        Me.Guna2ComboBox7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox7.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox7.FocusedState.Parent = Me.Guna2ComboBox7
-        Me.Guna2ComboBox7.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox7.FormattingEnabled = True
-        Me.Guna2ComboBox7.HoverState.Parent = Me.Guna2ComboBox7
-        Me.Guna2ComboBox7.ItemHeight = 20
-        Me.Guna2ComboBox7.ItemsAppearance.Parent = Me.Guna2ComboBox7
-        Me.Guna2ComboBox7.Location = New System.Drawing.Point(281, 3)
-        Me.Guna2ComboBox7.Name = "Guna2ComboBox7"
-        Me.Guna2ComboBox7.ShadowDecoration.Parent = Me.Guna2ComboBox7
-        Me.Guna2ComboBox7.Size = New System.Drawing.Size(273, 26)
-        Me.Guna2ComboBox7.TabIndex = 27
-        '
-        'Guna2ComboBox6
-        '
-        Me.Guna2ComboBox6.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox6.BorderRadius = 4
-        Me.Guna2ComboBox6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox6.FocusedColor = System.Drawing.Color.Empty
-        Me.Guna2ComboBox6.FocusedState.Parent = Me.Guna2ComboBox6
-        Me.Guna2ComboBox6.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Guna2ComboBox6.FormattingEnabled = True
-        Me.Guna2ComboBox6.HoverState.Parent = Me.Guna2ComboBox6
-        Me.Guna2ComboBox6.ItemHeight = 20
-        Me.Guna2ComboBox6.ItemsAppearance.Parent = Me.Guna2ComboBox6
-        Me.Guna2ComboBox6.Location = New System.Drawing.Point(3, 3)
-        Me.Guna2ComboBox6.Name = "Guna2ComboBox6"
-        Me.Guna2ComboBox6.ShadowDecoration.Parent = Me.Guna2ComboBox6
-        Me.Guna2ComboBox6.Size = New System.Drawing.Size(272, 26)
-        Me.Guna2ComboBox6.TabIndex = 26
         '
         'SupplierStatusChart
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.SupplierStatusChart.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.SupplierStatusChart.Legends.Add(Legend4)
-        Me.SupplierStatusChart.Location = New System.Drawing.Point(1, 34)
+        ChartArea17.Name = "ChartArea1"
+        Me.SupplierStatusChart.ChartAreas.Add(ChartArea17)
+        Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend17.Name = "Legend1"
+        Me.SupplierStatusChart.Legends.Add(Legend17)
+        Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 197)
         Me.SupplierStatusChart.Name = "SupplierStatusChart"
         Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.SupplierStatusChart.Series.Add(Series4)
-        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 175)
-        Me.SupplierStatusChart.TabIndex = 4
+        Series17.ChartArea = "ChartArea1"
+        Series17.Legend = "Legend1"
+        Series17.Name = "Series1"
+        Me.SupplierStatusChart.Series.Add(Series17)
+        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 188)
+        Me.SupplierStatusChart.TabIndex = 10
         Me.SupplierStatusChart.Text = "Chart4"
+        '
+        'InventoryGraph
+        '
+        ChartArea18.Name = "ChartArea1"
+        Me.InventoryGraph.ChartAreas.Add(ChartArea18)
+        Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend18.Name = "Legend1"
+        Me.InventoryGraph.Legends.Add(Legend18)
+        Me.InventoryGraph.Location = New System.Drawing.Point(3, 197)
+        Me.InventoryGraph.Name = "InventoryGraph"
+        Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series18.ChartArea = "ChartArea1"
+        Series18.Legend = "Legend1"
+        Series18.Name = "Series1"
+        Me.InventoryGraph.Series.Add(Series18)
+        Me.InventoryGraph.Size = New System.Drawing.Size(550, 188)
+        Me.InventoryGraph.TabIndex = 11
+        Me.InventoryGraph.Text = "Chart2"
+        '
+        'PositionsChart
+        '
+        ChartArea19.Name = "ChartArea1"
+        Me.PositionsChart.ChartAreas.Add(ChartArea19)
+        Me.PositionsChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend19.Name = "Legend1"
+        Me.PositionsChart.Legends.Add(Legend19)
+        Me.PositionsChart.Location = New System.Drawing.Point(3, 3)
+        Me.PositionsChart.Name = "PositionsChart"
+        Me.PositionsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series19.ChartArea = "ChartArea1"
+        Series19.Legend = "Legend1"
+        Series19.Name = "Series1"
+        Me.PositionsChart.Series.Add(Series19)
+        Me.PositionsChart.Size = New System.Drawing.Size(550, 188)
+        Me.PositionsChart.TabIndex = 12
+        Me.PositionsChart.Text = "Chart1"
+        '
+        'SalesChart
+        '
+        ChartArea20.Name = "ChartArea1"
+        Me.SalesChart.ChartAreas.Add(ChartArea20)
+        Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend20.Name = "Legend1"
+        Me.SalesChart.Legends.Add(Legend20)
+        Me.SalesChart.Location = New System.Drawing.Point(559, 3)
+        Me.SalesChart.Name = "SalesChart"
+        Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series20.ChartArea = "ChartArea1"
+        Series20.Legend = "Legend1"
+        Series20.Name = "Series1"
+        Me.SalesChart.Series.Add(Series20)
+        Me.SalesChart.Size = New System.Drawing.Size(551, 188)
+        Me.SalesChart.TabIndex = 13
+        Me.SalesChart.Text = "SalesChart"
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Guna2Panel1, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(34, 237)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1113, 28)
+        Me.TableLayoutPanel3.TabIndex = 34
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(200, 22)
+        Me.Panel1.TabIndex = 0
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.MonthCmb)
+        Me.Guna2Panel1.Controls.Add(Me.Panel2)
+        Me.Guna2Panel1.Controls.Add(Me.YearCmb)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(556, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
+        Me.Guna2Panel1.Size = New System.Drawing.Size(557, 28)
+        Me.Guna2Panel1.TabIndex = 32
+        '
+        'YearCmb
+        '
+        Me.YearCmb.Animated = True
+        Me.YearCmb.BackColor = System.Drawing.Color.Transparent
+        Me.YearCmb.BorderRadius = 4
+        Me.YearCmb.DisplayMember = "(none)"
+        Me.YearCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.YearCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.YearCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.YearCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.YearCmb.FocusedState.Parent = Me.YearCmb
+        Me.YearCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.YearCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.YearCmb.FormattingEnabled = True
+        Me.YearCmb.HoverState.Parent = Me.YearCmb
+        Me.YearCmb.ItemHeight = 22
+        Me.YearCmb.ItemsAppearance.Parent = Me.YearCmb
+        Me.YearCmb.Location = New System.Drawing.Point(439, 0)
+        Me.YearCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.YearCmb.Name = "YearCmb"
+        Me.YearCmb.ShadowDecoration.Parent = Me.YearCmb
+        Me.YearCmb.Size = New System.Drawing.Size(118, 28)
+        Me.YearCmb.StartIndex = 0
+        Me.YearCmb.TabIndex = 34
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(429, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(10, 28)
+        Me.Panel2.TabIndex = 35
+        '
+        'MonthCmb
+        '
+        Me.MonthCmb.Animated = True
+        Me.MonthCmb.BackColor = System.Drawing.Color.Transparent
+        Me.MonthCmb.BorderRadius = 4
+        Me.MonthCmb.DisplayMember = "(none)"
+        Me.MonthCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.MonthCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.MonthCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.MonthCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.MonthCmb.FocusedState.Parent = Me.MonthCmb
+        Me.MonthCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.MonthCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.MonthCmb.FormattingEnabled = True
+        Me.MonthCmb.HoverState.Parent = Me.MonthCmb
+        Me.MonthCmb.ItemHeight = 22
+        Me.MonthCmb.ItemsAppearance.Parent = Me.MonthCmb
+        Me.MonthCmb.Location = New System.Drawing.Point(302, 0)
+        Me.MonthCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.MonthCmb.Name = "MonthCmb"
+        Me.MonthCmb.ShadowDecoration.Parent = Me.MonthCmb
+        Me.MonthCmb.Size = New System.Drawing.Size(127, 28)
+        Me.MonthCmb.StartIndex = 0
+        Me.MonthCmb.TabIndex = 36
         '
         'AdminDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -866,18 +674,12 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.ResumeLayout(False)
         Me.ServicesPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.TableLayoutPanel6.ResumeLayout(False)
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -912,24 +714,14 @@ Partial Class AdminDashboardForm
     Friend WithEvents WelcomeMessageLabel As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents PositionsChart As DataVisualization.Charting.Chart
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents SalesChart As DataVisualization.Charting.Chart
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents SupplierStatusChart As DataVisualization.Charting.Chart
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents ContractStatusComboBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox3 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox2 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox5 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox4 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox7 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2ComboBox6 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents SalesChart As DataVisualization.Charting.Chart
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents MonthCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents YearCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class

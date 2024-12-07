@@ -67,7 +67,7 @@ Public Class LoginForm
             Exit Sub
         End If
 
-        LoggedUser.InitializeSession(empDT)
+        InitializeSession(empDT)
 
         ' UPDATE ACCESS DATE
 

@@ -432,7 +432,7 @@
                     Dim pagibigNo = If(rnd.Next(0, 2) = 0, $"PAGIBIG-{2000000000 + i}", Nothing) ' Optional field
                     Dim tinNo = If(rnd.Next(0, 2) = 0, $"TIN-{3000000000 + i}", Nothing) ' Optional field
                     Dim profilePath = $"{dummyImagePath}"
-
+                    Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
 
                     Dim email = $"user{i + getLatestID}@example.com"
                     Dim pwd = $"password{i}" ' Assume passwords are pre-encrypted
@@ -463,7 +463,8 @@
                       { .empHiredStr, dateHired},
                       { .empProfileStr, dummyImagePath},
                       { .addedById, Current.id},
-                      { .empAddedByName, formUtils.getEmployeeName(Current.id)}
+                      { .empAddedByName, formUtils.getEmployeeName(Current.id)},
+                      { .empAddDateStr, dateAdded}
                     }
 
                     If jobType.Equals(constants.getAdminString) Then
@@ -519,6 +520,7 @@
                     Dim address = $"Address {i}"
                     Dim gender = genderEnum(rnd.Next(0, genderEnum.Count))
                     Dim email = $"customer{i}@example.com"
+                    Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
 
                     Dim insertData As New Dictionary(Of String, Object) From {
                        { .custMidStr, middleName}, ' optional
@@ -529,7 +531,8 @@
                        { .custLastStr, lastName},
                        { .custGenderStr, gender},
                        { .getAddedByName, formUtils.getEmployeeName(Current.id)},
-                       { .getAddedByID, Current.id}
+                       { .getAddedByID, Current.id},
+                       { .custDateAddedStr, dateAdded}
                     }
 
                     dbHelper.InsertRecord(custConst.custTableStr, insertData)
@@ -551,6 +554,7 @@
             Dim supplierContracts As List(Of String) = dbHelper.GetEnums(.supTableStr, .supContractStr)
             Dim bankDetails As List(Of String) = dbHelper.GetEnums(.supTableStr, .bankDetailsStr)
             Dim paymentTerms As List(Of String) = dbHelper.GetEnums(.supTableStr, .payTermsStr)
+            Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
 
             Try
                 For i As Integer = 1 To numberOfRecords
@@ -584,7 +588,8 @@
                        { .payTermsStr, paymentTerm},
                        { .addedByName, formUtils.getEmployeeName(Current.id)},
                        { .addedByID, Current.id},
-                       { .compPicPathStr, dummyImagePath}
+                       { .compPicPathStr, dummyImagePath},
+                       { .dateAddedStr, dateAdded}
                     }
 
                     dbHelper.InsertRecord(.supTableStr, insertData)
@@ -620,6 +625,8 @@
                     Dim paymentMethod = paymentMethods(rnd.Next(0, paymentMethods.Count))
                     Dim deviceType = deviceTypes(rnd.Next(0, deviceTypes.Count))
 
+                    Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
+
                     Dim insertData As New Dictionary(Of String, Object) From {
                         { .custIDStr, custID},
                         { .techIDStr, techID},
@@ -634,7 +641,8 @@
                         { .probDescStr, problemDescription},
                         { .getAddedByName, formUtils.getEmployeeName(Current.id)},
                         { .dateAddedStr, DateTime.Now()},
-                        { .devProfilePathStr, dummyImagePath}
+                        { .devProfilePathStr, dummyImagePath},
+                        { .dateAddedStr, dateAdded}
                     }
 
                     dbHelper.InsertRecord(.svcTableStr, insertData)
@@ -680,6 +688,7 @@
                     Dim totalCost = Math.Round(availableQuantity * costPerItem, 2)
 
                     Dim physicalLocation = $"Shelf-{rnd.Next(1, 20)}"
+                    Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
 
                     With invConst
                         Dim insertData As New Dictionary(Of String, Object) From {
@@ -694,7 +703,8 @@
                             { .totalCostStr, totalCost},
                             { .costPerItem, costPerItem},
                             { .addedByIdName, formUtils.getEmployeeName(Current.id)},
-                            { .addedByIDStr, Current.id}
+                            { .addedByIDStr, Current.id},
+                            { .dateAddedStr, dateAdded}
                         }
 
                         dbHelper.InsertRecord(.invTableStr, insertData)
