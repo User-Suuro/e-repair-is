@@ -98,29 +98,33 @@ Public Class AdminDashboardForm
     Private Sub loadDays()
         If Not finishedLoad Then Exit Sub
 
-        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        If YearCmb.SelectedItem IsNot Nothing Then
+            daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+            daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        End If
 
         DayStartCmb.DataSource = daysListStart
         DayStopCmb.DataSource = daysListStop
     End Sub
-
-    Private Sub MonthCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        loadDays()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        loadDays()
-    End Sub
-
     Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-        DayStopCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
+        If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
+            DayStopCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
+        End If
     End Sub
 
     Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-
+        If DayStopCmb.SelectedItem < DayStartCmb.SelectedItem Then
+            DayStartCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStartCmb, DayStopCmb.SelectedItem)
+        End If
     End Sub
 
+    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        loadDays()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        loadDays()
+    End Sub
 
     Private Sub loadStatus()
         EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
@@ -129,9 +133,6 @@ Public Class AdminDashboardForm
         SuppliersNumberLabel.Text = suppDT.Rows.Count
         ItemsCountLabel.Text = invDT.Rows.Count
     End Sub
-
-
-
 
 
     Private Sub loadWelcome()
