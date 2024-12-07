@@ -63,68 +63,112 @@ Public Class AdminDashboardForm
         Cursor = Cursors.WaitCursor
 
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr, empConst.empAddDateStr}, empConst.empTableStr, empConst.empArchStr, 0)
-        empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, constants.getDateFormat)
-
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.dateAddedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
-        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
-
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.custDateAddedStr}, custConst.custTableStr, custConst.custArchStr, 0)
-        custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
-
         suppDT = dbHelper.GetRowByColValue(New List(Of String) From {supConst.archivedStr, supConst.supTypeStr, supConst.dateAddedStr}, supConst.supTableStr, supConst.archivedStr, 0)
-        suppDT = formUtils.FormatSingleDateColumn(suppDT, supConst.dateAddedStr, constants.getDateFormat)
-
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr, invConst.dateAddedStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        invDT = formUtils.FormatSingleDateColumn(invDT, invConst.dateAddedStr, constants.getDateFormat)
-
         itemDT = dbHelper.GetAllByCol(New List(Of String) From {itemConst.ServiceId, itemConst.quantityUsedStr, itemConst.dateUsedCol}, itemConst.TableName)
+
+        ' CONVERT DATE FOR FILTERS
+
+        empDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, constants.getDateFormat)
+        itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
+        invDT = formUtils.FormatSingleDateColumn(invDT, invConst.dateAddedStr, constants.getDateFormat)
+        suppDT = formUtils.FormatSingleDateColumn(suppDT, supConst.dateAddedStr, constants.getDateFormat)
+        custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
+        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
         itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
 
-        MonthCmb.DataSource = constants.getMonthList
-        YearCmb.DataSource = constants.getYearList
+        'FILTERS
 
-        YearCmb.SelectedIndex = 0
-        MonthCmb.SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
+        With YearCmb
+            .DataSource = constants.getYearList
+            .BeginUpdate()
+            .SelectedIndex = 0
+            .EndUpdate()
+        End With
+
+        With MonthCmb
+            .DataSource = constants.getMonthList
+            .BeginUpdate()
+            .SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
+            .EndUpdate()
+        End With
 
         Cursor = Cursors.Default
     End Sub
 
-    Private Sub reloadDateFilter()
+    ' FILTERS
+
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        reloadDayStop()
+        reloadStrDate()
+    End Sub
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+        reloadDayStart()
+        reloadStrDate()
+    End Sub
+
+    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        loadDays()
+        reloadStrDate()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        loadDays()
+        reloadStrDate()
+    End Sub
+
+    ' FILTER FUNCTIONS
+
+    Private Sub reloadStrDate()
+
         If Not finishedLoad Then Exit Sub
-        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        If YearCmb.SelectedItem IsNot Nothing AndAlso
+            MonthCmb.SelectedItem IsNot Nothing AndAlso
+            DayStartCmb.SelectedItem IsNot Nothing AndAlso
+            DayStopCmb.SelectedItem IsNot Nothing Then
+
+            ' CODE
+            strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+            strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        End If
     End Sub
 
     Private Sub loadDays()
+
         If Not finishedLoad Then Exit Sub
 
-        If YearCmb.SelectedItem IsNot Nothing Then
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
             daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
             daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
         End If
 
         DayStartCmb.DataSource = daysListStart
-        DayStopCmb.DataSource = daysListStop
+
+        With DayStopCmb
+            .DataSource = daysListStop
+            .BeginUpdate()
+            .SelectedIndex = daysListStop.Last()
+            .EndUpdate()
+        End With
+
     End Sub
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+
+    Private Sub reloadDayStop()
         If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
             DayStopCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
         End If
     End Sub
 
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+    Private Sub reloadDayStart()
         If DayStopCmb.SelectedItem < DayStartCmb.SelectedItem Then
             DayStartCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStartCmb, DayStopCmb.SelectedItem)
         End If
     End Sub
 
-    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        loadDays()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        loadDays()
-    End Sub
+    ' LOAD UI
 
     Private Sub loadStatus()
         EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
@@ -134,24 +178,28 @@ Public Class AdminDashboardForm
         ItemsCountLabel.Text = invDT.Rows.Count
     End Sub
 
-
     Private Sub loadWelcome()
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
         Label10.Text = Current.position
     End Sub
 
+    ' POSITIONS CHART
 
     Private Sub loadPositionChart()
+
         Dim series As New Series()
+
+        Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
 
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Bar
-            .Points.AddXY("Admin", empDT.Select($"{empConst.empJobPosStr} = '{constants.getAdminString}' ").Length)
-            .Points.AddXY("Cashiers", empDT.Select($"{empConst.empJobPosStr} = '{constants.getCashierString }' ").Length)
-            .Points.AddXY("Technician", empDT.Select($"{empConst.empJobPosStr} = '{constants.getTechnicianString}' ").Length)
-            .Points.AddXY("Utility", empDT.Select($"{empConst.empJobPosStr} = '{constants.getUtilityPersonnelString}' ").Length)
         End With
+
+        For Each position In getPositionEnum
+            Dim totalCount As Integer = suppDT.Select($"{supConst.supTypeStr} = '{position}'").Length
+            series.Points.AddXY(position, totalCount)
+        Next
 
         With PositionsChart
             .Series.Clear()
@@ -159,17 +207,18 @@ Public Class AdminDashboardForm
             .Legends.Clear() ' Clears all legends
             .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .Titles.Add("Position Summary")
             .ChartAreas.Add(New ChartArea)
         End With
 
-
     End Sub
 
+    ' INVENTORY AVAILABILITRY
 
     Private Sub loadInvUsedChart()
-        Dim qtySeries As New Series("Quantity")
+        Dim series As New Series()
 
-        With qtySeries
+        With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Column
             .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
@@ -178,45 +227,21 @@ Public Class AdminDashboardForm
 
         With InventoryGraph
             .Series.Clear()
-            .Series.Add(qtySeries)
-            If finishedLoad Then
-                .Titles.Add("Inventory Availability")
-            End If
-
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
+            .Series.Add(series)
+            .Titles.Add("Inventory Availability")
+            .ChartAreas.Add(New ChartArea)
         End With
 
     End Sub
 
+    ' SALES CHART
+
     Private Sub loadSalesChart()
 
-
-        'Dim aggregatedData = From row In servDT.AsEnumerable()
-        '                     Where Not IsDBNull(row(servConst.dateClaimedStr)) ' Exclude NULL values
-        '                     Group row By DateValue = Convert.ToDateTime(row(servConst.dateClaimedStr)) Into Group
-        '                     Select New With {
-        '                         .Date = DateValue,
-        '                         .TotalSales = Group.Sum(Function(r) If(IsDBNull(r(servConst.TotalCost)), 0D, Convert.ToDecimal(r(servConst.TotalCost))))
-        '                     }
-
-        'Dim series As New Series("Sales")
-        'series.ChartType = SeriesChartType.Line
-
-        'For Each group In aggregatedData
-        '    series.Points.AddXY(group.Date, group.TotalSales)
-        'Next
-
-        'SalesChart.Series.Add(series)
-        'SalesChart.Titles.Add("Sales Overtime")
-
-        'With SalesChart.ChartAreas(0).AxisX
-        '    .LabelStyle.Format = "yyyy-MM-dd"
-        '    .Interval = 1
-        '    .IntervalType = DateTimeIntervalType.Days
-        '    .LabelStyle.Angle = -45 ' Optional: Rotate labels
-        '    .IsLabelAutoFit = True
-        'End With
-
-        Dim series As New Series("Value")
+        Dim series As New Series()
 
         With series
             .IsVisibleInLegend = False
@@ -227,37 +252,23 @@ Public Class AdminDashboardForm
 
         With SalesChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Profit - Inventory Expenses")
         End With
 
     End Sub
 
-    Private Sub loadServiceStatsChart()
-
-        SupplierStatusChart.Series.Clear()
-
-        Dim series As New Series("Value")
-        series.ChartType = SeriesChartType.Column
-
-        Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
-
-        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr } = '{constants.getPendingString}'").Length)
-        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr } = '{constants.getFinishedString}'").Length)
-        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr } = '{constants.getClaimedString}'").Length)
-        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr } = '{constants.getOnholdString}'").Length)
-        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr } = '{constants.getCanceledString}'").Length)
-
-        SalesChart.Series.Add(series)
-        SalesChart.Titles.Add("Service Status")
-
-    End Sub
+    ' SUPPLIERS CHART
 
     Private Sub loadSupplierStatusChart()
 
         ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
-        Dim series As New Series("Amount")
+        Dim series As New Series()
 
         series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Bar
@@ -269,11 +280,17 @@ Public Class AdminDashboardForm
 
         With SupplierStatusChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Supplier Type Count Summary")
         End With
 
     End Sub
+
+    ' TIMER
 
     Private Sub loadTimer()
         Timer1.Enabled = True
@@ -297,6 +314,4 @@ Public Class AdminDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
-
-
 End Class

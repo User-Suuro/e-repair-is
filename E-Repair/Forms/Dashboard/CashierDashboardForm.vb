@@ -17,16 +17,13 @@ Public Class CashierDashboardForm
     Dim servDT As New DataTable
     Dim custDT As New DataTable
 
-
     Private Sub loadData()
-
         Cursor = Cursors.WaitCursor
 
         servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr, servConst.devTypeStr, servConst.payMethodStr}, servConst.svcTableStr, servConst.archivedStr, 0)
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr}, custConst.custTableStr, custConst.custArchStr, 0)
 
         Cursor = Cursors.Default
-
     End Sub
     Private Sub CashierDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadData()
@@ -37,7 +34,6 @@ Public Class CashierDashboardForm
         loadGenderChart()
         loadDeviceTypeChart()
         loadPaymentMethodChart()
-
     End Sub
 
     Private Sub loadStatus()
@@ -45,7 +41,7 @@ Public Class CashierDashboardForm
         CustCountLabel.Text = custDT.Rows.Count
     End Sub
 
-
+    ' LOAD SERVICE CHART
 
     Private Sub loadServiceChart()
 
@@ -53,19 +49,26 @@ Public Class CashierDashboardForm
         series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Column
 
-        series.Points.AddXY("Pending", servDT.Select($"{servConst.svcStatusStr} = '{constants.getPendingString}'").Length)
-        series.Points.AddXY("Finished", servDT.Select($"{servConst.svcStatusStr} = '{constants.getFinishedString}'").Length)
-        series.Points.AddXY("Claimed", servDT.Select($"{servConst.svcStatusStr} = '{constants.getClaimedString}'").Length)
-        series.Points.AddXY("Onhold", servDT.Select($"{servConst.svcStatusStr} = '{constants.getOnholdString}'").Length)
-        series.Points.AddXY("Canceled", servDT.Select($"{servConst.svcStatusStr} = '{constants.getCanceledString}'").Length)
+        Dim statusEnum = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+
+        For Each status In statusEnum
+            Dim totalCount = servDT.Select($"{servConst.svcStatusStr} = '{status}'").Length
+            series.Points.AddXY(status, statusEnum)
+        Next
 
         With ServStatusChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Service Status Summary")
         End With
 
     End Sub
+
+    ' LOAD GENDER CHART
 
     Private Sub loadGenderChart()
 
@@ -83,11 +86,17 @@ Public Class CashierDashboardForm
 
         With GenderChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Customer Gender Demographics")
         End With
 
     End Sub
+
+    ' LOAD DEVICE TYPE CHART
 
     Private Sub loadDeviceTypeChart()
         ' load enums
@@ -105,11 +114,17 @@ Public Class CashierDashboardForm
 
         With DevTypeChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Device Types Summary Count")
         End With
 
     End Sub
+
+    ' LOAD PAYMENT METHOD CHART
 
     Private Sub loadPaymentMethodChart()
         Dim payMethods = dbHelper.GetEnums(servConst.svcTableStr, servConst.payMethodStr)
@@ -128,10 +143,16 @@ Public Class CashierDashboardForm
 
         With PaymentMethodChart
             .Series.Clear()
-            .Series.Add(Series)
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
+            .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Payment Methods Summary")
         End With
     End Sub
+
+    ' TIMER
 
     Private Sub loadTimer()
         Timer1.Enabled = True

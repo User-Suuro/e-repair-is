@@ -47,7 +47,11 @@ Public Class TechnicianDashboardForm
 
         With ServStatusChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Services Status Summary")
         End With
     End Sub
@@ -68,15 +72,19 @@ Public Class TechnicianDashboardForm
 
         With DeviceTypeChart
             .Series.Clear()
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Device Types Summary Count")
         End With
 
     End Sub
     Private Sub loadInvUsedChart()
-        Dim qtySeries As New Series("Quantity")
+        Dim series As New Series("Quantity")
 
-        With qtySeries
+        With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Column
             .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
@@ -85,7 +93,11 @@ Public Class TechnicianDashboardForm
 
         With InvetoryAvailChart
             .Series.Clear()
-            .Series.Add(qtySeries)
+            .Titles.Clear() ' Clears all chart titles
+            .Legends.Clear() ' Clears all legends
+            .ChartAreas.Clear() ' Clears all chart areas
+            .Series.Add(series)
+            .ChartAreas.Add(New ChartArea)
             .Titles.Add("Inventory Availability")
         End With
 
