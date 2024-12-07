@@ -25,7 +25,10 @@ Public Class AdminDashboardForm
 
     Private finishedLoad As Boolean
     Private dateFormat As String = constants.getDateFormat
-    Private strDate As String
+
+    Private strStartDate As String
+    Private strStopDate As String
+    Private daysList As List(Of Integer)
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -76,14 +79,23 @@ Public Class AdminDashboardForm
         MonthCmb.DataSource = constants.getMonthList
         YearCmb.DataSource = constants.getYearList
 
-        MonthCmb.SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
         YearCmb.SelectedIndex = 0
-
-        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        MsgBox(strDate)
+        MonthCmb.SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
 
         Cursor = Cursors.Default
+    End Sub
 
+    Private Sub reloadDateFilter()
+        If Not finishedLoad Then Exit Sub
+        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+    End Sub
+
+    Private Sub loadDays()
+        If Not finishedLoad Then Exit Sub
+        daysList = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        DayStartCmb.DataSource = daysList
+        DayStopCmb.DataSource = daysList
     End Sub
 
     Private Sub loadStatus()
@@ -93,6 +105,24 @@ Public Class AdminDashboardForm
         SuppliersNumberLabel.Text = suppDT.Rows.Count
         ItemsCountLabel.Text = invDT.Rows.Count
     End Sub
+
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub MonthCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        loadDays()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        loadDays()
+    End Sub
+
+
 
     Private Sub loadWelcome()
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
@@ -257,21 +287,5 @@ Public Class AdminDashboardForm
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
 
-    Private Sub PositionsChart_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub PositionsFilter_ValueChanged(sender As Object, e As EventArgs)
-        If finishedLoad Then loadPositionChart()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        MsgBox(strDate)
-    End Sub
-
-    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        strDate = MonthCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        MsgBox(strDate)
-    End Sub
 End Class

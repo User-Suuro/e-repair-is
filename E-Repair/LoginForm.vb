@@ -98,6 +98,8 @@ Public Class LoginForm
         If isConnected Then
             If dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr}, empConst.empTableStr, empConst.empArchStr, 0).Rows.Count = 0 Then
                 CreateSuperAdminPanel.Visible = True
+            Else
+                CreateSuperAdminPanel.Visible = False
             End If
         End If
 
@@ -155,7 +157,6 @@ Public Class LoginForm
             Exit Sub
         End If
 
-
         formUtils.ShowModalWithHandler(
          Function(id)
              Dim modal As New EmployeeAddEditModal
@@ -167,7 +168,7 @@ Public Class LoginForm
          Function(modal)
              Return Nothing
          End Function
-       )
+         )
 
         initSuperPanel()
     End Sub

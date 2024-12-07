@@ -14,22 +14,20 @@ Public Class FormUtils
     Public Property rowHeight As Integer = 40
 
     Public Sub LoadFormIntoPanel(targetPanel As Panel, frm As Form)
-        ' Remove existing controls in the target panel if any
         If targetPanel.Controls.Count > 0 Then
             targetPanel.Controls.RemoveAt(0)
         End If
 
-        ' Set up the form properties for embedding
         frm.TopLevel = False
         frm.Dock = DockStyle.Fill
 
-        ' Add the form to the target panel and show it
         targetPanel.Controls.Add(frm)
         targetPanel.Tag = frm
         frm.Show()
     End Sub
 
     ' Ok cancel MsgBox
+
     Public Function ShowMessageBoxResult(title As String, content As String) As Boolean
         Dim dialogResult As DialogResult = MessageBox.Show(content, title, MessageBoxButtons.OKCancel)
 
@@ -459,12 +457,10 @@ Public Class FormUtils
     Public Function EditRow(dbTable As String, targetColumn As String, targetID As Integer, payload As Dictionary(Of String, Object),
                           Optional startCheckIndex As Integer = 0,
                           Optional imgData As List(Of Object) = Nothing) As Boolean
-        ' Exit if canceled
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to modify data")) Then Return False
 
         If Not AreAllDictValuesFilled(payload, startCheckIndex) Then Return False
 
-        ' Check if imgData is provided and has sufficient data
         If imgData IsNot Nothing Then
             If Not AreAllListValuesFilled(imgData) Then Return False
 
@@ -596,66 +592,55 @@ Public Class FormUtils
     End Function
 
     Public Function FilterDataTable(ByVal sourceTable As DataTable, ByVal filterExpression As String, Optional ByVal sortOrder As String = "") As DataTable
-        ' Filter the rows based on the provided filter expression
         Dim filteredRows As DataRow() = sourceTable.Select(filterExpression, sortOrder)
 
-        ' Check if any rows match the filter
         If filteredRows.Any() Then
-            ' Return a new DataTable with the filtered rows
             Return filteredRows.CopyToDataTable()
         Else
-            ' Return an empty DataTable with the same schema
             Return sourceTable.Clone()
         End If
     End Function
 
     ' Decimal Validator
     Public Function ValidateDecimalInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
-        ' Allow control characters (e.g., Backspace, Delete)
         If Char.IsControl(e.KeyChar) Then
             Return True ' Allow the keypress
         End If
 
-        ' Allow only digits and a single decimal point
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "." Then
-            Return False ' Block the keypress
+            Return False
         End If
 
-        ' Allow only one decimal point
         If e.KeyChar = "." Then
             If txtBox.Text.Contains(".") Then
-                Return False ' Block the keypress
+                Return False
             End If
         End If
 
-        ' Ensure that only two decimal places are allowed
         If txtBox.Text.Contains(".") Then
             Dim decimalPointIndex As Integer = txtBox.Text.IndexOf(".")
             Dim decimalsAfterPoint As String = txtBox.Text.Substring(decimalPointIndex + 1)
 
-            ' If there are already two decimal places, prevent further input
             If decimalsAfterPoint.Length >= 2 Then
-                Return False ' Block the keypress
+                Return False
             End If
         End If
 
-        ' If all checks pass, return True
         Return True
     End Function
 
     ' Integer Validator
+
     Public Function ValidateIntegerInput(txtBox As Guna2TextBox, e As KeyPressEventArgs) As Boolean
-        ' Allow control characters (e.g., Backspace, Delete)
         If Char.IsControl(e.KeyChar) Then
             Return True ' Allow the keypress
         End If
 
-        ' Allow only digits
         If Not Char.IsDigit(e.KeyChar) Then
-            Return False ' Block the keypress
+            Return False
         End If
 
-        ' If all checks pass, return True
+
         Return True
     End Function
 
@@ -697,6 +682,29 @@ Public Class FormUtils
             End If
         Next
         Return updatedDT
+    End Function
+
+    Public Function GetDaysInMonthList(year As Integer, month As Integer) As List(Of Integer)
+        Try
+            If month < 1 OrElse month > 12 Then
+                MsgBox(NameOf(month), "Month must be between 1 and 12.")
+                Return Nothing
+            End If
+
+            Dim daysInMonth As Integer = DateTime.DaysInMonth(year, month)
+
+            Dim daysList As New List(Of Integer)
+
+            For day As Integer = 1 To daysInMonth
+                daysList.Add(day)
+            Next
+
+            Return daysList
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Return Nothing
     End Function
 
 End Class

@@ -23,18 +23,18 @@ Partial Class AdminDashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea17 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend17 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea18 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend18 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend19 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend20 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -66,16 +66,19 @@ Partial Class AdminDashboardForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.SalesChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PositionsChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.YearCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DayStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DayStopCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.MonthCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.YearCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -86,12 +89,12 @@ Partial Class AdminDashboardForm
         Me.CustomersPanel.SuspendLayout()
         Me.ServicesPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel3.SuspendLayout()
+        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -104,7 +107,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel4, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel3, 0, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(34, 22)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(34, 34)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -469,7 +472,7 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.Controls.Add(Me.PositionsChart, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.InventoryGraph, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.SupplierStatusChart, 1, 1)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 271)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(34, 269)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -478,147 +481,170 @@ Partial Class AdminDashboardForm
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1113, 388)
         Me.TableLayoutPanel2.TabIndex = 7
         '
-        'SupplierStatusChart
-        '
-        ChartArea17.Name = "ChartArea1"
-        Me.SupplierStatusChart.ChartAreas.Add(ChartArea17)
-        Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend17.Name = "Legend1"
-        Me.SupplierStatusChart.Legends.Add(Legend17)
-        Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 197)
-        Me.SupplierStatusChart.Name = "SupplierStatusChart"
-        Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series17.ChartArea = "ChartArea1"
-        Series17.Legend = "Legend1"
-        Series17.Name = "Series1"
-        Me.SupplierStatusChart.Series.Add(Series17)
-        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 188)
-        Me.SupplierStatusChart.TabIndex = 10
-        Me.SupplierStatusChart.Text = "Chart4"
-        '
-        'InventoryGraph
-        '
-        ChartArea18.Name = "ChartArea1"
-        Me.InventoryGraph.ChartAreas.Add(ChartArea18)
-        Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend18.Name = "Legend1"
-        Me.InventoryGraph.Legends.Add(Legend18)
-        Me.InventoryGraph.Location = New System.Drawing.Point(3, 197)
-        Me.InventoryGraph.Name = "InventoryGraph"
-        Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series18.ChartArea = "ChartArea1"
-        Series18.Legend = "Legend1"
-        Series18.Name = "Series1"
-        Me.InventoryGraph.Series.Add(Series18)
-        Me.InventoryGraph.Size = New System.Drawing.Size(550, 188)
-        Me.InventoryGraph.TabIndex = 11
-        Me.InventoryGraph.Text = "Chart2"
-        '
-        'PositionsChart
-        '
-        ChartArea19.Name = "ChartArea1"
-        Me.PositionsChart.ChartAreas.Add(ChartArea19)
-        Me.PositionsChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend19.Name = "Legend1"
-        Me.PositionsChart.Legends.Add(Legend19)
-        Me.PositionsChart.Location = New System.Drawing.Point(3, 3)
-        Me.PositionsChart.Name = "PositionsChart"
-        Me.PositionsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series19.ChartArea = "ChartArea1"
-        Series19.Legend = "Legend1"
-        Series19.Name = "Series1"
-        Me.PositionsChart.Series.Add(Series19)
-        Me.PositionsChart.Size = New System.Drawing.Size(550, 188)
-        Me.PositionsChart.TabIndex = 12
-        Me.PositionsChart.Text = "Chart1"
-        '
         'SalesChart
         '
-        ChartArea20.Name = "ChartArea1"
-        Me.SalesChart.ChartAreas.Add(ChartArea20)
+        ChartArea1.Name = "ChartArea1"
+        Me.SalesChart.ChartAreas.Add(ChartArea1)
         Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend20.Name = "Legend1"
-        Me.SalesChart.Legends.Add(Legend20)
+        Legend1.Name = "Legend1"
+        Me.SalesChart.Legends.Add(Legend1)
         Me.SalesChart.Location = New System.Drawing.Point(559, 3)
         Me.SalesChart.Name = "SalesChart"
         Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series20.ChartArea = "ChartArea1"
-        Series20.Legend = "Legend1"
-        Series20.Name = "Series1"
-        Me.SalesChart.Series.Add(Series20)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.SalesChart.Series.Add(Series1)
         Me.SalesChart.Size = New System.Drawing.Size(551, 188)
         Me.SalesChart.TabIndex = 13
         Me.SalesChart.Text = "SalesChart"
         '
-        'TableLayoutPanel3
+        'PositionsChart
         '
-        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Guna2Panel1, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Panel1, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(34, 237)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1113, 28)
-        Me.TableLayoutPanel3.TabIndex = 34
+        ChartArea2.Name = "ChartArea1"
+        Me.PositionsChart.ChartAreas.Add(ChartArea2)
+        Me.PositionsChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend2.Name = "Legend1"
+        Me.PositionsChart.Legends.Add(Legend2)
+        Me.PositionsChart.Location = New System.Drawing.Point(3, 3)
+        Me.PositionsChart.Name = "PositionsChart"
+        Me.PositionsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.PositionsChart.Series.Add(Series2)
+        Me.PositionsChart.Size = New System.Drawing.Size(550, 188)
+        Me.PositionsChart.TabIndex = 12
+        Me.PositionsChart.Text = "Chart1"
         '
-        'Panel1
+        'InventoryGraph
         '
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(200, 22)
-        Me.Panel1.TabIndex = 0
+        ChartArea3.Name = "ChartArea1"
+        Me.InventoryGraph.ChartAreas.Add(ChartArea3)
+        Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend3.Name = "Legend1"
+        Me.InventoryGraph.Legends.Add(Legend3)
+        Me.InventoryGraph.Location = New System.Drawing.Point(3, 197)
+        Me.InventoryGraph.Name = "InventoryGraph"
+        Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.InventoryGraph.Series.Add(Series3)
+        Me.InventoryGraph.Size = New System.Drawing.Size(550, 188)
+        Me.InventoryGraph.TabIndex = 11
+        Me.InventoryGraph.Text = "Chart2"
+        '
+        'SupplierStatusChart
+        '
+        ChartArea4.Name = "ChartArea1"
+        Me.SupplierStatusChart.ChartAreas.Add(ChartArea4)
+        Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend4.Name = "Legend1"
+        Me.SupplierStatusChart.Legends.Add(Legend4)
+        Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 197)
+        Me.SupplierStatusChart.Name = "SupplierStatusChart"
+        Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.SupplierStatusChart.Series.Add(Series4)
+        Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 188)
+        Me.SupplierStatusChart.TabIndex = 10
+        Me.SupplierStatusChart.Text = "Chart4"
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Panel1.Controls.Add(Me.DayStartCmb)
+        Me.Guna2Panel1.Controls.Add(Me.Panel4)
+        Me.Guna2Panel1.Controls.Add(Me.DayStopCmb)
+        Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.MonthCmb)
         Me.Guna2Panel1.Controls.Add(Me.Panel2)
         Me.Guna2Panel1.Controls.Add(Me.YearCmb)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(556, 0)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(34, 237)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(557, 28)
-        Me.Guna2Panel1.TabIndex = 32
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1113, 28)
+        Me.Guna2Panel1.TabIndex = 33
         '
-        'YearCmb
+        'DayStartCmb
         '
-        Me.YearCmb.Animated = True
-        Me.YearCmb.BackColor = System.Drawing.Color.Transparent
-        Me.YearCmb.BorderRadius = 4
-        Me.YearCmb.DisplayMember = "(none)"
-        Me.YearCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.YearCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.YearCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.YearCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.YearCmb.FocusedState.Parent = Me.YearCmb
-        Me.YearCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.YearCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.YearCmb.FormattingEnabled = True
-        Me.YearCmb.HoverState.Parent = Me.YearCmb
-        Me.YearCmb.ItemHeight = 22
-        Me.YearCmb.ItemsAppearance.Parent = Me.YearCmb
-        Me.YearCmb.Location = New System.Drawing.Point(439, 0)
-        Me.YearCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.YearCmb.Name = "YearCmb"
-        Me.YearCmb.ShadowDecoration.Parent = Me.YearCmb
-        Me.YearCmb.Size = New System.Drawing.Size(118, 28)
-        Me.YearCmb.StartIndex = 0
-        Me.YearCmb.TabIndex = 34
+        Me.DayStartCmb.Animated = True
+        Me.DayStartCmb.BackColor = System.Drawing.Color.Transparent
+        Me.DayStartCmb.BorderRadius = 4
+        Me.DayStartCmb.DisplayMember = "(none)"
+        Me.DayStartCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.DayStartCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DayStartCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DayStartCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.DayStartCmb.FocusedState.Parent = Me.DayStartCmb
+        Me.DayStartCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.DayStartCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DayStartCmb.FormattingEnabled = True
+        Me.DayStartCmb.HoverState.Parent = Me.DayStartCmb
+        Me.DayStartCmb.ItemHeight = 22
+        Me.DayStartCmb.ItemsAppearance.Parent = Me.DayStartCmb
+        Me.DayStartCmb.Location = New System.Drawing.Point(634, 0)
+        Me.DayStartCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.DayStartCmb.Name = "DayStartCmb"
+        Me.DayStartCmb.ShadowDecoration.Parent = Me.DayStartCmb
+        Me.DayStartCmb.Size = New System.Drawing.Size(87, 28)
+        Me.DayStartCmb.TabIndex = 41
         '
-        'Panel2
+        'Panel4
         '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(429, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 28)
-        Me.Panel2.TabIndex = 35
+        Me.Panel4.Controls.Add(Me.Label1)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel4.Location = New System.Drawing.Point(721, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(40, 28)
+        Me.Panel4.TabIndex = 39
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(20, 13)
+        Me.Label1.TabIndex = 41
+        Me.Label1.Text = "To"
+        '
+        'DayStopCmb
+        '
+        Me.DayStopCmb.Animated = True
+        Me.DayStopCmb.BackColor = System.Drawing.Color.Transparent
+        Me.DayStopCmb.BorderRadius = 4
+        Me.DayStopCmb.DisplayMember = "(none)"
+        Me.DayStopCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.DayStopCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DayStopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DayStopCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.DayStopCmb.FocusedState.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.DayStopCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DayStopCmb.FormattingEnabled = True
+        Me.DayStopCmb.HoverState.Parent = Me.DayStopCmb
+        Me.DayStopCmb.ItemHeight = 22
+        Me.DayStopCmb.ItemsAppearance.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Location = New System.Drawing.Point(761, 0)
+        Me.DayStopCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.DayStopCmb.Name = "DayStopCmb"
+        Me.DayStopCmb.ShadowDecoration.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Size = New System.Drawing.Size(87, 28)
+        Me.DayStopCmb.TabIndex = 38
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(848, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(10, 28)
+        Me.Panel3.TabIndex = 37
         '
         'MonthCmb
         '
@@ -637,20 +663,51 @@ Partial Class AdminDashboardForm
         Me.MonthCmb.HoverState.Parent = Me.MonthCmb
         Me.MonthCmb.ItemHeight = 22
         Me.MonthCmb.ItemsAppearance.Parent = Me.MonthCmb
-        Me.MonthCmb.Location = New System.Drawing.Point(302, 0)
+        Me.MonthCmb.Location = New System.Drawing.Point(858, 0)
         Me.MonthCmb.Margin = New System.Windows.Forms.Padding(12)
         Me.MonthCmb.Name = "MonthCmb"
         Me.MonthCmb.ShadowDecoration.Parent = Me.MonthCmb
         Me.MonthCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthCmb.StartIndex = 0
         Me.MonthCmb.TabIndex = 36
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(985, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(10, 28)
+        Me.Panel2.TabIndex = 35
+        '
+        'YearCmb
+        '
+        Me.YearCmb.Animated = True
+        Me.YearCmb.BackColor = System.Drawing.Color.Transparent
+        Me.YearCmb.BorderRadius = 4
+        Me.YearCmb.DisplayMember = "(none)"
+        Me.YearCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.YearCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.YearCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.YearCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.YearCmb.FocusedState.Parent = Me.YearCmb
+        Me.YearCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.YearCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.YearCmb.FormattingEnabled = True
+        Me.YearCmb.HoverState.Parent = Me.YearCmb
+        Me.YearCmb.ItemHeight = 22
+        Me.YearCmb.ItemsAppearance.Parent = Me.YearCmb
+        Me.YearCmb.Location = New System.Drawing.Point(995, 0)
+        Me.YearCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.YearCmb.Name = "YearCmb"
+        Me.YearCmb.ShadowDecoration.Parent = Me.YearCmb
+        Me.YearCmb.Size = New System.Drawing.Size(118, 28)
+        Me.YearCmb.TabIndex = 34
         '
         'AdminDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
-        Me.Controls.Add(Me.TableLayoutPanel3)
+        Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -674,12 +731,13 @@ Partial Class AdminDashboardForm
         Me.ServicesPanel.ResumeLayout(False)
         Me.ServicesPanel.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalesChart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel3.ResumeLayout(False)
+        CType(Me.PositionsChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -718,10 +776,13 @@ Partial Class AdminDashboardForm
     Friend WithEvents InventoryGraph As DataVisualization.Charting.Chart
     Friend WithEvents SupplierStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents SalesChart As DataVisualization.Charting.Chart
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents DayStartCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents DayStopCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel3 As Panel
     Friend WithEvents MonthCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents YearCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel1 As Panel
 End Class
