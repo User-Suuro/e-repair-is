@@ -124,7 +124,8 @@ Public Class AdminDashboardForm
 
     Private Sub reloadStrDate()
 
-        If Not finishedLoad AndAlso Not hasDayCmbValue() Then Exit Sub
+        If Not finishedLoad Then Exit Sub
+        If Not hasDayCmbValue() AndAlso Not hasYrMonthCmbValue() Then Exit Sub
 
         ' CODE
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
@@ -135,7 +136,9 @@ Public Class AdminDashboardForm
 
     Private Sub loadDays()
 
-        If Not finishedLoad AndAlso Not hasDayCmbValue() Then Exit Sub
+        If Not finishedLoad Then Exit Sub
+        If Not hasYrMonthCmbValue() Then Exit Sub
+
         daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
         daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
 
@@ -150,8 +153,16 @@ Public Class AdminDashboardForm
 
     End Sub
 
-    Private Function hasDayCmbValue() As Boolean
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing AndAlso DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
+    Private Function hasYrMonthCmbValue() As Boolean
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    Private Function hasDayCmbValue()
+        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem Then
             Return True
         End If
 
