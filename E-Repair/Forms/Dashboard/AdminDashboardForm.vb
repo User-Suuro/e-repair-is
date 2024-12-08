@@ -24,11 +24,9 @@ Public Class AdminDashboardForm
     Dim invDT As New DataTable
     Dim itemDT As New DataTable
 
-    Private finishedLoad As Boolean
+    Private finishedLoad As Boolean = False
 
     ' FILTER VARS
-
-    Private dateFormat As String = constants.getDateFormat
     Private strStartDate As String
     Private strStopDate As String
 
@@ -66,7 +64,6 @@ Public Class AdminDashboardForm
 
     ' FILTER INITIALIZATIONS
 
-
     Private Sub loadCharts()
         LoadJobChart()
         loadInvUsedChart()
@@ -76,7 +73,6 @@ Public Class AdminDashboardForm
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
-
         If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
         If Not formUtils.hasYrMonthCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
 
@@ -88,6 +84,7 @@ Public Class AdminDashboardForm
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
         strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
     End Sub
+
     Private Sub reloadDays()
         If Not finishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
@@ -111,6 +108,14 @@ Public Class AdminDashboardForm
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
         reloadDays()
     End Sub
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+    End Sub
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+    End Sub
 
     Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
         reloadChartVals()
@@ -122,6 +127,7 @@ Public Class AdminDashboardForm
         loadSalesChart(False)
         loadSupplierStatusChart(False)
     End Sub
+
 
     ' POSITIONS CHART
 

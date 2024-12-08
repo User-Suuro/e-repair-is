@@ -797,7 +797,10 @@ Public Class FormUtils
         Dim daysListStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
         Dim daysListStop = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
 
-        DayStartCmb.DataSource = daysListStart
+        With DayStartCmb
+            .DataSource = daysListStart
+            .SelectedIndex = 0
+        End With
 
         With DayStopCmb
             .DataSource = daysListStop
@@ -805,6 +808,5 @@ Public Class FormUtils
         End With
 
     End Sub
-
 
 End Class
