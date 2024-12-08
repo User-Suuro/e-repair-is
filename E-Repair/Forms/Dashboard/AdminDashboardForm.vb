@@ -54,8 +54,10 @@ Public Class AdminDashboardForm
         'FILTERS
 
         formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthEndCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmbb)
+
         DayStartCmb.SelectedIndex = 0
+        MonthStartCmb.SelectedIndex = 0
 
         finishedLoad = True
         reloadChartVals()
@@ -90,7 +92,7 @@ Public Class AdminDashboardForm
         If Not finishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthEndCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
     End Sub
 
     ' FILTER EVENTS
@@ -145,6 +147,7 @@ Public Class AdminDashboardForm
 
         Dim series As New Series()
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
+
         Dim localDT As DataTable = empDT
 
         If filterDate Then

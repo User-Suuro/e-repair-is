@@ -17,23 +17,102 @@ Public Class CashierDashboardForm
     Dim servDT As New DataTable
     Dim custDT As New DataTable
 
+    Private FinishedLoad As Boolean = False
+
+    Private strStartDate As String
+    Private strStopDate As String
+
     Private Sub loadData()
         Cursor = Cursors.WaitCursor
 
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr, servConst.devTypeStr, servConst.payMethodStr}, servConst.svcTableStr, servConst.archivedStr, 0)
-        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr}, custConst.custTableStr, custConst.custArchStr, 0)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.cashierIDStr, servConst.svcStatusStr, servConst.devTypeStr, servConst.payMethodStr, servConst.dateAddedStr}, servConst.svcTableStr, servConst.archivedStr, 0)
+        custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr, custConst.custDateAddedStr}, custConst.custTableStr, custConst.custArchStr, 0)
+
+        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
+        custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
 
         Cursor = Cursors.Default
     End Sub
+
     Private Sub CashierDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadData()
         loadTimer()
         loadStatus()
+        loadCharts()
+    End Sub
 
+    ' FILTER INITIALIZATIONS
+
+    Private Sub loadCharts()
         loadServiceChart()
         loadGenderChart()
         loadDeviceTypeChart()
         loadPaymentMethodChart()
+    End Sub
+
+    Private Sub reloadChartVals()
+        If Not finishedLoad Then Exit Sub
+        If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
+        If Not formUtils.hasYrMonthCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
+
+        reloadStrDate()
+        loadCharts()
+    End Sub
+
+    Private Sub reloadStrDate()
+        strStartDate = MonthStartCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStopDate = MonthEndCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+    End Sub
+
+    Private Sub reloadDays()
+        If Not finishedLoad Then Exit Sub
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
+    End Sub
+
+    ' FILTER EVENTS
+
+    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadData()
+        loadStatus()
+        loadTimer()
+    End Sub
+
+    Private Sub MonthStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthStartCmb.SelectedIndexChanged
+        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
+        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
+        reloadDays()
+    End Sub
+
+    Private Sub MonthEndCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthEndCmb.SelectedIndexChanged
+        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
+        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
+        reloadDays()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        reloadDays()
+    End Sub
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+    End Sub
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+    End Sub
+
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+        reloadChartVals()
+    End Sub
+
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
+        loadServiceChart(False)
+        loadGenderChart(False)
+        loadDeviceTypeChart(False)
+        loadPaymentMethodChart(False)
     End Sub
 
     Private Sub loadStatus()
@@ -43,7 +122,7 @@ Public Class CashierDashboardForm
 
     ' LOAD SERVICE CHART
 
-    Private Sub loadServiceChart()
+    Private Sub loadServiceChart(Optional filterDate As Boolean = True)
 
         Dim series As New Series()
         series.IsVisibleInLegend = False
@@ -51,26 +130,29 @@ Public Class CashierDashboardForm
 
         Dim statusEnum = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
 
+        Dim localDT As DataTable = servDT
+
+        If filterDate Then
+            Try
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
+
         For Each status In statusEnum
-            Dim totalCount = servDT.Select($"{servConst.svcStatusStr} = '{status}'").Length
+            Dim totalCount = localDT.Select($"{servConst.svcStatusStr} = '{status}'").Length
             series.Points.AddXY(status, statusEnum)
         Next
 
-        With ServStatusChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Service Status Summary")
-        End With
+        formUtils.formatChart(ServStatusChart, series, "Service Status Summary")
 
     End Sub
 
     ' LOAD GENDER CHART
 
-    Private Sub loadGenderChart()
+    Private Sub loadGenderChart(Optional filterDate As Boolean = True)
 
         ' load enums
         Dim genders = dbHelper.GetEnums(custConst.custTableStr, custConst.custGenderStr)
@@ -79,26 +161,30 @@ Public Class CashierDashboardForm
         series.ChartType = SeriesChartType.Bar
         series.IsVisibleInLegend = False
 
+        Dim localDT As DataTable = custDT
+
+        If filterDate Then
+            Try
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, custConst.custDateAddedStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
+
         For Each gender In genders
-            Dim totalCount As Integer = custDT.Select($"{custConst.custGenderStr} = '{gender}'").Length
+            Dim totalCount As Integer = localDT.Select($"{custConst.custGenderStr} = '{gender}'").Length
             series.Points.AddXY(gender, totalCount)
         Next
 
-        With GenderChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Customer Gender Demographics")
-        End With
+        formUtils.formatChart(GenderChart, series, "Customer Gender Demographics")
 
     End Sub
 
     ' LOAD DEVICE TYPE CHART
 
-    Private Sub loadDeviceTypeChart()
+    Private Sub loadDeviceTypeChart(Optional filterDate As Boolean = True)
+
         ' load enums
         Dim deviceTypes = dbHelper.GetEnums(servConst.svcTableStr, servConst.devTypeStr)
 
@@ -107,49 +193,59 @@ Public Class CashierDashboardForm
         series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Bar
 
+        Dim localDT As DataTable = servDT
+
+        If filterDate Then
+
+            Try
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+
+        End If
+
         For Each devType In deviceTypes
             Dim totalCount As Integer = servDT.Select($"{servConst.devTypeStr } = '{devType}'").Length
             series.Points.AddXY(devType, totalCount)
         Next
 
-        With DevTypeChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Device Types Summary Count")
-        End With
+        formUtils.formatChart(DevTypeChart, series, "Device Types Summary Count")
 
     End Sub
 
     ' LOAD PAYMENT METHOD CHART
 
-    Private Sub loadPaymentMethodChart()
+    Private Sub loadPaymentMethodChart(Optional filterDate As Boolean = True)
         Dim payMethods = dbHelper.GetEnums(servConst.svcTableStr, servConst.payMethodStr)
 
         Dim series As New Series()
+        Dim localDT As DataTable = servDT
 
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Bar
         End With
 
+        If filterDate Then
+
+            Try
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+
+        End If
+
         For Each method In payMethods
             Dim totalCount As Integer = servDT.Select($"{servConst.payMethodStr} = '{method}'").Length
             series.Points.AddXY(method, totalCount)
         Next
 
-        With PaymentMethodChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Payment Methods Summary")
-        End With
+        formUtils.formatChart(PaymentMethodChart, series, "Payment Methods Summary")
+
     End Sub
 
     ' TIMER
@@ -176,4 +272,5 @@ Public Class CashierDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
+
 End Class
