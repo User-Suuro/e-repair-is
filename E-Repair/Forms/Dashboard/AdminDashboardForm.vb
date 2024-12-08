@@ -36,8 +36,8 @@ Public Class AdminDashboardForm
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' data
-        finishedLoad = True
         loadData()
+
         ' text
         loadStatus()
         loadWelcome()
@@ -46,11 +46,10 @@ Public Class AdminDashboardForm
         reloadChartVals()
         ' timer
         loadTimer()
+        finishedLoad = True
     End Sub
 
     Private Sub loadData()
-        If Not finishedLoad Then Exit Sub
-
         Cursor = Cursors.WaitCursor
 
         empDT = dbHelper.GetRowByColValue(New List(Of String) From {empConst.empArchStr, empConst.empIDStr, empConst.empJobPosStr, empConst.empAddDateStr}, empConst.empTableStr, empConst.empArchStr, 0)
@@ -86,6 +85,10 @@ Public Class AdminDashboardForm
             .EndUpdate()
         End With
 
+        loadDays()
+
+        reloadChartVals()
+
         Cursor = Cursors.Default
     End Sub
 
@@ -117,10 +120,19 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
+
+        reloadDayStart()
+        reloadDayStop()
         reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
+
+
+        reloadDayStart()
+        reloadDayStop()
         reloadChartVals()
     End Sub
 
@@ -176,13 +188,14 @@ Public Class AdminDashboardForm
 
     ' POSITIONS CHART
 
-    Private Sub loadJobChart()
-        Dim series As New Series()
+    Private Sub LoadJobChart()
 
+        Dim series As New Series()
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
+        Dim localDT As DataTable = Nothing
 
         Try
-            empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
+            localDT = formUtils.FilterDates(empDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, empConst.empAddDateStr)
         Catch ex As Exception
             MsgBox("Unable to filter date with invalid date format: " & ex.Message)
             Exit Sub
@@ -194,17 +207,21 @@ Public Class AdminDashboardForm
         End With
 
         For Each jobType In getPositionEnum
-            Dim totalCount As Integer = empDT.Select($"{empConst.empJobPosStr } = '{jobType}'").Length
+            Dim totalCount As Integer = localDT.Select($"{empConst.empJobPosStr} = '{jobType}'").Length
             series.Points.AddXY(jobType, totalCount)
         Next
 
         With JobsChart
             .Series.Clear()
             .Titles.Clear()
-            .ChartAreas.Clear() '
+            .ChartAreas.Clear()
+
+            Dim chartArea As New ChartArea("Default")
+            .ChartAreas.Add(chartArea)
+
             .Series.Add(series)
-            .ChartAreas.Add(New ChartArea())
-            .Titles.Add("Jobs Summary") '
+            .Titles.Add("Jobs Summary")
+
             .Invalidate()
         End With
 
