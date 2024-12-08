@@ -708,6 +708,7 @@ Public Class FormUtils
     End Function
 
     Function FilterDates(dt As DataTable, dateStart As DateTime, dateStop As DateTime, format As String, dateCol As String) As DataTable
+
         If dateStart > dateStop Then
             MsgBox("'dateStart' must be earlier than or equal to 'dateStop'.")
             Return Nothing
@@ -724,6 +725,7 @@ Public Class FormUtils
         Next
 
         Return filteredTable
+
     End Function
 
 End Class

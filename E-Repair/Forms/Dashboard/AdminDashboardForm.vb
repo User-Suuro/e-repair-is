@@ -35,29 +35,26 @@ Public Class AdminDashboardForm
 
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         ' data
         finishedLoad = True
         loadData()
-
         ' text
         loadStatus()
         loadWelcome()
+        'charts
+        loadCharts()
+        ' timer
+        loadTimer()
+    End Sub
 
-        ' charts
+    Private Sub loadCharts()
         loadPositionChart()
         loadInvUsedChart()
         loadSalesChart()
         loadSupplierStatusChart()
-
-        ' timer
-        loadTimer()
-
     End Sub
 
-
     Private Sub loadData()
-
         If Not finishedLoad Then Exit Sub
 
         Cursor = Cursors.WaitCursor
@@ -100,24 +97,26 @@ Public Class AdminDashboardForm
 
     ' FILTERS
 
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+    Private Sub reloadChartVals()
         reloadDayStop()
         reloadStrDate()
+        loadCharts()
+    End Sub
+
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        reloadChartVals()
     End Sub
 
     Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-        reloadDayStart()
-        reloadStrDate()
+        reloadChartVals()
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        loadDays()
-        reloadStrDate()
+        reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        loadDays()
-        reloadStrDate()
+        reloadChartVals()
     End Sub
 
     ' FILTER FUNCTIONS
@@ -131,10 +130,6 @@ Public Class AdminDashboardForm
         ' CODE
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
         strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
-
-        MsgBox(strStartDate)
-        MsgBox(strStopDate)
-
     End Sub
 
     Private Sub loadDays()
@@ -192,7 +187,7 @@ Public Class AdminDashboardForm
         Dim series As New Series()
 
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
-        empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat)
+        empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
 
         With series
             .IsVisibleInLegend = False
