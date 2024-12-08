@@ -90,6 +90,12 @@ Public Class AdminDashboardForm
     End Sub
 
     ' FILTERS
+    Private Sub loadCharts()
+        loadJobChart()
+        loadInvUsedChart()
+        loadSalesChart()
+        loadSupplierStatusChart()
+    End Sub
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
@@ -97,14 +103,9 @@ Public Class AdminDashboardForm
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
 
+        loadDays()
         reloadStrDate()
         loadCharts()
-    End Sub
-    Private Sub loadCharts()
-        loadJobChart()
-        loadInvUsedChart()
-        loadSalesChart()
-        loadSupplierStatusChart()
     End Sub
 
     Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
@@ -116,16 +117,10 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        loadDays()
-        reloadDayStart()
-        reloadDayStop()
         reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        loadDays()
-        reloadDayStart()
-        reloadDayStop()
         reloadChartVals()
     End Sub
 
@@ -144,8 +139,8 @@ Public Class AdminDashboardForm
         DayStartCmb.DataSource = daysListStart
 
         With DayStopCmb
-            .DataSource = daysListStop
             .BeginUpdate()
+            .DataSource = daysListStop
             .SelectedIndex = daysListStop.Count - 1
             .EndUpdate()
         End With
@@ -190,6 +185,7 @@ Public Class AdminDashboardForm
             empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
         Catch ex As Exception
             MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+            Exit Sub
         End Try
 
         With series
@@ -204,11 +200,12 @@ Public Class AdminDashboardForm
 
         With JobsChart
             .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .ChartAreas.Clear() ' Clears all chart areas
+            .Titles.Clear()
+            .ChartAreas.Clear() '
             .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Jobs Summary")
+            .ChartAreas.Add(New ChartArea())
+            .Titles.Add("Jobs Summary") '
+            .Invalidate()
         End With
 
     End Sub
