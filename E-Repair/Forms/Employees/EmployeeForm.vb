@@ -162,11 +162,18 @@ Public Class EmployeeForm
         LoadDataToDGV()
         EmpDGV.ClearSelection()
 
-        If Current.position <> constants.getAdminString Or Current.position <> constants.getSuperAdminString Then
-            ArchiveEmployeeBtn.Visible = False
-            DeleteEmployeeBtn.Visible = False
-            AddEmployeeBtn.Visible = False
-            EmployeeExportBtn.Visible = False
+        ArchiveEmployeeBtn.Visible = False
+        DeleteEmployeeBtn.Visible = False
+        AddEmployeeBtn.Visible = False
+        EmployeeExportBtn.Visible = False
+        EditEmployeeBtn.Visible = False
+
+        If Current.position = constants.getAdminString Or Current.position = constants.getSuperAdminString Then
+            ArchiveEmployeeBtn.Visible = True
+            DeleteEmployeeBtn.Visible = True
+            AddEmployeeBtn.Visible = True
+            EmployeeExportBtn.Visible = True
+            EditEmployeeBtn.Visible = True
         End If
 
     End Sub
