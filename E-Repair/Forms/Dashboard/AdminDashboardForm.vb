@@ -97,12 +97,8 @@ Public Class AdminDashboardForm
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
 
-        reloadDayStart()
-        reloadDayStop()
         reloadStrDate()
         loadCharts()
-
-
     End Sub
     Private Sub loadCharts()
         loadJobChart()
@@ -120,10 +116,16 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        reloadDayStart()
+        reloadDayStop()
+
         reloadChartVals()
     End Sub
 
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged\
+        reloadDayStart()
+        reloadDayStop()
+
         reloadChartVals()
     End Sub
 
@@ -199,7 +201,6 @@ Public Class AdminDashboardForm
         With JobsChart
             .Series.Clear()
             .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
             .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
             .ChartAreas.Add(New ChartArea)
