@@ -97,7 +97,6 @@ Public Class AdminDashboardForm
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
 
-        loadDays()
         reloadStrDate()
         loadCharts()
     End Sub
@@ -117,15 +116,17 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        reloadChartVals()
+        loadDays()
         reloadDayStart()
         reloadDayStop()
+        reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        reloadChartVals()
+        loadDays()
         reloadDayStart()
         reloadDayStop()
+        reloadChartVals()
     End Sub
 
     ' FILTER FUNCTIONS
