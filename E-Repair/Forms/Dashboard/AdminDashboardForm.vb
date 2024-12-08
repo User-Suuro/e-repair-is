@@ -1,8 +1,6 @@
 ﻿
-Imports System.IO
-Imports System.Web.UI.WebControls
 Imports System.Windows.Forms.DataVisualization.Charting
-Imports Microsoft.Reporting
+
 
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
@@ -54,12 +52,13 @@ Public Class AdminDashboardForm
         'FILTERS
 
         formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmbb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
 
-        DayStartCmb.SelectedIndex = 0
         MonthStartCmb.SelectedIndex = 0
 
         finishedLoad = True
+
+        reloadDays()
         reloadChartVals()
 
         Cursor = Cursors.Default
@@ -76,8 +75,9 @@ Public Class AdminDashboardForm
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
+
         If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
-        If Not formUtils.hasYrMonthCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
+        If Not formUtils.hasYrMonthCmbValue(YearCmb, MonthStartCmb, MonthEndCmb) Then Exit Sub
 
         reloadStrDate()
         loadCharts()

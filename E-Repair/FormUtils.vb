@@ -778,8 +778,9 @@ Public Class FormUtils
         Return False
     End Function
 
-    Public Function hasYrMonthCmbValue(ByVal YearCmb, ByVal MonthCmb) As Boolean
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
+    Public Function hasYrMonthCmbValue(ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb) As Boolean
+
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthStartCmb.SelectedItem IsNot Nothing AndAlso MonthEndCmb.SelectedItem IsNot Nothing Then
             Return True
         End If
 
@@ -788,28 +789,23 @@ Public Class FormUtils
 
     Public Sub InitYearMonthCmb(ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb)
         Dim monthList = constants.getMonthList
+
         Dim monthStart As New List(Of String)(monthList)
         Dim monthEnd As New List(Of String)(monthList)
 
         With YearCmb
             .DataSource = constants.getYearList
-            .BeginUpdate()
             .SelectedIndex = 0
-            .EndUpdate()
         End With
 
         With MonthStartCmb
             .DataSource = monthStart
-            .BeginUpdate()
             .SelectedIndex = 0
-            .EndUpdate()
         End With
 
         With MonthEndCmb
             .DataSource = monthEnd
-            .BeginUpdate()
             .SelectedIndex = FindComboBoxItemByText(MonthEndCmb, DateTime.Now.ToString("MMMM"))
-            .EndUpdate()
         End With
 
     End Sub
@@ -819,10 +815,8 @@ Public Class FormUtils
         Dim daysStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthStartCmb.SelectedIndex + 1)
         Dim daysEnd = GetDaysInMonthList(YearCmb.SelectedItem, MonthEndCmb.SelectedIndex + 1)
 
-
         With DayStartCmb
             .DataSource = daysStart
-            .SelectedIndex = 0
         End With
 
         With DayStopCmb

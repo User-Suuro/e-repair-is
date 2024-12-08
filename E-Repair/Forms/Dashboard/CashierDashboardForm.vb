@@ -49,11 +49,11 @@ Public Class CashierDashboardForm
         loadDeviceTypeChart()
         loadPaymentMethodChart()
     End Sub
-
     Private Sub reloadChartVals()
-        If Not finishedLoad Then Exit Sub
+        If Not FinishedLoad Then Exit Sub
+
         If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
-        If Not formUtils.hasYrMonthCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
+        If Not formUtils.hasYrMonthCmbValue(YearCmb, MonthStartCmb, MonthEndCmb) Then Exit Sub
 
         reloadStrDate()
         loadCharts()
@@ -65,7 +65,7 @@ Public Class CashierDashboardForm
     End Sub
 
     Private Sub reloadDays()
-        If Not finishedLoad Then Exit Sub
+        If Not FinishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
         formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
