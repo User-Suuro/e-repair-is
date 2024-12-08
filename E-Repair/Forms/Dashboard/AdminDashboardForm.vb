@@ -33,6 +33,8 @@ Public Class AdminDashboardForm
     Private daysListStart As List(Of Integer)
     Private daysListStop As List(Of Integer)
 
+
+
     Private Sub loadData()
         Cursor = Cursors.WaitCursor
 
@@ -79,26 +81,6 @@ Public Class AdminDashboardForm
 
     ' FILTER INITIALIZATIONS
 
-    Private Sub reloadStrDate()
-        ' CODE
-        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
-    End Sub
-
-    Private Sub loadDays()
-        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-
-        DayStartCmb.DataSource = daysListStart
-
-        With DayStopCmb
-            .BeginUpdate()
-            .DataSource = daysListStop
-            .SelectedIndex = daysListStop.Count - 1
-            .EndUpdate()
-        End With
-    End Sub
-
     Private Sub loadCharts()
         LoadJobChart()
         loadInvUsedChart()
@@ -108,7 +90,6 @@ Public Class AdminDashboardForm
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
-
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
 
@@ -116,23 +97,24 @@ Public Class AdminDashboardForm
         loadCharts()
     End Sub
 
-    ' FILTER CONTROLS
+    Private Sub reloadStrDate()
+        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+    End Sub
 
-    Private Function hasYrMonthCmbValue() As Boolean
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
+    ' FILTER DAYS CONTROLS
 
-        Return False
-    End Function
+    Private Sub loadDays()
+        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        DayStartCmb.DataSource = daysListStart
 
-    Private Function hasDayCmbValue()
-        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
+        With DayStopCmb
+            .DataSource = daysListStop
+            .SelectedIndex = daysListStop.Count - 1
+        End With
 
-        Return False
-    End Function
+    End Sub
 
     Private Sub reloadDayStop()
         If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
@@ -146,6 +128,25 @@ Public Class AdminDashboardForm
         End If
     End Sub
 
+    ' FILTER CONTROLS VALUE CHECKER
+    Private Function hasDayCmbValue()
+        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    Private Function hasYrMonthCmbValue() As Boolean
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    ' FILTER EVENTS
+
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadData()
         loadStatus()
@@ -153,34 +154,19 @@ Public Class AdminDashboardForm
         loadTimer()
     End Sub
 
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-        reloadChartVals()
-    End Sub
-
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-        reloadChartVals()
-    End Sub
-
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
         If Not finishedLoad Then Exit Sub
-
         loadDays()
         reloadDayStart()
         reloadDayStop()
-
-        reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
         If Not finishedLoad Then Exit Sub
-
         loadDays()
         reloadDayStart()
         reloadDayStop()
-
-        reloadChartVals()
     End Sub
-
 
     ' POSITIONS CHART
 
@@ -189,6 +175,8 @@ Public Class AdminDashboardForm
         Dim series As New Series()
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
         Dim localDT As DataTable = Nothing
+
+        MsgBox(strStopDate)
 
         Try
             localDT = formUtils.FilterDates(empDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, empConst.empAddDateStr)
@@ -327,4 +315,5 @@ Public Class AdminDashboardForm
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
         Label10.Text = Current.position
     End Sub
+
 End Class
