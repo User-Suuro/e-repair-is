@@ -97,6 +97,7 @@ Public Class AdminDashboardForm
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
 
+        loadDays()
         reloadStrDate()
         loadCharts()
     End Sub
@@ -116,17 +117,15 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        reloadChartVals()
         reloadDayStart()
         reloadDayStop()
-
-        reloadChartVals()
     End Sub
 
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged\
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        reloadChartVals()
         reloadDayStart()
         reloadDayStop()
-
-        reloadChartVals()
     End Sub
 
     ' FILTER FUNCTIONS
@@ -186,7 +185,11 @@ Public Class AdminDashboardForm
 
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
 
-        empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
+        Try
+            empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
+        Catch ex As Exception
+            MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+        End Try
 
         With series
             .IsVisibleInLegend = False
