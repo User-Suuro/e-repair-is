@@ -22,6 +22,8 @@ Partial Class EmployeeExportPrintable
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -39,10 +41,18 @@ Partial Class EmployeeExportPrintable
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.DataSet1 = New E_Repair.DataSet1()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EmployeesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2GroupBox1
@@ -219,6 +229,10 @@ Partial Class EmployeeExportPrintable
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.EmployeesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "E_Repair.EmployeesReport.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(15, 83)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
@@ -290,6 +304,26 @@ Partial Class EmployeeExportPrintable
         Me.BtnClose.TabIndex = 34
         Me.BtnClose.Text = "Close"
         '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "employees"
+        Me.EmployeesBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1BindingSource
+        '
+        Me.DataSet1BindingSource.DataSource = Me.DataSet1
+        Me.DataSet1BindingSource.Position = 0
+        '
+        'EmployeesBindingSource1
+        '
+        Me.EmployeesBindingSource1.DataMember = "employees"
+        Me.EmployeesBindingSource1.DataSource = Me.DataSet1
+        '
         'EmployeeExportPrintable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -307,6 +341,10 @@ Partial Class EmployeeExportPrintable
         Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -328,4 +366,8 @@ Partial Class EmployeeExportPrintable
     Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents EmployeesBindingSource As BindingSource
+    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents DataSet1BindingSource As BindingSource
+    Friend WithEvents EmployeesBindingSource1 As BindingSource
 End Class

@@ -34,9 +34,9 @@ Partial Class CustomerExportPrintable
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -221,6 +221,22 @@ Partial Class CustomerExportPrintable
         Me.ReportViewer1.Size = New System.Drawing.Size(1133, 496)
         Me.ReportViewer1.TabIndex = 57
         '
+        'BtnSave
+        '
+        Me.BtnSave.BorderRadius = 4
+        Me.BtnSave.CheckedState.Parent = Me.BtnSave
+        Me.BtnSave.CustomImages.Parent = Me.BtnSave
+        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
+        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSave.ForeColor = System.Drawing.Color.White
+        Me.BtnSave.HoverState.Parent = Me.BtnSave
+        Me.BtnSave.Location = New System.Drawing.Point(1043, 604)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
+        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSave.TabIndex = 56
+        Me.BtnSave.Text = "Export"
+        '
         'Guna2Separator3
         '
         Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
@@ -244,22 +260,6 @@ Partial Class CustomerExportPrintable
         Me.Button3.Size = New System.Drawing.Size(107, 32)
         Me.Button3.TabIndex = 54
         Me.Button3.Text = "Close"
-        '
-        'BtnSave
-        '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(1043, 604)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 56
-        Me.BtnSave.Text = "Export"
         '
         'CustomerExportPrintable
         '
