@@ -38,13 +38,13 @@ Public Class TechnicianDashboardForm
     ' FILTER CONTROLS
 
     Private Sub loadDTPVal()
-        CalendarFrom.Value = Date.Now
-        CalendarTo.Value = Date.Now.AddMonths(1)
+        CalendarFrom.Value = Date.Now.AddYears(-1)
+        CalendarTo.Value = Date.Now
     End Sub
 
     Private Sub reloadStrFilter()
         strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
-        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+        strStopDate = CalendarTo.Value.ToString(constants.getDateFormat)
     End Sub
 
     ' FILTER EVENTS

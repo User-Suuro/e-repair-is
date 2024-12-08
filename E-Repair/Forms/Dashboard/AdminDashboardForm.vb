@@ -54,6 +54,7 @@ Public Class AdminDashboardForm
         Cursor = Cursors.Default
     End Sub
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadData()
         loadStatus()
         loadWelcome()
         loadTimer()
@@ -70,13 +71,13 @@ Public Class AdminDashboardForm
     ' FILTER CONTROLS
 
     Private Sub loadDTPVal()
-        CalendarFrom.Value = Date.Now
-        CalendarTo.Value = Date.Now.AddMonths(1)
+        CalendarFrom.Value = Date.Now.AddYears(-1)
+        CalendarTo.Value = Date.Now
     End Sub
 
     Private Sub reloadStrFilter()
         strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
-        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+        strStopDate = CalendarTo.Value.ToString(constants.getDateFormat)
     End Sub
 
     ' FILTER EVENTS
@@ -107,6 +108,7 @@ Public Class AdminDashboardForm
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
 
         Dim localDT As DataTable = empDT
+
 
         If filterDate Then
             Try
