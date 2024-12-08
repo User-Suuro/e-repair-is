@@ -124,37 +124,39 @@ Public Class AdminDashboardForm
 
     Private Sub reloadStrDate()
 
-        If Not finishedLoad Then Exit Sub
-        If YearCmb.SelectedItem IsNot Nothing AndAlso
-            MonthCmb.SelectedItem IsNot Nothing AndAlso
-            DayStartCmb.SelectedItem IsNot Nothing AndAlso
-            DayStopCmb.SelectedItem IsNot Nothing Then
+        If Not finishedLoad AndAlso Not hasDayCmbValue() Then Exit Sub
 
-            ' CODE
-            strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-            strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        End If
+        ' CODE
+        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+
     End Sub
+
 
     Private Sub loadDays()
 
-        If Not finishedLoad Then Exit Sub
-
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
-            daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-            daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        End If
+        If Not finishedLoad AndAlso Not hasDayCmbValue() Then Exit Sub
+        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
 
         DayStartCmb.DataSource = daysListStart
 
         With DayStopCmb
             .DataSource = daysListStop
             .BeginUpdate()
-            .SelectedIndex = daysListStop.Last()
+            .SelectedIndex = daysListStop.Count - 1
             .EndUpdate()
         End With
 
     End Sub
+
+    Private Function hasDayCmbValue() As Boolean
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing AndAlso DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
 
     Private Sub reloadDayStop()
         If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
