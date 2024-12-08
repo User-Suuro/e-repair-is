@@ -22,10 +22,10 @@ Public Class MainPanel
             MsgBox("Unable to find profile")
         End If
 
-        dashboardHandler()
         sideNavHandler()
         topNavHandler()
         dashboardHandler()
+
     End Sub
 
     Private Sub topNavHandler()

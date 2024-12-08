@@ -51,31 +51,31 @@ Public Class AdminDashboardForm
 
         'FILTERS
 
-        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
 
+        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
         MonthStartCmb.SelectedIndex = 0
 
-        finishedLoad = True
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
 
-        reloadDays()
+        finishedLoad = True
         reloadChartVals()
+        loadCharts(True)
 
         Cursor = Cursors.Default
     End Sub
 
     ' FILTER INITIALIZATIONS
 
-    Private Sub loadCharts()
-        LoadJobChart()
-        loadInvUsedChart()
-        loadSalesChart()
-        loadSupplierStatusChart()
+    Private Sub loadCharts(Optional filterMode As Boolean = True)
+        LoadJobChart(filterMode)
+        loadInvUsedChart(filterMode)
+        loadSalesChart(filterMode)
+        loadSupplierStatusChart(filterMode)
     End Sub
 
     Private Sub reloadChartVals()
-        If Not finishedLoad Then Exit Sub
 
+        If Not finishedLoad Then Exit Sub
         If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
         If Not formUtils.hasYrMonthCmbValue(YearCmb, MonthStartCmb, MonthEndCmb) Then Exit Sub
 
@@ -98,19 +98,22 @@ Public Class AdminDashboardForm
     ' FILTER EVENTS
 
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadData()
+        If Not finishedLoad Then loadData()
+
         loadStatus()
         loadWelcome()
         loadTimer()
     End Sub
 
     Private Sub MonthStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthStartCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
         formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
         formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
         reloadDays()
     End Sub
 
     Private Sub MonthEndCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthEndCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
         formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
         formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
         reloadDays()
@@ -119,12 +122,14 @@ Public Class AdminDashboardForm
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
         reloadDays()
     End Sub
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs)
+        If Not finishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
 
     Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
@@ -134,10 +139,7 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
-        LoadJobChart(False)
-        loadInvUsedChart(False)
-        loadSalesChart(False)
-        loadSupplierStatusChart(False)
+        loadCharts(False)
     End Sub
 
 
@@ -300,6 +302,5 @@ Public Class AdminDashboardForm
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
         Label10.Text = Current.position
     End Sub
-
 
 End Class

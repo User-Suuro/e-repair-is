@@ -31,6 +31,14 @@ Public Class CashierDashboardForm
         servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
         custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
 
+        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
+        MonthStartCmb.SelectedIndex = 0
+
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
+        FinishedLoad = True
+
+        loadCharts()
+
         Cursor = Cursors.Default
     End Sub
 
@@ -38,17 +46,18 @@ Public Class CashierDashboardForm
         loadData()
         loadTimer()
         loadStatus()
-        loadCharts()
+        loadCharts(False)
     End Sub
 
     ' FILTER INITIALIZATIONS
 
-    Private Sub loadCharts()
-        loadServiceChart()
-        loadGenderChart()
-        loadDeviceTypeChart()
-        loadPaymentMethodChart()
+    Private Sub loadCharts(Optional filterMode As Boolean = True)
+        loadServiceChart(filterMode)
+        loadGenderChart(filterMode)
+        loadDeviceTypeChart(filterMode)
+        loadPaymentMethodChart(filterMode)
     End Sub
+
     Private Sub reloadChartVals()
         If Not FinishedLoad Then Exit Sub
 
@@ -99,20 +108,17 @@ Public Class CashierDashboardForm
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
 
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
 
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs)
         reloadChartVals()
     End Sub
 
-    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
-        loadServiceChart(False)
-        loadGenderChart(False)
-        loadDeviceTypeChart(False)
-        loadPaymentMethodChart(False)
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs)
+        loadCharts(False)
     End Sub
 
     Private Sub loadStatus()
@@ -272,5 +278,6 @@ Public Class CashierDashboardForm
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
     End Sub
+
 
 End Class

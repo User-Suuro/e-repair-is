@@ -62,13 +62,12 @@ Partial Class CashierDashboardForm
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.DayStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.DayStopCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.MonthStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.DayStopCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.MonthEndCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -87,7 +86,6 @@ Partial Class CashierDashboardForm
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -430,11 +428,11 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2Panel2.Controls.Add(Me.DayStartCmb)
-        Me.Guna2Panel2.Controls.Add(Me.Panel4)
-        Me.Guna2Panel2.Controls.Add(Me.DayStopCmb)
         Me.Guna2Panel2.Controls.Add(Me.Panel3)
         Me.Guna2Panel2.Controls.Add(Me.MonthStartCmb)
         Me.Guna2Panel2.Controls.Add(Me.Panel6)
+        Me.Guna2Panel2.Controls.Add(Me.DayStopCmb)
+        Me.Guna2Panel2.Controls.Add(Me.Panel4)
         Me.Guna2Panel2.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel2.Controls.Add(Me.MonthEndCmb)
         Me.Guna2Panel2.Controls.Add(Me.Panel2)
@@ -465,63 +463,20 @@ Partial Class CashierDashboardForm
         Me.DayStartCmb.HoverState.Parent = Me.DayStartCmb
         Me.DayStartCmb.ItemHeight = 22
         Me.DayStartCmb.ItemsAppearance.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Location = New System.Drawing.Point(407, 0)
+        Me.DayStartCmb.Location = New System.Drawing.Point(437, 0)
         Me.DayStartCmb.Margin = New System.Windows.Forms.Padding(12)
         Me.DayStartCmb.Name = "DayStartCmb"
         Me.DayStartCmb.ShadowDecoration.Parent = Me.DayStartCmb
         Me.DayStartCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStartCmb.TabIndex = 61
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.Label1)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(494, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(40, 28)
-        Me.Panel4.TabIndex = 60
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 8)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(20, 13)
-        Me.Label1.TabIndex = 41
-        Me.Label1.Text = "To"
-        '
-        'DayStopCmb
-        '
-        Me.DayStopCmb.Animated = True
-        Me.DayStopCmb.BackColor = System.Drawing.Color.Transparent
-        Me.DayStopCmb.BorderRadius = 4
-        Me.DayStopCmb.DisplayMember = "(none)"
-        Me.DayStopCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DayStopCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DayStopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DayStopCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.DayStopCmb.FocusedState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DayStopCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DayStopCmb.FormattingEnabled = True
-        Me.DayStopCmb.HoverState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.ItemHeight = 22
-        Me.DayStopCmb.ItemsAppearance.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Location = New System.Drawing.Point(534, 0)
-        Me.DayStopCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.DayStopCmb.Name = "DayStopCmb"
-        Me.DayStopCmb.ShadowDecoration.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStopCmb.TabIndex = 59
+        Me.DayStartCmb.TabIndex = 76
         '
         'Panel3
         '
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(621, 0)
+        Me.Panel3.Location = New System.Drawing.Point(524, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(10, 28)
-        Me.Panel3.TabIndex = 58
+        Me.Panel3.TabIndex = 75
         '
         'MonthStartCmb
         '
@@ -540,21 +495,21 @@ Partial Class CashierDashboardForm
         Me.MonthStartCmb.HoverState.Parent = Me.MonthStartCmb
         Me.MonthStartCmb.ItemHeight = 22
         Me.MonthStartCmb.ItemsAppearance.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Location = New System.Drawing.Point(631, 0)
+        Me.MonthStartCmb.Location = New System.Drawing.Point(534, 0)
         Me.MonthStartCmb.Margin = New System.Windows.Forms.Padding(12)
         Me.MonthStartCmb.Name = "MonthStartCmb"
         Me.MonthStartCmb.ShadowDecoration.Parent = Me.MonthStartCmb
         Me.MonthStartCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthStartCmb.TabIndex = 57
+        Me.MonthStartCmb.TabIndex = 74
         '
         'Panel6
         '
         Me.Panel6.Controls.Add(Me.Label4)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(758, 0)
+        Me.Panel6.Location = New System.Drawing.Point(661, 0)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(40, 28)
-        Me.Panel6.TabIndex = 56
+        Me.Panel6.TabIndex = 73
         '
         'Label4
         '
@@ -565,6 +520,38 @@ Partial Class CashierDashboardForm
         Me.Label4.Size = New System.Drawing.Size(20, 13)
         Me.Label4.TabIndex = 41
         Me.Label4.Text = "To"
+        '
+        'DayStopCmb
+        '
+        Me.DayStopCmb.Animated = True
+        Me.DayStopCmb.BackColor = System.Drawing.Color.Transparent
+        Me.DayStopCmb.BorderRadius = 4
+        Me.DayStopCmb.DisplayMember = "(none)"
+        Me.DayStopCmb.Dock = System.Windows.Forms.DockStyle.Right
+        Me.DayStopCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DayStopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DayStopCmb.FocusedColor = System.Drawing.Color.Empty
+        Me.DayStopCmb.FocusedState.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.DayStopCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DayStopCmb.FormattingEnabled = True
+        Me.DayStopCmb.HoverState.Parent = Me.DayStopCmb
+        Me.DayStopCmb.ItemHeight = 22
+        Me.DayStopCmb.ItemsAppearance.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Location = New System.Drawing.Point(701, 0)
+        Me.DayStopCmb.Margin = New System.Windows.Forms.Padding(12)
+        Me.DayStopCmb.Name = "DayStopCmb"
+        Me.DayStopCmb.ShadowDecoration.Parent = Me.DayStopCmb
+        Me.DayStopCmb.Size = New System.Drawing.Size(87, 28)
+        Me.DayStopCmb.TabIndex = 72
+        '
+        'Panel4
+        '
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel4.Location = New System.Drawing.Point(788, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(10, 28)
+        Me.Panel4.TabIndex = 71
         '
         'FetchAllBtn
         '
@@ -692,8 +679,6 @@ Partial Class CashierDashboardForm
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
@@ -727,13 +712,12 @@ Partial Class CashierDashboardForm
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents DayStartCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents DayStopCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents MonthStartCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label4 As Label
+    Friend WithEvents DayStopCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel4 As Panel
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents MonthEndCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel2 As Panel

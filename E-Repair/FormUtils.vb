@@ -810,7 +810,7 @@ Public Class FormUtils
 
     End Sub
 
-    Public Sub InitDayToEndCmb(ByVal DayStartCmb, ByVal DayStopCmb, ByVal YearCmb, ByVal MonthStartCmb, MonthEndCmb)
+    Public Sub InitDayToEndCmb(ByVal DayStartCmb, ByVal DayStopCmb, ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb)
 
         Dim daysStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthStartCmb.SelectedIndex + 1)
         Dim daysEnd = GetDaysInMonthList(YearCmb.SelectedItem, MonthEndCmb.SelectedIndex + 1)
