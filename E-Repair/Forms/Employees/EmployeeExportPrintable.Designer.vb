@@ -23,7 +23,7 @@ Partial Class EmployeeExportPrintable
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New E_Repair.DataSet1()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
@@ -237,9 +237,9 @@ Partial Class EmployeeExportPrintable
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.EmployeesBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.EmployeesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "E_Repair.EmployeesReport.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(15, 83)
         Me.ReportViewer1.Name = "ReportViewer1"
