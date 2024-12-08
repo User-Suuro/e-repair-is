@@ -159,6 +159,7 @@ Public Class AdminDashboardForm
         loadDays()
         reloadDayStart()
         reloadDayStop()
+        reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
@@ -166,6 +167,11 @@ Public Class AdminDashboardForm
         loadDays()
         reloadDayStart()
         reloadDayStop()
+        reloadChartVals()
+    End Sub
+
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+        reloadChartVals()
     End Sub
 
     ' POSITIONS CHART
@@ -315,5 +321,6 @@ Public Class AdminDashboardForm
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
         Label10.Text = Current.position
     End Sub
+
 
 End Class
