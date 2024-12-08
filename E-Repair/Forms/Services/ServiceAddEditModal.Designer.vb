@@ -123,10 +123,9 @@ Partial Class ServiceAddEditModal
         Me.Guna2GroupBox1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.Guna2GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.Parent = Me.Guna2GroupBox1
-        Me.Guna2GroupBox1.Size = New System.Drawing.Size(1473, 703)
+        Me.Guna2GroupBox1.Size = New System.Drawing.Size(982, 457)
         Me.Guna2GroupBox1.TabIndex = 0
         Me.Guna2GroupBox1.Text = "Add Service"
         '
@@ -139,11 +138,10 @@ Partial Class ServiceAddEditModal
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(1293, 638)
-        Me.BtnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnSave.Location = New System.Drawing.Point(862, 415)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(160, 49)
+        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
         Me.BtnSave.TabIndex = 50
         Me.BtnSave.Text = "Save"
         '
@@ -156,11 +154,10 @@ Partial Class ServiceAddEditModal
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(18, 638)
-        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnClose.Location = New System.Drawing.Point(12, 415)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(160, 49)
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
         Me.BtnClose.TabIndex = 49
         Me.BtnClose.Text = "Close"
         '
@@ -169,12 +166,11 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel5.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel5.BorderRadius = 4
         Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
-        Me.Guna2Panel5.Location = New System.Drawing.Point(18, 295)
-        Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Guna2Panel5.Location = New System.Drawing.Point(12, 192)
         Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
-        Me.Guna2Panel5.Size = New System.Drawing.Size(1224, 94)
+        Me.Guna2Panel5.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel5.TabIndex = 48
         '
         'JobDetailsTableLayout
@@ -190,13 +186,12 @@ Partial Class ServiceAddEditModal
         Me.JobDetailsTableLayout.Controls.Add(Me.DeviceBrandTxtBox, 0, 1)
         Me.JobDetailsTableLayout.Controls.Add(Me.Label3, 0, 0)
         Me.JobDetailsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JobDetailsTableLayout.Location = New System.Drawing.Point(6, 6)
-        Me.JobDetailsTableLayout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.JobDetailsTableLayout.Location = New System.Drawing.Point(4, 4)
         Me.JobDetailsTableLayout.Name = "JobDetailsTableLayout"
         Me.JobDetailsTableLayout.RowCount = 2
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(1212, 82)
+        Me.JobDetailsTableLayout.Size = New System.Drawing.Size(808, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
         '
         'Label1
@@ -204,10 +199,9 @@ Partial Class ServiceAddEditModal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(409, 0)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(273, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(131, 29)
+        Me.Label1.Size = New System.Drawing.Size(93, 20)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Device Model"
         '
@@ -227,14 +221,14 @@ Partial Class ServiceAddEditModal
         Me.StorageCapacityTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StorageCapacityTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StorageCapacityTxtBox.HoverState.Parent = Me.StorageCapacityTxtBox
-        Me.StorageCapacityTxtBox.Location = New System.Drawing.Point(813, 37)
-        Me.StorageCapacityTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.StorageCapacityTxtBox.Location = New System.Drawing.Point(542, 24)
+        Me.StorageCapacityTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.StorageCapacityTxtBox.Name = "StorageCapacityTxtBox"
         Me.StorageCapacityTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StorageCapacityTxtBox.PlaceholderText = ""
         Me.StorageCapacityTxtBox.SelectedText = ""
         Me.StorageCapacityTxtBox.ShadowDecoration.Parent = Me.StorageCapacityTxtBox
-        Me.StorageCapacityTxtBox.Size = New System.Drawing.Size(396, 38)
+        Me.StorageCapacityTxtBox.Size = New System.Drawing.Size(264, 25)
         Me.StorageCapacityTxtBox.TabIndex = 37
         '
         'Label6
@@ -242,10 +236,9 @@ Partial Class ServiceAddEditModal
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(814, 0)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(543, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(162, 29)
+        Me.Label6.Size = New System.Drawing.Size(111, 20)
         Me.Label6.TabIndex = 36
         Me.Label6.Text = "Storage Capacity"
         '
@@ -265,14 +258,14 @@ Partial Class ServiceAddEditModal
         Me.DeviceModelTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeviceModelTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeviceModelTxtBox.HoverState.Parent = Me.DeviceModelTxtBox
-        Me.DeviceModelTxtBox.Location = New System.Drawing.Point(408, 37)
-        Me.DeviceModelTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.DeviceModelTxtBox.Location = New System.Drawing.Point(272, 24)
+        Me.DeviceModelTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DeviceModelTxtBox.Name = "DeviceModelTxtBox"
         Me.DeviceModelTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeviceModelTxtBox.PlaceholderText = ""
         Me.DeviceModelTxtBox.SelectedText = ""
         Me.DeviceModelTxtBox.ShadowDecoration.Parent = Me.DeviceModelTxtBox
-        Me.DeviceModelTxtBox.Size = New System.Drawing.Size(399, 38)
+        Me.DeviceModelTxtBox.Size = New System.Drawing.Size(266, 25)
         Me.DeviceModelTxtBox.TabIndex = 30
         '
         'DeviceBrandTxtBox
@@ -291,14 +284,14 @@ Partial Class ServiceAddEditModal
         Me.DeviceBrandTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeviceBrandTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeviceBrandTxtBox.HoverState.Parent = Me.DeviceBrandTxtBox
-        Me.DeviceBrandTxtBox.Location = New System.Drawing.Point(3, 37)
-        Me.DeviceBrandTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.DeviceBrandTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.DeviceBrandTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DeviceBrandTxtBox.Name = "DeviceBrandTxtBox"
         Me.DeviceBrandTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeviceBrandTxtBox.PlaceholderText = ""
         Me.DeviceBrandTxtBox.SelectedText = ""
         Me.DeviceBrandTxtBox.ShadowDecoration.Parent = Me.DeviceBrandTxtBox
-        Me.DeviceBrandTxtBox.Size = New System.Drawing.Size(399, 38)
+        Me.DeviceBrandTxtBox.Size = New System.Drawing.Size(266, 25)
         Me.DeviceBrandTxtBox.TabIndex = 29
         '
         'Label3
@@ -306,10 +299,9 @@ Partial Class ServiceAddEditModal
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(4, 0)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(3, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 29)
+        Me.Label3.Size = New System.Drawing.Size(90, 20)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Device Brand"
         '
@@ -318,12 +310,11 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel1.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel1.BorderRadius = 4
         Me.Guna2Panel1.Controls.Add(Me.OperatingSystemTableLayout)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(634, 398)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(423, 259)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(608, 94)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel1.TabIndex = 46
         '
         'OperatingSystemTableLayout
@@ -336,13 +327,12 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemTableLayout.Controls.Add(Me.Label15, 1, 0)
         Me.OperatingSystemTableLayout.Controls.Add(Me.IfOthersOperatingSystemTxtBox, 1, 1)
         Me.OperatingSystemTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OperatingSystemTableLayout.Location = New System.Drawing.Point(6, 6)
-        Me.OperatingSystemTableLayout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.OperatingSystemTableLayout.Location = New System.Drawing.Point(4, 4)
         Me.OperatingSystemTableLayout.Name = "OperatingSystemTableLayout"
         Me.OperatingSystemTableLayout.RowCount = 2
         Me.OperatingSystemTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.OperatingSystemTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.OperatingSystemTableLayout.Size = New System.Drawing.Size(596, 82)
+        Me.OperatingSystemTableLayout.Size = New System.Drawing.Size(397, 53)
         Me.OperatingSystemTableLayout.TabIndex = 8
         '
         'OperatingSystemTxtBox
@@ -361,14 +351,14 @@ Partial Class ServiceAddEditModal
         Me.OperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.OperatingSystemTxtBox.HoverState.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.Location = New System.Drawing.Point(3, 37)
-        Me.OperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.OperatingSystemTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.OperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.OperatingSystemTxtBox.Name = "OperatingSystemTxtBox"
         Me.OperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.OperatingSystemTxtBox.PlaceholderText = ""
         Me.OperatingSystemTxtBox.SelectedText = ""
         Me.OperatingSystemTxtBox.ShadowDecoration.Parent = Me.OperatingSystemTxtBox
-        Me.OperatingSystemTxtBox.Size = New System.Drawing.Size(590, 38)
+        Me.OperatingSystemTxtBox.Size = New System.Drawing.Size(393, 25)
         Me.OperatingSystemTxtBox.TabIndex = 35
         '
         'Label2
@@ -376,10 +366,9 @@ Partial Class ServiceAddEditModal
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(4, 0)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(168, 29)
+        Me.Label2.Size = New System.Drawing.Size(116, 20)
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "Operating System"
         '
@@ -388,10 +377,9 @@ Partial Class ServiceAddEditModal
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(600, 0)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(400, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(1, 29)
+        Me.Label15.Size = New System.Drawing.Size(1, 20)
         Me.Label15.TabIndex = 32
         Me.Label15.Text = "If others please specify"
         '
@@ -411,14 +399,14 @@ Partial Class ServiceAddEditModal
         Me.IfOthersOperatingSystemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IfOthersOperatingSystemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.IfOthersOperatingSystemTxtBox.HoverState.Parent = Me.IfOthersOperatingSystemTxtBox
-        Me.IfOthersOperatingSystemTxtBox.Location = New System.Drawing.Point(599, 37)
-        Me.IfOthersOperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.IfOthersOperatingSystemTxtBox.Location = New System.Drawing.Point(399, 24)
+        Me.IfOthersOperatingSystemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.IfOthersOperatingSystemTxtBox.Name = "IfOthersOperatingSystemTxtBox"
         Me.IfOthersOperatingSystemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.IfOthersOperatingSystemTxtBox.PlaceholderText = ""
         Me.IfOthersOperatingSystemTxtBox.SelectedText = ""
         Me.IfOthersOperatingSystemTxtBox.ShadowDecoration.Parent = Me.IfOthersOperatingSystemTxtBox
-        Me.IfOthersOperatingSystemTxtBox.Size = New System.Drawing.Size(1, 38)
+        Me.IfOthersOperatingSystemTxtBox.Size = New System.Drawing.Size(1, 25)
         Me.IfOthersOperatingSystemTxtBox.TabIndex = 30
         '
         'Guna2Panel4
@@ -426,12 +414,11 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel4.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel4.BorderRadius = 4
         Me.Guna2Panel4.Controls.Add(Me.DeviceTypeTableLayout)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(18, 398)
-        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(12, 259)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
-        Me.Guna2Panel4.Size = New System.Drawing.Size(608, 94)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel4.TabIndex = 47
         '
         'DeviceTypeTableLayout
@@ -444,13 +431,12 @@ Partial Class ServiceAddEditModal
         Me.DeviceTypeTableLayout.Controls.Add(Me.Label4, 1, 0)
         Me.DeviceTypeTableLayout.Controls.Add(Me.IfOthersDeviceTypeTxtBox, 1, 1)
         Me.DeviceTypeTableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DeviceTypeTableLayout.Location = New System.Drawing.Point(6, 6)
-        Me.DeviceTypeTableLayout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DeviceTypeTableLayout.Location = New System.Drawing.Point(4, 4)
         Me.DeviceTypeTableLayout.Name = "DeviceTypeTableLayout"
         Me.DeviceTypeTableLayout.RowCount = 2
         Me.DeviceTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.DeviceTypeTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.DeviceTypeTableLayout.Size = New System.Drawing.Size(596, 82)
+        Me.DeviceTypeTableLayout.Size = New System.Drawing.Size(397, 53)
         Me.DeviceTypeTableLayout.TabIndex = 8
         '
         'DeviceTypeCmbBox
@@ -468,11 +454,10 @@ Partial Class ServiceAddEditModal
         Me.DeviceTypeCmbBox.HoverState.Parent = Me.DeviceTypeCmbBox
         Me.DeviceTypeCmbBox.ItemHeight = 20
         Me.DeviceTypeCmbBox.ItemsAppearance.Parent = Me.DeviceTypeCmbBox
-        Me.DeviceTypeCmbBox.Location = New System.Drawing.Point(4, 37)
-        Me.DeviceTypeCmbBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DeviceTypeCmbBox.Location = New System.Drawing.Point(3, 24)
         Me.DeviceTypeCmbBox.Name = "DeviceTypeCmbBox"
         Me.DeviceTypeCmbBox.ShadowDecoration.Parent = Me.DeviceTypeCmbBox
-        Me.DeviceTypeCmbBox.Size = New System.Drawing.Size(588, 26)
+        Me.DeviceTypeCmbBox.Size = New System.Drawing.Size(391, 26)
         Me.DeviceTypeCmbBox.TabIndex = 35
         '
         'Label5
@@ -480,10 +465,9 @@ Partial Class ServiceAddEditModal
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(4, 0)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(3, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(120, 29)
+        Me.Label5.Size = New System.Drawing.Size(85, 20)
         Me.Label5.TabIndex = 34
         Me.Label5.Text = "Device Type"
         '
@@ -492,10 +476,9 @@ Partial Class ServiceAddEditModal
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(600, 0)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(400, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(1, 29)
+        Me.Label4.Size = New System.Drawing.Size(1, 20)
         Me.Label4.TabIndex = 33
         Me.Label4.Text = "If others please specify"
         '
@@ -515,14 +498,14 @@ Partial Class ServiceAddEditModal
         Me.IfOthersDeviceTypeTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IfOthersDeviceTypeTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.IfOthersDeviceTypeTxtBox.HoverState.Parent = Me.IfOthersDeviceTypeTxtBox
-        Me.IfOthersDeviceTypeTxtBox.Location = New System.Drawing.Point(599, 37)
-        Me.IfOthersDeviceTypeTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.IfOthersDeviceTypeTxtBox.Location = New System.Drawing.Point(399, 24)
+        Me.IfOthersDeviceTypeTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.IfOthersDeviceTypeTxtBox.Name = "IfOthersDeviceTypeTxtBox"
         Me.IfOthersDeviceTypeTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.IfOthersDeviceTypeTxtBox.PlaceholderText = ""
         Me.IfOthersDeviceTypeTxtBox.SelectedText = ""
         Me.IfOthersDeviceTypeTxtBox.ShadowDecoration.Parent = Me.IfOthersDeviceTypeTxtBox
-        Me.IfOthersDeviceTypeTxtBox.Size = New System.Drawing.Size(1, 38)
+        Me.IfOthersDeviceTypeTxtBox.Size = New System.Drawing.Size(1, 25)
         Me.IfOthersDeviceTypeTxtBox.TabIndex = 30
         '
         'Guna2Panel6
@@ -530,30 +513,28 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel6.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel6.BorderRadius = 4
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel5)
-        Me.Guna2Panel6.Location = New System.Drawing.Point(18, 502)
-        Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Guna2Panel6.Location = New System.Drawing.Point(12, 326)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
-        Me.Guna2Panel6.Size = New System.Drawing.Size(1224, 94)
+        Me.Guna2Panel6.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel6.TabIndex = 45
         '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.ColumnCount = 1
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.DeviceProblemTxtBox, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label22, 0, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(6, 6)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(1212, 82)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(808, 53)
         Me.TableLayoutPanel5.TabIndex = 8
         '
         'DeviceProblemTxtBox
@@ -572,14 +553,14 @@ Partial Class ServiceAddEditModal
         Me.DeviceProblemTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeviceProblemTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeviceProblemTxtBox.HoverState.Parent = Me.DeviceProblemTxtBox
-        Me.DeviceProblemTxtBox.Location = New System.Drawing.Point(3, 37)
-        Me.DeviceProblemTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.DeviceProblemTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.DeviceProblemTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DeviceProblemTxtBox.Name = "DeviceProblemTxtBox"
         Me.DeviceProblemTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeviceProblemTxtBox.PlaceholderText = ""
         Me.DeviceProblemTxtBox.SelectedText = ""
         Me.DeviceProblemTxtBox.ShadowDecoration.Parent = Me.DeviceProblemTxtBox
-        Me.DeviceProblemTxtBox.Size = New System.Drawing.Size(1206, 38)
+        Me.DeviceProblemTxtBox.Size = New System.Drawing.Size(804, 25)
         Me.DeviceProblemTxtBox.TabIndex = 37
         '
         'Label22
@@ -587,20 +568,18 @@ Partial Class ServiceAddEditModal
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(4, 0)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label22.Location = New System.Drawing.Point(3, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(253, 29)
+        Me.Label22.Size = New System.Drawing.Size(177, 20)
         Me.Label22.TabIndex = 36
         Me.Label22.Text = "Device Problem Description"
         '
         'Guna2Separator1
         '
         Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 618)
-        Me.Guna2Separator1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 402)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(1588, 15)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(1059, 10)
         Me.Guna2Separator1.TabIndex = 44
         '
         'FlowLayoutPanel3
@@ -608,10 +587,10 @@ Partial Class ServiceAddEditModal
         Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Panel3)
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Panel2)
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(18, 82)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(12, 53)
         Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1438, 202)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(959, 131)
         Me.FlowLayoutPanel3.TabIndex = 39
         '
         'Guna2Panel3
@@ -620,11 +599,11 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel3.BorderRadius = 4
         Me.Guna2Panel3.Controls.Add(Me.TableLayoutPanel3)
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0, 0, 0, 3)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
-        Me.Guna2Panel3.Size = New System.Drawing.Size(1436, 94)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel3.TabIndex = 28
         '
         'TableLayoutPanel3
@@ -649,13 +628,12 @@ Partial Class ServiceAddEditModal
         Me.TableLayoutPanel3.Controls.Add(Me.Label14, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.SelectCustomerBtn, 5, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(6, 6)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1424, 82)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel3.TabIndex = 8
         '
         'CompletedCommissionTxtBox
@@ -675,14 +653,14 @@ Partial Class ServiceAddEditModal
         Me.CompletedCommissionTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CompletedCommissionTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedCommissionTxtBox.HoverState.Parent = Me.CompletedCommissionTxtBox
-        Me.CompletedCommissionTxtBox.Location = New System.Drawing.Point(951, 37)
-        Me.CompletedCommissionTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.CompletedCommissionTxtBox.Location = New System.Drawing.Point(634, 24)
+        Me.CompletedCommissionTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CompletedCommissionTxtBox.Name = "CompletedCommissionTxtBox"
         Me.CompletedCommissionTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompletedCommissionTxtBox.PlaceholderText = ""
         Me.CompletedCommissionTxtBox.SelectedText = ""
         Me.CompletedCommissionTxtBox.ShadowDecoration.Parent = Me.CompletedCommissionTxtBox
-        Me.CompletedCommissionTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.CompletedCommissionTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.CompletedCommissionTxtBox.TabIndex = 43
         '
         'PendingCommisionsTxtBox
@@ -702,14 +680,14 @@ Partial Class ServiceAddEditModal
         Me.PendingCommisionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PendingCommisionsTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingCommisionsTxtBox.HoverState.Parent = Me.PendingCommisionsTxtBox
-        Me.PendingCommisionsTxtBox.Location = New System.Drawing.Point(714, 37)
-        Me.PendingCommisionsTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.PendingCommisionsTxtBox.Location = New System.Drawing.Point(476, 24)
+        Me.PendingCommisionsTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.PendingCommisionsTxtBox.Name = "PendingCommisionsTxtBox"
         Me.PendingCommisionsTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PendingCommisionsTxtBox.PlaceholderText = ""
         Me.PendingCommisionsTxtBox.SelectedText = ""
         Me.PendingCommisionsTxtBox.ShadowDecoration.Parent = Me.PendingCommisionsTxtBox
-        Me.PendingCommisionsTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.PendingCommisionsTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.PendingCommisionsTxtBox.TabIndex = 42
         '
         'TotalCommissionsTxtBox
@@ -729,14 +707,14 @@ Partial Class ServiceAddEditModal
         Me.TotalCommissionsTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalCommissionsTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalCommissionsTxtBox.HoverState.Parent = Me.TotalCommissionsTxtBox
-        Me.TotalCommissionsTxtBox.Location = New System.Drawing.Point(477, 37)
-        Me.TotalCommissionsTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.TotalCommissionsTxtBox.Location = New System.Drawing.Point(318, 24)
+        Me.TotalCommissionsTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalCommissionsTxtBox.Name = "TotalCommissionsTxtBox"
         Me.TotalCommissionsTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalCommissionsTxtBox.PlaceholderText = ""
         Me.TotalCommissionsTxtBox.SelectedText = ""
         Me.TotalCommissionsTxtBox.ShadowDecoration.Parent = Me.TotalCommissionsTxtBox
-        Me.TotalCommissionsTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.TotalCommissionsTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.TotalCommissionsTxtBox.TabIndex = 41
         '
         'Label18
@@ -745,10 +723,9 @@ Partial Class ServiceAddEditModal
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label18.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(1189, 0)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Location = New System.Drawing.Point(793, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(0, 32)
+        Me.Label18.Size = New System.Drawing.Size(0, 21)
         Me.Label18.TabIndex = 40
         '
         'Label17
@@ -757,10 +734,9 @@ Partial Class ServiceAddEditModal
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label17.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(952, 0)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(635, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(107, 32)
+        Me.Label17.Size = New System.Drawing.Size(75, 21)
         Me.Label17.TabIndex = 39
         Me.Label17.Text = "Completed"
         '
@@ -770,10 +746,9 @@ Partial Class ServiceAddEditModal
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label16.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(715, 0)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(477, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(197, 32)
+        Me.Label16.Size = New System.Drawing.Size(137, 21)
         Me.Label16.TabIndex = 38
         Me.Label16.Text = "Pending Commisions"
         '
@@ -783,10 +758,9 @@ Partial Class ServiceAddEditModal
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label12.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(478, 0)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(319, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(178, 32)
+        Me.Label12.Size = New System.Drawing.Size(122, 21)
         Me.Label12.TabIndex = 37
         Me.Label12.Text = "Total Commissions"
         '
@@ -794,10 +768,10 @@ Partial Class ServiceAddEditModal
         '
         Me.Panel3.Controls.Add(Me.Label13)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(237, 0)
+        Me.Panel3.Location = New System.Drawing.Point(158, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(237, 32)
+        Me.Panel3.Size = New System.Drawing.Size(158, 21)
         Me.Panel3.TabIndex = 35
         '
         'Label13
@@ -807,9 +781,8 @@ Partial Class ServiceAddEditModal
         Me.Label13.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label13.Location = New System.Drawing.Point(0, 0)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(155, 29)
+        Me.Label13.Size = New System.Drawing.Size(105, 20)
         Me.Label13.TabIndex = 24
         Me.Label13.Text = "Customer Name"
         '
@@ -830,14 +803,14 @@ Partial Class ServiceAddEditModal
         Me.CustomerNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomerNameTxtBox.HoverState.Parent = Me.CustomerNameTxtBox
-        Me.CustomerNameTxtBox.Location = New System.Drawing.Point(240, 37)
-        Me.CustomerNameTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.CustomerNameTxtBox.Location = New System.Drawing.Point(160, 24)
+        Me.CustomerNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CustomerNameTxtBox.Name = "CustomerNameTxtBox"
         Me.CustomerNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CustomerNameTxtBox.PlaceholderText = ""
         Me.CustomerNameTxtBox.SelectedText = ""
         Me.CustomerNameTxtBox.ShadowDecoration.Parent = Me.CustomerNameTxtBox
-        Me.CustomerNameTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.CustomerNameTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.CustomerNameTxtBox.TabIndex = 30
         '
         'CustomerIDTxtBox
@@ -857,14 +830,14 @@ Partial Class ServiceAddEditModal
         Me.CustomerIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerIDTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CustomerIDTxtBox.HoverState.Parent = Me.CustomerIDTxtBox
-        Me.CustomerIDTxtBox.Location = New System.Drawing.Point(3, 37)
-        Me.CustomerIDTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.CustomerIDTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.CustomerIDTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CustomerIDTxtBox.Name = "CustomerIDTxtBox"
         Me.CustomerIDTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CustomerIDTxtBox.PlaceholderText = ""
         Me.CustomerIDTxtBox.SelectedText = ""
         Me.CustomerIDTxtBox.ShadowDecoration.Parent = Me.CustomerIDTxtBox
-        Me.CustomerIDTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.CustomerIDTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.CustomerIDTxtBox.TabIndex = 29
         '
         'Label14
@@ -872,10 +845,9 @@ Partial Class ServiceAddEditModal
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(4, 0)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(3, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(121, 29)
+        Me.Label14.Size = New System.Drawing.Size(82, 20)
         Me.Label14.TabIndex = 14
         Me.Label14.Text = "Customer ID"
         '
@@ -888,11 +860,11 @@ Partial Class ServiceAddEditModal
         Me.SelectCustomerBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectCustomerBtn.ForeColor = System.Drawing.Color.White
         Me.SelectCustomerBtn.HoverState.Parent = Me.SelectCustomerBtn
-        Me.SelectCustomerBtn.Location = New System.Drawing.Point(1189, 35)
-        Me.SelectCustomerBtn.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.SelectCustomerBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SelectCustomerBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SelectCustomerBtn.Name = "SelectCustomerBtn"
         Me.SelectCustomerBtn.ShadowDecoration.Parent = Me.SelectCustomerBtn
-        Me.SelectCustomerBtn.Size = New System.Drawing.Size(230, 43)
+        Me.SelectCustomerBtn.Size = New System.Drawing.Size(153, 28)
         Me.SelectCustomerBtn.TabIndex = 36
         Me.SelectCustomerBtn.Text = "Select Customer"
         '
@@ -901,12 +873,12 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.Guna2Panel2.BorderRadius = 4
         Me.Guna2Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 104)
-        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0, 5, 0, 5)
+        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 67)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
-        Me.Guna2Panel2.Size = New System.Drawing.Size(1436, 94)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel2.TabIndex = 29
         '
         'TableLayoutPanel2
@@ -931,13 +903,12 @@ Partial Class ServiceAddEditModal
         Me.TableLayoutPanel2.Controls.Add(Me.Label21, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.SelectTechnicianBtn, 5, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(6, 6)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1424, 82)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(949, 53)
         Me.TableLayoutPanel2.TabIndex = 8
         '
         'CompletedWorkTxtBox
@@ -957,14 +928,14 @@ Partial Class ServiceAddEditModal
         Me.CompletedWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CompletedWorkTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompletedWorkTxtBox.HoverState.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Location = New System.Drawing.Point(951, 37)
-        Me.CompletedWorkTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.CompletedWorkTxtBox.Location = New System.Drawing.Point(634, 24)
+        Me.CompletedWorkTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.CompletedWorkTxtBox.Name = "CompletedWorkTxtBox"
         Me.CompletedWorkTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompletedWorkTxtBox.PlaceholderText = ""
         Me.CompletedWorkTxtBox.SelectedText = ""
         Me.CompletedWorkTxtBox.ShadowDecoration.Parent = Me.CompletedWorkTxtBox
-        Me.CompletedWorkTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.CompletedWorkTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.CompletedWorkTxtBox.TabIndex = 43
         '
         'PendingWorkTxtBox
@@ -984,14 +955,14 @@ Partial Class ServiceAddEditModal
         Me.PendingWorkTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PendingWorkTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PendingWorkTxtBox.HoverState.Parent = Me.PendingWorkTxtBox
-        Me.PendingWorkTxtBox.Location = New System.Drawing.Point(714, 37)
-        Me.PendingWorkTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.PendingWorkTxtBox.Location = New System.Drawing.Point(476, 24)
+        Me.PendingWorkTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.PendingWorkTxtBox.Name = "PendingWorkTxtBox"
         Me.PendingWorkTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PendingWorkTxtBox.PlaceholderText = ""
         Me.PendingWorkTxtBox.SelectedText = ""
         Me.PendingWorkTxtBox.ShadowDecoration.Parent = Me.PendingWorkTxtBox
-        Me.PendingWorkTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.PendingWorkTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.PendingWorkTxtBox.TabIndex = 42
         '
         'TotalWorkDoneTxtBox
@@ -1011,14 +982,14 @@ Partial Class ServiceAddEditModal
         Me.TotalWorkDoneTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalWorkDoneTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalWorkDoneTxtBox.HoverState.Parent = Me.TotalWorkDoneTxtBox
-        Me.TotalWorkDoneTxtBox.Location = New System.Drawing.Point(477, 37)
-        Me.TotalWorkDoneTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.TotalWorkDoneTxtBox.Location = New System.Drawing.Point(318, 24)
+        Me.TotalWorkDoneTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TotalWorkDoneTxtBox.Name = "TotalWorkDoneTxtBox"
         Me.TotalWorkDoneTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalWorkDoneTxtBox.PlaceholderText = ""
         Me.TotalWorkDoneTxtBox.SelectedText = ""
         Me.TotalWorkDoneTxtBox.ShadowDecoration.Parent = Me.TotalWorkDoneTxtBox
-        Me.TotalWorkDoneTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.TotalWorkDoneTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.TotalWorkDoneTxtBox.TabIndex = 41
         '
         'Label8
@@ -1027,10 +998,9 @@ Partial Class ServiceAddEditModal
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label8.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(1189, 0)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(793, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(0, 32)
+        Me.Label8.Size = New System.Drawing.Size(0, 21)
         Me.Label8.TabIndex = 40
         '
         'Label9
@@ -1039,10 +1009,9 @@ Partial Class ServiceAddEditModal
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label9.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(952, 0)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(635, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(159, 32)
+        Me.Label9.Size = New System.Drawing.Size(110, 21)
         Me.Label9.TabIndex = 39
         Me.Label9.Text = "Completed Work"
         '
@@ -1052,10 +1021,9 @@ Partial Class ServiceAddEditModal
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label11.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(715, 0)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(477, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(137, 32)
+        Me.Label11.Size = New System.Drawing.Size(94, 21)
         Me.Label11.TabIndex = 38
         Me.Label11.Text = "Pending Work"
         '
@@ -1065,10 +1033,9 @@ Partial Class ServiceAddEditModal
         Me.Label19.Dock = System.Windows.Forms.DockStyle.Left
         Me.Label19.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(478, 0)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Location = New System.Drawing.Point(319, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(168, 32)
+        Me.Label19.Size = New System.Drawing.Size(112, 21)
         Me.Label19.TabIndex = 37
         Me.Label19.Text = "Total Work Taken"
         '
@@ -1076,10 +1043,10 @@ Partial Class ServiceAddEditModal
         '
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(237, 0)
+        Me.Panel2.Location = New System.Drawing.Point(158, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(237, 32)
+        Me.Panel2.Size = New System.Drawing.Size(158, 21)
         Me.Panel2.TabIndex = 35
         '
         'Label20
@@ -1089,9 +1056,8 @@ Partial Class ServiceAddEditModal
         Me.Label20.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Label20.Location = New System.Drawing.Point(0, 0)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(165, 29)
+        Me.Label20.Size = New System.Drawing.Size(111, 20)
         Me.Label20.TabIndex = 24
         Me.Label20.Text = "Technician Name"
         '
@@ -1112,14 +1078,14 @@ Partial Class ServiceAddEditModal
         Me.TechnicianNameTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TechnicianNameTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TechnicianNameTxtBox.HoverState.Parent = Me.TechnicianNameTxtBox
-        Me.TechnicianNameTxtBox.Location = New System.Drawing.Point(240, 37)
-        Me.TechnicianNameTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.TechnicianNameTxtBox.Location = New System.Drawing.Point(160, 24)
+        Me.TechnicianNameTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TechnicianNameTxtBox.Name = "TechnicianNameTxtBox"
         Me.TechnicianNameTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TechnicianNameTxtBox.PlaceholderText = ""
         Me.TechnicianNameTxtBox.SelectedText = ""
         Me.TechnicianNameTxtBox.ShadowDecoration.Parent = Me.TechnicianNameTxtBox
-        Me.TechnicianNameTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.TechnicianNameTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.TechnicianNameTxtBox.TabIndex = 30
         '
         'TechnicianIDTxtBox
@@ -1139,14 +1105,14 @@ Partial Class ServiceAddEditModal
         Me.TechnicianIDTxtBox.Font = New System.Drawing.Font("Arial Narrow", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TechnicianIDTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TechnicianIDTxtBox.HoverState.Parent = Me.TechnicianIDTxtBox
-        Me.TechnicianIDTxtBox.Location = New System.Drawing.Point(3, 37)
-        Me.TechnicianIDTxtBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.TechnicianIDTxtBox.Location = New System.Drawing.Point(2, 24)
+        Me.TechnicianIDTxtBox.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TechnicianIDTxtBox.Name = "TechnicianIDTxtBox"
         Me.TechnicianIDTxtBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TechnicianIDTxtBox.PlaceholderText = ""
         Me.TechnicianIDTxtBox.SelectedText = ""
         Me.TechnicianIDTxtBox.ShadowDecoration.Parent = Me.TechnicianIDTxtBox
-        Me.TechnicianIDTxtBox.Size = New System.Drawing.Size(231, 38)
+        Me.TechnicianIDTxtBox.Size = New System.Drawing.Size(154, 25)
         Me.TechnicianIDTxtBox.TabIndex = 29
         '
         'Label21
@@ -1154,10 +1120,9 @@ Partial Class ServiceAddEditModal
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label21.Location = New System.Drawing.Point(4, 0)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label21.Location = New System.Drawing.Point(3, 0)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(131, 29)
+        Me.Label21.Size = New System.Drawing.Size(88, 20)
         Me.Label21.TabIndex = 14
         Me.Label21.Text = "Technician ID"
         '
@@ -1170,11 +1135,11 @@ Partial Class ServiceAddEditModal
         Me.SelectTechnicianBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SelectTechnicianBtn.ForeColor = System.Drawing.Color.White
         Me.SelectTechnicianBtn.HoverState.Parent = Me.SelectTechnicianBtn
-        Me.SelectTechnicianBtn.Location = New System.Drawing.Point(1189, 35)
-        Me.SelectTechnicianBtn.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.SelectTechnicianBtn.Location = New System.Drawing.Point(793, 23)
+        Me.SelectTechnicianBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SelectTechnicianBtn.Name = "SelectTechnicianBtn"
         Me.SelectTechnicianBtn.ShadowDecoration.Parent = Me.SelectTechnicianBtn
-        Me.SelectTechnicianBtn.Size = New System.Drawing.Size(230, 43)
+        Me.SelectTechnicianBtn.Size = New System.Drawing.Size(153, 28)
         Me.SelectTechnicianBtn.TabIndex = 36
         Me.SelectTechnicianBtn.Text = "Select Technician"
         '
@@ -1184,10 +1149,9 @@ Partial Class ServiceAddEditModal
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(1275, 295)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(850, 192)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(160, 29)
+        Me.Label10.Size = New System.Drawing.Size(111, 20)
         Me.Label10.TabIndex = 38
         Me.Label10.Text = "Picture of Device"
         '
@@ -1200,11 +1164,10 @@ Partial Class ServiceAddEditModal
         Me.BtnUpload.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnUpload.ForeColor = System.Drawing.Color.White
         Me.BtnUpload.HoverState.Parent = Me.BtnUpload
-        Me.BtnUpload.Location = New System.Drawing.Point(1256, 546)
-        Me.BtnUpload.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnUpload.Location = New System.Drawing.Point(837, 355)
         Me.BtnUpload.Name = "BtnUpload"
         Me.BtnUpload.ShadowDecoration.Parent = Me.BtnUpload
-        Me.BtnUpload.Size = New System.Drawing.Size(198, 49)
+        Me.BtnUpload.Size = New System.Drawing.Size(132, 32)
         Me.BtnUpload.TabIndex = 33
         Me.BtnUpload.Text = "Upload"
         '
@@ -1212,12 +1175,11 @@ Partial Class ServiceAddEditModal
         '
         Me.DeviceCirclePictureBox.BackColor = System.Drawing.Color.Transparent
         Me.DeviceCirclePictureBox.Image = CType(resources.GetObject("DeviceCirclePictureBox.Image"), System.Drawing.Image)
-        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(1256, 331)
-        Me.DeviceCirclePictureBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DeviceCirclePictureBox.Location = New System.Drawing.Point(837, 215)
         Me.DeviceCirclePictureBox.Name = "DeviceCirclePictureBox"
         Me.DeviceCirclePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.DeviceCirclePictureBox.ShadowDecoration.Parent = Me.DeviceCirclePictureBox
-        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(198, 203)
+        Me.DeviceCirclePictureBox.Size = New System.Drawing.Size(132, 132)
         Me.DeviceCirclePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.DeviceCirclePictureBox.TabIndex = 32
         Me.DeviceCirclePictureBox.TabStop = False
@@ -1229,12 +1191,11 @@ Partial Class ServiceAddEditModal
         '
         'ServiceAddEditModal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1473, 703)
+        Me.ClientSize = New System.Drawing.Size(982, 457)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "ServiceAddEditModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "r"

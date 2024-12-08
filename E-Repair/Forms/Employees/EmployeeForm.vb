@@ -20,19 +20,6 @@ Public Class EmployeeForm
     Public Property techOnly As Boolean = False
 
 
-    ' VIEW MODE
-
-
-    ' RESTRICT ACTIONS
-    Private Function isRestricted() As Boolean
-        If empPosition = constants.getSuperAdminString AndAlso empPosition = constants.getAdminString Then
-            MsgBox("Restricted Action")
-            Return False
-        End If
-
-        Return True
-    End Function
-
     ' INIT DATA
     Private Function InitData() As Boolean
 
@@ -46,7 +33,6 @@ Public Class EmployeeForm
 
         Return True
     End Function
-
 
     Private Function hasPendingWork() As Boolean
         If empPosition = constants.getTechnicianString Then
@@ -175,6 +161,14 @@ Public Class EmployeeForm
         finishedLoad = True
         LoadDataToDGV()
         EmpDGV.ClearSelection()
+
+        If Current.position <> constants.getAdminString Or Current.position <> constants.getSuperAdminString Then
+            ArchiveEmployeeBtn.Visible = False
+            DeleteEmployeeBtn.Visible = False
+            AddEmployeeBtn.Visible = False
+            EmployeeExportBtn.Visible = False
+        End If
+
     End Sub
 
     ' LOAD DATA

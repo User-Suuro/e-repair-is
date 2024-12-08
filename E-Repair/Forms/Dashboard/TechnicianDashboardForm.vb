@@ -17,22 +17,26 @@ Public Class TechnicianDashboardForm
 
     Private strStartDate As String
     Private strStopDate As String
-
-
     Private Sub TechnicianDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadData()
         loadStatus()
-        loadCharts()
         loadTimer()
     End Sub
 
     Private Sub loadData()
+
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.dateAddedStr, invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
         servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.dateAddedStr, servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
 
-        itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, Constants.getDateFormat)
+        itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
         invDT = formUtils.FormatSingleDateColumn(invDT, invConst.dateAddedStr, constants.getDateFormat)
+        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
+
+        loadDTPVal()
+        reloadStrFilter()
+        loadCharts()
+
     End Sub
 
     ' FILTER CONTROLS

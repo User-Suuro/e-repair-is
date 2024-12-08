@@ -276,30 +276,7 @@ Public Class ServiceAddEditModal
 
     'DEVICE TYPE
     Private Sub DeviceTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DeviceTypeCmbBox.SelectedIndexChanged
-        'With DeviceTypeTableLayout
-        '    ' Default
-        '    .ColumnStyles(0).Width = 100.0F
-        '    .ColumnStyles(1).Width = 0.0F
-
-        '    If DeviceTypeCmbBox.SelectedItem = "Others" Then
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    Else
-
-
-        '        .ColumnStyles(0).Width = 100.0F
-        '        .ColumnStyles(1).Width = 0.0F
-        '    End If
-        'End With
-
         deviceType = DeviceTypeCmbBox.SelectedItem
-    End Sub
-
-    ' DEVICE TYPE OTHERS
-    Private Sub IfOthersDeviceTypeTxtBox_TextChanged(sender As Object, e As EventArgs) Handles IfOthersDeviceTypeTxtBox.TextChanged
-        '    If DeviceTypeCmbBox.SelectedItem = "Others" Then
-        '        deviceType = IfOthersDeviceTypeTxtBox.Text
-        '    End If
     End Sub
 
     ' OPERATING SYSTEM
