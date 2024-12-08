@@ -707,5 +707,23 @@ Public Class FormUtils
         Return Nothing
     End Function
 
+    Function FilterDates(dt As DataTable, dateStart As DateTime, dateStop As DateTime, format As String, dateCol As String) As DataTable
+        If dateStart > dateStop Then
+            MsgBox("'dateStart' must be earlier than or equal to 'dateStop'.")
+            Return Nothing
+        End If
+
+        Dim formattedDateStart As String = dateStart.ToString(format)
+        Dim formattedDateStop As String = dateStop.ToString(format)
+
+        Dim filteredRows As DataRow() = dt.Select($"{dateCol} >= #{formattedDateStart}# AND {dateCol} <= #{formattedDateStop}#")
+        Dim filteredTable As DataTable = dt.Clone()
+
+        For Each row As DataRow In filteredRows
+            filteredTable.ImportRow(row)
+        Next
+
+        Return filteredTable
+    End Function
 
 End Class

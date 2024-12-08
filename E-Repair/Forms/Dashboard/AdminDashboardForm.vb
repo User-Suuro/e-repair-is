@@ -125,14 +125,17 @@ Public Class AdminDashboardForm
     Private Sub reloadStrDate()
 
         If Not finishedLoad Then Exit Sub
-        If Not hasDayCmbValue() AndAlso Not hasYrMonthCmbValue() Then Exit Sub
+        If Not hasDayCmbValue() Then Exit Sub
+        If Not hasYrMonthCmbValue() Then Exit Sub
 
         ' CODE
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
         strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
 
-    End Sub
+        MsgBox(strStartDate)
+        MsgBox(strStopDate)
 
+    End Sub
 
     Private Sub loadDays()
 
@@ -181,20 +184,6 @@ Public Class AdminDashboardForm
         End If
     End Sub
 
-    ' LOAD UI
-
-    Private Sub loadStatus()
-        EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
-        ServicesNumberLabel.Text = servDT.Rows.Count
-        CustomersNumberLabel.Text = custDT.Rows.Count
-        SuppliersNumberLabel.Text = suppDT.Rows.Count
-        ItemsCountLabel.Text = invDT.Rows.Count
-    End Sub
-
-    Private Sub loadWelcome()
-        WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
-        Label10.Text = Current.position
-    End Sub
 
     ' POSITIONS CHART
 
@@ -203,6 +192,7 @@ Public Class AdminDashboardForm
         Dim series As New Series()
 
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+        empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat)
 
         With series
             .IsVisibleInLegend = False
@@ -326,5 +316,20 @@ Public Class AdminDashboardForm
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Label7.Text = Date.Now.ToString("hh:mm:ss tt")
+    End Sub
+
+    ' LOAD UI
+
+    Private Sub loadStatus()
+        EmployeesCountLabel.Text = empDT.Rows.Count - 1 ' don't count super admin
+        ServicesNumberLabel.Text = servDT.Rows.Count
+        CustomersNumberLabel.Text = custDT.Rows.Count
+        SuppliersNumberLabel.Text = suppDT.Rows.Count
+        ItemsCountLabel.Text = invDT.Rows.Count
+    End Sub
+
+    Private Sub loadWelcome()
+        WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
+        Label10.Text = Current.position
     End Sub
 End Class
