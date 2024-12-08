@@ -24,6 +24,8 @@ Partial Class EmployeeExportPrintable
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New E_Repair.DataSet1()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -41,19 +43,27 @@ Partial Class EmployeeExportPrintable
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.DataSet1 = New E_Repair.DataSet1()
-        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "employees"
+        Me.EmployeesBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Guna2GroupBox1
         '
@@ -304,16 +314,6 @@ Partial Class EmployeeExportPrintable
         Me.BtnClose.TabIndex = 34
         Me.BtnClose.Text = "Close"
         '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EmployeesBindingSource
-        '
-        Me.EmployeesBindingSource.DataMember = "employees"
-        Me.EmployeesBindingSource.DataSource = Me.DataSet1
-        '
         'DataSet1BindingSource
         '
         Me.DataSet1BindingSource.DataSource = Me.DataSet1
@@ -335,14 +335,14 @@ Partial Class EmployeeExportPrintable
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "EmployeeExportRLDC"
         Me.TopMost = True
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
