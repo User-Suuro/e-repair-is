@@ -93,15 +93,19 @@ Public Class AdminDashboardForm
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
+
         If Not hasDayCmbValue() Then Exit Sub
         If Not hasYrMonthCmbValue() Then Exit Sub
+
         reloadDayStart()
         reloadDayStop()
         reloadStrDate()
         loadCharts()
+
+
     End Sub
     Private Sub loadCharts()
-        loadPositionChart()
+        loadJobChart()
         loadInvUsedChart()
         loadSalesChart()
         loadSupplierStatusChart()
@@ -154,7 +158,7 @@ Public Class AdminDashboardForm
     End Function
 
     Private Function hasDayCmbValue()
-        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem Then
+        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
             Return True
         End If
 
@@ -175,9 +179,10 @@ Public Class AdminDashboardForm
 
     ' POSITIONS CHART
 
-    Private Sub loadPositionChart()
+    Private Sub loadJobChart()
         Dim series As New Series()
-        Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+
+        Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
 
         empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
 
@@ -186,19 +191,19 @@ Public Class AdminDashboardForm
             .ChartType = SeriesChartType.Bar
         End With
 
-        For Each position In getPositionEnum
-            Dim totalCount As Integer = suppDT.Select($"{supConst.supTypeStr} = '{position}'").Length
-            series.Points.AddXY(position, totalCount)
+        For Each jobType In getPositionEnum
+            Dim totalCount As Integer = empDT.Select($"{empConst.empJobPosStr } = '{jobType}'").Length
+            series.Points.AddXY(jobType, totalCount)
         Next
 
-        With PositionsChart
+        With JobsChart
             .Series.Clear()
             .Titles.Clear() ' Clears all chart titles
             .Legends.Clear() ' Clears all legends
             .ChartAreas.Clear() ' Clears all chart areas
             .Series.Add(series)
-            .Titles.Add("Position Summary")
             .ChartAreas.Add(New ChartArea)
+            .Titles.Add("Jobs Summary")
         End With
 
     End Sub
