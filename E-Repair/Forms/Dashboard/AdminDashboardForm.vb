@@ -25,14 +25,12 @@ Public Class AdminDashboardForm
     Dim itemDT As New DataTable
 
     Private finishedLoad As Boolean
-    Private dateFormat As String = constants.getDateFormat
 
+    ' FILTER VARS
+
+    Private dateFormat As String = constants.getDateFormat
     Private strStartDate As String
     Private strStopDate As String
-
-    Private daysListStart As List(Of Integer)
-    Private daysListStop As List(Of Integer)
-
 
 
     Private Sub loadData()
@@ -57,21 +55,8 @@ Public Class AdminDashboardForm
 
         'FILTERS
 
-        With YearCmb
-            .DataSource = constants.getYearList
-            .BeginUpdate()
-            .SelectedIndex = 0
-            .EndUpdate()
-        End With
-
-        With MonthCmb
-            .DataSource = constants.getMonthList
-            .BeginUpdate()
-            .SelectedIndex = formUtils.FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
-            .EndUpdate()
-        End With
-
-        loadDays()
+        formUtils.InitYearMonthCmb(YearCmb, MonthCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthCmb)
 
         finishedLoad = True
         reloadChartVals()
@@ -80,6 +65,7 @@ Public Class AdminDashboardForm
     End Sub
 
     ' FILTER INITIALIZATIONS
+
 
     Private Sub loadCharts()
         LoadJobChart()
@@ -90,8 +76,9 @@ Public Class AdminDashboardForm
 
     Private Sub reloadChartVals()
         If Not finishedLoad Then Exit Sub
-        If Not hasDayCmbValue() Then Exit Sub
-        If Not hasYrMonthCmbValue() Then Exit Sub
+
+        If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
+        If Not formUtils.hasYrMonthCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
 
         reloadStrDate()
         loadCharts()
@@ -101,49 +88,12 @@ Public Class AdminDashboardForm
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
         strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
     End Sub
-
-    ' FILTER DAYS CONTROLS
-
-    Private Sub loadDays()
-        daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        DayStartCmb.DataSource = daysListStart
-
-        With DayStopCmb
-            .DataSource = daysListStop
-            .SelectedIndex = daysListStop.Count - 1
-        End With
-
+    Private Sub reloadDays()
+        If Not finishedLoad Then Exit Sub
+        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
+        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthCmb)
     End Sub
-
-    Private Sub reloadDayStop()
-        If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
-            DayStopCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
-        End If
-    End Sub
-
-    Private Sub reloadDayStart()
-        If DayStopCmb.SelectedItem < DayStartCmb.SelectedItem Then
-            DayStartCmb.SelectedIndex = formUtils.FindComboBoxItemByText(DayStartCmb, DayStopCmb.SelectedItem)
-        End If
-    End Sub
-
-    ' FILTER CONTROLS VALUE CHECKER
-    Private Function hasDayCmbValue()
-        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
-
-        Return False
-    End Function
-
-    Private Function hasYrMonthCmbValue() As Boolean
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
-
-        Return False
-    End Function
 
     ' FILTER EVENTS
 
@@ -155,39 +105,40 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-        loadDays()
-        reloadDayStart()
-        reloadDayStop()
+        reloadDays()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-        loadDays()
-        reloadDayStart()
-        reloadDayStop()
+        reloadDays()
     End Sub
 
     Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
         reloadChartVals()
     End Sub
 
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
+        LoadJobChart(False)
+        loadInvUsedChart(False)
+        loadSalesChart(False)
+        loadSupplierStatusChart(False)
+    End Sub
+
     ' POSITIONS CHART
 
-    Private Sub LoadJobChart()
+    Private Sub LoadJobChart(Optional filterDate As Boolean = True)
 
         Dim series As New Series()
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empJobPosStr).Skip(1)
-        Dim localDT As DataTable = Nothing
+        Dim localDT As DataTable = empDT
 
-        MsgBox(strStopDate)
-
-        Try
-            localDT = formUtils.FilterDates(empDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, empConst.empAddDateStr)
-        Catch ex As Exception
-            MsgBox("Unable to filter date with invalid date format: " & ex.Message)
-            Exit Sub
-        End Try
+        If filterDate Then
+            Try
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, empConst.empAddDateStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
 
         With series
             .IsVisibleInLegend = False
@@ -205,31 +156,36 @@ Public Class AdminDashboardForm
 
     ' INVENTORY AVAILABILITRY
 
-    Private Sub loadInvUsedChart()
+    Private Sub loadInvUsedChart(Optional filterDate As Boolean = True)
         Dim series As New Series()
+
+        Dim localinvDT As DataTable = invDT
+        Dim localitemDT As DataTable = itemDT
+
+        If filterDate Then
+            Try
+                localinvDT = formUtils.FilterDates(localinvDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, invConst.dateAddedStr)
+                localitemDT = formUtils.FilterDates(localitemDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, itemConst.dateUsedCol)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
 
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Column
-            .Points.AddXY("Available", formUtils.CalcIntegerDTCol(invDT, invConst.availableQtyStr))
-            .Points.AddXY("Used", formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr))
+            .Points.AddXY("Available", formUtils.CalcIntegerDTCol(localinvDT, invConst.availableQtyStr))
+            .Points.AddXY("Used", formUtils.CalcIntegerDTCol(localitemDT, itemConst.quantityUsedStr))
         End With
 
-        With InventoryGraph
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .Titles.Add("Inventory Availability")
-            .ChartAreas.Add(New ChartArea)
-        End With
+        formUtils.formatChart(InventoryGraph, series, "Inventory Availability")
 
     End Sub
 
     ' SALES CHART
 
-    Private Sub loadSalesChart()
+    Private Sub loadSalesChart(Optional filterDate As Boolean = True)
 
         Dim series As New Series()
 
@@ -240,21 +196,13 @@ Public Class AdminDashboardForm
             .Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
         End With
 
-        With SalesChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Profit - Inventory Expenses")
-        End With
+        formUtils.formatChart(InventoryGraph, series, "Profit - Inventory Expenses")
 
     End Sub
 
     ' SUPPLIERS CHART
 
-    Private Sub loadSupplierStatusChart()
+    Private Sub loadSupplierStatusChart(Optional filterDate As Boolean = True)
 
         ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
@@ -268,15 +216,7 @@ Public Class AdminDashboardForm
             series.Points.AddXY(type, totalCount)
         Next
 
-        With SupplierStatusChart
-            .Series.Clear()
-            .Titles.Clear() ' Clears all chart titles
-            .Legends.Clear() ' Clears all legends
-            .ChartAreas.Clear() ' Clears all chart areas
-            .Series.Add(series)
-            .ChartAreas.Add(New ChartArea)
-            .Titles.Add("Supplier Type Count Summary")
-        End With
+        formUtils.formatChart(InventoryGraph, series, "Supplier Type Count Summary")
 
     End Sub
 

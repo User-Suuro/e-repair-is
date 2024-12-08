@@ -726,7 +726,7 @@ Public Class FormUtils
 
     End Function
 
-    Public Sub formatChart(ByVal myChart As Chart, ByVal series As Series, title As String, Optional chartAreaType As String = "Default")
+    Public Sub formatChart(ByVal myChart As Chart, ByVal series As Series, Optional title As String = "", Optional chartAreaType As String = "Default")
         With myChart
             .Series.Clear()
             .Titles.Clear()
@@ -741,5 +741,70 @@ Public Class FormUtils
             .Invalidate()
         End With
     End Sub
+
+    ' FILTER DAYS CONTROLS
+
+    Public Sub reloadDayStop(ByVal DayStartCmb, ByVal DayStopCmb)
+        If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
+            DayStopCmb.SelectedIndex = FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
+        End If
+    End Sub
+
+    Public Sub reloadDayStart(ByVal DayStartCmb, ByVal DayStopCmb)
+        If DayStopCmb.SelectedItem < DayStartCmb.SelectedItem Then
+            DayStartCmb.SelectedIndex = FindComboBoxItemByText(DayStartCmb, DayStopCmb.SelectedItem)
+        End If
+    End Sub
+
+    ' FILTER CONTROLS VALUE CHECKER
+
+    Public Function hasDayCmbValue(ByVal DayStartCmb, ByVal DayStopCmb)
+        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    Public Function hasYrMonthCmbValue(ByVal YearCmb, ByVal MonthCmb) As Boolean
+        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    Public Sub InitYearMonthCmb(ByVal YearCmb, ByVal MonthCmb)
+
+        With YearCmb
+            .DataSource = constants.getYearList
+            .BeginUpdate()
+            .SelectedIndex = 0
+            .EndUpdate()
+        End With
+
+        With MonthCmb
+            .DataSource = constants.getMonthList
+            .BeginUpdate()
+            .SelectedIndex = FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
+            .EndUpdate()
+        End With
+
+    End Sub
+
+    Public Sub InitDayToEndCmb(ByVal DayStartCmb, ByVal DayStopCmb, ByVal YearCmb, ByVal MonthCmb)
+
+        Dim daysListStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        Dim daysListStop = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+
+        DayStartCmb.DataSource = daysListStart
+
+        With DayStopCmb
+            .DataSource = daysListStop
+            .SelectedIndex = daysListStop.Count - 1
+        End With
+
+    End Sub
+
 
 End Class
