@@ -159,7 +159,6 @@ Public Class AdminDashboardForm
         loadDays()
         reloadDayStart()
         reloadDayStop()
-        reloadChartVals()
     End Sub
 
     Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
@@ -167,7 +166,6 @@ Public Class AdminDashboardForm
         loadDays()
         reloadDayStart()
         reloadDayStop()
-        reloadChartVals()
     End Sub
 
     Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
