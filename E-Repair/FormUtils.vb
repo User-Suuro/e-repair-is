@@ -708,8 +708,8 @@ Public Class FormUtils
     Function FilterDates(dt As DataTable, dateStart As Date, dateStop As Date, format As String, dateCol As String) As DataTable
 
         If dateStart > dateStop Then
-            MsgBox("'dateStart' must be earlier than or equal to 'dateStop'.")
-            Return Nothing
+            MsgBox("Invalid Date Range: Date End Must be Greater than Date Start")
+            Return dt
         End If
 
         Dim formattedDateStart As String = dateStart.ToString(format)
@@ -756,6 +756,18 @@ Public Class FormUtils
         End If
     End Sub
 
+    Public Sub reloadMonthStart(ByVal MonthStartCmb, ByVal MonthStopCmb)
+        If MonthStartCmb.SelectedIndex > MonthStopCmb.SelectedIndex Then
+            MonthStopCmb.SelectedIndex = FindComboBoxItemByText(MonthStopCmb, MonthStartCmb.SelectedItem)
+        End If
+    End Sub
+
+    Public Sub reloadMonthEnd(ByVal MonthStartCmb, ByVal MonthStopCmb)
+        If MonthStopCmb.SelectedIndex < MonthStartCmb.SelectedINdex Then
+            MonthStartCmb.SelectedIndex = FindComboBoxItemByText(MonthStartCmb, MonthStopCmb.SelectedItem)
+        End If
+    End Sub
+
     ' FILTER CONTROLS VALUE CHECKER
 
     Public Function hasDayCmbValue(ByVal DayStartCmb, ByVal DayStopCmb)
@@ -774,7 +786,10 @@ Public Class FormUtils
         Return False
     End Function
 
-    Public Sub InitYearMonthCmb(ByVal YearCmb, ByVal MonthCmb)
+    Public Sub InitYearMonthCmb(ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb)
+        Dim monthList = constants.getMonthList
+        Dim monthStart As New List(Of String)(monthList)
+        Dim monthEnd As New List(Of String)(monthList)
 
         With YearCmb
             .DataSource = constants.getYearList
@@ -783,10 +798,17 @@ Public Class FormUtils
             .EndUpdate()
         End With
 
-        With MonthCmb
-            .DataSource = constants.getMonthList
+        With MonthStartCmb
+            .DataSource = monthStart
             .BeginUpdate()
-            .SelectedIndex = FindComboBoxItemByText(MonthCmb, DateTime.Now.ToString("MMMM"))
+            .SelectedIndex = 0
+            .EndUpdate()
+        End With
+
+        With MonthEndCmb
+            .DataSource = monthEnd
+            .BeginUpdate()
+            .SelectedIndex = FindComboBoxItemByText(MonthEndCmb, DateTime.Now.ToString("MMMM"))
             .EndUpdate()
         End With
 

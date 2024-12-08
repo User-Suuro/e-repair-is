@@ -554,7 +554,7 @@
             Dim supplierContracts As List(Of String) = dbHelper.GetEnums(.supTableStr, .supContractStr)
             Dim bankDetails As List(Of String) = dbHelper.GetEnums(.supTableStr, .bankDetailsStr)
             Dim paymentTerms As List(Of String) = dbHelper.GetEnums(.supTableStr, .payTermsStr)
-            Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
+
 
             Try
                 For i As Integer = 1 To numberOfRecords
@@ -573,6 +573,7 @@
                     Dim paymentTerm = paymentTerms(rnd.Next(0, paymentTerms.Count))
 
                     Dim estimatedDeliveryTime = If(rnd.Next(0, 2) = 0, $"{rnd.Next(1, 10)} days", Nothing) ' Optional field
+                    Dim dateAdded = New Date(2018, 1, 1).AddDays(rnd.Next(0, (DateTime.Now - New Date(2018, 1, 1)).Days + 1))
 
                     Dim insertData As New Dictionary(Of String, Object) From {
                        { .estDeliveryStr, estimatedDeliveryTime}, ' optional

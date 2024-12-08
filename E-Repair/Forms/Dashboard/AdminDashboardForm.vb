@@ -53,8 +53,8 @@ Public Class AdminDashboardForm
 
         'FILTERS
 
-        formUtils.InitYearMonthCmb(YearCmb, MonthCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthCmb)
+        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthEndCmb)
         DayStartCmb.SelectedIndex = 0
 
         finishedLoad = True
@@ -82,15 +82,15 @@ Public Class AdminDashboardForm
     End Sub
 
     Private Sub reloadStrDate()
-        strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStartDate = MonthStartCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
+        strStopDate = MonthEndCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
     End Sub
 
     Private Sub reloadDays()
         If Not finishedLoad Then Exit Sub
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthCmb)
+        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthEndCmb)
     End Sub
 
     ' FILTER EVENTS
@@ -102,7 +102,15 @@ Public Class AdminDashboardForm
         loadTimer()
     End Sub
 
-    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+    Private Sub MonthStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthStartCmb.SelectedIndexChanged
+        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
+        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
+        reloadDays()
+    End Sub
+
+    Private Sub MonthEndCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthEndCmb.SelectedIndexChanged
+        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
+        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
         reloadDays()
     End Sub
 
@@ -113,7 +121,8 @@ Public Class AdminDashboardForm
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
         formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
         formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
@@ -202,7 +211,7 @@ Public Class AdminDashboardForm
         If filterDate Then
             Try
                 localinvDT = formUtils.FilterDates(localinvDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, invConst.dateAddedStr)
-                localservDT = formUtils.FilterDates(localservDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, itemConst.dateUsedCol)
+                localservDT = formUtils.FilterDates(localservDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format: " & ex.Message)
                 Exit Sub
@@ -223,11 +232,10 @@ Public Class AdminDashboardForm
     ' SUPPLIERS CHART
 
     Private Sub loadSupplierStatusChart(Optional filterDate As Boolean = True)
-
-        ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
 
         Dim series As New Series()
+
         Dim localsuppDT As DataTable = suppDT
 
         If filterDate Then
@@ -243,7 +251,7 @@ Public Class AdminDashboardForm
         series.ChartType = SeriesChartType.Bar
 
         For Each type In supType
-            Dim totalCount As Integer = suppDT.Select($"{supConst.supTypeStr} = '{type}'").Length
+            Dim totalCount As Integer = localsuppDT.Select($"{supConst.supTypeStr} = '{type}'").Length
             series.Points.AddXY(type, totalCount)
         Next
 
