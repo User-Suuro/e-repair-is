@@ -23,18 +23,18 @@ Partial Class AdminDashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -485,72 +485,72 @@ Partial Class AdminDashboardForm
         '
         'SalesChart
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.SalesChart.ChartAreas.Add(ChartArea1)
+        ChartArea9.Name = "ChartArea1"
+        Me.SalesChart.ChartAreas.Add(ChartArea9)
         Me.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Me.SalesChart.Legends.Add(Legend1)
+        Legend9.Name = "Legend1"
+        Me.SalesChart.Legends.Add(Legend9)
         Me.SalesChart.Location = New System.Drawing.Point(559, 3)
         Me.SalesChart.Name = "SalesChart"
         Me.SalesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.SalesChart.Series.Add(Series1)
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "Series1"
+        Me.SalesChart.Series.Add(Series9)
         Me.SalesChart.Size = New System.Drawing.Size(551, 188)
         Me.SalesChart.TabIndex = 13
         Me.SalesChart.Text = "SalesChart"
         '
         'JobsChart
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.JobsChart.ChartAreas.Add(ChartArea2)
+        ChartArea10.Name = "ChartArea1"
+        Me.JobsChart.ChartAreas.Add(ChartArea10)
         Me.JobsChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.Name = "Legend1"
-        Me.JobsChart.Legends.Add(Legend2)
+        Legend10.Name = "Legend1"
+        Me.JobsChart.Legends.Add(Legend10)
         Me.JobsChart.Location = New System.Drawing.Point(3, 3)
         Me.JobsChart.Name = "JobsChart"
         Me.JobsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.JobsChart.Series.Add(Series2)
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "Series1"
+        Me.JobsChart.Series.Add(Series10)
         Me.JobsChart.Size = New System.Drawing.Size(550, 188)
         Me.JobsChart.TabIndex = 12
         Me.JobsChart.Text = "Chart1"
         '
         'InventoryGraph
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.InventoryGraph.ChartAreas.Add(ChartArea3)
+        ChartArea11.Name = "ChartArea1"
+        Me.InventoryGraph.ChartAreas.Add(ChartArea11)
         Me.InventoryGraph.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend3.Name = "Legend1"
-        Me.InventoryGraph.Legends.Add(Legend3)
+        Legend11.Name = "Legend1"
+        Me.InventoryGraph.Legends.Add(Legend11)
         Me.InventoryGraph.Location = New System.Drawing.Point(3, 197)
         Me.InventoryGraph.Name = "InventoryGraph"
         Me.InventoryGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.InventoryGraph.Series.Add(Series3)
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Series1"
+        Me.InventoryGraph.Series.Add(Series11)
         Me.InventoryGraph.Size = New System.Drawing.Size(550, 188)
         Me.InventoryGraph.TabIndex = 11
         Me.InventoryGraph.Text = "Chart2"
         '
         'SupplierStatusChart
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.SupplierStatusChart.ChartAreas.Add(ChartArea4)
+        ChartArea12.Name = "ChartArea1"
+        Me.SupplierStatusChart.ChartAreas.Add(ChartArea12)
         Me.SupplierStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend4.Name = "Legend1"
-        Me.SupplierStatusChart.Legends.Add(Legend4)
+        Legend12.Name = "Legend1"
+        Me.SupplierStatusChart.Legends.Add(Legend12)
         Me.SupplierStatusChart.Location = New System.Drawing.Point(559, 197)
         Me.SupplierStatusChart.Name = "SupplierStatusChart"
         Me.SupplierStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.SupplierStatusChart.Series.Add(Series4)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Me.SupplierStatusChart.Series.Add(Series12)
         Me.SupplierStatusChart.Size = New System.Drawing.Size(551, 188)
         Me.SupplierStatusChart.TabIndex = 10
         Me.SupplierStatusChart.Text = "Chart4"
@@ -577,7 +577,7 @@ Partial Class AdminDashboardForm
         '
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(501, 0)
+        Me.Panel1.Location = New System.Drawing.Point(449, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(64, 28)
         Me.Panel1.TabIndex = 80
@@ -605,12 +605,12 @@ Partial Class AdminDashboardForm
         Me.CalendarFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.CalendarFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.CalendarFrom.HoverState.Parent = Me.CalendarFrom
-        Me.CalendarFrom.Location = New System.Drawing.Point(565, 0)
+        Me.CalendarFrom.Location = New System.Drawing.Point(513, 0)
         Me.CalendarFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.CalendarFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.CalendarFrom.Name = "CalendarFrom"
         Me.CalendarFrom.ShadowDecoration.Parent = Me.CalendarFrom
-        Me.CalendarFrom.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarFrom.Size = New System.Drawing.Size(232, 28)
         Me.CalendarFrom.TabIndex = 79
         Me.CalendarFrom.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
@@ -618,7 +618,7 @@ Partial Class AdminDashboardForm
         '
         Me.Panel6.Controls.Add(Me.Label4)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(771, 0)
+        Me.Panel6.Location = New System.Drawing.Point(745, 0)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(40, 28)
         Me.Panel6.TabIndex = 78
@@ -646,12 +646,12 @@ Partial Class AdminDashboardForm
         Me.CalendarTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.CalendarTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.CalendarTo.HoverState.Parent = Me.CalendarTo
-        Me.CalendarTo.Location = New System.Drawing.Point(811, 0)
+        Me.CalendarTo.Location = New System.Drawing.Point(785, 0)
         Me.CalendarTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.CalendarTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.CalendarTo.Name = "CalendarTo"
         Me.CalendarTo.ShadowDecoration.Parent = Me.CalendarTo
-        Me.CalendarTo.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarTo.Size = New System.Drawing.Size(232, 28)
         Me.CalendarTo.TabIndex = 77
         Me.CalendarTo.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '

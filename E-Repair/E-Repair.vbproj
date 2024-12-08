@@ -623,6 +623,9 @@
   <ItemGroup>
     <None Include="Resources\files-bold.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

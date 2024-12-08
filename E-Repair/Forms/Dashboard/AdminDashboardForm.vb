@@ -21,7 +21,6 @@ Public Class AdminDashboardForm
     Dim invDT As New DataTable
     Dim itemDT As New DataTable
 
-    Private finishedLoad As Boolean = False
 
     ' FILTER VARS
     Private strStartDate As String
@@ -55,7 +54,6 @@ Public Class AdminDashboardForm
         Cursor = Cursors.Default
     End Sub
     Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not finishedLoad Then loadData()
         loadStatus()
         loadWelcome()
         loadTimer()
@@ -76,6 +74,13 @@ Public Class AdminDashboardForm
         CalendarTo.Value = Date.Now.AddMonths(1)
     End Sub
 
+    Private Sub reloadStrFilter()
+        strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+    End Sub
+
+    ' FILTER EVENTS
+
     Private Sub CalendarFrom_ValueChanged(sender As Object, e As EventArgs) Handles CalendarFrom.ValueChanged
         formUtils.ReloadDayStart(CalendarFrom, CalendarTo)
     End Sub
@@ -84,18 +89,15 @@ Public Class AdminDashboardForm
         formUtils.ReloadDayStop(CalendarFrom, CalendarTo)
     End Sub
 
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+        reloadStrFilter()
+        loadCharts()
+    End Sub
+
     Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
         loadCharts(False)
     End Sub
 
-    Private Sub reloadStrFilter()
-        strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
-        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
-    End Sub
-
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
-        reloadStrFilter()
-    End Sub
 
     ' POSITIONS CHART
 

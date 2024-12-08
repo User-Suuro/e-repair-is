@@ -17,8 +17,6 @@ Public Class CashierDashboardForm
     Dim servDT As New DataTable
     Dim custDT As New DataTable
 
-    Private FinishedLoad As Boolean = False
-
     Private strStartDate As String
     Private strStopDate As String
 
@@ -31,6 +29,10 @@ Public Class CashierDashboardForm
         servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
         custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
 
+        loadDTPVal()
+        reloadStrFilter()
+        loadCharts()
+
         Cursor = Cursors.Default
     End Sub
 
@@ -40,14 +42,43 @@ Public Class CashierDashboardForm
         loadStatus()
     End Sub
 
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs)
-
+    Private Sub loadCharts(Optional filterMode As Boolean = True)
+        loadServiceChart(filterMode)
+        loadGenderChart(filterMode)
+        loadDeviceTypeChart(filterMode)
+        loadPaymentMethodChart(filterMode)
     End Sub
 
-    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs)
+    ' FILTER CONTROLS
 
+    Private Sub loadDTPVal()
+        CalendarFrom.Value = Date.Now
+        CalendarTo.Value = Date.Now.AddMonths(1)
     End Sub
 
+    Private Sub reloadStrFilter()
+        strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+    End Sub
+
+    ' FILTER EVENTS
+
+    Private Sub CalendarFrom_ValueChanged(sender As Object, e As EventArgs) Handles CalendarFrom.ValueChanged
+        formUtils.ReloadDayStart(CalendarFrom, CalendarTo)
+    End Sub
+
+    Private Sub CalendarTo_ValueChanged(sender As Object, e As EventArgs) Handles CalendarTo.ValueChanged
+        formUtils.ReloadDayStop(CalendarFrom, CalendarTo)
+    End Sub
+
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+        reloadStrFilter()
+        loadCharts()
+    End Sub
+
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
+        loadCharts(False)
+    End Sub
 
     ' LOAD SERVICE CHART
 
@@ -132,8 +163,6 @@ Public Class CashierDashboardForm
 
         series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Bar
-
-
 
         For Each devType In deviceTypes
             Dim totalCount As Integer = localDT.Select($"{servConst.devTypeStr} = '{devType}'").Length

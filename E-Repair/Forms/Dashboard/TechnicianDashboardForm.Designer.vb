@@ -23,15 +23,15 @@ Partial Class TechnicianDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ItemsUsedLabelCount = New System.Windows.Forms.Label()
@@ -53,9 +53,19 @@ Partial Class TechnicianDashboardForm
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.InvetoryAvailChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.DeviceTypeChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.InvetoryAvailChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CalendarFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CalendarTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.StatusTableLayout.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
@@ -63,9 +73,12 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.InvetoryAvailChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeviceTypeChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.InvetoryAvailChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusTableLayout
@@ -318,12 +331,30 @@ Partial Class TechnicianDashboardForm
         Me.TableLayoutPanel2.Controls.Add(Me.InvetoryAvailChart, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.DeviceTypeChart, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ServStatusChart, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(9, 221)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(9, 249)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1149, 401)
         Me.TableLayoutPanel2.TabIndex = 11
+        '
+        'InvetoryAvailChart
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.InvetoryAvailChart.ChartAreas.Add(ChartArea1)
+        Me.InvetoryAvailChart.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend1.Name = "Legend1"
+        Me.InvetoryAvailChart.Legends.Add(Legend1)
+        Me.InvetoryAvailChart.Location = New System.Drawing.Point(769, 3)
+        Me.InvetoryAvailChart.Name = "InvetoryAvailChart"
+        Me.InvetoryAvailChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.InvetoryAvailChart.Series.Add(Series1)
+        Me.InvetoryAvailChart.Size = New System.Drawing.Size(377, 395)
+        Me.InvetoryAvailChart.TabIndex = 2
+        Me.InvetoryAvailChart.Text = "Chart2"
         '
         'DeviceTypeChart
         '
@@ -361,29 +392,154 @@ Partial Class TechnicianDashboardForm
         Me.ServStatusChart.TabIndex = 0
         Me.ServStatusChart.Text = "Chart1"
         '
-        'InvetoryAvailChart
+        'Guna2Panel2
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.InvetoryAvailChart.ChartAreas.Add(ChartArea1)
-        Me.InvetoryAvailChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Me.InvetoryAvailChart.Legends.Add(Legend1)
-        Me.InvetoryAvailChart.Location = New System.Drawing.Point(769, 3)
-        Me.InvetoryAvailChart.Name = "InvetoryAvailChart"
-        Me.InvetoryAvailChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.InvetoryAvailChart.Series.Add(Series1)
-        Me.InvetoryAvailChart.Size = New System.Drawing.Size(377, 395)
-        Me.InvetoryAvailChart.TabIndex = 2
-        Me.InvetoryAvailChart.Text = "Chart2"
+        Me.Guna2Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Panel2.Controls.Add(Me.Panel1)
+        Me.Guna2Panel2.Controls.Add(Me.CalendarFrom)
+        Me.Guna2Panel2.Controls.Add(Me.Panel6)
+        Me.Guna2Panel2.Controls.Add(Me.CalendarTo)
+        Me.Guna2Panel2.Controls.Add(Me.Panel3)
+        Me.Guna2Panel2.Controls.Add(Me.FetchAllBtn)
+        Me.Guna2Panel2.Controls.Add(Me.BtnReload)
+        Me.Guna2Panel2.Location = New System.Drawing.Point(9, 218)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
+        Me.Guna2Panel2.Size = New System.Drawing.Size(1149, 28)
+        Me.Guna2Panel2.TabIndex = 35
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(485, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(64, 28)
+        Me.Panel1.TabIndex = 80
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.TabIndex = 41
+        Me.Label1.Text = "From"
+        '
+        'CalendarFrom
+        '
+        Me.CalendarFrom.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarFrom.BorderRadius = 4
+        Me.CalendarFrom.BorderThickness = 1
+        Me.CalendarFrom.Checked = True
+        Me.CalendarFrom.CheckedState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarFrom.FillColor = System.Drawing.Color.White
+        Me.CalendarFrom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarFrom.HoverState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Location = New System.Drawing.Point(549, 0)
+        Me.CalendarFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarFrom.Name = "CalendarFrom"
+        Me.CalendarFrom.ShadowDecoration.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Size = New System.Drawing.Size(232, 28)
+        Me.CalendarFrom.TabIndex = 79
+        Me.CalendarFrom.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(781, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(40, 28)
+        Me.Panel6.TabIndex = 78
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(10, 8)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(20, 13)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "To"
+        '
+        'CalendarTo
+        '
+        Me.CalendarTo.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarTo.BorderRadius = 4
+        Me.CalendarTo.BorderThickness = 1
+        Me.CalendarTo.Checked = True
+        Me.CalendarTo.CheckedState.Parent = Me.CalendarTo
+        Me.CalendarTo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarTo.FillColor = System.Drawing.Color.White
+        Me.CalendarTo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarTo.HoverState.Parent = Me.CalendarTo
+        Me.CalendarTo.Location = New System.Drawing.Point(821, 0)
+        Me.CalendarTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarTo.Name = "CalendarTo"
+        Me.CalendarTo.ShadowDecoration.Parent = Me.CalendarTo
+        Me.CalendarTo.Size = New System.Drawing.Size(232, 28)
+        Me.CalendarTo.TabIndex = 77
+        Me.CalendarTo.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1053, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(10, 28)
+        Me.Panel3.TabIndex = 75
+        '
+        'FetchAllBtn
+        '
+        Me.FetchAllBtn.BorderRadius = 4
+        Me.FetchAllBtn.CheckedState.Parent = Me.FetchAllBtn
+        Me.FetchAllBtn.CustomImages.Parent = Me.FetchAllBtn
+        Me.FetchAllBtn.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FetchAllBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.FetchAllBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FetchAllBtn.ForeColor = System.Drawing.Color.White
+        Me.FetchAllBtn.HoverState.Parent = Me.FetchAllBtn
+        Me.FetchAllBtn.Location = New System.Drawing.Point(0, 0)
+        Me.FetchAllBtn.Name = "FetchAllBtn"
+        Me.FetchAllBtn.ShadowDecoration.Parent = Me.FetchAllBtn
+        Me.FetchAllBtn.Size = New System.Drawing.Size(88, 28)
+        Me.FetchAllBtn.TabIndex = 53
+        Me.FetchAllBtn.Text = "All Time"
+        '
+        'BtnReload
+        '
+        Me.BtnReload.BorderRadius = 4
+        Me.BtnReload.CheckedState.Parent = Me.BtnReload
+        Me.BtnReload.CustomImages.Parent = Me.BtnReload
+        Me.BtnReload.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtnReload.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.BtnReload.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReload.ForeColor = System.Drawing.Color.White
+        Me.BtnReload.HoverState.Parent = Me.BtnReload
+        Me.BtnReload.Location = New System.Drawing.Point(1063, 0)
+        Me.BtnReload.Name = "BtnReload"
+        Me.BtnReload.ShadowDecoration.Parent = Me.BtnReload
+        Me.BtnReload.Size = New System.Drawing.Size(86, 28)
+        Me.BtnReload.TabIndex = 44
+        Me.BtnReload.Text = "Reload"
         '
         'TechnicianDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1191, 681)
+        Me.Controls.Add(Me.Guna2Panel2)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.StatusTableLayout)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -401,9 +557,14 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.InvetoryAvailChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeviceTypeChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.InvetoryAvailChart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -432,4 +593,14 @@ Partial Class TechnicianDashboardForm
     Friend WithEvents ItemsUsedLabelCount As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents InvetoryAvailChart As DataVisualization.Charting.Chart
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CalendarFrom As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents CalendarTo As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
 End Class
