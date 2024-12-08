@@ -1,6 +1,13 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.IO
+Imports System.Runtime.InteropServices
+Imports Microsoft.Reporting.WinForms
 
 Public Class ExportUtils
+
+
+    Dim formUtils As New FormUtils
+    Dim dbHelper As New DbHelper
+
     Public Function ExportDataTableToExcel(dataTable As DataTable, title As String, columnHeaderMapping As Dictionary(Of String, String)) As Boolean
         Dim excelApp As Object = Nothing
         Dim workBook As Object = Nothing
@@ -154,6 +161,38 @@ Public Class ExportUtils
             Next
             currentRow += 1
         Next
+    End Sub
+
+
+    ' RLDC
+
+    Public Sub LoadToRLDC(reportView As ReportViewer, reportDataSource As ReportDataSource, rldcName As String)
+        Dim rptDS As New ReportDataSource
+        Dim currentDir As String = System.IO.Directory.GetCurrentDirectory()
+
+        For i As Integer = 1 To 2
+            currentDir = System.IO.Directory.GetParent(currentDir).FullName
+        Next
+
+        Dim reportsPath As String = currentDir & "\Reports\EmployeesReport.rdlc"
+
+        Try
+            If Not File.Exists(reportsPath) Then
+                Throw New FileNotFoundException($"The report file was not found: {reportsPath}")
+            End If
+
+            With reportView.LocalReport
+                .ReportPath = reportsPath
+                .DataSources.Clear()
+                .DataSources.Add(reportDataSource)
+            End With
+
+            reportView.RefreshReport()
+
+        Catch ex As Exception
+            ' Display the error message
+            MsgBox($"An error occurred: {ex.Message}", MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 End Class
