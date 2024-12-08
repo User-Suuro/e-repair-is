@@ -43,33 +43,18 @@
     End Sub
 
     Private Sub ExportPrintBtn_Click(sender As Object, e As EventArgs) Handles ExportPrintBtn.Click
-        With supConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .compNameStr, "Company Name"},
-              { .supTypeStr, "Supplier Type"},
-              { .supContractStr, "Contract Type"},
-              { .bankDetailsStr, "Bank Details"},
-              { .payTermsStr, "Payment Terms"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, supConst.supTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title As String = $"Supplier Printable Reports_{DateTime.Now:yyyy-MM-dd}"
-
-            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
+        formUtils.ShowModalWithHandler(
+          Function(id)
+              Dim modal As New SuppliersExportPrintable
+              Return modal
+          End Function,
+          -1,
+          Function(modal)
+              Return Nothing
+          End Function
+        )
     End Sub
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()

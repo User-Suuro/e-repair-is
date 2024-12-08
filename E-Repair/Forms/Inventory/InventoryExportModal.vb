@@ -52,32 +52,16 @@ Public Class InventoryExportModal
 
     Private Sub ExportPrintBtn_Click(sender As Object, e As EventArgs) Handles ExportPrintBtn.Click
 
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
-
-        With invConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .invIDStr, "Inventory ID"},
-              { .supIDStr, "Supplier ID"},
-              { .itemNameStr, "Item Name"},
-              { .availableQtyStr, "Available Quantity"},
-              { .costPerItem, "Cost Per Item"},
-              { .totalCostStr, "Total Cost"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, invConst.invTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title As String = $"Inventory Printable Reports_{DateTime.Now:yyyy-MM-dd}"
-
-            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New InventoryExportPrintable
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            Return Nothing
+        End Function
+        )
 
     End Sub
 

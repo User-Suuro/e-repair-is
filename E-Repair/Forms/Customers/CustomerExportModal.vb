@@ -47,36 +47,18 @@
     End Sub
 
     Private Sub ExportPrintlBtn_Click(sender As Object, e As EventArgs) Handles ExportPrintBtn.Click
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to export this table?") Then Exit Sub
-
-        With custConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .custFirstStr, "First Name"},
-              { .custLastStr, "Last Name"},
-              { .custEmailStr, "Email"},
-              { .custTotalPaidStr, "Total Paid"},
-              { .custLastTransStr, "Last Transaction"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim dt = dbHelper.GetAllByCol(keys, custConst.custTableStr)
-
-            If dt.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title As String = $"Customer Printable Reports_{DateTime.Now:yyyy-MM-dd}"
-
-            If exportUtils.ExportDataTableToExcel(dt, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New CustomerExportPrintable
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            Return Nothing
+        End Function
+        )
     End Sub
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()

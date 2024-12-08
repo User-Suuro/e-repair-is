@@ -56,33 +56,16 @@
     End Sub
 
     Private Sub ExportPrintBtn_Click(sender As Object, e As EventArgs) Handles ExportPrintBtn.Click
-
-        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to this export table?") Then Exit Sub
-
-        With empConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-              { .empFirstStr, "First Name"},
-              { .empStatusStr, "Employment Status"},
-              { .empHiredStr, "Date Hired"},
-              { .empJobPosStr, "Job Type"},
-              { .empAdminPosStr, "Admin Position"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            Dim empDT As DataTable = dbHelper.GetAllByCol(keys, .empTableStr)
-
-            If empDT.Rows.Count = 0 Then
-                MsgBox("There is nothing to export")
-                Exit Sub
-            End If
-
-            Dim title As String = $"Employees Printable Reports_{DateTime.Now:yyyy-MM-dd}"
-
-
-            If exportUtils.ExportDataTableToExcel(empDT, title, columnHeaderMapping) Then
-                dbHelper.Logs(title, Current.id)
-            End If
-        End With
+        formUtils.ShowModalWithHandler(
+        Function(id)
+            Dim modal As New EmployeeExportPrintable
+            Return modal
+        End Function,
+        -1,
+        Function(modal)
+            Return Nothing
+        End Function
+        )
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -92,5 +75,4 @@
     Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
     End Sub
-
 End Class

@@ -28,7 +28,6 @@ Partial Class ServiceAddEditModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.StorageCapacityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DeviceModelTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -86,6 +85,7 @@ Partial Class ServiceAddEditModal
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
         Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -168,7 +168,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel5.Controls.Add(Me.JobDetailsTableLayout)
         Me.Guna2Panel5.Location = New System.Drawing.Point(12, 192)
         Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel5.TabIndex = 48
@@ -193,17 +193,6 @@ Partial Class ServiceAddEditModal
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.JobDetailsTableLayout.Size = New System.Drawing.Size(808, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(273, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(93, 20)
-        Me.Label1.TabIndex = 38
-        Me.Label1.Text = "Device Model"
         '
         'StorageCapacityTxtBox
         '
@@ -312,7 +301,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.OperatingSystemTableLayout)
         Me.Guna2Panel1.Location = New System.Drawing.Point(423, 259)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel1.TabIndex = 46
@@ -416,7 +405,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel4.Controls.Add(Me.DeviceTypeTableLayout)
         Me.Guna2Panel4.Location = New System.Drawing.Point(12, 259)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(405, 61)
         Me.Guna2Panel4.TabIndex = 47
@@ -515,7 +504,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel5)
         Me.Guna2Panel6.Location = New System.Drawing.Point(12, 326)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(816, 61)
         Me.Guna2Panel6.TabIndex = 45
@@ -601,7 +590,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0, 0, 0, 3)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel3.TabIndex = 28
@@ -876,7 +865,7 @@ Partial Class ServiceAddEditModal
         Me.Guna2Panel2.Location = New System.Drawing.Point(0, 67)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(957, 61)
         Me.Guna2Panel2.TabIndex = 29
@@ -1189,6 +1178,17 @@ Partial Class ServiceAddEditModal
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(273, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(93, 20)
+        Me.Label1.TabIndex = 38
+        Me.Label1.Text = "Device Model"
+        '
         'ServiceAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1268,7 +1268,6 @@ Partial Class ServiceAddEditModal
     Friend WithEvents SelectTechnicianBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents JobDetailsTableLayout As TableLayoutPanel
-    Friend WithEvents Label1 As Label
     Friend WithEvents StorageCapacityTxtBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents DeviceModelTxtBox As Guna.UI2.WinForms.Guna2TextBox
@@ -1293,4 +1292,5 @@ Partial Class ServiceAddEditModal
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents OperatingSystemTxtBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label1 As Label
 End Class
