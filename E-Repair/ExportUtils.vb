@@ -187,6 +187,8 @@ Public Class ExportUtils
                 .DataSources.Add(reportDataSource)
             End With
 
+            reportView.ZoomMode = ZoomMode.PageWidth
+
             reportView.RefreshReport()
 
         Catch ex As Exception

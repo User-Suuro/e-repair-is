@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42969in</Width>
+              <Width>1.07683in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -36,14 +36,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox67">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>EMPLOYEES REPORT </Value>
+                              <Value />
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -54,7 +54,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox66</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1612,52 +1612,93 @@
         <Top>0.19667in</Top>
         <Left>0.28in</Left>
         <Height>1.75in</Height>
-        <Width>11.4375in</Width>
+        <Width>8.6146in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox77">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Globals!PageNumber</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox76</rd:DefaultName>
-        <Top>5.73375in</Top>
-        <Left>10.28781in</Left>
-        <Height>0.25in</Height>
-        <Width>1.42969in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>6.2175in</Height>
     <Style />
   </Body>
-  <Width>11.99875in</Width>
+  <Width>9.28002in</Width>
   <Page>
+    <PageHeader>
+      <Height>0.77083in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Employee Report</Value>
+                  <Style>
+                    <FontFamily>Arial Black</FontFamily>
+                    <FontSize>26pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>0.07292in</Top>
+          <Left>0.28in</Left>
+          <Height>0.62847in</Height>
+          <Width>3.68752in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox7">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>0.29042in</Top>
+          <Left>7.8946in</Left>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
