@@ -42,16 +42,10 @@ Public Class AdminDashboardForm
         loadStatus()
         loadWelcome()
         'charts
-        loadCharts()
+        loadDays()
+        reloadChartVals()
         ' timer
         loadTimer()
-    End Sub
-
-    Private Sub loadCharts()
-        loadPositionChart()
-        loadInvUsedChart()
-        loadSalesChart()
-        loadSupplierStatusChart()
     End Sub
 
     Private Sub loadData()
@@ -98,9 +92,19 @@ Public Class AdminDashboardForm
     ' FILTERS
 
     Private Sub reloadChartVals()
+        If Not finishedLoad Then Exit Sub
+        If Not hasDayCmbValue() Then Exit Sub
+        If Not hasYrMonthCmbValue() Then Exit Sub
+        reloadDayStart()
         reloadDayStop()
         reloadStrDate()
         loadCharts()
+    End Sub
+    Private Sub loadCharts()
+        loadPositionChart()
+        loadInvUsedChart()
+        loadSalesChart()
+        loadSupplierStatusChart()
     End Sub
 
     Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
@@ -122,21 +126,12 @@ Public Class AdminDashboardForm
     ' FILTER FUNCTIONS
 
     Private Sub reloadStrDate()
-
-        If Not finishedLoad Then Exit Sub
-        If Not hasDayCmbValue() Then Exit Sub
-        If Not hasYrMonthCmbValue() Then Exit Sub
-
         ' CODE
         strStartDate = MonthCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
         strStopDate = MonthCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
     End Sub
 
     Private Sub loadDays()
-
-        If Not finishedLoad Then Exit Sub
-        If Not hasYrMonthCmbValue() Then Exit Sub
-
         daysListStart = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
         daysListStop = formUtils.GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
 
@@ -148,7 +143,6 @@ Public Class AdminDashboardForm
             .SelectedIndex = daysListStop.Count - 1
             .EndUpdate()
         End With
-
     End Sub
 
     Private Function hasYrMonthCmbValue() As Boolean
@@ -179,14 +173,12 @@ Public Class AdminDashboardForm
         End If
     End Sub
 
-
     ' POSITIONS CHART
 
     Private Sub loadPositionChart()
-
         Dim series As New Series()
-
         Dim getPositionEnum = dbHelper.GetEnums(empConst.empTableStr, empConst.empAdminPosStr)
+
         empDT = formUtils.FilterDates(empDT, strStartDate, strStopDate, constants.getDateFormat, empConst.empAddDateStr)
 
         With series
