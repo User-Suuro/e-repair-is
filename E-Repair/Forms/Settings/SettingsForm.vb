@@ -640,7 +640,6 @@
                         { .storageCapStr, storageCapacity},
                         { .probDescStr, problemDescription},
                         { .getAddedByName, formUtils.getEmployeeName(Current.id)},
-                        { .dateAddedStr, DateTime.Now()},
                         { .devProfilePathStr, dummyImagePath},
                         { .dateAddedStr, dateAdded}
                     }

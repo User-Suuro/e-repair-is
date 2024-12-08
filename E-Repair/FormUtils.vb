@@ -794,17 +794,18 @@ Public Class FormUtils
 
     Public Sub InitDayToEndCmb(ByVal DayStartCmb, ByVal DayStopCmb, ByVal YearCmb, ByVal MonthCmb)
 
-        Dim daysListStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
-        Dim daysListStop = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        Dim daysStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+        Dim daysEnd = GetDaysInMonthList(YearCmb.SelectedItem, MonthCmb.SelectedIndex + 1)
+
 
         With DayStartCmb
-            .DataSource = daysListStart
+            .DataSource = daysStart
             .SelectedIndex = 0
         End With
 
         With DayStopCmb
-            .DataSource = daysListStop
-            .SelectedIndex = daysListStop.Count - 1
+            .DataSource = daysEnd
+            .SelectedIndex = daysEnd.Count - 1
         End With
 
     End Sub

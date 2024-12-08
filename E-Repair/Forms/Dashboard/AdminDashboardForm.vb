@@ -55,6 +55,7 @@ Public Class AdminDashboardForm
 
         formUtils.InitYearMonthCmb(YearCmb, MonthCmb)
         formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthCmb)
+        DayStartCmb.SelectedIndex = 0
 
         finishedLoad = True
         reloadChartVals()
@@ -195,14 +196,27 @@ Public Class AdminDashboardForm
 
         Dim series As New Series()
 
+        Dim localinvDT As DataTable = invDT
+        Dim localservDT As DataTable = servDT
+
+        If filterDate Then
+            Try
+                localinvDT = formUtils.FilterDates(localinvDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, invConst.dateAddedStr)
+                localservDT = formUtils.FilterDates(localservDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, itemConst.dateUsedCol)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
+
         With series
             .IsVisibleInLegend = False
             .ChartType = SeriesChartType.Column
-            .Points.AddXY("Profit", formUtils.calcDecimalDTCol(servDT, servConst.TotalCost))
-            .Points.AddXY("Expenses", formUtils.calcDecimalDTCol(invDT, invConst.totalCostStr))
+            .Points.AddXY("Profit", formUtils.calcDecimalDTCol(localservDT, servConst.TotalCost))
+            .Points.AddXY("Expenses", formUtils.calcDecimalDTCol(localinvDT, invConst.totalCostStr))
         End With
 
-        formUtils.formatChart(InventoryGraph, series, "Profit - Inventory Expenses")
+        formUtils.formatChart(SalesChart, series, "Profit - Inventory Expenses")
 
     End Sub
 
@@ -212,7 +226,18 @@ Public Class AdminDashboardForm
 
         ' load enums
         Dim supType = dbHelper.GetEnums(supConst.supTableStr, supConst.supTypeStr)
+
         Dim series As New Series()
+        Dim localsuppDT As DataTable = suppDT
+
+        If filterDate Then
+            Try
+                localsuppDT = formUtils.FilterDates(localsuppDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, supConst.dateAddedStr)
+            Catch ex As Exception
+                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                Exit Sub
+            End Try
+        End If
 
         series.IsVisibleInLegend = False
         series.ChartType = SeriesChartType.Bar
@@ -222,8 +247,7 @@ Public Class AdminDashboardForm
             series.Points.AddXY(type, totalCount)
         Next
 
-        formUtils.formatChart(InventoryGraph, series, "Supplier Type Count Summary")
-
+        formUtils.formatChart(SupplierStatusChart, series, "Supplier Type Count Summary")
     End Sub
 
     ' TIMER
