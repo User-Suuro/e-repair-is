@@ -744,86 +744,16 @@ Public Class FormUtils
 
     ' FILTER DAYS CONTROLS
 
-    Public Sub reloadDayStop(ByVal DayStartCmb, ByVal DayStopCmb)
-        If DayStartCmb.SelectedItem > DayStopCmb.SelectedItem Then
-            DayStopCmb.SelectedIndex = FindComboBoxItemByText(DayStopCmb, DayStartCmb.SelectedItem)
+    Public Sub ReloadDayStop(ByVal DayStartCal As Guna2DateTimePicker, ByVal DayStopCal As Guna2DateTimePicker)
+        If DayStartCal.Value > DayStopCal.Value Then
+            DayStopCal.Value = DayStartCal.Value
         End If
     End Sub
 
-    Public Sub reloadDayStart(ByVal DayStartCmb, ByVal DayStopCmb)
-        If DayStopCmb.SelectedItem < DayStartCmb.SelectedItem Then
-            DayStartCmb.SelectedIndex = FindComboBoxItemByText(DayStartCmb, DayStopCmb.SelectedItem)
+    Public Sub ReloadDayStart(ByVal DayStartCal As Guna2DateTimePicker, ByVal DayStopCal As Guna2DateTimePicker)
+        If DayStopCal.Value < DayStartCal.Value Then
+            DayStartCal.Value = DayStopCal.Value
         End If
-    End Sub
-
-    Public Sub reloadMonthStart(ByVal MonthStartCmb, ByVal MonthStopCmb)
-        If MonthStartCmb.SelectedIndex > MonthStopCmb.SelectedIndex Then
-            MonthStopCmb.SelectedIndex = FindComboBoxItemByText(MonthStopCmb, MonthStartCmb.SelectedItem)
-        End If
-    End Sub
-
-    Public Sub reloadMonthEnd(ByVal MonthStartCmb, ByVal MonthStopCmb)
-        If MonthStopCmb.SelectedIndex < MonthStartCmb.SelectedINdex Then
-            MonthStartCmb.SelectedIndex = FindComboBoxItemByText(MonthStartCmb, MonthStopCmb.SelectedItem)
-        End If
-    End Sub
-
-    ' FILTER CONTROLS VALUE CHECKER
-
-    Public Function hasDayCmbValue(ByVal DayStartCmb, ByVal DayStopCmb)
-        If DayStartCmb.SelectedItem IsNot Nothing AndAlso DayStopCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
-
-        Return False
-    End Function
-
-    Public Function hasYrMonthCmbValue(ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb) As Boolean
-
-        If YearCmb.SelectedItem IsNot Nothing AndAlso MonthStartCmb.SelectedItem IsNot Nothing AndAlso MonthEndCmb.SelectedItem IsNot Nothing Then
-            Return True
-        End If
-
-        Return False
-    End Function
-
-    Public Sub InitYearMonthCmb(ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb)
-        Dim monthList = constants.getMonthList
-
-        Dim monthStart As New List(Of String)(monthList)
-        Dim monthEnd As New List(Of String)(monthList)
-
-        With YearCmb
-            .DataSource = constants.getYearList
-            .SelectedIndex = 0
-        End With
-
-        With MonthStartCmb
-            .DataSource = monthStart
-            .SelectedIndex = 0
-        End With
-
-        With MonthEndCmb
-            .DataSource = monthEnd
-            .SelectedIndex = FindComboBoxItemByText(MonthEndCmb, DateTime.Now.ToString("MMMM"))
-        End With
-
-    End Sub
-
-    Public Sub InitDayToEndCmb(ByVal DayStartCmb, ByVal DayStopCmb, ByVal YearCmb, ByVal MonthStartCmb, ByVal MonthEndCmb)
-
-        Dim daysStart = GetDaysInMonthList(YearCmb.SelectedItem, MonthStartCmb.SelectedIndex + 1)
-        Dim daysEnd = GetDaysInMonthList(YearCmb.SelectedItem, MonthEndCmb.SelectedIndex + 1)
-
-        With DayStartCmb
-            .DataSource = daysStart
-        End With
-
-        With DayStopCmb
-            .DataSource = daysEnd
-            .SelectedIndex = daysEnd.Count - 1
-        End With
-
     End Sub
 
 End Class

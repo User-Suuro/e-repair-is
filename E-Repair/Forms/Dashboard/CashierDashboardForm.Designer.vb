@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CashierDashboardForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,21 +20,21 @@ Partial Class CashierDashboardForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.CustCountLabel = New System.Windows.Forms.Label()
@@ -61,18 +61,14 @@ Partial Class CashierDashboardForm
         Me.GenderChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ServStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.DayStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MonthStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CalendarFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.DayStopCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.CalendarTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
-        Me.MonthEndCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.YearCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel6.SuspendLayout()
@@ -86,6 +82,7 @@ Partial Class CashierDashboardForm
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -343,7 +340,7 @@ Partial Class CashierDashboardForm
         Me.TableLayoutPanel2.Controls.Add(Me.DevTypeChart, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.GenderChart, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ServStatusChart, 0, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(18, 248)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(18, 251)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -353,72 +350,72 @@ Partial Class CashierDashboardForm
         '
         'PaymentMethodChart
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.PaymentMethodChart.ChartAreas.Add(ChartArea1)
+        ChartArea5.Name = "ChartArea1"
+        Me.PaymentMethodChart.ChartAreas.Add(ChartArea5)
         Me.PaymentMethodChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Name = "Legend1"
-        Me.PaymentMethodChart.Legends.Add(Legend1)
+        Legend5.Name = "Legend1"
+        Me.PaymentMethodChart.Legends.Add(Legend5)
         Me.PaymentMethodChart.Location = New System.Drawing.Point(577, 207)
         Me.PaymentMethodChart.Name = "PaymentMethodChart"
         Me.PaymentMethodChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.PaymentMethodChart.Series.Add(Series1)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.PaymentMethodChart.Series.Add(Series5)
         Me.PaymentMethodChart.Size = New System.Drawing.Size(569, 198)
         Me.PaymentMethodChart.TabIndex = 3
         Me.PaymentMethodChart.Text = "Chart4"
         '
         'DevTypeChart
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.DevTypeChart.ChartAreas.Add(ChartArea2)
+        ChartArea6.Name = "ChartArea1"
+        Me.DevTypeChart.ChartAreas.Add(ChartArea6)
         Me.DevTypeChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.Name = "Legend1"
-        Me.DevTypeChart.Legends.Add(Legend2)
+        Legend6.Name = "Legend1"
+        Me.DevTypeChart.Legends.Add(Legend6)
         Me.DevTypeChart.Location = New System.Drawing.Point(3, 207)
         Me.DevTypeChart.Name = "DevTypeChart"
         Me.DevTypeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.DevTypeChart.Series.Add(Series2)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.DevTypeChart.Series.Add(Series6)
         Me.DevTypeChart.Size = New System.Drawing.Size(568, 198)
         Me.DevTypeChart.TabIndex = 2
         Me.DevTypeChart.Text = "Chart3"
         '
         'GenderChart
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.GenderChart.ChartAreas.Add(ChartArea3)
+        ChartArea7.Name = "ChartArea1"
+        Me.GenderChart.ChartAreas.Add(ChartArea7)
         Me.GenderChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend3.Name = "Legend1"
-        Me.GenderChart.Legends.Add(Legend3)
+        Legend7.Name = "Legend1"
+        Me.GenderChart.Legends.Add(Legend7)
         Me.GenderChart.Location = New System.Drawing.Point(577, 3)
         Me.GenderChart.Name = "GenderChart"
         Me.GenderChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.GenderChart.Series.Add(Series3)
+        Series7.ChartArea = "ChartArea1"
+        Series7.Legend = "Legend1"
+        Series7.Name = "Series1"
+        Me.GenderChart.Series.Add(Series7)
         Me.GenderChart.Size = New System.Drawing.Size(569, 198)
         Me.GenderChart.TabIndex = 1
         Me.GenderChart.Text = "Chart2"
         '
         'ServStatusChart
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.ServStatusChart.ChartAreas.Add(ChartArea4)
+        ChartArea8.Name = "ChartArea1"
+        Me.ServStatusChart.ChartAreas.Add(ChartArea8)
         Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend4.Name = "Legend1"
-        Me.ServStatusChart.Legends.Add(Legend4)
+        Legend8.Name = "Legend1"
+        Me.ServStatusChart.Legends.Add(Legend8)
         Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
         Me.ServStatusChart.Name = "ServStatusChart"
         Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.ServStatusChart.Series.Add(Series4)
+        Series8.ChartArea = "ChartArea1"
+        Series8.Legend = "Legend1"
+        Series8.Name = "Series1"
+        Me.ServStatusChart.Series.Add(Series8)
         Me.ServStatusChart.Size = New System.Drawing.Size(568, 198)
         Me.ServStatusChart.TabIndex = 0
         Me.ServStatusChart.Text = "Chart1"
@@ -427,17 +424,12 @@ Partial Class CashierDashboardForm
         '
         Me.Guna2Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2Panel2.Controls.Add(Me.DayStartCmb)
-        Me.Guna2Panel2.Controls.Add(Me.Panel3)
-        Me.Guna2Panel2.Controls.Add(Me.MonthStartCmb)
-        Me.Guna2Panel2.Controls.Add(Me.Panel6)
-        Me.Guna2Panel2.Controls.Add(Me.DayStopCmb)
-        Me.Guna2Panel2.Controls.Add(Me.Panel4)
-        Me.Guna2Panel2.Controls.Add(Me.FetchAllBtn)
-        Me.Guna2Panel2.Controls.Add(Me.MonthEndCmb)
-        Me.Guna2Panel2.Controls.Add(Me.Panel2)
-        Me.Guna2Panel2.Controls.Add(Me.YearCmb)
         Me.Guna2Panel2.Controls.Add(Me.Panel1)
+        Me.Guna2Panel2.Controls.Add(Me.CalendarFrom)
+        Me.Guna2Panel2.Controls.Add(Me.Panel6)
+        Me.Guna2Panel2.Controls.Add(Me.CalendarTo)
+        Me.Guna2Panel2.Controls.Add(Me.Panel3)
+        Me.Guna2Panel2.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel2.Controls.Add(Me.BtnReload)
         Me.Guna2Panel2.Location = New System.Drawing.Point(18, 217)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
@@ -446,70 +438,55 @@ Partial Class CashierDashboardForm
         Me.Guna2Panel2.Size = New System.Drawing.Size(1149, 28)
         Me.Guna2Panel2.TabIndex = 34
         '
-        'DayStartCmb
+        'Panel1
         '
-        Me.DayStartCmb.Animated = True
-        Me.DayStartCmb.BackColor = System.Drawing.Color.Transparent
-        Me.DayStartCmb.BorderRadius = 4
-        Me.DayStartCmb.DisplayMember = "(none)"
-        Me.DayStartCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DayStartCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DayStartCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DayStartCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.DayStartCmb.FocusedState.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DayStartCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DayStartCmb.FormattingEnabled = True
-        Me.DayStartCmb.HoverState.Parent = Me.DayStartCmb
-        Me.DayStartCmb.ItemHeight = 22
-        Me.DayStartCmb.ItemsAppearance.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Location = New System.Drawing.Point(437, 0)
-        Me.DayStartCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.DayStartCmb.Name = "DayStartCmb"
-        Me.DayStartCmb.ShadowDecoration.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStartCmb.TabIndex = 76
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(545, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(56, 28)
+        Me.Panel1.TabIndex = 80
         '
-        'Panel3
+        'Label1
         '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(524, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(10, 28)
-        Me.Panel3.TabIndex = 75
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.TabIndex = 41
+        Me.Label1.Text = "From"
         '
-        'MonthStartCmb
+        'CalendarFrom
         '
-        Me.MonthStartCmb.Animated = True
-        Me.MonthStartCmb.BackColor = System.Drawing.Color.Transparent
-        Me.MonthStartCmb.BorderRadius = 4
-        Me.MonthStartCmb.DisplayMember = "(none)"
-        Me.MonthStartCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.MonthStartCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.MonthStartCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.MonthStartCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.MonthStartCmb.FocusedState.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.MonthStartCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.MonthStartCmb.FormattingEnabled = True
-        Me.MonthStartCmb.HoverState.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.ItemHeight = 22
-        Me.MonthStartCmb.ItemsAppearance.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Location = New System.Drawing.Point(534, 0)
-        Me.MonthStartCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.MonthStartCmb.Name = "MonthStartCmb"
-        Me.MonthStartCmb.ShadowDecoration.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthStartCmb.TabIndex = 74
+        Me.CalendarFrom.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarFrom.BorderRadius = 4
+        Me.CalendarFrom.BorderThickness = 1
+        Me.CalendarFrom.Checked = True
+        Me.CalendarFrom.CheckedState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarFrom.FillColor = System.Drawing.Color.White
+        Me.CalendarFrom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarFrom.HoverState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Location = New System.Drawing.Point(601, 0)
+        Me.CalendarFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarFrom.Name = "CalendarFrom"
+        Me.CalendarFrom.ShadowDecoration.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarFrom.TabIndex = 79
+        Me.CalendarFrom.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
         'Panel6
         '
         Me.Panel6.Controls.Add(Me.Label4)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(661, 0)
+        Me.Panel6.Location = New System.Drawing.Point(807, 0)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(40, 28)
-        Me.Panel6.TabIndex = 73
+        Me.Panel6.TabIndex = 78
         '
         'Label4
         '
@@ -521,37 +498,35 @@ Partial Class CashierDashboardForm
         Me.Label4.TabIndex = 41
         Me.Label4.Text = "To"
         '
-        'DayStopCmb
+        'CalendarTo
         '
-        Me.DayStopCmb.Animated = True
-        Me.DayStopCmb.BackColor = System.Drawing.Color.Transparent
-        Me.DayStopCmb.BorderRadius = 4
-        Me.DayStopCmb.DisplayMember = "(none)"
-        Me.DayStopCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DayStopCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DayStopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DayStopCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.DayStopCmb.FocusedState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DayStopCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DayStopCmb.FormattingEnabled = True
-        Me.DayStopCmb.HoverState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.ItemHeight = 22
-        Me.DayStopCmb.ItemsAppearance.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Location = New System.Drawing.Point(701, 0)
-        Me.DayStopCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.DayStopCmb.Name = "DayStopCmb"
-        Me.DayStopCmb.ShadowDecoration.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStopCmb.TabIndex = 72
+        Me.CalendarTo.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarTo.BorderRadius = 4
+        Me.CalendarTo.BorderThickness = 1
+        Me.CalendarTo.Checked = True
+        Me.CalendarTo.CheckedState.Parent = Me.CalendarTo
+        Me.CalendarTo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarTo.FillColor = System.Drawing.Color.White
+        Me.CalendarTo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarTo.HoverState.Parent = Me.CalendarTo
+        Me.CalendarTo.Location = New System.Drawing.Point(847, 0)
+        Me.CalendarTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarTo.Name = "CalendarTo"
+        Me.CalendarTo.ShadowDecoration.Parent = Me.CalendarTo
+        Me.CalendarTo.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarTo.TabIndex = 77
+        Me.CalendarTo.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
         '
-        'Panel4
+        'Panel3
         '
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(788, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(10, 28)
-        Me.Panel4.TabIndex = 71
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1053, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(10, 28)
+        Me.Panel3.TabIndex = 75
         '
         'FetchAllBtn
         '
@@ -569,70 +544,6 @@ Partial Class CashierDashboardForm
         Me.FetchAllBtn.Size = New System.Drawing.Size(88, 28)
         Me.FetchAllBtn.TabIndex = 53
         Me.FetchAllBtn.Text = "All Time"
-        '
-        'MonthEndCmb
-        '
-        Me.MonthEndCmb.Animated = True
-        Me.MonthEndCmb.BackColor = System.Drawing.Color.Transparent
-        Me.MonthEndCmb.BorderRadius = 4
-        Me.MonthEndCmb.DisplayMember = "(none)"
-        Me.MonthEndCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.MonthEndCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.MonthEndCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.MonthEndCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.MonthEndCmb.FocusedState.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.MonthEndCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.MonthEndCmb.FormattingEnabled = True
-        Me.MonthEndCmb.HoverState.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.ItemHeight = 22
-        Me.MonthEndCmb.ItemsAppearance.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Location = New System.Drawing.Point(798, 0)
-        Me.MonthEndCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.MonthEndCmb.Name = "MonthEndCmb"
-        Me.MonthEndCmb.ShadowDecoration.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthEndCmb.TabIndex = 48
-        '
-        'Panel2
-        '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(925, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 28)
-        Me.Panel2.TabIndex = 47
-        '
-        'YearCmb
-        '
-        Me.YearCmb.Animated = True
-        Me.YearCmb.BackColor = System.Drawing.Color.Transparent
-        Me.YearCmb.BorderRadius = 4
-        Me.YearCmb.DisplayMember = "(none)"
-        Me.YearCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.YearCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.YearCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.YearCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.YearCmb.FocusedState.Parent = Me.YearCmb
-        Me.YearCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.YearCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.YearCmb.FormattingEnabled = True
-        Me.YearCmb.HoverState.Parent = Me.YearCmb
-        Me.YearCmb.ItemHeight = 22
-        Me.YearCmb.ItemsAppearance.Parent = Me.YearCmb
-        Me.YearCmb.Location = New System.Drawing.Point(935, 0)
-        Me.YearCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.YearCmb.Name = "YearCmb"
-        Me.YearCmb.ShadowDecoration.Parent = Me.YearCmb
-        Me.YearCmb.Size = New System.Drawing.Size(118, 28)
-        Me.YearCmb.TabIndex = 46
-        '
-        'Panel1
-        '
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(1053, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(10, 28)
-        Me.Panel1.TabIndex = 45
         '
         'BtnReload
         '
@@ -679,6 +590,8 @@ Partial Class CashierDashboardForm
         CType(Me.GenderChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
@@ -711,17 +624,13 @@ Partial Class CashierDashboardForm
     Friend WithEvents GenderChart As DataVisualization.Charting.Chart
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents DayStartCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents MonthStartCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CalendarFrom As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label4 As Label
-    Friend WithEvents DayStopCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents CalendarTo As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Panel3 As Panel
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents MonthEndCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents YearCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
 End Class

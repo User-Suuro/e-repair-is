@@ -1,7 +1,5 @@
-﻿Imports System.Drawing.Drawing2D
-Imports System.Drawing.Imaging
-Imports System.IO
-Imports Guna.UI2.WinForms.Suite
+﻿Imports System.IO
+
 
 Public Class MainPanel
     Dim constants As New Constants
@@ -22,10 +20,10 @@ Public Class MainPanel
             MsgBox("Unable to find profile")
         End If
 
+
         sideNavHandler()
         topNavHandler()
         dashboardHandler()
-
     End Sub
 
     Private Sub topNavHandler()

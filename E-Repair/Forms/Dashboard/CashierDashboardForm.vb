@@ -31,14 +31,6 @@ Public Class CashierDashboardForm
         servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
         custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
 
-        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
-        MonthStartCmb.SelectedIndex = 0
-
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
-        FinishedLoad = True
-
-        loadCharts()
-
         Cursor = Cursors.Default
     End Sub
 
@@ -46,85 +38,16 @@ Public Class CashierDashboardForm
         loadData()
         loadTimer()
         loadStatus()
-        loadCharts(False)
-    End Sub
-
-    ' FILTER INITIALIZATIONS
-
-    Private Sub loadCharts(Optional filterMode As Boolean = True)
-        loadServiceChart(filterMode)
-        loadGenderChart(filterMode)
-        loadDeviceTypeChart(filterMode)
-        loadPaymentMethodChart(filterMode)
-    End Sub
-
-    Private Sub reloadChartVals()
-        If Not FinishedLoad Then Exit Sub
-
-        If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
-        If Not formUtils.hasYrMonthCmbValue(YearCmb, MonthStartCmb, MonthEndCmb) Then Exit Sub
-
-        reloadStrDate()
-        loadCharts()
-    End Sub
-
-    Private Sub reloadStrDate()
-        strStartDate = MonthStartCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        strStopDate = MonthEndCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
-    End Sub
-
-    Private Sub reloadDays()
-        If Not FinishedLoad Then Exit Sub
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
-    End Sub
-
-    ' FILTER EVENTS
-
-    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadData()
-        loadStatus()
-        loadTimer()
-    End Sub
-
-    Private Sub MonthStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthStartCmb.SelectedIndexChanged
-        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
-        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
-        reloadDays()
-    End Sub
-
-    Private Sub MonthEndCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthEndCmb.SelectedIndexChanged
-        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
-        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
-        reloadDays()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        reloadDays()
-    End Sub
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-    End Sub
-
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
     End Sub
 
     Private Sub BtnReload_Click(sender As Object, e As EventArgs)
-        reloadChartVals()
+
     End Sub
 
     Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs)
-        loadCharts(False)
+
     End Sub
 
-    Private Sub loadStatus()
-        ServCountLabel.Text = servDT.Rows.Count
-        CustCountLabel.Text = custDT.Rows.Count
-    End Sub
 
     ' LOAD SERVICE CHART
 
@@ -149,7 +72,7 @@ Public Class CashierDashboardForm
 
         For Each status In statusEnum
             Dim totalCount = localDT.Select($"{servConst.svcStatusStr} = '{status}'").Length
-            series.Points.AddXY(status, statusEnum)
+            series.Points.AddXY(status, totalCount)
         Next
 
         formUtils.formatChart(ServStatusChart, series, "Service Status Summary")
@@ -190,15 +113,6 @@ Public Class CashierDashboardForm
     ' LOAD DEVICE TYPE CHART
 
     Private Sub loadDeviceTypeChart(Optional filterDate As Boolean = True)
-
-        ' load enums
-        Dim deviceTypes = dbHelper.GetEnums(servConst.svcTableStr, servConst.devTypeStr)
-
-        Dim series As New Series()
-
-        series.IsVisibleInLegend = False
-        series.ChartType = SeriesChartType.Bar
-
         Dim localDT As DataTable = servDT
 
         If filterDate Then
@@ -206,14 +120,23 @@ Public Class CashierDashboardForm
             Try
                 localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
             Catch ex As Exception
-                MsgBox("Unable to filter date with invalid date format: " & ex.Message)
+                MsgBox("Unable to filter date with invalid date format device chart: " & ex.Message)
                 Exit Sub
             End Try
 
         End If
 
+        Dim deviceTypes = dbHelper.GetEnums(servConst.svcTableStr, servConst.devTypeStr)
+
+        Dim series As New Series()
+
+        series.IsVisibleInLegend = False
+        series.ChartType = SeriesChartType.Bar
+
+
+
         For Each devType In deviceTypes
-            Dim totalCount As Integer = servDT.Select($"{servConst.devTypeStr } = '{devType}'").Length
+            Dim totalCount As Integer = localDT.Select($"{servConst.devTypeStr} = '{devType}'").Length
             series.Points.AddXY(devType, totalCount)
         Next
 
@@ -246,12 +169,17 @@ Public Class CashierDashboardForm
         End If
 
         For Each method In payMethods
-            Dim totalCount As Integer = servDT.Select($"{servConst.payMethodStr} = '{method}'").Length
+            Dim totalCount As Integer = localDT.Select($"{servConst.payMethodStr} = '{method}'").Length
             series.Points.AddXY(method, totalCount)
         Next
 
         formUtils.formatChart(PaymentMethodChart, series, "Payment Methods Summary")
 
+    End Sub
+
+    Private Sub loadStatus()
+        ServCountLabel.Text = servDT.Rows.Count
+        CustCountLabel.Text = custDT.Rows.Count
     End Sub
 
     ' TIMER

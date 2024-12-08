@@ -1,7 +1,6 @@
 ﻿
 Imports System.Windows.Forms.DataVisualization.Charting
 
-
 Public Class AdminDashboardForm
     Dim dbHelper As New DbHelper
     Dim formUtils As New FormUtils
@@ -49,22 +48,19 @@ Public Class AdminDashboardForm
         servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
         itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
 
-        'FILTERS
-
-
-        formUtils.InitYearMonthCmb(YearCmb, MonthStartCmb, MonthEndCmb)
-        MonthStartCmb.SelectedIndex = 0
-
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
-
-        finishedLoad = True
-        reloadChartVals()
-        loadCharts(True)
+        loadDTPVal()
+        reloadStrFilter()
+        loadCharts()
 
         Cursor = Cursors.Default
     End Sub
+    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not finishedLoad Then loadData()
+        loadStatus()
+        loadWelcome()
+        loadTimer()
+    End Sub
 
-    ' FILTER INITIALIZATIONS
 
     Private Sub loadCharts(Optional filterMode As Boolean = True)
         LoadJobChart(filterMode)
@@ -73,75 +69,33 @@ Public Class AdminDashboardForm
         loadSupplierStatusChart(filterMode)
     End Sub
 
-    Private Sub reloadChartVals()
+    ' FILTER CONTROLS
 
-        If Not finishedLoad Then Exit Sub
-        If Not formUtils.hasDayCmbValue(DayStartCmb, DayStopCmb) Then Exit Sub
-        If Not formUtils.hasYrMonthCmbValue(YearCmb, MonthStartCmb, MonthEndCmb) Then Exit Sub
-
-        reloadStrDate()
-        loadCharts()
+    Private Sub loadDTPVal()
+        CalendarFrom.Value = Date.Now
+        CalendarTo.Value = Date.Now.AddMonths(1)
     End Sub
 
-    Private Sub reloadStrDate()
-        strStartDate = MonthStartCmb.SelectedIndex + 1 & "/" & DayStartCmb.SelectedItem & "/" & YearCmb.SelectedItem
-        strStopDate = MonthEndCmb.SelectedIndex + 1 & "/" & DayStopCmb.SelectedItem & "/" & YearCmb.SelectedItem
+    Private Sub CalendarFrom_ValueChanged(sender As Object, e As EventArgs) Handles CalendarFrom.ValueChanged
+        formUtils.ReloadDayStart(CalendarFrom, CalendarTo)
     End Sub
 
-    Private Sub reloadDays()
-        If Not finishedLoad Then Exit Sub
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-        formUtils.InitDayToEndCmb(DayStartCmb, DayStopCmb, YearCmb, MonthStartCmb, MonthEndCmb)
-    End Sub
-
-    ' FILTER EVENTS
-
-    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not finishedLoad Then loadData()
-
-        loadStatus()
-        loadWelcome()
-        loadTimer()
-    End Sub
-
-    Private Sub MonthStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthStartCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
-        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
-        reloadDays()
-    End Sub
-
-    Private Sub MonthEndCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthEndCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-        formUtils.reloadMonthStart(MonthStartCmb, MonthEndCmb)
-        formUtils.reloadMonthEnd(MonthStartCmb, MonthEndCmb)
-        reloadDays()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        reloadDays()
-    End Sub
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If Not finishedLoad Then Exit Sub
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-    End Sub
-
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-        formUtils.reloadDayStart(DayStartCmb, DayStopCmb)
-        formUtils.reloadDayStop(DayStartCmb, DayStopCmb)
-    End Sub
-
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
-        reloadChartVals()
+    Private Sub CalendarTo_ValueChanged(sender As Object, e As EventArgs) Handles CalendarTo.ValueChanged
+        formUtils.ReloadDayStop(CalendarFrom, CalendarTo)
     End Sub
 
     Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
         loadCharts(False)
     End Sub
 
+    Private Sub reloadStrFilter()
+        strStartDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+        strStopDate = CalendarFrom.Value.ToString(constants.getDateFormat)
+    End Sub
+
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+        reloadStrFilter()
+    End Sub
 
     ' POSITIONS CHART
 
@@ -302,5 +256,6 @@ Public Class AdminDashboardForm
         WelcomeMessageLabel.Text = "Welcome, " & formUtils.getEmployeeName(Current.id)
         Label10.Text = Current.position
     End Sub
+
 
 End Class

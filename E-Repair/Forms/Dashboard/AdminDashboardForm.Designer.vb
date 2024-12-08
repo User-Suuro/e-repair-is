@@ -71,19 +71,15 @@ Partial Class AdminDashboardForm
         Me.InventoryGraph = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.SupplierStatusChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
-        Me.MonthEndCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.YearCmb = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.DayStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MonthStartCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CalendarFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.DayStopCmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.CalendarTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
@@ -99,6 +95,7 @@ Partial Class AdminDashboardForm
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -562,17 +559,12 @@ Partial Class AdminDashboardForm
         '
         Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2Panel1.Controls.Add(Me.DayStartCmb)
-        Me.Guna2Panel1.Controls.Add(Me.Panel3)
-        Me.Guna2Panel1.Controls.Add(Me.MonthStartCmb)
-        Me.Guna2Panel1.Controls.Add(Me.Panel6)
-        Me.Guna2Panel1.Controls.Add(Me.DayStopCmb)
-        Me.Guna2Panel1.Controls.Add(Me.Panel4)
-        Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
-        Me.Guna2Panel1.Controls.Add(Me.MonthEndCmb)
-        Me.Guna2Panel1.Controls.Add(Me.Panel2)
-        Me.Guna2Panel1.Controls.Add(Me.YearCmb)
         Me.Guna2Panel1.Controls.Add(Me.Panel1)
+        Me.Guna2Panel1.Controls.Add(Me.CalendarFrom)
+        Me.Guna2Panel1.Controls.Add(Me.Panel6)
+        Me.Guna2Panel1.Controls.Add(Me.CalendarTo)
+        Me.Guna2Panel1.Controls.Add(Me.Panel3)
+        Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnReload)
         Me.Guna2Panel1.Location = New System.Drawing.Point(34, 237)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -580,6 +572,96 @@ Partial Class AdminDashboardForm
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(1113, 28)
         Me.Guna2Panel1.TabIndex = 33
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(501, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(64, 28)
+        Me.Panel1.TabIndex = 80
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.TabIndex = 41
+        Me.Label1.Text = "From"
+        '
+        'CalendarFrom
+        '
+        Me.CalendarFrom.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarFrom.BorderRadius = 4
+        Me.CalendarFrom.BorderThickness = 1
+        Me.CalendarFrom.Checked = True
+        Me.CalendarFrom.CheckedState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarFrom.FillColor = System.Drawing.Color.White
+        Me.CalendarFrom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarFrom.HoverState.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Location = New System.Drawing.Point(565, 0)
+        Me.CalendarFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarFrom.Name = "CalendarFrom"
+        Me.CalendarFrom.ShadowDecoration.Parent = Me.CalendarFrom
+        Me.CalendarFrom.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarFrom.TabIndex = 79
+        Me.CalendarFrom.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(771, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(40, 28)
+        Me.Panel6.TabIndex = 78
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(10, 8)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(20, 13)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "To"
+        '
+        'CalendarTo
+        '
+        Me.CalendarTo.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.CalendarTo.BorderRadius = 4
+        Me.CalendarTo.BorderThickness = 1
+        Me.CalendarTo.Checked = True
+        Me.CalendarTo.CheckedState.Parent = Me.CalendarTo
+        Me.CalendarTo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CalendarTo.FillColor = System.Drawing.Color.White
+        Me.CalendarTo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalendarTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CalendarTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.CalendarTo.HoverState.Parent = Me.CalendarTo
+        Me.CalendarTo.Location = New System.Drawing.Point(811, 0)
+        Me.CalendarTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.CalendarTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.CalendarTo.Name = "CalendarTo"
+        Me.CalendarTo.ShadowDecoration.Parent = Me.CalendarTo
+        Me.CalendarTo.Size = New System.Drawing.Size(206, 28)
+        Me.CalendarTo.TabIndex = 77
+        Me.CalendarTo.Value = New Date(2024, 11, 1, 5, 3, 38, 85)
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1017, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(10, 28)
+        Me.Panel3.TabIndex = 75
         '
         'FetchAllBtn
         '
@@ -598,70 +680,6 @@ Partial Class AdminDashboardForm
         Me.FetchAllBtn.TabIndex = 53
         Me.FetchAllBtn.Text = "All Time"
         '
-        'MonthEndCmb
-        '
-        Me.MonthEndCmb.Animated = True
-        Me.MonthEndCmb.BackColor = System.Drawing.Color.Transparent
-        Me.MonthEndCmb.BorderRadius = 4
-        Me.MonthEndCmb.DisplayMember = "(none)"
-        Me.MonthEndCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.MonthEndCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.MonthEndCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.MonthEndCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.MonthEndCmb.FocusedState.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.MonthEndCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.MonthEndCmb.FormattingEnabled = True
-        Me.MonthEndCmb.HoverState.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.ItemHeight = 22
-        Me.MonthEndCmb.ItemsAppearance.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Location = New System.Drawing.Point(762, 0)
-        Me.MonthEndCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.MonthEndCmb.Name = "MonthEndCmb"
-        Me.MonthEndCmb.ShadowDecoration.Parent = Me.MonthEndCmb
-        Me.MonthEndCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthEndCmb.TabIndex = 48
-        '
-        'Panel2
-        '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(889, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(10, 28)
-        Me.Panel2.TabIndex = 47
-        '
-        'YearCmb
-        '
-        Me.YearCmb.Animated = True
-        Me.YearCmb.BackColor = System.Drawing.Color.Transparent
-        Me.YearCmb.BorderRadius = 4
-        Me.YearCmb.DisplayMember = "(none)"
-        Me.YearCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.YearCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.YearCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.YearCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.YearCmb.FocusedState.Parent = Me.YearCmb
-        Me.YearCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.YearCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.YearCmb.FormattingEnabled = True
-        Me.YearCmb.HoverState.Parent = Me.YearCmb
-        Me.YearCmb.ItemHeight = 22
-        Me.YearCmb.ItemsAppearance.Parent = Me.YearCmb
-        Me.YearCmb.Location = New System.Drawing.Point(899, 0)
-        Me.YearCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.YearCmb.Name = "YearCmb"
-        Me.YearCmb.ShadowDecoration.Parent = Me.YearCmb
-        Me.YearCmb.Size = New System.Drawing.Size(118, 28)
-        Me.YearCmb.TabIndex = 46
-        '
-        'Panel1
-        '
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(1017, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(10, 28)
-        Me.Panel1.TabIndex = 45
-        '
         'BtnReload
         '
         Me.BtnReload.BorderRadius = 4
@@ -678,113 +696,6 @@ Partial Class AdminDashboardForm
         Me.BtnReload.Size = New System.Drawing.Size(86, 28)
         Me.BtnReload.TabIndex = 44
         Me.BtnReload.Text = "Reload"
-        '
-        'Panel4
-        '
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(752, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(10, 28)
-        Me.Panel4.TabIndex = 71
-        '
-        'DayStartCmb
-        '
-        Me.DayStartCmb.Animated = True
-        Me.DayStartCmb.BackColor = System.Drawing.Color.Transparent
-        Me.DayStartCmb.BorderRadius = 4
-        Me.DayStartCmb.DisplayMember = "(none)"
-        Me.DayStartCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DayStartCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DayStartCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DayStartCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.DayStartCmb.FocusedState.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DayStartCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DayStartCmb.FormattingEnabled = True
-        Me.DayStartCmb.HoverState.Parent = Me.DayStartCmb
-        Me.DayStartCmb.ItemHeight = 22
-        Me.DayStartCmb.ItemsAppearance.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Location = New System.Drawing.Point(401, 0)
-        Me.DayStartCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.DayStartCmb.Name = "DayStartCmb"
-        Me.DayStartCmb.ShadowDecoration.Parent = Me.DayStartCmb
-        Me.DayStartCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStartCmb.TabIndex = 76
-        '
-        'Panel3
-        '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(488, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(10, 28)
-        Me.Panel3.TabIndex = 75
-        '
-        'MonthStartCmb
-        '
-        Me.MonthStartCmb.Animated = True
-        Me.MonthStartCmb.BackColor = System.Drawing.Color.Transparent
-        Me.MonthStartCmb.BorderRadius = 4
-        Me.MonthStartCmb.DisplayMember = "(none)"
-        Me.MonthStartCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.MonthStartCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.MonthStartCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.MonthStartCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.MonthStartCmb.FocusedState.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.MonthStartCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.MonthStartCmb.FormattingEnabled = True
-        Me.MonthStartCmb.HoverState.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.ItemHeight = 22
-        Me.MonthStartCmb.ItemsAppearance.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Location = New System.Drawing.Point(498, 0)
-        Me.MonthStartCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.MonthStartCmb.Name = "MonthStartCmb"
-        Me.MonthStartCmb.ShadowDecoration.Parent = Me.MonthStartCmb
-        Me.MonthStartCmb.Size = New System.Drawing.Size(127, 28)
-        Me.MonthStartCmb.TabIndex = 74
-        '
-        'Panel6
-        '
-        Me.Panel6.Controls.Add(Me.Label4)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(625, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(40, 28)
-        Me.Panel6.TabIndex = 73
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 8)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(20, 13)
-        Me.Label4.TabIndex = 41
-        Me.Label4.Text = "To"
-        '
-        'DayStopCmb
-        '
-        Me.DayStopCmb.Animated = True
-        Me.DayStopCmb.BackColor = System.Drawing.Color.Transparent
-        Me.DayStopCmb.BorderRadius = 4
-        Me.DayStopCmb.DisplayMember = "(none)"
-        Me.DayStopCmb.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DayStopCmb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DayStopCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DayStopCmb.FocusedColor = System.Drawing.Color.Empty
-        Me.DayStopCmb.FocusedState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DayStopCmb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DayStopCmb.FormattingEnabled = True
-        Me.DayStopCmb.HoverState.Parent = Me.DayStopCmb
-        Me.DayStopCmb.ItemHeight = 22
-        Me.DayStopCmb.ItemsAppearance.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Location = New System.Drawing.Point(665, 0)
-        Me.DayStopCmb.Margin = New System.Windows.Forms.Padding(12)
-        Me.DayStopCmb.Name = "DayStopCmb"
-        Me.DayStopCmb.ShadowDecoration.Parent = Me.DayStopCmb
-        Me.DayStopCmb.Size = New System.Drawing.Size(87, 28)
-        Me.DayStopCmb.TabIndex = 72
         '
         'AdminDashboardForm
         '
@@ -820,6 +731,8 @@ Partial Class AdminDashboardForm
         CType(Me.InventoryGraph, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SupplierStatusChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
@@ -861,17 +774,13 @@ Partial Class AdminDashboardForm
     Friend WithEvents SupplierStatusChart As DataVisualization.Charting.Chart
     Friend WithEvents SalesChart As DataVisualization.Charting.Chart
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents MonthEndCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents YearCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents DayStartCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents MonthStartCmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CalendarFrom As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label4 As Label
-    Friend WithEvents DayStopCmb As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents CalendarTo As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class
