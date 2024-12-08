@@ -33,22 +33,6 @@ Public Class AdminDashboardForm
     Private daysListStart As List(Of Integer)
     Private daysListStop As List(Of Integer)
 
-
-    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' data
-        loadData()
-
-        ' text
-        loadStatus()
-        loadWelcome()
-        'charts
-        loadDays()
-        reloadChartVals()
-        ' timer
-        loadTimer()
-        finishedLoad = True
-    End Sub
-
     Private Sub loadData()
         Cursor = Cursors.WaitCursor
 
@@ -87,56 +71,13 @@ Public Class AdminDashboardForm
 
         loadDays()
 
+        finishedLoad = True
         reloadChartVals()
 
         Cursor = Cursors.Default
     End Sub
 
-    ' FILTERS
-    Private Sub loadCharts()
-        loadJobChart()
-        loadInvUsedChart()
-        loadSalesChart()
-        loadSupplierStatusChart()
-    End Sub
-
-    Private Sub reloadChartVals()
-        If Not finishedLoad Then Exit Sub
-
-        If Not hasDayCmbValue() Then Exit Sub
-        If Not hasYrMonthCmbValue() Then Exit Sub
-
-        loadDays()
-        reloadStrDate()
-        loadCharts()
-    End Sub
-
-    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
-        reloadChartVals()
-    End Sub
-
-    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
-        reloadChartVals()
-    End Sub
-
-    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-
-        reloadDayStart()
-        reloadDayStop()
-        reloadChartVals()
-    End Sub
-
-    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
-        If Not finishedLoad Then Exit Sub
-
-
-        reloadDayStart()
-        reloadDayStop()
-        reloadChartVals()
-    End Sub
-
-    ' FILTER FUNCTIONS
+    ' FILTER INITIALIZATIONS
 
     Private Sub reloadStrDate()
         ' CODE
@@ -157,6 +98,25 @@ Public Class AdminDashboardForm
             .EndUpdate()
         End With
     End Sub
+
+    Private Sub loadCharts()
+        LoadJobChart()
+        loadInvUsedChart()
+        loadSalesChart()
+        loadSupplierStatusChart()
+    End Sub
+
+    Private Sub reloadChartVals()
+        If Not finishedLoad Then Exit Sub
+
+        If Not hasDayCmbValue() Then Exit Sub
+        If Not hasYrMonthCmbValue() Then Exit Sub
+
+        reloadStrDate()
+        loadCharts()
+    End Sub
+
+    ' FILTER CONTROLS
 
     Private Function hasYrMonthCmbValue() As Boolean
         If YearCmb.SelectedItem IsNot Nothing AndAlso MonthCmb.SelectedItem IsNot Nothing Then
@@ -186,6 +146,42 @@ Public Class AdminDashboardForm
         End If
     End Sub
 
+    Private Sub AdminDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadData()
+        loadStatus()
+        loadWelcome()
+        loadTimer()
+    End Sub
+
+    Private Sub DayStartCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStartCmb.SelectedIndexChanged
+        reloadChartVals()
+    End Sub
+
+    Private Sub DayStopCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DayStopCmb.SelectedIndexChanged
+        reloadChartVals()
+    End Sub
+
+    Private Sub MonthCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MonthCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
+
+        loadDays()
+        reloadDayStart()
+        reloadDayStop()
+
+        reloadChartVals()
+    End Sub
+
+    Private Sub YearCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles YearCmb.SelectedIndexChanged
+        If Not finishedLoad Then Exit Sub
+
+        loadDays()
+        reloadDayStart()
+        reloadDayStop()
+
+        reloadChartVals()
+    End Sub
+
+
     ' POSITIONS CHART
 
     Private Sub LoadJobChart()
@@ -211,19 +207,7 @@ Public Class AdminDashboardForm
             series.Points.AddXY(jobType, totalCount)
         Next
 
-        With JobsChart
-            .Series.Clear()
-            .Titles.Clear()
-            .ChartAreas.Clear()
-
-            Dim chartArea As New ChartArea("Default")
-            .ChartAreas.Add(chartArea)
-
-            .Series.Add(series)
-            .Titles.Add("Jobs Summary")
-
-            .Invalidate()
-        End With
+        formUtils.formatChart(JobsChart, series, "Job Summary Classifications")
 
     End Sub
 

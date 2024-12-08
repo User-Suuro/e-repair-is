@@ -1,6 +1,7 @@
 ﻿Imports System.IO
-Imports System.Runtime.CompilerServices
+Imports System.Windows.Forms.DataVisualization.Charting
 Imports Guna.UI2.WinForms
+Imports Microsoft.VisualBasic.Devices
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper
@@ -536,7 +537,6 @@ Public Class FormUtils
     ' Save
     Public Sub SaveEvent(editMode As Boolean, addFunction As Action, editFunction As Action)
         Try
-            Cursor.Current = Cursors.WaitCursor
 
             If editMode Then
                 editFunction.Invoke()
@@ -544,9 +544,7 @@ Public Class FormUtils
                 addFunction.Invoke()
             End If
 
-            Cursor.Current = Cursors.Default
         Catch ex As Exception
-            Cursor.Current = Cursors.Default
             MsgBox("Failed to save / edit row: " & ex.Message)
         End Try
     End Sub
@@ -727,5 +725,21 @@ Public Class FormUtils
         Return filteredTable
 
     End Function
+
+    Public Sub formatChart(ByVal myChart As Chart, ByVal series As Series, title As String, Optional chartAreaType As String = "Default")
+        With myChart
+            .Series.Clear()
+            .Titles.Clear()
+            .ChartAreas.Clear()
+
+            Dim chartArea As New ChartArea(chartAreaType)
+            .ChartAreas.Add(chartArea)
+
+            .Series.Add(series)
+            .Titles.Add(title)
+
+            .Invalidate()
+        End With
+    End Sub
 
 End Class
