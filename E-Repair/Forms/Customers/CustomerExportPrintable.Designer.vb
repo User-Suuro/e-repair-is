@@ -23,10 +23,6 @@ Partial Class CustomerExportPrintable
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -37,6 +33,9 @@ Partial Class CustomerExportPrintable
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -48,7 +47,6 @@ Partial Class CustomerExportPrintable
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel1)
         Me.Guna2GroupBox1.Controls.Add(Me.ReportViewer1)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.Button3)
         Me.Guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -63,58 +61,6 @@ Partial Class CustomerExportPrintable
         Me.Guna2GroupBox1.TabIndex = 8
         Me.Guna2GroupBox1.Text = "Customer Report"
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
-        Me.ReportViewer1.Location = New System.Drawing.Point(17, 83)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(1133, 496)
-        Me.ReportViewer1.TabIndex = 57
-        '
-        'BtnSave
-        '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(1043, 604)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 56
-        Me.BtnSave.Text = "Export"
-        '
-        'Guna2Separator3
-        '
-        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 585)
-        Me.Guna2Separator3.Name = "Guna2Separator3"
-        Me.Guna2Separator3.Size = New System.Drawing.Size(1226, 13)
-        Me.Guna2Separator3.TabIndex = 55
-        '
-        'Button3
-        '
-        Me.Button3.BorderRadius = 4
-        Me.Button3.CheckedState.Parent = Me.Button3
-        Me.Button3.CustomImages.Parent = Me.Button3
-        Me.Button3.FillColor = System.Drawing.Color.DarkRed
-        Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.HoverState.Parent = Me.Button3
-        Me.Button3.Location = New System.Drawing.Point(17, 604)
-        Me.Button3.Name = "Button3"
-        Me.Button3.ShadowDecoration.Parent = Me.Button3
-        Me.Button3.Size = New System.Drawing.Size(107, 32)
-        Me.Button3.TabIndex = 54
-        Me.Button3.Text = "Close"
-        '
         'Guna2Panel1
         '
         Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -126,7 +72,7 @@ Partial Class CustomerExportPrintable
         Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnReload)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(17, 49)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(17, 47)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
@@ -261,6 +207,42 @@ Partial Class CustomerExportPrintable
         Me.BtnReload.TabIndex = 44
         Me.BtnReload.Text = "Reload"
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
+        Me.ReportViewer1.Location = New System.Drawing.Point(17, 83)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(1133, 496)
+        Me.ReportViewer1.TabIndex = 57
+        '
+        'Guna2Separator3
+        '
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(0, 585)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(1226, 13)
+        Me.Guna2Separator3.TabIndex = 55
+        '
+        'Button3
+        '
+        Me.Button3.BorderRadius = 4
+        Me.Button3.CheckedState.Parent = Me.Button3
+        Me.Button3.CustomImages.Parent = Me.Button3
+        Me.Button3.FillColor = System.Drawing.Color.DarkRed
+        Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.HoverState.Parent = Me.Button3
+        Me.Button3.Location = New System.Drawing.Point(17, 604)
+        Me.Button3.Name = "Button3"
+        Me.Button3.ShadowDecoration.Parent = Me.Button3
+        Me.Button3.Size = New System.Drawing.Size(107, 32)
+        Me.Button3.TabIndex = 54
+        Me.Button3.Text = "Close"
+        '
         'CustomerExportPrintable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -286,7 +268,6 @@ Partial Class CustomerExportPrintable
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label

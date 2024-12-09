@@ -1,5 +1,4 @@
-﻿Imports System.IO
-Imports Microsoft.Reporting.WinForms
+﻿Imports Microsoft.Reporting.WinForms
 
 Public Class EmployeeExportPrintable
     Dim empConst As New EmployeesDBConstants
@@ -62,5 +61,6 @@ Public Class EmployeeExportPrintable
     Private Sub ReportViewer1_ReportExport(sender As Object, e As Microsoft.Reporting.WinForms.ReportExportEventArgs) Handles ReportViewer1.ReportExport
         dbHelper.Logs("Printable Employee Reports", Current.id)
     End Sub
+
 
 End Class

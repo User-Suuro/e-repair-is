@@ -96,18 +96,18 @@ Partial Class EmployeeExportPrintable
         Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnReload)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(15, 47)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(17, 47)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
-        Me.Guna2Panel1.Size = New System.Drawing.Size(1083, 28)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1070, 28)
         Me.Guna2Panel1.TabIndex = 59
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(419, 0)
+        Me.Panel1.Location = New System.Drawing.Point(406, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(64, 28)
         Me.Panel1.TabIndex = 80
@@ -137,7 +137,7 @@ Partial Class EmployeeExportPrintable
         Me.CalendarFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.CalendarFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.CalendarFrom.HoverState.Parent = Me.CalendarFrom
-        Me.CalendarFrom.Location = New System.Drawing.Point(483, 0)
+        Me.CalendarFrom.Location = New System.Drawing.Point(470, 0)
         Me.CalendarFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.CalendarFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.CalendarFrom.Name = "CalendarFrom"
@@ -150,7 +150,7 @@ Partial Class EmployeeExportPrintable
         '
         Me.Panel6.Controls.Add(Me.Label4)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(715, 0)
+        Me.Panel6.Location = New System.Drawing.Point(702, 0)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(40, 28)
         Me.Panel6.TabIndex = 78
@@ -180,7 +180,7 @@ Partial Class EmployeeExportPrintable
         Me.CalendarTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.CalendarTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.CalendarTo.HoverState.Parent = Me.CalendarTo
-        Me.CalendarTo.Location = New System.Drawing.Point(755, 0)
+        Me.CalendarTo.Location = New System.Drawing.Point(742, 0)
         Me.CalendarTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.CalendarTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.CalendarTo.Name = "CalendarTo"
@@ -192,7 +192,7 @@ Partial Class EmployeeExportPrintable
         'Panel3
         '
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(987, 0)
+        Me.Panel3.Location = New System.Drawing.Point(974, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(10, 28)
         Me.Panel3.TabIndex = 75
@@ -224,7 +224,7 @@ Partial Class EmployeeExportPrintable
         Me.BtnReload.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnReload.ForeColor = System.Drawing.Color.White
         Me.BtnReload.HoverState.Parent = Me.BtnReload
-        Me.BtnReload.Location = New System.Drawing.Point(997, 0)
+        Me.BtnReload.Location = New System.Drawing.Point(984, 0)
         Me.BtnReload.Name = "BtnReload"
         Me.BtnReload.ShadowDecoration.Parent = Me.BtnReload
         Me.BtnReload.Size = New System.Drawing.Size(86, 28)
@@ -241,10 +241,10 @@ Partial Class EmployeeExportPrintable
         ReportDataSource1.Value = Me.EmployeesBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "E_Repair.EmployeesReport.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(15, 83)
+        Me.ReportViewer1.Location = New System.Drawing.Point(17, 83)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(1083, 458)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1070, 458)
         Me.ReportViewer1.TabIndex = 57
         '
         'Guna2Separator3
