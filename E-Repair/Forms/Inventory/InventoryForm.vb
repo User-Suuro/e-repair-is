@@ -184,11 +184,9 @@ Public Class InventoryForm
                 .physLocStr,
                 .totalCostStr,
                 .dateAddedStr,
-                .addedByIdName,
                 .totalCostStr,' exclude
                 .invIDStr,
                 .archivedStr,
-                .archByStr,
                 .dateArchivedStr
             }
 
@@ -205,7 +203,6 @@ Public Class InventoryForm
             searchValues.Remove(.totalCostStr)
             searchValues.Remove(.invIDStr)
             searchValues.Remove(.archivedStr)
-            searchValues.Remove(.archByStr)
             searchValues.Remove(.dateArchivedStr)
 
             formUtils.LoadToDGV(InventoryDGV, invDT, searchTerm, searchValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)

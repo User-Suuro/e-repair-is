@@ -174,11 +174,11 @@ Public Class ExportUtils
             currentDir = System.IO.Directory.GetParent(currentDir).FullName
         Next
 
-        Dim reportsPath As String = currentDir & "\Reports\EmployeesReport.rdlc"
+        Dim reportsPath As String = currentDir & "\Reports\" & rldcName & ".rdlc"
 
         Try
             If Not File.Exists(reportsPath) Then
-                Throw New FileNotFoundException($"The report file was not found: {reportsPath}")
+                Throw New FileNotFoundException($"RDLC not found: {reportsPath}")
             End If
 
             With reportView.LocalReport
@@ -190,6 +190,8 @@ Public Class ExportUtils
             reportView.ZoomMode = ZoomMode.PageWidth
 
             reportView.RefreshReport()
+
+
 
         Catch ex As Exception
             ' Display the error message

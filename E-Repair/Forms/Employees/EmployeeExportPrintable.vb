@@ -27,20 +27,10 @@ Public Class EmployeeExportPrintable
                 { .empMidStr, "Middle Name"},
                 { .empLastStr, "Last Name"},
                 { .empSexStr, "Sex"},
-                { .empBirthStr, "Birthdate"},
                 { .empCivilStr, "Civil Status"},
-                { .empAddrStr, "Address"},
-                { .empContactStr, "Contact Number"},
                 { .empStatusStr, "Employment Status"},
-                { .empHiredStr, "Date Hired"},
-                { .empEmailStr, "Email"},
-                { .empArchDateStr, "Date Archived"},
-                { .empAddedByName, "Added By"},
                 { .empAddDateStr, "Date Added"},
-                { .empLastAccessedStr, "Last Accessed"},
-                { .empJobPosStr, "Job Type"},
-                { .empAdminPosStr, "Admin Position"},
-                { .empDestStr, "Personnel Destination"}
+                { .empJobPosStr, "Job Type"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
@@ -57,14 +47,15 @@ Public Class EmployeeExportPrintable
         End If
 
         Dim reportDataSource As New ReportDataSource(constants.getDataSetName, localDT)
-        exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "EmployeesReport.rldc")
+        exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "EmployeesReport")
     End Sub
 
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs)
         reloadRLDCData()
     End Sub
 
-    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs)
         reloadRLDCData(False)
     End Sub
+
 End Class

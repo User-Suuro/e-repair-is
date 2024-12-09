@@ -98,7 +98,6 @@ Public Class SupplierAddEditModal
                { .supContractStr, contractType},
                { .bankDetailsStr, bankDetails},
                { .payTermsStr, paymentTerms},
-               { .addedByName, formUtils.getEmployeeName(Current.id)},
                { .addedByID, Current.id}
             }
 

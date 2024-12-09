@@ -6,7 +6,6 @@
     Private ReadOnly _serviceID As String = "service_id"
     Private ReadOnly _customerID As String = "customer_id"
     Private ReadOnly _technicianID As String = "technician_id"
-    Private ReadOnly _cashierID As String = "cashier_id" ' added by id
 
     Private ReadOnly _custName As String = "cust_name"
     Private ReadOnly _techName As String = "tech_name"
@@ -32,11 +31,10 @@
     Private ReadOnly _dateClaimed As String = "date_claimed"
 
     Private ReadOnly _archived As String = "archived"
-    Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
 
+    Private ReadOnly _cashierID As String = "cashier_id" ' added by id
     Private ReadOnly _dateAdded As String = "date_added"
-    Private ReadOnly _addedbyName As String = "added_by"
 
     Public ReadOnly Property custNameStr As String
         Get
@@ -49,11 +47,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property getAddedByName As String
-        Get
-            Return _addedbyName
-        End Get
-    End Property
 
     ' Getters for each attribute name
     Public ReadOnly Property svcTableStr As String
@@ -200,11 +193,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property archByStr As String
-        Get
-            Return _archivedBy
-        End Get
-    End Property
+
 
     Public ReadOnly Property dateArchivedStr As String
         Get

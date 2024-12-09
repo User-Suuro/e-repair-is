@@ -28,6 +28,7 @@ Partial Class ServiceAddEditModal
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
         Me.JobDetailsTableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.StorageCapacityTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DeviceModelTxtBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -85,7 +86,6 @@ Partial Class ServiceAddEditModal
         Me.BtnUpload = New Guna.UI2.WinForms.Guna2Button()
         Me.DeviceCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel5.SuspendLayout()
         Me.JobDetailsTableLayout.SuspendLayout()
@@ -193,6 +193,17 @@ Partial Class ServiceAddEditModal
         Me.JobDetailsTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.JobDetailsTableLayout.Size = New System.Drawing.Size(808, 53)
         Me.JobDetailsTableLayout.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(273, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(93, 20)
+        Me.Label1.TabIndex = 38
+        Me.Label1.Text = "Device Model"
         '
         'StorageCapacityTxtBox
         '
@@ -1177,17 +1188,6 @@ Partial Class ServiceAddEditModal
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(273, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(93, 20)
-        Me.Label1.TabIndex = 38
-        Me.Label1.Text = "Device Model"
         '
         'ServiceAddEditModal
         '

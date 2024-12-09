@@ -63,7 +63,6 @@
                 { .availableQtyStr, quantity},
                 { .totalCostStr, totalValue},
                 { .costPerItem, costPerItem},
-                { .addedByIdName, formUtils.getEmployeeName(Current.id)},
                 { .addedByIDStr, Current.id}
             }
 

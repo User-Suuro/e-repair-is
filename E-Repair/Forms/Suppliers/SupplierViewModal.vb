@@ -48,7 +48,7 @@ Public Class SupplierViewModal
 
             DateAddedTxtBox.Text = .Item(supConstants.dateAddedStr)
             CompanyPathTxtBox.Text = dbHelper.StrNullCheck(.Item(supConstants.compPicPathStr))
-            AddedByTxtBox.Text = .Item(supConstants.addedByName)
+            AddedByTxtBox.Text = formUtils.getEmployeeName(.Item(supConstants.addedByID))
         End With
 
         If File.Exists(CompanyPathTxtBox.Text) Then

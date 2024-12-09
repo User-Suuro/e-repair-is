@@ -127,7 +127,6 @@ Public Class FormUtils
                 addBtn.Visible = False
 
                 dgv.Columns("DATE_ARCHIVED").Visible = True
-                dgv.Columns("ARCHIVED_BY").Visible = True
 
             Else
                 delBtn.Visible = False
@@ -137,7 +136,6 @@ Public Class FormUtils
                 addBtn.Visible = True
 
                 dgv.Columns("DATE_ARCHIVED").Visible = False
-                dgv.Columns("ARCHIVED_BY").Visible = False
 
             End If
 
@@ -497,7 +495,6 @@ Public Class FormUtils
 
         Dim updatedValues As New Dictionary(Of String, Object) From {
             {"archived", True},
-            {"archived_by", getEmployeeName(Current.id)},
             {"archived_by_id", Current.id},
             {"date_archived", DateTime.Now}
         }

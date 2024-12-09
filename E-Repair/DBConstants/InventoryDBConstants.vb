@@ -21,10 +21,7 @@
     Private ReadOnly _dateAdded As String = "date_added"
 
     Private ReadOnly _archived As String = "archived"
-    Private ReadOnly _archivedBy As String = "archived_by"
     Private ReadOnly _dateArchived As String = "date_archived"
-
-    Private ReadOnly _addedByName As String = "added_by"
     Private ReadOnly _addedById As String = "added_by_id"
 
     Public ReadOnly Property costPerItem As String
@@ -36,13 +33,6 @@
     Public ReadOnly Property availableQtyStr As String
         Get
             Return _quantity
-        End Get
-    End Property
-
-
-    Public ReadOnly Property addedByIdName As String
-        Get
-            Return _addedByName
         End Get
     End Property
 
@@ -132,12 +122,6 @@
     Public ReadOnly Property archivedStr As String
         Get
             Return _archived
-        End Get
-    End Property
-
-    Public ReadOnly Property archByStr As String
-        Get
-            Return _archivedBy
         End Get
     End Property
 

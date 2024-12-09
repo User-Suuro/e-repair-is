@@ -204,7 +204,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Guna2Panel1.Location = New System.Drawing.Point(19, 61)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel1.TabIndex = 18
@@ -373,7 +373,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel2.Controls.Add(Me.TableLayoutPanel2)
         Me.Guna2Panel2.Location = New System.Drawing.Point(19, 128)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel2.TabIndex = 19
@@ -502,7 +502,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel3.Controls.Add(Me.TableLayoutPanel3)
         Me.Guna2Panel3.Location = New System.Drawing.Point(19, 195)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel3.TabIndex = 20
@@ -695,7 +695,7 @@ Partial Class EmployeeAddEditModal
         Me.JobDescriptionTableLayout.Location = New System.Drawing.Point(0, 0)
         Me.JobDescriptionTableLayout.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.JobDescriptionTableLayout.Name = "JobDescriptionTableLayout"
-        Me.JobDescriptionTableLayout.Padding = New System.Windows.Forms.Padding(3)
+        Me.JobDescriptionTableLayout.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.JobDescriptionTableLayout.RowCount = 2
         Me.JobDescriptionTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.JobDescriptionTableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
@@ -757,7 +757,7 @@ Partial Class EmployeeAddEditModal
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.Padding = New System.Windows.Forms.Padding(3)
+        Me.TableLayoutPanel7.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.TableLayoutPanel7.RowCount = 2
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666!))
@@ -809,7 +809,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel7.Location = New System.Drawing.Point(0, 67)
         Me.Guna2Panel7.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
         Me.Guna2Panel7.Size = New System.Drawing.Size(825, 61)
         Me.Guna2Panel7.TabIndex = 52
@@ -1031,7 +1031,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel6.Location = New System.Drawing.Point(0, 134)
         Me.Guna2Panel6.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(825, 64)
         Me.Guna2Panel6.TabIndex = 51
@@ -1229,7 +1229,7 @@ Partial Class EmployeeAddEditModal
         Me.Guna2Panel5.Location = New System.Drawing.Point(19, 264)
         Me.Guna2Panel5.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.Guna2Panel5.Name = "Guna2Panel5"
-        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel5.ShadowDecoration.Parent = Me.Guna2Panel5
         Me.Guna2Panel5.Size = New System.Drawing.Size(825, 61)
         Me.Guna2Panel5.TabIndex = 41

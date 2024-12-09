@@ -75,7 +75,6 @@ Public Class CustomerAddEditModal
                 { .custLastStr, lastName},
                 { .custGenderStr, gender},
                 { .custDateAddedStr, DateTime.Now()},
-                { .getAddedByName, formUtils.getEmployeeName(Current.id)},
                 { .getAddedByID, Current.id}
             }
 

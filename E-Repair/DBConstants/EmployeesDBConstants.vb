@@ -25,23 +25,16 @@
     Private ReadOnly _email As String = "email"
     Private ReadOnly _password As String = "password"
     Private ReadOnly _archived As String = "archived"
-    Private ReadOnly _archivedBy As String = "archived_by"
+
     Private ReadOnly _lastAccessed As String = "last_accessed"
     Private ReadOnly _dateArchived As String = "date_archived"
 
     Private ReadOnly _dateAdded As String = "date_added"
-    Private ReadOnly _addedByName As String = "added_by"
     Private ReadOnly _addedById As String = "added_by_id"
 
     Public ReadOnly Property addedById As String
         Get
             Return _addedById
-        End Get
-    End Property
-
-    Public ReadOnly Property empAddedByName As String
-        Get
-            Return _addedByName
         End Get
     End Property
 
@@ -178,11 +171,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property empArchByStr As String
-        Get
-            Return _archivedBy
-        End Get
-    End Property
 
     Public ReadOnly Property empLastAccessedStr As String
         Get

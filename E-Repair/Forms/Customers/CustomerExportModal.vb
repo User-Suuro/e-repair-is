@@ -25,9 +25,8 @@
               { .custEmailStr, "Email"},
               { .custTotalPaidStr, "Total Paid"},
               { .custLastTransStr, "Last Transaction"},
-              { .getAddedByName, "Physical Location"},
-              { .custDateAddedStr, "Restock Date"},
-              { .custArchDateStr, "Added by"}
+              { .custDateAddedStr, "Date Added"},
+              { .custArchDateStr, "Date Archived"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)

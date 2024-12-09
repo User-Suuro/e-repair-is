@@ -154,7 +154,6 @@ Public Class EmployeeAddEditModal
             }
 
             If Not createSuperAdminAccMode Then
-                insertData.Add(.empAddedByName, formUtils.getEmployeeName(Current.id))
                 insertData.Add(.addedById, Current.id)
             End If
 

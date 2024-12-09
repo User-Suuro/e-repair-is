@@ -463,7 +463,6 @@
                       { .empHiredStr, dateHired},
                       { .empProfileStr, dummyImagePath},
                       { .addedById, Current.id},
-                      { .empAddedByName, formUtils.getEmployeeName(Current.id)},
                       { .empAddDateStr, dateAdded}
                     }
 
@@ -530,7 +529,6 @@
                        { .custFirstStr, firstName},
                        { .custLastStr, lastName},
                        { .custGenderStr, gender},
-                       { .getAddedByName, formUtils.getEmployeeName(Current.id)},
                        { .getAddedByID, Current.id},
                        { .custDateAddedStr, dateAdded}
                     }
@@ -587,7 +585,6 @@
                        { .supContractStr, supplierContract},
                        { .bankDetailsStr, bankDetail},
                        { .payTermsStr, paymentTerm},
-                       { .addedByName, formUtils.getEmployeeName(Current.id)},
                        { .addedByID, Current.id},
                        { .compPicPathStr, dummyImagePath},
                        { .dateAddedStr, dateAdded}
@@ -640,7 +637,6 @@
                         { .osStr, operatingSystem},
                         { .storageCapStr, storageCapacity},
                         { .probDescStr, problemDescription},
-                        { .getAddedByName, formUtils.getEmployeeName(Current.id)},
                         { .devProfilePathStr, dummyImagePath},
                         { .dateAddedStr, dateAdded}
                     }
@@ -702,7 +698,6 @@
                             { .availableQtyStr, availableQuantity},
                             { .totalCostStr, totalCost},
                             { .costPerItem, costPerItem},
-                            { .addedByIdName, formUtils.getEmployeeName(Current.id)},
                             { .addedByIDStr, Current.id},
                             { .dateAddedStr, dateAdded}
                         }

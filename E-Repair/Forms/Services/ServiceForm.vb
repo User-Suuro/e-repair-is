@@ -238,7 +238,6 @@ Public Class ServiceForm
                 .dateAddedStr,
                 .svcStatusStr, ' exclude from search
                 .dateArchivedStr,
-                .archByStr,
                 .archivedStr,
                 .svcIDStr,
                 .custIDStr
@@ -279,7 +278,6 @@ Public Class ServiceForm
             ' exlucde from search
             searchCols01.Remove(.archivedStr)
             searchCols01.Remove(.dateArchivedStr)
-            searchCols01.Remove(.archByStr)
             searchCols01.Remove(.svcStatusStr)
             searchCols01.Remove(.custIDStr)
             searchCols01.Remove(.svcIDStr)

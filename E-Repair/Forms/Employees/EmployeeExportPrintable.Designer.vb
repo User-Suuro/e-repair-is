@@ -27,6 +27,13 @@ Partial Class EmployeeExportPrintable
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New E_Repair.DataSet1()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EmployeesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -37,21 +44,14 @@ Partial Class EmployeeExportPrintable
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.DataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EmployeesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2GroupBox1.SuspendLayout()
+        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
-        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EmployeesBindingSource
@@ -85,6 +85,81 @@ Partial Class EmployeeExportPrintable
         Me.Guna2GroupBox1.TabIndex = 7
         Me.Guna2GroupBox1.Text = "Employee Report"
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.EmployeesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "E_Repair.EmployeesReport.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(15, 83)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(1083, 458)
+        Me.ReportViewer1.TabIndex = 57
+        '
+        'Guna2Separator3
+        '
+        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator3.Location = New System.Drawing.Point(2, 547)
+        Me.Guna2Separator3.Name = "Guna2Separator3"
+        Me.Guna2Separator3.Size = New System.Drawing.Size(1108, 13)
+        Me.Guna2Separator3.TabIndex = 55
+        '
+        'Button3
+        '
+        Me.Button3.BorderRadius = 4
+        Me.Button3.CheckedState.Parent = Me.Button3
+        Me.Button3.CustomImages.Parent = Me.Button3
+        Me.Button3.FillColor = System.Drawing.Color.DarkRed
+        Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.HoverState.Parent = Me.Button3
+        Me.Button3.Location = New System.Drawing.Point(17, 566)
+        Me.Button3.Name = "Button3"
+        Me.Button3.ShadowDecoration.Parent = Me.Button3
+        Me.Button3.Size = New System.Drawing.Size(107, 32)
+        Me.Button3.TabIndex = 54
+        Me.Button3.Text = "Close"
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 669)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(854, 10)
+        Me.Guna2Separator1.TabIndex = 35
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(9, 682)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 34
+        Me.BtnClose.Text = "Close"
+        '
+        'DataSet1BindingSource
+        '
+        Me.DataSet1BindingSource.DataSource = Me.DataSet1
+        Me.DataSet1BindingSource.Position = 0
+        '
+        'EmployeesBindingSource1
+        '
+        Me.EmployeesBindingSource1.DataMember = "employees"
+        Me.EmployeesBindingSource1.DataSource = Me.DataSet1
+        '
         'Guna2Panel1
         '
         Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -96,12 +171,12 @@ Partial Class EmployeeExportPrintable
         Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnReload)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(15, 49)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(15, 52)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(1083, 28)
-        Me.Guna2Panel1.TabIndex = 58
+        Me.Guna2Panel1.TabIndex = 59
         '
         'Panel1
         '
@@ -231,81 +306,6 @@ Partial Class EmployeeExportPrintable
         Me.BtnReload.TabIndex = 44
         Me.BtnReload.Text = "Reload"
         '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer1.ForeColor = System.Drawing.Color.Black
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.EmployeesBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "E_Repair.EmployeesReport.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(15, 83)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(1083, 458)
-        Me.ReportViewer1.TabIndex = 57
-        '
-        'Guna2Separator3
-        '
-        Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator3.Location = New System.Drawing.Point(2, 547)
-        Me.Guna2Separator3.Name = "Guna2Separator3"
-        Me.Guna2Separator3.Size = New System.Drawing.Size(1108, 13)
-        Me.Guna2Separator3.TabIndex = 55
-        '
-        'Button3
-        '
-        Me.Button3.BorderRadius = 4
-        Me.Button3.CheckedState.Parent = Me.Button3
-        Me.Button3.CustomImages.Parent = Me.Button3
-        Me.Button3.FillColor = System.Drawing.Color.DarkRed
-        Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.HoverState.Parent = Me.Button3
-        Me.Button3.Location = New System.Drawing.Point(17, 566)
-        Me.Button3.Name = "Button3"
-        Me.Button3.ShadowDecoration.Parent = Me.Button3
-        Me.Button3.Size = New System.Drawing.Size(107, 32)
-        Me.Button3.TabIndex = 54
-        Me.Button3.Text = "Close"
-        '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 669)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(854, 10)
-        Me.Guna2Separator1.TabIndex = 35
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(9, 682)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 34
-        Me.BtnClose.Text = "Close"
-        '
-        'DataSet1BindingSource
-        '
-        Me.DataSet1BindingSource.DataSource = Me.DataSet1
-        Me.DataSet1BindingSource.Position = 0
-        '
-        'EmployeesBindingSource1
-        '
-        Me.EmployeesBindingSource1.DataMember = "employees"
-        Me.EmployeesBindingSource1.DataSource = Me.DataSet1
-        '
         'EmployeeExportPrintable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -320,18 +320,27 @@ Partial Class EmployeeExportPrintable
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2GroupBox1.ResumeLayout(False)
+        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.DataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Guna2GroupBox1 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents EmployeesBindingSource As BindingSource
+    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents DataSet1BindingSource As BindingSource
+    Friend WithEvents EmployeesBindingSource1 As BindingSource
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
@@ -342,13 +351,4 @@ Partial Class EmployeeExportPrintable
     Friend WithEvents Panel3 As Panel
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents EmployeesBindingSource As BindingSource
-    Friend WithEvents DataSet1 As DataSet1
-    Friend WithEvents DataSet1BindingSource As BindingSource
-    Friend WithEvents EmployeesBindingSource1 As BindingSource
 End Class

@@ -30,8 +30,6 @@
               { .empPagibigStr, "Pag-ibig No."},
               { .empTINStr, "Tin No."},
               { .empEmailStr, "Email"},
-              { .empArchDateStr, "Date Archived"},
-              { .empAddedByName, "Added By"},
               { .empAddDateStr, "Date Added"},
               { .empLastAccessedStr, "Last Accessed"},
               { .empJobPosStr, "Job Type"},

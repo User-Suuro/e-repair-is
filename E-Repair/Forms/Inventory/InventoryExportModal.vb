@@ -28,7 +28,6 @@ Public Class InventoryExportModal
               { .totalCostStr, "Total Cost"},
               { .physLocStr, "Physical Location"},
               { .restockDateStr, "Restock Date"},
-              { .addedByIdName, "Added by"},
               { .archivedStr, "Archived Status"},
               { .dateArchivedStr, "Date Archived"}
             }

@@ -133,7 +133,6 @@ Public Class SuppliersForm
             Dim searchValues As New List(Of String) From {
                  .supIDStr, ' exclude
                  .archivedStr, ' exclude
-                 .archByStr, ' exclude
                  .dateArchivedStr, ' exclude
                  .compNameStr,
                  .contactPersonStr,
@@ -150,7 +149,6 @@ Public Class SuppliersForm
 
             ' exclude for searching
             searchValues.Remove(.supIDStr)
-            searchValues.Remove(.archByStr)
             searchValues.Remove(.archivedStr)
             searchValues.Remove(.dateArchivedStr)
 

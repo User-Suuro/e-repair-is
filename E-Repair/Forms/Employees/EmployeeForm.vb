@@ -187,7 +187,6 @@ Public Class EmployeeForm
 
             Dim colValues As New List(Of String) From {
               .empIDStr, ' exclude
-              .empArchByStr,  ' exclude
               .empArchDateStr,  ' exclude
               .empArchStr,  ' exclude
               .empFirstStr,
@@ -212,7 +211,6 @@ Public Class EmployeeForm
             colValues.Remove(.empIDStr)
             colValues.Remove(.empArchStr)
             colValues.Remove(.empArchDateStr)
-            colValues.Remove(.empArchByStr)
 
             formUtils.LoadToDGV(EmpDGV, empDT, searchTerm, colValues, SearchComboBox.SelectedIndex, ShowArchiveCheckBox)
 

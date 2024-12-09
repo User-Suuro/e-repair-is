@@ -22,7 +22,6 @@
               { .payTermsStr, "Payment Terms"},
               { .estDeliveryStr, "Estimated Delivery Time"},
               { .dateAddedStr, "Date Added"},
-              { .addedByName, "Added By"},
               { .dateArchivedStr, "Date Archived"}
             }
 

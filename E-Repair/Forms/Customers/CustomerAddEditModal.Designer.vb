@@ -103,7 +103,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel3.Controls.Add(Me.TableLayoutPanel3)
         Me.Guna2Panel3.Location = New System.Drawing.Point(19, 259)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel3.ShadowDecoration.Parent = Me.Guna2Panel3
         Me.Guna2Panel3.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel3.TabIndex = 27
@@ -192,7 +192,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel4.Controls.Add(Me.TableLayoutPanel4)
         Me.Guna2Panel4.Location = New System.Drawing.Point(19, 192)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel4.TabIndex = 26
@@ -369,7 +369,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel2.Controls.Add(Me.GenderTableLayout)
         Me.Guna2Panel2.Location = New System.Drawing.Point(19, 125)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel2.TabIndex = 19
@@ -468,7 +468,7 @@ Partial Class CustomerAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Guna2Panel1.Location = New System.Drawing.Point(19, 58)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(821, 61)
         Me.Guna2Panel1.TabIndex = 18

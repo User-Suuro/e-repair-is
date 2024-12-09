@@ -15,19 +15,14 @@
     Private ReadOnly _email As String = "email"
     Private ReadOnly _totalPaid As String = "total_paid"
     Private ReadOnly _lastTransaction As String = "last_transaction"
-    Private ReadOnly _archived As String = "archived"
-    Private ReadOnly _archivedBy As String = "archived_by"
-    Private ReadOnly _dateArchived As String = "date_archived"
+
     Private ReadOnly _dateAdded As String = "date_added"
 
-    Private ReadOnly _addedBy_name As String = "added_by"
+    Private ReadOnly _archived As String = "archived"
+    Private ReadOnly _dateArchived As String = "date_archived"
+    Private ReadOnly _archivedBy As String = "archived_by_id"
     Private ReadOnly _addedByID As String = "added_by_id"
 
-    Public ReadOnly Property getAddedByName As String
-        Get
-            Return _addedBy_name
-        End Get
-    End Property
 
     Public ReadOnly Property getAddedByID As String
         Get

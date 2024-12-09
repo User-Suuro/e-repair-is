@@ -1,4 +1,5 @@
 ﻿Public Class SuppliersDBConstants
+
     ' Table Name
     Private ReadOnly _supplierTable As String = "suppliers"
 
@@ -15,23 +16,14 @@
     Private ReadOnly _bankDetails As String = "bank_details"
     Private ReadOnly _paymentTerms As String = "payment_terms"
     Private ReadOnly _estimatedDeliveryTime As String = "estimated_delivery_time"
-
-
     Private ReadOnly _companyPicturePath As String = "company_picture_path"
+
     Private ReadOnly _dateAdded As String = "date_added"
-
-    Private ReadOnly _archived As String = "archived"
-    Private ReadOnly _archivedBy As String = "archived_by"
-    Private ReadOnly _dateArchived As String = "date_archived"
-
-    Private ReadOnly _addedByName As String = "added_by"
     Private ReadOnly _addedByID As String = "added_by_id"
 
-    Public ReadOnly Property addedByName As String
-        Get
-            Return _addedByName
-        End Get
-    End Property
+    Private ReadOnly _archived As String = "archived"
+    Private ReadOnly _dateArchived As String = "date_archived"
+
 
     Public ReadOnly Property addedByID As String
         Get
@@ -131,19 +123,12 @@
         End Get
     End Property
 
-
-
     Public ReadOnly Property archivedStr As String
         Get
             Return _archived
         End Get
     End Property
 
-    Public ReadOnly Property archByStr As String
-        Get
-            Return _archivedBy
-        End Get
-    End Property
 
     Public ReadOnly Property dateArchivedStr As String
         Get
