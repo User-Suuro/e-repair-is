@@ -1545,6 +1545,8 @@ Partial Public Class DataSet1
         
         Private columndate_added As Global.System.Data.DataColumn
         
+        Private columntotal_cost As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -1709,6 +1711,14 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property total_costColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntotal_cost
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1761,9 +1771,10 @@ Partial Public Class DataSet1
                     ByVal payment_method As String,  _
                     ByVal date_completed As String,  _
                     ByVal date_claimed As String,  _
-                    ByVal date_added As String) As servicesRow
+                    ByVal date_added As String,  _
+                    ByVal total_cost As String) As servicesRow
             Dim rowservicesRow As servicesRow = CType(Me.NewRow,servicesRow)
-            Dim columnValuesArray() As Object = New Object() {service_id, customer_id, technician_id, cashier_id, device_type, device_model, service_status, technician_fee, parts_used, parts_cost, total_paid, customer_change, payment_method, date_completed, date_claimed, date_added}
+            Dim columnValuesArray() As Object = New Object() {service_id, customer_id, technician_id, cashier_id, device_type, device_model, service_status, technician_fee, parts_used, parts_cost, total_paid, customer_change, payment_method, date_completed, date_claimed, date_added, total_cost}
             rowservicesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowservicesRow)
             Return rowservicesRow
@@ -1802,6 +1813,7 @@ Partial Public Class DataSet1
             Me.columndate_completed = MyBase.Columns("date_completed")
             Me.columndate_claimed = MyBase.Columns("date_claimed")
             Me.columndate_added = MyBase.Columns("date_added")
+            Me.columntotal_cost = MyBase.Columns("total_cost")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1839,6 +1851,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columndate_claimed)
             Me.columndate_added = New Global.System.Data.DataColumn("date_added", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndate_added)
+            Me.columntotal_cost = New Global.System.Data.DataColumn("total_cost", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotal_cost)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3687,6 +3701,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property total_cost() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableservices.total_costColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'total_cost' in table 'services' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableservices.total_costColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Isservice_idNull() As Boolean
             Return Me.IsNull(Me.tableservices.service_idColumn)
         End Function
@@ -3875,6 +3904,18 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setdate_addedNull()
             Me(Me.tableservices.date_addedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Istotal_costNull() As Boolean
+            Return Me.IsNull(Me.tableservices.total_costColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Settotal_costNull()
+            Me(Me.tableservices.total_costColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

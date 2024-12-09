@@ -620,6 +620,7 @@
         With servConst
             Dim paymentMethods As List(Of String) = dbHelper.GetEnums(.svcTableStr, .payMethodStr)
             Dim deviceTypes As List(Of String) = dbHelper.GetEnums(.svcTableStr, .devTypeStr)
+            Dim svcStatuses As List(Of String) = dbHelper.GetEnums(.svcTableStr, .svcStatusStr)
 
             Try
                 For i As Integer = 1 To numberOfRecords
@@ -653,7 +654,14 @@
                         { .dateAddedStr, dateAdded}
                     }
 
-                    dbHelper.InsertRecord(.svcTableStr, insertData)
+                    If dbHelper.InsertRecord(.svcTableStr, insertData) Then
+
+                        ' update for evaluation
+
+                        ' updatZ
+
+
+                    End If
 
                 Next
 

@@ -600,6 +600,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EmployeesReport.rdlc" />
     <EmbeddedResource Include="Reports\CustomersReport.rdlc" />
+    <EmbeddedResource Include="Reports\InventoryReport.rdlc" />
+    <EmbeddedResource Include="Reports\SalesReport.rdlc" />
+    <EmbeddedResource Include="Reports\ServicesReport.rdlc" />
+    <EmbeddedResource Include="Reports\SuppliersReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSets\DBDataSet.xsc">
