@@ -23,9 +23,11 @@ Partial Class InventoryExportPrintable
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.AvailableBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.UsedItemsBtn = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CalendarFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -36,9 +38,10 @@ Partial Class InventoryExportPrintable
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -50,7 +53,6 @@ Partial Class InventoryExportPrintable
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel1)
         Me.Guna2GroupBox1.Controls.Add(Me.ReportViewer1)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.Button3)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
@@ -67,35 +69,14 @@ Partial Class InventoryExportPrintable
         Me.Guna2GroupBox1.TabIndex = 6
         Me.Guna2GroupBox1.Text = "Inventory Report"
         '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 669)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(854, 10)
-        Me.Guna2Separator1.TabIndex = 35
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
-        Me.BtnClose.BorderRadius = 4
-        Me.BtnClose.CheckedState.Parent = Me.BtnClose
-        Me.BtnClose.CustomImages.Parent = Me.BtnClose
-        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
-        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(9, 682)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
-        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
-        Me.BtnClose.TabIndex = 34
-        Me.BtnClose.Text = "Close"
-        '
         'Guna2Panel1
         '
         Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Panel1.Controls.Add(Me.AvailableBtn)
+        Me.Guna2Panel1.Controls.Add(Me.Panel4)
+        Me.Guna2Panel1.Controls.Add(Me.UsedItemsBtn)
+        Me.Guna2Panel1.Controls.Add(Me.Panel2)
         Me.Guna2Panel1.Controls.Add(Me.Panel1)
         Me.Guna2Panel1.Controls.Add(Me.CalendarFrom)
         Me.Guna2Panel1.Controls.Add(Me.Panel6)
@@ -109,6 +90,56 @@ Partial Class InventoryExportPrintable
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(1053, 28)
         Me.Guna2Panel1.TabIndex = 58
+        '
+        'AvailableBtn
+        '
+        Me.AvailableBtn.BorderRadius = 4
+        Me.AvailableBtn.CheckedState.Parent = Me.AvailableBtn
+        Me.AvailableBtn.CustomImages.Parent = Me.AvailableBtn
+        Me.AvailableBtn.Dock = System.Windows.Forms.DockStyle.Left
+        Me.AvailableBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.AvailableBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AvailableBtn.ForeColor = System.Drawing.Color.White
+        Me.AvailableBtn.HoverState.Parent = Me.AvailableBtn
+        Me.AvailableBtn.Location = New System.Drawing.Point(214, 0)
+        Me.AvailableBtn.Name = "AvailableBtn"
+        Me.AvailableBtn.ShadowDecoration.Parent = Me.AvailableBtn
+        Me.AvailableBtn.Size = New System.Drawing.Size(88, 28)
+        Me.AvailableBtn.TabIndex = 84
+        Me.AvailableBtn.Text = "Available"
+        '
+        'Panel4
+        '
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel4.Location = New System.Drawing.Point(195, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(19, 28)
+        Me.Panel4.TabIndex = 83
+        '
+        'UsedItemsBtn
+        '
+        Me.UsedItemsBtn.BorderRadius = 4
+        Me.UsedItemsBtn.CheckedState.Parent = Me.UsedItemsBtn
+        Me.UsedItemsBtn.CustomImages.Parent = Me.UsedItemsBtn
+        Me.UsedItemsBtn.Dock = System.Windows.Forms.DockStyle.Left
+        Me.UsedItemsBtn.FillColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.UsedItemsBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UsedItemsBtn.ForeColor = System.Drawing.Color.White
+        Me.UsedItemsBtn.HoverState.Parent = Me.UsedItemsBtn
+        Me.UsedItemsBtn.Location = New System.Drawing.Point(107, 0)
+        Me.UsedItemsBtn.Name = "UsedItemsBtn"
+        Me.UsedItemsBtn.ShadowDecoration.Parent = Me.UsedItemsBtn
+        Me.UsedItemsBtn.Size = New System.Drawing.Size(88, 28)
+        Me.UsedItemsBtn.TabIndex = 82
+        Me.UsedItemsBtn.Text = "Used Items"
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(88, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(19, 28)
+        Me.Panel2.TabIndex = 81
         '
         'Panel1
         '
@@ -250,22 +281,6 @@ Partial Class InventoryExportPrintable
         Me.ReportViewer1.Size = New System.Drawing.Size(1053, 467)
         Me.ReportViewer1.TabIndex = 57
         '
-        'BtnSave
-        '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(961, 575)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 56
-        Me.BtnSave.Text = "Export"
-        '
         'Guna2Separator3
         '
         Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
@@ -289,6 +304,31 @@ Partial Class InventoryExportPrintable
         Me.Button3.Size = New System.Drawing.Size(107, 32)
         Me.Button3.TabIndex = 54
         Me.Button3.Text = "Close"
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 669)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(854, 10)
+        Me.Guna2Separator1.TabIndex = 35
+        '
+        'BtnClose
+        '
+        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
+        Me.BtnClose.BorderRadius = 4
+        Me.BtnClose.CheckedState.Parent = Me.BtnClose
+        Me.BtnClose.CustomImages.Parent = Me.BtnClose
+        Me.BtnClose.FillColor = System.Drawing.Color.DarkRed
+        Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClose.ForeColor = System.Drawing.Color.White
+        Me.BtnClose.HoverState.Parent = Me.BtnClose
+        Me.BtnClose.Location = New System.Drawing.Point(9, 682)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
+        Me.BtnClose.Size = New System.Drawing.Size(107, 32)
+        Me.BtnClose.TabIndex = 34
+        Me.BtnClose.Text = "Close"
         '
         'InventoryExportPrintable
         '
@@ -325,7 +365,10 @@ Partial Class InventoryExportPrintable
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents AvailableBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents UsedItemsBtn As Guna.UI2.WinForms.Guna2Button
 End Class

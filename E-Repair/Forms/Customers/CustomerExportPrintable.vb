@@ -15,7 +15,7 @@ Public Class CustomerExportPrintable
         Me.Close()
     End Sub
 
-    Private Sub EmployeeExportPrintable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CalendarFrom.Value.AddYears(-1)
         loadData()
         reloadRLDCData()
@@ -49,7 +49,7 @@ Public Class CustomerExportPrintable
 
         If filterMode Then
             ' filter stuffs
-            localDT = formUtils.FilterDates(localDT, Date.Parse(CalendarFrom.Value.ToString(constants.getDateFormat)), Date.Parse(CalendarTo.Value.ToString(constants.getDateFormat)), constants.getDateFormat, empConst.empAddDateStr)
+            localDT = formUtils.FilterDates(localDT, Date.Parse(CalendarFrom.Value.ToString(constants.getDateFormat)), Date.Parse(CalendarTo.Value.ToString(constants.getDateFormat)), constants.getDateFormat, custConst.custDateAddedStr)
         End If
 
         Dim reportDataSource As New ReportDataSource(constants.getDataSetName, localDT)
@@ -67,5 +67,6 @@ Public Class CustomerExportPrintable
     Private Sub ReportViewer1_ReportExport(sender As Object, e As Microsoft.Reporting.WinForms.ReportExportEventArgs) Handles ReportViewer1.ReportExport
         dbHelper.Logs("Printable Customers Reports", Current.id)
     End Sub
+
 
 End Class

@@ -24,9 +24,6 @@ Public Class CustomerForm
 
     Private finishedLoad As Boolean = False
 
-
-
-
     ' FORM ONLOAD
     Private Sub AdminCustomersForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
@@ -34,8 +31,6 @@ Public Class CustomerForm
         LoadDataToDGV()
         CustomerDGV.ClearSelection()
     End Sub
-
-
 
     ' INIT VALUES
     Private Function InitValues() As Boolean
@@ -138,7 +133,6 @@ Public Class CustomerForm
         formUtils.DeleteRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID, "Deleted Customer: " & customerID)
         RefArch()
     End Sub
-
 
 
     ' LOAD DATA
