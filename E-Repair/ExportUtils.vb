@@ -192,7 +192,7 @@ Public Class ExportUtils
 
             With pageSettings
                 .PaperSize = New System.Drawing.Printing.PaperSize("A4", 827, 1169)
-                .Margins = New System.Drawing.Printing.Margins(50, 50, 50, 50)
+                .Margins = New System.Drawing.Printing.Margins(20, 20, 20, 20)
                 .Landscape = False
             End With
 
