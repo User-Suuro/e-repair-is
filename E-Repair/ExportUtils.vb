@@ -186,13 +186,14 @@ Public Class ExportUtils
                 .ReportPath = reportsPath
                 .DataSources.Clear()
                 .DataSources.Add(reportDataSource)
+                .DisplayName = $"{rldcName} - {DateTime.Now.ToString("MM-dd-yyyy-HH-mm-ss")}"
             End With
 
             Dim pageSettings As New System.Drawing.Printing.PageSettings()
 
             With pageSettings
                 .PaperSize = New System.Drawing.Printing.PaperSize("A4", 827, 1169)
-                .Margins = New System.Drawing.Printing.Margins(20, 20, 20, 20)
+                .Margins = New System.Drawing.Printing.Margins(10, 10, 50, 50)
                 .Landscape = False
             End With
 
