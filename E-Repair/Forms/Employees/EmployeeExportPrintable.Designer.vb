@@ -96,7 +96,7 @@ Partial Class EmployeeExportPrintable
         Me.Guna2Panel1.Controls.Add(Me.Panel3)
         Me.Guna2Panel1.Controls.Add(Me.FetchAllBtn)
         Me.Guna2Panel1.Controls.Add(Me.BtnReload)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(15, 52)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(15, 47)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1

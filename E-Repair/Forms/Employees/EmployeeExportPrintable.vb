@@ -9,13 +9,13 @@ Public Class EmployeeExportPrintable
     Dim exportUtils As New ExportUtils
     Dim empDT As New DataTable
 
-
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
     End Sub
 
     Private Sub EmployeeExportPrintable_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadData 
+        CalendarFrom.Value.AddYears(-1)
+        loadData()
         reloadRLDCData()
     End Sub
 
@@ -40,22 +40,22 @@ Public Class EmployeeExportPrintable
 
     Private Sub reloadRLDCData(Optional filterMode As Boolean = True)
         Dim localDT As DataTable = empDT
+        localDT = formUtils.FormatSingleDateColumn(empDT, empConst.empAddDateStr, constants.getDateFormat)
 
         If filterMode Then
             ' filter stuffs
-
+            localDT = formUtils.FilterDates(localDT, Date.Parse(CalendarFrom.Value.ToString(constants.getDateFormat)), Date.Parse(CalendarTo.Value.ToString(constants.getDateFormat)), constants.getDateFormat, empConst.empAddDateStr)
         End If
 
         Dim reportDataSource As New ReportDataSource(constants.getDataSetName, localDT)
         exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "EmployeesReport")
-
     End Sub
 
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs)
+    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
         reloadRLDCData()
     End Sub
 
-    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs)
+    Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
         reloadRLDCData(False)
     End Sub
 
