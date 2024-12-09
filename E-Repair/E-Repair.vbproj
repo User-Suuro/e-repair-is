@@ -232,6 +232,12 @@
     <Compile Include="Forms\Inventory\InventoryExportPrintable.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Inventory\InventoryExportUsed.Designer.vb">
+      <DependentUpon>InventoryExportUsed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventory\InventoryExportUsed.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Services\ServicePrintableReport.Designer.vb">
       <DependentUpon>ServicePrintableReport.vb</DependentUpon>
     </Compile>
@@ -519,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\InventoryExportPrintable.resx">
       <DependentUpon>InventoryExportPrintable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory\InventoryExportUsed.resx">
+      <DependentUpon>InventoryExportUsed.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\InventoryForm.resx">
       <DependentUpon>InventoryForm.vb</DependentUpon>

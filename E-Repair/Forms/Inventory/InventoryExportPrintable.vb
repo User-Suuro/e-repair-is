@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.Remoting
-Imports Microsoft.Reporting.WinForms
+﻿Imports Microsoft.Reporting.WinForms
 
 Public Class InventoryExportPrintable
 
@@ -12,7 +11,7 @@ Public Class InventoryExportPrintable
     Dim exportUtils As New ExportUtils
 
     Dim invDT As New DataTable
-    Dim itemDT As New DataTable
+
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
@@ -22,7 +21,10 @@ Public Class InventoryExportPrintable
         CalendarFrom.Value.AddYears(-1)
         loadInvData()
         reloadRLDCData()
+
     End Sub
+
+    ' INV DATA
 
     Private Sub loadInvData()
         With invCOnst
@@ -40,51 +42,13 @@ Public Class InventoryExportPrintable
               { .physLocStr, "Physical Location"},
               { .restockDateStr, "Restock Date"},
               { .archivedStr, "Archived Status"},
-              { .dateArchivedStr, "Date Archived"}
+              { .dateArchivedStr, "Date Archived"},
+              { .dateAddedStr, "Date Added"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
             invDT = dbHelper.GetAllByCol(keys, .invTableStr)
         End With
-    End Sub
-
-    Private Sub loadUsedItemsData()
-        With itemConst
-            Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-                { .ServiceId, "Service ID"},
-                { .dateUsedCol, "Date Used"},
-                { .quantityUsedStr, "Quantity Used"},
-                { .totalCost, "Total Cost"},
-                { .reasonUsed, "Reason Used"},
-                { .InventoryId, "Inventory ID"}
-            }
-
-            Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
-            itemDT = dbHelper.GetAllByCol(keys, .TableName)
-        End With
-    End Sub
-
-    Private Sub AvailableBtn_Click(sender As Object, e As EventArgs) Handles AvailableBtn.Click
-        loadInvData()
-    End Sub
-
-    Private Sub UsedItemsBtn_Click(sender As Object, e As EventArgs) Handles UsedItemsBtn.Click
-        loadUsedItemsData()
-    End Sub
-
-    ' USED ITEMS REPORT
-
-    Private Sub reloadRLDCUsedItemData(Optional filterMode As Boolean = True)
-        Dim localDT As DataTable = itemDT
-        localDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
-
-        If filterMode Then
-            ' filter stuffs
-            localDT = formUtils.FilterDates(localDT, Date.Parse(CalendarFrom.Value.ToString(constants.getDateFormat)), Date.Parse(CalendarTo.Value.ToString(constants.getDateFormat)), constants.getDateFormat, itemConst.dateUsedCol)
-        End If
-
-        Dim reportDataSource As New ReportDataSource(constants.getDataSetName, localDT)
-        exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "UsedItemsReport")
     End Sub
 
     ' INVENTORY REPORT
@@ -102,9 +66,13 @@ Public Class InventoryExportPrintable
         exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "InventoryReport")
     End Sub
 
+    ' BTN RELOAD
+
     Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles BtnReload.Click
         reloadRLDCData()
     End Sub
+
+    ' FETCH ALL
 
     Private Sub FetchAllBtn_Click(sender As Object, e As EventArgs) Handles FetchAllBtn.Click
         reloadRLDCData(False)
