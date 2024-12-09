@@ -34,7 +34,6 @@ Partial Class ServiceSalesReport
         Me.FetchAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.BtnReload = New Guna.UI2.WinForms.Guna2Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BtnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
@@ -48,7 +47,6 @@ Partial Class ServiceSalesReport
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Panel1)
         Me.Guna2GroupBox1.Controls.Add(Me.ReportViewer1)
-        Me.Guna2GroupBox1.Controls.Add(Me.BtnSave)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator3)
         Me.Guna2GroupBox1.Controls.Add(Me.Button3)
         Me.Guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -221,22 +219,6 @@ Partial Class ServiceSalesReport
         Me.ReportViewer1.Size = New System.Drawing.Size(1043, 475)
         Me.ReportViewer1.TabIndex = 57
         '
-        'BtnSave
-        '
-        Me.BtnSave.BorderRadius = 4
-        Me.BtnSave.CheckedState.Parent = Me.BtnSave
-        Me.BtnSave.CustomImages.Parent = Me.BtnSave
-        Me.BtnSave.FillColor = System.Drawing.Color.DarkGreen
-        Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(949, 588)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
-        Me.BtnSave.TabIndex = 56
-        Me.BtnSave.Text = "Export"
-        '
         'Guna2Separator3
         '
         Me.Guna2Separator3.BackColor = System.Drawing.Color.Transparent
@@ -294,7 +276,6 @@ Partial Class ServiceSalesReport
     Friend WithEvents FetchAllBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents BtnReload As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents BtnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Button3 As Guna.UI2.WinForms.Guna2Button
 End Class

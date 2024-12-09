@@ -280,7 +280,9 @@ Partial Class InventoryExportUsed
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "InventoryExportUsed"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InventoryExportUsed"
+        Me.TopMost = True
         Me.Guna2GroupBox1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
