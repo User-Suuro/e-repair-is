@@ -6,25 +6,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.16434in</Width>
+              <Width>0.79509in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.1792in</Width>
+              <Width>0.87054in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.35629in</Width>
+              <Width>0.98065in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.28337in</Width>
+              <Width>0.67857in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.00212in</Width>
+              <Width>0.8244in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98129in</Width>
+              <Width>0.80357in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.37712in</Width>
+              <Width>2.15135in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1203,15 +1203,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!inventory_id)</Value>
+                              <Value>=Count(Fields!inventory_id.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox112</rd:DefaultName>
@@ -1433,7 +1431,7 @@
         <Top>0.12375in</Top>
         <Left>0.19667in</Left>
         <Height>1.625in</Height>
-        <Width>8.34375in</Width>
+        <Width>7.10417in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1444,7 +1442,7 @@
     <Height>2.17708in</Height>
     <Style />
   </Body>
-  <Width>8.88416in</Width>
+  <Width>7.62822in</Width>
   <Page>
     <PageHeader>
       <Height>1.03472in</Height>
@@ -1499,7 +1497,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
           <Top>0.70833in</Top>
-          <Left>7.54042in</Left>
+          <Left>6.30084in</Left>
           <Height>0.25in</Height>
           <Width>1in</Width>
           <ZIndex>1</ZIndex>

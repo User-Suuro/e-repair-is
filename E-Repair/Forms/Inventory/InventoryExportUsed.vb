@@ -18,13 +18,11 @@ Public Class InventoryExportUsed
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CalendarFrom.Value.AddYears(-1)
-        loadInvData()
+        loadData()
         reloadRLDCData()
     End Sub
 
-    ' INV DATA
-
-    Private Sub loadInvData()
+    Private Sub loadData()
         With itemConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
                { .ItemId, "Item ID"},
@@ -40,8 +38,6 @@ Public Class InventoryExportUsed
             itemDT = dbHelper.GetAllByCol(keys, .TableName)
         End With
     End Sub
-
-    ' INVENTORY REPORT
 
     Private Sub reloadRLDCData(Optional filterMode As Boolean = True)
         Dim localDT As DataTable = itemDT

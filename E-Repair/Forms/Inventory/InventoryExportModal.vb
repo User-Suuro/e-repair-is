@@ -63,13 +63,23 @@ Public Class InventoryExportModal
         )
 
     End Sub
+    Private Sub ExportUsedBtn_Click(sender As Object, e As EventArgs) Handles ExportUsedBtn.Click
+        formUtils.ShowModalWithHandler(
+       Function(id)
+           Dim modal As New InventoryExportUsed
+           Return modal
+       End Function,
+       -1,
+       Function(modal)
+           Return Nothing
+       End Function
+       )
+    End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
 
     End Sub
 
-    Private Sub Guna2GroupBox1_Click(sender As Object, e As EventArgs) Handles Guna2GroupBox1.Click
 
-    End Sub
 End Class

@@ -26,12 +26,12 @@ Partial Class InventoryExportModal
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Button3 = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ExportUsedBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.ExportAllBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.ExportPrintBtn = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.BtnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.ProfileCirclePictureBox = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ProfileCirclePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,16 +88,32 @@ Partial Class InventoryExportModal
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Button1, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ExportUsedBtn, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportAllBtn, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportPrintBtn, 0, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 49)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(394, 46)
         Me.TableLayoutPanel1.TabIndex = 36
+        '
+        'ExportUsedBtn
+        '
+        Me.ExportUsedBtn.BorderRadius = 4
+        Me.ExportUsedBtn.CheckedState.Parent = Me.ExportUsedBtn
+        Me.ExportUsedBtn.CustomImages.Parent = Me.ExportUsedBtn
+        Me.ExportUsedBtn.FillColor = System.Drawing.Color.DarkGreen
+        Me.ExportUsedBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportUsedBtn.ForeColor = System.Drawing.Color.White
+        Me.ExportUsedBtn.HoverState.Parent = Me.ExportUsedBtn
+        Me.ExportUsedBtn.Location = New System.Drawing.Point(265, 3)
+        Me.ExportUsedBtn.Name = "ExportUsedBtn"
+        Me.ExportUsedBtn.ShadowDecoration.Parent = Me.ExportUsedBtn
+        Me.ExportUsedBtn.Size = New System.Drawing.Size(125, 39)
+        Me.ExportUsedBtn.TabIndex = 41
+        Me.ExportUsedBtn.Text = "Export Used Items"
         '
         'ExportAllBtn
         '
@@ -169,22 +185,6 @@ Partial Class InventoryExportModal
         Me.ProfileCirclePictureBox.TabIndex = 28
         Me.ProfileCirclePictureBox.TabStop = False
         '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.BorderRadius = 4
-        Me.Guna2Button1.CheckedState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.CustomImages.Parent = Me.Guna2Button1
-        Me.Guna2Button1.FillColor = System.Drawing.Color.DarkGreen
-        Me.Guna2Button1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.HoverState.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Location = New System.Drawing.Point(265, 3)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.ShadowDecoration.Parent = Me.Guna2Button1
-        Me.Guna2Button1.Size = New System.Drawing.Size(125, 39)
-        Me.Guna2Button1.TabIndex = 41
-        Me.Guna2Button1.Text = "Export Used Items"
-        '
         'InventoryExportModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -192,7 +192,7 @@ Partial Class InventoryExportModal
         Me.ClientSize = New System.Drawing.Size(420, 181)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "InventoryExportModal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "InventoryExportModal"
@@ -213,5 +213,5 @@ Partial Class InventoryExportModal
     Friend WithEvents BtnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ProfileCirclePictureBox As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents Guna2Separator3 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents ExportUsedBtn As Guna.UI2.WinForms.Guna2Button
 End Class
