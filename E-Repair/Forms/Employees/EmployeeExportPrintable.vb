@@ -48,6 +48,7 @@ Public Class EmployeeExportPrintable
 
         Dim reportDataSource As New ReportDataSource(constants.getDataSetName, localDT)
         exportUtils.LoadToRLDC(ReportViewer1, reportDataSource, "EmployeesReport")
+
     End Sub
 
     Private Sub BtnReload_Click(sender As Object, e As EventArgs)
@@ -58,10 +59,8 @@ Public Class EmployeeExportPrintable
         reloadRLDCData(False)
     End Sub
 
-    Private Sub ReportViewer1_RenderingComplete(sender As Object, e As Microsoft.Reporting.WinForms.RenderingCompleteEventArgs) Handles ReportViewer1.RenderingComplete
-        ReportViewer1.RefreshReport()
-        dbHelper.Logs("Generated Employee Reports", Current.id)
+    Private Sub ReportViewer1_ReportExport(sender As Object, e As Microsoft.Reporting.WinForms.ReportExportEventArgs) Handles ReportViewer1.ReportExport
+        dbHelper.Logs("Printable Employee Reports", Current.id)
     End Sub
-
 
 End Class

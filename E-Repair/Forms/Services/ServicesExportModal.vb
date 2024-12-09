@@ -82,6 +82,9 @@
 
         With servConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
+              { .svcIDStr, "Service ID"},
+              { .techIDStr, "Technician ID"},
+              { .techNameStr, "Technician Name"},
               { .PartsUsed, "Part Used"},
               { .partsCostStr, "Parts Cost"},
               { .TotalCost, "Total Cost"}

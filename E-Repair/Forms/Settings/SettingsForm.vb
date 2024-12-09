@@ -26,6 +26,7 @@
     Dim selectedEnumVal As String = Nothing
 
     Dim listEnums As List(Of String)
+    Dim editMode As Boolean = False
 
     ' MANAGE ENUMS
 
@@ -227,9 +228,7 @@
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-
-
-        If Not loadSelectedEnum() AndAlso Not String.IsNullOrEmpty(selectedEnumVal) Then
+        If editMode Then
             ' edit
             If Not checkIfHasActive() Then Exit Sub
 
@@ -268,10 +267,12 @@
             BtnDelete.Visible = True
             ClearSelectBtn.Visible = True
             BtnAdd.Text = "Edit"
+            editMode = True
             EnumTxtBox.Text = selectedEnumVal
         Else
             ClearSelectBtn.Visible = False
             BtnDelete.Visible = False
+            editMode = False
             BtnAdd.Text = "Add"
         End If
 

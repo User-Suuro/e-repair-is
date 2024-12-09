@@ -188,7 +188,16 @@ Public Class ExportUtils
                 .DataSources.Add(reportDataSource)
             End With
 
+            Dim pageSettings As New System.Drawing.Printing.PageSettings()
+
+            With pageSettings
+                .PaperSize = New System.Drawing.Printing.PaperSize("A4", 827, 1169)
+                .Margins = New System.Drawing.Printing.Margins(50, 50, 50, 50)
+                .Landscape = False
+            End With
+
             With reportView
+                .SetPageSettings(pageSettings)
                 .ZoomMode = ZoomMode.PageWidth
                 .RefreshReport()
             End With
