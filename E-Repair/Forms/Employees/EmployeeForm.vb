@@ -107,14 +107,14 @@ Public Class EmployeeForm
     Private Sub BtnArchive_Click(sender As Object, e As EventArgs) Handles ArchiveEmployeeBtn.Click
         If Not InitData() Then Exit Sub
         If Not hasPendingWork() Then Exit Sub
-        formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
+        formUtils.ArchiveRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID, "Archived Employee: " & employeeID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles DeleteEmployeeBtn.Click
         If Not InitData() Or Not hasPendingWork() Then Exit Sub
-        formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID)
+        formUtils.DeleteRow(empArchived, empConst.empTableStr, empConst.empIDStr, employeeID, "Deleted Employee: " & employeeID)
         RefreshForArchive()
     End Sub
 

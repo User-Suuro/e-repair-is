@@ -131,7 +131,7 @@ Public Class ServiceEvaluationModal
                 { .TotalCost, totalCost}
             }
 
-            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
+            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Evaluated Service " & selectedID) Then
                 Me.Close()
             End If
         End With

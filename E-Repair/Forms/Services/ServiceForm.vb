@@ -200,14 +200,14 @@ Public Class ServiceForm
     ' ARCHIVE
     Private Sub ArchiveServiceBtn_Click(sender As Object, e As EventArgs) Handles ArchiveServiceBtn.Click
         If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
-        formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
+        formUtils.ArchiveRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID, "Archived Service: " & serviceID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteServiceBtn_Click(sender As Object, e As EventArgs) Handles DeleteServiceBtn.Click
         If Not InitData() AndAlso isFinished() AndAlso isPaid() Then Exit Sub
-        formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID)
+        formUtils.DeleteRow(is_archived, servConst.svcTableStr, servConst.svcIDStr, serviceID, "Deleted Service: " & serviceID)
         RefForArch()
     End Sub
 

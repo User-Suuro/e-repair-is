@@ -123,6 +123,7 @@ Public Class MainPanel
     End Sub
 
     Private Sub AdminMainPanel_Close(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        dbHelper.Logs($"Employee {formUtils.getEmployeeName(Current.id)} Logged out to the System", Current.id)
         ClearSession()
         Dim loginForm As New LoginForm()
         loginForm.Show()

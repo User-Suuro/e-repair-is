@@ -187,16 +187,20 @@ Public Class ExportUtils
                 .DataSources.Add(reportDataSource)
             End With
 
-            reportView.ZoomMode = ZoomMode.PageWidth
+            With reportView
+                .ZoomMode = ZoomMode.PageWidth
+                .RefreshReport()
+            End With
 
-            reportView.RefreshReport()
-
-
-
+        Catch ex As FileNotFoundException
+            MsgBox($"File Error: {ex.Message}", MsgBoxStyle.Critical, "Error")
+        Catch ex As ArgumentNullException
+            MsgBox($"Data Source Error: {ex.Message}", MsgBoxStyle.Critical, "Error")
         Catch ex As Exception
-            ' Display the error message
-            MsgBox($"An error occurred: {ex.Message}", MsgBoxStyle.Critical, "Error")
+            MsgBox($"An unexpected error occurred: {ex.Message}", MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+
 
 End Class

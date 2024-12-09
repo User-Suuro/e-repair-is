@@ -152,7 +152,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel7.Controls.Add(Me.ItemDetailsTableLayout)
         Me.Guna2Panel7.Location = New System.Drawing.Point(12, 321)
         Me.Guna2Panel7.Name = "Guna2Panel7"
-        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel7.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel7.ShadowDecoration.Parent = Me.Guna2Panel7
         Me.Guna2Panel7.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel7.TabIndex = 34
@@ -309,7 +309,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel6.Controls.Add(Me.TableLayoutPanel3)
         Me.Guna2Panel6.Location = New System.Drawing.Point(12, 254)
         Me.Guna2Panel6.Name = "Guna2Panel6"
-        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel6.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel6.ShadowDecoration.Parent = Me.Guna2Panel6
         Me.Guna2Panel6.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel6.TabIndex = 33
@@ -462,7 +462,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel4.Controls.Add(Me.TableLayoutPanel4)
         Me.Guna2Panel4.Location = New System.Drawing.Point(12, 53)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel4.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel4.ShadowDecoration.Parent = Me.Guna2Panel4
         Me.Guna2Panel4.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel4.TabIndex = 32
@@ -641,7 +641,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel2.Controls.Add(Me.TableLayoutPanel2)
         Me.Guna2Panel2.Location = New System.Drawing.Point(12, 187)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel2.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel2.ShadowDecoration.Parent = Me.Guna2Panel2
         Me.Guna2Panel2.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel2.TabIndex = 32
@@ -706,7 +706,7 @@ Partial Class InvetoryAddEditModal
         Me.Guna2Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Guna2Panel1.Location = New System.Drawing.Point(12, 120)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Guna2Panel1.Padding = New System.Windows.Forms.Padding(4)
         Me.Guna2Panel1.ShadowDecoration.Parent = Me.Guna2Panel1
         Me.Guna2Panel1.Size = New System.Drawing.Size(675, 61)
         Me.Guna2Panel1.TabIndex = 31

@@ -158,7 +158,7 @@
                { .addedByID, Current.id}
              }
 
-            If formUtils.AddRow(.TableName, insertData) Then
+            If formUtils.AddRow(.TableName, insertData, "Used item: " & selectedID) Then
 
                 ' update inv
                 Dim updateData As New Dictionary(Of String, Object) From {

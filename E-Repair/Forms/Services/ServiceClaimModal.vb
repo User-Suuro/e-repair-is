@@ -155,7 +155,7 @@ Public Class ServiceClaimModal
                 { .paidStr, True}
             }
 
-            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData) Then
+            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Claimed Service " & selectedID) Then
 
                 ' update customer
                 With custConst

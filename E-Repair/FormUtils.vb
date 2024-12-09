@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Transactions
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports Guna.UI2.WinForms
 Imports Microsoft.VisualBasic.Devices
@@ -417,7 +418,7 @@ Public Class FormUtils
     End Function
 
     ' Add Row
-    Public Function AddRow(dbTable As String, ByVal payload As Dictionary(Of String, Object),
+    Public Function AddRow(dbTable As String, ByVal payload As Dictionary(Of String, Object), transaction As String,
                            Optional startCheckIndex As Integer = 0,
                            Optional imgData As List(Of Object) = Nothing) As Boolean
         ' Exit if canceled
@@ -442,8 +443,8 @@ Public Class FormUtils
             End If
         End If
 
-
         If dbHelper.InsertRecord(dbTable, payload) Then
+            dbHelper.Logs(transaction, Current.id)
             MsgBox("Successfully Added")
             Return True
         End If
@@ -453,7 +454,7 @@ Public Class FormUtils
     End Function
 
     ' Edit Row
-    Public Function EditRow(dbTable As String, targetColumn As String, targetID As Integer, payload As Dictionary(Of String, Object),
+    Public Function EditRow(dbTable As String, targetColumn As String, targetID As Integer, payload As Dictionary(Of String, Object), transaction As String,
                           Optional startCheckIndex As Integer = 0,
                           Optional imgData As List(Of Object) = Nothing) As Boolean
         If Not (ShowMessageBoxResult("Confirmation", "Are you sure you want to modify data")) Then Return False
@@ -476,6 +477,7 @@ Public Class FormUtils
         End If
 
         If dbHelper.UpdateRecord(dbTable, targetColumn, targetID, payload) Then
+            dbHelper.Logs(transaction, Current.id)
             MsgBox("Successfully Modified")
             Return True
         End If
@@ -486,7 +488,7 @@ Public Class FormUtils
 
 
     ' Archive Row
-    Public Sub ArchiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer, Optional ByPassMsg As Boolean = False)
+    Public Sub ArchiveRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer, transaction As String, Optional ByPassMsg As Boolean = False)
 
         If archivedStatus Then
             MsgBox("This row is already archived!")
@@ -508,6 +510,7 @@ Public Class FormUtils
 
         Try
             If dbHelper.UpdateRecord(tableName, columnName, targetID, updatedValues) Then
+                dbHelper.Logs(transaction, Current.id)
                 MsgBox("Successfull Archived")
             End If
 
@@ -519,7 +522,7 @@ Public Class FormUtils
 
     ' del row
 
-    Public Sub DeleteRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer)
+    Public Sub DeleteRow(archivedStatus As Boolean, tableName As String, columnName As String, targetID As Integer, transaction As String)
 
         If Not archivedStatus Then
             MsgBox("Archive the row first")
@@ -528,7 +531,10 @@ Public Class FormUtils
 
         If Not ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this row") Then Exit Sub
 
-        If dbHelper.DeleteRowByID(tableName, columnName, targetID) Then MsgBox("Successfully Deleted")
+        If dbHelper.DeleteRowByID(tableName, columnName, targetID) Then
+            dbHelper.Logs(transaction, Current.id)
+            MsgBox("Successfully Deleted")
+        End If
     End Sub
 
     ' Save

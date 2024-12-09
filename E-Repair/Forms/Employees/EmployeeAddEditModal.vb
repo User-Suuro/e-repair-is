@@ -173,7 +173,7 @@ Public Class EmployeeAddEditModal
                 constants.getEmpProfileFolderName
             }
 
-            If formUtils.AddRow(.empTableStr, insertData, 4, imgData) Then
+            If formUtils.AddRow(.empTableStr, insertData, "Added Employee", 4, imgData) Then
                 Me.Close()
             End If
         End With
@@ -224,7 +224,7 @@ Public Class EmployeeAddEditModal
 
             End If
 
-            If formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, 4, imgData) Then
+            If formUtils.EditRow(.empTableStr, .empIDStr, selectedID, updateData, "Edited Employee: " & selectedID, 4, imgData) Then
                 Me.Close()
             End If
         End With

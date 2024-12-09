@@ -130,7 +130,7 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            If formUtils.AddRow(.svcTableStr, insertData, 0, imgData) Then
+            If formUtils.AddRow(.svcTableStr, insertData, "Added Service", 0, imgData) Then
 
                 ' update cust transaction date
                 Dim updateTransDate As New Dictionary(Of String, Object) From {
@@ -169,7 +169,7 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, 0, imgData) Then
+            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Edited service: " & selectedID, 0, imgData) Then
                 Me.Close()
             End If
         End With

@@ -151,14 +151,14 @@ Public Class InventoryForm
     ' ARCHIVE
     Private Sub ArchivedBtn_Click(sender As Object, e As EventArgs) Handles ArchivedBtn.Click
         If Not InitData() Then Exit Sub
-        formUtils.ArchiveRow(is_archived, invConst.invTableStr, invConst.invIDStr, inventoryID)
+        formUtils.ArchiveRow(is_archived, invConst.invTableStr, invConst.invIDStr, inventoryID, "Archived Inventory: " & inventoryID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
         If Not InitData() Then Exit Sub
-        formUtils.DeleteRow(is_archived, invConst.invTableStr, invConst.invIDStr, inventoryID)
+        formUtils.DeleteRow(is_archived, invConst.invTableStr, invConst.invIDStr, inventoryID, "Deleted Inventory: " & inventoryID)
         RefForArch()
     End Sub
 

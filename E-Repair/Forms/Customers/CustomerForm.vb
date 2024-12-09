@@ -113,7 +113,7 @@ Public Class CustomerForm
             Exit Sub
         End If
 
-        formUtils.ArchiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
+        formUtils.ArchiveRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID, "Archived Customer: " & customerID)
         LoadDataToDGV()
     End Sub
 
@@ -135,7 +135,7 @@ Public Class CustomerForm
     ' DELETE
     Private Sub DeleteCustomerBtn_Click(sender As Object, e As EventArgs) Handles DeleteCustomerBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.DeleteRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID)
+        formUtils.DeleteRow(archivedStatus, custConst.custTableStr, custConst.custIDStr, customerID, "Deleted Customer: " & customerID)
         RefArch()
     End Sub
 

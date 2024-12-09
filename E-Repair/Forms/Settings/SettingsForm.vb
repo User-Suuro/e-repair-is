@@ -219,6 +219,7 @@
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to delete this value?") Then Exit Sub
 
         listEnums.Remove(EnumTxtBox.Text)
+        dbHelper.Logs(Current.position & " Removed Enum: " & EnumTxtBox.Text, Current.id)
 
         EnumTxtBox.Text = Nothing
         dbHelper.AlterEnums(foundTable, foundAtrr, listEnums)
@@ -234,10 +235,12 @@
             If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this value?") Then Exit Sub
             Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
             listEnums(index) = EnumTxtBox.Text
+            dbHelper.Logs(Current.position & " Edited Enum: " & selectedEnumVal & " to " & EnumTxtBox.Text, Current.id)
         Else
             'add
             If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to add this value?") Then Exit Sub
             listEnums.Add(EnumTxtBox.Text)
+            dbHelper.Logs(Current.position & " Added Enum: " & EnumTxtBox.Text, Current.id)
         End If
 
         EnumTxtBox.Text = Nothing
@@ -323,6 +326,8 @@
         LoadDummyDataToEmployees(getQtyInModal)
         Cursor = Cursors.Default
 
+        dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Employees", Current.id)
+
     End Sub
 
     Private Sub GenerateCust_Click(sender As Object, e As EventArgs) Handles GenerateCust.Click
@@ -335,6 +340,7 @@
         LoadDummyDataToCustomers(getQtyInModal)
         Cursor = Cursors.Default
 
+        dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Customers", Current.id)
     End Sub
 
     Private Sub GenerateSupp_Click(sender As Object, e As EventArgs) Handles GenerateSupp.Click
@@ -347,6 +353,7 @@
         LoadDummyDataToSuppliers(getQtyInModal)
         Cursor = Cursors.Default
 
+        dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Suppliers", Current.id)
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
@@ -372,6 +379,7 @@
         LoadDummyDataToServices(getQtyInModal, getCustID, getTechID)
         Cursor = Cursors.Default
 
+        dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Service", Current.id)
     End Sub
 
     Private Sub GenerateInv_Click(sender As Object, e As EventArgs) Handles GenerateInv.Click
@@ -391,6 +399,7 @@
         LoadDummyDataToInventory(getQtyInModal, selcetedSuppID)
         Cursor = Cursors.Default
 
+        dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Inventory", Current.id)
     End Sub
 
     ' LOAD DUMMY FUNCTIONS

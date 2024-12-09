@@ -66,10 +66,7 @@
                 { .addedByIDStr, Current.id}
             }
 
-            If formUtils.AddRow(invConst.invTableStr, insertData, 2) Then
-                ' update supplier
-
-
+            If formUtils.AddRow(invConst.invTableStr, insertData, "Added Inventory", 2) Then
                 Me.Close()
             End If
         End With
@@ -140,8 +137,7 @@
             ' update restock date
             If quantity > initialQty Then updateData.Add(.restockDateStr, DateTime.Now())
 
-
-            If formUtils.EditRow(.invTableStr, .invIDStr, selectedID, updateData, 2) Then
+            If formUtils.EditRow(.invTableStr, .invIDStr, selectedID, updateData, "Edited Inventory: " & selectedID, 2) Then
                 Me.Close()
             End If
 

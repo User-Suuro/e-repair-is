@@ -76,6 +76,7 @@ Public Class LoginForm
         }
 
         dbHelper.UpdateRecord(empConst.empTableStr, empConst.empIDStr, Current.id, updatedValues)
+        dbHelper.Logs($"Employee {formUtils.getEmployeeName(Current.id)} Logged in to the System", Current.id)
 
         releaseMemory()
 
@@ -167,6 +168,7 @@ Public Class LoginForm
          -1,
          Function(modal)
              Return Nothing
+             dbHelper.Logs("Created Super Admin", Nothing)
          End Function
          )
 

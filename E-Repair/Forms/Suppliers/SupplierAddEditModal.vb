@@ -107,7 +107,7 @@ Public Class SupplierAddEditModal
                 constants.getSuppProfileFolderName
             }
 
-            If formUtils.AddRow(.supTableStr, insertData, 1, imgData) Then
+            If formUtils.AddRow(.supTableStr, insertData, "Added Supplier", 1, imgData) Then
                 Me.Close()
             End If
         End With
@@ -136,7 +136,7 @@ Public Class SupplierAddEditModal
                 constants.getSuppProfileFolderName
             }
 
-            If formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, 1, imgData) Then
+            If formUtils.EditRow(.supTableStr, .supIDStr, selectedID, insertUpdate, "Edited Supplier: " & selectedID, 1, imgData) Then
                 Me.Close()
             End If
         End With
@@ -182,89 +182,21 @@ Public Class SupplierAddEditModal
         compDesc = CompanyDescTxtBox.Text
     End Sub
 
-    ' SUPPLIER TYPE
-    Private Sub SupplierTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles SupplierTypeIfOthersTxtBox.TextChanged
-        'If SupplierTypeCmbBox.SelectedItem = "Others" Then supplierType = SupplierTypeIfOthersTxtBox.Text
-    End Sub
     Private Sub SupplierTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SupplierTypeCmbBox.SelectedIndexChanged
-        'If SupplierTypeCmbBox.SelectedItem = "Others" Then
-        '    With SupplierTypeTableLayout
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    End With
-        'Else
-        '    supplierType = SupplierTypeCmbBox.SelectedItem
-        '    With SupplierTypeTableLayout
-        '        .ColumnStyles(0).Width = 100.0F
-        '        .ColumnStyles(1).Width = 0.0F
-        '    End With
-        'End If
-
         supplierType = SupplierTypeCmbBox.SelectedItem
     End Sub
 
     ' CONTRACT TYPE
-    Private Sub ContractTypeIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles ContractTypeIfOthersTxtBox.TextChanged
-        ' If ContractTypeCmbBox.SelectedItem = "Others" Then contractType = ContractTypeIfOthersTxtBox.Text
-    End Sub
-
     Private Sub ContractTypeCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ContractTypeCmbBox.SelectedIndexChanged
-        'If ContractTypeCmbBox.SelectedItem = "Others" Then
-        '    With ContractTypeTableLayout
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    End With
-        'Else
-
-        '    With ContractTypeTableLayout
-        '        .ColumnStyles(0).Width = 100.0F
-        '        .ColumnStyles(1).Width = 0.0F
-        '    End With
-        'End If
-
         contractType = ContractTypeCmbBox.SelectedItem
     End Sub
 
-    ' BANK DETAILS
-    Private Sub BankDetailsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles BankDetailsIfOthersTxtBox.TextChanged
-        ' If BnkDetailsCmbBox.SelectedItem = "Others" Then bankDetails = BankDetailsIfOthersTxtBox.Text
-    End Sub
-
     Private Sub BnkDetailsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BnkDetailsCmbBox.SelectedIndexChanged
-        'If BnkDetailsCmbBox.SelectedItem = "Others" Then
-        '    With BankDetailsTableLayout
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    End With
-        'Else
-
-        '    With BankDetailsTableLayout
-        '        .ColumnStyles(0).Width = 100.0F
-        '        .ColumnStyles(1).Width = 0.0F
-        '    End With
-        'End If
-
         bankDetails = BnkDetailsCmbBox.SelectedItem
     End Sub
 
-    ' PAYMENT TERMS
-    Private Sub PaymentTermsIfOthersTxtBox_TextChanged(sender As Object, e As EventArgs) Handles PaymentTermsIfOthersTxtBox.TextChanged
-        ' If PaymentTermsCmbBox.SelectedItem = "Others" Then paymentTerms = PaymentTermsIfOthersTxtBox.Text
-    End Sub
+
     Private Sub PaymentTermsCmbBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PaymentTermsCmbBox.SelectedIndexChanged
-        'If PaymentTermsCmbBox.SelectedItem = "Others" Then
-        '    With PaymentTermsTableLayout
-        '        .ColumnStyles(0).Width = 50.0F
-        '        .ColumnStyles(1).Width = 50.0F
-        '    End With
-        'Else
-
-        '    With PaymentTermsTableLayout
-        '        .ColumnStyles(0).Width = 100.0F
-        '        .ColumnStyles(1).Width = 0.0F
-        '    End With
-        'End If
-
         paymentTerms = PaymentTermsCmbBox.SelectedItem
     End Sub
 
@@ -277,7 +209,4 @@ Public Class SupplierAddEditModal
         End If
     End Sub
 
-    Private Sub SupplierModalGroupBox_Click(sender As Object, e As EventArgs) Handles SupplierModalGroupBox.Click
-
-    End Sub
 End Class

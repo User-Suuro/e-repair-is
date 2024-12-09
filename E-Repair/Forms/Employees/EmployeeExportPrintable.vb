@@ -58,4 +58,10 @@ Public Class EmployeeExportPrintable
         reloadRLDCData(False)
     End Sub
 
+    Private Sub ReportViewer1_RenderingComplete(sender As Object, e As Microsoft.Reporting.WinForms.RenderingCompleteEventArgs) Handles ReportViewer1.RenderingComplete
+        ReportViewer1.RefreshReport()
+        dbHelper.Logs("Generated Employee Reports", Current.id)
+    End Sub
+
+
 End Class

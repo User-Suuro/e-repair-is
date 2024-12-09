@@ -92,14 +92,14 @@ Public Class SuppliersForm
     ' ARCHIVE
     Private Sub ArchiveSupplierBtn_Click(sender As Object, e As EventArgs) Handles ArchiveSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.ArchiveRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID)
+        formUtils.ArchiveRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID, "Archived Supplier: " & suppID)
         LoadDataToDGV()
     End Sub
 
     ' DELETE
     Private Sub DeleteSupplierBtn_Click(sender As Object, e As EventArgs) Handles DeleteSupplierBtn.Click
         If Not InitValues() Then Exit Sub
-        formUtils.DeleteRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID)
+        formUtils.DeleteRow(archivedStatus, supConst.supTableStr, supConst.supIDStr, suppID, "Deleted Supplier: " & suppID)
         RefForArch()
     End Sub
 
