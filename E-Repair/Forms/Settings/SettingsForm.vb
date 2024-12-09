@@ -228,13 +228,15 @@
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
 
-        If Not String.IsNullOrEmpty(selectedEnumVal) AndAlso Not loadSelectedEnum() Then
+
+        If Not loadSelectedEnum() AndAlso Not String.IsNullOrEmpty(selectedEnumVal) Then
             ' edit
             If Not checkIfHasActive() Then Exit Sub
 
             If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to edit this value?") Then Exit Sub
             Dim index As Integer = listEnums.FindIndex(Function(s) s = selectedEnumVal)
             listEnums(index) = EnumTxtBox.Text
+
             dbHelper.Logs(Current.position & " Edited Enum: " & selectedEnumVal & " to " & EnumTxtBox.Text, Current.id)
         Else
             'add

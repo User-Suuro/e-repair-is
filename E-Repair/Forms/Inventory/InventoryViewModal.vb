@@ -62,7 +62,7 @@
             DateAddedTxtBox.Text = .Item(invConst.dateAddedStr)
             AddedByTxtBox.Text = .Item(invConst.addedByIDStr)
 
-            ArchivedByTxtBox.Text = formUtils.getEmployeeName(.Item(invConst.addedByIDStr))
+            ArchivedByTxtBox.Text = dbHelper.StrNullCheck(formUtils.getEmployeeName(dbHelper.IntNullCheck(.Item(invConst.getArchivedByID))))
             DateArchivedTxtBox.Text = dbHelper.StrNullCheck(.Item(invConst.dateArchivedStr))
 
         End With

@@ -41,6 +41,12 @@
 
     'SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        ' Additional Checkers
+        If (quantity < 0 Or totalValue < 0) Then
+            MsgBox("Quantity cannot be less than 0")
+            Exit Sub
+        End If
+
         formUtils.SaveEvent(editMode, AddressOf AddData, AddressOf EditData)
     End Sub
 

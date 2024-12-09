@@ -22,7 +22,15 @@
 
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _dateArchived As String = "date_archived"
+    Private ReadOnly _archived_by_id As String = "archived_by_id"
+
     Private ReadOnly _addedById As String = "added_by_id"
+
+    Public ReadOnly Property getArchivedByID As String
+        Get
+            Return _archived_by_id
+        End Get
+    End Property
 
     Public ReadOnly Property costPerItem As String
         Get

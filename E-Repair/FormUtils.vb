@@ -1,8 +1,6 @@
 ﻿Imports System.IO
-Imports System.Transactions
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports Guna.UI2.WinForms
-Imports Microsoft.VisualBasic.Devices
 
 Public Class FormUtils
     Dim dbHelper As New DbHelper

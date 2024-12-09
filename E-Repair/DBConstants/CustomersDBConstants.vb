@@ -104,7 +104,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property custArchByStr As String
+    Public ReadOnly Property custArchByIDStr As String
         Get
             Return _archivedBy
         End Get

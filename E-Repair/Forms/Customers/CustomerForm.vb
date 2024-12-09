@@ -150,7 +150,7 @@ Public Class CustomerForm
                 .custIDStr,
                 .custArchStr,
                 .custArchDateStr,
-                .custArchByStr,
+                .custArchByIDStr,
                 .custFirstStr,
                 .custMidStr,
                 .custLastStr,
@@ -166,7 +166,7 @@ Public Class CustomerForm
 
             ' exclude for searching
             searchValues.Remove(.custIDStr)
-            searchValues.Remove(.custArchByStr)
+            searchValues.Remove(.custArchByIDStr)
             searchValues.Remove(.custArchStr)
             searchValues.Remove(.custArchDateStr)
 

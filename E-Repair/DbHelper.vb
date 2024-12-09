@@ -85,10 +85,11 @@ Public Class DbHelper
 
     Public Sub Logs(ByVal transaction As String, ByVal id As Integer, Optional ByVal events As String = "*_Click")
         Try
-            readQuery(String.Format("INSERT INTO `logs`(`user_accounts_id`, `event`, `transactions`, `date_added`) VALUES ({0}, '{1}', '{2}', .NOW())",
+            readQuery(String.Format("INSERT INTO `logs`(`user_accounts_id`, `event`, `transactions`, `date_added`) VALUES ({0}, '{1}', '{2}', '{3}')",
                                     id,
                                     events,
-                                    transaction
+                                    transaction,
+                                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                                     ))
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -98,11 +99,21 @@ Public Class DbHelper
     ' Custom Functions 
 
     Public Function StrNullCheck(cellValue As Object) As String
-        Return If(IsDBNull(cellValue), "N/A", cellValue.ToString())
+        Try
+            Return If(cellValue Is Nothing OrElse IsDBNull(cellValue), "N/A", cellValue.ToString())
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return "N/A"
+        End Try
     End Function
 
     Public Function IntNullCheck(cellValue As Object) As Integer
-        Return If(IsDBNull(cellValue), -1, cellValue.ToString())
+        Try
+            Return If(cellValue Is Nothing OrElse IsDBNull(cellValue), -1, Convert.ToInt32(cellValue))
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return -1
+        End Try
     End Function
 
     ' Function Add Stuffs to Table (tableName, targetColumn, values) returns true if success otherwise false

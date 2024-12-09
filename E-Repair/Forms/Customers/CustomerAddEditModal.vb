@@ -79,7 +79,7 @@ Public Class CustomerAddEditModal
             }
 
 
-            If formUtils.AddRow(.custTableStr, insertData, 4, "Added Customer") Then
+            If formUtils.AddRow(.custTableStr, insertData, "Added Customer", 4) Then
                 Me.Close()
             End If
         End With

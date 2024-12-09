@@ -122,6 +122,7 @@ Public Class ExportUtils
             If Not String.IsNullOrEmpty(savePath) Then
                 workbook.SaveAs(savePath)
                 MsgBox($"Successfully saved in {savePath}")
+                dbHelper.Logs($"Generated {title} Excel Report", Current.id)
             End If
 
             workbook.Close()
