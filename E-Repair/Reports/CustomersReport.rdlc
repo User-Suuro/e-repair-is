@@ -1114,7 +1114,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -1158,7 +1157,7 @@
         <Top>0.17931in</Top>
         <Left>0.20361in</Left>
         <Height>1.58333in</Height>
-        <Width>7.34028in</Width>
+        <Width>7.34025in</Width>
         <Style>
           <Border>
             <Style>None</Style>

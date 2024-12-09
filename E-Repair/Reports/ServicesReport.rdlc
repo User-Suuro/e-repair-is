@@ -996,7 +996,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!service_id)</Value>
+                              <Value>=Count(Fields!service_id.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1189,7 +1189,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(IIf(Fields!service_status = "Pending", 1, 0))</Value>
+                              <Value>=Sum(IIf(Fields!service_status.Value = "Pending", 1, 0))</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -1348,6 +1348,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1597,7 +1598,7 @@
         <Top>0.125in</Top>
         <Left>0.26104in</Left>
         <Height>2.11458in</Height>
-        <Width>7.04167in</Width>
+        <Width>7.04168in</Width>
         <Style>
           <Border>
             <Style>None</Style>
