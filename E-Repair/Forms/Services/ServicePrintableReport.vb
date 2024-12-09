@@ -23,9 +23,10 @@ Public Class ServicePrintableReport
     Private Sub loadData()
         With serveConst
             Dim columnHeaderMapping As New Dictionary(Of String, String) From {
-               { .svcIDStr, "Service ID"},
+              { .svcIDStr, "Service ID"},
               { .custIDStr, "Customer ID"},
               { .techIDStr, "Technician ID"},
+              { .cashierIDStr, "Cashier ID"},
               { .techNameStr, "Technician Name"},
               { .custNameStr, "Customer Name"},
               { .devTypeStr, "Device Type"},
@@ -34,10 +35,15 @@ Public Class ServicePrintableReport
               { .svcStatusStr, "Service Status"},
               { .techFeeStr, "Technician Fee"},
               { .PartsUsed, "Part Used"},
+              { .custChangeStr, "Customer Change"},
+              { .payMethodStr, "Payment Method"},
               { .partsCostStr, "Parts Cost"},
               { .TotalCost, "Total Cost"},
               { .dateAddedStr, "Date Added"},
-              { .dateArchivedStr, "Date Archived"}
+              { .dateArchivedStr, "Date Archived"},
+              { .dateCompletedStr, "Date Completed"},
+              { .dateClaimedStr, "Date Claimed"},
+              { .totalPaidStr, "Tota Paid"}
             }
 
             Dim keys As List(Of String) = formUtils.GetDictKey(columnHeaderMapping)
