@@ -212,7 +212,8 @@ Public Class ServiceForm
         With servConst
             Dim update As New Dictionary(Of String, Object) From {
                 { .techIDStr, Current.id},
-                { .svcStatusStr, constants.getPendingString}
+                { .svcStatusStr, constants.getPendingString},
+                { .getDateAccepted, DateTime.Now}
             }
 
             If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, serviceID, update) Then

@@ -27,14 +27,14 @@ Public Class TechnicianDashboardForm
     Private Sub loadData()
 
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.dateAddedStr, invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.dateAddedStr, servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.getDateAccepted, servConst.dateAddedStr, servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.techIDStr, Current.id)
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
 
         allQueuedDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.dateAddedStr}, servConst.svcTableStr, servConst.svcStatusStr, constants.getQueuedStr)
 
         itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
         invDT = formUtils.FormatSingleDateColumn(invDT, invConst.dateAddedStr, constants.getDateFormat)
-        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
+        servDT = formUtils.FormatSingleDateColumn(servDT, servConst.getDateAccepted, constants.getDateFormat)
 
         loadDTPVal()
         reloadStrFilter()
@@ -96,7 +96,7 @@ Public Class TechnicianDashboardForm
 
         If filterDate Then
             Try
-                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.getDateAccepted)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format: " & ex.Message)
                 Exit Sub

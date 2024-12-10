@@ -27,14 +27,22 @@
     Private ReadOnly _paid As String = "paid"
     Private ReadOnly _customerChange As String = "customer_change"
     Private ReadOnly _paymentMethod As String = "payment_method"
+
     Private ReadOnly _dateCompleted As String = "date_completed"
     Private ReadOnly _dateClaimed As String = "date_claimed"
+    Private ReadOnly _dateAccepted As String = "date_accepted"
 
     Private ReadOnly _archived As String = "archived"
     Private ReadOnly _dateArchived As String = "date_archived"
 
     Private ReadOnly _cashierID As String = "cashier_id" ' added by id
     Private ReadOnly _dateAdded As String = "date_added"
+
+    Public ReadOnly Property getDateAccepted As String
+        Get
+            Return _dateAccepted
+        End Get
+    End Property
 
     Public ReadOnly Property custNameStr As String
         Get
