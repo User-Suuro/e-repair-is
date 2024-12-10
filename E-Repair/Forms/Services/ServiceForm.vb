@@ -425,6 +425,12 @@ Public Class ServiceForm
             AcceptBtn.Visible = False
         End If
 
+        If SearchStatusCmb.SelectedItem = constants.getPendingString Then
+            EvaluateServiceBtn.Visible = True
+        Else
+            EvaluateServiceBtn.Visible = False
+        End If
+
         If SearchStatusCmb.SelectedItem = constants.getClaimedString Then
             EvaluateServiceBtn.Visible = False
             ArchiveServiceBtn.Visible = True
