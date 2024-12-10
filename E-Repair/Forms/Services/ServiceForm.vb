@@ -69,7 +69,15 @@ Public Class ServiceForm
         loadToolsView()
 
         formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckbox)
-        If selectMode Then SearchStatusCmb.Visible = False
+
+        If selectMode Then
+            SearchStatusCmb.Visible = False
+            EvaluateServiceBtn.Visible = False
+            ServiceExportBtn.Visible = False
+            AcceptBtn.Visible = False
+            SearchStatusCmb.SelectedItem = constants.getQueuedStr
+        End If
+
     End Sub
 
     ' adjust view for posiitons
