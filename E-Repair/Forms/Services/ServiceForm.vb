@@ -286,18 +286,24 @@ Public Class ServiceForm
 
                 ' get technician pending only view
                 If Current.position = constants.getTechnicianString Then
-                    serviceDT = dbHelper.GetRowByTwoValues(servConst.svcTableStr, servConst.techIDStr, Current.id, servConst.svcStatusStr, constants.getPendingString)
+                    serviceDT = dbHelper.GetRowByTwoValues(.svcTableStr, .techIDStr, Current.id, .svcStatusStr, constants.getPendingString)
                 Else
-                    serviceDT = dbHelper.GetRowByValue(servConst.svcTableStr, servConst.svcStatusStr, constants.getPendingString)
+                    serviceDT = dbHelper.GetRowByValue(.svcTableStr, .svcStatusStr, constants.getPendingString)
                 End If
 
             Else
 
                 ' get all technician view
                 If Current.position = constants.getTechnicianString Then
-                    serviceDT = dbHelper.GetRowByColValue(searchCols01, servConst.svcTableStr, servConst.techIDStr, Current.id)
+
+                    If currentSearchVal = constants.getQueuedStr Then
+                        serviceDT = dbHelper.GetRowByColValue(searchCols01, .svcTableStr, .svcStatusStr, constants.getQueuedStr)
+                    Else
+                        serviceDT = dbHelper.GetRowByColValue(searchCols01, .svcTableStr, .techIDStr, Current.id)
+                    End If
+
                 Else
-                    serviceDT = dbHelper.GetAllByCol(searchCols01, servConst.svcTableStr)
+                    serviceDT = dbHelper.GetAllByCol(searchCols01, .svcTableStr)
                 End If
 
             End If
