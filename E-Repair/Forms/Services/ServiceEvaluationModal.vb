@@ -50,6 +50,7 @@ Public Class ServiceEvaluationModal
 
             PartsUsedTxtBox.Text = .Item(servConst.PartsUsed)
             partsCost = .Item(servConst.partsCostStr) ' get existing parts cost
+
             PartsCostTxtBox.Text = partsCost
         End With
 
@@ -68,9 +69,12 @@ Public Class ServiceEvaluationModal
         If RepairStatusCmb.SelectedItem <> constants.getFinishedString Then
             TechnicianFeeTxtBox.Enabled = False
             RepairNotesTxtBox.Enabled = False
+
         Else
             TechnicianFeeTxtBox.Enabled = True
             RepairNotesTxtBox.Enabled = True
+            RepairNotesTxtBox.Text = ""
+            TechnicianFeeTxtBox.Text = ""
         End If
 
     End Sub
@@ -134,7 +138,6 @@ Public Class ServiceEvaluationModal
                 updateData.Add(.techIDStr, Nothing)
                 updateData.Add(.techNameStr, Nothing)
                 updateData.Add(.getDateAccepted, Nothing)
-                updateData.Add(.svcStatusStr, constants.getQueuedStr)
             End If
 
             If repairStatus = constants.getFinishedString Then
@@ -143,6 +146,12 @@ Public Class ServiceEvaluationModal
                 updateData.Add(.dateCompletedStr, DateTime.Now)
                 updateData.Add(.repairNotesStr, repairNotes)
                 If Not formUtils.AreAllDictValuesFilled(updateData, 0) Then Exit Sub
+
+                If technicianFee < partsCost Then
+                    MsgBox("Please fill the minimum technician fee, must be greater than overall parts cost (" & partsCost & ")")
+                    Exit Sub
+                End If
+
             End If
 
             If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, selectedID, updateData) Then
