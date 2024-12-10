@@ -23,15 +23,15 @@ Partial Class TechnicianDashboardForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.StatusTableLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel7 = New Guna.UI2.WinForms.Guna2Panel()
         Me.QueuedServicesCount = New System.Windows.Forms.Label()
@@ -41,7 +41,7 @@ Partial Class TechnicianDashboardForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel5 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ServicesAcceptedLabel = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ServCountLabel = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -209,7 +209,7 @@ Partial Class TechnicianDashboardForm
         '
         Me.Guna2Panel5.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Panel5.BorderRadius = 4
-        Me.Guna2Panel5.Controls.Add(Me.Label3)
+        Me.Guna2Panel5.Controls.Add(Me.ServicesAcceptedLabel)
         Me.Guna2Panel5.Controls.Add(Me.Label5)
         Me.Guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(29, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.Guna2Panel5.CustomBorderThickness = New System.Windows.Forms.Padding(8, 0, 0, 0)
@@ -222,16 +222,16 @@ Partial Class TechnicianDashboardForm
         Me.Guna2Panel5.Size = New System.Drawing.Size(374, 88)
         Me.Guna2Panel5.TabIndex = 7
         '
-        'Label3
+        'ServicesAcceptedLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(14, 24)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 60)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "0"
+        Me.ServicesAcceptedLabel.AutoSize = True
+        Me.ServicesAcceptedLabel.Font = New System.Drawing.Font("Arial Black", 32.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServicesAcceptedLabel.ForeColor = System.Drawing.Color.Black
+        Me.ServicesAcceptedLabel.Location = New System.Drawing.Point(14, 24)
+        Me.ServicesAcceptedLabel.Name = "ServicesAcceptedLabel"
+        Me.ServicesAcceptedLabel.Size = New System.Drawing.Size(54, 60)
+        Me.ServicesAcceptedLabel.TabIndex = 3
+        Me.ServicesAcceptedLabel.Text = "0"
         '
         'Label5
         '
@@ -429,54 +429,54 @@ Partial Class TechnicianDashboardForm
         '
         'InvetoryAvailChart
         '
-        ChartArea7.Name = "ChartArea1"
-        Me.InvetoryAvailChart.ChartAreas.Add(ChartArea7)
+        ChartArea4.Name = "ChartArea1"
+        Me.InvetoryAvailChart.ChartAreas.Add(ChartArea4)
         Me.InvetoryAvailChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend7.Name = "Legend1"
-        Me.InvetoryAvailChart.Legends.Add(Legend7)
+        Legend4.Name = "Legend1"
+        Me.InvetoryAvailChart.Legends.Add(Legend4)
         Me.InvetoryAvailChart.Location = New System.Drawing.Point(769, 3)
         Me.InvetoryAvailChart.Name = "InvetoryAvailChart"
         Me.InvetoryAvailChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series7.ChartArea = "ChartArea1"
-        Series7.Legend = "Legend1"
-        Series7.Name = "Series1"
-        Me.InvetoryAvailChart.Series.Add(Series7)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.InvetoryAvailChart.Series.Add(Series4)
         Me.InvetoryAvailChart.Size = New System.Drawing.Size(377, 395)
         Me.InvetoryAvailChart.TabIndex = 2
         Me.InvetoryAvailChart.Text = "Chart2"
         '
         'DeviceTypeChart
         '
-        ChartArea8.Name = "ChartArea1"
-        Me.DeviceTypeChart.ChartAreas.Add(ChartArea8)
+        ChartArea5.Name = "ChartArea1"
+        Me.DeviceTypeChart.ChartAreas.Add(ChartArea5)
         Me.DeviceTypeChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend8.Name = "Legend1"
-        Me.DeviceTypeChart.Legends.Add(Legend8)
+        Legend5.Name = "Legend1"
+        Me.DeviceTypeChart.Legends.Add(Legend5)
         Me.DeviceTypeChart.Location = New System.Drawing.Point(386, 3)
         Me.DeviceTypeChart.Name = "DeviceTypeChart"
         Me.DeviceTypeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series8.ChartArea = "ChartArea1"
-        Series8.Legend = "Legend1"
-        Series8.Name = "Series1"
-        Me.DeviceTypeChart.Series.Add(Series8)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.DeviceTypeChart.Series.Add(Series5)
         Me.DeviceTypeChart.Size = New System.Drawing.Size(377, 395)
         Me.DeviceTypeChart.TabIndex = 1
         Me.DeviceTypeChart.Text = "Chart2"
         '
         'ServStatusChart
         '
-        ChartArea9.Name = "ChartArea1"
-        Me.ServStatusChart.ChartAreas.Add(ChartArea9)
+        ChartArea6.Name = "ChartArea1"
+        Me.ServStatusChart.ChartAreas.Add(ChartArea6)
         Me.ServStatusChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend9.Name = "Legend1"
-        Me.ServStatusChart.Legends.Add(Legend9)
+        Legend6.Name = "Legend1"
+        Me.ServStatusChart.Legends.Add(Legend6)
         Me.ServStatusChart.Location = New System.Drawing.Point(3, 3)
         Me.ServStatusChart.Name = "ServStatusChart"
         Me.ServStatusChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series9.ChartArea = "ChartArea1"
-        Series9.Legend = "Legend1"
-        Series9.Name = "Series1"
-        Me.ServStatusChart.Series.Add(Series9)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.ServStatusChart.Series.Add(Series6)
         Me.ServStatusChart.Size = New System.Drawing.Size(377, 395)
         Me.ServStatusChart.TabIndex = 0
         Me.ServStatusChart.Text = "Chart1"
@@ -699,7 +699,7 @@ Partial Class TechnicianDashboardForm
     Friend WithEvents QueuedServicesCount As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Guna2Panel5 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents ServicesAcceptedLabel As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents ServStatusChart As DataVisualization.Charting.Chart
 End Class

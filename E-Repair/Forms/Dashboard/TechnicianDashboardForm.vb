@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms.DataVisualization.Charting
+﻿Imports System.Runtime.Remoting
+Imports System.Windows.Forms.DataVisualization.Charting
 Imports Org.BouncyCastle.Math.EC
 
 Public Class TechnicianDashboardForm
@@ -27,7 +28,17 @@ Public Class TechnicianDashboardForm
     Private Sub loadData()
 
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.dateAddedStr, invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
-        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.getDateAccepted, servConst.dateAddedStr, servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.techIDStr, Current.id)
+
+        servDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.getDateAccepted,
+                                                                    servConst.dateAddedStr,
+                                                                    servConst.archivedStr,
+                                                                    servConst.dateClaimedStr,
+                                                                    servConst.TotalCost,
+                                                                    servConst.techIDStr,
+                                                                    servConst.svcStatusStr,
+                                                                    servConst.devTypeStr},
+                                                                    servConst.svcTableStr, servConst.techIDStr, Current.id)
+
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
 
         allQueuedDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.dateAddedStr}, servConst.svcTableStr, servConst.svcStatusStr, constants.getQueuedStr)
@@ -79,7 +90,7 @@ Public Class TechnicianDashboardForm
     End Sub
 
     Private Sub loadStatus()
-        ServCountLabel.Text = servDT.Rows.Count
+        ServicesAcceptedLabel.Text = servDT.Rows.Count
         QueuedServicesCount.Text = allQueuedDT.Rows.Count
         ItemsUsedLabelCount.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
     End Sub
@@ -124,7 +135,7 @@ Public Class TechnicianDashboardForm
 
         If filterDate Then
             Try
-                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.getDateAccepted)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format: " & ex.Message)
                 Exit Sub

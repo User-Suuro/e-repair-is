@@ -269,7 +269,8 @@ Public Class ServiceForm
                 .dateArchivedStr,
                 .archivedStr,
                 .svcIDStr,
-                .custIDStr
+                .custIDStr,
+                .techIDStr
             }
 
             Dim searchCols02 As New List(Of String) From {
@@ -309,13 +310,13 @@ Public Class ServiceForm
 
             End If
 
-
             ' exlucde from search
             searchCols01.Remove(.archivedStr)
             searchCols01.Remove(.dateArchivedStr)
             searchCols01.Remove(.svcStatusStr)
             searchCols01.Remove(.custIDStr)
             searchCols01.Remove(.svcIDStr)
+            searchCols01.Remove(.techIDStr)
 
             ' this function is chonky af
             formUtils.LoadToDGVByTwoValues(ServiceDGV,
