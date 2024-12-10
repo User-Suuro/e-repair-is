@@ -360,11 +360,10 @@
     End Sub
 
     Private Sub GenerateServ_Click(sender As Object, e As EventArgs) Handles GenerateServ.Click
-        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.ServicesTitle)
 
+        Dim getReturnedValue As Tuple(Of Integer, Integer, Integer, Integer) = openModal(constants.ServicesTitle)
         Dim getQtyInModal As Integer = getReturnedValue.Item1
         Dim getCustID As Integer = getReturnedValue.Item2
-        Dim getTechID As Integer = getReturnedValue.Item4
 
         If getQtyInModal = -1 Then Exit Sub
 
@@ -373,13 +372,8 @@
             Exit Sub
         End If
 
-        If getTechID = -1 Or getTechID = Nothing Then
-            MsgBox("Please select a technician")
-            Exit Sub
-        End If
-
         Cursor = Cursors.WaitCursor
-        LoadDummyDataToServices(getQtyInModal, getCustID, getTechID)
+        LoadDummyDataToServices(getQtyInModal, getCustID)
         Cursor = Cursors.Default
 
         dbHelper.Logs("Generated: " & getQtyInModal & " Dummy Data to Service", Current.id)
@@ -616,7 +610,7 @@
         Return True ' return true if successful
     End Function
 
-    Public Function LoadDummyDataToServices(numberOfRecords As Integer, custID As Integer, techID As Integer) As Boolean
+    Public Function LoadDummyDataToServices(numberOfRecords As Integer, custID As Integer) As Boolean
         With servConst
             Dim paymentMethods As List(Of String) = dbHelper.GetEnums(.svcTableStr, .payMethodStr)
             Dim deviceTypes As List(Of String) = dbHelper.GetEnums(.svcTableStr, .devTypeStr)
@@ -640,9 +634,7 @@
 
                     Dim insertData As New Dictionary(Of String, Object) From {
                         { .custIDStr, custID},
-                        { .techIDStr, techID},
                         { .custNameStr, formUtils.getCustomerName(custID)},
-                        { .techNameStr, formUtils.getEmployeeName(techID)},
                         { .cashierIDStr, Current.id},
                         { .devTypeStr, deviceType},
                         { .devModelStr, deviceModel},
