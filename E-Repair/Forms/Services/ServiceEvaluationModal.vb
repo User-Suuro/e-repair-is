@@ -134,6 +134,7 @@ Public Class ServiceEvaluationModal
             If repairStatus = constants.getCanceledString Then
                 updateData.Add(.techIDStr, Nothing)
                 updateData.Add(.techNameStr, Nothing)
+                updateData.Add(.getDateAccepted, Nothing)
                 updateData.Add(.svcIDStr, constants.getQueuedStr)
             End If
 

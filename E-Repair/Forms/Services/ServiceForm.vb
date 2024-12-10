@@ -212,6 +212,7 @@ Public Class ServiceForm
         With servConst
             Dim update As New Dictionary(Of String, Object) From {
                 { .techIDStr, Current.id},
+                { .techNameStr, formUtils.getEmployeeName(Current.id)},
                 { .svcStatusStr, constants.getPendingString},
                 { .getDateAccepted, DateTime.Now}
             }
