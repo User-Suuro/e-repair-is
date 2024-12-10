@@ -296,7 +296,7 @@ Public Class ServiceForm
                 ' get all technician view
                 If Current.position = constants.getTechnicianString Then
 
-                    If currentSearchVal = constants.getQueuedStr Then
+                    If SearchStatusCmb.SelectedItem = constants.getQueuedStr Then
                         serviceDT = dbHelper.GetRowByColValue(searchCols01, .svcTableStr, .svcStatusStr, constants.getQueuedStr)
                     Else
                         serviceDT = dbHelper.GetRowByColValue(searchCols01, .svcTableStr, .techIDStr, Current.id)
@@ -411,19 +411,19 @@ Public Class ServiceForm
     ' LOAD USER VIEW
     Private Sub loadToolsView()
 
-        If currentSearchVal = constants.getFinishedString Then
+        If SearchStatusCmb.SelectedItem = constants.getFinishedString Then
             ClaimServiceBtn.Visible = True
         Else
             ClaimServiceBtn.Visible = False
         End If
 
-        If currentSearchVal = constants.getQueuedStr Then
+        If SearchStatusCmb.SelectedItem = constants.getQueuedStr Then
             AcceptBtn.Visible = True
         Else
             AcceptBtn.Visible = False
         End If
 
-        If currentSearchVal = constants.getClaimedString Then
+        If SearchStatusCmb.SelectedItem = constants.getClaimedString Then
             EvaluateServiceBtn.Visible = False
             ArchiveServiceBtn.Visible = True
         Else
