@@ -147,7 +147,7 @@ Public Class ServiceEvaluationModal
                 updateData.Add(.repairNotesStr, repairNotes)
                 If Not formUtils.AreAllDictValuesFilled(updateData, 0) Then Exit Sub
 
-                If technicianFee < partsCost Then
+                If technicianFee <= partsCost Then
                     MsgBox("Please fill the minimum technician fee, must be greater than overall parts cost (" & partsCost & ")")
                     Exit Sub
                 End If

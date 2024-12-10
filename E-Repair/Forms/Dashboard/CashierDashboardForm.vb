@@ -15,6 +15,7 @@ Public Class CashierDashboardForm
     Dim constants As New Constants
 
     Dim servDT As New DataTable
+    Dim servClaimedDT As New DataTable
     Dim custDT As New DataTable
 
     Private strStartDate As String
@@ -27,6 +28,7 @@ Public Class CashierDashboardForm
         custDT = dbHelper.GetRowByColValue(New List(Of String) From {custConst.custArchStr, custConst.getAddedByID, custConst.custGenderStr, custConst.custDateAddedStr}, custConst.custTableStr, custConst.custArchStr, 0)
 
         servDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateAddedStr, constants.getDateFormat)
+        servClaimedDT = formUtils.FormatSingleDateColumn(servDT, servConst.dateClaimedStr, constants.getDateFormat)
         custDT = formUtils.FormatSingleDateColumn(custDT, custConst.custDateAddedStr, constants.getDateFormat)
 
         loadDTPVal()
@@ -144,12 +146,12 @@ Public Class CashierDashboardForm
     ' LOAD DEVICE TYPE CHART
 
     Private Sub loadDeviceTypeChart(Optional filterDate As Boolean = True)
-        Dim localDT As DataTable = servDT
+        Dim localDT As DataTable = servClaimedDT
 
         If filterDate Then
 
             Try
-                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateClaimedStr)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format device chart: " & ex.Message)
                 Exit Sub
