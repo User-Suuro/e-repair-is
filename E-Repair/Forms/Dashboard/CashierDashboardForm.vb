@@ -146,12 +146,12 @@ Public Class CashierDashboardForm
     ' LOAD DEVICE TYPE CHART
 
     Private Sub loadDeviceTypeChart(Optional filterDate As Boolean = True)
-        Dim localDT As DataTable = servClaimedDT
+        Dim localDT As DataTable = servDT
 
         If filterDate Then
 
             Try
-                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateClaimedStr)
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format device chart: " & ex.Message)
                 Exit Sub
@@ -181,7 +181,7 @@ Public Class CashierDashboardForm
         Dim payMethods = dbHelper.GetEnums(servConst.svcTableStr, servConst.payMethodStr)
 
         Dim series As New Series()
-        Dim localDT As DataTable = servDT
+        Dim localDT As DataTable = servClaimedDT
 
         With series
             .IsVisibleInLegend = False
@@ -191,7 +191,7 @@ Public Class CashierDashboardForm
         If filterDate Then
 
             Try
-                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateAddedStr)
+                localDT = formUtils.FilterDates(localDT, Date.Parse(strStartDate), Date.Parse(strStopDate), constants.getDateFormat, servConst.dateClaimedStr)
             Catch ex As Exception
                 MsgBox("Unable to filter date with invalid date format: " & ex.Message)
                 Exit Sub
