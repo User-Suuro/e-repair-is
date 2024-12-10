@@ -217,12 +217,10 @@ Public Class ServiceForm
 
             If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, serviceID, update) Then
                 MsgBox("You have accepted the commission")
-                Exit Sub
             End If
         End With
 
         LoadDataToDGV()
-
     End Sub
 
     ' ARCHIVE
@@ -341,6 +339,7 @@ Public Class ServiceForm
     End Sub
 
     ' INIT CMBDS
+
     Private Sub initCmbds(index01 As Integer)
         Dim getStatusEnums As New List(Of String)(dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr))
 
@@ -360,6 +359,7 @@ Public Class ServiceForm
     End Sub
 
     ' SEARCH STATUS CMB
+
     Private Sub SearchStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchStatusCmb.SelectedIndexChanged
         currentSearchVal = SearchStatusCmb.SelectedItem
 
@@ -372,6 +372,8 @@ Public Class ServiceForm
         loadToolsView()
         If finishedLoad Then LoadDataToDGV()
     End Sub
+
+    ' REFRESH FOR ARCH
 
     Private Sub RefForArch()
         LoadDataToDGV()
