@@ -11,7 +11,6 @@ Public Class ServiceEvaluationModal
     Dim itemConst As New ItemsDBConstants
 
     Private repairStatus As String = Nothing
-    Private dateCompleted As DateTime = Nothing
     Private technicianFee As Decimal = Nothing
     Private repairNotes As String = Nothing
 
@@ -54,8 +53,7 @@ Public Class ServiceEvaluationModal
             PartsCostTxtBox.Text = partsCost
         End With
 
-        ' ITEMS
-        DateCompletedDTP.Value = DateTime.Now()
+
     End Sub
 
     Private Sub LoadCmbds(index As Integer)
@@ -66,16 +64,16 @@ Public Class ServiceEvaluationModal
 
     Private Sub RepairStatusCmb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RepairStatusCmb.SelectedIndexChanged
         repairStatus = RepairStatusCmb.SelectedItem
+
         If RepairStatusCmb.SelectedItem <> constants.getFinishedString Then
             TechnicianFeeTxtBox.Enabled = False
         Else
             TechnicianFeeTxtBox.Enabled = True
         End If
+
     End Sub
 
-    Private Sub DateCompletedDTP_ValueChanged(sender As Object, e As EventArgs) Handles DateCompletedDTP.ValueChanged
-        dateCompleted = DateCompletedDTP.Value
-    End Sub
+
     Private Sub TechnicianFeeTxtBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TechnicianFeeTxtBox.KeyPress
         e.Handled = Not formUtils.ValidateDecimalInput(TechnicianFeeTxtBox, e)
     End Sub
@@ -124,10 +122,7 @@ Public Class ServiceEvaluationModal
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .svcStatusStr, repairStatus},
-                { .dateCompletedStr, dateCompleted},
-                { .repairNotesStr, repairNotes},
-                { .techFeeStr, technicianFee},
-                { .TotalCost, totalCost}
+                { .repairNotesStr, repairNotes}
             }
 
             ' QUEUE AGAIN IF CANCELED BY TECH
@@ -136,6 +131,12 @@ Public Class ServiceEvaluationModal
                 updateData.Add(.techNameStr, Nothing)
                 updateData.Add(.getDateAccepted, Nothing)
                 updateData.Add(.svcIDStr, constants.getQueuedStr)
+            End If
+
+            If repairStatus = constants.getFinishedString Then
+                updateData.Add(.techFeeStr, technicianFee)
+                updateData.Add(.TotalCost, totalCost)
+                updateData.Add(.dateCompletedStr, DateTime.Now)
             End If
 
             If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Evaluated Service: " & selectedID & " to " & repairStatus) Then
