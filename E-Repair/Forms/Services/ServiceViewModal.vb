@@ -29,6 +29,8 @@ Public Class ServiceViewModal
     Private customerID As Integer = -1
     Private technicianID As Integer = -1
 
+    Private acceptMode As Boolean = False
+
     Private Sub ServiceViewModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not formUtils.checkIfLoad(selectedID) Then
             Me.Close()
@@ -54,7 +56,11 @@ Public Class ServiceViewModal
             PendingCommissionsTxtBox.Text = pending_commission
 
             TechnicianIDTxtBox.Text = technicianID
-            TechnicianNameTxtBox.Text = formUtils.getEmployeeName(.Item(servConst.techIDStr))
+            TechnicianNameTxtBox.Text = dbHelper.StrNullCheck(formUtils.getEmployeeName(dbHelper.IntNullCheck(.Item(servConst.techIDStr))))
+
+            If technicianID = -1 Then
+                SeeTechnicianBtn.Enabled = False
+            End If
 
             TotalWorkDoneTxtBox.Text = total_services
             PendingWorkTxtBox.Text = techNumberPendingServices
@@ -160,6 +166,5 @@ Public Class ServiceViewModal
        End Function
        )
     End Sub
-
 
 End Class

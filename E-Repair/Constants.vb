@@ -15,6 +15,7 @@
     Private ReadOnly _superAdminString As String = "Super Admin"
 
     ' Service Status
+    Private ReadOnly _queueStr As String = "Queued"
     Private ReadOnly _finishedString As String = "Finished"
     Private ReadOnly _claimedString As String = "Claimed"
     Private ReadOnly _canceledString As String = "Canceled"
@@ -35,6 +36,14 @@
     Private ReadOnly _yearsList As New List(Of Integer)(Enumerable.Range(DateTime.Now.Year - 5 + 1, 5).Reverse())
 
     Private ReadOnly _dataSetName As String = "DataSet1"
+
+
+    Public ReadOnly Property getQueuedStr As String
+        Get
+            Return _queueStr
+        End Get
+    End Property
+
     Public ReadOnly Property getDataSetName As String
         Get
             Return _dataSetName

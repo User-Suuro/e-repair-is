@@ -39,6 +39,7 @@ Partial Class ServiceForm
         Me.AdminSidenavPanel = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.AcceptBtn = New System.Windows.Forms.Button()
         Me.ServiceExportBtn = New System.Windows.Forms.Button()
         Me.DeleteServiceBtn = New System.Windows.Forms.Button()
         Me.ArchiveServiceBtn = New System.Windows.Forms.Button()
@@ -250,7 +251,7 @@ Partial Class ServiceForm
         Me.AdminSidenavPanel.Dock = System.Windows.Forms.DockStyle.Right
         Me.AdminSidenavPanel.Location = New System.Drawing.Point(1015, 0)
         Me.AdminSidenavPanel.Name = "AdminSidenavPanel"
-        Me.AdminSidenavPanel.Size = New System.Drawing.Size(65, 611)
+        Me.AdminSidenavPanel.Size = New System.Drawing.Size(65, 674)
         Me.AdminSidenavPanel.TabIndex = 38
         '
         'TableLayoutPanel2
@@ -262,12 +263,13 @@ Partial Class ServiceForm
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 611.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 611)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 674.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(65, 674)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.AcceptBtn)
         Me.Panel3.Controls.Add(Me.ServiceExportBtn)
         Me.Panel3.Controls.Add(Me.DeleteServiceBtn)
         Me.Panel3.Controls.Add(Me.ArchiveServiceBtn)
@@ -280,8 +282,26 @@ Partial Class ServiceForm
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(65, 611)
+        Me.Panel3.Size = New System.Drawing.Size(65, 674)
         Me.Panel3.TabIndex = 0
+        '
+        'AcceptBtn
+        '
+        Me.AcceptBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcceptBtn.FlatAppearance.BorderSize = 0
+        Me.AcceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AcceptBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AcceptBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.AcceptBtn.Image = Global.E_Repair.My.Resources.Resources.check_square_bold
+        Me.AcceptBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.AcceptBtn.Location = New System.Drawing.Point(0, 600)
+        Me.AcceptBtn.Name = "AcceptBtn"
+        Me.AcceptBtn.Padding = New System.Windows.Forms.Padding(0, 12, 0, 12)
+        Me.AcceptBtn.Size = New System.Drawing.Size(65, 75)
+        Me.AcceptBtn.TabIndex = 43
+        Me.AcceptBtn.Text = "Accept"
+        Me.AcceptBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.AcceptBtn.UseVisualStyleBackColor = True
         '
         'ServiceExportBtn
         '
@@ -420,7 +440,7 @@ Partial Class ServiceForm
         Me.EvaluateServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.EvaluateServiceBtn.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EvaluateServiceBtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.EvaluateServiceBtn.Image = Global.E_Repair.My.Resources.Resources.check_square_bold
+        Me.EvaluateServiceBtn.Image = Global.E_Repair.My.Resources.Resources.clipboard_text_bold
         Me.EvaluateServiceBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.EvaluateServiceBtn.Location = New System.Drawing.Point(0, 0)
         Me.EvaluateServiceBtn.Name = "EvaluateServiceBtn"
@@ -483,7 +503,7 @@ Partial Class ServiceForm
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         Me.ServiceDGV.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.ServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.ServiceDGV.Size = New System.Drawing.Size(986, 498)
+        Me.ServiceDGV.Size = New System.Drawing.Size(986, 561)
         Me.ServiceDGV.TabIndex = 40
         Me.ServiceDGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.ServiceDGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -755,7 +775,7 @@ Partial Class ServiceForm
         Me.BtnSelect.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSelect.ForeColor = System.Drawing.Color.White
         Me.BtnSelect.HoverState.Parent = Me.BtnSelect
-        Me.BtnSelect.Location = New System.Drawing.Point(894, 567)
+        Me.BtnSelect.Location = New System.Drawing.Point(893, 626)
         Me.BtnSelect.Name = "BtnSelect"
         Me.BtnSelect.ShadowDecoration.Parent = Me.BtnSelect
         Me.BtnSelect.Size = New System.Drawing.Size(107, 32)
@@ -772,7 +792,7 @@ Partial Class ServiceForm
         Me.BtnClose.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.White
         Me.BtnClose.HoverState.Parent = Me.BtnClose
-        Me.BtnClose.Location = New System.Drawing.Point(15, 567)
+        Me.BtnClose.Location = New System.Drawing.Point(15, 626)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.ShadowDecoration.Parent = Me.BtnClose
         Me.BtnClose.Size = New System.Drawing.Size(107, 32)
@@ -784,7 +804,7 @@ Partial Class ServiceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1080, 611)
+        Me.ClientSize = New System.Drawing.Size(1080, 674)
         Me.Controls.Add(Me.BtnSelect)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.ServiceDGV)
@@ -856,8 +876,9 @@ Partial Class ServiceForm
     Friend WithEvents ARCHIVED As DataGridViewTextBoxColumn
     Friend WithEvents ARCHIVED_BY As DataGridViewTextBoxColumn
     Friend WithEvents DATE_ARCHIVED As DataGridViewTextBoxColumn
-    Friend WithEvents ServiceExportBtn As Button
     Friend WithEvents SearchStatusCmb As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel4 As Panel
     Friend WithEvents ShowArchiveCheckbox As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents ServiceExportBtn As Button
+    Friend WithEvents AcceptBtn As Button
 End Class

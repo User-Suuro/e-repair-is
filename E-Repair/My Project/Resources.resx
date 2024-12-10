@@ -133,11 +133,11 @@
   <data name="chart-line-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chart-line-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="minus-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minus-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="check-square-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-square-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="truck-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\truck-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="archive-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\archive-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,14 +154,17 @@
   <data name="plus-bold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus-bold1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minus-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minus-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="truck-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\truck-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="handshake-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\handshake-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="files-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\files-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="handshake-bold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\handshake-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,7 +184,7 @@
   <data name="screwdriver-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\screwdriver-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="files-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\files-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clipboard-text-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clipboard-text-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

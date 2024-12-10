@@ -68,7 +68,7 @@ Public Class ServiceForm
         loadUserDisplay()
         loadToolsView()
 
-        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckBox)
+        formUtils.InitSelectMode(selectMode, BtnSelect, BtnClose, ShowArchiveCheckbox)
         If selectMode Then SearchStatusCmb.Visible = False
     End Sub
 
@@ -83,12 +83,13 @@ Public Class ServiceForm
             Case constants.getCashierString
 
                 ClaimServiceBtn.Visible = True
-
                 EvaluateServiceBtn.Visible = False
+                AcceptBtn.Visible = False
 
             Case constants.getTechnicianString
 
                 EvaluateServiceBtn.Visible = True
+                AcceptBtn.Visible = True
 
                 AddServiceBtn.Visible = False
                 EditServiceBtn.Visible = False
@@ -195,6 +196,33 @@ Public Class ServiceForm
         End Function)
 
         LoadDataToDGV()
+    End Sub
+
+    ' ACCEPT COMMISSION
+    Private Sub AcceptBtn_Click(sender As Object, e As EventArgs) Handles AcceptBtn.Click
+
+        ' CHECKERS
+        If Not InitData() Then Exit Sub
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to accept this service?") Then Exit Sub
+        If serviceStatus <> constants.getQueuedStr Then
+            MsgBox("You can only accept queued commissions")
+            Exit Sub
+        End If
+
+        With servConst
+            Dim update As New Dictionary(Of String, Object) From {
+                { .techIDStr, Current.id},
+                { .svcStatusStr, constants.getPendingString}
+            }
+
+            If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, serviceID, update) Then
+                MsgBox("You have accepted the commission")
+                Exit Sub
+            End If
+        End With
+
+        LoadDataToDGV()
+
     End Sub
 
     ' ARCHIVE
@@ -312,11 +340,12 @@ Public Class ServiceForm
 
         ' rearrange  list
         Dim reArrangedList As New List(Of String) From {
-            getStatusEnums(1),
-            getStatusEnums(2),
-            getStatusEnums(3),
-            getStatusEnums(4),
-            getStatusEnums(0),
+            getStatusEnums(0), ' QUEUED
+            getStatusEnums(2), ' PENDING
+            getStatusEnums(3), ' FINISHED
+            getStatusEnums(1), ' CLAIMED
+            getStatusEnums(4), ' ONHOLD
+            getStatusEnums(5), ' CANCELED
             "All"
         }
 
@@ -360,6 +389,7 @@ Public Class ServiceForm
         If finishedLoad Then LoadDataToDGV(SearchTextBox.Text)
     End Sub
 
+
     ' SELECT
     Private Sub BtnSelect_Click(sender As Object, e As EventArgs) Handles BtnSelect.Click
         If Not InitData() Then Exit Sub
@@ -381,6 +411,12 @@ Public Class ServiceForm
             ClaimServiceBtn.Visible = False
         End If
 
+        If currentSearchVal = constants.getQueuedStr Then
+            AcceptBtn.Visible = True
+        Else
+            AcceptBtn.Visible = False
+        End If
+
         If currentSearchVal = constants.getClaimedString Then
             EvaluateServiceBtn.Visible = False
             ArchiveServiceBtn.Visible = True
@@ -400,13 +436,16 @@ Public Class ServiceForm
 
         If Current.position = constants.getCashierString Then
             EvaluateServiceBtn.Visible = False
+            AcceptBtn.Visible = False
         End If
 
         If Current.position = constants.getTechnicianString Then
             ClaimServiceBtn.Visible = False
             ArchiveServiceBtn.Visible = False
+            AcceptBtn.Visible = True
         End If
 
     End Sub
+
 
 End Class

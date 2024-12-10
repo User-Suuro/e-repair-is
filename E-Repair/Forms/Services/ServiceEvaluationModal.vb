@@ -121,7 +121,6 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .svcStatusStr, repairStatus},
@@ -131,9 +130,17 @@ Public Class ServiceEvaluationModal
                 { .TotalCost, totalCost}
             }
 
-            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Evaluated Service " & selectedID) Then
+            ' QUEUE AGAIN IF CANCELED BY TECH
+            If repairStatus = constants.getCanceledString Then
+                updateData.Add(.techIDStr, Nothing)
+                updateData.Add(.techNameStr, Nothing)
+                updateData.Add(.svcIDStr, constants.getQueuedStr)
+            End If
+
+            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Evaluated Service: " & selectedID & " to " & repairStatus) Then
                 Me.Close()
             End If
+
         End With
     End Sub
 

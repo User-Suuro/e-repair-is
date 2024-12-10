@@ -31,12 +31,6 @@ Public Class ServiceAddEditModal
     Private completed_commission As Integer
 
     Private total_commision As Integer
-
-    Private techNumberFinishedServices As Integer
-    Private techNumberPendingServices As Integer
-    Private techNumberCanceledServices As Integer
-    Private techNumberOnholdServices As Integer
-
     Private total_services As Integer
 
     Public Property editMode As Boolean = False
@@ -68,7 +62,7 @@ Public Class ServiceAddEditModal
             technicianID = .Item(servConst.techIDStr)
 
             InitCustCount(customerID)
-            InitTechCount(technicianID)
+
 
             CustomerIDTxtBox.Text = customerID
             CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item(servConst.custIDStr))
@@ -76,13 +70,6 @@ Public Class ServiceAddEditModal
             TotalCommissionsTxtBox.Text = total_commision
             PendingCommisionsTxtBox.Text = pending_commission
             CompletedCommissionTxtBox.Text = completed_commission
-
-            TechnicianIDTxtBox.Text = technicianID
-            TechnicianNameTxtBox.Text = formUtils.getEmployeeName(technicianID)
-
-            TotalWorkDoneTxtBox.Text = total_services
-            PendingWorkTxtBox.Text = pending_commission
-            CompletedWorkTxtBox.Text = techNumberFinishedServices
 
             deviceImgPath = .Item(servConst.devProfilePathStr)
             DeviceBrandTxtBox.Text = .Item(servConst.devBrandStr)
@@ -111,10 +98,8 @@ Public Class ServiceAddEditModal
         With servConst
             Dim insertData As New Dictionary(Of String, Object) From {
               { .custIDStr, customerID},
-              { .techIDStr, technicianID},
               { .cashierIDStr, Current.id},
               { .custNameStr, formUtils.getCustomerName(customerID)},
-              { .techNameStr, formUtils.getEmployeeName(technicianID)},
               { .devTypeStr, deviceType},
               { .devModelStr, deviceModel},
               { .devBrandStr, deviceBrand},
@@ -122,7 +107,7 @@ Public Class ServiceAddEditModal
               { .storageCapStr, storageCapacity},
               { .probDescStr, problemDescription},
               { .dateAddedStr, DateTime.Now()}
-            }
+             }
 
             Dim imgData As New List(Of Object) From {
                 .devProfilePathStr,
@@ -130,7 +115,7 @@ Public Class ServiceAddEditModal
                 constants.getDevicePicturesFolderName
             }
 
-            If formUtils.AddRow(.svcTableStr, insertData, "Added Service", 0, imgData) Then
+            If formUtils.AddRow(.svcTableStr, insertData, "Queued Service", 0, imgData) Then
 
                 ' update cust transaction date
                 Dim updateTransDate As New Dictionary(Of String, Object) From {
@@ -152,9 +137,7 @@ Public Class ServiceAddEditModal
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
                 { .custIDStr, customerID},
-                { .techIDStr, technicianID},
                 { .custNameStr, formUtils.getCustomerName(customerID)},
-                { .techNameStr, formUtils.getEmployeeName(technicianID)},
                 { .devTypeStr, deviceType},
                 { .devModelStr, deviceModel},
                 { .devBrandStr, deviceBrand},
@@ -204,34 +187,6 @@ Public Class ServiceAddEditModal
         CompletedCommissionTxtBox.Text = completed_commission
     End Sub
 
-    ' SELECT TECHNICIAN
-    Private Sub SelectTechnicianBtn_Click(sender As Object, e As EventArgs) Handles SelectTechnicianBtn.Click
-
-        technicianID = formUtils.ShowModalWithHandler(
-           Function(id)
-               Dim modal As New EmployeeForm
-               modal.selectMode = True
-               modal.techOnly = True
-               Return modal
-           End Function,
-           -1,
-           Function(modal)
-               Return modal.selectedEmpID
-           End Function
-        )
-
-        If technicianID = -1 Then Exit Sub
-
-        InitTechCount(technicianID)
-
-        TechnicianIDTxtBox.Text = technicianID
-        TechnicianNameTxtBox.Text = formUtils.getEmployeeName(technicianID)
-
-        TotalWorkDoneTxtBox.Text = total_services
-        CompletedWorkTxtBox.Text = techNumberFinishedServices
-        PendingWorkTxtBox.Text = techNumberPendingServices
-    End Sub
-
     Private Sub InitCustCount(custID As Integer)
         pending_commission = formUtils.getCustStatusNumber(constants.getPendingString, custID)
         onhold_commission = formUtils.getCustStatusNumber(constants.getOnholdString, custID)
@@ -239,15 +194,6 @@ Public Class ServiceAddEditModal
         completed_commission = formUtils.getCustStatusNumber(constants.getFinishedString, custID)
         total_commision = pending_commission + onhold_commission + canceled_commission + completed_commission
     End Sub
-
-    Private Sub InitTechCount(techID As Integer)
-        techNumberFinishedServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
-        techNumberPendingServices = formUtils.getTechStatsNumbers(constants.getPendingString, techID)
-        techNumberCanceledServices = formUtils.getTechStatsNumbers(constants.getFinishedString, techID)
-        techNumberOnholdServices = formUtils.getTechStatsNumbers(constants.getOnholdString, techID)
-        total_services = techNumberFinishedServices + techNumberPendingServices + techNumberCanceledServices + techNumberOnholdServices
-    End Sub
-
 
     'DEVICE BRAND
     Private Sub DeviceBrandTxtBox_TextChanged(sender As Object, e As EventArgs) Handles DeviceBrandTxtBox.TextChanged
@@ -296,14 +242,7 @@ Public Class ServiceAddEditModal
         End If
     End Sub
 
-    Private Sub TechnicianIDTxtBox_TextChanged(sender As Object, e As EventArgs) Handles TechnicianIDTxtBox.TextChanged
-        Dim value As Integer
-        If Integer.TryParse(TechnicianIDTxtBox.Text, value) Then
-            technicianID = value
-        Else
-            technicianID = 0
-        End If
-    End Sub
+
 
     ' BTN SAVE
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
