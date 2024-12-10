@@ -13,7 +13,6 @@ Public Class ServiceAddEditModal
 
     Private serviceID As Integer
     Private customerID As Integer
-    Private technicianID As Integer
 
     Private deviceType As String
     Private deviceModel As String
@@ -56,13 +55,11 @@ Public Class ServiceAddEditModal
         If servDt.Rows.Count = 0 Then Exit Sub
 
         Guna2GroupBox1.Text = "Edit Service"
+        BtnSave.Text = "Edit Service"
 
         With servDt.Rows(0)
             customerID = .Item(servConst.custIDStr)
-            technicianID = .Item(servConst.techIDStr)
-
             InitCustCount(customerID)
-
 
             CustomerIDTxtBox.Text = customerID
             CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item(servConst.custIDStr))

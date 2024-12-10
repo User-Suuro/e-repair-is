@@ -43,10 +43,13 @@ Public Class ServiceViewModal
 
         With serviceDT.Rows(0)
             customerID = .Item(servConst.custIDStr)
-            technicianID = .Item(servConst.techIDStr)
 
+            technicianID = dbHelper.IntNullCheck(.Item(servConst.techIDStr))
             InitCustCount(customerID)
-            InitTechCount(technicianID)
+
+            If technicianID <> -1 Then
+                InitTechCount(technicianID)
+            End If
 
             CustomerIDTxtBox.Text = customerID
             CustomerNameTxtBox.Text = formUtils.getCustomerName(.Item(servConst.custIDStr))

@@ -72,10 +72,10 @@ Public Class ServiceForm
 
         If selectMode Then
             SearchStatusCmb.Visible = False
-            EvaluateServiceBtn.Visible = False
             ServiceExportBtn.Visible = False
             AcceptBtn.Visible = False
-            SearchStatusCmb.SelectedItem = constants.getQueuedStr
+            EvaluateServiceBtn.Visible = False
+            SearchStatusCmb.SelectedIndex = formUtils.FindComboBoxItemByText(SearchStatusCmb, constants.getPendingString)
         End If
 
     End Sub
@@ -111,6 +111,11 @@ Public Class ServiceForm
     Private Sub ClaimServiceBtn_Click(sender As Object, e As EventArgs) Handles ClaimServiceBtn.Click
         If Not InitData() AndAlso Not isFinished() AndAlso isPaid() Then Exit Sub
 
+        If serviceStatus <> constants.getFinishedString Then
+            MsgBox("You can only claim finished commissions")
+            Exit Sub
+        End If
+
         formUtils.ShowModalWithHandler(
           Function(id)
               Dim modal As New ServiceClaimModal
@@ -130,6 +135,11 @@ Public Class ServiceForm
     Private Sub EvaluateServiceBtn_Click(sender As Object, e As EventArgs) Handles EvaluateServiceBtn.Click
 
         If Not InitData() Then Exit Sub
+
+        If serviceStatus <> constants.getPendingString Then
+            MsgBox("You can only pending commissions")
+            Exit Sub
+        End If
 
         If is_paid Then
             MsgBox("Sevice was already claimed by the customer")
@@ -212,6 +222,7 @@ Public Class ServiceForm
         ' CHECKERS
         If Not InitData() Then Exit Sub
         If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to accept this service?") Then Exit Sub
+
         If serviceStatus <> constants.getQueuedStr Then
             MsgBox("You can only accept queued commissions")
             Exit Sub
@@ -469,6 +480,11 @@ Public Class ServiceForm
             ClaimServiceBtn.Visible = False
             ArchiveServiceBtn.Visible = False
             AcceptBtn.Visible = True
+        End If
+
+        If selectMode Then
+            EvaluateServiceBtn.Visible = False
+            AcceptBtn.Visible = False
         End If
 
     End Sub
