@@ -58,7 +58,7 @@ Public Class ServiceEvaluationModal
 
     Private Sub LoadCmbds(index As Integer)
         With dbHelper
-            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index, 1)
+            .LoadEnumsToCmb(RepairStatusCmb, servConst.svcTableStr, servConst.svcStatusStr, index, 2) 'skip by two
         End With
     End Sub
 
@@ -67,8 +67,10 @@ Public Class ServiceEvaluationModal
 
         If RepairStatusCmb.SelectedItem <> constants.getFinishedString Then
             TechnicianFeeTxtBox.Enabled = False
+            RepairNotesTxtBox.Enabled = False
         Else
             TechnicianFeeTxtBox.Enabled = True
+            RepairNotesTxtBox.Enabled = True
         End If
 
     End Sub
@@ -119,10 +121,12 @@ Public Class ServiceEvaluationModal
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+
+        If Not formUtils.ShowMessageBoxResult("Confirmation", "Are you sure you want to evaluate this service?") Then Exit Sub
+
         With servConst
             Dim updateData As New Dictionary(Of String, Object) From {
-                { .svcStatusStr, repairStatus},
-                { .repairNotesStr, repairNotes}
+                { .svcStatusStr, repairStatus}
             }
 
             ' QUEUE AGAIN IF CANCELED BY TECH
@@ -130,20 +134,24 @@ Public Class ServiceEvaluationModal
                 updateData.Add(.techIDStr, Nothing)
                 updateData.Add(.techNameStr, Nothing)
                 updateData.Add(.getDateAccepted, Nothing)
-                updateData.Add(.svcIDStr, constants.getQueuedStr)
+                updateData.Add(.svcStatusStr, constants.getQueuedStr)
             End If
 
             If repairStatus = constants.getFinishedString Then
                 updateData.Add(.techFeeStr, technicianFee)
                 updateData.Add(.TotalCost, totalCost)
                 updateData.Add(.dateCompletedStr, DateTime.Now)
+                updateData.Add(.repairNotesStr, repairNotes)
+                If Not formUtils.AreAllDictValuesFilled(updateData, 0) Then Exit Sub
             End If
 
-            If formUtils.EditRow(.svcTableStr, .svcIDStr, selectedID, updateData, "Evaluated Service: " & selectedID & " to " & repairStatus) Then
+            If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, selectedID, updateData) Then
+                dbHelper.Logs("Evaluated Service: " & selectedID & " to " & repairStatus, Current.id)
                 Me.Close()
             End If
 
         End With
+
     End Sub
 
 

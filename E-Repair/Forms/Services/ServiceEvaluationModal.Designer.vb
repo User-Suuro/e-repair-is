@@ -451,12 +451,12 @@ Partial Class ServiceEvaluationModal
         Me.BtnSave.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.HoverState.Parent = Me.BtnSave
-        Me.BtnSave.Location = New System.Drawing.Point(862, 269)
+        Me.BtnSave.Location = New System.Drawing.Point(854, 269)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.ShadowDecoration.Parent = Me.BtnSave
-        Me.BtnSave.Size = New System.Drawing.Size(107, 32)
+        Me.BtnSave.Size = New System.Drawing.Size(115, 32)
         Me.BtnSave.TabIndex = 50
-        Me.BtnSave.Text = "Finish Service"
+        Me.BtnSave.Text = "Evaluate Service"
         '
         'BtnClose
         '
