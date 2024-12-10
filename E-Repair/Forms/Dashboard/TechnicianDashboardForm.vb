@@ -9,6 +9,7 @@ Public Class TechnicianDashboardForm
     Dim servDT As New DataTable
     Dim invDT As New DataTable
     Dim itemDT As New DataTable
+    Dim allQueuedDT As New DataTable
 
     Dim constants As New Constants
     Dim servConst As New ServiceDBConstants
@@ -27,6 +28,8 @@ Public Class TechnicianDashboardForm
 
         invDT = dbHelper.GetRowByColValue(New List(Of String) From {invConst.dateAddedStr, invConst.archivedStr, invConst.invIDStr, invConst.availableQtyStr, invConst.totalCostStr}, invConst.invTableStr, invConst.archivedStr, 0)
         servDT = dbHelper.GetRowByColWTwoVal(New List(Of String) From {servConst.dateAddedStr, servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.techIDStr, servConst.svcStatusStr, servConst.devTypeStr}, servConst.svcTableStr, servConst.archivedStr, 0, servConst.techIDStr, Current.id)
+        allQueuedDT = dbHelper.GetRowByColValue(New List(Of String) From {servConst.archivedStr, servConst.dateClaimedStr, servConst.TotalCost, servConst.dateAddedStr}, servConst.svcTableStr, servConst.svcStatusStr, constants.getQueuedStr)
+
         itemDT = dbHelper.GetRowByValue(itemConst.TableName, itemConst.addedByID, Current.id)
 
         itemDT = formUtils.FormatSingleDateColumn(itemDT, itemConst.dateUsedCol, constants.getDateFormat)
@@ -78,13 +81,13 @@ Public Class TechnicianDashboardForm
 
     Private Sub loadStatus()
         ServCountLabel.Text = servDT.Rows.Count
+        QueuedServicesCount.Text = allQueuedDT.Rows.Count
         ItemsUsedLabelCount.Text = formUtils.CalcIntegerDTCol(itemDT, itemConst.quantityUsedStr)
     End Sub
 
-
     Private Sub loadServStatsChart(Optional filterDate As Boolean = True)
         ' load enums
-        Dim serveType = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr)
+        Dim serveType = dbHelper.GetEnums(servConst.svcTableStr, servConst.svcStatusStr).Skip(1) ' skip queue
         Dim series As New Series()
 
         series.IsVisibleInLegend = False
