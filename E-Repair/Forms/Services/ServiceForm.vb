@@ -217,6 +217,7 @@ Public Class ServiceForm
 
             If dbHelper.UpdateRecord(.svcTableStr, .svcIDStr, serviceID, update) Then
                 MsgBox("You have accepted the commission")
+                dbHelper.Logs($"Accepted Commission: {serviceID}", Current.id)
             End If
         End With
 
