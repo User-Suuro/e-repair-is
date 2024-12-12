@@ -673,13 +673,28 @@ Public Class FormUtils
     End Function
 
     Public Function FormatSingleDateColumn(dt As DataTable, columnName As String, format As String) As DataTable
-        Dim updatedDT As DataTable = dt.Copy() ' Create a copy to preserve the original
-        For Each row As DataRow In updatedDT.Rows
-            If Not IsDBNull(row(columnName)) Then
-                Dim originalDate As DateTime = Convert.ToDateTime(row(columnName))
-                row(columnName) = originalDate.ToString(format)
+        Dim updatedDT As DataTable = dt.Copy()
+
+        Try
+            If Not updatedDT.Columns.Contains(columnName) Then
+                Throw New ArgumentException($"Column '{columnName}' does not exist in the DataTable.")
             End If
-        Next
+
+            For Each row As DataRow In updatedDT.Rows
+                If Not IsDBNull(row(columnName)) Then
+                    Dim originalValue As Object = row(columnName)
+                    Dim originalDate As DateTime
+
+                    If DateTime.TryParse(originalValue.ToString(), originalDate) Then
+                        row(columnName) = originalDate.ToString(format)
+                    Else
+                        Throw New FormatException($"Value '{originalValue}' in column '{columnName}' is not a valid DateTime.")
+                    End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox($"Error: {ex.Message}")
+        End Try
         Return updatedDT
     End Function
 
